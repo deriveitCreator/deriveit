@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    box-sizing: border-box;
+    min-width: 800px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #222;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #aaa;
+}
+
+::-webkit-scrollbar-corner{ 
+    background: #222;
+}

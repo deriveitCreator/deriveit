@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+#cusotm files/folders
+/public/logo.html
+/public/Niconne-Regular.ttf
