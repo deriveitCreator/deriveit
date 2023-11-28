@@ -33,7 +33,7 @@ export default function footerComp(){
         </p>
         <Link href="https://www.paypal.com/donate/?business=8UEU66XK9RMKG&no_recurring=1&currency_code=CAD" target="_blank" className='flex flex-col justify-center items-center bg-gray-50 mx-10 border-blue-900 border-2 outline-1 outline-white outline h-min py-2'>
             <p className={" text-center text-base pb-2 text-blue-900 "+printFont.className}>Want To Donate?</p>
-            <ImageWrapper style={{maxWidth: "70%"}} src="/payPal.png" alt=""/>
+            <ImageWrapper style={{maxWidth: "70%"}} src="/payPal.png" alt="" height="25px"/>
         </Link>
     </footer>
 }

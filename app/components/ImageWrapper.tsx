@@ -1,15 +1,20 @@
-/* eslint-disable no-use-before-define */
+/* eslint-disable */
 import React from 'react';
+import Image from 'next/image';
 
 export const ImageWrapper = (props: {
     className?:string,
     alt:string,
     src:string,
-    width?:string | number,
-    height?:string | number,
-    style:object
+    style:object,
+    width?:string,
+    height?:string
 }) => {
-    return <img {...props}/>;
+    let divW = (props.width === undefined)? "100%":props.width;
+    let divH = (props.height === undefined)? "100%":props.height;
+    return <div className={props.className} style={{...props.style, height:divH, width: divW,position:"relative",overflow:"visible"}}>
+        <Image alt={props.alt} src={props.src} fill sizes='(max-width: 1px) 100vw' style={{objectFit:"contain"}}/>
+    </div>;
 }
 
 export default ImageWrapper

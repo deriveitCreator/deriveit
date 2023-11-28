@@ -57,9 +57,10 @@ function Container(props){
   
   useEffect(()=>{
     window.setTimeout(()=>setOp(1),500);
+    document.documentElement.style.overflowY = "scroll";
   },[]);
 
-  return <main style={{transition:"opacity 0.5s linear",marginBottom:"20px",minHeight:"100vh",opacity: curOp}}>{
+  return <main style={{transition:"opacity 0.5s linear",marginBottom:"20px",opacity: curOp}}>{
     props.children
   }</main>
 }

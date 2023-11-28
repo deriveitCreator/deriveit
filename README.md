@@ -21,6 +21,8 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 1.3:</b> fixed some rendering bugs
+
 <b>update 1.2:</b> made minor format changes to multiple files
 
 <b>update 1.1:</b> the core component of the website is done. All article-specific functionality will be implemented later.

@@ -5,6 +5,7 @@ import { cursiveMain } from '../../infoStore/fonts';
 export default function Page({ params }: { params: { article: string, topic:string } }) {
   const [titleColor,setTC] = useState("text-gray-100");
   useEffect(()=>{
+    document.documentElement.style.overflowY = "scroll";
     setTC("text-black");
   },[])
 

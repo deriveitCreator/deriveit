@@ -15,9 +15,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   const FooterEl = dynamic(() =>  import(`./footerStyles/design${designSelected}Footer`),{ssr: false});
 
   return (
-    <html lang="en">
+    <html lang="en" className=' overflow-hidden'>
       <body className=' bg-gray-50'>
-        {children}
+        <div className=' min-h-screen '>{children}</div>
         <FooterEl/>
       </body>
     </html>
