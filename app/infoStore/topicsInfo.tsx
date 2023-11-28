@@ -16,7 +16,7 @@ export const allTopics = [
     {name:"Coming Soon", bgColor:"#eee", textColor:"black"}
 ]
 
-export function getTopicLinks(name: string){
+export function getTopicLinks(name: string): (string | string[])[][]{
     
     switch(name){
         case "Algebra":
@@ -24,7 +24,7 @@ export function getTopicLinks(name: string){
         case "Geometry":
             return geometryLinks;
         default:
-            return null;
+            return [["error",[""]]];
     }
 }
 
