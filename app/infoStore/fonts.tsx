@@ -1,4 +1,6 @@
-import { Kalam, Niconne, Karla, Roboto } from 'next/font/google';
+import { Kalam, Niconne, Karla } from 'next/font/google';
+import localFont from 'next/font/local';
+
 
 export const chalkWriting = Kalam({
   weight: ["700"],
@@ -10,14 +12,10 @@ export const cursiveMain = Niconne({
   subsets: ["latin"]
 })
 
-export const mainForText = Karla({
-  subsets: ["latin"],
-  weight: ["500"],
-  style: "italic"
-})
+export const textMain = localFont({ src: './Cormorant-MediumItalic.otf' });
 
-export const printFont = Roboto({
+export const printFont = Karla({
   subsets: ["latin"],
-  weight: ["700"],
+  weight: ["500","700"],
   style: "italic"
 })

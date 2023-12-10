@@ -1,0 +1,3 @@
+export const title="Deriving The Vertex Form Equation Of A Parabola";
+const content = [['h1', 'Deriving The Vertex Form Equation Of A Parabola'], ['pmain', 'Here I have a parabola with the vertex at point (h, k) and the focus at (h, k+p) (this means that the directrix is at y = k - p):'], ['displayimg', 'v1.jpg'], ['pmain', 'The drawing is not to scale, but the distance between <span style="color: orange;">(h, k+p) to (x, y)</span> and <span style="color:red">(x, y) to the directrix</span> is equal:'], ['displayimg', 'v2.jpg'], ['pmain', 'We can use the pythagoras theorem here:'], ['displayimg', 'v3.JPG'], ['pmain', 'We can expand and simplify:'], ['displayimg', 'v4.jpg'], ['pmain', 'So we end up with:'], ['displayimg', 'v5.JPG']];
+export default content;

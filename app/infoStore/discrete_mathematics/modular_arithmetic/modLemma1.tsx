@@ -1,0 +1,3 @@
+export const title="Proof that a ≡ b (mod m) and c ≡ d (mod m) implies a + c ≡ b + d (mod m)";
+const content = [['h1', 'Proof that a ≡ b (mod m) and c ≡ d (mod m) implies a + c ≡ b + d (mod m)'], ['pmain', 'Modular arithmetic is a system of arithmetic for integers, where numbers "wrap around" when reaching a certain value, called the <b>modulus</b>. If \\(a ≡ b \\bmod m\\) and \\(c ≡ d \\bmod m\\):'], ['displayFormula', '$$\\begin{gathered} a = b + mk \\\\ c = d + ml\\end{gathered}$$'], ['pmain', 'If we add them:'], ['displayFormula', '$$\\begin{gathered} a + c = b + d + mk + ml \\\\ a + c = b + d + m(k + l) \\end{gathered}$$'], ['pmain', 'This proves that \\(a +c ≡ b + d \\bmod m\\).']];
+export default content;

@@ -1,0 +1,3 @@
+const content = [['h1', 'Proof Of The Product And Qoutient Rule'], ['pmain', 'Since logrithms is the inverse funciton to exponentiation, we can say that:'], ['displayimg', 'first.png'], ['pmain', 'We can simplify it like this:'], ['displayimg', 'simp.png'], ['pmain', 'We can also rewrite the above equation like this:'], ['displayimg', 'rewrite.png'], ['pmain', 'This is our product rule. As for the qoutient rule, we just have to replace<span style="color:blue">\ny</span> by 1/<span style="color:#993300">z</span>:'], ['displayimg', 'q.png'], ['pmain', 'We can rewrite it like this:'], ['displayimg', 're.png'], ['pmain', 'Using the power rule, we get:'], ['displayimg', 'final.png']];
+export default content;
+export const title = 'Proof Of The Product And Quotient Rule';

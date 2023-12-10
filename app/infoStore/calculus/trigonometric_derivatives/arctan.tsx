@@ -1,0 +1,3 @@
+export const title="Proof Of The Derivative Of Arctangent(x)";
+const content = [['h1', 'Proof Of The Derivative Of Arctangent(x)'], ['pmain', 'First lets start with a right-angled triangle where one of the angles is y. Lets say the opposite side is\nof length x and that the adjacent is of length 1:'], ['displayimg', 'atan1.png'], ['pmain', 'Using the triangle above, we can say:'], ['displayimg', 'atan2.png'], ['pmain', 'We already know that the derivative of x with respect to x is 1:'], ['displayimg', 'as3.png'], ['pmain', 'Since x = tan(y):'], ['displayimg', 'atan4.png'], ['pmain', 'Using the chain rule:'], ['displayimg', 'atan5.png'], ['pmain', 'And we already know what sec(y) is equal to:'], ['displayimg', 'atan6.png']];
+export default content;

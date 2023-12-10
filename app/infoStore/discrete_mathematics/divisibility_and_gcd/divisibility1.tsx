@@ -1,0 +1,3 @@
+export const title="If a|b and a|c then a|(mb + nc)";
+const content = [['h1', 'If a|b And a|c Then a|(mb + nc) Where m, n &amp;Element; &amp;integers;'], ['pmain', 'If \\(a|b\\) and \\(a|c\\), then there are integers \\(d\\) and \\(e\\), such that \\(ad = b\\) and \\(ae = c\\). That means:'], ['displayFormula', '\\[mb + nc = m(ad) + n(ae) = a(md+ne)\\]'], ['pmain', 'where \\(m, n \\in &integers;\\). In other words:'], ['displayFormula', '\\[mb + nc = ak\\]'], ['pmain', 'where \\(k \\in &integers;\\). This shows that \\(a|(mb + nc)\\). As a corollary, we can also show that \\(a|b+c\\) and \\(a|b-c\\).']];
+export default content;

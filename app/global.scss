@@ -24,3 +24,11 @@
 ::-webkit-scrollbar-corner{ 
     background: #222;
 }
+
+a:hover{
+    text-decoration: underline;
+}
+
+.eqn-num{
+    display: none !important;
+}

@@ -1,0 +1,3 @@
+export const title="Proof That Var[kX] = k^2 * Var[X]";
+const content = [['h1', 'Proof That Var[kX] = k^2 * Var[X]'], ['pmain', 'Var[<span style="color: maroon;">X</span>] is defined like this:'], ['displayimg', '41.PNG'], ['pmain', 'Similarly, Var[<span style="color: maroon;">kX</span>] is defined like this:'], ['displayimg', '42.PNG'], ['pmain', 'Now lets take <span style="color: maroon;">k</span> out:'], ['displayimg', '43.PNG'], ['pmain', 'Let simplify further:'], ['displayimg', '44.PNG']];
+export default content;

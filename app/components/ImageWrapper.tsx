@@ -1,19 +1,42 @@
 /* eslint-disable */
-import React from 'react';
+"use client"
+
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 export const ImageWrapper = (props: {
-    className?:string,
     alt:string,
     src:string,
-    style:object,
-    width?:string,
-    height?:string
+    h?:string,
+    w?:string,
+    mw?: string,
+    className?: string
+    bor?:string
+    animate?:boolean
+    native?:boolean
+    figcaption?:string
 }) => {
-    let divW = (props.width === undefined)? "100%":props.width;
-    let divH = (props.height === undefined)? "100%":props.height;
-    return <div className={props.className} style={{...props.style, height:divH, width: divW,position:"relative",overflow:"visible"}}>
-        <Image alt={props.alt} src={props.src} fill sizes='(max-width: 1px) 100vw' style={{objectFit:"contain"}}/>
+
+    const [divW,setDivW] = useState("w-0")
+    useEffect(()=>{
+        if(props.animate === true) setDivW("w-full");
+    }, [])
+
+    let imgW = (props.w === undefined)? "w-auto": props.w;
+    let imgH = (props.h === undefined)? "h-auto": props.h;
+    let divBool = (props.animate === undefined)? false: props.animate;
+    if(props.figcaption !== undefined) return <figure className={`${props.className} ${divW} h-auto m-auto overflow-hidden `} style={{transition:"width 0.5s linear 1s"}}>
+        <Image alt={props.alt} src={props.src} width={0} height={0} sizes="100vw" className={`w-auto ${imgH} ${props.bor} object-contain bg-white`}/>
+        <figcaption className=' text-lg ' dangerouslySetInnerHTML={{__html: props.figcaption}}></figcaption>
+    </figure>;
+    else if(divBool) return <div className={`${props.className} ${divW} h-auto m-auto px-6 `} style={{transition:"width 0.5s linear 1s"}}>
+        <Image alt={props.alt} src={props.src} width={0} height={0} sizes="100vw" className={`w-auto ${imgH} ${props.bor} object-contain bg-white`}/>
+    </div>;
+    else if (props.native) return <div className={props.className}>
+        <img alt={props.alt} src={props.src} className={`${imgW} ${imgH} ${props.bor}`}/>
+    </div>;
+    else return <div className={props.className}>
+        <Image alt={props.alt} src={props.src} width={0} height={0} sizes="100vw" className={`${imgW} ${imgH} ${props.bor}`}/>
     </div>;
 }
 

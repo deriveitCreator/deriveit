@@ -1,0 +1,3 @@
+export const title="Proof That [d/dx](b^x) = (b^x) * ln(b)";
+const content = [['h1', 'Proof That [d/dx](b^x) = (b^x) * ln(b)'], ['pmain', 'For this proof, it must be clear to you that [d/dx](e<sup>x</sup>) = e<sup>x</sup>. Also,\nb<sup>x</sup> can be written as:'], ['displayimg', 'e21.png'], ['pmain', 'Now lets use the chain rule:'], ['displayimg', 'e22.png'], ['pmain', 'And that completes our proof.'], ['displayimg', 'e23.png']];
+export default content;

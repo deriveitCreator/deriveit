@@ -1,0 +1,3 @@
+export const title="If d = gcd(a, b), then 1 = gcd(a/d, b/d)";
+const content = [['h1', 'If d = gcd(a, b), then 1 = gcd(a/d, b/d)'], ['pmain', 'Since \\(d =gcd(a, b)\\), then \\(d\\) is also the smallest positive linear combination of \\(a\\) and \\(b\\) (<a href="linear_combination_smallest_gcd.html">click here</a> to see why):'], ['displayFormula', '$$d = ha + kb$$'], ['pmain', 'Let \\(a = dx\\) and \\(b=dy\\) where x, y &Element; &integers;:'], ['displayFormula', '$$\\begin{gathered} d = hdx + kdy\\\\ 1 = hx + ky \\end{gathered}$$'], ['pmain', 'This shows that \\(gcd(x, y) = 1\\), or in other words, \\(gcd(a/ d, b/d) = 1\\).']];
+export default content;

@@ -6,11 +6,10 @@ import designSelected from './infoStore/designSelected';
 
 export default function Home() {
   
-  const WholeComp = dynamic(() => import(`./designs/Design${designSelected}`));
+  const WholeComp = dynamic(() => import(`./mainStyles/design${designSelected}Main`));
 
-  return (<>
+  return (
     <WholeComp/>
-  </>)
-
+  )
 
 }

@@ -1,0 +1,3 @@
+export const title="Proof Of The Derivative Of Arcsin(x)";
+const content = [['h1', 'Proof Of The Derivative Of Arcsin(x)'], ['pmain', 'First lets start with a right-angled triangle where one of the angles is y. Lets say the opposite side is\nof length x and that the hypotenuse is of length 1:'], ['displayimg', 'as1.png'], ['pmain', 'Using the triangle above, we can say:'], ['displayimg', 'as2.png'], ['pmain', 'We already know that the derivative of x with respect to x is 1:'], ['displayimg', 'as3.png'], ['pmain', 'Since x = sin(y):'], ['displayimg', 'as4.png'], ['pmain', 'Using the chain rule:'], ['displayimg', 'as5.png'], ['pmain', 'And we already know what cos(y) is equal to (look above):'], ['displayimg', 'as6.png']];
+export default content;

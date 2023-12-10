@@ -1,0 +1,3 @@
+export const title="Proof Of The Derivative Of Arcsec(x)";
+const content = [['h1', 'Proof Of The Derivative Of Arcsec(x)'], ['pmain', 'First lets start with a triangle where one of the angles is y. Lets say the hypotenuse side is\nof length x and that the adjacent side is of length 1:'], ['displayimg', 'asec1.png'], ['pmain', 'Using the triangle above, we can say:'], ['displayimg', 'asec2.png'], ['pmain', 'We already know that the derivative of x with respect to x is 1:'], ['displayimg', 'as3.png'], ['pmain', 'Since x = sec(y):'], ['displayimg', 'asec4.png'], ['pmain', 'Using the chain rule:'], ['displayimg', 'asec5.png'], ['pmain', 'And we already know what sec(y) and tan(y) is equal to:'], ['displayimg', 'asec6.png']];
+export default content;

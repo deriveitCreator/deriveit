@@ -13,34 +13,54 @@ export const allTopics = [
     {name:"Electricity & Magnetism", bgColor:"#F4F4F4", textColor:"#535353"},
     {name:"Biology", bgColor:"#FFDD99", textColor:"#FF6655"},
     {name:"Computer Science", bgColor:"#1f1f1f", textColor:"#CCC"},
-    {name:"Coming Soon", bgColor:"#eee", textColor:"black"}
+    {name:"Uncategorized", bgColor:"#eee", textColor:"black"}
 ]
 
-export function getTopicLinks(name: string): (string | string[])[][]{
-    
+export function getTopicLinks(name: string): Array<[string,string[]]>{
     switch(name){
-        case "Algebra":
+        case "algebra":
             return algebraLinks;
-        case "Geometry":
+        case "geometry":
             return geometryLinks;
+        case "discrete_mathematics":
+            return discreteMathematicsLinks;
+        case "linear_algebra":
+            return linearAlgebraLinks;
+        case "trigonometry":
+            return trigonometryLinks;
+        case "calculus":
+            return calculusLinks;
+        case "probability_&_statistics":
+            return probabilityAndStatisticsLinks;
+        case "mechanics":
+            return mechanicsLink;
+        case "astronomy":
+            return astronomyLink;
+        case "chemistry":
+            return chemistryLink;
+        case "electricity_&_magnetism":
+            return electricityAndMagnetismLinks;
+        case "biology":
+            return biologyLinks;
         default:
-            return [["error",[""]]];
+            return [["error",[]]];
     }
 }
 
-const algebraLinks = [
-    ["fractions", ["[a/b] + [c/b] gives [(a+c)/b]%adding_fractions%","multiplying [a/b] by [c/d] gives [ac/bd]%multiplying_fractions%"]],
+const algebraLinks: Array<[string,string[]]> = [
+    ["fractions", ["[a/b] + [c/b] gives [(a+c)/b]%adding_fractions","multiplying [a/b] by [c/d] gives [ac/bd]%multiplying_fractions"]],
     ["exponents", [
-        "(a<sup>m</sup>)<sup>n</sup> is equal to a<sup>m*n</sup> (where n is an integer)%raising_exponents%",
-        "<sup>m</sup>√(ab) is equal to (<sup>m</sup>√a) * (<sup>m</sup>√b)%multiplying_roots%",
-        "<sup>n</sup>√(aq) is equal to (<sup>n</sup>√a)q","m√a is equal to a<sup>1/m</sup>%multiplying_roots%",
-        "x<sup>-n</sup> is equal to 1/(x<sup>n</sup>)%raising_to_negative%"
+        "(a<sup>m</sup>)<sup>n</sup> is equal to a<sup>m*n</sup> (where n is an integer)%raising_exponents",
+        "<sup>m</sup>√(ab) is equal to (<sup>m</sup>√a) * (<sup>m</sup>√b)%square_root_multiply",
+        "<sup>n</sup>√(a<sup>q</sup>) is equal to (<sup>n</sup>√a)<sup>q</sup>%roots_with_exponents",
+        "<sup>m</sup>√a is equal to a<sup>1/m</sup>%roots_as_exponents",
+        "x<sup>-n</sup> is equal to 1/(x<sup>n</sup>)%raising_to_negative"
     ]],
     ["logarithms", ["change_of_base","power","product and quotient rule"]],
     ["quadratic formula", ["quadratic formula"]]
 ];
 
-const geometryLinks = [
+const geometryLinks: Array<[string,string[]]> = [
     ["Circle Related Stuff", ["thales_theorem"]],
     ["Triangle Related Stuff", ["angles_in_a_triangle_add_to_180","area_of_a_triangle","constructing_an_equilateral_triangle","pythagoras_theorem","sides_of_30_90_60"]],
     ["Quadrilateral Related Stuff", ["area_of_a_parallelogram","area_of_a_trapezium"]],
@@ -54,3 +74,115 @@ const geometryLinks = [
         "vertex_equation_of_a_parabola"
     ]]
 ];
+
+const discreteMathematicsLinks: Array<[string,string[]]> = [
+    ["divisibility_and_gcd", [
+        "if α|β and α|ε, then α|(mβ + nε)%divisibility1",
+        "if α|β and ε|δ, then αε|βδ%divisibility2",
+        "smallest positive linear combination of α and β = gcd(α, β)%linear_combination_smallest_gcd",
+        "if gcd(α, ε) = 1 and gcd(β, ε) = 1, then gcd(αβ, ε) = 1%multiplicative",
+        "if ε|αβ and gcd(ε, α) = 1, then ε|β%other",
+        "gcd(α, β) = gcd(β, α mod β); why the euclidean algorithm works%why_the_euclidean_algorithm_works",
+        "if ρ is prime and ρ|αβ, then ρ|α or ρ|β%gcdLemma7",
+        "δ = gcd(α, β) ⇒ 1 = gcd(α/δ, β/δ)%gcdLemma8"
+    ]],
+    ["modular_arithmetic", [
+        "(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ α + ε ≡ β + δ mod Μ%modLemma1",
+        "(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ αε ≡ βδ mod Μ%modLemma2",
+        "(αε ≡ βε mod Μ and gcd(ε, Μ) = 1) ⇒ α ≡ β mod Μ%modLemma3"
+    ]],
+    ["factorials,_permutations_and_combinations", [
+        "0! = 1%0fac",
+        "the formula of permutations%factorials_and_permutations",
+        "the formula of combinations%com",
+        "using combinations to find a number in the Pascal's triangle%using_combinations_to_find_a_number_in_the_Pascal's_triangle",
+        "number of ways of arranging n objects with k identical objects%binomial_theorem"
+    ]],
+    ["sequence_and_series", [
+        "finding_a_term_in_an_arithmetic_sequence",
+        "finding_a_term_in_a_geometric_sequence",
+        "the_sum_of_an_arithmetic_series",
+        "the_sum_of_a_geometric_series_with_finite_terms",
+        "the_sum_to_infinity_of_a_geometric_series",
+        "sum_of_the_first_n_positive_integers",
+        "sum_of_the_squares_of_the_first_n_positive_integers",
+        "sum_of_the_cubes_of_the_first_n_positive_integers",
+        "showing_that_the_harmonic_series_diverges"
+    ]]
+]
+
+const linearAlgebraLinks: Array<[string,string[]]> = [
+    ["basics", ["two lines are perpendicular if the gradient of one line is the negative reciprocal of the other%product_of_perpendicular"]]
+]
+
+const trigonometryLinks: Array<[string,string[]]> = [
+    ["basic_identity", ["sine_rule","cosine_rule","tan(x) = sin(x)/cos(x)%tan","sin<sup>2</sup>(x) + cos<sup>2</sup>(x) = 1%pt","sin(x + 90) = cos(x)%90_2","sin(x) = -sin(-x) and cos(x) = cos(-x)%basic_identity","sin(90 - x) = cos(x) and cos(90 - x) = sin(x)%90"]],
+    ["advanced",[
+        "addition and subtraction formulas for cos(x)%addsubcos",
+        "addition and subtraction formulas for sin(x)%addsubsin",
+        "addition and subtraction formulas for tan(x)%addsubtan",
+        "double angle and half angle formulas for sin(x) and cos(x)%double",
+        "the product formula for sin(x) and cos(x)%product"
+    ]]
+]
+
+const calculusLinks: Array<[string,string[]]> = [
+    ["limits", ["the sum law%sum","the product law%product","limit<sub>x→a</sub>f(g(x)) = f(limit<sub>x→a</sub>g(x))%inner","the root law and the power law%root","limi<sub>tx→0</sub> [sin(x)/x] = 1%limit_sin","limit<sub>x→0</sub> [(cos(x)-1)/x] = 0%limit_cos",
+    ]],
+    ["differential_calculus", ["the power rule (when exponent is a postive integer)%power_rule","the product rule%paq","the quotient rule%quo","the_chain_rule"
+    ]],
+    ["using_euler's_number", ["definition of e%define_e","[d/dx]b<sup>x</sup> = b<sup>x</sup>ln(b)%bx","[d/dx]log<sub>b</sub>x = 1/(x * ln(b))%log","the power rule (when exponent is any real number)%power_rule2","only_functions_of_the_form_Ae^x_are_derivatives_of_themselves%functions_which_are_derivatives_of_themselves","representing e<sup>x</sup> as a limit%e_limit","representing e<sup>x</sup> as an infinite series (proof 1)%e_series","representing e<sup>x</sup> as an infinite series (proof 2)%e_series2","Euler's_formula"
+    ]],
+    ["trigonometric_derivatives", ["[d/dx]sin(x) = cos(x)%sin","[d/dx]cos(x) = -sin(x)%cos","derivative of sec(x) and cosec(x)%sec","derivative of tan(x) and cotan(x)%tan","derivative of arcsine(x)%arcsin","derivative of arccosine(x)%arccos","derivative of arcsecant(x)%arcsec","derivative of arccosecant(x)%arccosec","derivative of arctangent(x)%arctan","derivative of arccotangent(x)%arccot"
+    ]],
+    ["l'hospital's_rule", ["indeterminate form of type 0/0%zeroOverZero",]],
+    ["antiderivative", [
+        "antiderivative of 1/x (incomplete)%ln",
+        "antiderivative_of_secant(x)_and_cosecant(x)",
+        "antiderivative_of_tangent(x)_and_cotangent(x)",
+    ]],
+    ["integral_calculus", ["fundamental theorem of calculus, part 1%part1","fundamental theorem of calculus, part 2%part2","trapezium_rule","integration by parts (incomplete)","using integration to find volume (incomplete)","using integration to find arc length (incomplete)","using integration to find surface area (incomplete)"
+    ]],
+]
+
+const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
+    ["expected_value_and_variance", [
+        "E[X + Y] = E[X] + E[Y]%linearity_of_expectation",
+        "E[cX] = c * E[X] where c is a constant%loe2",
+        "E[XY] = E[X] * E[Y] where X and Y are independent variables%exMul",
+        "measuring the spread of data: mean absolute deviation and mean squared deviation%spread",
+        "Var[X] = E[X^2] - (E[X]^2)%varDef",
+        "Var[kX] = k^2 * Var[X]%varCons",
+        "Var[X + Y] = Var[X] + Var[Y] where X and Y are independent variables%varAdd",
+        "deriving the E[X] and Var[X] for the iid variables%varMean",
+        "Markov's Inequality%markov",
+        "an equation for the population variance using the sample mean, and the sample size%varsamp"
+    ]],
+    ["miscellaneous",["line_of_best_fit"]]
+]
+
+const mechanicsLink: Array<[string,string[]]> = [
+    ["classical_mechanics", ["equations_of_linear_motion_with_constant_acceleration"]],
+    ["miscellaneous",["adding_relative_(or_percentage)_uncertainties_when_multiplying_or_dividing_measured_quantities"]]
+]
+
+const astronomyLink: Array<[string,string[]]> = [
+    ["history", [
+        "the geocentric view",
+        "the Eqyption calendar%e_calendar",
+        "how Eratosthenes calculated Earth's circumference%c_of_earth",
+        "the introduction to De Revolutionibus Orbium Coelestium%heliocentric",
+    ]],
+]
+
+const chemistryLink: Array<[string,string[]]> = [
+    ["history", ["history_of_atomic_theory","early_metallurgy","acid, alakli and litmus%litmus","phlogiston_theory","discovery of carbon dioxide%discovery_of_co2","discovery_of_hydrogen","discovery_of_oxygen",]]
+]
+
+const electricityAndMagnetismLinks: Array<[string,string[]]> = [
+    ["history", ["history_of_electricity"]]
+]
+
+const biologyLinks: Array<[string,string[]]> = [
+    ["History",["cell_theory","fermentation","immunity",]]
+]
