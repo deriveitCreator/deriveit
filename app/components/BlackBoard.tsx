@@ -8,7 +8,7 @@ import { FaSquare, FaRegSquare, FaRightLong, FaLeftLong } from "react-icons/fa6"
 import ImageWrapper from './ImageWrapper';
 
 const blackboardContent = [
-    <div style={{display:"grid", gridTemplateColumns:"auto 32%", height: "100%",alignItems:"center"}}>
+    <div key={0} style={{display:"grid", gridTemplateColumns:"auto 32%", height: "100%",alignItems:"center"}}>
         <p className=' -rotate-3 origin-center text-center'>
             Learn about the <u>geocentric model</u>,
             <br/>&emsp;what almost everyone believed in
@@ -19,24 +19,24 @@ const blackboardContent = [
             <ImageWrapper native w="w-1/2" src="/blackBoardImgs/2.PNG" bor="border-4 border-black" alt="" className="flex justify-center w-full "/>
         </div>
     </div>,
-    <div style={{display:"grid", gridTemplateColumns:"auto 30%", height: "100%",alignItems:"center"}}>
+    <div key={1} style={{display:"grid", gridTemplateColumns:"auto 30%", height: "100%",alignItems:"center"}}>
         <p className=' -rotate-3 origin-center text-center'>
             Learn about Nicolaus Copernicus and his book,
             <br/>&emsp;<u>De revolutionibus orbium coelestium</u>.
         </p>
         <ImageWrapper native h="h-full" src="/blackBoardImgs/d.PNG" bor="border-4 border-black" alt="" className="flex items-center w-full "/>
     </div>,
-    <div style={{display:"grid", gridTemplateColumns:"auto 33%", height: "100%",alignItems:"center"}}>
+    <div key={2} style={{display:"grid", gridTemplateColumns:"auto 33%", height: "100%",alignItems:"center"}}>
         <p className=' text-center'>Learn about <u>permutations</u><br/>(the number of different ways<br/>&emsp;we can make a group of k elements<br/>&emsp;&emsp;from a larger group of n elements).</p>
         <ImageWrapper native h="h-full" src="/blackBoardImgs/formula.png" bor="border-4 border-black" alt="" className="flex items-center w-full bg-white"/>
     </div>,
-    <div style={{display:"grid", gridTemplateColumns:"auto 40%", height: "100%",alignItems:"center"}}>
+    <div key={3} style={{display:"grid", gridTemplateColumns:"auto 40%", height: "100%",alignItems:"center"}}>
         <p className=' -rotate-3 origin-center text-center'>
             Learn about the <u>phlogiston theory</u>,<br/>&emsp;a superseded scientific theory
         </p>
         <ImageWrapper native h="h-full" src="/blackBoardImgs/metal.PNG" bor="border-4 border-black" alt="" className="flex items-center w-full bg-white"/>
     </div>,
-    <div style={{display:"grid", gridTemplateColumns:"auto 33%", height: "100%",alignItems:"center"}}>
+    <div key={4} style={{display:"grid", gridTemplateColumns:"auto 33%", height: "100%",alignItems:"center"}}>
         <p className=' -rotate-3 origin-center text-center'>
             The parabola has a <u>conic section definition</u>
             <br/>&emsp;and a <u>focus-directrix definition</u>...

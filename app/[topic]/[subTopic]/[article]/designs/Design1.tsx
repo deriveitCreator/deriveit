@@ -47,7 +47,7 @@ export default function Design1({children, isStory}: {children: React.ReactNode,
       annotate(topicLink.current! ,{type:"underline",color: "#bbb",animationDuration:500,padding:32}).show();
       annotate(adEl.current! , { type: "underline", color: "#bbb", animationDuration:500, padding:28 }).show();
     } }, 600)
-  });
+  }, []);
 
   return (<div style={{display:"flex",width:"100%" , marginBottom:"40px",minHeight:"100vh",opacity:op, transition:"opacity 0.5s ease-out 0.1s"}}>
     <MainPart content={children}/>

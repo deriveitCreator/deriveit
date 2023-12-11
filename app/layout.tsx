@@ -16,7 +16,6 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   const FooterEl = dynamic(() =>  import(`./footerStyles/design${designSelected}Footer`),{ssr: false});
 
   return ( <>
-    <Script src="https://polyfill.io/v3/polyfill.min.js?features=es6"/>
     <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
     <html lang="en" className=' overflow-hidden'>
       <body className=' bg-gray-50'>

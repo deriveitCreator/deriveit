@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useRef, useState } from 'react';
-import getHeader from './designs/getHeader';
+import ArticleHeader from './designs/ArticleHeader';
 import dynamic from 'next/dynamic';
 import designSelected from '@/app/infoStore/designSelected';
 import ImageWrapper from '@/app/components/ImageWrapper';
@@ -89,7 +89,6 @@ export default function Page({ params }: { params: { topic:string, subTopic: str
             bodyChildren.push(<ul className={`${textMain.className} list-disc text-2xl mx-9 mb-3`} key={i} dangerouslySetInnerHTML={{__html: j[i][1]}}></ul>);
             break;
           case "source_format":
-            
             bodyChildren.push(<section key={i}>
               <hr className=' mt-8 border-black border' style={{transform:"skewX(40deg)"}}/>
               <h3 className={' text-4xl underline '+cursiveMain.className} key={i}>Sources:</h3>
@@ -107,7 +106,7 @@ export default function Page({ params }: { params: { topic:string, subTopic: str
   },[]);
 
   return <>
-    {getHeader(contentVals.headerVal)}
+    <ArticleHeader text={contentVals.headerVal}/>
     <MainComp>{contentVals.bodyVal}</MainComp>
   </>
 

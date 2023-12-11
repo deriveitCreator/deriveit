@@ -49,7 +49,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
-### Dec 9, 2023
+### Dec 10, 2023
+<b>update 2.2:</b> made some naming changes
+
 <b>update 2.1:</b> added all the content
 
 ### Nov 28, 2023
