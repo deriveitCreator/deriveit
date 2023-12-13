@@ -34,7 +34,7 @@ One major thing I added was the design feature, where you can choose different d
 - The `infoStore contains` is the default place where all the information is stored:
     - `fonts.tsx`: stores information about the fonts
     - `topicsInfo.tsx`: for the associated information for all the different topics
-    - `designSelected.tsx`: for storing the current design number
+    - `designInfo.tsx`: for storing the current design number
     - All the folders in this folder stores article content, and will be sent to the user (when requested) using the API in `route.tsx`
     - `sourcesForCitation.tsx`: Stores citation information, more on this later.
 
@@ -48,6 +48,9 @@ One major thing I added was the design feature, where you can choose different d
 
 
 ## Updates
+
+### Dec 12, 2023
+<b>update 2.3:</b> This website now uses cookies so when a user chooses a new style (implemented later), the website saves the design number in the cookies, the code for this is in the GET function in `infoStore/route.tsx` and will run when you choose a style from the selection box (available when clicking the paint brush icon). If the cookies are empty, the default design number is used (from `designSelected.tsx`).
 
 ### Dec 10, 2023
 <b>update 2.2:</b> made some naming changes

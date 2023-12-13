@@ -1,15 +1,12 @@
-"use client";
+"use client"
 
 import React from 'react';
 import dynamic from 'next/dynamic';
-import designSelected from './infoStore/designSelected';
+import { useCookies } from 'next-client-cookies';
+import { DEFAULT_DESIGN_SELECTION } from './infoStore/designInfo';
 
 export default function Home() {
-  
-  const WholeComp = dynamic(() => import(`./mainStyles/design${designSelected}Main`));
-
-  return (
-    <WholeComp/>
-  )
-
+  const designSelectedVal = parseInt(useCookies().get('designSelected')!) || DEFAULT_DESIGN_SELECTION;
+  const WholeComp = dynamic(() => import(`./mainStyles/design${designSelectedVal}Main`));
+  return <WholeComp/>;
 }

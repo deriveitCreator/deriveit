@@ -1,21 +1,25 @@
-// @ts-nocheck
-
+import { cookies } from 'next/headers';
 import type { Metadata } from 'next';
 import "./global.scss";
-import designSelected from './infoStore/designSelected';
 import dynamic from 'next/dynamic';
 import Script from 'next/script';
+import { CookiesProvider } from 'next-client-cookies/server';
+import { DEFAULT_DESIGN_SELECTION } from './infoStore/designInfo';
 
-export const metadata: Metadata = {
-  title: 'Welcome to deriveit.net',
-  description: 'A website dedicated to proving some mathematical formulae, and providing the history of some scientific theories',
-  icons:{ icon:`/favicon${designSelected}.ico`}
+export async function generateMetadata(): Promise<Metadata> {
+  const cookieVal = parseInt(cookies().get("designSelected")?.value!);
+  return {
+    title: 'Welcome to deriveit.net',
+    description: 'A website dedicated to proving some mathematical formulae, and providing the history of some scientific theories',
+    icons: `/favicon${cookieVal || DEFAULT_DESIGN_SELECTION}.ico`
+  }
 }
 
-export default function RootLayout({children}: {children: React.ReactNode}) {
-  const FooterEl = dynamic(() =>  import(`./footerStyles/design${designSelected}Footer`),{ssr: false});
+export default async function RootLayout({children}: {children: React.ReactNode}) {
+  const cookieVal = parseInt(cookies().get("designSelected")?.value!);
+  const FooterEl = dynamic(() =>  import(`./footerStyles/design${cookieVal || DEFAULT_DESIGN_SELECTION}Footer`));
 
-  return ( <>
+  return ( <CookiesProvider>
     <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
     <html lang="en" className=' overflow-hidden'>
       <body className=' bg-gray-50'>
@@ -23,5 +27,5 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <FooterEl/>
       </body>
     </html>
-  </>)
+  </CookiesProvider>)
 }

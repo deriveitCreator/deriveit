@@ -47,12 +47,9 @@ const blackboardContent = [
 ]
 
 export function Blackboard(props:{startSS:boolean,disFunc:React.Dispatch<{type:string;payload?: string|undefined}>}){
-
     const [selectedIcon, setSI] = useState(0);
     const [blackBoardOp, setBBOP] = useState("opacity-100");
-
     const timeRef: React.MutableRefObject<any|null> = useRef(null);
-
 
     useEffect(()=>{
         if(props.startSS){

@@ -30,15 +30,15 @@ export default function Design1(props: {topic: string, subTopic:string}){
     return <main style={{transition:"opacity 0.5s linear",marginBottom:"40px",opacity: curOp}}><section>
         <h2 className={`${cursiveMain.className} text-4xl px-8 capitalize mt-3`}>{curTopic[0].replaceAll("_"," ")}</h2>
         {(curTopic[1]).map((val:string,i: number)=> {
-            if(val.charAt(val.length-1) === "%"){ return <StyledP
+            if(val.includes("%")){ return <StyledP
                 key={i}
-                text={val.substring(0,val.lastIndexOf('%',val.length-2)).replaceAll("_"," ")}
-                link={`${curTopic[0].replaceAll(" ","_")}/${val.substring(val.lastIndexOf('%',val.length-2)+1,val.length-1)}`}
+                text={val.substring(0,val.lastIndexOf('%')).replaceAll("_"," ")}
+                link={`${curTopic[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`.replaceAll(",","").replaceAll(" ","_")}
             />;
             }else return <StyledP
                 key={i}
                 text={val.replaceAll("_"," ")}
-                link={`${curTopic[0].replaceAll(" ","_")}/${val.replaceAll(" ","_")}`}
+                link={`${curTopic[0]}/${val}`.replaceAll(" ","_").replaceAll(",","")}
             />;
         })}
     </section></main>;
