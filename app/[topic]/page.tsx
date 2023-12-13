@@ -10,6 +10,7 @@ export default function Page({ params }: { params: { topic: string } }){
   const designSelectedVal = parseInt(useCookies().get('designSelected')!) || DEFAULT_DESIGN_SELECTION;
   const MainComp = dynamic(() => import(`./designs/Design${designSelectedVal}`));
   const decodedTopic = decodeURIComponent(params.topic);
+  window.scrollTo(0,0);
   return (<>
     <TopicHeader text={decodedTopic} ds={designSelectedVal}/>
     <MainComp topic={decodedTopic}/>

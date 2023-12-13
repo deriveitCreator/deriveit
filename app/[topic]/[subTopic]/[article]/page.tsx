@@ -7,5 +7,6 @@ import { DEFAULT_DESIGN_SELECTION } from '@/app/infoStore/designInfo';
 export default function Page({ params }: { params: { topic:string, subTopic: string, article: string } }) {
   const designSelectedVal = parseInt(useCookies().get('designSelected')!) || DEFAULT_DESIGN_SELECTION;
   const MainComp = dynamic(() => import(`./designs/Design${designSelectedVal}`));
+  window.scrollTo(0,0);
   return <MainComp topic={decodeURIComponent(params.topic.toLowerCase())} subTopic={decodeURIComponent(params.subTopic)} article={decodeURIComponent(params.article)} />
 }

@@ -4,7 +4,7 @@ import React, { useState, useRef, useReducer, Suspense, useEffect } from 'react'
 import styles from "./design1.module.scss";
 import { chalkWriting, cursiveMain } from '../infoStore/fonts';
 import Link from 'next/link';
-import { allTopics } from '../infoStore/topicsInfo';
+import { allTopics, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';
 import { ImageWrapper } from "../components/ImageWrapper";
 import { useRouter } from 'next/navigation';
 import { IconContext } from "react-icons";
@@ -99,7 +99,26 @@ function HomeBody(props:{design1States:object,disFunc:React.Dispatch<{type:strin
             </section>
             <section>
                 <h2 className={cursiveMain.className + " w-full text-center text-5xl my-10"}>Recently Added</h2>
-                <div className=" after:clear-both after:block after:w-full after:content-[' '] border-gray-600 border-b-4 border-t-4 bg-gray-100 h-28 ">
+                <div className=" after:clear-both after:block after:w-full after:content-[' '] border-gray-600 border-b-4 border-t-4">
+                    {getRecentlyAdded().map((item,i)=>{ return  <div key={i} className={`bg-gray-50 overflow-hidden h-12`} ><Link
+                        href={"/"+item.substring(item.indexOf("%")+1)}
+                        className={"bg-gray-100 block h-12 leading-[48px] hover:no-underline text-2xl px-5 group " + cursiveMain.className}
+                    >
+                        <span className=' opacity-0 group-hover:opacity-100'>&#128609;</span>
+                        <span className=' px-3'>{item.substring(0,item.indexOf("%")).replaceAll("_"," ")}</span>
+                    </Link></div> })}
+                </div>
+            </section>
+            <section>
+                <h2 className={cursiveMain.className + " w-full text-center text-5xl my-10"}>Recently Edited</h2>
+                <div className=" after:clear-both after:block after:w-full after:content-[' '] border-gray-600 border-b-4 border-t-4">
+                    {getRecentlyEdited().map((item,i)=>{ return  <div key={i} className={`bg-gray-50 overflow-hidden`} ><Link
+                        href={"/"+item.substring(item.indexOf("%")+1)}
+                        className={"bg-gray-100 block h-12 leading-[48px] hover:no-underline text-2xl px-5 group " + cursiveMain.className}
+                    >
+                    <span className=' opacity-0 group-hover:opacity-100'>&#128609;</span>
+                        <span className=' px-3'>{item.substring(0,item.indexOf("%")).replaceAll("_"," ")}</span>
+                    </Link></div> })}
                 </div>
             </section>
             <section>

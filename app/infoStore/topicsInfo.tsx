@@ -47,6 +47,24 @@ export function getTopicLinks(name: string): Array<[string,string[]]>{
     }
 }
 
+export function getRecentlyAdded(){
+    return [
+        "The_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola%geometry/Conic_Sections/the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola",
+        "Getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition%geometry/Conic_Sections/getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition",
+        "Using_combinations_to_find_a_number_in_the_Pascal's_triangle%discrete_mathematics/factorials_permutations_and_combinations/using_combinations_to_find_a_number_in_the_Pascal's_triangle",
+        "Constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle%geometry/More_Quadrilateral_Related_Stuff/constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle"
+    ]
+}
+
+export function getRecentlyEdited(){
+    return [
+        "The_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola%geometry/Conic_Sections/the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola",
+        "Deriving the regression coefficient of y on x%probability_&_statistics/miscellaneous/line_of_best_fit",
+        "Thales_theorem%geometry/Circle_Related_Stuff/thales_theorem",
+        "Getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition%geometry/Conic_Sections/getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition"
+    ]
+}
+
 const algebraLinks: Array<[string,string[]]> = [
     ["fractions", ["[a/b] + [c/b] gives [(a+c)/b]%adding_fractions","multiplying [a/b] by [c/d] gives [ac/bd]%multiplying_fractions"]],
     ["exponents", [
@@ -64,7 +82,7 @@ const geometryLinks: Array<[string,string[]]> = [
     ["Circle Related Stuff", ["thales_theorem"]],
     ["Triangle Related Stuff", ["angles_in_a_triangle_add_to_180","area_of_a_triangle","constructing_an_equilateral_triangle","pythagoras_theorem","sides_of_30_90_60"]],
     ["Quadrilateral Related Stuff", ["area_of_a_parallelogram","area_of_a_trapezium"]],
-    ["More Quadrilateral Related Stuff", ["constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle"]],
+    ["More Quadrilateral Related Stuff",["constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle"]],
     ["Conic Sections", [
         "axis_of_symmetry_of_a_parabola",
         "getting_the_focus_directrix_and_vertex",
@@ -95,7 +113,7 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
         "0! = 1%0fac",
         "the formula of permutations%factorials_and_permutations",
         "the formula of combinations%com",
-        "using combinations to find a number in the Pascal's triangle%using_combinations_to_find_a_number_in_the_Pascal's_triangle",
+        "using_combinations_to_find_a_number_in_the_Pascal's_triangle",
         "number of ways of arranging n objects with k identical objects%binomial_theorem"
     ]],
     ["sequence_and_series", [
@@ -158,7 +176,7 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
         "Markov's Inequality%markov",
         "an equation for the population variance using the sample mean, and the sample size%varsamp"
     ]],
-    ["miscellaneous",["line_of_best_fit"]]
+    ["miscellaneous",["deriving the regression coefficient of y on x%line_of_best_fit"]]
 ]
 
 const mechanicsLink: Array<[string,string[]]> = [

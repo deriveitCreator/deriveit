@@ -50,6 +50,8 @@ One major thing I added was the design feature, where you can choose different d
 ## Updates
 
 ### Dec 12, 2023
+<b>update 2.4:</b> Added "Recently Added" and "Recently Edited" sections in the home page. For now, they are manually updated.
+
 <b>update 2.3:</b> This website now uses cookies so when a user chooses a new style (implemented later), the website saves the design number in the cookies, the code for this is in the GET function in `infoStore/route.tsx` and will run when you choose a style from the selection box (available when clicking the paint brush icon). If the cookies are empty, the default design number is used (from `designSelected.tsx`).
 
 ### Dec 10, 2023
