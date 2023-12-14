@@ -2,7 +2,6 @@ import { Resend } from 'resend';
 
 export async function POST(request: Request) {
     try{
-        /*
         const formData = await request.formData();
         let formJSON:{[key: string]: string|File} = {};
         for (let [key, value] of formData.entries()){
@@ -18,8 +17,6 @@ export async function POST(request: Request) {
         });
         if (error) return Response.json(["There was an error in the submission.","There was an error in the submission."]);
         return Response.json(["Your message is sent.",`The message you sent: ${formJSON["mainText"]}`]);
-        */
-       return Response.json([""]);
     }
     catch{
         return Response.json(["There was an error in the submission.","There was an error in the submission."]);

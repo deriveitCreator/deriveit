@@ -53,6 +53,8 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Dec 14, 2023
 
+<b>update 3.7:</b> undid 3.6.
+
 <b>update 3.6:</b> disabled downlevelIteration from `tsconfig.json`, and temporarily disabled the email function.
 
 <b>update 3.5:</b> All the function in the `sendEmail` API are now inside a try-catch.
