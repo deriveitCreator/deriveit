@@ -52,10 +52,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Dec 13, 2023
 
-<b>update 3.1:</b> Update 3 is focused on submitting feedback. Using the "click here" button in the footer, one can submit a form and it will be email to me.  Also, all pages now use useEffect scroll to top after page has loaded.
+<b>update 3.1:</b> Update 3 is focused on submitting feedback. Using the "click here" button in the footer, one can submit a form and it will be email to me. Also, all pages now use useEffect scroll to top after page has loaded.
 
 ### Dec 12, 2023
-
 
 <b>update 2.4:</b> Added "Recently Added" and "Recently Edited" sections in the home page. For now, they are manually updated.
 

@@ -9,5 +9,6 @@ export default function Page({ params }: { params: { topic:string, subTopic: str
   useEffect(() => {window.scrollTo(0,0);});
   const designSelectedVal = parseInt(useCookies().get('designSelected')!) || DEFAULT_DESIGN_SELECTION;
   const MainComp = dynamic(() => import(`./designs/Design${designSelectedVal}`));
+  //@ts-ignore
   return <MainComp topic={decodeURIComponent(params.topic.toLowerCase())} subTopic={decodeURIComponent(params.subTopic)} article={decodeURIComponent(params.article)} />
 }
