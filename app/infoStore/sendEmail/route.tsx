@@ -2,7 +2,7 @@ import { Resend } from 'resend';
 
 export async function POST(request: Request) {
     const formData = await request.formData();
-    let formJSON = {};
+    let formJSON:{[key: string]: string} = {};
     for (let [key, value] of formData.entries()){
         formJSON[key] = value;
     }

@@ -53,6 +53,8 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Dec 14, 2023
 
+<b>update 3.4:</b> In `tsconfig.json`, downlevelIteration is now enabled to use the .entries function.
+
 <b>update 3.3:</b> Added the API for emailing client feedback to me (`infoStore/sendEmail`)
 
 <b>update 3.2:</b> In all pages, a type has been defined for the imported main component, this is to remove the `Type '{ topic: string; }' is not assignable to type 'IntrinsicAttributes'` error.
