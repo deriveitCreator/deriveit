@@ -53,6 +53,10 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Dec 14, 2023
 
+<b>update 3.6:</b> disabled downlevelIteration from `tsconfig.json`, and temporarily disabled the email function.
+
+<b>update 3.5:</b> All the function in the `sendEmail` API are now inside a try-catch.
+
 <b>update 3.4:</b> In `tsconfig.json`, downlevelIteration is now enabled to use the .entries function.
 
 <b>update 3.3:</b> Added the API for emailing client feedback to me (`infoStore/sendEmail`)
