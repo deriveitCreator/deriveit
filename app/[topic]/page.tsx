@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import TopicHeader from './designs/TopicHeader';
 import { useCookies } from 'next-client-cookies';
-import { DEFAULT_DESIGN_SELECTION } from '../infoStore/designInfo';
+import { DEFAULT_DESIGN_SELECTION } from '@/app/infoStore/designInfo';
 
 type ImportType = {
   topic: string
