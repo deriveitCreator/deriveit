@@ -13,11 +13,9 @@ type ImportType = {
 export default function Page({ params }: { params: { topic: string } }){
   useEffect(() => {window.scrollTo(0,0);});
   const designSelectedVal = parseInt(useCookies().get('designSelected')!) || DEFAULT_DESIGN_SELECTION;
-  const MainComp = dynamic<ImportType>(() => import(`./designs/Design${designSelectedVal}`));
   const decodedTopic = decodeURIComponent(params.topic);
   return (<>
     <TopicHeader text={decodedTopic} ds={designSelectedVal}/>
-    <MainComp topic={decodedTopic}/>
   </>)
 
 }
