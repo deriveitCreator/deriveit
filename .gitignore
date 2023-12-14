@@ -38,4 +38,3 @@ next-env.d.ts
 #cusotm files/folders
 /public/logo.html
 addFiles.py
-/app/infoStore/sendEmail

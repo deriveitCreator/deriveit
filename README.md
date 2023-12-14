@@ -35,8 +35,9 @@ One major thing I added was the design feature, where you can choose different d
     - `fonts.tsx`: stores information about the fonts
     - `topicsInfo.tsx`: for the associated information for all the different topics
     - `designInfo.tsx`: for storing the default design number
-    - All the folders in this folder (except for `getArticleContent` and `setCookie`) stores article content. Article content gets sent to the user (when requested) using the API in `getArticleContent` folder.
+    - All the folders in this folder (except for `getArticleContent`, `setCookie` and `sendEmail`) stores article content. Article content gets sent to the user (when requested) using the API in `getArticleContent` folder.
     - `setCookie` contains the code for change the cookie for the design number.
+    - `sendEmail` contains the api to email client feedback to me.
     - `sourcesForCitation.tsx`: Stores citation information, more on this later.
 
 ### [topic], [subTopic] and [article] folders
@@ -51,6 +52,8 @@ One major thing I added was the design feature, where you can choose different d
 ## Updates
 
 ### Dec 14, 2023
+
+<b>update 3.3:</b> Added the API for emailing client feedback to me (`infoStore/sendEmail`)
 
 <b>update 3.2:</b> In all pages, a type has been defined for the imported main component, this is to remove the `Type '{ topic: string; }' is not assignable to type 'IntrinsicAttributes'` error.
 
