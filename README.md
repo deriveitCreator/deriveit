@@ -50,9 +50,11 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
-### Dec 13, 2023
+### Dec 14, 2023
 
-<b>update 3.1:</b> Update 3 is focused on submitting feedback. Using the "click here" button in the footer, one can submit a form and it will be email to me. Also, all pages now use useEffect scroll to top after page has loaded.
+<b>update 3.2:</b> In all pages, a type has been defined for the imported main component, this is to remove the `Type '{ topic: string; }' is not assignable to type 'IntrinsicAttributes'` error.
+
+<b>update 3.1:</b> Using the "click here" button in the footer, one can submit a form and it will be emailed to me. Also, all pages now use useEffect scroll to top after page has loaded.
 
 ### Dec 12, 2023
 

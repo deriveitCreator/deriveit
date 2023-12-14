@@ -14,11 +14,15 @@ import Latex from 'react-latex-next';
 import 'katex/dist/katex.min.css';
 import StyleSelectionBox from "@/app/components/StyleSelectionBox";
 
-const design1States = {
+type d1sType = {
+  showDialogBox: boolean
+}
+
+const design1States: d1sType = {
   showDialogBox: false
 }
 
-const reducer = (state:object, action: {type:string, payload?:string}) => {
+const reducer = (state: d1sType, action: {type:string, payload?:string}) => {
   switch (action.type) {
       case "SHOW_DIALOG_BOX":
           return {...state, showDialogBox: true};
@@ -36,7 +40,7 @@ export default function Design1(props: {topic: string, subTopic: string, article
   const [headerVal, setHV] = useState<string>("");
   const jsonForBody: MutableRefObject<any> = useRef(null);
   const [bodyVal, setBV] = useState<React.JSX.Element[] | null>(null);
-  const [d1s, dispatch] = useReducer(reducer, design1States);
+  const [d1s, dispatch]: [d1sType, any] = useReducer(reducer, design1States);
 
   useEffect(()=>{
     if(headerVal !== "") {
@@ -134,7 +138,6 @@ export default function Design1(props: {topic: string, subTopic: string, article
       <MainPart content={bodyVal!}/>
       <SBBMemo fontSizeMain={fontSize.main} setFS={setFS} dispatchFunc={dispatch}/>
     </div>
-    {/*@ts-ignore */}
     <StyleSelectionBox showDB={d1s.showDialogBox} reducerDis={dispatch}/>
   </FontSizeContext.Provider>
 }
@@ -217,7 +220,7 @@ const asideStyle = {
 type setFSType = Dispatch<SetStateAction<{h3: string;main: string;quote: string;}>>;
 interface BBProps {fontSizeMain:string, setFS: setFSType, dispatchFunc:Dispatch<{type: string;payload?: string | undefined;}>};
 class SideBlackBoard extends Component<BBProps, {op: string}>{
-  homeIcon: Ref<HTMLAnchorElement>;
+  homeIcon: RefObject<HTMLAnchorElement>;
   brushIcon: RefObject<HTMLButtonElement>;
   topicLink: RefObject<HTMLDivElement>;
   DecFontSizeEl: RefObject<HTMLButtonElement>;
@@ -324,7 +327,6 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
     window.setTimeout(()=>{
       let commonSettings = {color: "#bbb", animationDuration:500, strokeWidth: 2};
       try{
-        //@ts-ignore
         annotate(this.homeIcon.current! , {...commonSettings, type: "box", padding:2}).show();
         annotate(this.brushIcon.current! , {...commonSettings, type: "box", padding:2}).show();
         annotate(this.topicLink.current! ,{...commonSettings, type:"underline", padding:32}).show();
