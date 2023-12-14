@@ -116,7 +116,7 @@ export default function Design1(props: {topic: string, subTopic: string, article
     }
     else{
       document.documentElement.style.overflowY = "scroll";
-      fetch("../../../infoStore", {
+      fetch("../../../infoStore/getArticleContent", {
         method:"POST",
         cache: "no-cache",
         headers:{"Content-Type":"application/json"},
@@ -126,7 +126,7 @@ export default function Design1(props: {topic: string, subTopic: string, article
         setHV(j[0][1]);
       })})
     }
-  },[headerVal]);
+  },[headerVal]); // eslint-disable-line no-use-before-define
 
   return <FontSizeContext.Provider value={fontSize}>
     <ArticleHeader text={headerVal}/>
@@ -203,13 +203,16 @@ function LiForSources(props: {children: string}){
 
 const asideStyle = {
   width: "180px",
+  minWidth: "180px",
   backgroundColor: "#333",
   border: "#bda27e solid 5px",
   boxShadow:"0px 0px 0px 2px #c2a782, 0px 0px 0px 4px #a58e6f, 3px 4px 8px 5px rgba(0, 0, 0, 0.5), 1px 1px 8px 1px rgb(15, 13, 13) inset",
   color: "#bbb",
   display: "flex",
   flexFlow: "column",
+  flexGrow: "0",
   padding:"10px 0px",
+  margin:"0px 12px",
 }
 type setFSType = Dispatch<SetStateAction<{h3: string;main: string;quote: string;}>>;
 interface BBProps {fontSizeMain:string, setFS: setFSType, dispatchFunc:Dispatch<{type: string;payload?: string | undefined;}>};
@@ -254,8 +257,37 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
     else setFSFunc({h3:"text-5xl", main: "text-3xl", quote: "text-[28px]"});
   }
 
+  getBlackBoardContent(){
+    switch(Math.floor(Math.random() * 3)){
+      case 1:
+        return <p className=" text-lg rotate-45 mt-20 -mx-3 ">
+          <span className=" text-left ">Ad Missing...</span>
+            <br/>
+          <span className=" text-right inline float-right" >hmm... adblock?</span>
+        </p>;
+      case 2:
+        return <p className=" text-xl mt-20 rotate-45">
+          <span>cool people</span>
+            <br/>
+          <span className=" text-center w-full inline-block">{"don't use"}</span>
+            <br/>
+          <span className=" text-right w-full inline-block">adblock!</span>
+        </p>;
+      default:
+        return <p className=" mt-20 ">
+          <span className=" rotate-45 block" >
+            <span>THERE IS</span><br/>
+            <span className=" text-center w-full inline-block">SUPPOSE TO BE</span><br/>
+            <span className=" text-right w-full inline-block" >AN AD HERE!!!</span>
+          </span><br/><br/>
+          <span className=" text-lg text-center w-full inline-block">{"don't worry,  "}</span><br/>
+          <span  className=" text-lg text-center w-full inline-block">{"  I'm not mad"}</span>
+        </p>;
+    };
+  }
+
   render(){
-    return <aside style={asideStyle} className={chalkWriting.className + " w-52 mx-3 grow-0 "}>
+    return <aside style={asideStyle} className={chalkWriting.className}>
     <div className="relative mb-2">
       <div style={{display:"inline-grid",gridTemplateColumns:"50% 50%",justifyItems: "center",alignItems:"center",width:"100%",marginTop:"10px"}}>
         <Link ref={this.homeIcon} className=" cursor-pointer hover:no-underline" href="/">
@@ -276,7 +308,7 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
         </IconContext.Provider>
         &nbsp;Topic Page
       </Link>
-      <p className=" w-full text-center text-xl pb-1">
+      <p className=" w-full text-center text-xl pb-2">
         <button onClick={()=>this.decFS(this.fontSizeMain, this.setFS)} ref={this.DecFontSizeEl }>-</button>
         &nbsp;&nbsp;Font Size&nbsp;&nbsp;
         <button onClick={()=>this.incFS(this.fontSizeMain, this.setFS)} ref={this.IncFontSizeEl }>+</button>
@@ -284,13 +316,7 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
       <p className=" w-11/12 mx-auto h-0" ref={this.adEl}>&nbsp;</p>
       <p className=" text-center text-xl">Advertisement:</p>
     </div>
-    <div className=" border-2 border-dashed border-zinc-300 m-2 flex-auto">
-      <p className=" text-lg rotate-45 mt-20 overflow-hidden w-44 -mx-3 ">
-        <span className=" text-left ">Ad Missing...</span>
-          <br/>
-        <span className=" text-right inline float-right" >hmm... adblock?</span>
-      </p>
-    </div>
+    <div className=" border-2 border-dashed border-zinc-300 m-2 flex-auto overflow-hidden">{this.getBlackBoardContent()}</div>
     </aside>;
   }
 

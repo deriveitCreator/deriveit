@@ -73,8 +73,9 @@ const HomeLoading=(props:{disabledState:boolean,hlDis:React.Dispatch<{type:strin
 
 function HomeBody(props:{design1States:object,disFunc:React.Dispatch<{type:string;payload?: string|undefined}>}){
     useEffect(()=>{
+        window.scrollTo(0,0);
         props.disFunc({type: "ALLOW_CONTINUE"});
-    }, [])
+    }, []) // eslint-disable-line no-use-before-define
 
     return <>
         {/*@ts-ignore */}

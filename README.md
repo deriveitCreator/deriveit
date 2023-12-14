@@ -17,7 +17,7 @@ One major thing I added was the design feature, where you can choose different d
     - `layout.tsx`
     - `page.tsx`
     - `components`: stores some home-page components
-    - `designs`: this folder stores all the different designs for the homepage; this folder only stores local components.
+    - `mainStyles`: this folder stores all the different designs for the main part of the homepage. By 'main part', I mean excluding footer.
     - `footerStyles`: store info about footer (which is global)
     - `[topic]`: when you select a particular topic in the home page, this is the folder you are routed to.
     - `infoStore`: store website info that is not found in other folders; all the article content is stored here.
@@ -31,16 +31,17 @@ One major thing I added was the design feature, where you can choose different d
     - `ImageWrapper.tsx`: a wrapper for images (this is a global component)
     - `StyleSelectionBox.tsx`: a dialog box for choosing different styles
 
-- The `infoStore contains` is the default place where all the information is stored:
+- The `infoStore` folder is the default place where all the information is stored:
     - `fonts.tsx`: stores information about the fonts
     - `topicsInfo.tsx`: for the associated information for all the different topics
-    - `designInfo.tsx`: for storing the current design number
-    - All the folders in this folder stores article content, and will be sent to the user (when requested) using the API in `route.tsx`
+    - `designInfo.tsx`: for storing the default design number
+    - All the folders in this folder (except for `getArticleContent` and `setCookie`) stores article content. Article content gets sent to the user (when requested) using the API in `getArticleContent` folder.
+    - `setCookie` contains the code for change the cookie for the design number.
     - `sourcesForCitation.tsx`: Stores citation information, more on this later.
 
 ### [topic], [subTopic] and [article] folders
 
-- The `designs`: folder contains code for the different designs
+- The `designs`: folder that contains code for the different designs
 
 - The `page.tsx`: sets the header and body based on the selected design 
 
@@ -49,7 +50,13 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+### Dec 13, 2023
+
+<b>update 3.1:</b> Update 3 is focused on submitting feedback. Using the "click here" button in the footer, one can submit a form and it will be email to me.  Also, all pages now use useEffect scroll to top after page has loaded.
+
 ### Dec 12, 2023
+
+
 <b>update 2.4:</b> Added "Recently Added" and "Recently Edited" sections in the home page. For now, they are manually updated.
 
 <b>update 2.3:</b> This website now uses cookies so when a user chooses a new style (implemented later), the website saves the design number in the cookies, the code for this is in the GET function in `infoStore/route.tsx` and will run when you choose a style from the selection box (available when clicking the paint brush icon). If the cookies are empty, the default design number is used (from `designSelected.tsx`).

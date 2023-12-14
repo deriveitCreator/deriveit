@@ -22,7 +22,7 @@ const StyleSelectionBox = (props: {showDB: boolean, reducerDis: React.Dispatch<{
     })
 
     async function changeToStyle(num: number){
-        const fetchRes =  await fetch("/infoStore?"+ new URLSearchParams({selected: num.toString()}), {method:"get", cache:"no-cache"});
+        const fetchRes =  await fetch("/infoStore/setCookie?"+ new URLSearchParams({selected: num.toString()}), {method:"get", cache:"no-cache"});
         if(fetchRes.ok){
             router.refresh();
         }
