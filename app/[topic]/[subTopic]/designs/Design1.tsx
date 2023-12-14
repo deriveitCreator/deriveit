@@ -21,7 +21,7 @@ export default function Design1(props: {topic: string, subTopic:string}){
     
     let curTopic: [string, string[]] = ["",[""]];
     for(let i in topicsInfoState){
-        if(topicsInfoState[i][0] === props.subTopic){
+        if(topicsInfoState[i][0].replaceAll("_"," ") === props.subTopic.replaceAll("_"," ")){
             curTopic = topicsInfoState[i];
             break;
         }
