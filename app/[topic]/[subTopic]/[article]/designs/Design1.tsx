@@ -6,32 +6,13 @@ import { FaPaintbrush } from "react-icons/fa6";
 import { TiHome } from "react-icons/ti";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { annotate } from 'rough-notation';
-import { LegacyRef, createContext, useContext, useEffect, useRef, useState, Component, memo, createRef, useReducer, RefObject, Dispatch, SetStateAction, Ref, MutableRefObject } from "react";
+import { LegacyRef, createContext, useContext, useEffect, useRef, useState, Component, memo, createRef, useReducer, RefObject, Dispatch, SetStateAction, Ref, MutableRefObject, Suspense } from "react";
 import Link from "next/link";
 import { citationList } from '@/app/infoStore/sourcesForCitation';
 import ImageWrapper from '@/app/components/ImageWrapper';
 import Latex from 'react-latex-next';
 import 'katex/dist/katex.min.css';
 import StyleSelectionBox from "@/app/components/StyleSelectionBox";
-
-type d1sType = {
-  showDialogBox: boolean
-}
-
-const design1States: d1sType = {
-  showDialogBox: false
-}
-
-const reducer = (state: d1sType, action: {type:string, payload?:string}) => {
-  switch (action.type) {
-      case "SHOW_DIALOG_BOX":
-          return {...state, showDialogBox: true};
-      case "HIDE_DIALOG_BOX":
-          return {...state, showDialogBox: false};
-      default:
-          return state;
-  }
-}
 
 var FontSizeContext = createContext({h3:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
 
@@ -40,7 +21,6 @@ export default function Design1(props: {topic: string, subTopic: string, article
   const [headerVal, setHV] = useState<string>("");
   const jsonForBody: MutableRefObject<any> = useRef(null);
   const [bodyVal, setBV] = useState<React.JSX.Element[] | null>(null);
-  const [d1s, dispatch]: [d1sType, any] = useReducer(reducer, design1States);
   const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"})
 
   useEffect(()=>{
@@ -147,9 +127,8 @@ export default function Design1(props: {topic: string, subTopic: string, article
     <div style={{display:"flex",width:"100%" , marginBottom:"40px",minHeight:"100vh"}}>
       <MainPart content={bodyVal!}/>
       <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
-      <SBBMemo fontSizeMain={fontSize.main} setFS={setFS} dispatchFunc={dispatch}/>
+      <SBBMemo fontSizeMain={fontSize.main} setFS={setFS}/>
     </div>
-    <StyleSelectionBox showDB={d1s.showDialogBox} reducerDis={dispatch}/>
   </FontSizeContext.Provider>
 }
 
@@ -229,7 +208,7 @@ const asideStyle = {
   margin:"0px 12px",
 }
 type setFSType = Dispatch<SetStateAction<{h3: string;main: string;quote: string;}>>;
-interface BBProps {fontSizeMain:string, setFS: setFSType, dispatchFunc:Dispatch<{type: string;payload?: string | undefined;}>};
+interface BBProps {fontSizeMain:string, setFS: setFSType};
 class SideBlackBoard extends Component<BBProps, {op: string}>{
   homeIcon: RefObject<HTMLAnchorElement>;
   brushIcon: RefObject<HTMLButtonElement>;
@@ -239,7 +218,6 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
   adEl: RefObject<HTMLParagraphElement>;
   fontSizeMain: string;
   setFS: any;
-  dispatchFunc: any;
 
   constructor(props: BBProps){
     super(props);
@@ -251,7 +229,6 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
     this.adEl = createRef();
     this.fontSizeMain = this.props.fontSizeMain;
     this.setFS = props.setFS;
-    this.dispatchFunc = this.props.dispatchFunc;
   }
   
   shouldComponentUpdate(nextProps: BBProps, nextState: {op: string}) {
@@ -309,11 +286,7 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
             <TiHome/>
           </IconContext.Provider>
         </Link>
-        <button ref={this.brushIcon} className=" cursor-pointer hover:no-underline" onClick={()=>{this.dispatchFunc({type:"SHOW_DIALOG_BOX"})}}>
-          <IconContext.Provider value={{style:{height:"32px",width:"100%",padding:"4px"}}}>
-            <FaPaintbrush/>
-          </IconContext.Provider>
-        </button>
+        <BrushPaint brushRef={this.brushIcon}/>
       </div>
       <div className=" w-10/12 mx-auto h-0 mt-1" ref={this.topicLink}>&nbsp;</div>
       <Link className=" text-center text-xl pb-4 pt-1 cursor-pointer block hover:no-underline " href="./../">
@@ -352,6 +325,23 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
 }
 
 const SBBMemo = memo(SideBlackBoard);
+
+function BrushPaint(props: {brushRef: RefObject<HTMLButtonElement>}){
+  const [showDB, changeSDB] = useState(false);
+
+  function iconClicked(){
+    changeSDB(true);
+  }
+
+  return  <>
+    <button ref={props.brushRef} className=" cursor-pointer hover:no-underline" onClick={iconClicked}>
+      <IconContext.Provider value={{style:{height:"32px",width:"100%",padding:"4px"}}}>
+        <FaPaintbrush/>
+      </IconContext.Provider>
+    </button>
+    {showDB ? <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/> : null}
+  </>
+}
 
 function ExtraInfoBox(props:{text:string, pos:{X:number, Y:number}, visibility: "hidden" | "visible"}){
     return <div className={textMain.className + " bg-zinc-400 border-2 border-dashed border-black fixed text-2xl font-bold p-2 max-w-sm "} style={{top:props.pos.Y,left:props.pos.X, visibility: props.visibility}} dangerouslySetInnerHTML={{__html: props.text}}></div>

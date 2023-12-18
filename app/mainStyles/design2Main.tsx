@@ -51,7 +51,6 @@ const HomeLoading=(props:{disabledState:boolean, changeSBL: React.Dispatch<React
 }
 
 function MainPart(props:{setCE: React.Dispatch<React.SetStateAction<boolean>>, continueButtonClicked:boolean}){
-    console.log("MainPart");
     return <div id={styles.mainPart}>
         <HomeBody setConFunc={props.setCE} continueButtonClicked={props.continueButtonClicked}/>
         <Suspense><Design2Footer/></Suspense>
