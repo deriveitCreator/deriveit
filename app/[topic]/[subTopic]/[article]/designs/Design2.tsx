@@ -272,29 +272,18 @@ function BrushButton(){
 const footerIdStyle = {
 	display:"grid",
 	gridTemplateColumns:"120px auto",
-    margin:"0px 15px 0px 0px",
-}
-
-const footerStates = {
-  showFooter: false
-}
-
-const reducer = (state:object, action: {type:string, payload?:string}) => {
-  switch (action.type) {
-      case "SHOW_FORM_BOX":
-          return {...state, showFooter: true};
-      case "HIDE_FORM_BOX":
-          return {...state, showFooter: false};
-      default:
-          return state;
-  }
+  margin:"0px 15px 0px 0px",
 }
 
 function FooterEl(){
-    const [fs, dispatch] = useReducer(reducer, footerStates);
+    const [footerState, changeFS] = useState(false);
     const phpLocation = useRef("");
     const formType = useRef(0);
     
+    function dispatch(arg0: {type: string}){
+      arg0.type==="SHOW_FORM_BOX"? changeFS(true):changeFS(false);
+    }
+
     function showForm(type: number){
         phpLocation.current = window.location.origin+"/infoStore/sendEmail";
         formType.current = type;
@@ -319,7 +308,7 @@ function FooterEl(){
                         <ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
                     </Link>
                 </div>
-                <Suspense fallback={<></>}><FormBox showFB={fs.showFooter} reducerDis={dispatch} type={formType.current} actionLoc={phpLocation.current}/></Suspense>
+                <Suspense fallback={<></>}><FormBox showFB={footerState} reducerDis={dispatch} type={formType.current} actionLoc={phpLocation.current}/></Suspense>
             </div>
         </footer>
     </div>

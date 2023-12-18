@@ -37,7 +37,7 @@ export const ImageWrapper = (props: {
         <img alt={altVal} src={props.src} className={`${imgW} ${imgH} ${props.bor}`}/>
     </div>;
     else return <div className={props.className}>
-        <Image alt={altVal} src={props.src} width={0} height={0} sizes="100vw" className={`${imgW} ${imgH} ${props.bor}`}/>
+        <Image priority={true} alt={altVal} src={props.src} width={0} height={0} sizes="100vw" className={`${imgW} ${imgH} ${props.bor}`}/>
     </div>;
 }
 

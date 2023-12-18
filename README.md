@@ -53,9 +53,11 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Dec 18, 2023
 
+<b>update 4.5:</b> In `[article]/Design2.tsx`, `FooterEl` now uses useState instead of useReducer. Also, in ImageWrapper, the last Image return in the if-else has priority set to true.
+
 <b>update 4.4:</b> Placed StyleSelectionBox in `[article]/Design1.tsx` in the PaintBrush component so it easy to use useState.
 
-<b>update 4.3:</b> StyleSelectionBox in `[article]/Design1.tsx` now uses useState instead of useReducer.
+<b>update 4.3:</b> Accidentally skipped this, update 4.4 was actually suppose to be this one.
 
 <b>update 4.2:</b> made changes to `design2Main.tsx`: just changed how the memo component is made (see changes to further understand).
 
