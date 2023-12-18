@@ -15,10 +15,11 @@ export default function Design2(){
     const [continueEnabled, setCE] = useState(false);
     const [startBodyLoading, changeSBL] = useState(false);
     const [continueButtonClicked, changeCBC] = useState(false);
+    const MainPartMemo = React.memo(MainPart);
 
     return <>
         <HomeLoading disabledState={!continueEnabled} changeSBL={changeSBL} changeCBC={changeCBC}/>
-        {startBodyLoading ? <MainPart setCE={setCE} continueButtonClicked={continueButtonClicked}/> : null}
+        {startBodyLoading ? <MainPartMemo setCE={setCE} continueButtonClicked={continueButtonClicked}/> : null}
     </>;
 }
 
@@ -49,12 +50,13 @@ const HomeLoading=(props:{disabledState:boolean, changeSBL: React.Dispatch<React
     )
 }
 
-const MainPart = React.memo((props:{setCE: React.Dispatch<React.SetStateAction<boolean>>, continueButtonClicked:boolean})=>{
+function MainPart(props:{setCE: React.Dispatch<React.SetStateAction<boolean>>, continueButtonClicked:boolean}){
+    console.log("MainPart");
     return <div id={styles.mainPart}>
         <HomeBody setConFunc={props.setCE} continueButtonClicked={props.continueButtonClicked}/>
         <Suspense><Design2Footer/></Suspense>
     </div>
-})
+}
 
 function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean>>, continueButtonClicked:boolean}){
     useEffect(()=>{

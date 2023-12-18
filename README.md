@@ -53,6 +53,8 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Dec 18, 2023
 
+<b>update 4.2:</b> made changes to `design2Main.tsx`: just changed how the memo component is made (see changes to further understand).
+
 <b>update 4.1:</b> Added another style called "colorful", this can be accessed from the Styles box (by clicking the paint brush icon)
 
 ### Dec 14, 2023
