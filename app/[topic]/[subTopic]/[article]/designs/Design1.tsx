@@ -41,9 +41,19 @@ export default function Design1(props: {topic: string, subTopic: string, article
   const jsonForBody: MutableRefObject<any> = useRef(null);
   const [bodyVal, setBV] = useState<React.JSX.Element[] | null>(null);
   const [d1s, dispatch]: [d1sType, any] = useReducer(reducer, design1States);
+  const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"})
 
   useEffect(()=>{
-    if(headerVal !== "") {
+    if(bodyVal){
+        document.querySelectorAll("[data-title]").forEach((el)=>{
+            el.addEventListener("mouseenter",(event)=>{
+                //@ts-ignore
+                changeEIBS({text: el.getAttribute("data-title")!,posX: event.clientX - 20,posY: event.clientY + 20,visibility:"visible"});
+            });
+            el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"});});
+        });
+    }
+    else if(headerVal !== "") {
       let j = jsonForBody.current!;
       let bodyChildren = [];
       for(let i = 1; i<j.length; i++){
@@ -130,12 +140,13 @@ export default function Design1(props: {topic: string, subTopic: string, article
         setHV(j[0][1]);
       })})
     }
-  },[headerVal]); // eslint-disable-line no-use-before-define
+  },[headerVal, bodyVal]); // eslint-disable-line no-use-before-define
 
   return <FontSizeContext.Provider value={fontSize}>
     <ArticleHeader text={headerVal}/>
     <div style={{display:"flex",width:"100%" , marginBottom:"40px",minHeight:"100vh"}}>
       <MainPart content={bodyVal!}/>
+      <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
       <SBBMemo fontSizeMain={fontSize.main} setFS={setFS} dispatchFunc={dispatch}/>
     </div>
     <StyleSelectionBox showDB={d1s.showDialogBox} reducerDis={dispatch}/>
@@ -172,7 +183,7 @@ function PMain({children, mode}: {children: string, mode:number}){
   const FontSizeContextVal = useContext(FontSizeContext);
 
   if(mode === 1) return <p className={`pmain ${textMain.className} mb-3 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-1 [&>sup]:text-[60%] oldstyle-nums`} dangerouslySetInnerHTML={{__html: children}}></p>
-  if(mode === 2) return <p className={`pmain2 ${textMain.className} mb-3 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-4 [&>sup]:text-[60%] oldstyle-nums`} dangerouslySetInnerHTML={{__html: children}}></p>
+  if(mode === 2) return <p className={`pmain2 ${textMain.className} mb-3 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-4 [&>sup]:text-[60%] oldstyle-nums [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help`} dangerouslySetInnerHTML={{__html: children}}></p>
   if(mode === 3) return <p className={`subText ${textMain.className} mb-3 ${FontSizeContextVal.quote} leading-7 text-zinc-700 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-6 mx-9 [&>sup]:text-[60%] oldstyle-nums`} dangerouslySetInnerHTML={{__html: children}}></p>
 }
 
@@ -341,3 +352,7 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
 }
 
 const SBBMemo = memo(SideBlackBoard);
+
+function ExtraInfoBox(props:{text:string, pos:{X:number, Y:number}, visibility: "hidden" | "visible"}){
+    return <div className={textMain.className + " bg-zinc-400 border-2 border-dashed border-black fixed text-2xl font-bold p-2 max-w-sm "} style={{top:props.pos.Y,left:props.pos.X, visibility: props.visibility}} dangerouslySetInnerHTML={{__html: props.text}}></div>
+}

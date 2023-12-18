@@ -45,7 +45,7 @@ export default function FooterComp(){
     const [formType, changeFT] = useState(0);
 
     function showForm(type: number){
-        phpLocation.current = window.location.origin+"/infoStore/sendEmail";
+        phpLocation.current = window.location.origin+"/infoStore/sendEmail.z";
         changeFT(type);
         dispatch({type: "SHOW_FORM_BOX"});
     }

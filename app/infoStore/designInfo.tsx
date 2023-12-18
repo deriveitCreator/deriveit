@@ -1,1 +1,1 @@
-export const DEFAULT_DESIGN_SELECTION = 1;
+export const DEFAULT_DESIGN_SELECTION = 2;

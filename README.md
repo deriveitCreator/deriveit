@@ -51,9 +51,13 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+### Dec 18, 2023
+
+<b>update 4.1:</b> Added another style called "colorful", this can be accessed from the Styles box (by clicking the paint brush icon)
+
 ### Dec 14, 2023
 
-<b>update 3.6 - 3.8:</b> used for testing in vercel.
+<b>update 3.6 - 3.20:</b> used for testing in vercel.
 
 <b>update 3.5:</b> All the function in the `sendEmail` API are now inside a try-catch.
 

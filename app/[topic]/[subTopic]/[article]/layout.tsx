@@ -5,6 +5,6 @@ export async function generateMetadata({params}: {params: {topic: string, subTop
     return {title: (await import(`@/app/infoStore/${decodeURIComponent(params.topic.toLowerCase())}/${decodeURIComponent(params.subTopic)}/${decodeURIComponent(params.article)}`)).title.replaceAll("_"," ")}
 }
 
-export default function SubTopicLayout({children}: {children: React.ReactNode}) {
+export default function ArticleLayout({children}: {children: React.ReactNode}) {
     return <>{children}</>;
 }

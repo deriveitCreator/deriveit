@@ -16,16 +16,26 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function RootLayout({children}: {children: React.ReactNode}) {
-  const cookieVal = parseInt(cookies().get("designSelected")?.value!);
-  const FooterEl = dynamic(() =>  import(`./footerStyles/design${cookieVal || DEFAULT_DESIGN_SELECTION}Footer`));
+  const cookieVal = parseInt(cookies().get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
 
-  return ( <CookiesProvider>
+  if(cookieVal === 1){
+    const FooterEl = dynamic(() =>  import(`./footerStyles/design1Footer`));
+    return <CookiesProvider>
+      <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
+      <html lang="en" className={` overflow-hidden scroll1`}>
+        <body className=' bg-gray-50'>
+          <div className=' min-h-screen '>{children}</div>
+          <FooterEl/>
+        </body>
+      </html>
+    </CookiesProvider>
+  }
+  else return <CookiesProvider>
     <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
     <html lang="en">
-      <body className=' bg-gray-50'>
-        <div className=' min-h-screen '>{children}</div>
-        <FooterEl/>
+      <body>
+        <div>{children}</div>
       </body>
     </html>
-  </CookiesProvider>)
+  </CookiesProvider>
 }

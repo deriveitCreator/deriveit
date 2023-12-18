@@ -14,7 +14,6 @@ import { Blackboard } from '../components/BlackBoard';
 
 const design1States = {
     continueDisabled: true,
-    showDialogBox: false,
     startSlideShow: false
 }
 
@@ -22,10 +21,6 @@ const reducer = (state:object, action: {type:string, payload?:string}) => {
     switch (action.type) {
         case "ALLOW_CONTINUE":
             return {...state, continueDisabled: false};
-        case "SHOW_DIALOG_BOX":
-            return {...state, showDialogBox: true};
-        case "HIDE_DIALOG_BOX":
-            return {...state, showDialogBox: false};
         case "START_SLIDESHOW":
             return {...state, startSlideShow: true};
         default:
@@ -79,7 +74,7 @@ function HomeBody(props:{design1States:object,disFunc:React.Dispatch<{type:strin
 
     return <>
         {/*@ts-ignore */}
-        <HeaderEl showDiabox={props.design1States.showDialogBox} headerElDis={props.disFunc}/>
+        <HeaderEl/>
         <main style={{marginBottom:"20px"}}>
             {/*@ts-ignore */}
             <Blackboard disFunc={props.disFunc} startSS={props.design1States.startSlideShow}/>
@@ -129,14 +124,13 @@ function HomeBody(props:{design1States:object,disFunc:React.Dispatch<{type:strin
     </>;
 }
 
-const HeaderEl = (props: {showDiabox:boolean,headerElDis: React.Dispatch<{ type: string;payload?: string | undefined;}>}) => {
-    function iconClicked(){
-        props.headerElDis({type: "SHOW_DIALOG_BOX"});
-    }
+const HeaderEl = () => {
+    const [showDB, changeSDB] = useState(false);
+    
     return <header className={cursiveMain.className + " px-6 after:clear-both after:block"}>
         <h1 className=' float-left text-3xl py-2'>Deriveit.net</h1>
-        <IconContext.Provider value={{style:{float:"right",cursor:"pointer",height:"52px",width:"20px",paddingTop:"14px",paddingBottom:"18px"}}}><FaPaintbrush onClick={iconClicked} /></IconContext.Provider>
-        <Suspense><StyleSelectionBox showDB={props.showDiabox} reducerDis={props.headerElDis}/></Suspense>
+        <IconContext.Provider value={{style:{float:"right",cursor:"pointer",height:"52px",width:"20px",paddingTop:"14px",paddingBottom:"18px"}}}><FaPaintbrush onClick={()=>{changeSDB(true)}} /></IconContext.Provider>
+        <Suspense><StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/></Suspense>
     </header>;
 }
 

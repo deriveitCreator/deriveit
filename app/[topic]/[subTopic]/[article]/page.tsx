@@ -12,7 +12,11 @@ type ImportType = {
 }
 
 export default function Page({ params }: { params: { topic:string, subTopic: string, article: string } }) {
-  useEffect(() => {window.scrollTo(0,0);});
+  useEffect(() => {
+    window.scrollTo(0,0);
+    document.documentElement.style.overflowY = "auto";
+    document.documentElement.classList.remove("scroll2");
+  });
   const designSelectedVal = parseInt(useCookies().get('designSelected')!) || DEFAULT_DESIGN_SELECTION;
   const MainComp = dynamic<ImportType>(() => import(`./designs/Design${designSelectedVal}`));
   return <MainComp topic={decodeURIComponent(params.topic.toLowerCase())} subTopic={decodeURIComponent(params.subTopic)} article={decodeURIComponent(params.article)} />

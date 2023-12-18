@@ -17,9 +17,9 @@ export const ImageWrapper = (props: {
     figcaption?:string
 }) => {
 
-    const [divW,setDivW] = useState("w-0")
+    const [divW,setDivW] = useState(props.animate?"w-0":"w-full");
     useEffect(()=>{
-        if(props.animate === true) setDivW("w-full");
+        setDivW("w-full");
     }, [])
 
     let imgW = (props.w === undefined)? "w-auto": props.w;

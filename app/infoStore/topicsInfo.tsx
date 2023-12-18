@@ -1,19 +1,19 @@
 
 export const allTopics = [
-    {name:"Algebra", bgColor:"#fbe39b", textColor:"#663300"},
-    {name:"Geometry", bgColor:"#CCFF99", textColor:"green"},
-    {name:"Discrete Mathematics", bgColor:"#FFEEAA", textColor:"#FF6600"},
-    {name:"Linear Algebra", bgColor:"#777", textColor:"#CCCCCC"},
-    {name:"Trigonometry", bgColor:"#99CCFF", textColor:"#000099"},
-    {name:"Calculus", bgColor:"#88DFDF", textColor:"#005555"},
-    {name:"Probability & Statistics", bgColor:"#EEAADD", textColor:"#550055"},
-    {name:"Mechanics", bgColor:"#FFEEAA", textColor:"#600000"},
-    {name:"Astronomy", bgColor:"#666666", textColor:"#88AABB"},
-    {name:"Chemistry", bgColor:"#FFBBFF", textColor:"#993366"},
-    {name:"Electricity & Magnetism", bgColor:"#F4F4F4", textColor:"#535353"},
-    {name:"Biology", bgColor:"#FFDD99", textColor:"#FF6655"},
-    {name:"Computer Science", bgColor:"#1f1f1f", textColor:"#CCC"},
-    {name:"Uncategorized", bgColor:"#eee", textColor:"black"}
+    {name:"Algebra", headerBgColor: "#B95C00", bgColor:"rgb(251, 227, 155)", textColor:"#FBE39B", borderColor:"#663300",text:"Algebraic Equations"},
+    {name:"Geometry", headerBgColor: "#00CC00", bgColor:"#CCFF99", textColor:"#99FF66", borderColor:"green",text:"Geometry"},
+    {name:"Discrete Mathematics",headerBgColor: "#FF9900", bgColor:"#FFEEAA", textColor:"#FFDB91", borderColor:"#FF6600",text:"Discrete Mathematics"},
+    {name:"Linear Algebra",headerBgColor: "#777", bgColor:"#eee", textColor:"#CCCCCC", borderColor:"#444",text:"Linear Algebra"},
+    {name:"Trigonometry",headerBgColor: "#3366CC", bgColor:"#99CCFF", textColor:"#FFFFCC", borderColor:"#000099",text:"Trigonometry"},
+    {name:"Calculus",headerBgColor: "teal", bgColor:"#88DFDF", textColor:"#AACCCC", borderColor:"#005555",text:"Calculus"},
+    {name:"Probability & Statistics",headerBgColor: "#990099", bgColor:"#EEAADD", textColor:"#EE77FF", borderColor:"#550055",text:"Probability And Statistics"},
+    {name:"Mechanics",headerBgColor: "#AA0000", bgColor:"#FFEEAA", textColor:"#FEF1B5", borderColor:"#600000",text:"Mechanical Equations"},
+    {name:"Astronomy",headerBgColor: "#88AABB", bgColor:"black", textColor:"#333333", borderColor:"#DD0000",text:"Astronomy"},
+    {name:"Chemistry",headerBgColor: "#CC5599", bgColor:"#FFBBFF", textColor:"#FFAAFF", borderColor:"#993366",text:"Chemistry"},
+    {name:"Electricity & Magnetism",headerBgColor: "#777777", bgColor:"#F4F4F4", textColor:"white", borderColor:"#535353",text:"Electricity And Magnetism"},
+    {name:"Biology",headerBgColor: "#FF9966", bgColor:"#FFEAA9", textColor:"#FFEAA9", borderColor:"#FF6655",text:"Biology"},
+    {name:"Computer Science",headerBgColor: "#111", bgColor:"#1f1f1f", textColor:"rgb(39, 94, 177)", borderColor:"#CCC",text:"Computer Science"},
+    {name:"Uncategorized",headerBgColor: "#111", bgColor:"#FFEAA9", textColor:"#FFEAA9", borderColor:"#FF6655",text:"uc"}
 ]
 
 export function getTopicLinks(name: string): Array<[string,string[]]>{
@@ -47,7 +47,7 @@ export function getTopicLinks(name: string): Array<[string,string[]]>{
     }
 }
 
-export function getRecentlyAdded(){
+export function getRecentlyAdded(): string[]{
     return [
         "The_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola%geometry/Conic_Sections/the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola",
         "Getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition%geometry/Conic_Sections/getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition",
@@ -56,7 +56,7 @@ export function getRecentlyAdded(){
     ]
 }
 
-export function getRecentlyEdited(){
+export function getRecentlyEdited(): string[]{
     return [
         "The_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola%geometry/Conic_Sections/the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola",
         "Deriving the regression coefficient of y on x%probability_&_statistics/miscellaneous/line_of_best_fit",
@@ -79,9 +79,9 @@ const algebraLinks: Array<[string,string[]]> = [
 ];
 
 const geometryLinks: Array<[string,string[]]> = [
-    ["Circle Related Stuff", ["thales_theorem"]],
-    ["Triangle Related Stuff", ["angles_in_a_triangle_add_to_180","area_of_a_triangle","constructing_an_equilateral_triangle","pythagoras_theorem","sides_of_30_90_60"]],
     ["Quadrilateral Related Stuff", ["area_of_a_parallelogram","area_of_a_trapezium"]],
+    ["Triangle Related Stuff", ["angles_in_a_triangle_add_to_180","area_of_a_triangle","constructing_an_equilateral_triangle","pythagoras_theorem","sides_of_30_90_60"]],
+    ["Circle Related Stuff", ["thales_theorem"]],
     ["More Quadrilateral Related Stuff",["constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle"]],
     ["Conic Sections", [
         "axis_of_symmetry_of_a_parabola",
