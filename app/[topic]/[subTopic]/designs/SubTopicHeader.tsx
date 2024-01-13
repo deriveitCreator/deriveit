@@ -5,7 +5,7 @@ export default function getHeader(props:{text: string, ds: number, styleObject?:
     name: string;
     headerBgColor: string;
     bgColor: string;
-    textColor: string;
+    footerColor: string;
     borderColor: string;
     text: string;
 }}){
@@ -16,7 +16,7 @@ export default function getHeader(props:{text: string, ds: number, styleObject?:
             </header>
         case 2:
             let headerBgColor = props.styleObject!.headerBgColor;
-            let textColor = props.styleObject!.textColor;
+            let textColor = props.styleObject!.footerColor;
             let borderColor = props.styleObject!.borderColor;
             let headerText = props.styleObject!.text;
             return <header className=" sticky h-[78px] top-0">
