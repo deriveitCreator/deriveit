@@ -131,8 +131,9 @@ export default function Design2(props: {topic: string, subTopic: string, article
     <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
     <SideOption/>
     <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/>
-    <ins className="adsbygoogle"
-        style={{display:"block"}}
+    {/*@ts-ignore*/}
+    <ins align="center" className="adsbygoogle"
+        style={{display:"block",maxWidth:"95%"}}
         data-ad-client="ca-pub-4860967711062471"
         data-ad-slot="1515076236"
         data-ad-format="auto"
