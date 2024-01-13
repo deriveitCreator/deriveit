@@ -54,7 +54,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Jan 13, 2024
 
-<b>update 5.4 - 5.10:</b> Edited `design2Main.tsx` and `[topic]/[subTopic]/[article]/designs/Design2.tsx` to display ads properly.
+<b>update 5.4 - 5.11:</b> Edited `design2Main.tsx` and `[topic]/[subTopic]/[article]/designs/Design2.tsx` to display ads properly.
 
 <b>update 5.3:</b> Remove `window.scrollTo(0,0)` from all pages, and added links to the slideshow in homepage in second style.
 
