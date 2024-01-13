@@ -272,7 +272,7 @@ function BrushButton(){
 
 const footerIdStyle = {
 	display:"grid",
-	gridTemplateColumns:"120px auto",
+	gridTemplateColumns:"140px auto",
   margin:"0px 15px 0px 0px",
 }
 

@@ -216,7 +216,7 @@ function SearchEl(){
                     }
                     optionsArr.current = combinedLinks;
                     changeDisplay({searchOpDis:"none", optionsDis:"block"});
-                }} key={i} style={{color: record.textColor, backgroundColor: record.bgColor}}>{record.name}</div>
+                }} key={i} style={{color: record.borderColor, backgroundColor: record.bgColor}}>{record.name}</div>
                 else return null;
             })}</div>
         </div>

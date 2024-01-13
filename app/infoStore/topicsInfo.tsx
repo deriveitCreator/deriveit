@@ -1,19 +1,19 @@
 
 export const allTopics = [
-    {name:"Algebra", headerBgColor: "#B95C00", bgColor:"rgb(251, 227, 155)", textColor:"#FBE39B", borderColor:"#663300",text:"Algebraic Equations"},
-    {name:"Geometry", headerBgColor: "#00CC00", bgColor:"#CCFF99", textColor:"#99FF66", borderColor:"green",text:"Geometry"},
-    {name:"Discrete Mathematics",headerBgColor: "#FF9900", bgColor:"#FFEEAA", textColor:"#FFDB91", borderColor:"#FF6600",text:"Discrete Mathematics"},
-    {name:"Linear Algebra",headerBgColor: "#777", bgColor:"#eee", textColor:"#CCCCCC", borderColor:"#444",text:"Linear Algebra"},
-    {name:"Trigonometry",headerBgColor: "#3366CC", bgColor:"#99CCFF", textColor:"#FFFFCC", borderColor:"#000099",text:"Trigonometry"},
-    {name:"Calculus",headerBgColor: "teal", bgColor:"#88DFDF", textColor:"#AACCCC", borderColor:"#005555",text:"Calculus"},
-    {name:"Probability & Statistics",headerBgColor: "#990099", bgColor:"#EEAADD", textColor:"#EE77FF", borderColor:"#550055",text:"Probability And Statistics"},
-    {name:"Mechanics",headerBgColor: "#AA0000", bgColor:"#FFEEAA", textColor:"#FEF1B5", borderColor:"#600000",text:"Mechanical Equations"},
-    {name:"Astronomy",headerBgColor: "#88AABB", bgColor:"black", textColor:"#333333", borderColor:"#DD0000",text:"Astronomy"},
-    {name:"Chemistry",headerBgColor: "#CC5599", bgColor:"#FFBBFF", textColor:"#FFAAFF", borderColor:"#993366",text:"Chemistry"},
-    {name:"Electricity & Magnetism",headerBgColor: "#777777", bgColor:"#F4F4F4", textColor:"white", borderColor:"#535353",text:"Electricity And Magnetism"},
-    {name:"Biology",headerBgColor: "#FF9966", bgColor:"#FFEAA9", textColor:"#FFEAA9", borderColor:"#FF6655",text:"Biology"},
-    {name:"Computer Science",headerBgColor: "#111", bgColor:"#1f1f1f", textColor:"rgb(39, 94, 177)", borderColor:"#CCC",text:"Computer Science"},
-    {name:"Uncategorized",headerBgColor: "#111", bgColor:"#FFEAA9", textColor:"#FFEAA9", borderColor:"#FF6655",text:"uc"}
+    {name:"Algebra", headerBgColor: "#B95C00", bgColor:"rgb(251, 227, 155)", footerColor:"#FBE39B", borderColor:"#663300",text:"Algebraic Equations"},
+    {name:"Geometry", headerBgColor: "#00CC00", bgColor:"#CCFF99", footerColor:"#99FF66", borderColor:"green",text:"Geometry"},
+    {name:"Discrete Mathematics",headerBgColor: "#FF9900", bgColor:"#FFEEAA", footerColor:"#FFDB91", borderColor:"#FF6600",text:"Discrete Mathematics"},
+    {name:"Linear Algebra",headerBgColor: "#777", bgColor:"#eee", footerColor:"#CCCCCC", borderColor:"#444",text:"Linear Algebra"},
+    {name:"Trigonometry",headerBgColor: "#3366CC", bgColor:"#99CCFF", footerColor:"#FFFFCC", borderColor:"#000099",text:"Trigonometry"},
+    {name:"Calculus",headerBgColor: "teal", bgColor:"#88DFDF", footerColor:"#AACCCC", borderColor:"#005555",text:"Calculus"},
+    {name:"Probability & Statistics",headerBgColor: "#990099", bgColor:"#EEAADD", footerColor:"#EE77FF", borderColor:"#550055",text:"Probability And Statistics"},
+    {name:"Mechanics",headerBgColor: "#AA0000", bgColor:"#FFEEAA", footerColor:"#FEF1B5", borderColor:"#600000",text:"Mechanical Equations"},
+    {name:"Astronomy",headerBgColor: "#88AABB", bgColor:"black", footerColor:"#333333", borderColor:"#DD0000",text:"Astronomy"},
+    {name:"Chemistry",headerBgColor: "#CC5599", bgColor:"#FFBBFF", footerColor:"#FFAAFF", borderColor:"#993366",text:"Chemistry"},
+    {name:"Electricity & Magnetism",headerBgColor: "#777777", bgColor:"#F4F4F4", footerColor:"white", borderColor:"#535353",text:"Electricity And Magnetism"},
+    {name:"Biology",headerBgColor: "#FF9966", bgColor:"#FFEAA9", footerColor:"#FFEAA9", borderColor:"#FF6655",text:"Biology"},
+    {name:"Computer Science",headerBgColor: "#36e", bgColor:"#1f1f1f", footerColor:"#111", borderColor:"#AAA",text:"Computer Science"},
+    {name:"Uncategorized",headerBgColor: "#111", bgColor:"#FFEAA9", footerColor:"#FFEAA9", borderColor:"#FF6655",text:"uc"}
 ]
 
 export function getTopicLinks(name: string): Array<[string,string[]]>{

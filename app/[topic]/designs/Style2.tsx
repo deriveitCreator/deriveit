@@ -11,7 +11,7 @@ export default function Style2(props: {topic: string, styleObject:{
     name: string;
     headerBgColor: string;
     bgColor: string;
-    textColor: string;
+    footerColor: string;
     borderColor: string;
     text: string;
 }}){ 
@@ -23,15 +23,15 @@ export default function Style2(props: {topic: string, styleObject:{
     },[]);
 
     let headerBgColor = props.styleObject.headerBgColor;
-    let textColor = props.styleObject.textColor;
+    let footerColor = props.styleObject.footerColor;
     let borderColor = props.styleObject.borderColor;
 
     if(topicsInfoState[0][0] === "error"){ return <div>
         <main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}>
             <h2 className={`${headingFont.className} font-bold text-4xl mx-12 capitalize pt-10`} style={{color: borderColor!}}>Error</h2>
-            <p className={`${mainTextFont.className} text-[28px] leading-[32px] mx-20 mt-5 `} style={{color: textColor!, letterSpacing:"1px"}}>There is no content on this page</p>
+            <p className={`${mainTextFont.className} text-[28px] leading-[32px] mx-20 mt-5 `} style={{color: headerBgColor!, letterSpacing:"1px"}}>There is no content on this page</p>
         </main>
-        <FooterEl borderColor={borderColor!} textColor={textColor!} headerBgColor={headerBgColor!}/>
+        <FooterEl borderColor={borderColor!} textColor={footerColor!} headerBgColor={headerBgColor!}/>
     </div>}
     return <div>
         <main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}>
@@ -57,7 +57,7 @@ export default function Style2(props: {topic: string, styleObject:{
                 </section>
             })}
         </main>
-        <FooterEl borderColor={borderColor!} textColor={textColor!} headerBgColor={headerBgColor!}/>
+        <FooterEl borderColor={borderColor!} textColor={footerColor!} headerBgColor={headerBgColor!}/>
     </div>
 }
 
@@ -69,10 +69,9 @@ const StyledP = (props: {text: string, link: string, textColor: string}) =>{
 
 const footerIdStyle = {
 	display:"grid",
-	gridTemplateColumns:"120px auto",
+	gridTemplateColumns:"140px auto",
     margin:"0px 15px 0px 0px",
 }
-
 
 function FooterEl(props:{borderColor:string, textColor: string, headerBgColor: string}){
     const [footerState, changeFS] = useState(false);
