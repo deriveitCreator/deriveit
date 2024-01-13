@@ -60,7 +60,6 @@ function MainPart(props:{setCE: React.Dispatch<React.SetStateAction<boolean>>, c
 
 function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean>>, continueButtonClicked:boolean}){
     useEffect(()=>{
-        window.scrollTo(0,0);
         props.setConFunc(true);
     }, []) // eslint-disable-line no-use-before-define
 
@@ -182,13 +181,13 @@ function Slideshow(props:{continueButtonClicked:boolean}){
             <IconContext.Provider value={{style:{paddingLeft:"20px"}}}><FaAngleLeft/></IconContext.Provider>
         </div>
         <div id={styles.slideshow} ref={slideshowRef}>
-            <Link href={"/"}><ImageWrapper w='w-full' src='/D2SlideshowPics/slideshow5.png'/></Link>
-            <Link href={"/"}><ImageWrapper w='w-full' src='/D2SlideshowPics/slideshow1.png'/></Link>
-            <Link href={"/"}><ImageWrapper w='w-full' src='/D2SlideshowPics/slideshow2.png'/></Link>
-            <Link href={"/"}><ImageWrapper w='w-full' src='/D2SlideshowPics/slideshow3.png'/></Link>
-            <Link href={"/"}><ImageWrapper w='w-full' src='/D2SlideshowPics/slideshow4.png'/></Link>
-            <Link href={"/"}><ImageWrapper w='w-full' src='/D2SlideshowPics/slideshow5.png'/></Link>
-            <Link href={"/"}><ImageWrapper w='w-full' src='/D2SlideshowPics/slideshow1.png'/></Link>
+            <Link href={"/geometry/Conic_Sections/the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola"}><ImageWrapper w='w-full' src='/D2SlideshowPics/slideshow5.png'/></Link>
+            <Link href={"/astronomy/history/the_geocentric_view"}><ImageWrapper w='w-full' src='/D2SlideshowPics/slideshow1.png'/></Link>
+            <Link href={"/astronomy/history/heliocentric"}><ImageWrapper w='w-full' src='/D2SlideshowPics/slideshow2.png'/></Link>
+            <Link href={"/discrete_mathematics/factorials_permutations_and_combinations/factorials_and_permutations"}><ImageWrapper w='w-full' src='/D2SlideshowPics/slideshow3.png'/></Link>
+            <Link href={"/chemistry/history/phlogiston_theory"}><ImageWrapper w='w-full' src='/D2SlideshowPics/slideshow4.png'/></Link>
+            <Link href={"/geometry/Conic_Sections/the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola"}><ImageWrapper w='w-full' src='/D2SlideshowPics/slideshow5.png'/></Link>
+            <Link href={"/astronomy/history/the_geocentric_view"}><ImageWrapper w='w-full' src='/D2SlideshowPics/slideshow1.png'/></Link>
         </div>
         <div className={styles.changeSlide} id={styles.nextSlide} onClick={changeRight}>
             <IconContext.Provider value={{style:{paddingRight:"20px"}}}><FaAngleRight/></IconContext.Provider>
