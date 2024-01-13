@@ -43,7 +43,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
           (window.adsbygoogle = window.adsbygoogle || []).push({});
         } catch (e) {}
       }
-      if(adRef.current!.style.height) changeAdHrDis("block");
+      if(adRef.current!.offsetHeight) changeAdHrDis("block");
     }
     else if(headerVal !== "") {
       let j = jsonForBody.current!;
