@@ -53,7 +53,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Jan 13, 2024
 
-<b>update 4.10:</b>
+<b>update 4.10:</b> All changes were for the second style:
 - The objects in the `allTopics` array (in `topicsInfo.tsx`) had a key called `textColor`; it's now changed to `footerColor`. 
 - The design of the Computer Science page is changed.
 - The logo in the footer is now 140px.
