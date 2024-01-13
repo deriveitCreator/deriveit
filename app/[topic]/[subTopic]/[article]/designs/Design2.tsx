@@ -23,27 +23,27 @@ export default function Design2(props: {topic: string, subTopic: string, article
   const jsonForBody: MutableRefObject<any> = useRef(null);
   const [bodyVal, setBV] = useState<React.JSX.Element[] | null>(null);
   const [showDB, changeSDB] = useState(false);
-  const [adHrDis, changeAdHrDis] = useState("none");
   const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"})
+  const [adHrDis, changeAdHrDis] = useState("none");
+  const adRef:  MutableRefObject<null|HTMLDivElement> = useRef(null);
 
   useEffect(()=>{
     if(bodyVal){
-        document.querySelectorAll("[data-title]").forEach((el)=>{
-            el.addEventListener("mouseenter",(event)=>{
-                //@ts-ignore
-                changeEIBS({text: el.getAttribute("data-title")!,posX: event.clientX - 20,posY: event.clientY + 20,visibility:"visible"});
-            });
-            el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"});});
+      document.querySelectorAll("[data-title]").forEach((el)=>{
+        el.addEventListener("mouseenter",(event)=>{
+          //@ts-ignore
+          changeEIBS({text: el.getAttribute("data-title")!,posX: event.clientX - 20,posY: event.clientY + 20,visibility:"visible"});
         });
-        var ads = document.getElementsByClassName('adsbygoogle').length;
-        var i;
-        for (i = 0; i < ads; i++) {
-          try {
-            //@ts-ignore
-            (window.adsbygoogle = window.adsbygoogle || []).push({});
-          } catch (e) {}
-        }
-        if(i !== 0) changeAdHrDis("block");
+        el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"});});
+      });
+      var ads = document.getElementsByClassName('adsbygoogle').length;
+      for (var i = 0; i < ads; i++) {
+        try {
+          //@ts-ignore
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {}
+      }
+      if(adRef.current!.style.height) changeAdHrDis("block");
     }
     else if(headerVal !== "") {
       let j = jsonForBody.current!;
@@ -137,7 +137,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
     <section>
       <hr style={{backgroundColor:"black", height:"4px", border:"none", display:adHrDis}}/>
       {/*@ts-ignore*/}
-      <div align="center"><ins className="adsbygoogle"
+      <div align="center" ref={adRef}><ins className="adsbygoogle"
       style={{display:"block",maxWidth:"95%",marginTop:"20px",marginBottom:"20px"}}
       data-ad-client="ca-pub-4860967711062471"
       data-ad-slot="1515076236"
