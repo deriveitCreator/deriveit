@@ -1,3 +1,3 @@
 export const title="If c|ab And gcd(c, a) = 1, Then c|b";
-const content = [['h1', 'If c|ab And gcd(c, a) = 1, Then c|b'], ['pmain', 'Since gcd(c, a) = 1:'], ['displayFormula', '$$\\displaylines{1=cx+ay\\\\b=b(cx)+b(ay)}$$'], ['pmain', 'Since c|bc and c|ab, then c|(bcm + abn), where m and n can be any integers, including x and y:'], ['displayFormula', '$$\\begin{align} c|(bcm + abn) & \\implies c|(bcx + bay)\\\\ & \\implies c|(b) \\end{align}$$']];
+const content = [['h1', 'If c|ab And gcd(c, a) = 1, Then c|b'], ['pmain', 'Since gcd(c, a) = 1:'], ['displayFormula', '$$1=cx+ay$$$$b=b(cx)+b(ay)$$'], ['pmain', 'Since c|bc and c|ab, then c|(bcm + abn), where m and n can be any integers, including x and y:'], ['displayFormula', '$$\\begin{align} c|(bcm + abn) & \\implies c|(bcx + bay)\\\\ & \\implies c|(b) \\end{align}$$']];
 export default content;

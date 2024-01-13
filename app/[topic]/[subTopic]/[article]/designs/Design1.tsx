@@ -144,8 +144,6 @@ const MainPart = memo(function MainPartMemo(props: {content: JSX.Element[]}){
 
   useEffect(()=>{
     if(props.content){
-      //@ts-ignore
-      window.MathJax.typeset();
       setOp(1);
     }
   },[props.content])
@@ -159,11 +157,16 @@ function H3Main({children}: {children: string}){
 }
 
 function PMain({children, mode}: {children: string, mode:number}){
-  const FontSizeContextVal = useContext(FontSizeContext);
+  const fontSizeContextVal = useContext(FontSizeContext);
 
-  if(mode === 1) return <p className={`pmain ${textMain.className} mb-3 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-1 [&>sup]:text-[60%] oldstyle-nums`} dangerouslySetInnerHTML={{__html: children}}></p>
-  if(mode === 2) return <p className={`pmain2 ${textMain.className} mb-3 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-4 [&>sup]:text-[60%] oldstyle-nums [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help`} dangerouslySetInnerHTML={{__html: children}}></p>
-  if(mode === 3) return <p className={`subText ${textMain.className} mb-3 ${FontSizeContextVal.quote} leading-7 text-zinc-700 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-6 mx-9 [&>sup]:text-[60%] oldstyle-nums`} dangerouslySetInnerHTML={{__html: children}}></p>
+  useEffect(()=>{
+    //@ts-ignore
+    window.MathJax.typeset();
+  }, [fontSizeContextVal]);  // eslint-disable-line no-use-before-define
+
+  if(mode === 1) return <p className={`pmain ${textMain.className} mb-3 ${fontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-1 [&>sup]:text-[60%] oldstyle-nums`} dangerouslySetInnerHTML={{__html: children}}></p>
+  if(mode === 2) return <p className={`pmain2 ${textMain.className} mb-3 ${fontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-4 [&>sup]:text-[60%] oldstyle-nums [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help`} dangerouslySetInnerHTML={{__html: children}}></p>
+  if(mode === 3) return <p className={`subText ${textMain.className} mb-3 ${fontSizeContextVal.quote} leading-7 text-zinc-700 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-6 mx-9 [&>sup]:text-[60%] oldstyle-nums`} dangerouslySetInnerHTML={{__html: children}}></p>
 }
 
 function ListComp(props:{numbered: boolean, content:string}){
@@ -242,13 +245,11 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
   //font sizes for quote text in order: text-[28px],  text-2xl,     text-xl
   //default: h3:"text-4xl", main: "text-[28px]", quote: "text-2xl"
   decFS(mainFS: string, setFSFunc: setFSType){
-    console.log(mainFS);
     if(mainFS === "text-[28px]") setFSFunc({h3:"text-3xl", main: "text-2xl", quote: "text-xl"});
     else if (mainFS === "text-3xl") setFSFunc({h3:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
   }
 
   incFS(mainFS: string, setFSFunc: setFSType){
-    console.log(mainFS);
     if(mainFS === "text-2xl") setFSFunc({h3:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
     else if (mainFS === "text-[28px]") setFSFunc({h3:"text-5xl", main: "text-3xl", quote: "text-[28px]"});
   }

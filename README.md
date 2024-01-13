@@ -51,6 +51,10 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+### Jan 13, 2024
+
+<b>update 4.9:</b> In first style, `window.MathJax.typeset()` now runs after font size changes.
+
 ### Jan 12, 2024
 
 <b>update 4.8:</b>
