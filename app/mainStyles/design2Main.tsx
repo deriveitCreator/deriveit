@@ -10,7 +10,6 @@ import StyleSelectionBox from '../components/StyleSelectionBox';
 import Link from 'next/link';
 import Design2Footer from '../footerStyles/design2Footer';
 import { allTopics, getRecentlyAdded, getRecentlyEdited, getTopicLinks } from '../infoStore/topicsInfo';
-import Script from 'next/script';
 
 export default function Design2(){
     const [continueEnabled, setCE] = useState(false);
@@ -61,6 +60,13 @@ function MainPart(props:{setCE: React.Dispatch<React.SetStateAction<boolean>>, c
 function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean>>, continueButtonClicked:boolean}){
     useEffect(()=>{
         props.setConFunc(true);
+        var ads = document.getElementsByClassName('adsbygoogle').length;
+        for (var i = 0; i < ads; i++) {
+          try {
+            //@ts-ignore
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+          } catch (e) {}
+        }
     }, []) // eslint-disable-line no-use-before-define
 
     return <>
@@ -87,16 +93,14 @@ function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean
                 })}
             </tbody>
         </table></section>
-        <BelowTables recentlyAdded={true}/>
-        <BelowTables recentlyAdded={false}/>
-        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471" crossOrigin="anonymous" id="homePageAdSnippet1"/>
         <ins className="adsbygoogle"
             style={{display:"block"}}
             data-ad-client="ca-pub-4860967711062471"
             data-ad-slot="1515076236"
             data-ad-format="auto"
             data-full-width-responsive="true"></ins>
-        <Script id="homePageAdSnippet2">{"(adsbygoogle = window.adsbygoogle || []).push({});"}</Script>
+        <BelowTables recentlyAdded={true}/>
+        <BelowTables recentlyAdded={false}/>
     </>;
 }
 

@@ -34,6 +34,13 @@ export default function Design2(props: {topic: string, subTopic: string, article
             });
             el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"});});
         });
+        var ads = document.getElementsByClassName('adsbygoogle').length;
+        for (var i = 0; i < ads; i++) {
+          try {
+            //@ts-ignore
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+          } catch (e) {}
+        }
     }
     else if(headerVal !== "") {
       let j = jsonForBody.current!;
@@ -124,14 +131,12 @@ export default function Design2(props: {topic: string, subTopic: string, article
     <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
     <SideOption/>
     <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/>
-    <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471" crossOrigin="anonymous" id="articlePageAdSnippet1"/>
     <ins className="adsbygoogle"
         style={{display:"block"}}
         data-ad-client="ca-pub-4860967711062471"
         data-ad-slot="1515076236"
         data-ad-format="auto"
         data-full-width-responsive="true"></ins>
-    <Script id="articlePageAdSnippet2">{"(adsbygoogle = window.adsbygoogle || []).push({});"}</Script>
     <FooterEl/>
   </FontSizeContext.Provider>
 }
