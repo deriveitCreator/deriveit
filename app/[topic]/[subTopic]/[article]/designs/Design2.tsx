@@ -132,12 +132,12 @@ export default function Design2(props: {topic: string, subTopic: string, article
     <SideOption/>
     <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/>
     {/*@ts-ignore*/}
-    <ins align="center" className="adsbygoogle"
+    <div align="center"><ins className="adsbygoogle"
         style={{display:"block",maxWidth:"95%"}}
         data-ad-client="ca-pub-4860967711062471"
         data-ad-slot="1515076236"
         data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
+        data-full-width-responsive="true"></ins></div>
     <FooterEl/>
   </FontSizeContext.Provider>
 }
