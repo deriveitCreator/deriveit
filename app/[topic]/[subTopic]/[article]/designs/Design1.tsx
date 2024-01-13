@@ -6,7 +6,7 @@ import { FaPaintbrush } from "react-icons/fa6";
 import { TiHome } from "react-icons/ti";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { annotate } from 'rough-notation';
-import { LegacyRef, createContext, useContext, useEffect, useRef, useState, Component, memo, createRef, useReducer, RefObject, Dispatch, SetStateAction, Ref, MutableRefObject, Suspense } from "react";
+import { LegacyRef, createContext, useContext, useEffect, useRef, useState, Component, memo, createRef, useReducer, RefObject, Dispatch, SetStateAction, MutableRefObject, Context } from "react";
 import Link from "next/link";
 import { citationList } from '@/app/infoStore/sourcesForCitation';
 import ImageWrapper from '@/app/components/ImageWrapper';
@@ -14,7 +14,7 @@ import Latex from 'react-latex-next';
 import 'katex/dist/katex.min.css';
 import StyleSelectionBox from "@/app/components/StyleSelectionBox";
 
-var FontSizeContext = createContext({h3:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
+var FontSizeContext = createContext({h3: "", main: "", quote: ""});
 
 export default function Design1(props: {topic: string, subTopic: string, article: string}){
   const [fontSize,setFS] = useState({h3:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
@@ -127,7 +127,7 @@ export default function Design1(props: {topic: string, subTopic: string, article
     <div style={{display:"flex",width:"100%" , marginBottom:"40px",minHeight:"100vh"}}>
       <MainPart content={bodyVal!}/>
       <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
-      <SBBMemo fontSizeMain={fontSize.main} setFS={setFS}/>
+      <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>
     </div>
   </FontSizeContext.Provider>
 }
@@ -155,7 +155,7 @@ const MainPart = memo(function MainPartMemo(props: {content: JSX.Element[]}){
 
 function H3Main({children}: {children: string}){
   const FontSizeContextVal = useContext(FontSizeContext);
-  return <h3 className={FontSizeContextVal.h3 + ' underline ' + cursiveMain.className} dangerouslySetInnerHTML={{__html: children}}></h3>
+  return <h3 className={FontSizeContextVal.h3 + ' underline leading-relaxed ' + cursiveMain.className} dangerouslySetInnerHTML={{__html: children}}></h3>
 }
 
 function PMain({children, mode}: {children: string, mode:number}){
@@ -206,6 +206,7 @@ const asideStyle = {
   flexGrow: "0",
   padding:"10px 0px",
   margin:"0px 12px",
+  fontWeight: "bold"
 }
 type setFSType = Dispatch<SetStateAction<{h3: string;main: string;quote: string;}>>;
 interface BBProps {fontSizeMain:string, setFS: setFSType};
@@ -230,22 +231,26 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
     this.fontSizeMain = this.props.fontSizeMain;
     this.setFS = props.setFS;
   }
-  
-  shouldComponentUpdate(nextProps: BBProps, nextState: {op: string}) {
+
+  shouldComponentUpdate(nextProps: BBProps) {
     this.fontSizeMain = nextProps.fontSizeMain;
-    return this.state.op !== nextState.op;
+    return false;
   }
 
-  //font sizes for main text in order: text-3xl, text-2xl, text-[28px]
-  //font sizes for quote text in order: text-2xl, text-[28px], text-xl
-  decFS(curFS: string, setFSFunc: setFSType){
-    if(curFS === "text-3xl") setFSFunc({h3:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
-    else setFSFunc({h3:"text-3xl", main: "text-2xl", quote: "text-xl"});
+  //font sizes for H3 in order:         text-5xl,     text-4xl,     text-3xl
+  //font sizes for main text in order:  text-3xl,     text-[28px],  text-2xl
+  //font sizes for quote text in order: text-[28px],  text-2xl,     text-xl
+  //default: h3:"text-4xl", main: "text-[28px]", quote: "text-2xl"
+  decFS(mainFS: string, setFSFunc: setFSType){
+    console.log(mainFS);
+    if(mainFS === "text-[28px]") setFSFunc({h3:"text-3xl", main: "text-2xl", quote: "text-xl"});
+    else if (mainFS === "text-3xl") setFSFunc({h3:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
   }
 
-  incFS(curFS: string, setFSFunc: setFSType){
-    if(curFS === "text-2xl") setFSFunc({h3:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
-    else setFSFunc({h3:"text-5xl", main: "text-3xl", quote: "text-[28px]"});
+  incFS(mainFS: string, setFSFunc: setFSType){
+    console.log(mainFS);
+    if(mainFS === "text-2xl") setFSFunc({h3:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
+    else if (mainFS === "text-[28px]") setFSFunc({h3:"text-5xl", main: "text-3xl", quote: "text-[28px]"});
   }
 
   getBlackBoardContent(){
@@ -323,8 +328,6 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
   };
 
 }
-
-const SBBMemo = memo(SideBlackBoard);
 
 function BrushPaint(props: {brushRef: RefObject<HTMLButtonElement>}){
   const [showDB, changeSDB] = useState(false);

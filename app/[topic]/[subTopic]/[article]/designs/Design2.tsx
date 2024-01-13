@@ -14,10 +14,10 @@ import { FaChevronLeft, FaChevronRight, FaPaintbrush } from "react-icons/fa6";
 import { allTopics } from "@/app/infoStore/topicsInfo";
 import { FaHome } from "react-icons/fa";
 
-var FontSizeContext = createContext({h3:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
+var FontSizeContext = createContext({h3:"", main: "", quote: ""});
 
 export default function Design2(props: {topic: string, subTopic: string, article: string}){
-  const [fontSize,setFS] = useState({h3:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
+  const [fontSize,setFS] = useState({h3:"text-4xl", main: "text-3xl", quote: "text-[28px]"});
   const [headerVal, setHV] = useState<string>("");
   const jsonForBody: MutableRefObject<any> = useRef(null);
   const [bodyVal, setBV] = useState<React.JSX.Element[] | null>(null);
@@ -82,9 +82,9 @@ export default function Design2(props: {topic: string, subTopic: string, article
           case "displayFormula":
             bodyChildren.push(<div
               key={i}
-              className={' text-xl grid h-[200px] items-center justify-items-center'}
+              className={' text-xl grid h-[150px] items-center justify-items-center'}
               style={{gridTemplateColumns:"auto 80% auto"}}
-            ><span></span><div className={' border-black border-2 bg-white px-1 overflow-x-auto h-min w-min'}>
+            ><span></span><div className={' bg-white px-1 overflow-x-auto h-min w-min'}>
               <Latex strict>{j[i][1]}</Latex>
             </div><span></span></div>);
             break;
@@ -156,9 +156,9 @@ function H3Main({children}: {children: string}){
 function PMain({children, mode}: {children: string, mode:number}){
   const FontSizeContextVal = useContext(FontSizeContext);
 
-  if(mode === 1) return <p className={`pmain ${mainTextFont.className} mb-4 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-2 [&>sup]:text-[60%] oldstyle-nums`} dangerouslySetInnerHTML={{__html: children}}></p>
-  if(mode === 2) return <p className={`pmain2 ${mainTextFont.className} mb-4 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-8 [&>sup]:text-[60%] oldstyle-nums [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help`} dangerouslySetInnerHTML={{__html: children}}></p>
-  if(mode === 3) return <p className={`subText ${mainTextFont.className} mb-4 ${FontSizeContextVal.quote} leading-7 text-zinc-700 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-6 mx-12 [&>sup]:text-[60%] oldstyle-nums`} dangerouslySetInnerHTML={{__html: children}}></p>
+  if(mode === 1) return <p className={`pmain ${mainTextFont.className} mb-4 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-2 [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums`} dangerouslySetInnerHTML={{__html: children}}></p>
+  if(mode === 2) return <p className={`pmain2 ${mainTextFont.className} mb-4 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-8 [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help`} dangerouslySetInnerHTML={{__html: children}}></p>
+  if(mode === 3) return <p className={`subText ${mainTextFont.className} mb-4 ${FontSizeContextVal.quote} leading-7 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-6 mx-16 [&>sup]:text-[60%] text-zinc-700 oldstyle-nums`} dangerouslySetInnerHTML={{__html: children}}></p>
 }
 
 function ExtraInfoBox(props:{text:string, pos:{X:number, Y:number}, visibility: "hidden" | "visible"}){
@@ -166,8 +166,9 @@ function ExtraInfoBox(props:{text:string, pos:{X:number, Y:number}, visibility: 
 }
 
 function ListComp(props:{numbered: boolean, content:string}){
-  if(props.numbered) return <ol className={`${mainTextFont.className} list-decimal text-2xl mx-12 mb-3`} dangerouslySetInnerHTML={{__html: props.content}}></ol>
-  else return <ul className={`${mainTextFont.className} list-decimal text-2xl mx-12 mb-3`} dangerouslySetInnerHTML={{__html: props.content}}></ul>
+  const fontSizeContextVal = useContext(FontSizeContext);
+  if(props.numbered) return <ol className={`${mainTextFont.className} list-decimal mx-20 mb-4 leading-8 ${fontSizeContextVal.quote}`} dangerouslySetInnerHTML={{__html: props.content}}></ol>
+  else return <ul className={`${mainTextFont.className} list-decimal mx-20 mb-4 leading-8 ${fontSizeContextVal.quote}`} dangerouslySetInnerHTML={{__html: props.content}}></ul>
 }
 
 function SourcesSectionInner(props: {content: string[]}){

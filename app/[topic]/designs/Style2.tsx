@@ -1,6 +1,6 @@
 "use client"
 
-import React, { Suspense, useEffect, useReducer, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useRef, useState } from 'react';
 import { headingFont, mainTextFont, printFont2 } from "@/app/infoStore/fonts";
 import { getTopicLinks } from '../../infoStore/topicsInfo';
 import Link from "next/link";

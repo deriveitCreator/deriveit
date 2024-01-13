@@ -3,7 +3,7 @@
 import React, { Suspense, useState, useEffect, useRef, MutableRefObject, createRef, RefObject } from 'react';
 import ImageWrapper from '../components/ImageWrapper';
 import styles from "./design2.module.scss";
-import { logoFont2, printFont2 } from '../infoStore/fonts';
+import { logoFont2, printFont2, headingFont } from '../infoStore/fonts';
 import { IconContext } from "react-icons";
 import { FaPaintbrush, FaAngleRight, FaAngleLeft, FaCaretDown } from "react-icons/fa6";
 import StyleSelectionBox from '../components/StyleSelectionBox';
@@ -44,7 +44,7 @@ const HomeLoading=(props:{disabledState:boolean, changeSBL: React.Dispatch<React
           <ImageWrapper className='row-span-2 justify-self-center' alt="" src={`/link_logo_trans2.png`} w= 'w-32'/>
           <div className='row-span-2 h-full mx-3.5 bg-gradient-to-b from-transparent via-[#663300] to-transparent'></div>
           <p className={printFont2.className + " py-2 text-lg font-bold"}>Imagine some useful<br/>info here</p>
-          <button disabled={props.disabledState} onClick={buttonClick} id={styles.continue} className={logoFont2.className}>{props.disabledState?"loading":"continue"}</button>
+          <button disabled={props.disabledState} onClick={buttonClick} id={styles.continue} className={headingFont.className}>{props.disabledState?"loading":"continue"}</button>
         </div>
       </div>
     )

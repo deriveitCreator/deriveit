@@ -51,6 +51,17 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+### Jan 12, 2024
+
+<b>update 4.8:</b>
+- For second style:
+    - changed font of the 'continue' button in home page
+    - `subText` paragraph class now has larger left and right margins
+    - `ol` and `ul` tag now use mx-20
+    - `sup` tag in `.pmain` and `.pmain2` are now bold.
+    - Reduced height of `displayFormula` class to 150px.
+- For first style, fixed the bug of font size not changing, and blackboard writing is now in bold.
+
 ### Dec 18, 2023
 
 <b>update 4.7:</b> The `FooterEl` changes in `[article]/Design2.tsx` in update 4.5, is now also applied to `footerStyles/design2Footer.tsx`.
