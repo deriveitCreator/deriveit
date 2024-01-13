@@ -90,14 +90,14 @@ function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean
         </table></section>
         <BelowTables recentlyAdded={true}/>
         <BelowTables recentlyAdded={false}/>
-        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471" crossOrigin="anonymous"/>
+        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471" crossOrigin="anonymous" id="homePageAdSnippet1"/>
         <ins className="adsbygoogle"
             style={{display:"block"}}
             data-ad-client="ca-pub-4860967711062471"
             data-ad-slot="1515076236"
             data-ad-format="auto"
             data-full-width-responsive="true"></ins>
-        <Script>{"(adsbygoogle = window.adsbygoogle || []).push({});"}</Script>
+        <Script id="homePageAdSnippet2">{"(adsbygoogle = window.adsbygoogle || []).push({});"}</Script>
     </>;
 }
 

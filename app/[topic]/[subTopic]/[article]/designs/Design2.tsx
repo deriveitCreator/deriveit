@@ -13,6 +13,7 @@ import { IconContext } from "react-icons";
 import { FaChevronLeft, FaChevronRight, FaPaintbrush } from "react-icons/fa6";
 import { allTopics } from "@/app/infoStore/topicsInfo";
 import { FaHome } from "react-icons/fa";
+import Script from "next/script";
 
 var FontSizeContext = createContext({h3:"", main: "", quote: ""});
 
@@ -123,6 +124,14 @@ export default function Design2(props: {topic: string, subTopic: string, article
     <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
     <SideOption/>
     <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/>
+    <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471" crossOrigin="anonymous" id="articlePageAdSnippet1"/>
+    <ins className="adsbygoogle"
+        style={{display:"block"}}
+        data-ad-client="ca-pub-4860967711062471"
+        data-ad-slot="1515076236"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+    <Script id="articlePageAdSnippet2">{"(adsbygoogle = window.adsbygoogle || []).push({});"}</Script>
     <FooterEl/>
   </FontSizeContext.Provider>
 }
