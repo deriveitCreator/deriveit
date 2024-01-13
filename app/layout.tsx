@@ -21,6 +21,8 @@ export default async function RootLayout({children}: {children: React.ReactNode}
   if(cookieVal === 1){
     const FooterEl = dynamic(() =>  import(`./footerStyles/design1Footer`));
     return <CookiesProvider>
+      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471"
+     crossOrigin="anonymous"/>
       <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
       <html lang="en" className={` overflow-hidden scroll1`}>
         <body className=' bg-gray-50'>
@@ -31,6 +33,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
     </CookiesProvider>
   }
   else return <CookiesProvider>
+    <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471" crossOrigin="anonymous"/>
     <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
     <html lang="en">
       <body>

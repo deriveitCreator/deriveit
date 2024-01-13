@@ -21,6 +21,7 @@ One major thing I added was the design feature, where you can choose different d
     - `footerStyles`: store info about footer (which is global)
     - `[topic]`: when you select a particular topic in the home page, this is the folder you are routed to.
     - `infoStore`: store website info that is not found in other folders; all the article content is stored here.
+    - `ads.txt`: this is for Google ads.
 
 - The `mainStyles` folder contains the design code for home page.
 
@@ -52,6 +53,8 @@ One major thing I added was the design feature, where you can choose different d
 ## Updates
 
 ### Jan 13, 2024
+
+<b>update 5.1:</b> Added `ads.txt` to allow ads, and added ad code snippets in home page in second style.
 
 <b>update 4.10:</b> All changes were for the second style:
 - The objects in the `allTopics` array (in `topicsInfo.tsx`) had a key called `textColor`; it's now changed to `footerColor`. 
