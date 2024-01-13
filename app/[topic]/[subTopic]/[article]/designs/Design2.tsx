@@ -132,12 +132,15 @@ export default function Design2(props: {topic: string, subTopic: string, article
     <SideOption/>
     <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/>
     {/*@ts-ignore*/}
-    <div align="center"><ins className="adsbygoogle"
-        style={{display:"block",maxWidth:"95%", height:"150px",marginTop:"10px",marginBottom:"25px"}}
+    <section align="center">
+        <hr style={{backgroundColor:"black", height:"4px", border:"none"}}/>
+        <ins className="adsbygoogle"
+        style={{display:"block",maxWidth:"95%",marginTop:"20px",marginBottom:"20px"}}
         data-ad-client="ca-pub-4860967711062471"
         data-ad-slot="1515076236"
         data-ad-format="auto"
-        data-full-width-responsive="true"></ins></div>
+        data-full-width-responsive="true"></ins>
+    </section>
     <FooterEl/>
   </FontSizeContext.Provider>
 }

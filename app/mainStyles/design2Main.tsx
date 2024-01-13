@@ -95,7 +95,7 @@ function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean
         </table></section>
         {/*@ts-ignore*/}
         <div align="center"><ins className="adsbygoogle"
-            style={{display:"block",maxWidth:"1000px"}}
+            style={{display:"block",maxWidth:"1000px", marginBottom:"20px"}}
             data-ad-client="ca-pub-4860967711062471"
             data-ad-slot="1515076236"
             data-ad-format="auto"
