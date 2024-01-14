@@ -54,6 +54,8 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Jan 14, 2024
 
+<b>update 5.34:</b> Added `legendres_formula.tsx` in discrete mathematics.
+
 <b>update 5.29 - 5.33:</b> made minor content changes.
 
 <b>update 5.28:</b> Added `infinite_primes.tsx` in discrete mathematics.
