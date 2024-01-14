@@ -254,7 +254,7 @@ function SearchOptions(props:{display:string, optionsArr:{ text: string; link: s
 }
 
 function BelowTables(props: {recentlyAdded: boolean}){
-    return <section><table id={styles.tableForRecent} className={logoFont2.className}><tbody>{(props.recentlyAdded ? getRecentlyEdited() : getRecentlyAdded()).map((elem, i)=>{
+    return <section><table id={styles.tableForRecent} className={logoFont2.className}><tbody>{(props.recentlyAdded ?  getRecentlyAdded():getRecentlyEdited()).map((elem, i)=>{
         let perPos = elem.indexOf("%");
         let bgColor: string;
         let borderColor: string;
