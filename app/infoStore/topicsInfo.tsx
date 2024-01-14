@@ -98,6 +98,7 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
         "if α|β and α|ε, then α|(mβ + nε)%divisibility1",
         "if α|β and ε|δ, then αε|βδ%divisibility2",
         "smallest positive linear combination of α and β = gcd(α, β)%linear_combination_smallest_gcd",
+        "every linear combination of α and β is a multiple of gcd(α, β), and vice versa%every_linear_combination",
         "if gcd(α, ε) = 1 and gcd(β, ε) = 1, then gcd(αβ, ε) = 1%multiplicative",
         "if ε|αβ and gcd(ε, α) = 1, then ε|β%other",
         "gcd(α, β) = gcd(β, α mod β); why the euclidean algorithm works%why_the_euclidean_algorithm_works",
