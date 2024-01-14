@@ -29,15 +29,15 @@ export default function FormBox(props: {showFB: boolean, reducerDis: React.Dispa
         switch(type){
             case 0: return <label className={`${font} ${textSize} mt-4 block`} style={{color:labelColor}}>
                 Feedback:<br/>
-                <textarea placeholder={`"I think there is a problem at..." `}  name="mainText" id="textarea" required style={{color:labelColor,borderColor:labelColor}} className={`${inputFont} resize-none h-28 mx-3 text-lg outline-none border-2 rounded-md px-1 text-ellipsis ${textBg} font-bold w-80 placeholder-[${labelColor}]`}/>
+                <textarea placeholder={`"I think there is a problem at..." `}  name="mainText" id="textarea" required style={{color:labelColor,borderColor:labelColor}} className={`${inputFont} resize-none h-28 mx-3 text-lg outline-none border-2 rounded-md px-1 text-ellipsis ${textBg} font-bold w-80 placeholder:text-[${labelColor}]`}/>
             </label>
             case 1: return <label className={`${font} ${textSize} mt-4 block`} style={{color:labelColor}}>
                 Feedback:<br/>
-                <textarea placeholder={`"I want the derivation of..." `}       name="mainText" id="textarea" required style={{color:labelColor,borderColor:labelColor}} className={`${inputFont} resize-none h-28 mx-3 text-lg outline-none border-2 rounded-md px-1 text-ellipsis ${textBg} font-bold w-80 placeholder-[${labelColor}]`}/>
+                <textarea placeholder={`"I want the derivation of..." `}       name="mainText" id="textarea" required style={{color:labelColor,borderColor:labelColor}} className={`${inputFont} resize-none h-28 mx-3 text-lg outline-none border-2 rounded-md px-1 text-ellipsis ${textBg} font-bold w-80 placeholder:text-[${labelColor}]`}/>
             </label>
             case 2: return <label className={`${font} ${textSize} mt-4 block`} style={{color:labelColor}}>
                 Feedback:<br/>
-                <textarea placeholder={`"There can be an improvement at..." `} name="mainText" id="textarea" required style={{color:labelColor,borderColor:labelColor}} className={`${inputFont} resize-none h-28 mx-3 text-lg outline-none border-2 rounded-md px-1 text-ellipsis ${textBg} font-bold w-80 placeholder-[${labelColor}]`}/>
+                <textarea placeholder={`"There can be an improvement at..." `} name="mainText" id="textarea" required style={{color:labelColor,borderColor:labelColor}} className={`${inputFont} resize-none h-28 mx-3 text-lg outline-none border-2 rounded-md px-1 text-ellipsis ${textBg} font-bold w-80 placeholder:text-[${labelColor}]`}/>
             </label>
             default:  return <p className={`${font} ${textSize} mt-4 block`} style={{color:labelColor}}>There was a problem rendering this.</p>
         }
