@@ -103,6 +103,7 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
         "if ε|αβ and gcd(ε, α) = 1, then ε|β%other",
         "gcd(α, β) = gcd(β, α mod β); why the euclidean algorithm works%why_the_euclidean_algorithm_works",
         "if ρ is prime and ρ|αβ, then ρ|α or ρ|β%gcdLemma7",
+        "there are infinite number of primes%infinite_primes",
         "δ = gcd(α, β) ⇒ 1 = gcd(α/δ, β/δ)%gcdLemma8"
     ]],
     ["modular_arithmetic", [
