@@ -54,6 +54,8 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Jan 14, 2024
 
+<b>update 5.27:</b> some minor bug fixes and minor content changes.
+
 <b>update 5.25 - 5.26:</b> removed the `br` tag in `formBox`.
 
 ### Jan 13, 2024
