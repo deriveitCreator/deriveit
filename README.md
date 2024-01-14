@@ -54,6 +54,8 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Jan 13, 2024
 
+<b>update 5.24:</b> some minor bug fixes and minor content changes.
+
 <b>update 5.23:</b> For second style, in the form, the placeholder text color is now same as label color. 
 
 <b>update 5.16 - 5.22:</b> some minor bug fixes and minor content changes.
