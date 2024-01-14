@@ -49,19 +49,19 @@ export function getTopicLinks(name: string): Array<[string,string[]]>{
 
 export function getRecentlyAdded(): string[]{
     return [
+        "There are infinitely may primes%discrete_mathematics/divisibility_and_gcd/infinite_primes",
         "The_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola%geometry/Conic_Sections/the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola",
         "Getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition%geometry/Conic_Sections/getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition",
-        "Using_combinations_to_find_a_number_in_the_Pascal's_triangle%discrete_mathematics/factorials_permutations_and_combinations/using_combinations_to_find_a_number_in_the_Pascal's_triangle",
-        "Constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle%geometry/More_Quadrilateral_Related_Stuff/constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle"
+        "Using_combinations_to_find_a_number_in_the_Pascal's_triangle%discrete_mathematics/factorials_permutations_and_combinations/using_combinations_to_find_a_number_in_the_Pascal's_triangle"
     ]
 }
 
 export function getRecentlyEdited(): string[]{
     return [
+        "If p is prime and p|ab, then p|a or p|b%discrete_mathematics/divisibility_and_gcd/gcdLemma7",
+        "There are infinitely may primes%discrete_mathematics/divisibility_and_gcd/infinite_primes",
         "The_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola%geometry/Conic_Sections/the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola",
-        "Deriving the regression coefficient of y on x%probability_&_statistics/miscellaneous/line_of_best_fit",
-        "Thales_theorem%geometry/Circle_Related_Stuff/thales_theorem",
-        "Getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition%geometry/Conic_Sections/getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition"
+        "Deriving the regression coefficient of y on x%probability_&_statistics/miscellaneous/line_of_best_fit"
     ]
 }
 
