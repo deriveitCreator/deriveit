@@ -54,6 +54,8 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Jan 14, 2024
 
+<b>update 5.29:</b> made minor changes to `infinite_primes.tsx` in discrete mathematics.
+
 <b>update 5.28:</b> Added `infinite_primes.tsx` in discrete mathematics.
 
 <b>update 5.27:</b> made minor changes to `gcdLemma7.tsx` in discrete mathematics.
