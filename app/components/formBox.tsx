@@ -27,18 +27,18 @@ export default function FormBox(props: {showFB: boolean, reducerDis: React.Dispa
     function getLabel(font: string, inputFont:string, type:number, textSize: string, textBg:string, labelColor:string){
 
         switch(type){
-            case 0: return <label className={`${font} ${textSize} mt-4 block`} style={{color:labelColor}}>
-                Feedback:<br/>
+            case 0: return <>
+                <label className={`${font} ${textSize} mt-4 block`} htmlFor={"mainText"} style={{color:labelColor}}>Feedback:</label>
                 <textarea placeholder={`"I think there is a problem at..." `}  name="mainText" id="textarea" required style={{color:labelColor,borderColor:labelColor}} className={`${inputFont} resize-none h-28 mx-3 text-lg outline-none border-2 rounded-md px-1 text-ellipsis ${textBg} font-bold w-80 placeholder:text-[${labelColor}]`}/>
-            </label>
-            case 1: return <label className={`${font} ${textSize} mt-4 block`} style={{color:labelColor}}>
-                Feedback:<br/>
-                <textarea placeholder={`"I want the derivation of..." `}       name="mainText" id="textarea" required style={{color:labelColor,borderColor:labelColor}} className={`${inputFont} resize-none h-28 mx-3 text-lg outline-none border-2 rounded-md px-1 text-ellipsis ${textBg} font-bold w-80 placeholder:text-[${labelColor}]`}/>
-            </label>
-            case 2: return <label className={`${font} ${textSize} mt-4 block`} style={{color:labelColor}}>
-                Feedback:<br/>
+            </>
+            case 1: return <>
+                <label className={`${font} ${textSize} mt-4 block`} htmlFor={"mainText"} style={{color:labelColor}}>Feedback:</label>
+                <textarea placeholder={`"I want the derivation of..." `} name="mainText" id="textarea" required style={{color:labelColor,borderColor:labelColor}} className={`${inputFont} resize-none h-28 mx-3 text-lg outline-none border-2 rounded-md px-1 text-ellipsis ${textBg} font-bold w-80 placeholder:text-[${labelColor}]`}/>
+            </>
+            case 2: return <>
+                <label className={`${font} ${textSize} mt-4 block`} htmlFor={"mainText"} style={{color:labelColor}}>Feedback:</label>
                 <textarea placeholder={`"There can be an improvement at..." `} name="mainText" id="textarea" required style={{color:labelColor,borderColor:labelColor}} className={`${inputFont} resize-none h-28 mx-3 text-lg outline-none border-2 rounded-md px-1 text-ellipsis ${textBg} font-bold w-80 placeholder:text-[${labelColor}]`}/>
-            </label>
+            </>
             default:  return <p className={`${font} ${textSize} mt-4 block`} style={{color:labelColor}}>There was a problem rendering this.</p>
         }
     }
@@ -76,14 +76,10 @@ export default function FormBox(props: {showFB: boolean, reducerDis: React.Dispa
             <form onSubmit={onSubmit}>
                 <div className="block">
                     <div className=" float-left">
-                        <label className={`${cursiveMain.className} text-3xl mt-4 block ml-3`}>
-                            Name:<br/>
-                            <input id="name"  type="text"  required className={`${printFont.className} mx-3 text-lg outline-none border-black border-2 rounded-md px-1 text-ellipsis text-zinc-700 bg-gray-100 font-bold w-50`} name="name"/>
-                        </label>
-                        <label className={`${cursiveMain.className} text-3xl mt-4 block ml-3`}>
-                            Email:<br/>
-                            <input id="email" type="email" required className={`${printFont.className} mx-3 text-lg outline-none border-black border-2 rounded-md px-1 text-ellipsis text-zinc-700 bg-gray-100 font-bold w-50`} name="email"/>
-                        </label>
+                        <label htmlFor="name" className={`${cursiveMain.className} text-3xl mt-4 block ml-3`}>Name:</label>
+                        <input id="name" type="text" required className={`${printFont.className} mx-3 text-lg outline-none border-black border-2 rounded-md px-1 text-ellipsis text-zinc-700 bg-gray-100 font-bold w-50`} name="name"/>
+                        <label htmlFor="email" className={`${cursiveMain.className} text-3xl mt-4 block ml-3`}>Email:</label>
+                        <input id="email" type="email" required className={`${printFont.className} mx-3 text-lg outline-none border-black border-2 rounded-md px-1 text-ellipsis text-zinc-700 bg-gray-100 font-bold w-50`} name="email"/>
                     </div>
                     <div className=" float-right">{getLabel(cursiveMain.className, printFont.className, props.type, "text-3xl", "bg-gray-100", "black")}</div>
                     <div className="clear-both"> </div>
