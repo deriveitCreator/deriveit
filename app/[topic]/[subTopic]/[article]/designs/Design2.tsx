@@ -13,7 +13,6 @@ import { IconContext } from "react-icons";
 import { FaChevronLeft, FaChevronRight, FaPaintbrush } from "react-icons/fa6";
 import { allTopics } from "@/app/infoStore/topicsInfo";
 import { FaHome } from "react-icons/fa";
-import Script from "next/script";
 
 var FontSizeContext = createContext({h3:"", main: "", quote: ""});
 
@@ -43,6 +42,8 @@ export default function Design2(props: {topic: string, subTopic: string, article
           (window.adsbygoogle = window.adsbygoogle || []).push({});
         } catch (e) {}
       }
+      console.log("TESTING:", adRef);
+      console.log("TESTING:", adRef.current!.offsetHeight);
       if(adRef.current!.offsetHeight) changeAdHrDis("block");
     }
     else if(headerVal !== "") {

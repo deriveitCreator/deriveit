@@ -54,7 +54,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Jan 13, 2024
 
-<b>update 5.16 - 5.21:</b> some minor bug fixes and minor content changes.
+<b>update 5.16 - 5.22:</b> some minor bug fixes and minor content changes.
 
 <b>update 5.4 - 5.15:</b> Edited `design2Main.tsx` and `[topic]/[subTopic]/[article]/designs/Design2.tsx` to display ads properly.
 
