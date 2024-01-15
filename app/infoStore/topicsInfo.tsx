@@ -49,19 +49,19 @@ export function getTopicLinks(name: string): Array<[string,string[]]>{
 
 export function getRecentlyAdded(): string[]{
     return [
+        "existence and uniqueness of modular inverse if (a, m) = 1%discrete_mathematics/modular_arithmetic/modular_inverse",
         "Freshman's Dream%discrete_mathematics/modular_arithmetic/freshmans_dream",
         "Fermat's little theorem%discrete_mathematics/modular_arithmetic/fermats_little_theorem",
-        "lower bound for Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula_lower_bound",
-        "Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula"
+        "lower bound for Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula_lower_bound"
     ]
 }
 
 export function getRecentlyEdited(): string[]{
     return [
+        "existence and uniqueness of modular inverse if (a, m) = 1%discrete_mathematics/modular_arithmetic/modular_inverse",
         "Freshman's Dream%discrete_mathematics/modular_arithmetic/freshmans_dream",
         "Fermat's little theorem%discrete_mathematics/modular_arithmetic/fermats_little_theorem",
-        "lower bound for Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula_lower_bound",
-        "Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula"
+        "lower bound for Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula_lower_bound"
     ]
 }
 
@@ -115,7 +115,7 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
         "Euler's Theorem%eulers_theorem",
         "Fermat's Little Theorem%fermats_little_theorem",
         "Freshman's Dream%freshmans_dream",
-        "Existence of inverse if (a, m) = 1%modular_inverse",
+        "existence and uniqueness of modular inverse if (a, m) = 1%modular_inverse",
     ]],
     ["factorials,_permutations_and_combinations", [
         "0! = 1%0fac",
