@@ -49,19 +49,19 @@ export function getTopicLinks(name: string): Array<[string,string[]]>{
 
 export function getRecentlyAdded(): string[]{
     return [
+        "for odd primes, the solution of x<sup>2</sup> ≡ 1 mod p is x ≡ +1 or -1 mod p%discrete_mathematics/modular_arithmetic/x_square_solution",
         "existence and uniqueness of modular inverse if (a, m) = 1%discrete_mathematics/modular_arithmetic/modular_inverse",
         "Freshman's Dream%discrete_mathematics/modular_arithmetic/freshmans_dream",
-        "Fermat's little theorem%discrete_mathematics/modular_arithmetic/fermats_little_theorem",
-        "lower bound for Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula_lower_bound"
+        "Fermat's little theorem%discrete_mathematics/modular_arithmetic/fermats_little_theorem"
     ]
 }
 
 export function getRecentlyEdited(): string[]{
     return [
+        "for odd primes, the solution of x<sup>2</sup> ≡ 1 mod p is x ≡ +1 or -1 mod p%discrete_mathematics/modular_arithmetic/x_square_solution",
         "existence and uniqueness of modular inverse if (a, m) = 1%discrete_mathematics/modular_arithmetic/modular_inverse",
         "Freshman's Dream%discrete_mathematics/modular_arithmetic/freshmans_dream",
-        "Fermat's little theorem%discrete_mathematics/modular_arithmetic/fermats_little_theorem",
-        "lower bound for Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula_lower_bound"
+        "Fermat's little theorem%discrete_mathematics/modular_arithmetic/fermats_little_theorem"
     ]
 }
 

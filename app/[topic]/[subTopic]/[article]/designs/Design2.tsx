@@ -1,7 +1,7 @@
 "use client"
 
 import { mainTextFont, headingFont, printFont2 } from "@/app/infoStore/fonts";
-import { LegacyRef, createContext, useContext, useEffect, useRef, useState, memo, useReducer, MutableRefObject, Suspense } from "react";
+import { LegacyRef, createContext, useContext, useEffect, useRef, useState, memo, MutableRefObject, Suspense } from "react";
 import { citationList } from '@/app/infoStore/sourcesForCitation';
 import ImageWrapper from '@/app/components/ImageWrapper';
 import Latex from 'react-latex-next';
