@@ -49,19 +49,19 @@ export function getTopicLinks(name: string): Array<[string,string[]]>{
 
 export function getRecentlyAdded(): string[]{
     return [
+        "Freshman's Dream%discrete_mathematics/modular_arithmetic/freshmans_dream",
         "Fermat's little theorem%discrete_mathematics/modular_arithmetic/fermats_little_theorem",
         "lower bound for Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula_lower_bound",
-        "Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula",
-        "There are infinitely may primes%discrete_mathematics/divisibility_and_gcd/infinite_primes"
+        "Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula"
     ]
 }
 
 export function getRecentlyEdited(): string[]{
     return [
+        "Freshman's Dream%discrete_mathematics/modular_arithmetic/freshmans_dream",
         "Fermat's little theorem%discrete_mathematics/modular_arithmetic/fermats_little_theorem",
         "lower bound for Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula_lower_bound",
-        "Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula",
-        "If p is prime and p|ab, then p|a or p|b%discrete_mathematics/divisibility_and_gcd/gcdLemma7"
+        "Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula"
     ]
 }
 
@@ -112,8 +112,9 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
         "(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ α + ε ≡ β + δ mod Μ%modLemma1",
         "(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ αε ≡ βδ mod Μ%modLemma2",
         "(αε ≡ βε mod Μ and gcd(ε, Μ) = 1) ⇒ α ≡ β mod Μ%modLemma3",
-        "Euler's theorem%eulers_theorem",
-        "Fermat's little theorem%fermats_little_theorem"
+        "Euler's Theorem%eulers_theorem",
+        "Fermat's Little Theorem%fermats_little_theorem",
+        "Freshman's Dream%freshmans_dream"
     ]],
     ["factorials,_permutations_and_combinations", [
         "0! = 1%0fac",
