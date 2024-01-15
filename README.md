@@ -54,12 +54,13 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Jan 15, 2024
 
-<b>update 6.1 (changed from 5.25 - 5.53):</b>
+<b>update 6.1 (changed from 5.25 - 5.54):</b>
 - removed the `br` tag in `formBox`.
 - Added `infinite_primes.tsx` in discrete mathematics.
 - Added `legendres_formula.tsx` in discrete mathematics.
 - Added `legendres_formula_lower_bound.tsx` in discrete mathematics.
 - Added `eulers_theorem.tsx` in discrete mathematics.
+- Added `fermats_little_theorem.tsx` in discrete mathematics.
 
 ### Jan 13, 2024
 

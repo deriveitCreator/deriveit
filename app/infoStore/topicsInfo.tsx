@@ -49,19 +49,19 @@ export function getTopicLinks(name: string): Array<[string,string[]]>{
 
 export function getRecentlyAdded(): string[]{
     return [
+        "Fermat's little theorem%discrete_mathematics/modular_arithmetic/fermats_little_theorem",
         "lower bound for Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula_lower_bound",
         "Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula",
-        "There are infinitely may primes%discrete_mathematics/divisibility_and_gcd/infinite_primes",
-        "The_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola%geometry/Conic_Sections/the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola"
+        "There are infinitely may primes%discrete_mathematics/divisibility_and_gcd/infinite_primes"
     ]
 }
 
 export function getRecentlyEdited(): string[]{
     return [
+        "Fermat's little theorem%discrete_mathematics/modular_arithmetic/fermats_little_theorem",
         "lower bound for Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula_lower_bound",
-        "Legendre's formula%legendres_formula",
-        "If p is prime and p|ab, then p|a or p|b%discrete_mathematics/divisibility_and_gcd/gcdLemma7",
-        "There are infinitely may primes%discrete_mathematics/divisibility_and_gcd/infinite_primes"
+        "Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula",
+        "If p is prime and p|ab, then p|a or p|b%discrete_mathematics/divisibility_and_gcd/gcdLemma7"
     ]
 }
 
@@ -112,7 +112,8 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
         "(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ α + ε ≡ β + δ mod Μ%modLemma1",
         "(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ αε ≡ βδ mod Μ%modLemma2",
         "(αε ≡ βε mod Μ and gcd(ε, Μ) = 1) ⇒ α ≡ β mod Μ%modLemma3",
-        "Euler's Theorem%eulers_theorem"
+        "Euler's theorem%eulers_theorem",
+        "Fermat's little theorem%fermats_little_theorem"
     ]],
     ["factorials,_permutations_and_combinations", [
         "0! = 1%0fac",
