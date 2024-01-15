@@ -52,23 +52,14 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
-### Jan 14, 2024
+### Jan 15, 2024
 
-<b>update 5.49:</b> made minor content changes.
-
-<b>update 5.43:</b> Added `legendres_formula_lower_bound.tsx` in discrete mathematics.
-
-<b>update 5.35 - 5.42:</b> made minor content changes.
-
-<b>update 5.34:</b> Added `legendres_formula.tsx` in discrete mathematics.
-
-<b>update 5.29 - 5.33:</b> made minor content changes.
-
-<b>update 5.28:</b> Added `infinite_primes.tsx` in discrete mathematics.
-
-<b>update 5.27:</b> made minor changes to `gcdLemma7.tsx` in discrete mathematics.
-
-<b>update 5.25 - 5.26:</b> removed the `br` tag in `formBox`.
+<b>update 6.1 (changed from 5.25 - 5.50):</b>
+- removed the `br` tag in `formBox`.
+- Added `infinite_primes.tsx` in discrete mathematics.
+- Added `legendres_formula.tsx` in discrete mathematics.
+- Added `legendres_formula_lower_bound.tsx` in discrete mathematics.
+- Added `eulers_theorem.tsx` in discrete mathematics.
 
 ### Jan 13, 2024
 

@@ -49,19 +49,19 @@ export function getTopicLinks(name: string): Array<[string,string[]]>{
 
 export function getRecentlyAdded(): string[]{
     return [
+        "lower bound for Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula_lower_bound",
+        "Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula",
         "There are infinitely may primes%discrete_mathematics/divisibility_and_gcd/infinite_primes",
-        "The_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola%geometry/Conic_Sections/the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola",
-        "Getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition%geometry/Conic_Sections/getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition",
-        "Using_combinations_to_find_a_number_in_the_Pascal's_triangle%discrete_mathematics/factorials_permutations_and_combinations/using_combinations_to_find_a_number_in_the_Pascal's_triangle"
+        "The_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola%geometry/Conic_Sections/the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola"
     ]
 }
 
 export function getRecentlyEdited(): string[]{
     return [
+        "lower bound for Legendre's formula%discrete_mathematics/divisibility_and_gcd/legendres_formula_lower_bound",
+        "Legendre's formula%legendres_formula",
         "If p is prime and p|ab, then p|a or p|b%discrete_mathematics/divisibility_and_gcd/gcdLemma7",
-        "There are infinitely may primes%discrete_mathematics/divisibility_and_gcd/infinite_primes",
-        "The_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola%geometry/Conic_Sections/the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola",
-        "Deriving the regression coefficient of y on x%probability_&_statistics/miscellaneous/line_of_best_fit"
+        "There are infinitely may primes%discrete_mathematics/divisibility_and_gcd/infinite_primes"
     ]
 }
 
@@ -111,7 +111,8 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
     ["modular_arithmetic", [
         "(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ α + ε ≡ β + δ mod Μ%modLemma1",
         "(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ αε ≡ βδ mod Μ%modLemma2",
-        "(αε ≡ βε mod Μ and gcd(ε, Μ) = 1) ⇒ α ≡ β mod Μ%modLemma3"
+        "(αε ≡ βε mod Μ and gcd(ε, Μ) = 1) ⇒ α ≡ β mod Μ%modLemma3",
+        "Euler's Theorem%eulers_theorem"
     ]],
     ["factorials,_permutations_and_combinations", [
         "0! = 1%0fac",
