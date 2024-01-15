@@ -105,7 +105,8 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
         "if ρ is prime and ρ|αβ, then ρ|α or ρ|β%gcdLemma7",
         "δ = gcd(α, β) ⇒ 1 = gcd(α/δ, β/δ)%gcdLemma8",
         "there are infinite number of primes%infinite_primes",
-        "Legendre's formula%legendres_formula"
+        "Legendre's formula%legendres_formula",
+        "lower bound for Legendre's formula%legendres_formula_lower_bound"
     ]],
     ["modular_arithmetic", [
         "(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ α + ε ≡ β + δ mod Μ%modLemma1",
