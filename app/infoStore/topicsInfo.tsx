@@ -114,7 +114,8 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
         "(αε ≡ βε mod Μ and gcd(ε, Μ) = 1) ⇒ α ≡ β mod Μ%modLemma3",
         "Euler's Theorem%eulers_theorem",
         "Fermat's Little Theorem%fermats_little_theorem",
-        "Freshman's Dream%freshmans_dream"
+        "Freshman's Dream%freshmans_dream",
+        "Existence of inverse if (a, m) = 1%modular_inverse",
     ]],
     ["factorials,_permutations_and_combinations", [
         "0! = 1%0fac",
