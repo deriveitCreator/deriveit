@@ -54,7 +54,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Jan 14, 2024
 
-<b>update 5.48:</b> made minor content changes.
+<b>update 5.49:</b> made minor content changes.
 
 <b>update 5.43:</b> Added `legendres_formula_lower_bound.tsx` in discrete mathematics.
 
