@@ -21,6 +21,6 @@ const content = [
   ['displayFormula', '$$ \\left ( (1)(2) \\ldots \\left( \\frac{p-1}{2} \\right) \\right)^2 ≡ -1 \\mod p $$'],
   ['pmain', 'which means:'],
   ['displayFormula', '$$ \\left ( \\left( \\frac{p-1}{2} \\right) ! \\right)^2 ≡ -1 \\mod p $$'],
-  ['pmain', 'Thus, \\(x^2 + 1 ≡ 0 (mod p)\\) has the solution \\(x = ((p - 1)/2)!\\):'],
+  ['pmain', 'Thus, \\(x^2 + 1 ≡ 0 (mod p)\\) has the solution \\(x = ((p - 1)/2)!\\) when \\(p ≡ 1 \\mod 4\\).'],
 ];
 export default content;
