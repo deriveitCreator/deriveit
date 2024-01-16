@@ -1,7 +1,7 @@
 export const title="x^2 ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4";
 const content = [
   ['h1', 'x<sup>2</sup> ≡ -1 mod p Is Solvable If And Only If p = 2 or p ≡ 1 mod 4 (incomplete)'],
-  ['pmain', 'Suppose we have a prime \\(p\\), if we take modulo 4, then there are four possibilities, \\((1 \\mod 4)\\), \\((2 \\mod 4)\\), \\((3 \\mod 4\\)\\) and \\((4 \\mod 4)\\). Since \\(p\\) is even only when 2, then \\(p\\) cannot be \\((2 \\mod 4)\\) or \\((4 \\mod 4)\\) except when 2. To prove \\(x^2 ≡ -1 \\mod p\\) is solvable if and only if \\(p = 2\\) or \\(p ≡ 1 \\mod 4\\), we just need to show that there is no solution when:'],
+  ['pmain', 'Suppose we have a prime \\(p\\), if we take modulo 4, then there are four possibilities, \\((1 \\mod 4)\\), \\((2 \\mod 4)\\), \\((3 \\mod 4)\\) and \\((4 \\mod 4)\\). Since \\(p\\) is even only when 2, then \\(p\\) cannot be \\((2 \\mod 4)\\) or \\((4 \\mod 4)\\) except when 2. To prove \\(x^2 ≡ -1 \\mod p\\) is solvable if and only if \\(p = 2\\) or \\(p ≡ 1 \\mod 4\\), we just need to show that there is no solution when:'],
   ['displayFormula', '$$ p ≡ 3 \\mod 4 $$'],
   ['pmain', 'If \\(p ≡ 3 \\mod 4\\), then \\(p = 4k + 3\\), which would also mean:'],
   ['displayFormula', '$$ p - 1 = 4k + 2 = 2(2k + 1) $$'],
