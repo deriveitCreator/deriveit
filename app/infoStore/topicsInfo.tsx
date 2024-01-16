@@ -49,19 +49,19 @@ export function getTopicLinks(name: string): Array<[string,string[]]>{
 
 export function getRecentlyAdded(): string[]{
     return [
-        "the solution of x<sup>2</sup> ≡ 1 mod p is x ≡ +1 or -1 mod p%discrete_mathematics/modular_arithmetic/x_square_solution",
+        "x^2 ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%discrete_mathematics/modular_arithmetic/x_square_solvable",
+        "the solution of x^2 ≡ 1 mod p is x ≡ +1 or -1 mod p%discrete_mathematics/modular_arithmetic/x_square_solution",
         "existence and uniqueness of modular inverse if (a, m) = 1%discrete_mathematics/modular_arithmetic/modular_inverse",
-        "Freshman's Dream%discrete_mathematics/modular_arithmetic/freshmans_dream",
-        "Fermat's little theorem%discrete_mathematics/modular_arithmetic/fermats_little_theorem"
+        "Freshman's Dream%discrete_mathematics/modular_arithmetic/freshmans_dream"
     ]
 }
 
 export function getRecentlyEdited(): string[]{
     return [
-        "the solution of x<sup>2</sup> ≡ 1 mod p is x ≡ +1 or -1 mod p%discrete_mathematics/modular_arithmetic/x_square_solution",
+        "x^2 ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%discrete_mathematics/modular_arithmetic/x_square_solvable",
+        "the solution of x^2 ≡ 1 mod p is x ≡ +1 or -1 mod p%discrete_mathematics/modular_arithmetic/x_square_solution",
         "existence and uniqueness of modular inverse if (a, m) = 1%discrete_mathematics/modular_arithmetic/modular_inverse",
-        "Freshman's Dream%discrete_mathematics/modular_arithmetic/freshmans_dream",
-        "Fermat's little theorem%discrete_mathematics/modular_arithmetic/fermats_little_theorem"
+        "Freshman's Dream%discrete_mathematics/modular_arithmetic/freshmans_dream"
     ]
 }
 
@@ -118,7 +118,7 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
         "existence and uniqueness of modular inverse if (a, m) = 1%modular_inverse",
         "Wilson's Theorem%wilsons_theorem",
         "the solution of x<sup>2</sup> ≡ 1 mod p is x ≡ +1 or -1 mod p%x_square_solution",
-        "x^2 ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%x_square_solvable",
+        "x<sup>2</sup> ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%x_square_solvable",
     ]],
     ["factorials,_permutations_and_combinations", [
         "0! = 1%0fac",
