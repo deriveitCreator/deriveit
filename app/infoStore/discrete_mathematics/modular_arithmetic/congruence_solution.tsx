@@ -13,10 +13,10 @@ const content = [
   ['displayFormula', '$$\\begin{align} wg(cp - x_i) = zgf \\\\ w(cp - x_i) = zf \\end{align}$$'],
   ['pmain', 'This tells us that \\(z | w(cp - x_i)\\), which means \\(z | (cp - x_i)\\), because \\((z, w) = 1\\) (since (\\( (m/g,a/g) = 1) \\) as you shouldn\'t be able to divide \\(m\\) and \\(a\\) any further after dividing by gcd), and since \\(z | (cp - x_i)\\):'],
   ['displayFormula', '$$ x_i ≡ cp \\mod z $$'],
-  ['pmain', 'This means \\(x_i = cp + zl\\) where \\(l \\in \\mathbb{Z}\\). As an example, let\'s try to solve \\(8x ≡ 6 \\mod 14\\), where \\(a=8, b=6\\) and \\(m=14\\), so \\(g\\) is:'],
+  ['pmain', 'This means \\(x_i = cp + zh\\) where \\(h \\in \\mathbb{Z}\\). As an example, let\'s try to solve \\(8x ≡ 6 \\mod 14\\), where \\(a=8, b=6\\) and \\(m=14\\), so \\(g\\) is:'],
   ['displayFormula', '$$ (8, 14) = 2 $$'],
   ['pmain', 'Since \\( g | b\\), solutions exist. If \\(b=gc, a=gw\\) and \\(m=gz\\), then \\(c=3, w=4\\) and \\(z=7\\). Since \\(g = a*2 + m*-1\\), then \\(x = cp = 3*2 = 6\\). There are other solutions where:'],
   ['displayFormula', '$$ x_i ≡ 6 \\mod 7 $$'],
-  ['pmain', 'This means \\(x_i = 6 + 7l\\), so \\(x_i\\) could be 6, 13, 20, 27 and so on.'],
+  ['pmain', 'This means \\(x_i = 6 + 7h\\), so \\(x_i\\) could be 6, 13, 20, 27 and so on.'],
 ];
 export default content;
