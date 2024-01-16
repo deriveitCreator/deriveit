@@ -54,7 +54,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Jan 15, 2024
 
-<b>update 6.1 (changed from 5.25 - 5.82):</b>
+<b>update 6.1 (changed from 5.25 - 5.83):</b>
 - removed the `br` tag in `formBox`.
 - Added `infinite_primes.tsx` in discrete mathematics.
 - Added `legendres_formula.tsx` in discrete mathematics.
@@ -64,13 +64,14 @@ One major thing I added was the design feature, where you can choose different d
 - Added `freshmans_dream.tsx` in discrete mathematics.
 - Added `modular_inverse.tsx` in discrete mathematics.
 - Added `x_square_solution.tsx` in discrete mathematics.
+- Added `infinite_primes_4k_plus_1.tsx` in discrete mathematics.
 - Changed the color of the link tag in articles.
 
 ### Jan 13, 2024
 
 <b>update 5.24:</b> some minor bug fixes and minor content changes.
 
-<b>update 5.23:</b> For second style, in the form, the placeholder text color is now same as label color. 
+<b>update 5.23:</b> For second style, in the form, the placeholder text color is now same as label color (not working lol).
 
 <b>update 5.16 - 5.22:</b> some minor bug fixes and minor content changes.
 

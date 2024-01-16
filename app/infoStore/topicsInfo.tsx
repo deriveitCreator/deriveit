@@ -49,6 +49,7 @@ export function getTopicLinks(name: string): Array<[string,string[]]>{
 
 export function getRecentlyAdded(): string[]{
     return [
+        "there are infinite primes of the form 4k + 1%discrete_mathematics/divisibility_and_gcd/infinite_primes_4k_plus_1",
         "x^2 ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%discrete_mathematics/modular_arithmetic/x_square_solvable",
         "the solution of x^2 ≡ 1 mod p is x ≡ +1 or -1 mod p%discrete_mathematics/modular_arithmetic/x_square_solution",
         "existence and uniqueness of modular inverse if (a, m) = 1%discrete_mathematics/modular_arithmetic/modular_inverse",
@@ -58,6 +59,7 @@ export function getRecentlyAdded(): string[]{
 
 export function getRecentlyEdited(): string[]{
     return [
+        "there are infinite primes of the form 4k + 1%discrete_mathematics/divisibility_and_gcd/infinite_primes_4k_plus_1",
         "x^2 ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%discrete_mathematics/modular_arithmetic/x_square_solvable",
         "the solution of x^2 ≡ 1 mod p is x ≡ +1 or -1 mod p%discrete_mathematics/modular_arithmetic/x_square_solution",
         "existence and uniqueness of modular inverse if (a, m) = 1%discrete_mathematics/modular_arithmetic/modular_inverse",
@@ -106,7 +108,8 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
         "δ = gcd(α, β) ⇒ 1 = gcd(α/δ, β/δ)%gcdLemma8",
         "there are infinite number of primes%infinite_primes",
         "Legendre's formula%legendres_formula",
-        "lower bound for Legendre's formula%legendres_formula_lower_bound"
+        "lower bound for Legendre's formula%legendres_formula_lower_bound",
+        "there are infinite primes of the form 4k + 1%infinite_primes_4k_plus_1",
     ]],
     ["modular_arithmetic", [
         "(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ α + ε ≡ β + δ mod Μ%modLemma1",
