@@ -116,7 +116,9 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
         "Fermat's Little Theorem%fermats_little_theorem",
         "Freshman's Dream%freshmans_dream",
         "existence and uniqueness of modular inverse if (a, m) = 1%modular_inverse",
+        "Wilson's Theorem%wilsons_theorem",
         "the solution of x<sup>2</sup> ≡ 1 mod p is x ≡ +1 or -1 mod p%x_square_solution",
+        "x^2 ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%x_square_solvable",
     ]],
     ["factorials,_permutations_and_combinations", [
         "0! = 1%0fac",
