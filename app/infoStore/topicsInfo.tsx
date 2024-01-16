@@ -51,9 +51,7 @@ export function getRecentlyAdded(): string[]{
     return [
         "ax ≡ b mod m has a solution if and only if (a, m)|b%discrete_mathematics/modular_arithmetic/congruence_solution",
         "there are infinite primes of the form 4k + 1%discrete_mathematics/divisibility_and_gcd/infinite_primes_4k_plus_1",
-        "x^2 ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%discrete_mathematics/modular_arithmetic/x_square_solvable",
-        "the solution of x^2 ≡ 1 mod p is x ≡ +1 or -1 mod p%discrete_mathematics/modular_arithmetic/x_square_solution",
-        "existence and uniqueness of modular inverse if (a, m) = 1%discrete_mathematics/modular_arithmetic/modular_inverse"
+        "x^2 ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%discrete_mathematics/modular_arithmetic/x_square_solvable"
     ]
 }
 
@@ -61,9 +59,7 @@ export function getRecentlyEdited(): string[]{
     return [
         "ax ≡ b mod m has a solution if and only if (a, m)|b%discrete_mathematics/modular_arithmetic/congruence_solution",
         "there are infinite primes of the form 4k + 1%discrete_mathematics/divisibility_and_gcd/infinite_primes_4k_plus_1",
-        "x^2 ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%discrete_mathematics/modular_arithmetic/x_square_solvable",
-        "the solution of x^2 ≡ 1 mod p is x ≡ +1 or -1 mod p%discrete_mathematics/modular_arithmetic/x_square_solution",
-        "existence and uniqueness of modular inverse if (a, m) = 1%discrete_mathematics/modular_arithmetic/modular_inverse"
+        "x^2 ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%discrete_mathematics/modular_arithmetic/x_square_solvable"
     ]
 }
 

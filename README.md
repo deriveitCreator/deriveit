@@ -54,8 +54,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Jan 16, 2024
 
-<b>update 6.2 - 6.7:</b>
+<b>update 6.2 - 6.8:</b>
 - Added `congruence_solution.tsx` in discrete mathematics.
+- Updated `topicsInfo.tsx`.
 
 ### Jan 15, 2024
 
@@ -71,6 +72,7 @@ One major thing I added was the design feature, where you can choose different d
 - Added `x_square_solution.tsx` in discrete mathematics.
 - Added `infinite_primes_4k_plus_1.tsx` in discrete mathematics.
 - Changed the color of the link tag in articles.
+- Updated `topicsInfo.tsx`.
 
 ### Jan 13, 2024
 
