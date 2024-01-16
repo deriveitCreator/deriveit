@@ -11,6 +11,8 @@ const content = [
   ['displayFormula', '$$ a(cp - x_i) ≡ 0 \\mod m $$$$ a(cp - x_i) = mf $$'],
   ['pmain', 'Since \\(m = zg\\) and \\(a = wg\\):'],
   ['displayFormula', '$$\\begin{align} wg(cp - x_i) = zgf \\\\ w(cp - x_i) = zf \\end{align}$$'],
-  ['pmain', 'This tells us that \\z | w(cp - x_i)\\), or \\(z | (cp - x_i)\\), because \\((z, w) = 1\\) (since (\\( (\\frac{m}{g},\\frac{a}{g}) = 1) \\) as you shouldn\'t be able to divide further after dividing by gcd).'],
+  ['pmain', 'This tells us that \\z | w(cp - x_i)\\), or \\(z | (cp - x_i)\\), because \\((z, w) = 1\\) (since (\\( (\\frac{m}{g},\\frac{a}{g}) = 1) \\) as you shouldn\'t be able to divide further after dividing by gcd). Since \\(z | (cp - x_i)\\):'],
+  ['displayFormula', '$$ x_i ≡ cp \\mod z $$'],
+  ['pmain', 'This means \\(x_i = cp + zl\\) where \\(l \\in \\mathbb{Z}\\).'],
 ];
 export default content;
