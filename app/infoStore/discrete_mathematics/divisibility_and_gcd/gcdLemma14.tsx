@@ -9,6 +9,6 @@ const content = [
   ['displayFormula', '$$ (b)a_1r + (b)a_2s = b $$$$ (a_2v)a_1r + (a_1u)a_2s = b $$'],
   ['pmain', 'Which means:'],
   ['displayFormula', '$$ a_2a_1 (vr + us) = b $$'],
-  ['pmain', 'Then \\(a_2a_1|b\\). We can generalize this and say if \\(a_1|b, a_2|b, \\ldots, a_k|b\\) and all \\(a_i\\) are pairwise relatively prime, then \\(a_1a_2 \\ldots a_k|b\\).'],
+  ['pmain', 'Then \\(a_2a_1|b\\). We can generalize this, let\'s say if \\(a_3|b\\) and all \\(a_i\\) are pairwise relatively prime. If \\((a_1,a_3)=1\\) and \\((a_2,a_3)=1\\), then \\((a_1a_2,a_3)=1\\). If \\(a_3|b\\), \\(a_1a_2|b\\) and \((a_1a_2,a_3)=1\\), then \\(a_1a_2a_3|b\\), by the reasoning stated above.'],
 ];
 export default content;
