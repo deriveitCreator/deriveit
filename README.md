@@ -52,7 +52,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
-### Jan 16, 2024
+### Jan 18, 2024
 
 <b>update 6.2 - 6.20:</b>
 - Added `congruence_solution.tsx` in discrete mathematics.
