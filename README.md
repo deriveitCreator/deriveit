@@ -54,7 +54,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Jan 16, 2024
 
-<b>update 6.2 - 6.19:</b>
+<b>update 6.2 - 6.20:</b>
 - Added `congruence_solution.tsx` in discrete mathematics.
 - Updated `topicsInfo.tsx`.
 - Links in `Recently Added` table and `Recently Edited` table in second style now have 100%, and td padding is now `4px 0px 4px 4px`, instead of `4px`.
