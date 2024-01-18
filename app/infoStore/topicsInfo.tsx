@@ -122,6 +122,7 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
         "the solution of x<sup>2</sup> ≡ 1 mod p is x ≡ +1 or -1 mod p%x_square_solution",
         "x<sup>2</sup> ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%x_square_solvable",
         "ax ≡ b mod m has a solution if and only if gcd(a, m)|b%congruence_solution",
+        "Chinese remainder theorem%chinese_remainder_theorem"
     ]],
     ["factorials,_permutations_and_combinations", [
         "0! = 1%0fac",
