@@ -7,6 +7,6 @@ const content = [
   ['displayFormula', '$$ ab_1 ≡ ab_2 \\mod m ⇒ m|a(b_1 - b_2) $$'],
   ['pmain', 'Since \\((m, a) = 1\\):'],
   ['displayFormula', '$$ m|b_1 - b_2 ⇒ b_1 ≡ b_2 \\mod m $$'],
-  ['pmain', 'This shows that the inverse is unique.'],
+  ['pmain', 'This shows that the inverse is unique. By \'unique\', it means there is only one solution in modulo \\(m\\).'],
 ];
 export default content;
