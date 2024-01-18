@@ -1,6 +1,6 @@
-export const title="Chinese Remainder Theorem, explaining the solution";
+export const title="Chinese Remainder Theorem, deriving the solution";
 const content = [
-  ['h1', 'Explaining The Solution For The Chinese Remainder Theorem'],
+  ['h1', 'Deriving The Solution For The Chinese Remainder Theorem'],
   ['pmain', 'Suppose we have a system of congruences with different moduli:'],
   ['displayFormula', '$$ x ≡ b_1 \\mod n_1, x ≡ b_2 \\mod n_2, $$ $$ \\ldots, x ≡ b_k \\mod n_k $$'],
   ['pmain', 'The \\(gcd\\) of all \\(n_i\\) pairs is 1. Let\'s define \\(N\\) as:'],
@@ -23,7 +23,7 @@ const content = [
   ['displayFormula', '$$ A = 0 + 0 + \\ldots + 1 $$'],
   ['pmain', 'This means:'],
   ['displayFormula', '$$ A ≡ b_1 \\mod n_1, A ≡ b_2 \\mod n_2, $$ $$ \\ldots, A ≡ b_k \\mod n_k $$'],
-  ['pmain', 'Which means \\(A\\) is a valid solution for \\(x\\). Now let \\(y ≡ b_i \\mod n_i\\), \\(x-y ≡ 0 \\mod n_i\\) If \\(n_1 | (x-y), n_2 | (x-y), \\ldots, n_k | (x-y)\\), then using <a href="https://www.deriveit.net/discrete_mathematics/divisibility_and_gcd/gcdLemma14">this lemma</a> we can conclude \\(N|x-y\\), or:'],
+  ['pmain', 'Which means \\(A\\) is a valid solution for \\(x\\). Now let \\(y ≡ b_i \\mod n_i\\), \\(x-y ≡ 0 \\mod n_i\\) If \\(n_1 | (x-y)\\), \\(n_2 | (x-y)\\), ..., \\(n_k | (x-y)\\), then using <a href="https://www.deriveit.net/discrete_mathematics/divisibility_and_gcd/gcdLemma14">this lemma</a> we can conclude \\(N|x-y\\), or:'],
   ['displayFormula', '$$ x ≡ y \\mod N $$'],
   ['pmain', 'This means that the solution is unique, meaning that there is only one solution modulo \\(N\\).'],
 ];
