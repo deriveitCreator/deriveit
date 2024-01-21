@@ -23,7 +23,7 @@ export default function Page({ params }: { params: { topic: string } }){
     </>
   }
   else{
-    let errorBgColor = allTopics[-1].bgColor;
+    let errorBgColor = allTopics[allTopics.length-1].bgColor;
     let bgColor = errorBgColor;
     let record;
     for(record of allTopics){
