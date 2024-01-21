@@ -25,7 +25,7 @@ export default function Page({ params }: { params: { topic: string, subTopic: st
     </>
   }
   else{
-    let bgColor;
+    let bgColor = allTopics[allTopics.length-1].bgColor;
     let record;
     for(record of allTopics){
         if(record.name.replaceAll(" ","_").toLowerCase() === decodedTopic){
