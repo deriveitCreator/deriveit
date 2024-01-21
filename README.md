@@ -10,7 +10,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Top-Level folders
 
-- The `public` folder contains the all the images and logo icons.
+- The `public` folder contains the all the images, logo icons and `ads.txt`.
 
 - The `app` folder contains:
     - `global.css`
@@ -54,9 +54,10 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Jan 21, 2024
 
-<b>update 6.21 - 6.22:</b>
+<b>update 6.21 - 6.23:</b>
 - Edited `eulers_theorem.tsx` in discrete mathematics.
 - Edited some titles in `topicsInfo.tsx`.
+- Edited the colors of the "404" page for the second style.
 
 ### Jan 18, 2024
 
