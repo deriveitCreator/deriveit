@@ -54,7 +54,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Jan 21, 2024
 
-<b>update 6.21 - 6.24:</b>
+<b>update 6.21 - 6.25:</b>
 - Edited `eulers_theorem.tsx` in discrete mathematics.
 - Edited some titles in `topicsInfo.tsx`.
 - Edited the colors of the "404" page for the second style.
