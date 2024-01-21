@@ -52,6 +52,11 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+### Jan 21, 2024
+
+<b>update 6.21:</b>
+- Edited `eulers_theorem.tsx` in discrete mathematics.
+
 ### Jan 18, 2024
 
 <b>update 6.2 - 6.20:</b>
