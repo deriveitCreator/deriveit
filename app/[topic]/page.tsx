@@ -23,7 +23,8 @@ export default function Page({ params }: { params: { topic: string } }){
     </>
   }
   else{
-    let bgColor;
+    let errorBgColor = allTopics[-1].bgColor;
+    let bgColor = errorBgColor;
     let record;
     for(record of allTopics){
         if(record.name.replaceAll(" ","_").toLowerCase() === decodedTopic){

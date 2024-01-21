@@ -13,7 +13,7 @@ export const allTopics = [
     {name:"Electricity & Magnetism",headerBgColor: "#777777", bgColor:"#F4F4F4", footerColor:"white", borderColor:"#535353",text:"Electricity And Magnetism"},
     {name:"Biology",headerBgColor: "#FF9966", bgColor:"#FFEAA9", footerColor:"#FFEAA9", borderColor:"#FF6655",text:"Biology"},
     {name:"Computer Science",headerBgColor: "#36e", bgColor:"#1f1f1f", footerColor:"#111", borderColor:"#AAA",text:"Computer Science"},
-    {name:"Uncategorized",headerBgColor: "#c51", bgColor:"#f93", footerColor:"black", borderColor:"#630",text:"404 (Invalid URL)"}
+    {name:"Uncategorized",headerBgColor: "#d61", bgColor:"#fc6", footerColor:"#520", borderColor:"#520",text:"404 (Invalid URL)"}
 ]
 
 export function getTopicLinks(name: string): Array<[string,string[]]>{
