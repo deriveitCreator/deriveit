@@ -10,7 +10,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Top-Level folders
 
-- The `public` folder contains the all the images, logo icons and `ads.txt`.
+- The `public` folder contains the all the images, logo icons, `sitemap.xml` and `ads.txt`.
 
 - The `app` folder contains:
     - `global.css`
@@ -47,16 +47,16 @@ One major thing I added was the design feature, where you can choose different d
 
 - The `page.tsx`: sets the header and body based on the selected design 
 
-- The `layout.tsx`: sets metatag
+- The `layout.tsx`: sets meta-tag
 
 
 ## Updates
 
 ### Jan 21, 2024
 
-<b>update 7.1 - 7.14:</b>
+<b>update 7.1 - 7.15:</b>
 - Added code in the second style to handle 404 error.
-- Articles now use 'in-article' ads.
+- Articles now use "in-article" ads.
 - Added site-map stuff.
 
 <b>update 6.21 - 6.28:</b>

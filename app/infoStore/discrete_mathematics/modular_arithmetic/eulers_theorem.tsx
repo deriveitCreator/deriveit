@@ -7,6 +7,6 @@ const content = [
   ['displayFormula', '$$ m|r_i - r_j ⇒ r_i ≡ r_j \\mod m $$'],
   ['pmain', 'which cannot happen unless i = j. This shows all \\(ar\\) are distinct, therefore \\(\\{ar_1 \\ldots ar_k \\}\\) is also a reduced residue system mod \\(m\\). If \\(\\gcd(r_1, m) = 1\\) and \\(\\gcd(r_2, m) = 1\\), then \\(\\gcd(r_1r_2, m) = 1\\), which means:'],
   ['displayFormula', '$$\\begin{align} r_1r_2 \\ldots r_k &≡ 1 \\mod m \\\\ ar_1ar_2 \\ldots ar_k &≡ 1 \\mod m \\\\ a^{\\phi(m)}(r_1r_2 \\ldots r_k) &≡ 1 \\mod m \\end{align}$$'],
-  ['pmain', 'If \\( [(1)*(r_1r_2 \\ldots r_k)] ≡ [(a^{\\phi(m)}) * (r_1r_2 \\ldots r_k)] \\mod m\\) and \\((r_1r_2 \\ldots r_k, m) = 1\\), then \\(a^{\\phi(m)} ≡ 1 \\mod m \\) (<a href="modLemma3">click here</a> for further explanation).']
+  ['pmain', 'If \\( [(1)*(r_1r_2 \\ldots r_k)] ≡ [(a^{\\phi(m)}) * (r_1r_2 \\ldots r_k)]\\) and \\((r_1r_2 \\ldots r_k, m) = 1\\), then \\(a^{\\phi(m)} ≡ 1\\) (using <a href="modLemma3">this lemma</a>).']
 ];
 export default content;
