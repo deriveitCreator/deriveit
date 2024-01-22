@@ -23,7 +23,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
   const [bodyVal, setBV] = useState<React.JSX.Element[] | null>(null);
   const [showDB, changeSDB] = useState(false);
   const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"})
-  const [adHrDis, changeAdHrDis] = useState("none");
+  const [allowAd, changeAllowAd] = useState(false);
   const [asideW, setAW] = useState("0px");
   const adRef:  MutableRefObject<null|HTMLDivElement> = useRef(null);
 
@@ -43,7 +43,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
           (window.adsbygoogle = window.adsbygoogle || []).push({});
         } catch (e) {}
       }
-      if(adRef.current!.offsetHeight) changeAdHrDis("block");
+      if(adRef.current!.offsetHeight) changeAllowAd(true);
     }
     else if(headerVal !== "") {
       let j = jsonForBody.current!;
@@ -134,8 +134,8 @@ export default function Design2(props: {topic: string, subTopic: string, article
     <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
     <SideOption asideW={asideW} setAW={setAW}/>
     <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/>
-    <section style={{display:((asideW=="0px")?"block":"none")}}>
-      <hr style={{backgroundColor:"black", height:"4px", border:"none", display:adHrDis}}/>
+    <section style={{display:((asideW=="0px" && allowAd)?"block":"none")}}>
+      <hr style={{backgroundColor:"black", height:"4px", border:"none"}}/>
       {/*@ts-ignore*/}
       <div align="center" style={{overflowX:"auto"}} ref={adRef}><ins class="adsbygoogle"
       style={{textAlign:"center", maxWidth:"95%", marginTop:"20px", marginBottom:"20px"}}
