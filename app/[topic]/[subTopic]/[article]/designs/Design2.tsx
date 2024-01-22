@@ -138,7 +138,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
     <section>
       <hr style={{backgroundColor:"black", height:"4px", border:"none", display:adHrDis}}/>
       {/*@ts-ignore*/}
-      <div align="center" style={{overflowX:"auto", opacity: asideW}} ref={adRef}><ins class="adsbygoogle"
+      <div align="center" style={{overflowX:"auto", opacity: asideW=="0"?1:0}} ref={adRef}><ins class="adsbygoogle"
       style={{display:"block", textAlign:"center", maxWidth:"95%", marginTop:"20px", marginBottom:"20px"}}
       data-ad-layout="in-article"
       data-ad-format="fluid"
