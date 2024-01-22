@@ -221,10 +221,12 @@ function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<strin
   const iconRightRef = useRef("0");
   const [sideOpDis, changeSOD] = useState("hidden");
 
-  if(props.asideW==="0px") window.setTimeout(()=>{
-    iconRef.current = <FaChevronLeft/>;
-    changeSOD("hidden");
-  },450);
+  useEffect(()=>{
+    if(props.asideW==="0px") window.setTimeout(()=>{
+      iconRef.current = <FaChevronLeft/>;
+      changeSOD("hidden");
+    },450);
+  }, [props.asideW]); // eslint-disable-line no-use-before-define
 
   function turnOffAside(){
     document.documentElement.style.overflowY = "auto";
