@@ -37,5 +37,5 @@ next-env.d.ts
 
 #cusotm files/folders
 /public/logo.html
-/localPythonFiles
+/localEditingScripts
 *.pptx

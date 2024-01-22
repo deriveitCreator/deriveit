@@ -217,5 +217,5 @@ const electricityAndMagnetismLinks: Array<[string,string[]]> = [
 ]
 
 const biologyLinks: Array<[string,string[]]> = [
-    ["History",["cell_theory","fermentation","immunity",]]
+    ["history",["cell_theory","fermentation","immunity",]]
 ]
