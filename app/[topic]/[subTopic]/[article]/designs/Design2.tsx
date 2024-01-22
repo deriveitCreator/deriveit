@@ -123,7 +123,6 @@ export default function Design2(props: {topic: string, subTopic: string, article
         body: JSON.stringify({topic: props.topic, subTopic: props.subTopic, article: props.article})
       }).then( res =>{ res.json().then(j=>{
         jsonForBody.current = j;
-        console.log(j)
         setHV(j[0][1]);
       })})
     }
