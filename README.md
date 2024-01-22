@@ -54,7 +54,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Jan 21, 2024
 
-<b>update 7.1 - 7.18:</b>
+<b>update 7.1 - 7.19:</b>
 - Added code in the second style to handle 404 error.
 - Added site-map stuff.
 - Articles now use in-article ads instead of display ads.

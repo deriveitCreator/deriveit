@@ -134,7 +134,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
     <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
     <SideOption asideW={asideW} setAW={setAW}/>
     <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/>
-    <section style={{display:((asideW=="0px")?"block":"none")}}>
+    <section style={{display:((asideW=="0px") && allowAd)?"block":"none"}}>
       <hr style={{backgroundColor:"black", height:"4px", border:"none"}}/>
       {/*@ts-ignore*/}
       <div align="center" style={{overflowX:"auto"}} ref={adRef}><ins class="adsbygoogle"
