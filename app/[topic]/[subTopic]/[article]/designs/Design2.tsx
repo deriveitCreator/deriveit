@@ -137,12 +137,12 @@ export default function Design2(props: {topic: string, subTopic: string, article
     <section>
       <hr style={{backgroundColor:"black", height:"4px", border:"none", display:adHrDis}}/>
       {/*@ts-ignore*/}
-      <div align="center" ref={adRef}><ins className="adsbygoogle"
-      style={{display:"block",maxWidth:"95%",marginTop:"20px",marginBottom:"20px"}}
+      <div align="center" ref={adRef}><ins class="adsbygoogle"
+      style={{display:"block", textAlign:"center"}}
+      data-ad-layout="in-article"
+      data-ad-format="fluid"
       data-ad-client="ca-pub-4860967711062471"
-      data-ad-slot="1515076236"
-      data-ad-format="auto"
-      data-full-width-responsive="true"></ins></div>
+      data-ad-slot="6823528647"></ins></div>
     </section>
     <FooterEl/>
   </FontSizeContext.Provider>

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import dynamic from 'next/dynamic';
 import TopicHeader from './designs/TopicHeader';
 import { useCookies } from 'next-client-cookies';

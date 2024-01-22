@@ -54,8 +54,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Jan 21, 2024
 
-<b>update 7.1:</b>
+<b>update 7.1 - 7.2:</b>
 - Added code in the second style to handle 404 error.
+- Articles now use 'in-article' ads.
 
 <b>update 6.21 - 6.28:</b>
 - Edited `eulers_theorem.tsx` in discrete mathematics.
