@@ -1,7 +1,7 @@
 "use client"
 
 import { mainTextFont, headingFont, printFont2 } from "@/app/infoStore/fonts";
-import { LegacyRef, createContext, useContext, useEffect, useRef, useState, memo, MutableRefObject, Suspense } from "react";
+import { LegacyRef, createContext, useContext, useEffect, useRef, useState, memo, MutableRefObject, Suspense, Dispatch, SetStateAction } from "react";
 import { citationList } from '@/app/infoStore/sourcesForCitation';
 import ImageWrapper from '@/app/components/ImageWrapper';
 import Latex from 'react-latex-next';
@@ -24,6 +24,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
   const [showDB, changeSDB] = useState(false);
   const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"})
   const [adHrDis, changeAdHrDis] = useState("none");
+  const [asideW, setAW] = useState("0");
   const adRef:  MutableRefObject<null|HTMLDivElement> = useRef(null);
 
   useEffect(()=>{
@@ -132,12 +133,12 @@ export default function Design2(props: {topic: string, subTopic: string, article
     <ArticleHeader text={headerVal}/>
     <MainPart content={bodyVal!}/>
     <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
-    <SideOption/>
+    <SideOption asideW={asideW} setAW={setAW}/>
     <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/>
     <section>
       <hr style={{backgroundColor:"black", height:"4px", border:"none", display:adHrDis}}/>
       {/*@ts-ignore*/}
-      <div align="center" style={{overflowX:"scroll"}} ref={adRef}><ins class="adsbygoogle"
+      <div align="center" style={{overflowX:"auto", opacity: asideW}} ref={adRef}><ins class="adsbygoogle"
       style={{display:"block", textAlign:"center", maxWidth:"95%", marginTop:"20px", marginBottom:"20px"}}
       data-ad-layout="in-article"
       data-ad-format="fluid"
@@ -215,67 +216,64 @@ function LiForSources(props: {children: string}){
   return <li ref={refConst} dangerouslySetInnerHTML={{__html: htmlVar}}></li>;
 }
 
-function SideOption(){
-    const [asideW, setAW] = useState("0px");
-    const grayAreaOp = useRef("opacity-0");
-    const iconRef = useRef(<FaChevronLeft/>);
-    const iconRightRef = useRef("0");
-    const [sideOpDis, changeSOD] = useState("hidden");
+function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<string>>}){
+  const grayAreaOp = useRef("opacity-0");
+  const iconRef = useRef(<FaChevronLeft/>);
+  const iconRightRef = useRef("0");
+  const [sideOpDis, changeSOD] = useState("hidden");
 
-    useEffect(()=>{
-        if(asideW==="0px") window.setTimeout(()=>{
-            iconRef.current = <FaChevronLeft/>;
-            changeSOD("hidden");
-        },450);
-    }, [asideW])
+  if(props.asideW==="0") window.setTimeout(()=>{
+    iconRef.current = <FaChevronLeft/>;
+    changeSOD("hidden");
+  },450);
 
-    function turnOffAside(){
-        document.documentElement.style.overflowY = "auto";
-        document.documentElement.classList.remove("scroll2");
-        iconRightRef.current = "0";
-        grayAreaOp.current = "opacity-0";
-        setAW("0px");
-    }
+  function turnOffAside(){
+    document.documentElement.style.overflowY = "auto";
+    document.documentElement.classList.remove("scroll2");
+    iconRightRef.current = "0";
+    grayAreaOp.current = "opacity-0";
+    props.setAW("0px");
+  }
 
-    function turnOnAside(){
-        document.documentElement.style.overflowY = "hidden";
-        document.documentElement.classList.add("scroll2");
-        iconRightRef.current = "240px";
-        iconRef.current = <FaChevronRight/>;
-        grayAreaOp.current = "opacity-50";
-        changeSOD("block");
-        setAW("240px");
-    }
+  function turnOnAside(){
+    document.documentElement.style.overflowY = "hidden";
+    document.documentElement.classList.add("scroll2");
+    iconRightRef.current = "240px";
+    iconRef.current = <FaChevronRight/>;
+    grayAreaOp.current = "opacity-50";
+    changeSOD("block");
+    props.setAW("240px");
+  }
 
-    return  <>
-        <div onClick={()=>{asideW==="0px"?turnOnAside():turnOffAside()}} className="fixed top-28 cursor-pointer" style={{backgroundColor: "#BB5500",borderColor: "#663300",borderWidth: "5px",borderStyle: "solid", borderRightStyle:"none", borderRadius:"10px 0px 0px 10px", color: "#FFDD77",right:iconRightRef.current,zIndex:"10",transition:"right 0.4s"}}><IconContext.Provider value={{style:{height:"45px",margin:"0px 10px",fontWeight:"bold"}}}>{iconRef.current}</IconContext.Provider></div>
-        <div className={`${sideOpDis} fixed h-full w-full grid top-0 right-0`} style={{gridTemplateColumns:`auto ${asideW}`,transition:"0.4s"}}>
-            <div className={` bg-zinc-700 ${grayAreaOp.current} transition-all`} onClick={turnOffAside}></div>
-            <aside className={"overflow-y-scroll"} style={{
-                backgroundColor: "#BB5500",
-                borderLeftColor: "#663300",
-                borderLeftWidth: "5px",
-                borderLeftStyle: "solid",
-                position:"relative"
-            }}>
-                <div style={{
-                    borderRightColor: "#663300",
-                    borderRightWidth: "5px",
-                    borderRightStyle: "solid",
-                    padding:"1px 0px"
-                }}>
-                    <div className="flex flex-row justify-evenly mt-4">
-                        <Link href={"/"}><IconContext.Provider value={{style:{color:"#FFDD77",border:"solid 4px #663300",borderRadius:"8px",height:"50px",width:"50px",padding:"4px",backgroundColor:"#c60"}}}><FaHome/></IconContext.Provider></Link>
-                        <BrushButton/>
-                    </div>
-                    {allTopics.map((record, i)=>{
-                        if(record.name === "Uncategorized") return null;
-                        return <Link key={i} href={`/${record.name.replaceAll(" ","_").toLowerCase()}`}><ImageWrapper className="mx-6 my-4 hover:transform hover:scale-105" src={`/topicsPics/${record.name.replaceAll(" ","_").toLowerCase()}.png`} w="w-full"/></Link>
-                    })}
-                </div>
-            </aside>
+  return  <>
+    <div onClick={()=>{props.asideW==="0"?turnOnAside():turnOffAside()}} className="fixed top-28 cursor-pointer" style={{backgroundColor: "#BB5500",borderColor: "#663300",borderWidth: "5px",borderStyle: "solid", borderRightStyle:"none", borderRadius:"10px 0px 0px 10px", color: "#FFDD77",right:iconRightRef.current,zIndex:"10",transition:"right 0.4s"}}><IconContext.Provider value={{style:{height:"45px",margin:"0px 10px",fontWeight:"bold"}}}>{iconRef.current}</IconContext.Provider></div>
+    <div className={`${sideOpDis} fixed h-full w-full grid top-0 right-0`} style={{gridTemplateColumns:`auto ${props.asideW}px`,transition:"0.4s"}}>
+      <div className={` bg-zinc-700 ${grayAreaOp.current} transition-all`} onClick={turnOffAside}></div>
+      <aside className={"overflow-y-scroll"} style={{
+        backgroundColor: "#BB5500",
+        borderLeftColor: "#663300",
+        borderLeftWidth: "5px",
+        borderLeftStyle: "solid",
+        position:"relative"
+      }}>
+        <div style={{
+          borderRightColor: "#663300",
+          borderRightWidth: "5px",
+          borderRightStyle: "solid",
+          padding:"1px 0px"
+        }}>
+          <div className="flex flex-row justify-evenly mt-4">
+            <Link href={"/"}><IconContext.Provider value={{style:{color:"#FFDD77",border:"solid 4px #663300",borderRadius:"8px",height:"50px",width:"50px",padding:"4px",backgroundColor:"#c60"}}}><FaHome/></IconContext.Provider></Link>
+            <BrushButton/>
+          </div>
+          {allTopics.map((record, i)=>{
+            if(record.name === "Uncategorized") return null;
+            return <Link key={i} href={`/${record.name.replaceAll(" ","_").toLowerCase()}`}><ImageWrapper className="mx-6 my-4 hover:transform hover:scale-105" src={`/topicsPics/${record.name.replaceAll(" ","_").toLowerCase()}.png`} w="w-full"/></Link>
+          })}
         </div>
-    </>
+      </aside>
+    </div>
+  </>
 }
 
 function BrushButton(){
