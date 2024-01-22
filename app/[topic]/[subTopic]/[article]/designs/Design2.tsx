@@ -24,7 +24,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
   const [showDB, changeSDB] = useState(false);
   const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"})
   const [adHrDis, changeAdHrDis] = useState("none");
-  const [asideW, setAW] = useState("0");
+  const [asideW, setAW] = useState("0px");
   const adRef:  MutableRefObject<null|HTMLDivElement> = useRef(null);
 
   useEffect(()=>{
@@ -138,7 +138,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
     <section>
       <hr style={{backgroundColor:"black", height:"4px", border:"none", display:adHrDis}}/>
       {/*@ts-ignore*/}
-      <div align="center" style={{overflowX:"auto", opacity: asideW=="0"?1:0}} ref={adRef}><ins class="adsbygoogle"
+      <div align="center" style={{overflowX:"auto", opacity: (asideW=="0px")?1:0}} ref={adRef}><ins class="adsbygoogle"
       style={{display:"block", textAlign:"center", maxWidth:"95%", marginTop:"20px", marginBottom:"20px"}}
       data-ad-layout="in-article"
       data-ad-format="fluid"
@@ -222,7 +222,7 @@ function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<strin
   const iconRightRef = useRef("0");
   const [sideOpDis, changeSOD] = useState("hidden");
 
-  if(props.asideW==="0") window.setTimeout(()=>{
+  if(props.asideW==="0px") window.setTimeout(()=>{
     iconRef.current = <FaChevronLeft/>;
     changeSOD("hidden");
   },450);
@@ -246,8 +246,8 @@ function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<strin
   }
 
   return  <>
-    <div onClick={()=>{props.asideW==="0"?turnOnAside():turnOffAside()}} className="fixed top-28 cursor-pointer" style={{backgroundColor: "#BB5500",borderColor: "#663300",borderWidth: "5px",borderStyle: "solid", borderRightStyle:"none", borderRadius:"10px 0px 0px 10px", color: "#FFDD77",right:iconRightRef.current,zIndex:"10",transition:"right 0.4s"}}><IconContext.Provider value={{style:{height:"45px",margin:"0px 10px",fontWeight:"bold"}}}>{iconRef.current}</IconContext.Provider></div>
-    <div className={`${sideOpDis} fixed h-full w-full grid top-0 right-0`} style={{gridTemplateColumns:`auto ${props.asideW}px`,transition:"0.4s"}}>
+    <div onClick={()=>{props.asideW==="0px"?turnOnAside():turnOffAside()}} className="fixed top-28 cursor-pointer" style={{backgroundColor: "#BB5500",borderColor: "#663300",borderWidth: "5px",borderStyle: "solid", borderRightStyle:"none", borderRadius:"10px 0px 0px 10px", color: "#FFDD77",right:iconRightRef.current,zIndex:"10",transition:"right 0.4s"}}><IconContext.Provider value={{style:{height:"45px",margin:"0px 10px",fontWeight:"bold"}}}>{iconRef.current}</IconContext.Provider></div>
+    <div className={`${sideOpDis} fixed h-full w-full grid top-0 right-0`} style={{gridTemplateColumns:`auto ${props.asideW}`,transition:"0.4s"}}>
       <div className={` bg-zinc-700 ${grayAreaOp.current} transition-all`} onClick={turnOffAside}></div>
       <aside className={"overflow-y-scroll"} style={{
         backgroundColor: "#BB5500",
