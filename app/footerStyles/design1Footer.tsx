@@ -41,11 +41,9 @@ const reducer = (state:object, action: {type:string, payload?:string}) => {
 
 export default function FooterComp(){
     const [fs, dispatch] = useReducer(reducer, footerStates);
-    const phpLocation = useRef("");
     const [formType, changeFT] = useState(0);
 
     function showForm(type: number){
-        phpLocation.current = window.location.origin+"/infoStore/sendEmail.z";
         changeFT(type);
         dispatch({type: "SHOW_FORM_BOX"});
     }
@@ -64,7 +62,7 @@ export default function FooterComp(){
             <ImageWrapper mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
         </Link>
         {/*@ts-ignore */}
-        <Suspense fallback={<></>}><FormBox showFB={fs.showFooter} reducerDis={dispatch} type={formType} actionLoc={phpLocation.current}/></Suspense>
+        <Suspense fallback={<></>}><FormBox showFB={fs.showFooter} reducerDis={dispatch} type={formType}/></Suspense>
     </footer>
 }
 

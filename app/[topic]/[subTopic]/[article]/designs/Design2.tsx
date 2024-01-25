@@ -298,7 +298,6 @@ const footerIdStyle = {
 
 function FooterEl(){
   const [footerState, changeFS] = useState(false);
-  const phpLocation = useRef("");
   const formType = useRef(0);
   
   function dispatch(arg0: {type: string}){
@@ -306,7 +305,6 @@ function FooterEl(){
   }
 
   function showForm(type: number){
-    phpLocation.current = window.location.origin+"/infoStore/sendEmail";
     formType.current = type;
     dispatch({type: "SHOW_FORM_BOX"});
   }
@@ -329,7 +327,7 @@ function FooterEl(){
             <ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
           </Link>
         </div>
-        <Suspense fallback={<></>}><FormBox showFB={footerState} reducerDis={dispatch} type={formType.current} actionLoc={phpLocation.current}/></Suspense>
+        <Suspense fallback={<></>}><FormBox showFB={footerState} reducerDis={dispatch} type={formType.current}/></Suspense>
       </div>
     </footer>
   </div>

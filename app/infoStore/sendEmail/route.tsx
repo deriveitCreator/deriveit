@@ -13,7 +13,7 @@ export async function POST(request: Request) {
             from: "onboarding@resend.dev",
             to: 'contact.deriveit@gmail.com',
             subject: `${formJSON["name"]} - ${formJSON["title"]}`,
-            html: `<p>${formJSON["mainText"]}<br/>by ${formJSON["email"]}</p>`
+            html: `<p>${formJSON["mainText"]}<br/>by ${formJSON["email"]}<br/>Last Page: ${formJSON["pathname"]}</p>`
         });
         if (error) return Response.json(["There was an error in the submission.","There was an error in the submission."]);
         return Response.json(["Your message is sent.",`The message you sent: ${formJSON["mainText"]}`]);

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { Suspense, useEffect, useReducer, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useRef, useState } from 'react';
 import { headingFont, mainTextFont, printFont2 } from "@/app/infoStore/fonts";
 import { getTopicLinks } from '../../../infoStore/topicsInfo';
 import Link from "next/link";
@@ -78,7 +78,6 @@ const footerIdStyle = {
 
 function FooterEl(props:{borderColor:string, textColor: string, headerBgColor: string}){
     const [footerState, changeFS] = useState(false);
-    const phpLocation = useRef("");
     const formType = useRef(0);
 
      
@@ -87,7 +86,6 @@ function FooterEl(props:{borderColor:string, textColor: string, headerBgColor: s
     }
     
     function showForm(type: number){
-        phpLocation.current = window.location.origin+"/infoStore/sendEmail";
         formType.current = type;
         dispatch({type: "SHOW_FORM_BOX"});
     }
@@ -110,7 +108,7 @@ function FooterEl(props:{borderColor:string, textColor: string, headerBgColor: s
                         <ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
                     </Link>
                 </div>
-                <Suspense fallback={<></>}><FormBox showFB={footerState} reducerDis={dispatch} type={formType.current} actionLoc={phpLocation.current}/></Suspense>
+                <Suspense fallback={<></>}><FormBox showFB={footerState} reducerDis={dispatch} type={formType.current}/></Suspense>
             </div>
         </footer>
     </div>

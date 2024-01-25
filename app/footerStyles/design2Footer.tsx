@@ -26,7 +26,6 @@ const footerPStyle = {
 
 const Design2Footer = () => {
   const [footerState, changeFS] = useState(false);
-  const phpLocation = useRef("");
   const formType = useRef(0);
 
   function dispatch(arg0: {type: string}){
@@ -34,7 +33,6 @@ const Design2Footer = () => {
   }
 
   function showForm(type: number){
-      phpLocation.current = window.location.origin+"/infoStore/sendEmail";
       formType.current = type;
       dispatch({type: "SHOW_FORM_BOX"});
   }
@@ -50,7 +48,7 @@ const Design2Footer = () => {
         <p className={" text-center font-bold text-sm "}>Want To Donate?</p>
         <ImageWrapper mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
     </Link>
-    <Suspense fallback={<></>}><FormBox showFB={footerState} reducerDis={dispatch} type={formType.current} actionLoc={phpLocation.current}/></Suspense>
+    <Suspense fallback={<></>}><FormBox showFB={footerState} reducerDis={dispatch} type={formType.current}/></Suspense>
     </div>
   </footer>
 }
