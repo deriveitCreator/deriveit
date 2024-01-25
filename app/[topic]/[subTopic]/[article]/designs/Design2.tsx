@@ -23,7 +23,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
   const [bodyVal, setBV] = useState<React.JSX.Element[] | null>(null);
   const [showDB, changeSDB] = useState(false);
   const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"})
-  const [allowAd, changeAllowAd] = useState(false);
+  const [allowAd, changeAllowAd] = useState(true);
   const [asideW, setAW] = useState("0px");
   const adRef:  MutableRefObject<null|HTMLDivElement> = useRef(null);
 
@@ -43,7 +43,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
           (window.adsbygoogle = window.adsbygoogle || []).push({});
         } catch (e) {}
       }
-      if(adRef.current!.offsetHeight) changeAllowAd(true);
+      console.log(adRef.current!.offsetHeight);
     }
     else if(headerVal !== "") {
       let j = jsonForBody.current!;
