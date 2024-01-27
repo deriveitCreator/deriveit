@@ -7,7 +7,7 @@ import Link from "next/link";
 import FormBox from '@/app/components/formBox';
 import ImageWrapper from '@/app/components/ImageWrapper';
 
-export default function Style2(props: {topic: string, subTopic: string, styleObject:{
+export default function Style2(props: {topic: string, subTopic: [string,string[]], styleObject:{
     name: string;
     headerBgColor: string;
     bgColor: string;
@@ -15,34 +15,27 @@ export default function Style2(props: {topic: string, subTopic: string, styleObj
     borderColor: string;
     text: string;
 }}){ 
-    const topicsInfoState: Array<[string,string[]]> = getTopicLinks(props.topic);
 
     useEffect(()=>{
         document.documentElement.style.overflowY = "auto";
         document.documentElement.classList.remove("scroll2");
     },[]);
 
+    const topicsInfoState: Array<[string,string[]]> = getTopicLinks(props.topic);
+
     let headerBgColor = props.styleObject.headerBgColor;
     let footerColor = props.styleObject.footerColor;
     let borderColor = props.styleObject.borderColor;
+    let curTopic = props.subTopic;
 
-    if(topicsInfoState[0][0] === "error"){ return <div>
+    if(curTopic[0] === "error") return <div>
         <main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}>
             <h2 className={`${headingFont.className} font-bold text-4xl mx-12 capitalize pt-10`} style={{color: borderColor!}}>Error</h2>
             <p className={`${mainTextFont.className} text-[28px] leading-[32px] mx-20 mt-5 `} style={{color: headerBgColor!, letterSpacing:"1px"}}>There is no content on this page</p>
         </main>
         <FooterEl borderColor={borderColor!} textColor={footerColor!} headerBgColor={headerBgColor!}/>
-    </div>}
-
-    let curTopic: [string, string[]] = ["",[""]];
-    for(let i in topicsInfoState){
-        if(topicsInfoState[i][0].replaceAll("_"," ") === props.subTopic.replaceAll("_"," ")){
-            curTopic = topicsInfoState[i];
-            break;
-        }
-    }
-
-    return <div>
+    </div>
+    else return <div>
         <main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}>
             <h2 className={`${headingFont.className} text-4xl mx-12 capitalize pt-10 font-bold`} style={{color: borderColor}}>{curTopic[0].replaceAll("_"," ")}</h2>
             {(curTopic[1]).map((val:string,i: number)=> {

@@ -16,25 +16,22 @@ export default function Page({ params }: { params: { topic: string } }){
   const designSelectedVal = parseInt(useCookies().get('designSelected')!) || DEFAULT_DESIGN_SELECTION;
   const MainComp = dynamic<ImportType>(() => import(`@/app/[topic]/designs/Style${designSelectedVal}`), { ssr: false });
   const decodedTopic = decodeURIComponent(params.topic);
+  var recordInd = 0;
+  while (
+    (allTopics[recordInd].name.replaceAll(" ","_").toLowerCase() != decodedTopic) &&
+    (recordInd < allTopics.length-1)
+  ) recordInd += 1;
   if(designSelectedVal === 1){
     return <>
-      <TopicHeader text={decodedTopic} ds={designSelectedVal}/>
+      <TopicHeader ds={1} styleObject={allTopics[recordInd]}/>
       <MainComp topic={decodedTopic}/>
     </>
   }
   else{
-    let errorBgColor = allTopics[allTopics.length-1].bgColor;
-    let bgColor = errorBgColor;
-    let record;
-    for(record of allTopics){
-        if(record.name.replaceAll(" ","_").toLowerCase() === decodedTopic){
-          bgColor = record.bgColor;
-          break;
-        }
-    }
+    let bgColor = allTopics[recordInd].bgColor;
     return (<div style={{backgroundColor: bgColor, minHeight:"100vh"}}>
-      <TopicHeader text={decodedTopic} ds={designSelectedVal} styleObject={record}/>
-      <MainComp topic={decodedTopic} styleObject={record}/>
+      <TopicHeader ds={designSelectedVal} styleObject={allTopics[recordInd]}/>
+      <MainComp topic={decodedTopic} styleObject={allTopics[recordInd]}/>
     </div>)
   }
 

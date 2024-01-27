@@ -52,6 +52,14 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+### Jan 27, 202
+
+<b>update 8.2:</b>
+- Fixed the error of 404 page not showing.
+- Blackboard in design 1 is now clickable.
+
+### Jan 25, 2024
+
 <b>update 8.1:</b>
 - When giving feedback, the last page you were in will also be sent (along with the form details).
 - Changed the placeholder color in FormBox's textarea.

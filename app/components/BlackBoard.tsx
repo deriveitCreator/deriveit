@@ -6,6 +6,7 @@ import { IconContext } from "react-icons";
 import { chalkWriting } from '../infoStore/fonts';
 import { FaSquare, FaRegSquare, FaRightLong, FaLeftLong } from "react-icons/fa6";
 import ImageWrapper from './ImageWrapper';
+import Link from 'next/link';
 
 const blackboardContent = [
     <div key={0} style={{display:"grid", gridTemplateColumns:"auto 32%", height: "100%",alignItems:"center"}}>
@@ -46,6 +47,14 @@ const blackboardContent = [
     </div>
 ]
 
+const blackBoardLinks = [
+    "/astronomy/history/the_geocentric_view",
+    "/astronomy/history/heliocentric",
+    "/discrete_mathematics/factorials_permutations_and_combinations/factorials_and_permutations",
+    "/chemistry/history/phlogiston_theory",
+    "/geometry/Conic_Sections/the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola",
+]
+
 export function Blackboard(props:{startSS:boolean,disFunc:React.Dispatch<{type:string;payload?: string|undefined}>}){
     const [selectedIcon, setSI] = useState(0);
     const [blackBoardOp, setBBOP] = useState("opacity-100");
@@ -81,7 +90,7 @@ export function Blackboard(props:{startSS:boolean,disFunc:React.Dispatch<{type:s
                 <IconContext.Provider value={{style:{height:"20px"}}}><FaLeftLong /></IconContext.Provider>
             </div>
             <div className={' pr-10 h-full '+ blackBoardOp} style={{transition:"opacity 0.2s linear"}}>
-                {blackboardContent[selectedIcon]}
+                <Link href={blackBoardLinks[selectedIcon]}>{blackboardContent[selectedIcon]}</Link>
             </div>
             <div className=' cursor-pointer h-full flex items-center select-none' onClick={()=>quickUpdate((selectedIcon+1)%5)}>
                 <IconContext.Provider value={{style:{height:"20px"}}}><FaRightLong /></IconContext.Provider>

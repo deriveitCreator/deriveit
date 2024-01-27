@@ -167,7 +167,7 @@ const MainPart = memo(function MainPartMemo(props: {content: JSX.Element[]}){
   },[props.content])
   let content = props.content;
   return <main className={`px-7 grow mb-10 `} style={{opacity:op,transition:"opacity 0.5s ease-out 0.1s"}}>{content}</main>
-})
+});
 
 function H3Main({children}: {children: string}){
   const FontSizeContextVal = useContext(FontSizeContext);
