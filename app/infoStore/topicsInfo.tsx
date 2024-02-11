@@ -79,17 +79,20 @@ const algebraLinks: Array<[string,string[]]> = [
 ];
 
 const geometryLinks: Array<[string,string[]]> = [
-    ["Quadrilateral Related Stuff", ["area_of_a_parallelogram","area_of_a_trapezium"]],
     ["Triangle Related Stuff", ["angles_in_a_triangle_add_to_180","area_of_a_triangle","constructing_an_equilateral_triangle","pythagoras_theorem","sides_of_30_90_60"]],
+    ["Quadrilateral Related Stuff", ["area_of_a_parallelogram","area_of_a_trapezium","constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle"]],
     ["Circle Related Stuff", ["thales_theorem"]],
-    ["More Quadrilateral Related Stuff",["constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle"]],
-    ["Conic Sections", [
+    ["Parabola", [
+        "getting_the_standard_form_equation_of_a_parabola_from_the_focus-directrix_definition%getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition",
         "axis_of_symmetry_of_a_parabola",
-        "getting_the_focus_directrix_and_vertex",
-        "getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition",
-        "the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola",
+        "getting_the_focus,_directrix_and_vertex%getting_the_focus_directrix_and_vertex",
+        "vertex_equation_of_a_parabola",
         "the_reflective_property_of_a_parabola",
-        "vertex_equation_of_a_parabola"
+        "the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola",
+    ]],
+    ["Hyperbola",[
+        "getting_the_standard_form_equation_from_the_geometric_definition",
+        "deriving_the_asymptote_of_a_hyperbola"
     ]]
 ];
 
@@ -156,6 +159,9 @@ const trigonometryLinks: Array<[string,string[]]> = [
         "addition and subtraction formulas for tan(x)%addsubtan",
         "double angle and half angle formulas for sin(x) and cos(x)%double",
         "the product formula for sin(x) and cos(x)%product"
+    ]],
+    ["hyperbolic_functions",[
+        "how_cosh_and_sinh_form_the_right_half_of_a_hyperbola"
     ]]
 ]
 

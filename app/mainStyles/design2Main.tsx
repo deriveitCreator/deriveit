@@ -15,7 +15,6 @@ export default function Design2(){
     const [continueEnabled, setCE] = useState(false);
     const [startBodyLoading, changeSBL] = useState(false);
     const [continueButtonClicked, changeCBC] = useState(false);
-    const MainPartMemo = React.memo(MainPart);
 
     return <>
         <HomeLoading disabledState={!continueEnabled} changeSBL={changeSBL} changeCBC={changeCBC}/>
@@ -29,6 +28,7 @@ const HomeLoading=(props:{disabledState:boolean, changeSBL: React.Dispatch<React
     useEffect(()=>{
         props.changeSBL(true);
         document.documentElement.style.overflowY = "hidden";
+        document.documentElement.style.backgroundColor = "rgb(150,60,00)";
         document.documentElement.classList.add("scroll2");
     },[])
   
@@ -51,21 +51,26 @@ const HomeLoading=(props:{disabledState:boolean, changeSBL: React.Dispatch<React
 }
 
 function MainPart(props:{setCE: React.Dispatch<React.SetStateAction<boolean>>, continueButtonClicked:boolean}){
-    return <div id={styles.mainPart}>
+    return <div id={styles.mainPart} style={{display: props.continueButtonClicked ? "block" : "none"}}>
         <HomeBody setConFunc={props.setCE} continueButtonClicked={props.continueButtonClicked}/>
         <Suspense><Design2Footer/></Suspense>
     </div>
 }
+const MainPartMemo = React.memo(MainPart);
 
 function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean>>, continueButtonClicked:boolean}){
+    const adRef: MutableRefObject<null|HTMLDivElement> = useRef(null);
+
     useEffect(()=>{
         props.setConFunc(true);
-        var ads = document.getElementsByClassName('adsbygoogle').length;
-        for (var i = 0; i < ads; i++) {
-          try {
-            //@ts-ignore
-            (window.adsbygoogle = window.adsbygoogle || []).push({});
-          } catch (e) {}
+        if(props.continueButtonClicked){
+            var ads = document.getElementsByClassName('adsbygoogle').length;
+            for (var i = 0; i < ads; i++) {
+            try {
+                //@ts-ignore
+                (window.adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {}
+            }
         }
     }, []) // eslint-disable-line no-use-before-define
 
@@ -94,7 +99,7 @@ function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean
             </tbody>
         </table></section>
         {/*@ts-ignore*/}
-        <div align="center"><ins className="adsbygoogle"
+        <div align="center" ref={adRef}><ins className="adsbygoogle"
             style={{display:"block",maxWidth:"1000px",marginBottom:"40px"}}
             data-ad-client="ca-pub-4860967711062471"
             data-ad-slot="1515076236"
@@ -107,7 +112,10 @@ function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean
 
 function HeaderEl(props:{continueButtonClicked:boolean}){
     const [showDB, changeSDB] = useState(false);
-
+    const iconResponsiveStyle = window.innerWidth > parseInt(styles.minDeviceWidth)?
+    {height:"64px",width:"30px",paddingTop:"14px",paddingBottom:"18px"} :
+    {height:"40px",width:"20px",paddingTop:"5px",paddingBottom:"5px"};
+    
     function iconClicked(){
         changeSDB(true);
     }
@@ -115,10 +123,10 @@ function HeaderEl(props:{continueButtonClicked:boolean}){
     return <header id={styles.headerId} className={logoFont2.className}>
         <div id={styles.mainheading}>
             <h1>Welcome To <span style={{color:"#0066FF"}}>Derive</span> It<span style={{color:"#0066FF"}}>!</span></h1>
-            <IconContext.Provider value={{style:{cursor:"pointer",height:"64px",width:"30px",paddingTop:"14px",paddingBottom:"18px",color:"#552200"}}}><FaPaintbrush onClick={iconClicked} /></IconContext.Provider>
+            <IconContext.Provider value={{style:{cursor:"pointer",color:"#552200", ...iconResponsiveStyle}}}><FaPaintbrush onClick={iconClicked} /></IconContext.Provider>
             <Suspense><StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/></Suspense>
         </div>
-        <Slideshow continueButtonClicked={props.continueButtonClicked}/>
+        {window.innerWidth > parseInt(styles.minDeviceWidth) ? <Slideshow continueButtonClicked={props.continueButtonClicked}/>:null}
     </header>;
 }
 
@@ -206,13 +214,21 @@ function SearchEl(){
     const timerRef: MutableRefObject<null|number> = useRef(null);
     const optionsArr = useRef([{text:"", link:""}]);
 
-    return <div id={styles.searchDiv} className={printFont2.className} onMouseLeave={()=>{ timerRef.current = window.setTimeout(()=>{
-        searchButtonText.current = "Search Topic";
-        changeDisplay({searchOpDis:"none", optionsDis:"none"});
-    }, 1000);}} onMouseEnter={()=>{if(timerRef.current) window.clearTimeout(timerRef.current);}}>
+    return <div id={styles.searchDiv} className={printFont2.className} onMouseLeave={()=>{
+        timerRef.current = window.setTimeout(()=>{
+            searchButtonText.current = "Search Topic";
+            changeDisplay({searchOpDis:"none", optionsDis:"none"});
+        }, 1000);
+    }} onMouseEnter={()=>{if(timerRef.current) window.clearTimeout(timerRef.current);}}>
         <div id={styles.searchSelection}>
             <div id={styles.topicSelect} onClick={()=>{display.searchOpDis==="none"?changeDisplay({searchOpDis:"block", optionsDis:"none"}):changeDisplay({searchOpDis:"none", optionsDis:"none"});}}>
-                <IconContext.Provider value={{style:{display:"inline",margin:"0px 12px",height:"18px"}}}><FaCaretDown /></IconContext.Provider>
+                {
+                    window.innerWidth > parseInt(styles.minDeviceWidth)?
+                    <IconContext.Provider value={{style:{display:"inline",margin:"0px 12px",height:"18px"}}}>
+                        <FaCaretDown />
+                    </IconContext.Provider>
+                    :null
+                }
                 <span style={{textOverflow:"ellipsis", overflow:"hidden"}} title={searchButtonText.current}>{searchButtonText.current}</span>
             </div>
             <div id={styles.searchOptions} style={{display: display.searchOpDis}}>{allTopics.map((record, i)=>{
@@ -245,8 +261,8 @@ function SearchOptions(props:{display:string, optionsArr:{ text: string; link: s
         <input onKeyUp={()=>{changeSV(inputRef.current?.value!)}} ref={inputRef} autoComplete="off" disabled={props.searchButtonText === "Search Topic"} id={styles.searchBox} type="text" placeholder={props.searchButtonText !== "Search Topic" ?`Search ${props.searchButtonText}`:""}/>
         <div id={styles.pageOptions} style={{display: props.display}}>
             {props.optionsArr.map((elem, i)=>{
-                let newSV = searchVal.replaceAll(" ","");
-                if(elem.text.replaceAll(" ","").includes(newSV) || elem.link.replaceAll("_","").includes(newSV)) return <div key={i} className={styles.poptions}><Link href={elem.link} className='hover:no-underline' dangerouslySetInnerHTML={{__html: elem.text}}></Link></div>;
+                let newSV = searchVal.replaceAll(" ","").toLowerCase();
+                if(elem.text.replaceAll(" ","").toLowerCase().includes(newSV) || elem.link.replaceAll("_","").toLowerCase().includes(newSV)) return <div key={i} className={styles.poptions}><Link href={elem.link} className='hover:no-underline' dangerouslySetInnerHTML={{__html: elem.text}}></Link></div>;
             })}
         </div>
     </div>;
@@ -254,22 +270,37 @@ function SearchOptions(props:{display:string, optionsArr:{ text: string; link: s
 }
 
 function BelowTables(props: {recentlyAdded: boolean}){
-    return <section><table id={styles.tableForRecent} className={logoFont2.className}><tbody>{(props.recentlyAdded ?  getRecentlyAdded():getRecentlyEdited()).map((elem, i)=>{
-        let perPos = elem.indexOf("%");
-        let bgColor: string;
-        let borderColor: string;
-        for(let record of allTopics){
-            if(record.name.replaceAll(" ","_").toLowerCase() === elem.substring(perPos+1, elem.indexOf("/"))){
-                bgColor = record.bgColor;
-                borderColor = record.borderColor;
-                break;
-            }
-        }
+	return <section><table id={styles.tableForRecent} className={logoFont2.className}><tbody>{(props.recentlyAdded ?  getRecentlyAdded():getRecentlyEdited()).map((elem, i)=>{
+		let perPos = elem.indexOf("%");
+		let bgColor: string;
+		let borderColor: string;
+		for(let record of allTopics){
+				if(record.name.replaceAll(" ","_").toLowerCase() === elem.substring(perPos+1, elem.indexOf("/"))){
+						bgColor = record.bgColor;
+						borderColor = record.borderColor;
+						break;
+				}
+		}
 
-        if(i===0) return <tr key={i}>
-            <th scope='col' rowSpan={4} className=' border-4'><span className=' float-left'>Recently</span><span className=' float-right'>{props.recentlyAdded?"Added":"Edited"}</span></th>
-            <td style={{ backgroundColor: bgColor!, color: borderColor!, borderLeft: `solid 3px ${borderColor!}`, fontWeight:"bold"}}><Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link></td>
-        </tr>;
-        else return <tr key={i}><td style={{ backgroundColor: bgColor!, color: borderColor!, borderLeft: `solid 3px ${borderColor!}`, fontWeight:"bold"}}><Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link></td></tr>;
-    })}</tbody></table></section>
+		if(window.innerWidth > parseInt(styles.minDeviceWidth)){
+				if(i===0) return <tr key={i}>
+						<th scope='col' rowSpan={4} className=' border-4'><span className=' float-left'>Recently</span><span className=' float-right'>{props.recentlyAdded?"Added":"Edited"}</span></th>
+						<td style={{ backgroundColor: bgColor!, color: borderColor!, borderLeft: `solid 3px ${borderColor!}`, fontWeight:"bold"}}><Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link></td>
+				</tr>;
+				else return <tr key={i}><td style={{ backgroundColor: bgColor!, color: borderColor!, borderLeft: `solid 3px ${borderColor!}`, fontWeight:"bold"}}><Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link></td></tr>;
+		}
+		else{
+			if(i===0) return <>
+				<tr key={-1}>
+					<th>Recently {props.recentlyAdded?"Added":"Edited"}</th>
+				</tr>
+				<tr key={0}>
+					<td style={{ backgroundColor: bgColor!, color: borderColor!, fontWeight:"bold"}}>
+						<Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link>
+					</td>
+				</tr>
+			</>;
+			else return <tr key={i}><td style={{ backgroundColor: bgColor!, color: borderColor!, fontWeight:"bold"}}><Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link></td></tr>;
+		}
+	})}</tbody></table></section>
 }

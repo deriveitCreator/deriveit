@@ -52,7 +52,17 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
-### Jan 27, 202
+### Feb 10, 2024
+
+<b>update 9.1:</b>
+- Changed `Conic_Sections` in Geometry section to `Parabola`.
+- Removed the `More Quadrilateral Related Stuff` folder in the Geometry section and moved the files to `Quadrilateral Related Stuff`.
+- `Quadrilateral Related Stuff` now comes after `Triangle Related Stuff`.
+- Added a `Hyperbola` subtopic to the Geometry section.
+- Added a `Hyperbolic functions` subtopic to the Trigonometry section.
+- Added mobile support for design 2. Mobile support for Design 1 will be added later.
+
+### Jan 27, 2024
 
 <b>update 8.2:</b>
 - Fixed the error of 404 page not showing.

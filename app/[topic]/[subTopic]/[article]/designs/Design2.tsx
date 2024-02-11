@@ -13,29 +13,21 @@ import { IconContext } from "react-icons";
 import { FaChevronLeft, FaChevronRight, FaPaintbrush } from "react-icons/fa6";
 import { allTopics } from "@/app/infoStore/topicsInfo";
 import { FaHome } from "react-icons/fa";
+import styles from "./variables.module.scss";
 
-var FontSizeContext = createContext({h3:"", main: "", quote: ""});
+var FontSizeContext = createContext({h2:"", main: "", quote: ""});
 
 export default function Design2(props: {topic: string, subTopic: string, article: string}){
-  const [fontSize,setFS] = useState({h3:"text-4xl", main: "text-3xl", quote: "text-[28px]"});
+  const [fontSize,setFS] = useState({h2:"text-4xl", main: "text-3xl", quote: "text-[28px]"});
   const [headerVal, setHV] = useState<string>("");
   const jsonForBody: MutableRefObject<any> = useRef(null);
   const [bodyVal, setBV] = useState<React.JSX.Element[] | null>(null);
   const [showDB, changeSDB] = useState(false);
   const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"})
-  const [allowAd, changeAllowAd] = useState(true);
   const [asideW, setAW] = useState("0px");
-  const adRef:  MutableRefObject<null|HTMLDivElement> = useRef(null);
 
   useEffect(()=>{
     if(bodyVal){
-      document.querySelectorAll("[data-title]").forEach((el)=>{
-        el.addEventListener("mouseenter",(event)=>{
-          //@ts-ignore
-          changeEIBS({text: el.getAttribute("data-title")!,posX: event.clientX - 20,posY: event.clientY + 20,visibility:"visible"});
-        });
-        el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"});});
-      });
       var ads = document.getElementsByClassName('adsbygoogle').length;
       for (var i = 0; i < ads; i++) {
         try {
@@ -43,7 +35,14 @@ export default function Design2(props: {topic: string, subTopic: string, article
           (window.adsbygoogle = window.adsbygoogle || []).push({});
         } catch (e) {}
       }
-      if(adRef.current!.offsetHeight == 0) changeAllowAd(false);
+      if (window.innerWidth < parseInt(styles.minDeviceWidth)) setFS({h2:"text-3xl", main: "text-[28px]", quote: "text-2xl"});
+      else document.querySelectorAll("[data-title]").forEach((el)=>{
+        el.addEventListener("mouseenter",(event)=>{
+          //@ts-ignore
+          changeEIBS({text: el.getAttribute("data-title")!,posX: event.clientX - 20,posY: event.clientY + 20,visibility:"visible"});
+        });
+        el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"})});
+      });
     }
     else if(headerVal !== "") {
       let j = jsonForBody.current!;
@@ -51,7 +50,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
       for(let i = 1; i<j.length; i++){
         switch(j[i][0]){
           case "h3":
-            bodyChildren.push(<H3Main key={i}>{j[i][1]}</H3Main>);
+            bodyChildren.push(<SubHeading key={i}>{j[i][1]}</SubHeading>);
             break;
           case "pmain":
             bodyChildren.push(<PMain mode={1} key={i}>{j[i][1] }</PMain>);
@@ -76,7 +75,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
             bodyChildren.push(<ImageWrapper
               key={i}
               alt=""
-              h =' h-[200px]'
+              h = {window.innerWidth > parseInt(styles.minDeviceWidth) ? ' h-[200px]': ' h-[150px]'}
               className=' flex items-center justify-center my-4 font-bold '
               src={`/${props.topic}/${props.subTopic}/${j[i][1]}`}
             />);
@@ -85,7 +84,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
             bodyChildren.push(<ImageWrapper
               key={i}
               alt=""
-              h =' h-[220px]'
+              h ={window.innerWidth > parseInt(styles.minDeviceWidth) ? ' h-[220px]': ' h-[150px]'}
               className=' flex items-center justify-center my-4 '
               src={`/${props.topic}/${props.subTopic}/${j[i][1]}`}
             />);
@@ -116,6 +115,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
     }
     else{
       document.documentElement.style.overflowY = "scroll";
+      document.documentElement.style.backgroundColor = "white";
       fetch("../../../infoStore/getArticleContent", {
         method:"POST",
         cache: "no-cache",
@@ -134,25 +134,30 @@ export default function Design2(props: {topic: string, subTopic: string, article
     <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
     <SideOption asideW={asideW} setAW={setAW}/>
     <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/>
-    <section style={{display:((asideW=="0px") && allowAd)?"block":"none"}}>
-      <hr style={{backgroundColor:"black", height:"4px", border:"none"}}/>
+    <section style={{display:((asideW=="0px"))?"block":"none"}}>
       {/*@ts-ignore*/}
-      <div align="center" style={{overflowX:"auto"}} ref={adRef}><ins class="adsbygoogle"
+      <div align="center" style={{overflowX:"auto"}}><ins className="adsbygoogle"
       style={{textAlign:"center", maxWidth:"95%", marginTop:"20px", marginBottom:"20px"}}
       data-ad-layout="in-article"
       data-ad-format="fluid"
       data-ad-client="ca-pub-4860967711062471"
       data-ad-slot="6823528647"></ins></div>
     </section>
-    <FooterEl/>
+    {bodyVal === null ? null: <FooterEl/>}
   </FontSizeContext.Provider>
 }
 
 const ArticleHeader = memo(function ArticleHeaderMemo(props: {text: string}){
   const animationState = useRef("");
   
-  if(props.text !== "") animationState.current = "animate-[becomeBlack_0.5s_ease-out_0.5s_forwards]";
-  return <header className=' w-full border-black border-b-4 mb-8 min-h-[84px] flex items-center justify-center'><h1 className={`${headingFont.className} text-center text-4xl leading-[50px] px-8 text-white font-bold ${animationState.current}`} dangerouslySetInnerHTML={{__html: props.text.replaceAll("&amp;","&")}} /></header>
+  var responsiveStyle = "text-4xl px-8";
+  if(props.text !== "") {
+    animationState.current = "animate-[becomeBlack_0.5s_ease-out_0.5s_forwards]";
+    if(window.innerWidth < parseInt(styles.minDeviceWidth)) responsiveStyle = "text-3xl px-2";
+  }
+  return <header className=' w-full border-black border-b-4 mb-8 min-h-[84px] flex items-center justify-center'>
+    <h1 className={`${headingFont.className} text-center leading-[50px] text-white font-bold ${animationState.current} ${responsiveStyle}`} dangerouslySetInnerHTML={{__html: props.text.replaceAll("&amp;","&")}} />
+  </header>
 });
 
 const MainPart = memo(function MainPartMemo(props: {content: JSX.Element[]}){
@@ -166,20 +171,25 @@ const MainPart = memo(function MainPartMemo(props: {content: JSX.Element[]}){
     }
   },[props.content])
   let content = props.content;
-  return <main className={`px-7 grow mb-10 `} style={{opacity:op,transition:"opacity 0.5s ease-out 0.1s"}}>{content}</main>
+  let paddingLevel = "";
+  if (op===1) paddingLevel = window.innerWidth > parseInt(styles.minDeviceWidth) ? "px-7 ": "px-2";
+  return <main className={`mb-10 grow ${paddingLevel}`} style={{opacity:op,transition:"opacity 0.5s ease-out 0.1s"}}>{content}</main>
 });
 
-function H3Main({children}: {children: string}){
+function SubHeading({children}: {children: string}){
   const FontSizeContextVal = useContext(FontSizeContext);
-  return <h3 className={FontSizeContextVal.h3 + ' underline font-bold mb-4 ' + headingFont.className} dangerouslySetInnerHTML={{__html: children}}></h3>
+  return <h2 className={FontSizeContextVal.h2 + ' underline font-bold mb-4 ' + headingFont.className} dangerouslySetInnerHTML={{__html: children}}></h2>
 }
 
 function PMain({children, mode}: {children: string, mode:number}){
   const FontSizeContextVal = useContext(FontSizeContext);
 
-  if(mode === 1) return <p className={`pmain ${mainTextFont.className} mb-4 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline mx-2 [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums `} dangerouslySetInnerHTML={{__html: children}}></p>
-  if(mode === 2) return <p className={`pmain2 ${mainTextFont.className} mb-4 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline mx-8 [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help`} dangerouslySetInnerHTML={{__html: children}}></p>
-  if(mode === 3) return <p className={`subText ${mainTextFont.className} mb-4 ${FontSizeContextVal.quote} leading-7 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-6 [&>a]:text-[#24e] [&>a]:underline mx-16 [&>sup]:text-[60%] text-zinc-700 oldstyle-nums`} dangerouslySetInnerHTML={{__html: children}}></p>
+  var responsiveStyle = ["mx-2","mx-4","mx-6"];
+  if (window.innerWidth > parseInt(styles.minDeviceWidth)) responsiveStyle = ["mx-2","mx-8 [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help","mx-16"];
+
+  if(mode === 1) return <p className={`pmain ${mainTextFont.className} mb-4 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums ${responsiveStyle[0]}`} dangerouslySetInnerHTML={{__html: children}}></p>
+  if(mode === 2) return <p className={`pmain2 ${mainTextFont.className} mb-4 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums ${responsiveStyle[1]}`} dangerouslySetInnerHTML={{__html: children}}></p>
+  if(mode === 3) return <p className={`subText ${mainTextFont.className} mb-4 ${FontSizeContextVal.quote} leading-7 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-6 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] text-zinc-700 oldstyle-nums ${responsiveStyle[2]}`} dangerouslySetInnerHTML={{__html: children}}></p>
 }
 
 function ExtraInfoBox(props:{text:string, pos:{X:number, Y:number}, visibility: "hidden" | "visible"}){
@@ -188,17 +198,22 @@ function ExtraInfoBox(props:{text:string, pos:{X:number, Y:number}, visibility: 
 
 function ListComp(props:{numbered: boolean, content:string}){
   const fontSizeContextVal = useContext(FontSizeContext);
-  if(props.numbered) return <ol className={`${mainTextFont.className} list-decimal mx-20 mb-4 leading-8 ${fontSizeContextVal.quote}`} dangerouslySetInnerHTML={{__html: props.content}}></ol>
-  else return <ul className={`${mainTextFont.className} list-decimal mx-20 mb-4 leading-8 ${fontSizeContextVal.quote}`} dangerouslySetInnerHTML={{__html: props.content}}></ul>
+
+  var responsiveStyle = "mx-20"
+  if (window.innerWidth < parseInt(styles.minDeviceWidth)) responsiveStyle = "mx-10";
+  if(props.numbered) return <ol className={`${mainTextFont.className} list-decimal mb-4 leading-8 ${fontSizeContextVal.quote} ${responsiveStyle}`} dangerouslySetInnerHTML={{__html: props.content}}></ol>
+  else return <ul className={`${mainTextFont.className} list-decimal mb-4 leading-8 ${fontSizeContextVal.quote} ${responsiveStyle}`} dangerouslySetInnerHTML={{__html: props.content}}></ul>
 }
 
 function SourcesSectionInner(props: {content: string[]}){
   return <section>
     <hr className=' mt-8 border-black border' style={{transform:"skewX(40deg)"}}/>
     <h3 className={' text-4xl underline font-bold '+headingFont.className}>Sources:</h3>
-    <ol id='source_format' className={`${printFont2.className} list-decimal text-xl mx-8`}>{(props.content).map((stuff:any, i:number)=>{
-      return <LiForSources key={i}>{stuff}</LiForSources>;
-    })}</ol>
+    <div style={{overflowX:"auto"}}>
+      <ol id='source_format' className={`${printFont2.className} list-decimal text-xl mx-8`}>{(props.content).map((stuff:any, i:number)=>{
+        return <LiForSources key={i}>{stuff}</LiForSources>;
+      })}</ol>
+    </div>
   </section>
 }
 
@@ -290,47 +305,65 @@ function BrushButton(){
     </>
 }
 
-const footerIdStyle = {
-	display:"grid",
-	gridTemplateColumns:"140px auto",
-  margin:"0px 15px 0px 0px",
-}
-
 function FooterEl(){
-  const [footerState, changeFS] = useState(false);
-  const formType = useRef(0);
-  
-  function dispatch(arg0: {type: string}){
-    arg0.type==="SHOW_FORM_BOX"? changeFS(true):changeFS(false);
-  }
+	const [footerState, changeFS] = useState(false);
+	const formType = useRef(0);
+		
+	function dispatch(arg0: {type: string}){
+			arg0.type==="SHOW_FORM_BOX"? changeFS(true):changeFS(false);
+	}
 
-  function showForm(type: number){
-    formType.current = type;
-    dispatch({type: "SHOW_FORM_BOX"});
-  }
+	function showForm(type: number){
+			formType.current = type;
+			dispatch({type: "SHOW_FORM_BOX"});
+	}
 
-  return <div className={printFont2.className+' pb-5 font-bold'}>
-    <hr style={{backgroundColor:"black", height:"4px", border:"none"}}/>
-    <footer>
-      <div style={footerIdStyle}>
-        <Link href="/" >
-          <ImageWrapper className=' mx-4 my-4 ' src="/link_logo_trans2.png" alt="" />
-        </Link>
-        <div style={{border:`solid black 3px`, marginTop:"10px", display:"flex",flexDirection:"row",justifyContent:"space-between", height:"min-content"}}>
-          <p style={{paddingLeft:"10px"}}>
-            If you find a bug in this website or want to report an error, <ClickButton type={0} func={showForm} /><br/>
-            If there are any equations for which you want proof for, <ClickButton type={1} func={showForm} /><br/>
-            For any suggestion and ideas, <ClickButton type={2} func={showForm} />
-          </p>
-          <Link href="https://www.paypal.com/donate/?business=8UEU66XK9RMKG&no_recurring=1&currency_code=CAD" style={{display:"flex",flexDirection:"column",justifyContent:"center",padding:"0px 25px"}} target="_blank">
-            <p className={" text-center font-bold text-sm "}>Want To Donate?</p>
-            <ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
-          </Link>
-        </div>
-        <Suspense fallback={<></>}><FormBox showFB={footerState} reducerDis={dispatch} type={formType.current}/></Suspense>
-      </div>
-    </footer>
-  </div>
+	return <div className={printFont2.className+' font-bold'}>
+		<footer>
+		{
+      window.innerWidth > parseInt(styles.minDeviceWidth) ?
+			<>
+        <hr style={{backgroundColor:"black", height:"4px", border:"none"}}/>
+				<div style={{display:"grid",gridTemplateColumns:"140px auto",margin:"0px 15px 0px 20px"}}>
+					<Link href="/" >
+							<ImageWrapper className=' mx-4 my-4 ' src="/link_logo_trans2.png" alt="" />
+					</Link>
+					<div style={{border:`solid black 3px`, marginTop:"10px", display:"flex",flexDirection:"row",justifyContent:"space-between", height:"min-content"}}>
+						<p style={{paddingLeft:"10px"}}>
+								If you find a bug in this website or want to report an error, <ClickButton type={0} func={showForm} /><br/>
+								If there are any equations for which you want proof for, <ClickButton type={1} func={showForm} /><br/>
+								For any suggestion and ideas, <ClickButton type={2} func={showForm} />
+						</p>
+						<Link href="https://www.paypal.com/donate/?business=8UEU66XK9RMKG&no_recurring=1&currency_code=CAD" style={{display:"flex",flexDirection:"column",justifyContent:"center",padding:"0px 25px"}} target="_blank">
+								<p className={" text-center font-bold text-sm "}>Want To Donate?</p>
+								<ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
+						</Link>
+					</div>
+					<Suspense fallback={<></>}><FormBox showFB={footerState} reducerDis={dispatch} type={formType.current}/></Suspense>
+				</div>
+			</>:
+			<div style={{ borderTop:`solid black 3px`,marginTop:"10px",letterSpacing:"-1px"}}>
+				<div style={{height:"min-content"}}>
+					<p style={{paddingLeft:"10px", paddingBottom:"4px"}}>
+							If you find a bug in this website or want to report an error, <ClickButton type={0} func={showForm} /><br/>
+							If there are any equations for which you want proof for, <ClickButton type={1} func={showForm} /><br/>
+							For any suggestion and ideas, <ClickButton type={2} func={showForm} />
+					</p>
+					<div style={{display:"grid", gridTemplateColumns:"100px 150px", justifyContent:"space-evenly"}}>
+						<Link href="/" >
+								<ImageWrapper className=' mx-1 my-5 ' src="/link_logo_trans2.png" alt="" />
+						</Link>
+						<Link href="https://www.paypal.com/donate/?business=8UEU66XK9RMKG&no_recurring=1&currency_code=CAD" style={{display:"flex",flexDirection:"column",justifyContent:"center"}} target="_blank">
+							<p className={" text-center font-bold text-sm "}>Want To Donate?</p>
+							<ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
+						</Link>
+					</div>
+				</div>
+				<Suspense fallback={<></>}><FormBox showFB={footerState} reducerDis={dispatch} type={formType.current}/></Suspense>
+			</div>
+		}
+		</footer>
+	</div>
 }
 
 function ClickButton(props: {type: number, func: (arg0: number) => void}){
