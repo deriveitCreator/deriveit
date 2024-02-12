@@ -49,7 +49,7 @@ export function getTopicLinks(name: string): Array<[string,string[]]>{
 
 export function getRecentlyAdded(): string[]{
     return [
-        "differentiability implies continuity%geometry/calculus/differentiability_implies_continuity",
+        "differentiability implies continuity%calculus/differential_calculus/differentiability_implies_continuity",
         "how cosh and sinh form the right half of a hyperbola%trigonometry/hyperbolic_functions/how_cosh_and_sinh_form_the_right_half_of_a_hyperbola",
         "deriving the asymptote of a hyperbola%geometry/Hyperbola/deriving_the_asymptote_of_a_hyperbola",
         "getting the standard form equation of a hyperbola from the geometric definition%geometry/Hyperbola/getting_the_standard_form_equation_from_the_geometric_definition",
@@ -58,7 +58,7 @@ export function getRecentlyAdded(): string[]{
 
 export function getRecentlyEdited(): string[]{
     return [
-        "differentiability implies continuity%geometry/calculus/differentiability_implies_continuity",
+        "differentiability implies continuity%calculus/differential_calculus/differentiability_implies_continuity",
         "how cosh and sinh form the right half of a hyperbola%trigonometry/hyperbolic_functions/how_cosh_and_sinh_form_the_right_half_of_a_hyperbola",
         "deriving the asymptote of a hyperbola%geometry/Hyperbola/deriving_the_asymptote_of_a_hyperbola",
         "getting the standard form equation of a hyperbola from the geometric definition%geometry/Hyperbola/getting_the_standard_form_equation_from_the_geometric_definition",
