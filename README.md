@@ -52,6 +52,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 9.2:</b>
+- Added `differentiability_implies_continuity.tsx`.
+
 ### Feb 10, 2024
 
 <b>update 9.1:</b>

@@ -63,14 +63,12 @@ function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean
 
     useEffect(()=>{
         props.setConFunc(true);
-        if(props.continueButtonClicked){
-            var ads = document.getElementsByClassName('adsbygoogle').length;
-            for (var i = 0; i < ads; i++) {
+        var ads = document.getElementsByClassName('adsbygoogle').length;
+        for (var i = 0; i < ads; i++) {
             try {
                 //@ts-ignore
                 (window.adsbygoogle = window.adsbygoogle || []).push({});
             } catch (e) {}
-            }
         }
     }, []) // eslint-disable-line no-use-before-define
 

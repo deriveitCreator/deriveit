@@ -49,19 +49,19 @@ export function getTopicLinks(name: string): Array<[string,string[]]>{
 
 export function getRecentlyAdded(): string[]{
     return [
-        "ax ≡ b mod m has a solution if and only if (a, m)|b%discrete_mathematics/modular_arithmetic/congruence_solution",
-        "there are infinite primes of the form 4k + 1%discrete_mathematics/divisibility_and_gcd/infinite_primes_4k_plus_1",
-        "x^2 ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%discrete_mathematics/modular_arithmetic/x_square_solvable",
-        "the solution of x^2 ≡ 1 mod p is x ≡ +1 or -1 mod p%discrete_mathematics/modular_arithmetic/x_square_solution",
+        "differentiability implies continuity%geometry/calculus/differentiability_implies_continuity",
+        "how cosh and sinh form the right half of a hyperbola%trigonometry/hyperbolic_functions/how_cosh_and_sinh_form_the_right_half_of_a_hyperbola",
+        "deriving the asymptote of a hyperbola%geometry/Hyperbola/deriving_the_asymptote_of_a_hyperbola",
+        "getting the standard form equation of a hyperbola from the geometric definition%geometry/Hyperbola/getting_the_standard_form_equation_from_the_geometric_definition",
     ]
 }
 
 export function getRecentlyEdited(): string[]{
     return [
-        "Euler's Theorem%discrete_mathematics/modular_arithmetic/eulers_theorem",
-        "ax ≡ b mod m has a solution if and only if (a, m)|b%discrete_mathematics/modular_arithmetic/congruence_solution",
-        "there are infinite primes of the form 4k + 1%discrete_mathematics/divisibility_and_gcd/infinite_primes_4k_plus_1",
-        "x^2 ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%discrete_mathematics/modular_arithmetic/x_square_solvable",
+        "differentiability implies continuity%geometry/calculus/differentiability_implies_continuity",
+        "how cosh and sinh form the right half of a hyperbola%trigonometry/hyperbolic_functions/how_cosh_and_sinh_form_the_right_half_of_a_hyperbola",
+        "deriving the asymptote of a hyperbola%geometry/Hyperbola/deriving_the_asymptote_of_a_hyperbola",
+        "getting the standard form equation of a hyperbola from the geometric definition%geometry/Hyperbola/getting_the_standard_form_equation_from_the_geometric_definition",
     ]
 }
 
@@ -168,7 +168,7 @@ const trigonometryLinks: Array<[string,string[]]> = [
 const calculusLinks: Array<[string,string[]]> = [
     ["limits", ["the sum law%sum","the product law%product","limit<sub>x→a</sub>f(g(x)) = f(limit<sub>x→a</sub>g(x))%inner","the root law and the power law%root","limi<sub>tx→0</sub> [sin(x)/x] = 1%limit_sin","limit<sub>x→0</sub> [(cos(x)-1)/x] = 0%limit_cos",
     ]],
-    ["differential_calculus", ["the power rule (when exponent is a postive integer)%power_rule","the product rule%paq","the quotient rule%quo","the_chain_rule"
+    ["differential_calculus", ["differentiability_implies_continuity","the power rule (when exponent is a postive integer)%power_rule","the product rule%paq","the quotient rule%quo","the_chain_rule"
     ]],
     ["using_euler's_number", ["definition of e%define_e","[d/dx]b<sup>x</sup> = b<sup>x</sup>ln(b)%bx","[d/dx]log<sub>b</sub>x = 1/(x * ln(b))%log","the power rule (when exponent is any real number)%power_rule2","only_functions_of_the_form_Ae^x_are_derivatives_of_themselves%functions_which_are_derivatives_of_themselves","representing e<sup>x</sup> as a limit%e_limit","representing e<sup>x</sup> as an infinite series (proof 1)%e_series","representing e<sup>x</sup> as an infinite series (proof 2)%e_series2","Euler's_formula"
     ]],

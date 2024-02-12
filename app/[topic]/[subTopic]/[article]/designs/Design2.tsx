@@ -28,13 +28,6 @@ export default function Design2(props: {topic: string, subTopic: string, article
 
   useEffect(()=>{
     if(bodyVal){
-      var ads = document.getElementsByClassName('adsbygoogle').length;
-      for (var i = 0; i < ads; i++) {
-        try {
-          //@ts-ignore
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {}
-      }
       if (window.innerWidth < parseInt(styles.minDeviceWidth)) setFS({h2:"text-3xl", main: "text-[28px]", quote: "text-2xl"});
       else document.querySelectorAll("[data-title]").forEach((el)=>{
         el.addEventListener("mouseenter",(event)=>{
@@ -116,6 +109,13 @@ export default function Design2(props: {topic: string, subTopic: string, article
     else{
       document.documentElement.style.overflowY = "scroll";
       document.documentElement.style.backgroundColor = "white";
+      var ads = document.getElementsByClassName('adsbygoogle').length;
+      for (var i = 0; i < ads; i++) {
+        try {
+          //@ts-ignore
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {}
+      }
       fetch("../../../infoStore/getArticleContent", {
         method:"POST",
         cache: "no-cache",
