@@ -177,12 +177,12 @@ function TopicLink(props: {refTo: string, floatD: string}){
         e.preventDefault();
     }
 
-    let linkText = (props.refTo == "Error")? "Incomplete" : props.refTo;
-    return <div onClick={divClicked} className={`bg-gray-50 overflow-hidden float-${props.floatD} notSelectedForShrink`} style={{width:"50%",height:"60px",transition:"width 0.2s ease-out, opacity 0.2s ease-out, height 0.3s ease-out "}} ><Link
-        href={"/"+props.refTo.toLowerCase()}
-        className={`bg-gray-100 block hover:no-underline ${cursiveMain.className} ${styles.topicClass}`}
-        style={{transition:"font-size 0.2s ease-out, height 0.3s ease-out"}}
-        onClick={linkClicked}
+    if(props.refTo == "Error") return <div id={styles.errorDiv} className={`bg-gray-100 overflow-hidden float-${props.floatD} notSelectedForShrink block ${cursiveMain.className} ${styles.topicClass}`} style={{width:"50%",height:"60px",transition:"width 0.2s ease-out, opacity 0.2s ease-out, height 0.3s ease-out "}}>{props.refTo}</div>
+    else return <div onClick={divClicked} className={`bg-gray-50 overflow-hidden float-${props.floatD} notSelectedForShrink `} style={{width:"50%",height:"60px",transition:"width 0.2s ease-out, opacity 0.2s ease-out, height 0.3s ease-out "}} ><Link
+      href={"/"+props.refTo.toLowerCase()}
+      className={`bg-gray-100 block hover:no-underline ${cursiveMain.className} ${styles.topicClass}`}
+      style={{transition:"font-size 0.2s ease-out, height 0.3s ease-out"}}
+      onClick={linkClicked}
     >{props.refTo}</Link></div>
 }
 

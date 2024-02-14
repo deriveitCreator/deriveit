@@ -57,7 +57,7 @@
 	height: 60px;
 	line-height: 60px;
 
-	&:hover{
+	&:not(#errorDiv):hover{
 		font-size: 35px;
 	}
 }
@@ -87,7 +87,7 @@
 		height: 60px;
 		line-height: 60px;
 
-		&:hover{
+		&:not(#errorDiv):hover{
 			font-size: 24px;
 		}
 	}
