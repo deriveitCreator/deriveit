@@ -303,7 +303,9 @@ $brown2: #663300;
 	width: 1000px;
 	max-width: 90%;
 	overflow-x:auto;
-	display:block
+	display:block;
+	height: auto !important;
+	position: relative;
 }
 
 #tableForRecent{
