@@ -54,7 +54,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Feb 14, 2024
 
-<b>update 9.5 - 9.24:</b>
+<b>update 9.5 - 9.25:</b>
 - In design 1's home page, the last topic is "Under Construction", and is not clickable.
 - In design 2's home page, the "under construction" image was not showing, so that's fixed now.
 - In design 1 and design 2, made minor style changes.
