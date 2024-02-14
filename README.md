@@ -54,7 +54,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Feb 14, 2024
 
-<b>update 9.5:</b>
+<b>update 9.6:</b>
 - In design 1's home page, the last topic is "Under Construction", and is not clickable.
 
 <b>update 9.5:</b>
