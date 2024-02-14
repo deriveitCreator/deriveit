@@ -13,7 +13,7 @@ import ImageWrapper from '@/app/components/ImageWrapper';
 import Latex from 'react-latex-next';
 import 'katex/dist/katex.min.css';
 import StyleSelectionBox from "@/app/components/StyleSelectionBox";
-import styles from "./variables.module.scss";
+import styles from "./design1.module.scss";
 
 var FontSizeContext = createContext({h2: "", main: "", quote: ""});
 
@@ -35,6 +35,13 @@ export default function Design1(props: {topic: string, subTopic: string, article
         });
         el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"});});
       });
+      var ads = document.getElementsByClassName('adsbygoogle').length;
+      for (var i = 0; i < ads; i++) {
+        try {
+          //@ts-ignore
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {}
+      }
     }
     else if(headerVal !== "") {
       let j = jsonForBody.current!;
@@ -117,15 +124,18 @@ export default function Design1(props: {topic: string, subTopic: string, article
         blackboardRef.current = <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>;
       }
       else{
+        blackboardRef.current = <section>
+          {/*@ts-ignore*/}
+          <div align="center" style={{marginBottom:"20px"}}><ins
+          className="adsbygoogle"
+          style={{textAlign:"center", maxWidth:"95%",overflowX:"auto",display:"block"}}
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-4860967711062471"
+          data-ad-slot="6823528647"></ins></div>
+        </section>
         responsiveStyleRef.current = "block";
         setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
-      }
-      var ads = document.getElementsByClassName('adsbygoogle').length;
-      for (var i = 0; i < ads; i++) {
-        try {
-          //@ts-ignore
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {}
       }
       fetch("../../../infoStore/getArticleContent", {
         method:"POST",
@@ -143,16 +153,6 @@ export default function Design1(props: {topic: string, subTopic: string, article
     <ArticleHeader text={headerVal}/>
     <div style={{display: responsiveStyleRef.current,width:"100%" , marginBottom:"40px",minHeight:"100vh"}}>
       <MainPart content={bodyVal!}/>
-      <section>
-        {/*@ts-ignore*/}
-        <div align="center"><ins
-        className="adsbygoogle"
-        style={{textAlign:"center", maxWidth:"95%",overflowX:"auto"}}
-        data-ad-layout="in-article"
-        data-ad-format="fluid"
-        data-ad-client="ca-pub-4860967711062471"
-        data-ad-slot="6823528647"></ins></div>
-      </section>
       <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
       {blackboardRef.current}
     </div>
@@ -176,14 +176,14 @@ const MainPart = memo(function MainPartMemo(props: {content: JSX.Element[]}){
   const [op,setOp] = useState(0);
 
   useEffect(()=>{
-    if(props.content){
-      setOp(1);
-    }
+    if(props.content) setOp(1);
   },[props.content]);
 
   let content = props.content;
   let responsiveStyle = op ? ((screen.width > parseInt(styles.minDeviceWidth)) ? "px-7 grow" : "px-3") : null;
-  return <main className={`${responsiveStyle}`} style={{opacity:op,transition:"opacity 0.5s ease-out 0.1s"}}>{content}</main>
+  return <main className={`${responsiveStyle}`} style={{opacity:op,transition:"opacity 0.5s ease-out 0.1s"}}>
+    {content}
+  </main>
 })
 
 function H2Main({children}: {children: string}){
@@ -256,7 +256,7 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
   topicLink: RefObject<HTMLDivElement>;
   DecFontSizeEl: RefObject<HTMLButtonElement>;
   IncFontSizeEl: RefObject<HTMLButtonElement>;
-  adEl: RefObject<HTMLParagraphElement>;
+  aboveAdSpacing: RefObject<HTMLParagraphElement>;
   fontSizeMain: string;
   setFS: any;
 
@@ -267,7 +267,7 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
     this.topicLink = createRef();
     this.DecFontSizeEl = createRef();
     this.IncFontSizeEl = createRef();
-    this.adEl = createRef();
+    this.aboveAdSpacing = createRef();
     this.fontSizeMain = this.props.fontSizeMain;
     this.setFS = props.setFS;
   }
@@ -343,10 +343,22 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
         &nbsp;&nbsp;Font Size&nbsp;&nbsp;
         <button onClick={()=>this.incFS(this.fontSizeMain, this.setFS)} ref={this.IncFontSizeEl }>+</button>
       </p>
-      <p className=" w-11/12 mx-auto h-0" ref={this.adEl}>&nbsp;</p>
+      <p className=" w-11/12 mx-auto h-0" ref={this.aboveAdSpacing}>&nbsp;</p>
       <p className=" text-center text-xl">Advertisement:</p>
     </div>
-    <div className=" border-2 border-dashed border-zinc-300 m-2 flex-auto overflow-hidden">{this.getBlackBoardContent()}</div>
+    <div id={styles.adInBlackBloard}>
+      <div id={styles.blackBoardDiv} className=" border-2 border-dashed border-zinc-300 m-2 flex-auto">{this.getBlackBoardContent()}</div>
+      {/*@ts-ignore*/}
+      <div align="center" style={{marginTop:"10px", marginBottom:"10px", flex:"auto"}}><ins
+        className="adsbygoogle"
+        style={{width:"160px",overflowY:"auto",display:"block"}}
+        data-ad-client="ca-pub-4860967711062471"
+        data-ad-slot="1515076236"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins></div>
+    </div>
+
     </aside>;
   }
 
@@ -357,7 +369,7 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
         annotate(this.homeIcon.current! , {...commonSettings, type: "box", padding:2}).show();
         annotate(this.brushIcon.current! , {...commonSettings, type: "box", padding:2}).show();
         annotate(this.topicLink.current! ,{...commonSettings, type:"underline", padding:32}).show();
-        annotate(this.adEl.current! , {...commonSettings, type: "underline", padding:28}).show();
+        annotate(this.aboveAdSpacing.current! , {...commonSettings, type: "underline", padding:28}).show();
         annotate(this.DecFontSizeEl.current! , {...commonSettings, type: "circle", padding:[0,5], iterations: 1}).show();
         annotate(this.IncFontSizeEl.current! , {...commonSettings, type: "circle", padding:[0,5], iterations: 1}).show();
       }

@@ -13,7 +13,7 @@ import { IconContext } from "react-icons";
 import { FaChevronLeft, FaChevronRight, FaPaintbrush } from "react-icons/fa6";
 import { allTopics } from "@/app/infoStore/topicsInfo";
 import { FaHome } from "react-icons/fa";
-import styles from "./variables.module.scss";
+import styles from "./design2.module.scss";
 
 var FontSizeContext = createContext({h2:"", main: "", quote: ""});
 
@@ -109,13 +109,6 @@ export default function Design2(props: {topic: string, subTopic: string, article
     else{
       document.documentElement.style.overflowY = "scroll";
       document.documentElement.style.backgroundColor = "white";
-      var ads = document.getElementsByClassName('adsbygoogle').length;
-      for (var i = 0; i < ads; i++) {
-        try {
-          //@ts-ignore
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {}
-      }
       fetch("../../../infoStore/getArticleContent", {
         method:"POST",
         cache: "no-cache",
@@ -125,6 +118,13 @@ export default function Design2(props: {topic: string, subTopic: string, article
         jsonForBody.current = j;
         setHV(j[0][1]);
       })})
+    }
+    var ads = document.getElementsByClassName('adsbygoogle').length;
+    for (var i = 0; i < ads; i++) {
+      try {
+        //@ts-ignore
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {}
     }
   },[headerVal, bodyVal]); // eslint-disable-line no-use-before-define
 
@@ -136,8 +136,8 @@ export default function Design2(props: {topic: string, subTopic: string, article
     <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/>
     <section style={{display:((asideW=="0px"))?"block":"none"}}>
       {/*@ts-ignore*/}
-      <div align="center"><ins className="adsbygoogle"
-      style={{textAlign:"center", maxWidth:"95%",overflowX:"auto"}}
+      <div align="center" style={{marginBottom:"20px"}}><ins className="adsbygoogle"
+      style={{textAlign:"center", maxWidth:"95%",overflowX:"auto",display:"block"}}
       data-ad-layout="in-article"
       data-ad-format="fluid"
       data-ad-client="ca-pub-4860967711062471"

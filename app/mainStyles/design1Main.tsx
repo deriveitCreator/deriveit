@@ -32,13 +32,13 @@ export default function Design1(){
     const [d1s, dispatch] = useReducer(reducer, design1States);
     const [firstRender, changeFR] = useState(true);
     useEffect(()=>{
-        changeFR(false);
+      changeFR(false);
     },[]);
 
     return <>
-        {/*@ts-ignore */}
-        <HomeLoading disabledState={d1s.continueDisabled} hlDis={dispatch}/>
-        {firstRender? null : <HomeBody design1States={d1s} disFunc={dispatch} />}
+      {/*@ts-ignore */}
+      <HomeLoading disabledState={d1s.continueDisabled} hlDis={dispatch}/>
+      {firstRender? null : <HomeBody design1States={d1s} disFunc={dispatch} />}
     </>;
 
 }
@@ -68,18 +68,20 @@ const HomeLoading=(props:{disabledState:boolean,hlDis:React.Dispatch<{type:strin
   )
 }
 
-function HomeBody(props:{design1States:object,disFunc:React.Dispatch<{type:string;payload?: string|undefined}>}){
+function HomeBody(props:{design1States:any, disFunc:React.Dispatch<{type:string;payload?: string|undefined}>}){
   useEffect(()=>{
-    window.scrollTo(0,0);
-    var ads = document.getElementsByClassName('adsbygoogle').length;
-    for (var i = 0; i < ads; i++) {
+    if(props.design1States.continueDisabled) props.disFunc({type: "ALLOW_CONTINUE"});
+    else{
+      window.scrollTo(0,0);
+      var ads = document.getElementsByClassName('adsbygoogle').length;
+      for (var i = 0; i < ads; i++) {
         try {
-            //@ts-ignore
-            (window.adsbygoogle = window.adsbygoogle || []).push({});
+          //@ts-ignore
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
         } catch (e) {}
-    }
-    props.disFunc({type: "ALLOW_CONTINUE"});
-  }, []) // eslint-disable-line no-use-before-define
+      }
+    } 
+  }) // eslint-disable-line no-use-before-define
 
   return <>
     {/*@ts-ignore */}
@@ -106,9 +108,9 @@ function HomeBody(props:{design1States:object,disFunc:React.Dispatch<{type:strin
       {RecentlySection("Edited")}
       <section>
         {/*@ts-ignore*/}
-        <div align="center" style={{marginTop:"20px"}}><ins
+        <div align="center" style={{marginTop:"20px", marginBottom:"20px"}}><ins
           className="adsbygoogle"
-          style={{maxWidth:"1000px",overflowX:"auto"}}
+          style={{maxWidth:"1000px",overflowX:"auto",display:"block"}}
           data-ad-client="ca-pub-4860967711062471"
           data-ad-slot="1515076236"
           data-ad-format="auto"

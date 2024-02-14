@@ -1,0 +1,19 @@
+@import '../../../../variables.scss';
+
+:export {
+  minDeviceWidth: $varForMinDeviceWidth;
+}
+
+#adInBlackBloard {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+
+  div:has([data-ad-status=unfilled]){
+    display: none;
+  }
+
+  &:not(:has([data-ad-status=unfilled])) #blackBoardDiv{
+    display: none;
+  }
+}

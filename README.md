@@ -54,11 +54,12 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Feb 14, 2024
 
-<b>update 9.5 - 9.10:</b>
+<b>update 9.5 - 9.11:</b>
 - In design 1's home page, the last topic is "Under Construction", and is not clickable.
 - In design 2's home page, the "under construction" image was not showing, so that's fixed now.
 - In design 1 and design 2, made minor style changes.
 - Made minor changes to the form box.
+- In design 1, blackboard now shows an ad.
 
 <b>update 9.4:</b>
 - In `design2Main.tsx`, the main table now has a separate table, and made style changes.

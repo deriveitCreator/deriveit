@@ -56,7 +56,6 @@ const MainPartMemo = React.memo(function MainPart(props:{
     setCE: React.Dispatch<React.SetStateAction<boolean>>,
     continueButtonClicked:boolean
 }){
-    
     return <ParallaxProvider><div style={{backgroundColor:"#FFD966",position:"relative", visibility: props.continueButtonClicked?"visible":"hidden"}}>
         <BackgroundImage continueClicked={props.continueButtonClicked}/>
         <HomeBody setConFunc={props.setCE} continueButtonClicked={props.continueButtonClicked}/>
@@ -74,8 +73,8 @@ function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean
                 (window.adsbygoogle = window.adsbygoogle || []).push({});
             } catch (e) {}
         }
-        props.setConFunc(true);
-    }, []) // eslint-disable-line no-use-before-define
+        if (!props.continueButtonClicked) props.setConFunc(true);
+    }) // eslint-disable-line no-use-before-define
 
     return <>
         <HeaderEl continueButtonClicked={props.continueButtonClicked}/>
@@ -83,9 +82,9 @@ function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean
         <main>
             <MainTable/>
             {/*@ts-ignore*/}
-            <div align="center" style={{marginTop:"20px"}}><ins
+            <div align="center" style={{marginTop:"20px", marginBottom:"20px"}}><ins
                 className="adsbygoogle"
-                style={{maxWidth:"1000px",overflowX:"auto"}}
+                style={{maxWidth:"1000px",overflowX:"auto",display:"block"}}
                 data-ad-client="ca-pub-4860967711062471"
                 data-ad-slot="1515076236"
                 data-ad-format="auto"
