@@ -91,8 +91,8 @@ export default function Design1(props: {topic: string, subTopic: string, article
             bodyChildren.push(<div
               key={i}
               className={' text-xl grid h-[200px] items-center justify-items-center'}
-              style={{gridTemplateColumns:"auto 80% auto"}}
-            ><span></span><div className={' border-black border-2 bg-white px-1 overflow-x-auto h-min w-min'}>
+              style={{gridTemplateColumns:"auto 90% auto"}}
+            ><span></span><div className={' border-black border-2 bg-white px-1 overflow-x-auto h-min max-w-min w-full'}>
               <Latex strict>{j[i][1]}</Latex>
             </div><span></span></div>);
             break;
