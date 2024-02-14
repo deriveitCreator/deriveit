@@ -68,7 +68,7 @@ export default function Style2(props: {topic: string, styleObject:{
 const StyledP = (props: {text: string, link: string, textColor: string}) =>{
 	const responsivePStyle = (screen.width > parseInt(styles.minDeviceWidth)) ?
 	"text-[28px] leading-[32px] mx-20 mt-5" :
-	"text-2xl leading-[26px] mx-6 mt-3" ;
+	"text-2xl leading-[26px] mx-6 mt-5" ;
 
 	return <p className={`${mainTextFont.className} ${responsivePStyle} `} style={{color: props.textColor, letterSpacing:"1px"}}>
 		{(props.text.slice(-11,) !== "incomplete)") ? <Link href={`./${props.link}`} dangerouslySetInnerHTML={{ __html: props.text }}></Link> : <span dangerouslySetInnerHTML={{ __html: props.text }}></span>}
