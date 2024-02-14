@@ -23,23 +23,23 @@ const footerIdStyle = {
 }
 
 
-const footerStates = {
-    showFooter: false
+const formBoxState = {
+    showForm: false
 }
 
 const reducer = (state:object, action: {type:string, payload?:string}) => {
     switch (action.type) {
         case "SHOW_FORM_BOX":
-            return {...state, showFooter: true};
+            return {...state, showForm: true};
         case "HIDE_FORM_BOX":
-            return {...state, showFooter: false};
+            return {...state, showForm: false};
         default:
             return state;
     }
 }
 
 export default function FooterComp(){
-    const [fs, dispatch] = useReducer(reducer, footerStates);
+    const [fs, dispatch] = useReducer(reducer, formBoxState);
     const [formType, changeFT] = useState(0);
 
     function showForm(type: number){
@@ -62,7 +62,7 @@ export default function FooterComp(){
             <ImageWrapper mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
         </Link>
         {/*@ts-ignore */}
-        <Suspense fallback={<></>}><FormBox showFB={fs.showFooter} reducerDis={dispatch} type={formType}/></Suspense>
+        <Suspense fallback={<></>}><FormBox showFB={fs.showForm} reducerDis={dispatch} type={formType}/></Suspense>
     </footer> :
     <footer style={{gridTemplateColumns:"50% 50%", ...footerIdStyle}}>
         <p className={cursiveMain.className} style={{...footerPStyle, gridColumnStart: "span 2", padding:"20px"}}>
@@ -78,7 +78,7 @@ export default function FooterComp(){
             <ImageWrapper mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
         </Link>
         {/*@ts-ignore */}
-        <Suspense fallback={<></>}><FormBox showFB={fs.showFooter} reducerDis={dispatch} type={formType}/></Suspense>
+        <Suspense fallback={<></>}><FormBox showFB={fs.showForm} reducerDis={dispatch} type={formType}/></Suspense>
     </footer>;
 }
 

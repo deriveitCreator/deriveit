@@ -351,7 +351,7 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
       {/*@ts-ignore*/}
       <div align="center" style={{marginTop:"10px", marginBottom:"10px", flex:"auto"}}><ins
         className="adsbygoogle"
-        style={{width:"160px",overflowY:"auto",display:"block"}}
+        style={{width:"160px",display:"block"}}
         data-ad-client="ca-pub-4860967711062471"
         data-ad-slot="1515076236"
         data-ad-format="auto"
