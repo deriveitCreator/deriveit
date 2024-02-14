@@ -19,11 +19,18 @@
 }
 
 #adBelowArticle{
-  text-align:center;
-  max-width:95%;
-  overflow-x:auto;
-  height: auto !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  display:block;
+  margin-bottom:20px;
+  ins{
+    text-align:center;
+    max-width:95%;
+    overflow-x:auto;
+    height: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display:block;
+  }
+}
+
+#adBelowArticle:has([data-ad-status=unfilled]){
+  display: none;
 }

@@ -126,8 +126,7 @@ export default function Design1(props: {topic: string, subTopic: string, article
       else{
         blackboardRef.current = <section>
           {/*@ts-ignore*/}
-          <div align="center" style={{marginBottom:"20px"}}><ins
-            id={styles.adBelowArticle}
+          <div id={styles.adBelowArticle} align="center"><ins
             className="adsbygoogle"
             data-ad-layout="in-article"
             data-ad-format="fluid"
