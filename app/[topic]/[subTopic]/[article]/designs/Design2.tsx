@@ -28,7 +28,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
 
   useEffect(()=>{
     if(bodyVal){
-      if (window.innerWidth < parseInt(styles.minDeviceWidth)) setFS({h2:"text-3xl", main: "text-[28px]", quote: "text-2xl"});
+      if (screen.width < parseInt(styles.minDeviceWidth)) setFS({h2:"text-3xl", main: "text-[28px]", quote: "text-2xl"});
       else document.querySelectorAll("[data-title]").forEach((el)=>{
         el.addEventListener("mouseenter",(event)=>{
           //@ts-ignore
@@ -68,7 +68,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
             bodyChildren.push(<ImageWrapper
               key={i}
               alt=""
-              h = {window.innerWidth > parseInt(styles.minDeviceWidth) ? ' h-[200px]': ' h-[150px]'}
+              h = {screen.width > parseInt(styles.minDeviceWidth) ? ' max-h-[200px]': ' max-h-[150px]'}
               className=' flex items-center justify-center my-4 font-bold '
               src={`/${props.topic}/${props.subTopic}/${j[i][1]}`}
             />);
@@ -77,7 +77,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
             bodyChildren.push(<ImageWrapper
               key={i}
               alt=""
-              h ={window.innerWidth > parseInt(styles.minDeviceWidth) ? ' h-[220px]': ' h-[150px]'}
+              h ={screen.width > parseInt(styles.minDeviceWidth) ? ' h-[220px]': ' h-[150px]'}
               className=' flex items-center justify-center my-4 '
               src={`/${props.topic}/${props.subTopic}/${j[i][1]}`}
             />);
@@ -85,9 +85,9 @@ export default function Design2(props: {topic: string, subTopic: string, article
           case "displayFormula":
             bodyChildren.push(<div
               key={i}
-              className={' text-xl grid h-[150px] items-center justify-items-center'}
-              style={{gridTemplateColumns:"auto 80% auto"}}
-            ><span></span><div className={' bg-white px-1 overflow-x-auto h-min w-min'}>
+              className={' text-xl grid h-[150px] items-center justify-items-center '}
+              style={{gridTemplateColumns:"auto auto auto"}}
+            ><span></span><div className={' bg-white px-1 overflow-x-auto h-min w-11/12 '}>
               <Latex strict>{j[i][1]}</Latex>
             </div><span></span></div>);
             break;
@@ -129,15 +129,15 @@ export default function Design2(props: {topic: string, subTopic: string, article
   },[headerVal, bodyVal]); // eslint-disable-line no-use-before-define
 
   return <FontSizeContext.Provider value={fontSize}>
-    <ArticleHeader text={headerVal}/>
-    <MainPart content={bodyVal!}/>
+    <ArticleHeaderMemo text={headerVal}/>
+    <MainPartMemo content={bodyVal}/>
     <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
     <SideOption asideW={asideW} setAW={setAW}/>
     <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/>
     <section style={{display:((asideW=="0px"))?"block":"none"}}>
       {/*@ts-ignore*/}
-      <div align="center" style={{overflowX:"auto"}}><ins className="adsbygoogle"
-      style={{textAlign:"center", maxWidth:"95%", marginTop:"20px", marginBottom:"20px"}}
+      <div align="center"><ins className="adsbygoogle"
+      style={{textAlign:"center", maxWidth:"95%",overflowX:"auto"}}
       data-ad-layout="in-article"
       data-ad-format="fluid"
       data-ad-client="ca-pub-4860967711062471"
@@ -147,33 +147,35 @@ export default function Design2(props: {topic: string, subTopic: string, article
   </FontSizeContext.Provider>
 }
 
-const ArticleHeader = memo(function ArticleHeaderMemo(props: {text: string}){
+const ArticleHeaderMemo = memo(function ArticleHeader(props: {text: string}){
   const animationState = useRef("");
   
   var responsiveStyle = "text-4xl px-8";
   if(props.text !== "") {
     animationState.current = "animate-[becomeBlack_0.5s_ease-out_0.5s_forwards]";
-    if(window.innerWidth < parseInt(styles.minDeviceWidth)) responsiveStyle = "text-3xl px-2";
+    if(screen.width < parseInt(styles.minDeviceWidth)) responsiveStyle = "text-3xl px-2";
   }
   return <header className=' w-full border-black border-b-4 mb-8 min-h-[84px] flex items-center justify-center'>
     <h1 className={`${headingFont.className} text-center leading-[50px] text-white font-bold ${animationState.current} ${responsiveStyle}`} dangerouslySetInnerHTML={{__html: props.text.replaceAll("&amp;","&")}} />
   </header>
 });
 
-const MainPart = memo(function MainPartMemo(props: {content: JSX.Element[]}){
+const MainPartMemo = memo(function MainPart(props: {content: (JSX.Element[] | null)}){
   const [op,setOp] = useState(0);
 
   useEffect(()=>{
     if(props.content){
       //@ts-ignore
-      window.MathJax.typeset();
-      setOp(1);
+      if(op) window.MathJax.typeset();
+      else setOp(1);
     }
-  },[props.content])
-  let content = props.content;
-  let paddingLevel = "";
-  if (op===1) paddingLevel = window.innerWidth > parseInt(styles.minDeviceWidth) ? "px-7 ": "px-2";
-  return <main className={`mb-10 grow ${paddingLevel}`} style={{opacity:op,transition:"opacity 0.5s ease-out 0.1s"}}>{content}</main>
+  },[props.content, op]);
+
+  if (props.content) {
+    let paddingLevel = screen.width > parseInt(styles.minDeviceWidth) ? "px-7 ": "px-2";
+    return <main className={`mb-10 grow ${paddingLevel}`} style={{opacity:op,transition:"opacity 0.5s ease-out 0.1s"}}>{props.content}</main>
+  }
+  else return null;
 });
 
 function SubHeading({children}: {children: string}){
@@ -184,8 +186,8 @@ function SubHeading({children}: {children: string}){
 function PMain({children, mode}: {children: string, mode:number}){
   const FontSizeContextVal = useContext(FontSizeContext);
 
-  var responsiveStyle = ["mx-2","mx-4","mx-6"];
-  if (window.innerWidth > parseInt(styles.minDeviceWidth)) responsiveStyle = ["mx-2","mx-8 [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help","mx-16"];
+  var responsiveStyle = ["mx-1","mx-4","mx-6"];
+  if (screen.width > parseInt(styles.minDeviceWidth)) responsiveStyle = ["mx-2","mx-8 [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help","mx-16"];
 
   if(mode === 1) return <p className={`pmain ${mainTextFont.className} mb-4 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums ${responsiveStyle[0]}`} dangerouslySetInnerHTML={{__html: children}}></p>
   if(mode === 2) return <p className={`pmain2 ${mainTextFont.className} mb-4 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums ${responsiveStyle[1]}`} dangerouslySetInnerHTML={{__html: children}}></p>
@@ -200,7 +202,7 @@ function ListComp(props:{numbered: boolean, content:string}){
   const fontSizeContextVal = useContext(FontSizeContext);
 
   var responsiveStyle = "mx-20"
-  if (window.innerWidth < parseInt(styles.minDeviceWidth)) responsiveStyle = "mx-10";
+  if (screen.width < parseInt(styles.minDeviceWidth)) responsiveStyle = "mx-10";
   if(props.numbered) return <ol className={`${mainTextFont.className} list-decimal mb-4 leading-8 ${fontSizeContextVal.quote} ${responsiveStyle}`} dangerouslySetInnerHTML={{__html: props.content}}></ol>
   else return <ul className={`${mainTextFont.className} list-decimal mb-4 leading-8 ${fontSizeContextVal.quote} ${responsiveStyle}`} dangerouslySetInnerHTML={{__html: props.content}}></ul>
 }
@@ -245,6 +247,7 @@ function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<strin
 
   function turnOffAside(){
     document.documentElement.style.overflowY = "auto";
+    document.documentElement.style.overflowX = "auto";
     document.documentElement.classList.remove("scroll2");
     iconRightRef.current = "0";
     grayAreaOp.current = "opacity-0";
@@ -253,6 +256,7 @@ function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<strin
 
   function turnOnAside(){
     document.documentElement.style.overflowY = "hidden";
+    document.documentElement.style.overflowX = "hidden";
     document.documentElement.classList.add("scroll2");
     iconRightRef.current = "240px";
     iconRef.current = <FaChevronRight/>;
@@ -321,7 +325,7 @@ function FooterEl(){
 	return <div className={printFont2.className+' font-bold'}>
 		<footer>
 		{
-      window.innerWidth > parseInt(styles.minDeviceWidth) ?
+      screen.width > parseInt(styles.minDeviceWidth) ?
 			<>
         <hr style={{backgroundColor:"black", height:"4px", border:"none"}}/>
 				<div style={{display:"grid",gridTemplateColumns:"140px auto",margin:"0px 15px 0px 20px"}}>

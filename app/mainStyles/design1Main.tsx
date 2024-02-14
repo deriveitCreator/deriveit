@@ -30,13 +30,15 @@ const reducer = (state:object, action: {type:string, payload?:string}) => {
 
 export default function Design1(){
     const [d1s, dispatch] = useReducer(reducer, design1States);
+    const [firstRender, changeFR] = useState(true);
+    useEffect(()=>{
+        changeFR(false);
+    },[]);
 
     return <>
         {/*@ts-ignore */}
         <HomeLoading disabledState={d1s.continueDisabled} hlDis={dispatch}/>
-        <Suspense fallback={<></>}>
-            <HomeBody design1States={d1s} disFunc={dispatch} />
-        </Suspense>
+        {firstRender? null : <HomeBody design1States={d1s} disFunc={dispatch} />}
     </>;
 
 }
@@ -67,61 +69,54 @@ const HomeLoading=(props:{disabledState:boolean,hlDis:React.Dispatch<{type:strin
 }
 
 function HomeBody(props:{design1States:object,disFunc:React.Dispatch<{type:string;payload?: string|undefined}>}){
-    useEffect(()=>{
-        window.scrollTo(0,0);
-        props.disFunc({type: "ALLOW_CONTINUE"});
-    }, []) // eslint-disable-line no-use-before-define
+  useEffect(()=>{
+    window.scrollTo(0,0);
+    var ads = document.getElementsByClassName('adsbygoogle').length;
+    for (var i = 0; i < ads; i++) {
+        try {
+            //@ts-ignore
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {}
+    }
+    props.disFunc({type: "ALLOW_CONTINUE"});
+  }, []) // eslint-disable-line no-use-before-define
 
-    return <>
-        {/*@ts-ignore */}
-        <HeaderEl/>
-        <main style={{marginBottom:"20px"}}>
-            {/*@ts-ignore */}
-            <Blackboard disFunc={props.disFunc} startSS={props.design1States.startSlideShow}/>
-            <section>
-                <h2 className={cursiveMain.className + " w-full text-center text-5xl my-10"}>Topics</h2>
-                <div className=" after:clear-both after:block after:w-full after:content-[' '] border-gray-600 border-b-4 border-t-4 text-3xl text-center after:text-gray-800 w-full" style={{transition: "top 0.3s ease-out"}}>
-                    {allTopics.map((topic, i) => {
-                        if(i%2) return null;
-                        else{
-                        let nextTopic = allTopics[i+1];
-                        return <div key={i}>
-                            <TopicLink refTo={topic.name} floatD={"left"}/>
-                            <TopicLink refTo={nextTopic.name} floatD={"right"}/>
-                        </div>
-                        }
-                    })}
-                </div>
-            </section>
-            <section>
-                <h2 className={cursiveMain.className + " w-full text-center text-5xl my-10"}>Recently Added</h2>
-                <div className=" after:clear-both after:block after:w-full after:content-[' '] border-gray-600 border-b-4 border-t-4">
-                    {getRecentlyAdded().map((item,i)=>{ return  <div key={i} className={`bg-gray-50 overflow-hidden h-12`} ><Link
-                        href={"/"+item.substring(item.indexOf("%")+1)}
-                        className={"bg-gray-100 block h-12 leading-[48px] hover:no-underline text-2xl px-5 group " + cursiveMain.className}
-                    >
-                        <span className=' opacity-0 group-hover:opacity-100'>&#128609;</span>
-                        <span className=' px-3'>{item.substring(0,item.indexOf("%")).replaceAll("_"," ")}</span>
-                    </Link></div> })}
-                </div>
-            </section>
-            <section>
-                <h2 className={cursiveMain.className + " w-full text-center text-5xl my-10"}>Recently Edited</h2>
-                <div className=" after:clear-both after:block after:w-full after:content-[' '] border-gray-600 border-b-4 border-t-4">
-                    {getRecentlyEdited().map((item,i)=>{ return  <div key={i} className={`bg-gray-50 overflow-hidden`} ><Link
-                        href={"/"+item.substring(item.indexOf("%")+1)}
-                        className={"bg-gray-100 block h-12 leading-[48px] hover:no-underline text-2xl px-5 group " + cursiveMain.className}
-                    >
-                    <span className=' opacity-0 group-hover:opacity-100'>&#128609;</span>
-                        <span className=' px-3'>{item.substring(0,item.indexOf("%")).replaceAll("_"," ")}</span>
-                    </Link></div> })}
-                </div>
-            </section>
-            <section>
-                <h2 className={cursiveMain.className + " w-full text-center text-5xl my-10"}>Imagine Some Ad Here</h2>
-            </section>
-        </main>
-    </>;
+  return <>
+    {/*@ts-ignore */}
+    <HeaderEl/>
+    <main style={{marginBottom:"20px"}}>
+      {/*@ts-ignore */}
+      <Blackboard disFunc={props.disFunc} startSS={props.design1States.startSlideShow}/>
+      <section>
+        <h2 className={`${cursiveMain.className} ${styles.h2Class}`}>Topics</h2>
+        <div className={`after:clear-both after:block after:w-full after:content-[' '] border-gray-600 border-b-4 border-t-4 text-center after:text-gray-800 w-full`} style={{transition: "top 0.3s ease-out"}}>
+          {allTopics.map((topic, i) => {
+            if(i%2) return null;
+            else{
+            let nextTopic = allTopics[i+1];
+            return <div key={i}>
+              <TopicLink refTo={topic.name} floatD={"left"}/>
+              <TopicLink refTo={nextTopic.name} floatD={"right"}/>
+            </div>
+            }
+          })}
+        </div>
+      </section>
+      {RecentlySection("Added")}
+      {RecentlySection("Edited")}
+      <section>
+        {/*@ts-ignore*/}
+        <div align="center" style={{marginTop:"20px"}}><ins
+          className="adsbygoogle"
+          style={{maxWidth:"1000px",overflowX:"auto"}}
+          data-ad-client="ca-pub-4860967711062471"
+          data-ad-slot="1515076236"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins></div>
+      </section>
+    </main>
+  </>;
 }
 
 const HeaderEl = () => {
@@ -158,25 +153,20 @@ function TopicLink(props: {refTo: string, floatD: string}){
                 e.target.parentElement.classList.remove("notSelectedForShrink");
                 window.scroll(0,0);
                 setTimeout(()=>{
-                    e.target.classList.remove("h-[60px]");
-                    e.target.classList.remove("leading-[60px]");
-                    e.target.classList.remove("hover:text-4xl");
-                    e.target.classList.remove("hover:leading-[60px]");
-                    e.target.classList.add("text-4xl");
-                    e.target.classList.add("h-20");
-                    e.target.classList.add("leading-[74px]");
-                    e.target.classList.add("cursor-default");
-                    //@ts-ignore 
-                    document.querySelectorAll(".notSelectedForShrink").forEach(el => el.style.height = '0px');
-                    setTimeout(()=>{
-                        e.target.classList.add("border-b-4");
-                        e.target.classList.add("border-gray-600");
-                        e.target.parentElement.parentElement.parentElement.classList.remove("border-b-4");
-                        e.target.parentElement.style.height = "1000px";
-                        setTimeout(()=>{
-                            router.push("/"+props.refTo.toLowerCase().replaceAll(" ","_"));
-                        }, 1);
-                    }, 300);
+                  e.target.style.fontSize = "36px";
+                  e.target.style.lineHeight = "74px";
+                  e.target.style.height = "80px"; 
+                  //@ts-ignore 
+                  document.querySelectorAll(".notSelectedForShrink").forEach(el => el.style.height = '0px');
+                  setTimeout(()=>{
+                      e.target.classList.add("border-b-4");
+                      e.target.classList.add("border-gray-600");
+                      e.target.parentElement.parentElement.parentElement.classList.remove("border-b-4");
+                      e.target.parentElement.style.height = "1000px";
+                      setTimeout(()=>{
+                          router.push("/"+props.refTo.toLowerCase().replaceAll(" ","_"));
+                      }, 1);
+                  }, 300);
                 }, 300);
             },200);
         }
@@ -189,8 +179,26 @@ function TopicLink(props: {refTo: string, floatD: string}){
 
     return <div onClick={divClicked} className={`bg-gray-50 overflow-hidden float-${props.floatD} notSelectedForShrink`} style={{width:"50%",height:"60px",transition:"width 0.2s ease-out, opacity 0.2s ease-out, height 0.3s ease-out "}} ><Link
         href={"/"+props.refTo.toLowerCase()}
-        className={"bg-gray-100 block hover:text-4xl h-[60px] leading-[60px] hover:leading-[60px] hover:no-underline " + cursiveMain.className}
+        className={`bg-gray-100 block hover:no-underline ${cursiveMain.className} ${styles.topicClass}`}
         style={{transition:"font-size 0.2s ease-out, height 0.3s ease-out"}}
         onClick={linkClicked}
     >{props.refTo}</Link></div>
+}
+
+function RecentlySection(type:string){
+  let content = (type == "Edited") ? getRecentlyEdited() : getRecentlyAdded();
+  return <section>
+    <h2 className={`${cursiveMain.className} ${styles.h2Class}`}>Recently {type}</h2>
+    <div className={` border-gray-600 border-b-4 border-t-4`}>
+      {content.map((item,i)=>{
+        return <div key={i} className={`bg-gray-50`} ><Link
+          href={"/"+item.substring(item.indexOf("%")+1)}
+          className={`bg-gray-100 block hover:no-underline group ${cursiveMain.className} ${styles.recentTableText}`}
+        >
+          <span className=' opacity-0 group-hover:opacity-100 absolute left-2'>&#128609;</span>
+          <span>{item.substring(0,item.indexOf("%")).replaceAll("_"," ")}</span>
+        </Link></div>
+      })}
+    </div>
+  </section>;
 }

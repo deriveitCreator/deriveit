@@ -1,10 +1,10 @@
-import { Kalam, Niconne, Karla, Rochester, Newsreader } from 'next/font/google';
+import { Kalam, Niconne, Karla, Rochester } from 'next/font/google';
 import localFont from 'next/font/local';
 
 //Used in design 1
 export const chalkWriting = Kalam({
   weight: ["400", "700"],
-  subsets: ["latin"]
+  subsets: ["latin"],
 })
 
 export const cursiveMain = Niconne({

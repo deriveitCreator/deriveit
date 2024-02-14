@@ -1,4 +1,4 @@
-
+@import '../variables.scss';
 
 #continue{
 	background-color: #222;
@@ -43,4 +43,58 @@
 		text-decoration: none;
 	}
 
+}
+
+.h2Class{
+	font-size: 48px;
+	text-align: center;
+	margin: 40px 0px;
+	width: 100%;
+}
+
+.topicClass{
+	font-size: 30px;
+	height: 60px;
+	line-height: 60px;
+
+	&:hover{
+		font-size: 35px;
+	}
+}
+
+.recentTableText{
+	font-size: 24px;
+	padding: 0px 20px 0px 40px;
+	line-height: 40px;
+}
+
+@media only screen and (max-device-width: $varForMinDeviceWidth) {
+
+	#blackboard {
+		font-size: 80%;
+		border-top: #bda27e solid 5px;
+		border-bottom: #c9ad86 solid 5px;
+		grid-template-rows: 200px min-content;
+	}
+
+	.h2Class{
+		font-size: 40px;
+		margin: 30px 0px;
+	}
+
+	.topicClass{
+		font-size: 20px;
+		height: 60px;
+		line-height: 60px;
+
+		&:hover{
+			font-size: 24px;
+		}
+	}
+
+	.recentTableText{
+		font-size: 20px;
+		padding: 5px 10px;
+		line-height: 25px;
+	}
 }

@@ -1,18 +1,22 @@
 @import '../variables.scss';
 
+$brown1: #552200;
+$brown2: #663300;
+
 :export {
   minDeviceWidth: $varForMinDeviceWidth;
+	brown1: $brown1;
 }
 
 #loading{
 	background-image:linear-gradient(to bottom right,#FF9933,#FFAA33);
-	border-bottom:5px solid #663300;
+	border-bottom:5px solid $brown1;
 }
 
 #continue{
 	background-image:linear-gradient(to bottom right,#EEBB22,#FFCC44,#EEBB22);
 	color: black;
-	border:3px #663300 solid;
+	border:3px $brown1 solid;
 	border-radius: 2px;
 	font-size: 22px;
 	line-height: 22px;
@@ -28,35 +32,34 @@
 #headerId{
 	background-color: rgb(255,255,204);
 	padding-bottom: 10px;
-	border-bottom-style:solid;
-	border-bottom-color:#552200;
-	border-bottom-width:4px;
+	border-bottom:solid $brown1 4px;
   position: relative;
-}
 
-#mainheading{
-	font-size:40px;
-	line-height:60px;
-	letter-spacing:0px;
-	margin:0px auto;
-	padding: 0px;
-	width:94%;
-	max-width:1000px;
-	border-style:solid;
-	border-top-style:none;
-	border-width:4px;
-	border-color:#C79000;
-	border-radius:0px 0px 70px 70px;
-	background-color:#FFCC66;
-	background-image:linear-gradient(#FFBF5D,#FFDA72);
-	box-sizing: border-box;
-	display: grid;
-	grid-template-columns: auto 50px;
+	#mainheading{
+		font-size:40px;
+		line-height:60px;
+		letter-spacing:0px;
+		margin:0px auto;
+		padding: 0px;
+		width:94%;
+		max-width:1000px;
+		border-style:solid;
+		border-top-style:none;
+		border-width:4px;
+		border-color:#C79000;
+		border-radius:0px 0px 70px 70px;
+		background-color:#FFCC66;
+		background-image:linear-gradient(#FFBF5D,#FFDA72);
+		box-sizing: border-box;
+		display: grid;
+		grid-template-columns: auto 50px;
 
-	h1{
-		color:red;
-		padding-left: 50px;
-		font-weight: bold;
+		h1{
+			color:red;
+			padding-left: 50px;
+			font-weight: bold;
+		}
+
 	}
 }
 
@@ -70,22 +73,22 @@
 
 .changeSlide{
 	width: 5%;
-    top:0;
+  top:0;
 	position: absolute;
 	cursor: pointer;
-    height: 100%;
+	height: 100%;
 
-    svg{
-        position: absolute;
-        width: 40px;
-        line-height: 100%;
-        height: 100%;
-        color: #663300;
-    }
+	svg{
+		position: absolute;
+		width: 40px;
+		line-height: 100%;
+		height: 100%;
+		color: $brown2;
+	}
 
-    &:hover svg{
-        width: 45px;
-    }
+	&:hover svg{
+		width: 45px;
+	}
 }
 
 #prevSlide{
@@ -105,7 +108,7 @@
 #searchDiv{
 	position: relative;
 	width: 100%;
-	border-bottom:solid #552200 4px;
+	border-bottom:solid $brown1 4px;
 	display: grid;
 	grid-template-columns: 18% 78%;
 	justify-content: space-evenly;
@@ -120,7 +123,7 @@
 			margin: 4px 0px;
 			background-color: #BB5500;
 			background-image: linear-gradient(to top right,#C84400,#D05500,#C84400);
-			border: solid 2px #552200;
+			border: solid 2px $brown1;
 			border-radius: 5px;
 			cursor: pointer;
 			line-height: 24px;
@@ -223,19 +226,31 @@
 	}
 }
 
-#mainPart{
-	background-color:#FFD966;
-	background-image:url('/back.png');
-	background-repeat:repeat-y;
-	background-position:center;
+#backgroundImage{
+	position:absolute;
+	height:100%;
+	width: 100%;
+	background-image: url("/blank.png");
+	background-position: center;
+	background-repeat: repeat-y;
+	overflow: hidden;
+
+	div{
+		width: 100%;
+		position:absolute;
+		height:100%;
+		background-position: center;
+		background-repeat: repeat-y;
+	}
 }
 
 #mainTable{
 	max-width: 1040px;
-	width: 95%;
+	width: 88%;
 	white-space: normal;
 	margin: auto auto 40px auto;
 	border-collapse: collapse;
+	position: relative;
 
 	th{
 		font-size: 45px;
@@ -248,17 +263,13 @@
 		color: #FFDD77;
 		margin: 0px;
 		text-decoration: underline;
-		border-style: solid;
-		border-width: 5px;
-		border-color: #663300;
+		border: solid 5px $brown2;
 	}
 
 	tbody {
 		tr{
-			box-shadow: 5px 5px 10px #663300 inset;
-			border-width: 5px;
-			border-style: solid;
-			border-color: #663300;
+			box-shadow: 5px 5px 10px $brown2 inset;
+			border: solid 5px $brown2;
 			background-color: #c74;
 			background-image: url(/tablebackground.PNG);
 			background-size: 100% auto;
@@ -273,7 +284,6 @@
 				}
 				img{
 					max-width: 260px;
-					max-height: 130px;
 					margin-top: 15px;
 					margin-bottom: 10px;
 				}
@@ -292,6 +302,7 @@
 	white-space:normal;
 	border:5px solid #440044;
 	margin:0px auto 20px auto;
+	position: relative;
 	
 	tr{
 		background-color:#901590;
@@ -334,32 +345,39 @@
 	}
 }
 
+#footerId{
+	border-bottom: 5px solid $brown1;
+	position: relative;
+}
+
 @media only screen and (max-device-width: $varForMinDeviceWidth) {
 	#loading{
-		border-bottom: 4px solid #552200;
+		border-bottom: 4px solid $brown1;
 	}
 
 	#headerId{
 		padding-bottom: 0px;
-	}
 
-	#mainheading{
-		font-size:24px;
-		line-height:40px;
-		width:100%;
-		max-width:100%;
-		border-radius:0px;
-		border:none;
-		grid-template-columns: auto 25px;
+		#mainheading{
+			font-size:25px;
+			line-height:42px;
+			width:100%;
+			max-width:100%;
+			border-radius:0px;
+			border:none;
+			grid-template-columns: auto 25px;
+			background-image:linear-gradient(45deg,#FFBF5D,#FFDA72);
 
-		h1{
-			padding-left: 10px;
+			h1{
+				color: $brown1;
+				padding-left: 10px;
+			}
 		}
 	}
 
 	#searchDiv{
 		grid-template-columns: 24% 75%;
-		margin-bottom: 25px;
+		margin-bottom: 30px;
 
 		#searchSelection{
 			#topicSelect{
@@ -380,8 +398,9 @@
 			tr{
 				td{
 					img{
-						max-width: 130px;
-						max-height: 65px;
+						max-width: 150px;
+						margin-top: 8px;
+						margin-bottom: 8px;
 					}
 				}
 			}
@@ -390,12 +409,12 @@
 
 	#tableForRecent{
 		border-width: 3px;
-		border: solid #552200 3px;
+		border: solid $brown1 3px;
 		tr{
 			th{
 				background-color: #BB5500;
-				font-size:22px;
-				line-height:35px;
+				font-size:20px;
+				line-height:30px;
 				border: solid #410 3px;
 				color: #410;
 			}
@@ -406,5 +425,9 @@
 				padding: 4px;
 			}
 		}
+	}
+
+	#footerId{
+		border-bottom: 4px solid $brown1;
 	}
 }

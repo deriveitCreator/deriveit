@@ -10,6 +10,7 @@ import StyleSelectionBox from '../components/StyleSelectionBox';
 import Link from 'next/link';
 import Design2Footer from '../footerStyles/design2Footer';
 import { allTopics, getRecentlyAdded, getRecentlyEdited, getTopicLinks } from '../infoStore/topicsInfo';
+import { ParallaxProvider, useParallax } from 'react-scroll-parallax';
 
 export default function Design2(){
     const [continueEnabled, setCE] = useState(false);
@@ -35,6 +36,7 @@ const HomeLoading=(props:{disabledState:boolean, changeSBL: React.Dispatch<React
     function buttonClick(){
       document.documentElement.style.overflowY = "scroll";
       wrapperH.current = "h-0";
+      window.scrollTo(0,-50);
       props.changeCBC(true);
     }
   
@@ -42,7 +44,7 @@ const HomeLoading=(props:{disabledState:boolean, changeSBL: React.Dispatch<React
       <div id={styles.loading} className={'fixed top-0 flex justify-center w-full overflow-hidden z-10 bg-[#FFAA33] ' + wrapperH.current} style={{transition:"height 1s"}}>
         <div className=' grid grid-cols-2 grid-rows-2 self-center' style={{gridTemplateColumns:"auto 30px auto"}}>
           <ImageWrapper className='row-span-2 justify-self-center' alt="" src={`/link_logo_trans2.png`} w= 'w-32'/>
-          <div className='row-span-2 h-full mx-3.5 bg-gradient-to-b from-transparent via-[#663300] to-transparent'></div>
+          <div className={`row-span-2 h-full mx-3.5 bg-gradient-to-b from-transparent via-[${styles.brown1}] to-transparent`}></div>
           <p className={printFont2.className + " py-2 text-lg font-bold"}>Imagine some useful<br/>info here</p>
           <button disabled={props.disabledState} onClick={buttonClick} id={styles.continue} className={headingFont.className}>{props.disabledState?"loading":"continue"}</button>
         </div>
@@ -50,19 +52,21 @@ const HomeLoading=(props:{disabledState:boolean, changeSBL: React.Dispatch<React
     )
 }
 
-function MainPart(props:{setCE: React.Dispatch<React.SetStateAction<boolean>>, continueButtonClicked:boolean}){
-    return <div id={styles.mainPart} style={{display: props.continueButtonClicked ? "block" : "none"}}>
+const MainPartMemo = React.memo(function MainPart(props:{
+    setCE: React.Dispatch<React.SetStateAction<boolean>>,
+    continueButtonClicked:boolean
+}){
+    
+    return <ParallaxProvider><div style={{backgroundColor:"#FFD966",position:"relative", visibility: props.continueButtonClicked?"visible":"hidden"}}>
+        <BackgroundImage continueClicked={props.continueButtonClicked}/>
         <HomeBody setConFunc={props.setCE} continueButtonClicked={props.continueButtonClicked}/>
-        <Suspense><Design2Footer/></Suspense>
-    </div>
-}
-const MainPartMemo = React.memo(MainPart);
+        <Design2Footer id={styles.footerId}/>
+    </div></ParallaxProvider>;
+});
 
 function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean>>, continueButtonClicked:boolean}){
-    const adRef: MutableRefObject<null|HTMLDivElement> = useRef(null);
 
     useEffect(()=>{
-        props.setConFunc(true);
         var ads = document.getElementsByClassName('adsbygoogle').length;
         for (var i = 0; i < ads; i++) {
             try {
@@ -70,47 +74,60 @@ function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean
                 (window.adsbygoogle = window.adsbygoogle || []).push({});
             } catch (e) {}
         }
+        props.setConFunc(true);
     }, []) // eslint-disable-line no-use-before-define
 
     return <>
         <HeaderEl continueButtonClicked={props.continueButtonClicked}/>
         <SearchEl/>
-        <section><table id={styles.mainTable} className={logoFont2.className}>
-            <thead><tr><th>Choose Your Topic:</th></tr></thead>
-            {/*When making images in powerpoint, the width should be 646px and height should be 334px*/}
-            <tbody>
-                {allTopics.map((elem,i)=>{
-                    if(i%2 === 0){
-                        const name1 = allTopics[i].name.toLowerCase().replaceAll(" ","_");
-                        const name2 = allTopics[i+1].name.toLowerCase().replaceAll(" ","_");
-                        return <tr key={i}><td>
-                            <div className=' w-1/2 inline-block'><Link href={`/${name1}`}><ImageWrapper alt={name1} src={`/topicsPics/${name1}.png`}/></Link></div>
-                            {
-                                name2==="uncategorized"?
-                                <div className=' w-1/2 inline-block'><ImageWrapper className='inline-block' alt={name2} bor={styles.uc} src={`/topicsPics/${name2}.png`}/></div>:
-                                <div className=' w-1/2 inline-block '><Link href={`/${name2}`}><ImageWrapper alt={name2} src={`/topicsPics/${name2}.png`}/></Link></div>
-                            }
-                        </td></tr>;
-                    }
-                    else return null;
-                })}
-            </tbody>
-        </table></section>
-        {/*@ts-ignore*/}
-        <div align="center" ref={adRef}><ins className="adsbygoogle"
-            style={{display:"block",maxWidth:"1000px",marginBottom:"40px"}}
-            data-ad-client="ca-pub-4860967711062471"
-            data-ad-slot="1515076236"
-            data-ad-format="auto"
-            data-full-width-responsive="true"></ins></div>
-        <BelowTables recentlyAdded={true}/>
-        <BelowTables recentlyAdded={false}/>
+        <main>
+            <MainTable/>
+            {/*@ts-ignore*/}
+            <div align="center" style={{marginTop:"20px"}}><ins
+                className="adsbygoogle"
+                style={{maxWidth:"1000px",overflowX:"auto"}}
+                data-ad-client="ca-pub-4860967711062471"
+                data-ad-slot="1515076236"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+            ></ins></div>
+            <BelowTables recentlyAdded={true}/>
+            <BelowTables recentlyAdded={false}/>
+        </main>
     </>;
+}
+
+function MainTable(){
+    return <section><table id={styles.mainTable} className={logoFont2.className}>
+        <thead><tr><th>Choose Your Topic:</th></tr></thead>
+        {/*When making images in powerpoint, the width should be 646px and height should be 334px*/}
+        <tbody>
+            {allTopics.map((elem,i)=>{
+                if(i%2 === 0){
+                    const name1 = allTopics[i].name.toLowerCase().replaceAll(" ","_");
+                    const name2 = allTopics[i+1].name.toLowerCase().replaceAll(" ","_");
+                    return <tr key={i}><td>
+                        <div className=' w-1/2 inline-block'><Link href={`/${name1}`}>
+                            <ImageWrapper alt={name1} src={`/topicsPics/${name1}.png`}/>
+                        </Link></div>
+                        {
+                            name2==="uncategorized"?
+                            <div className=' w-1/2 inline-block'><ImageWrapper className='inline-block' alt={name2} bor={styles.uc} src={`/topicsPics/${name2}.png`}/></div>:
+                            <div className=' w-1/2 inline-block '><Link href={`/${name2}`}>
+                                <ImageWrapper alt={name2} src={`/topicsPics/${name2}.png`}/>
+                            </Link></div>
+                        }
+                    </td></tr>;
+                }
+                else return null;
+            })}
+        </tbody>
+    </table></section>
 }
 
 function HeaderEl(props:{continueButtonClicked:boolean}){
     const [showDB, changeSDB] = useState(false);
-    const iconResponsiveStyle = window.innerWidth > parseInt(styles.minDeviceWidth)?
+    const iconResponsiveStyle = screen.width > parseInt(styles.minDeviceWidth)?
     {height:"64px",width:"30px",paddingTop:"14px",paddingBottom:"18px"} :
     {height:"40px",width:"20px",paddingTop:"5px",paddingBottom:"5px"};
     
@@ -118,13 +135,17 @@ function HeaderEl(props:{continueButtonClicked:boolean}){
         changeSDB(true);
     }
 
+    let h1El = screen.width > parseInt(styles.minDeviceWidth) ?
+    <h1>Welcome To <span style={{color:"#0066FF"}}>Derive</span> It<span style={{color:"#0066FF"}}>!</span></h1> :
+    <h1>DeriveIt.net</h1>;
+
     return <header id={styles.headerId} className={logoFont2.className}>
         <div id={styles.mainheading}>
-            <h1>Welcome To <span style={{color:"#0066FF"}}>Derive</span> It<span style={{color:"#0066FF"}}>!</span></h1>
-            <IconContext.Provider value={{style:{cursor:"pointer",color:"#552200", ...iconResponsiveStyle}}}><FaPaintbrush onClick={iconClicked} /></IconContext.Provider>
+            {h1El}
+            <IconContext.Provider value={{style:{cursor:"pointer", color: styles.brown1, ...iconResponsiveStyle}}}><FaPaintbrush onClick={iconClicked} /></IconContext.Provider>
             <Suspense><StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/></Suspense>
         </div>
-        {window.innerWidth > parseInt(styles.minDeviceWidth) ? <Slideshow continueButtonClicked={props.continueButtonClicked}/>:null}
+        {screen.width > parseInt(styles.minDeviceWidth) ? <Slideshow continueButtonClicked={props.continueButtonClicked}/>:null}
     </header>;
 }
 
@@ -221,7 +242,7 @@ function SearchEl(){
         <div id={styles.searchSelection}>
             <div id={styles.topicSelect} onClick={()=>{display.searchOpDis==="none"?changeDisplay({searchOpDis:"block", optionsDis:"none"}):changeDisplay({searchOpDis:"none", optionsDis:"none"});}}>
                 {
-                    window.innerWidth > parseInt(styles.minDeviceWidth)?
+                    screen.width > parseInt(styles.minDeviceWidth)?
                     <IconContext.Provider value={{style:{display:"inline",margin:"0px 12px",height:"18px"}}}>
                         <FaCaretDown />
                     </IconContext.Provider>
@@ -268,37 +289,61 @@ function SearchOptions(props:{display:string, optionsArr:{ text: string; link: s
 }
 
 function BelowTables(props: {recentlyAdded: boolean}){
-	return <section><table id={styles.tableForRecent} className={logoFont2.className}><tbody>{(props.recentlyAdded ?  getRecentlyAdded():getRecentlyEdited()).map((elem, i)=>{
-		let perPos = elem.indexOf("%");
-		let bgColor: string;
-		let borderColor: string;
-		for(let record of allTopics){
-				if(record.name.replaceAll(" ","_").toLowerCase() === elem.substring(perPos+1, elem.indexOf("/"))){
-						bgColor = record.bgColor;
-						borderColor = record.borderColor;
-						break;
-				}
-		}
+    var largeScreen = screen.width > parseInt(styles.minDeviceWidth);
+	return <section><table id={styles.tableForRecent} className={logoFont2.className}>
+        {largeScreen ? null : <thead><tr>
+            <th style={{textAlign:"center"}}>Recently {props.recentlyAdded?"Added":"Edited"}</th>
+        </tr></thead>}
+        <tbody>{(props.recentlyAdded ?  getRecentlyAdded():getRecentlyEdited()).map((elem, i)=>{
+            let perPos = elem.indexOf("%");
+            let bgColor: string;
+            let borderColor: string;
+            for(let record of allTopics){
+                if(record.name.replaceAll(" ","_").toLowerCase() === elem.substring(perPos+1, elem.indexOf("/"))){
+                    bgColor = record.bgColor;
+                    borderColor = record.borderColor;
+                    break;
+                }
+            }
 
-		if(window.innerWidth > parseInt(styles.minDeviceWidth)){
-				if(i===0) return <tr key={i}>
-						<th scope='col' rowSpan={4} className=' border-4'><span className=' float-left'>Recently</span><span className=' float-right'>{props.recentlyAdded?"Added":"Edited"}</span></th>
-						<td style={{ backgroundColor: bgColor!, color: borderColor!, borderLeft: `solid 3px ${borderColor!}`, fontWeight:"bold"}}><Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link></td>
-				</tr>;
-				else return <tr key={i}><td style={{ backgroundColor: bgColor!, color: borderColor!, borderLeft: `solid 3px ${borderColor!}`, fontWeight:"bold"}}><Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link></td></tr>;
-		}
-		else{
-			if(i===0) return <>
-				<tr key={-1}>
-					<th>Recently {props.recentlyAdded?"Added":"Edited"}</th>
-				</tr>
-				<tr key={0}>
-					<td style={{ backgroundColor: bgColor!, color: borderColor!, fontWeight:"bold"}}>
-						<Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link>
-					</td>
-				</tr>
-			</>;
-			else return <tr key={i}><td style={{ backgroundColor: bgColor!, color: borderColor!, fontWeight:"bold"}}><Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link></td></tr>;
-		}
-	})}</tbody></table></section>
+            if(largeScreen){
+                if(i===0) return <tr key={0}>
+                    <th scope='col' rowSpan={4} className=' border-4'><span className=' float-left'>Recently</span><span className=' float-right'>{props.recentlyAdded?"Added":"Edited"}</span></th>
+                    <td style={{ backgroundColor: bgColor!, color: borderColor!, borderLeft: `solid 3px ${borderColor!}`, fontWeight:"bold"}}><Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link></td>
+                </tr>;
+                else return <tr key={i}><td style={{ backgroundColor: bgColor!, color: borderColor!, borderLeft: `solid 3px ${borderColor!}`, fontWeight:"bold"}}><Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link></td></tr>;
+            }
+            else{
+                if(i===0) return <tr key={0}>
+                    <td style={{ backgroundColor: bgColor!, color: borderColor!, fontWeight:"bold"}}>
+                        <Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link>
+                    </td>
+                </tr>;
+                else return <tr key={i}><td style={{ backgroundColor: bgColor!, color: borderColor!, fontWeight:"bold"}}><Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link></td></tr>;
+            }
+        })}
+    </tbody></table></section>
+}
+
+function BackgroundImage(props:{continueClicked: boolean}){
+    const parallaxRef = useParallax<HTMLDivElement>({ speed: -50 });
+
+    useEffect(()=>{
+        if(props.continueClicked) setTimeout( function(){
+            if(screen.width < parseInt(styles.minDeviceWidth)){
+                parallaxRef.ref.current!.style.backgroundSize = "contain";
+                parallaxRef.ref.current!.style.backgroundImage = `url(/cgolSmall.gif)`;
+                parallaxRef.ref.current!.style.opacity = "0";
+                window.setTimeout(()=>{
+                    parallaxRef.ref.current!.style.transition = "opacity 1.5s linear";
+                    parallaxRef.ref.current!.style.opacity = "1";
+                },500)
+            }
+            else parallaxRef.ref.current!.style.backgroundImage = `url(/cgol${Math.floor(Math.random() * 3) + 1}.gif)`;
+        }, 1000);
+    });
+
+    return <div id={styles.backgroundImage}>
+        <div ref={parallaxRef.ref}></div>
+    </div>;
 }

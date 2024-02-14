@@ -4,10 +4,10 @@ import Link from 'next/link';
 import ImageWrapper from '../components/ImageWrapper';
 import { printFont, cursiveMain } from '../infoStore/fonts';
 import FormBox from '../components/formBox';
-import { Suspense, useReducer, useRef, useState } from 'react';
+import { Suspense, useReducer, useState } from 'react';
+import styles from "./variables.module.scss";
 
 const footerPStyle = {
-    padding: "0px",
     fontSize: "26px",
     color: "#ddd",
     lineHeight: "30px"
@@ -18,11 +18,10 @@ const footerIdStyle = {
 	display:"grid",
 	borderTop: "#bda27e solid 10px",
 	boxShadow: "0px 0px 0px 2px #c2a782, 0px 0px 0px 4px #a58e6f, 0px 1px 8px -1px black inset",
-	gridTemplateColumns:"15% 65% 20%",
 	backgroundColor:"#333",
-	paddingTop:"25px",
 	paddingBottom:"30px"
 }
+
 
 const footerStates = {
     showFooter: false
@@ -47,12 +46,13 @@ export default function FooterComp(){
         changeFT(type);
         dispatch({type: "SHOW_FORM_BOX"});
     }
-
-    return <footer style={footerIdStyle}>
+    
+    return (window.innerWidth > parseInt(styles.minWidthForResponsive)) ?
+    <footer style={{gridTemplateColumns:"15% 65% 20%", paddingTop:"25px", ...footerIdStyle}}>
         <Link href={"/"}>
             <ImageWrapper mw="max-w-[80%]" h="h-full" w="w-3/4" src="/link_logo_short_1.png" alt=""  className="flex justify-center items-center "/>
         </Link>
-        <p className={cursiveMain.className} style={footerPStyle}>
+        <p className={cursiveMain.className} style={{padding: "0px", ...footerPStyle}}>
             If you find a bug in this website or want to report an error, <ClickButton type={0} func={showForm} /><br/>
             If there are any equations for which you want proof for, <ClickButton type={1} func={showForm} /><br/>
             For any suggestion and ideas, <ClickButton type={2} func={showForm} />
@@ -63,7 +63,23 @@ export default function FooterComp(){
         </Link>
         {/*@ts-ignore */}
         <Suspense fallback={<></>}><FormBox showFB={fs.showFooter} reducerDis={dispatch} type={formType}/></Suspense>
-    </footer>
+    </footer> :
+    <footer style={{gridTemplateColumns:"50% 50%", ...footerIdStyle}}>
+        <p className={cursiveMain.className} style={{...footerPStyle, gridColumnStart: "span 2", padding:"20px"}}>
+            If you find a bug in this website or want to report an error, <ClickButton type={0} func={showForm} /><br/>
+            If there are any equations for which you want proof for, <ClickButton type={1} func={showForm} /><br/>
+            For any suggestion and ideas, <ClickButton type={2} func={showForm} />
+        </p>
+        <Link href={"/"}>
+            <ImageWrapper mw="max-w-[100px]" h="h-full" w="w-1/2" src="/link_logo_short_1.png" alt=""  className="flex justify-center items-center "/>
+        </Link>
+        <Link href="https://www.paypal.com/donate/?business=8UEU66XK9RMKG&no_recurring=1&currency_code=CAD" target="_blank" className='flex flex-col justify-center items-center bg-gray-50 mx-10 border-blue-900 border-2 outline-1 outline-white outline h-min py-2 hover:no-underline'>
+            <p className={" text-center text-lg pb-2 text-blue-900 font-bold "+printFont.className}>Want To Donate?</p>
+            <ImageWrapper mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
+        </Link>
+        {/*@ts-ignore */}
+        <Suspense fallback={<></>}><FormBox showFB={fs.showFooter} reducerDis={dispatch} type={formType}/></Suspense>
+    </footer>;
 }
 
 function ClickButton(props: {type: number, func: (arg0: number) => void}){

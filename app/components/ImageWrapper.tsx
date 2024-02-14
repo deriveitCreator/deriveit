@@ -25,12 +25,12 @@ export const ImageWrapper = (props: {
     let imgW = (props.w === undefined)? "w-auto": props.w;
     let imgH = (props.h === undefined)? "h-auto": props.h;
     let altVal = (props.alt === undefined) ? "" : props.alt;
-    let divBool = (props.animate === undefined)? false: props.animate;
+    let animate = (props.animate === undefined)? false: props.animate;
     if(props.figcaption !== undefined) return <figure className={`${props.className} ${divW} h-auto m-auto overflow-hidden `} style={{transition:"width 0.5s linear 1s"}}>
         <Image alt={altVal} src={props.src} width={0} height={0} sizes="100vw" className={`w-auto ${imgH} ${props.bor} object-contain bg-white`}/>
         <figcaption className=' text-lg ' dangerouslySetInnerHTML={{__html: props.figcaption}}></figcaption>
     </figure>;
-    else if(divBool) return <div className={`${props.className} ${divW} h-auto m-auto px-6 `} style={{transition:"width 0.5s linear 1s"}}>
+    else if(animate) return <div className={`${props.className} ${divW} h-auto m-auto px-6 `} style={{transition:"width 0.5s linear 1s"}}>
         <Image alt={altVal} src={props.src} width={0} height={0} sizes="100vw" className={`w-auto ${imgH} ${props.bor} object-contain bg-white`}/>
     </div>;
     else if (props.native) return <div className={props.className}>

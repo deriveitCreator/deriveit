@@ -14,7 +14,6 @@ export default function Style2(props: {topic: string, styleObject:{
     bgColor: string;
     footerColor: string;
     borderColor: string;
-    text: string;
 }}){ 
     const topicsInfoState: Array<[string,string[]]> = getTopicLinks(props.topic);
 
@@ -40,7 +39,7 @@ export default function Style2(props: {topic: string, styleObject:{
 				{topicsInfoState.map((subArr: [string, string[]], i:number)=>{
 					return <section key={i}>
 						{
-							(window.innerWidth > parseInt(styles.minDeviceWidth))?
+							(screen.width > parseInt(styles.minDeviceWidth))?
 							<h2 className={`${headingFont.className} text-4xl mx-12 capitalize pt-10 font-bold`} style={{color: borderColor}}>
 								{subArr[0].replaceAll("_"," ")}
 							</h2>:
@@ -70,7 +69,7 @@ export default function Style2(props: {topic: string, styleObject:{
 }
 
 const StyledP = (props: {text: string, link: string, textColor: string}) =>{
-	if (window.innerWidth > parseInt(styles.minDeviceWidth)) return <p className={`${mainTextFont.className} text-[28px] leading-[32px] mx-20 mt-5 `} style={{color: props.textColor, letterSpacing:"1px"}}>
+	if (screen.width > parseInt(styles.minDeviceWidth)) return <p className={`${mainTextFont.className} text-[28px] leading-[32px] mx-20 mt-5 `} style={{color: props.textColor, letterSpacing:"1px"}}>
 			{(props.text.slice(-11,) !== "incomplete)") ? <Link href={`./${props.link}`} dangerouslySetInnerHTML={{ __html: props.text }}></Link> : <span dangerouslySetInnerHTML={{ __html: props.text }}></span>}
 		</p>
 	else return <p className={`${mainTextFont.className} text-[28px] leading-[32px] mx-6 mt-5 `} style={{color: props.textColor, letterSpacing:"1px"}}>
@@ -93,7 +92,7 @@ function FooterEl(props:{borderColor:string, textColor: string, headerBgColor: s
 
 	return <div className={printFont2.className+' font-bold'} style={{color:props.textColor}}>
 		<footer>
-		{window.innerWidth > parseInt(styles.minDeviceWidth) ?
+		{screen.width > parseInt(styles.minDeviceWidth) ?
 			<>
 				<hr style={{backgroundColor:props.borderColor, height:"4px", border:"none"}}/>
 				<div style={{display:"grid",gridTemplateColumns:"140px auto",margin:"0px 15px 0px 20px"}}>

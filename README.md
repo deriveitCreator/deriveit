@@ -52,6 +52,16 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+### Feb 14, 2024
+
+<b>update 9.4:</b>
+- In `design2Main.tsx`, the main table now has a separate table, and made style changes.
+- For Article, images on mobile are now responsive and math displays now overflow when width is too small. Also, on mobile, inline MathJax wasn't rendering, so that's fixed now.
+- Home page for design 2 now plays Conway's Game of Life in the background and added parallax to it.
+- Added mobile support for design 1.
+
+### Feb 11, 2024
+
 <b>update 9.2 - 9.3:</b>
 - Added `differentiability_implies_continuity.tsx`.
 

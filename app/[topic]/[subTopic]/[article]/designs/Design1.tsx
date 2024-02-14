@@ -13,6 +13,7 @@ import ImageWrapper from '@/app/components/ImageWrapper';
 import Latex from 'react-latex-next';
 import 'katex/dist/katex.min.css';
 import StyleSelectionBox from "@/app/components/StyleSelectionBox";
+import styles from "./variables.module.scss";
 
 var FontSizeContext = createContext({h2: "", main: "", quote: ""});
 
@@ -21,17 +22,19 @@ export default function Design1(props: {topic: string, subTopic: string, article
   const [headerVal, setHV] = useState<string>("");
   const jsonForBody: MutableRefObject<any> = useRef(null);
   const [bodyVal, setBV] = useState<React.JSX.Element[] | null>(null);
-  const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"})
+  const blackboardRef: any = useRef(null);
+  const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"});
+  const responsiveStyleRef = useRef("flex");
 
   useEffect(()=>{
     if(bodyVal){
-        document.querySelectorAll("[data-title]").forEach((el)=>{
-            el.addEventListener("mouseenter",(event)=>{
-                //@ts-ignore
-                changeEIBS({text: el.getAttribute("data-title")!,posX: event.clientX - 20,posY: event.clientY + 20,visibility:"visible"});
-            });
-            el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"});});
+      document.querySelectorAll("[data-title]").forEach((el)=>{
+        el.addEventListener("mouseenter",(event)=>{
+          //@ts-ignore
+          changeEIBS({text: el.getAttribute("data-title")!,posX: event.clientX - 20,posY: event.clientY + 20,visibility:"visible"});
         });
+        el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"});});
+      });
     }
     else if(headerVal !== "") {
       let j = jsonForBody.current!;
@@ -39,7 +42,7 @@ export default function Design1(props: {topic: string, subTopic: string, article
       for(let i = 1; i<j.length; i++){
         switch(j[i][0]){
           case "h3":
-            bodyChildren.push(<H3Main key={i}>{j[i][1]}</H3Main>);
+            bodyChildren.push(<H2Main key={i}>{j[i][1]}</H2Main>);
             break;
           case "pmain":
             bodyChildren.push(<PMain mode={1} key={i}>{j[i][1] }</PMain>);
@@ -66,7 +69,7 @@ export default function Design1(props: {topic: string, subTopic: string, article
             bodyChildren.push(<ImageWrapper
               key={i}
               alt=""
-              h =' h-[200px]'
+              h =' max-h-[200px]'
               className=' flex items-center justify-center my-4 '
               bor="border-black border-2"
               animate={true}
@@ -77,7 +80,7 @@ export default function Design1(props: {topic: string, subTopic: string, article
             bodyChildren.push(<ImageWrapper
               key={i}
               alt=""
-              h =' h-[220px]'
+              h =' max-h-[220px]'
               className=' flex items-center justify-center my-4 '
               bor="border-black border-2"
               animate={true}
@@ -87,7 +90,7 @@ export default function Design1(props: {topic: string, subTopic: string, article
           case "displayFormula":
             bodyChildren.push(<div
               key={i}
-              className={' text-xl grid h-[200px] items-center justify-items-center'}
+              className={' text-xl grid max-h-[200px] items-center justify-items-center'}
               style={{gridTemplateColumns:"auto 80% auto"}}
             ><span></span><div className={' border-black border-2 bg-white px-1 overflow-x-auto h-min w-min'}>
               <Latex strict>{j[i][1]}</Latex>
@@ -110,6 +113,20 @@ export default function Design1(props: {topic: string, subTopic: string, article
     }
     else{
       document.documentElement.style.overflowY = "scroll";
+      if(screen.width > parseInt(styles.minDeviceWidth)) {
+        blackboardRef.current = <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>;
+      }
+      else{
+        responsiveStyleRef.current = "block";
+        setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
+      }
+      var ads = document.getElementsByClassName('adsbygoogle').length;
+      for (var i = 0; i < ads; i++) {
+        try {
+          //@ts-ignore
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {}
+      }
       fetch("../../../infoStore/getArticleContent", {
         method:"POST",
         cache: "no-cache",
@@ -124,10 +141,20 @@ export default function Design1(props: {topic: string, subTopic: string, article
 
   return <FontSizeContext.Provider value={fontSize}>
     <ArticleHeader text={headerVal}/>
-    <div style={{display:"flex",width:"100%" , marginBottom:"40px",minHeight:"100vh"}}>
+    <div style={{display: responsiveStyleRef.current,width:"100%" , marginBottom:"40px",minHeight:"100vh"}}>
       <MainPart content={bodyVal!}/>
+      <section>
+        {/*@ts-ignore*/}
+        <div align="center"><ins
+        className="adsbygoogle"
+        style={{textAlign:"center", maxWidth:"95%",overflowX:"auto"}}
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-4860967711062471"
+        data-ad-slot="6823528647"></ins></div>
+      </section>
       <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
-      <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>
+      {blackboardRef.current}
     </div>
   </FontSizeContext.Provider>
 }
@@ -135,8 +162,14 @@ export default function Design1(props: {topic: string, subTopic: string, article
 const ArticleHeader = memo(function ArticleHeaderMemo(props: {text: string}){
   const animationState = useRef("");
   
-  if(props.text !== "") animationState.current = "animate-[becomeBlack_0.5s_ease-out_0.5s_forwards]";
-  return <header className='border-t-4 w-full border-gray-600 bg-gray-100 border-b-4 mb-8 min-h-[84px] flex items-center justify-center'><h1 className={`${cursiveMain.className} text-center text-4xl leading-[50px] px-8 text-gray-100 ${animationState.current}`} dangerouslySetInnerHTML={{__html: props.text.replaceAll("&amp;","&")}} /></header>
+  let paddingLevel = null;
+  if(props.text !== "") {
+    animationState.current = "animate-[becomeBlack_0.5s_ease-out_0.5s_forwards]";
+    paddingLevel = (screen.width > parseInt(styles.minDeviceWidth)) ? "px-8" : "px-2";
+  }
+  return <header className='border-t-4 w-full border-gray-600 bg-gray-100 border-b-4 mb-8 min-h-[84px] flex items-center justify-center'>
+    <h1 className={`${cursiveMain.className} text-center text-4xl leading-[50px] text-gray-100 ${animationState.current} ${paddingLevel}`} dangerouslySetInnerHTML={{__html: props.text.replaceAll("&amp;","&")}} />
+  </header>
 });
 
 const MainPart = memo(function MainPartMemo(props: {content: JSX.Element[]}){
@@ -146,12 +179,14 @@ const MainPart = memo(function MainPartMemo(props: {content: JSX.Element[]}){
     if(props.content){
       setOp(1);
     }
-  },[props.content])
+  },[props.content]);
+
   let content = props.content;
-  return <main className={`px-7 grow `} style={{opacity:op,transition:"opacity 0.5s ease-out 0.1s"}}>{content}</main>
+  let responsiveStyle = op ? ((screen.width > parseInt(styles.minDeviceWidth)) ? "px-7 grow" : "px-3") : null;
+  return <main className={`${responsiveStyle}`} style={{opacity:op,transition:"opacity 0.5s ease-out 0.1s"}}>{content}</main>
 })
 
-function H3Main({children}: {children: string}){
+function H2Main({children}: {children: string}){
   const FontSizeContextVal = useContext(FontSizeContext);
   return <h2 className={FontSizeContextVal.h2 + ' underline leading-relaxed ' + cursiveMain.className} dangerouslySetInnerHTML={{__html: children}}></h2>
 }
@@ -177,10 +212,12 @@ function ListComp(props:{numbered: boolean, content:string}){
 function SourcesSectionInner(props: {content: string[]}){
   return <section>
     <hr className=' mt-8 border-black border' style={{transform:"skewX(40deg)"}}/>
-    <h3 className={' text-4xl underline '+cursiveMain.className}>Sources:</h3>
-    <ol id='source_format' className={`${textMain.className} list-decimal text-xl mx-6`}>{(props.content).map((stuff:any, i:number)=>{
-      return <LiForSources key={i}>{stuff}</LiForSources>;
-    })}</ol>
+    <h3 className={`underline text-3xl ${cursiveMain.className}`}>Sources:</h3>
+    <div style={{overflowX:"auto"}}>
+      <ol id='source_format' className={`${textMain.className} list-decimal text-xl mx-6`}>{(props.content).map((stuff:any, i:number)=>{
+        return <LiForSources key={i}>{stuff}</LiForSources>;
+      })}</ol>
+    </div>
   </section>
 }
 
@@ -243,7 +280,7 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
   //font sizes for H3 in order:         text-5xl,     text-4xl,     text-3xl
   //font sizes for main text in order:  text-3xl,     text-[28px],  text-2xl
   //font sizes for quote text in order: text-[28px],  text-2xl,     text-xl
-  //default: h3:"text-4xl", main: "text-[28px]", quote: "text-2xl"
+  //2nd column is default
   decFS(mainFS: string, setFSFunc: setFSType){
     if(mainFS === "text-[28px]") setFSFunc({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
     else if (mainFS === "text-3xl") setFSFunc({h2:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
