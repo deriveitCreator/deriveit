@@ -127,12 +127,13 @@ export default function Design1(props: {topic: string, subTopic: string, article
         blackboardRef.current = <section>
           {/*@ts-ignore*/}
           <div align="center" style={{marginBottom:"20px"}}><ins
-          className="adsbygoogle"
-          style={{textAlign:"center", maxWidth:"95%",overflowX:"auto",display:"block"}}
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-4860967711062471"
-          data-ad-slot="6823528647"></ins></div>
+            id={styles.adBelowArticle}
+            className="adsbygoogle"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-4860967711062471"
+            data-ad-slot="6823528647"
+          ></ins></div>
         </section>
         responsiveStyleRef.current = "block";
         setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
