@@ -177,6 +177,7 @@ function TopicLink(props: {refTo: string, floatD: string}){
         e.preventDefault();
     }
 
+    let linkText = (props.refTo == "Error")? "Incomplete" : props.refTo;
     return <div onClick={divClicked} className={`bg-gray-50 overflow-hidden float-${props.floatD} notSelectedForShrink`} style={{width:"50%",height:"60px",transition:"width 0.2s ease-out, opacity 0.2s ease-out, height 0.3s ease-out "}} ><Link
         href={"/"+props.refTo.toLowerCase()}
         className={`bg-gray-100 block hover:no-underline ${cursiveMain.className} ${styles.topicClass}`}

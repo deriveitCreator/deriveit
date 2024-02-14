@@ -54,6 +54,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Feb 14, 2024
 
+<b>update 9.5:</b>
+- In design 2's main table, the "under construction" image was not showing, so that's fixed now.
+
 <b>update 9.4:</b>
 - In `design2Main.tsx`, the main table now has a separate table, and made style changes.
 - For Article, images on mobile are now responsive and math displays now overflow when width is too small. Also, on mobile, inline MathJax wasn't rendering, so that's fixed now.

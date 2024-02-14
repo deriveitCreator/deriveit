@@ -111,7 +111,7 @@ function MainTable(){
                             <ImageWrapper alt={name1} src={`/topicsPics/${name1}.png`}/>
                         </Link></div>
                         {
-                            name2==="uncategorized"?
+                            name2==="Error"?
                             <div className=' w-1/2 inline-block'><ImageWrapper className='inline-block' alt={name2} bor={styles.uc} src={`/topicsPics/${name2}.png`}/></div>:
                             <div className=' w-1/2 inline-block '><Link href={`/${name2}`}>
                                 <ImageWrapper alt={name2} src={`/topicsPics/${name2}.png`}/>
