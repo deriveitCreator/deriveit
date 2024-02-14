@@ -15,65 +15,58 @@ export default function Style2(props: {topic: string, subTopic: [string,string[]
     footerColor: string;
     borderColor: string;
 }}){ 
+	const responsiveH2Style = (screen.width > parseInt(styles.minDeviceWidth)) ?
+	"font-bold text-4xl mx-12 capitalize pt-10" :
+	"font-bold text-4xl mx-4 capitalize pt-10" ;
 
-    useEffect(()=>{
-        document.documentElement.style.overflowY = "auto";
-				document.documentElement.style.backgroundColor = props.styleObject.headerBgColor;
-        document.documentElement.classList.remove("scroll2");
-    },[]);
+	useEffect(()=>{
+			document.documentElement.style.overflowY = "auto";
+			document.documentElement.style.backgroundColor = props.styleObject.headerBgColor;
+			document.documentElement.classList.remove("scroll2");
+	},[]);
 
-    let headerBgColor = props.styleObject.headerBgColor;
-    let footerColor = props.styleObject.footerColor;
-    let borderColor = props.styleObject.borderColor;
-    let curTopic = props.subTopic;
+	let headerBgColor = props.styleObject.headerBgColor;
+	let footerColor = props.styleObject.footerColor;
+	let borderColor = props.styleObject.borderColor;
+	let curTopic = props.subTopic;
 
-    if(curTopic[0] === "error") return <div>
-        <main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}>
-            <h2 className={`${headingFont.className} font-bold text-4xl mx-12 capitalize pt-10`} style={{color: borderColor!}}>Error</h2>
-            <p className={`${mainTextFont.className} text-[28px] leading-[32px] mx-20 mt-5 `} style={{color: headerBgColor!, letterSpacing:"1px"}}>There is no content on this page</p>
-        </main>
-        <FooterEl borderColor={borderColor!} textColor={footerColor!} headerBgColor={headerBgColor!}/>
-    </div>
-    else return <div>
-        <main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}>
-            {
-                (screen.width > parseInt(styles.minDeviceWidth))?
-                <h2 className={`${headingFont.className} text-4xl mx-12 capitalize pt-10 font-bold`} style={{color: borderColor}}>{curTopic[0].replaceAll("_"," ")}</h2>:
-                <h2 className={`${headingFont.className} text-4xl mx-4 capitalize pt-10 font-bold`} style={{color: borderColor}}>{curTopic[0].replaceAll("_"," ")}</h2>
-            }
-            {(curTopic[1]).map((val:string,i: number)=> {
-                if(val.includes("%")){ return <StyledP
-                    key={i}
-                    textColor={headerBgColor}
-                    text={val.substring(0,val.lastIndexOf('%')).replaceAll("_"," ")}
-                    link={`${curTopic[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`.replaceAll(",","").replaceAll(" ","_")}
-                />;
-                }else return <StyledP
-                    key={i}
-                    textColor={headerBgColor}
-                    text={val.replaceAll("_"," ")}
-                    link={`${curTopic[0]}/${val}`.replaceAll(" ","_").replaceAll(",","")}
-                />;
-            })}
-        </main>
-        <FooterEl borderColor={borderColor!} textColor={footerColor!} headerBgColor={headerBgColor!}/>
-    </div>
+	if(curTopic[0] === "error") return <div>
+			<main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}>
+					<h2 className={`${headingFont.className} ${responsiveH2Style}`} style={{color: borderColor!}}>Error</h2>
+					<p className={`${mainTextFont.className} text-[28px] leading-[32px] mx-20 mt-5 `} style={{color: headerBgColor!, letterSpacing:"1px"}}>There is no content on this page</p>
+			</main>
+			<FooterEl borderColor={borderColor!} textColor={footerColor!} headerBgColor={headerBgColor!}/>
+	</div>
+	else return <div>
+			<main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}>
+				<h2 className={`${headingFont.className} ${responsiveH2Style}`} style={{color: borderColor}}>{curTopic[0].replaceAll("_"," ")}</h2>
+				{(curTopic[1]).map((val:string,i: number)=> {
+					if(val.includes("%")){ return <StyledP
+						key={i}
+						textColor={headerBgColor}
+						text={val.substring(0,val.lastIndexOf('%')).replaceAll("_"," ")}
+						link={`${curTopic[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`.replaceAll(",","").replaceAll(" ","_")}
+					/>;
+					}else return <StyledP
+						key={i}
+						textColor={headerBgColor}
+						text={val.replaceAll("_"," ")}
+						link={`${curTopic[0]}/${val}`.replaceAll(" ","_").replaceAll(",","")}
+					/>;
+				})}
+			</main>
+			<FooterEl borderColor={borderColor!} textColor={footerColor!} headerBgColor={headerBgColor!}/>
+	</div>
 }
 
 const StyledP = (props: {text: string, link: string, textColor: string}) =>{
-	if (screen.width > parseInt(styles.minDeviceWidth)) return <p className={`${mainTextFont.className} text-[28px] leading-[32px] mx-20 mt-5 `} style={{color: props.textColor, letterSpacing:"1px"}}>
-			{(props.text.slice(-11,) !== "incomplete)") ? <Link href={`./${props.link}`} dangerouslySetInnerHTML={{ __html: props.text }}></Link> : <span dangerouslySetInnerHTML={{ __html: props.text }}></span>}
-		</p>
-	else return <p className={`${mainTextFont.className} text-[28px] leading-[32px] mx-6 mt-5 `} style={{color: props.textColor, letterSpacing:"1px"}}>
+	const responsivePStyle = (screen.width > parseInt(styles.minDeviceWidth)) ?
+	"text-[28px] leading-[32px] mx-20 mt-5" :
+	"text-2xl leading-[26px] mx-6 mt-3" ;
+
+	return <p className={`${mainTextFont.className} ${responsivePStyle} `} style={{color: props.textColor, letterSpacing:"1px"}}>
 		{(props.text.slice(-11,) !== "incomplete)") ? <Link href={`./${props.link}`} dangerouslySetInnerHTML={{ __html: props.text }}></Link> : <span dangerouslySetInnerHTML={{ __html: props.text }}></span>}
-	</p>
-}
-
-
-const footerIdStyle = {
-	display:"grid",
-	gridTemplateColumns:"140px auto",
-    margin:"0px 15px 0px 0px",
+	</p>;
 }
 
 function FooterEl(props:{borderColor:string, textColor: string, headerBgColor: string}){
@@ -120,7 +113,7 @@ function FooterEl(props:{borderColor:string, textColor: string, headerBgColor: s
 							For any suggestion and ideas, <ClickButton type={2} func={showForm} />
 					</p>
 					<div style={{display:"grid", gridTemplateColumns:"100px 150px", justifyContent:"space-evenly"}}>
-						<Link href="/" >
+						<Link href="/" style={{backgroundImage:"url(/tablebackground.PNG)", border:"solid 4px #663300"}}>
 								<ImageWrapper className=' mx-1 my-5 ' src="/link_logo_trans2.png" alt="" />
 						</Link>
 						<Link href="https://www.paypal.com/donate/?business=8UEU66XK9RMKG&no_recurring=1&currency_code=CAD" style={{display:"flex",flexDirection:"column",justifyContent:"center"}} target="_blank">

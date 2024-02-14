@@ -287,7 +287,7 @@ function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<strin
             <BrushButton/>
           </div>
           {allTopics.map((record, i)=>{
-            if(record.name === "Uncategorized") return null;
+            if(record.name === "Error") return null;
             return <Link key={i} href={`/${record.name.replaceAll(" ","_").toLowerCase()}`}><ImageWrapper className="mx-6 my-4 hover:transform hover:scale-105" src={`/topicsPics/${record.name.replaceAll(" ","_").toLowerCase()}.png`} w="w-full"/></Link>
           })}
         </div>
