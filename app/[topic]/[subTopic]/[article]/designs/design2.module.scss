@@ -4,6 +4,20 @@
   minDeviceWidth: $varForMinDeviceWidth;
 }
 
+#idDiv{
+  margin-bottom:20px;
+
+  ins{
+    display: block;
+    border:solid 3px black;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    overflow-x: auto;
+    text-align: center;
+    max-width: 95%;
+  }
+}
+
 #idDiv:has([data-ad-status=unfilled]){
   display: none;
 }
