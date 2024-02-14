@@ -136,12 +136,14 @@ export default function Design2(props: {topic: string, subTopic: string, article
     <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/>
     <section style={{display:((asideW=="0px"))?"block":"none"}}>
       {/*@ts-ignore*/}
-      <div align="center" style={{marginBottom:"20px"}}><ins className="adsbygoogle"
-      style={{textAlign:"center", maxWidth:"95%",overflowX:"auto",display:"block"}}
-      data-ad-layout="in-article"
-      data-ad-format="fluid"
-      data-ad-client="ca-pub-4860967711062471"
-      data-ad-slot="6823528647"></ins></div>
+      <div id={styles.idDiv} align="center" style={{marginBottom:"20px"}}><ins
+        className="adsbygoogle"
+        style={{textAlign:"center", maxWidth:"95%",overflowX:"auto",display:"block"}}
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-4860967711062471"
+        data-ad-slot="6823528647"
+      ></ins></div>
     </section>
     {bodyVal === null ? null: <FooterEl/>}
   </FontSizeContext.Provider>
@@ -172,8 +174,8 @@ const MainPartMemo = memo(function MainPart(props: {content: (JSX.Element[] | nu
   },[props.content, op]);
 
   if (props.content) {
-    let paddingLevel = screen.width > parseInt(styles.minDeviceWidth) ? "px-7 ": "px-2";
-    return <main className={`mb-10 grow ${paddingLevel}`} style={{opacity:op,transition:"opacity 0.5s ease-out 0.1s"}}>{props.content}</main>
+    let paddingLevel = screen.width > parseInt(styles.minDeviceWidth) ? "px-7 grow": "px-2";
+    return <main className={`mb-10  ${paddingLevel}`} style={{opacity:op,transition:"opacity 0.5s ease-out 0.1s"}}>{props.content}</main>
   }
   else return null;
 });

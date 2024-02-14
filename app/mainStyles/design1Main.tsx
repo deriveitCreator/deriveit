@@ -46,6 +46,10 @@ export default function Design1(){
 const HomeLoading=(props:{disabledState:boolean,hlDis:React.Dispatch<{type:string;payload?: string|undefined}>})=>{
   const [wrapperH, setWH] = useState("h-screen");
 
+  useEffect(()=>{
+    document.documentElement.style.overflowY = "hidden";
+  },[])
+
   function buttonClick(){
     document.documentElement.style.overflowY = "scroll";
     setWH("h-0 opacity-0");
@@ -110,7 +114,7 @@ function HomeBody(props:{design1States:any, disFunc:React.Dispatch<{type:string;
         {/*@ts-ignore*/}
         <div align="center" style={{marginTop:"20px", marginBottom:"20px"}}><ins
           className="adsbygoogle"
-          style={{maxWidth:"1000px",overflowX:"auto",display:"block"}}
+          style={{display:"block",overflowX:"auto"}}
           data-ad-client="ca-pub-4860967711062471"
           data-ad-slot="1515076236"
           data-ad-format="auto"

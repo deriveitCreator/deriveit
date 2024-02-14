@@ -82,7 +82,7 @@ function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean
         <main>
             <MainTable/>
             {/*@ts-ignore*/}
-            <div align="center" style={{marginTop:"20px", marginBottom:"20px"}}><ins
+            <div align="center" style={{marginTop:"20px", marginBottom:"20px"}} className='scroll2'><ins
                 className="adsbygoogle"
                 style={{maxWidth:"1000px",overflowX:"auto",display:"block"}}
                 data-ad-client="ca-pub-4860967711062471"

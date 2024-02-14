@@ -3,3 +3,7 @@
 :export {
   minDeviceWidth: $varForMinDeviceWidth;
 }
+
+#idDiv:has([data-ad-status=unfilled]){
+  display: none;
+}
