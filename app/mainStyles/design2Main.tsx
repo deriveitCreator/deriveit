@@ -44,7 +44,7 @@ const HomeLoading=(props:{disabledState:boolean, changeSBL: React.Dispatch<React
       <div id={styles.loading} className={'fixed top-0 flex justify-center w-full overflow-hidden z-10 bg-[#FFAA33] ' + wrapperH.current} style={{transition:"height 1s"}}>
         <div className=' grid grid-cols-2 grid-rows-2 self-center' style={{gridTemplateColumns:"auto 30px auto"}}>
           <ImageWrapper className='row-span-2 justify-self-center' alt="" src={`/link_logo_trans2.png`} w= 'w-32'/>
-          <div className={`row-span-2 h-full mx-3.5 bg-gradient-to-b from-transparent via-[${styles.brown1}] to-transparent`}></div>
+          <div id={styles.lineDiv} className={`row-span-2 h-full mx-3.5`}></div>
           <p className={printFont2.className + " py-2 text-lg font-bold"}>Imagine some useful<br/>info here</p>
           <button disabled={props.disabledState} onClick={buttonClick} id={styles.continue} className={headingFont.className}>{props.disabledState?"loading":"continue"}</button>
         </div>

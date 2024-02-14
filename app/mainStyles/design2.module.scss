@@ -11,6 +11,10 @@ $brown2: #663300;
 #loading{
 	background-image:linear-gradient(to bottom right,#FF9933,#FFAA33);
 	border-bottom:5px solid $brown1;
+
+	#lineDiv{
+		background-image: linear-gradient(transparent, $brown1, transparent);
+	}
 }
 
 #continue{
