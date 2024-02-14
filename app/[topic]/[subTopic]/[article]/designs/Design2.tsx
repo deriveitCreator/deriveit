@@ -138,7 +138,7 @@ export default function Design2(props: {topic: string, subTopic: string, article
       {/*@ts-ignore*/}
       <div id={styles.idDiv} align="center" style={{marginBottom:"20px"}}><ins
         className="adsbygoogle"
-        style={{textAlign:"center", maxWidth:"95%",overflowX:"auto",display:"block"}}
+        style={{textAlign:"center", maxWidth:"95%",overflowX:"auto",display:"block", border:"solid 3px black"}}
         data-ad-layout="in-article"
         data-ad-format="fluid"
         data-ad-client="ca-pub-4860967711062471"
