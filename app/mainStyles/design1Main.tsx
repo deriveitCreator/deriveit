@@ -114,7 +114,7 @@ function HomeBody(props:{design1States:any, disFunc:React.Dispatch<{type:string;
         {/*@ts-ignore*/}
         <div align="center" style={{marginTop:"20px", marginBottom:"20px"}}><ins
           className="adsbygoogle"
-          style={{display:"block",overflowX:"auto"}}
+          id={styles.adId}
           data-ad-client="ca-pub-4860967711062471"
           data-ad-slot="1515076236"
           data-ad-format="auto"

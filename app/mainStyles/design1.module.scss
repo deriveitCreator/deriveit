@@ -68,6 +68,17 @@
 	line-height: 40px;
 }
 
+#adId{
+	width: 1000px;
+	max-width: 90%;
+	overflow-x:auto;
+	display:block;
+	height: auto !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	position: relative;
+}
+
 @media only screen and (max-device-width: $varForMinDeviceWidth) {
 
 	#blackboard {
