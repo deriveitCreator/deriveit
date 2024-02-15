@@ -113,7 +113,7 @@ function FooterEl(props:{borderColor:string, textColor: string, headerBgColor: s
 							For any suggestion and ideas, <ClickButton type={2} func={showForm} />
 					</p>
 					<div style={{display:"grid",gridTemplateColumns:"100px 150px",justifyContent:"space-evenly", marginBottom:"50px"}}>
-						<Link href="/" style={{backgroundColor:" #db5", border:"solid 3px #740"}}>
+						<Link href="/" style={{backgroundColor:" #Fa3", border:"solid 3px #630"}}>
 								<ImageWrapper className=' mx-1 my-1 ' src="/link_logo_trans2.png" alt="" />
 						</Link>
 						<Link href="https://www.paypal.com/donate/?business=8UEU66XK9RMKG&no_recurring=1&currency_code=CAD" style={{display:"flex",flexDirection:"column",justifyContent:"center"}} target="_blank">
