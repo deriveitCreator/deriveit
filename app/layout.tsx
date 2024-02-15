@@ -29,7 +29,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
       <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
       <html lang="en" className={`bg-gray-50 overflow-hidden scroll1`}>
         <body>
-          <div style={{height:"100vh"}}>{children}</div>
+          <div style={{height:"auto",minHeight:"100vh"}}>{children}</div>
           <FooterEl/>
         </body>
       </html>
@@ -37,7 +37,8 @@ export default async function RootLayout({children}: {children: React.ReactNode}
       <Script id='fixedHeightScript'>{`
         var wrapper = document.querySelector('body>div');
         const observer = new MutationObserver(function (mutations, observer) {
-          wrapper.style.height = '100vh'
+          wrapper.style.height = 'auto',
+          wrapper.style.minHeight = '100vh'
         })
         observer.observe(wrapper, {
           attributes: true,
