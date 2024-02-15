@@ -34,7 +34,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
         </body>
       </html>
       {/*For some reason, google adsense adds it own style to the div wrapper and changes the height, this observer resets the height to 100vh every time a change is detected. */}
-      <Script>{`
+      <Script id='fixedHeightScript'>{`
         var wrapper = document.querySelector('body>div');
         const observer = new MutationObserver(function (mutations, observer) {
           wrapper.style.height = '100vh'
