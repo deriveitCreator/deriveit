@@ -304,11 +304,11 @@ $brown2: #663300;
 	max-width: 90%;
 	overflow-x:auto;
 	display:block;
+	position: relative;
+	z-index: 1 !important;
 	height: auto !important;
 	margin-left: auto !important;
 	margin-right: auto !important;
-	position: relative;
-	z-index: 1;
 }
 
 #tableForRecent{
