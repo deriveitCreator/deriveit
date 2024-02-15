@@ -54,7 +54,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Feb 14, 2024
 
-<b>update 9.26 - 9.28:</b>
+<b>update 9.26 - 9.29:</b>
 - Apparently, google adsense adds their own inline css, so I had to disabled it using JavaScript. 
 
 <b>update 9.5 - 9.25:</b>

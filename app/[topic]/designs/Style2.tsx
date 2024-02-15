@@ -118,9 +118,9 @@ function FooterEl(props:{borderColor:string, textColor: string, headerBgColor: s
 							If there are any equations for which you want proof for, <ClickButton type={1} func={showForm} /><br/>
 							For any suggestion and ideas, <ClickButton type={2} func={showForm} />
 					</p>
-					<div style={{display:"grid", gridTemplateColumns:"100px 150px", justifyContent:"space-evenly"}}>
-						<Link href="/" style={{backgroundImage:"url(/tablebackground.PNG)", border:"solid 4px #663300"}}>
-								<ImageWrapper className=' mx-1 my-5 ' src="/link_logo_trans2.png" alt="" />
+					<div style={{display:"grid",gridTemplateColumns:"100px 150px",justifyContent:"space-evenly", marginBottom:"50px"}}>
+						<Link href="/" style={{backgroundColor:" #db5", border:"solid 3px #740"}}>
+								<ImageWrapper className=' mx-1 my-1 ' src="/link_logo_trans2.png" alt="" />
 						</Link>
 						<Link href="https://www.paypal.com/donate/?business=8UEU66XK9RMKG&no_recurring=1&currency_code=CAD" style={{display:"flex",flexDirection:"column",justifyContent:"center"}} target="_blank">
 							<p className={" text-center font-bold text-sm "}>Want To Donate?</p>
