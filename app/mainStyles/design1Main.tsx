@@ -13,34 +13,33 @@ import StyleSelectionBox from '../components/StyleSelectionBox';
 import { Blackboard } from '../components/BlackBoard';
 
 const design1States = {
-    continueDisabled: true,
-    startSlideShow: false
+  continueDisabled: true,
+  startSlideShow: false
 }
 
 const reducer = (state:object, action: {type:string, payload?:string}) => {
-    switch (action.type) {
-        case "ALLOW_CONTINUE":
-            return {...state, continueDisabled: false};
-        case "START_SLIDESHOW":
-            return {...state, startSlideShow: true};
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case "ALLOW_CONTINUE":
+      return {...state, continueDisabled: false};
+    case "START_SLIDESHOW":
+      return {...state, startSlideShow: true};
+    default:
+      return state;
+  }
 }
 
 export default function Design1(){
-    const [d1s, dispatch] = useReducer(reducer, design1States);
-    const [firstRender, changeFR] = useState(true);
-    useEffect(()=>{
-      changeFR(false);
-    },[]);
+  const [d1s, dispatch] = useReducer(reducer, design1States);
+  const [firstRender, changeFR] = useState(true);
+  useEffect(()=>{
+    changeFR(false);
+  },[]);
 
-    return <>
-      {/*@ts-ignore */}
-      <HomeLoading disabledState={d1s.continueDisabled} hlDis={dispatch}/>
-      {firstRender? null : <HomeBody design1States={d1s} disFunc={dispatch} />}
-    </>;
-
+  return <>
+    {/*@ts-ignore */}
+    <HomeLoading disabledState={d1s.continueDisabled} hlDis={dispatch}/>
+    {firstRender? null : <HomeBody design1States={d1s} disFunc={dispatch} />}
+  </>;
 }
 
 const HomeLoading=(props:{disabledState:boolean,hlDis:React.Dispatch<{type:string;payload?: string|undefined}>})=>{
@@ -88,10 +87,8 @@ function HomeBody(props:{design1States:any, disFunc:React.Dispatch<{type:string;
   }) // eslint-disable-line no-use-before-define
 
   return <>
-    {/*@ts-ignore */}
     <HeaderEl/>
     <main style={{marginBottom:"20px"}}>
-      {/*@ts-ignore */}
       <Blackboard disFunc={props.disFunc} startSS={props.design1States.startSlideShow}/>
       <section>
         <h2 className={`${cursiveMain.className} ${styles.h2Class}`}>Topics</h2>

@@ -15,6 +15,9 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
+
+
+
 export default async function RootLayout({children}: {children: React.ReactNode}) {
   const cookieVal = parseInt(cookies().get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
 
@@ -22,14 +25,25 @@ export default async function RootLayout({children}: {children: React.ReactNode}
     const FooterEl = dynamic(() =>  import(`./footerStyles/design1Footer`), {ssr:false});
     return <CookiesProvider>
       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471"
-     crossOrigin="anonymous"/>
+      crossOrigin="anonymous"/>
       <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
-      <html lang="en" className={` overflow-hidden scroll1`}>
-        <body className=' bg-gray-50'>
-          <div className=' min-h-screen '>{children}</div>
+      <html lang="en" className={`bg-gray-50 overflow-hidden scroll1`}>
+        <body>
+          <div style={{height:"100vh"}}>{children}</div>
           <FooterEl/>
         </body>
       </html>
+      {/*For some reason, google adsense adds it own style to the div wrapper and changes the height, this observer resets the height to 100vh every time a change is detected. */}
+      <Script>{`
+        var wrapper = document.querySelector('body>div');
+        const observer = new MutationObserver(function (mutations, observer) {
+          wrapper.style.height = '100vh'
+        })
+        observer.observe(wrapper, {
+          attributes: true,
+          attributeFilter: ['style']
+        })
+      `}</Script>
     </CookiesProvider>
   }
   else return <CookiesProvider>
