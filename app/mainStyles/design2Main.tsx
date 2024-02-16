@@ -27,10 +27,15 @@ const HomeLoading=(props:{disabledState:boolean, changeSBL: React.Dispatch<React
     const wrapperH = useRef("h-screen");
 
     useEffect(()=>{
-        props.changeSBL(true);
+        var lastSavedColor: string = document.documentElement.style.backgroundColor;
         document.documentElement.style.overflowY = "hidden";
         document.documentElement.style.backgroundColor = "rgb(150,60,00)";
         document.documentElement.classList.add("scroll2");
+        props.changeSBL(true);
+        return ()=>{
+            document.documentElement.style.backgroundColor = lastSavedColor;
+            document.documentElement.classList.remove("scroll2");
+        }
     },[])
   
     function buttonClick(){

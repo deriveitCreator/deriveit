@@ -52,6 +52,11 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+### Feb 15, 2024
+
+<b>update 9.35:</b>
+- When switching from design 2 to 1, the background color didn't change, so that's fixed now.
+
 ### Feb 14, 2024
 
 <b>update 9.26 - 9.34:</b>
