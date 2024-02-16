@@ -1,0 +1,1 @@
+export const link = "https://www.paypal.com/paypalme/uzair0845?country.x=CA&locale.x=en_US"

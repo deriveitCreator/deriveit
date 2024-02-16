@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { printFont2 } from '../infoStore/fonts';
 import FormBox from '../components/formBox';
 import styles from "./variables.module.scss";
+import { link } from '../infoStore/paypalLink';
 
 
 const Design2Footer = (props:{id:any}) => {
@@ -44,7 +45,7 @@ const Design2Footer = (props:{id:any}) => {
           If there are any equations for which you want proof for, <ClickButton type={1} func={showForm} /><br/>
           For any suggestion and ideas, <ClickButton type={2} func={showForm} />
       </p>
-      <Link href="https://www.paypal.com/donate/?business=8UEU66XK9RMKG&no_recurring=1&currency_code=CAD" target="_blank" className='flex flex-col justify-center items-center bg-white mx-5 h-min hover:no-underline my-auto' style={{border: " #CC3300 4px ridge", backgroundColor:"wheat"}}>
+      <Link href={link} target="_blank" className='flex flex-col justify-center items-center bg-white mx-5 h-min hover:no-underline my-auto' style={{border: " #CC3300 4px ridge", backgroundColor:"wheat"}}>
           <p className={" text-center font-bold text-sm "}>Want To Donate?</p>
           <ImageWrapper mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
       </Link>

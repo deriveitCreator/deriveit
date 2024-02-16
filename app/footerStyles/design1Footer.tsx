@@ -6,6 +6,7 @@ import { printFont, cursiveMain } from '../infoStore/fonts';
 import FormBox from '../components/formBox';
 import { Suspense, useReducer, useState } from 'react';
 import styles from "./variables.module.scss";
+import { link } from '../infoStore/paypalLink';
 
 const footerPStyle = {
     fontSize: "26px",
@@ -57,7 +58,7 @@ export default function FooterComp(){
             If there are any equations for which you want proof for, <ClickButton type={1} func={showForm} /><br/>
             For any suggestion and ideas, <ClickButton type={2} func={showForm} />
         </p>
-        <Link href="https://www.paypal.com/donate/?business=8UEU66XK9RMKG&no_recurring=1&currency_code=CAD" target="_blank" className='flex flex-col justify-center items-center bg-gray-50 mx-10 border-blue-900 border-2 outline-1 outline-white outline h-min py-2 hover:no-underline'>
+        <Link href={link} target="_blank" className='flex flex-col justify-center items-center bg-gray-50 mx-10 border-blue-900 border-2 outline-1 outline-white outline h-min py-2 hover:no-underline'>
             <p className={" text-center text-lg pb-2 text-blue-900 font-bold "+printFont.className}>Want To Donate?</p>
             <ImageWrapper mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
         </Link>
@@ -73,7 +74,7 @@ export default function FooterComp(){
         <Link href={"/"}>
             <ImageWrapper mw="max-w-[100px]" h="h-full" w="w-1/2" src="/link_logo_short_1.png" alt=""  className="flex justify-center items-center "/>
         </Link>
-        <Link href="https://www.paypal.com/donate/?business=8UEU66XK9RMKG&no_recurring=1&currency_code=CAD" target="_blank" className='flex flex-col justify-center items-center bg-gray-50 mx-10 border-blue-900 border-2 outline-1 outline-white outline h-min py-2 hover:no-underline'>
+        <Link href={link} target="_blank" className='flex flex-col justify-center items-center bg-gray-50 mx-10 border-blue-900 border-2 outline-1 outline-white outline h-min py-2 hover:no-underline'>
             <p className={" text-center text-lg pb-2 text-blue-900 font-bold "+printFont.className}>Want To Donate?</p>
             <ImageWrapper mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
         </Link>

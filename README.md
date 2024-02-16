@@ -54,8 +54,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Feb 15, 2024
 
-<b>update 9.35:</b>
+<b>update 9.35 - 9.36:</b>
 - When switching from design 2 to 1, the background color didn't change, so that's fixed now.
+- Changed paypal donation link.
 
 ### Feb 14, 2024
 

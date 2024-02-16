@@ -14,6 +14,7 @@ import { FaChevronLeft, FaChevronRight, FaPaintbrush } from "react-icons/fa6";
 import { allTopics } from "@/app/infoStore/topicsInfo";
 import { FaHome } from "react-icons/fa";
 import styles from "./design2.module.scss";
+import { link } from "@/app/infoStore/paypalLink";
 
 var FontSizeContext = createContext({h2:"", main: "", quote: ""});
 
@@ -339,7 +340,7 @@ function FooterEl(){
 								If there are any equations for which you want proof for, <ClickButton type={1} func={showForm} /><br/>
 								For any suggestion and ideas, <ClickButton type={2} func={showForm} />
 						</p>
-						<Link href="https://www.paypal.com/donate/?business=8UEU66XK9RMKG&no_recurring=1&currency_code=CAD" style={{display:"flex",flexDirection:"column",justifyContent:"center",padding:"0px 25px"}} target="_blank">
+						<Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center",padding:"0px 25px"}} target="_blank">
 								<p className={" text-center font-bold text-sm "}>Want To Donate?</p>
 								<ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
 						</Link>
@@ -358,7 +359,7 @@ function FooterEl(){
 						<Link href="/" >
 								<ImageWrapper className=' mx-1 my-5 ' src="/link_logo_trans2.png" alt="" />
 						</Link>
-						<Link href="https://www.paypal.com/donate/?business=8UEU66XK9RMKG&no_recurring=1&currency_code=CAD" style={{display:"flex",flexDirection:"column",justifyContent:"center"}} target="_blank">
+						<Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center"}} target="_blank">
 							<p className={" text-center font-bold text-sm "}>Want To Donate?</p>
 							<ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
 						</Link>

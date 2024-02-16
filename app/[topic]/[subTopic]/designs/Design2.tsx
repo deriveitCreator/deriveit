@@ -2,7 +2,7 @@
 
 import React, { Suspense, useEffect, useRef, useState } from 'react';
 import { headingFont, mainTextFont, printFont2 } from "@/app/infoStore/fonts";
-import { getTopicLinks } from '../../../infoStore/topicsInfo';
+import { link } from '@/app/infoStore/paypalLink';
 import Link from "next/link";
 import FormBox from '@/app/components/formBox';
 import ImageWrapper from '@/app/components/ImageWrapper';
@@ -97,7 +97,7 @@ function FooterEl(props:{borderColor:string, textColor: string, headerBgColor: s
 								If there are any equations for which you want proof for, <ClickButton type={1} func={showForm} /><br/>
 								For any suggestion and ideas, <ClickButton type={2} func={showForm} />
 						</p>
-						<Link href="https://www.paypal.com/donate/?business=8UEU66XK9RMKG&no_recurring=1&currency_code=CAD" style={{display:"flex",flexDirection:"column",justifyContent:"center",padding:"0px 25px"}} target="_blank">
+						<Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center",padding:"0px 25px"}} target="_blank">
 								<p className={" text-center font-bold text-sm "}>Want To Donate?</p>
 								<ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
 						</Link>
@@ -116,7 +116,7 @@ function FooterEl(props:{borderColor:string, textColor: string, headerBgColor: s
 						<Link href="/" style={{backgroundColor:" #Fa3", border:"solid 3px #630"}}>
 								<ImageWrapper className=' mx-1 my-1 ' src="/link_logo_trans2.png" alt="" />
 						</Link>
-						<Link href="https://www.paypal.com/donate/?business=8UEU66XK9RMKG&no_recurring=1&currency_code=CAD" style={{display:"flex",flexDirection:"column",justifyContent:"center"}} target="_blank">
+						<Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center"}} target="_blank">
 							<p className={" text-center font-bold text-sm "}>Want To Donate?</p>
 							<ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
 						</Link>
