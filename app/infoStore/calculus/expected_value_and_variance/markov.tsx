@@ -1,3 +1,0 @@
-export const title="Proving Markov's Inequality";
-const content = [['h1', "Proving Markov's Inequality"], ['pmain', 'Lets first start with this:'], ['displayimg', '1mi.PNG'], ['pmain', 'From this we can conclude:'], ['displayimg', '2mi.PNG'], ['pmain', 'Since E[X|X&ge;a] &ge; a:'], ['displayimg', '3mi.PNG'], ['pmain', 'If we divide both sides by a:'], ['displayimg', '4mi.PNG'], ['pmain', "And thats Markov's Inequality."]];
-export default content;

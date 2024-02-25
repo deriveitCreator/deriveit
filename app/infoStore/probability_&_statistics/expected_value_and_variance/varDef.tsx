@@ -1,3 +1,0 @@
-export const title="Proof That Var[X] = E[X^2] - (E[X]^2)";
-const content = [['h1', 'Proof That Var[X] = E[X^2] - (E[X]^2)'], ['pmain', 'Var[<span style="color: maroon;">X</span>] is defined as:'], ['displayimg', '31.PNG'], ['pmain', 'If we expand this, we get:'], ['displayimg', '32.PNG'], ['pmain', 'Using the linearity of expectation, we get:'], ['displayimg', '33.PNG'], ['pmain', 'Since E[cX] = c*E[X], then we get:'], ['displayimg', '34.PNG'], ['pmain', 'We can simplify this equation:'], ['displayimg', '35.PNG']];
-export default content;

@@ -1,3 +1,0 @@
-export const title="Proof Of The Product Rule";
-const content = [['h1', 'Proof Of The Product Rule'], ['pmain', 'Let [h(x) = f(x)*g(x)]. By definition of a derivative, the derivative of h(x) is:'], ['displayimg', '1.png'], ['pmain', 'Since [-f(x)*g(x+a) + f(x)*g(x+a) = 0]:'], ['displayimg', '2.png'], ['pmain', 'Now we split the fraction:'], ['displayimg', '3.png'], ['pmain', 'If we use the limit laws:'], ['displayimg', '4.png'], ['pmain', 'If we simplify:'], ['displayimg', '5.png'], ['pmain', 'And that completes our proof.']];
-export default content;

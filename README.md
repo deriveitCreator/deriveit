@@ -52,6 +52,11 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+### Feb 25, 2024
+
+<b>update 10.2:</b>
+- When loading article, a loading text is displayed.
+
 <b>update 10.1:</b>
 - In design 2, in the home page, the font in "Recently table" is now "SF_Cartoonist_Hand".
 - For design 1 and design 2, the article content is fetched at `page.tsx` instead of doing it in useEffect.

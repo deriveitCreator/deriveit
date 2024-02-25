@@ -1,3 +1,0 @@
-export const title="E[XY] = E[X] * E[Y] Where X And Y Are Independent Variables";
-const content = [['h1', 'E[XY] = E[X] * E[Y] Where X And Y Are Independent Variables'], ['pmain', 'The expected value of the random variable <span style="color: maroon;">X</span> is:'], ['displayimg', '11.PNG'], ['pmain', 'Similarly, the expected value of <span style="color: maroon;">X</span> multiplied by another random variable <span style="color: darkblue;">Y</span> would be:'], ['displayimg', '62.PNG'], ['pmain', 'If <span style="color: maroon;">X</span> and <span style="color: darkblue;">Y</span> are independent, then:'], ['displayimg', '63.PNG'], ['pmain', 'Using the distributive property of summation, we get:'], ['displayimg', '64.PNG']];
-export default content;

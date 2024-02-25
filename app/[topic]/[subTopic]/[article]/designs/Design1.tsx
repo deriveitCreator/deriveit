@@ -19,131 +19,136 @@ var FontSizeContext = createContext({h2: "", main: "", quote: ""});
 
 export default function Design1(props: {topic:string, subTopic:string, contentArray: [[string, any]]}){
   const [fontSize,setFS] = useState({h2:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
-  const [bodyVal, setBV] = useState<React.JSX.Element[] | null>(null);
   const blackboardRef: any = useRef(null);
+  const [numToReRender, setNum] = useState(0);
   const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"});
   const responsiveStyleRef = useRef("flex");
 
   useEffect(()=>{
-    if(bodyVal){
-      document.querySelectorAll("[data-title]").forEach((el)=>{
-        el.addEventListener("mouseenter",(event)=>{
-          //@ts-ignore
-          changeEIBS({text: el.getAttribute("data-title")!,posX: event.clientX - 20,posY: event.clientY + 20,visibility:"visible"});
-        });
-        el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"});});
+    //add scroll
+    document.documentElement.style.overflowY = "scroll";
+    //[data-title] stuff
+    document.querySelectorAll("[data-title]").forEach((el)=>{
+      el.addEventListener("mouseenter",(event)=>{
+        //@ts-ignore
+        changeEIBS({text: el.getAttribute("data-title")!,posX: event.clientX - 20,posY: event.clientY + 20,visibility:"visible"});
       });
-      var ads = document.getElementsByClassName('adsbygoogle').length;
-      for (var i = 0; i < ads; i++) {
-        try {
-          //@ts-ignore
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {}
-      }
+      el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"});});
+    });
+    //ad stuff
+    var ads = document.getElementsByClassName('adsbygoogle').length;
+    for (var i = 0; i < ads; i++) {
+      try {
+        //@ts-ignore
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {}
     }
-    else {
-      document.documentElement.style.overflowY = "scroll";
-      if(screen.width > parseInt(styles.minDeviceWidth)) {
+    //blackboard stuff
+    if(screen.width > parseInt(styles.minDeviceWidth)) {
+      if(props.contentArray[0][1].length) {
         blackboardRef.current = <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>;
+        setNum(1);
       }
-      else{
-        blackboardRef.current = <section>
-          {/*@ts-ignore*/}
-          <div id={styles.adBelowArticle} align="center"><ins
-            className="adsbygoogle"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-4860967711062471"
-            data-ad-slot="6823528647"
-          ></ins></div>
-        </section>
-        responsiveStyleRef.current = "block";
-        setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
-      }
-      let j = props.contentArray;
-      let bodyChildren = [];
-      for(let i = 1; i<j.length; i++){
-        switch(j[i][0]){
-          case "h2":
-            bodyChildren.push(<H2Main key={i}>{j[i][1]}</H2Main>);
-            break;
-          case "pmain":
-            bodyChildren.push(<PMain mode={1} key={i}>{j[i][1] }</PMain>);
-            break;
-          case "pmain2":
-            bodyChildren.push(<PMain mode={2} key={i}>{j[i][1] }</PMain>);
-            break;
-          case "subText":
-            bodyChildren.push(<PMain mode={3} key={i}>{j[i][1] }</PMain>);
-            break;
-          case "figure":
-            bodyChildren.push(<ImageWrapper
-              key={i}
-              alt=""
-              h =' h-[240px]'
-              className={' flex flex-col items-center justify-center my-4 '+cursiveMain.className}
-              bor="border-black border-2"
-              animate={true}
-              src={`/${props.topic}/${props.subTopic}/${j[i][1][0]}`}
-              figcaption ={j[i][1][1]}
-            />);
-            break;
-          case ("displayimg"):
-            bodyChildren.push(<ImageWrapper
-              key={i}
-              alt=""
-              h =' max-h-[200px]'
-              className=' flex items-center justify-center my-4 '
-              bor="border-black border-2"
-              animate={true}
-              src={`/${props.topic}/${props.subTopic}/${j[i][1]}`}
-            />);
-            break;
-          case ("displayimg2"):
-            bodyChildren.push(<ImageWrapper
-              key={i}
-              alt=""
-              h =' max-h-[220px]'
-              className=' flex items-center justify-center my-4 '
-              bor="border-black border-2"
-              animate={true}
-              src={`/${props.topic}/${props.subTopic}/${j[i][1]}`}
-            />);
-            break;
-          case "displayFormula":
-            bodyChildren.push(<div
-              key={i}
-              className={' text-xl grid h-[200px] items-center justify-items-center'}
-              style={{gridTemplateColumns:"auto 90% auto"}}
-            ><span></span><div className={' border-black border-2 bg-white px-1 overflow-x-auto h-min max-w-min w-full'}>
-              <Latex strict>{j[i][1]}</Latex>
-            </div><span></span></div>);
-            break;
-          case "ol":
-            bodyChildren.push(<ListComp numbered={true} key={i} content={j[i][1]}/>);
-            break;
-          case "ul":
-            bodyChildren.push(<ListComp numbered={false} key={i} content={j[i][1]}/>);
-            break;
-          case "source_format":
-            bodyChildren.push(<SourcesSectionInner key={i} content={j[i][1]}/>);
-            break;
-          default:
-            bodyChildren.push(<p className={'bg-red-950 text-xl w-full text-center text-red-600'} key={i}>There was a problem rendering this.<br/>Please screenshot and report this.</p>);
-        }
-      }
-      setBV(bodyChildren);
     }
-  },[bodyVal]); // eslint-disable-line no-use-before-define
+    else{
+      blackboardRef.current = <section>
+        {/*@ts-ignore*/}
+        <div id={styles.adBelowArticle} align="center"><ins
+          className="adsbygoogle"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-4860967711062471"
+          data-ad-slot="6823528647"
+        ></ins></div>
+      </section>
+      responsiveStyleRef.current = "block";
+      setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
+    }
+  },[]); // eslint-disable-line no-use-before-define
 
   return <FontSizeContext.Provider value={fontSize}>
     <ArticleHeader text={props.contentArray[0][1]}/>
     <div style={{display: responsiveStyleRef.current,width:"100%" , marginBottom:"40px",minHeight:"100vh"}}>
-      <MainPart content={bodyVal!}/>
+      <MainPart content={getBodyContent(props.topic, props.subTopic, props.contentArray)}/>
       <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
       {blackboardRef.current}
     </div>
   </FontSizeContext.Provider>
+}
+
+function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
+  let bodyChildren = [];
+  for(let i = 1; i<j.length; i++){
+    switch(j[i][0]){
+      case "h2":
+        bodyChildren.push(<H2Main key={i}>{j[i][1]}</H2Main>);
+        break;
+      case "pmain":
+        bodyChildren.push(<PMain mode={1} key={i}>{j[i][1] }</PMain>);
+        break;
+      case "pmain2":
+        bodyChildren.push(<PMain mode={2} key={i}>{j[i][1] }</PMain>);
+        break;
+      case "subText":
+        bodyChildren.push(<PMain mode={3} key={i}>{j[i][1] }</PMain>);
+        break;
+      case "figure":
+        bodyChildren.push(<ImageWrapper
+          key={i}
+          alt=""
+          h =' h-[240px]'
+          className={' flex flex-col items-center justify-center my-4 '+cursiveMain.className}
+          bor="border-black border-2"
+          animate={true}
+          src={`/${topic}/${subTopic}/${j[i][1][0]}`}
+          figcaption ={j[i][1][1]}
+        />);
+        break;
+      case ("displayimg"):
+        bodyChildren.push(<ImageWrapper
+          key={i}
+          alt=""
+          h =' max-h-[200px]'
+          className=' flex items-center justify-center my-4 '
+          bor="border-black border-2"
+          animate={true}
+          src={`/${topic}/${subTopic}/${j[i][1]}`}
+        />);
+        break;
+      case ("displayimg2"):
+        bodyChildren.push(<ImageWrapper
+          key={i}
+          alt=""
+          h =' max-h-[220px]'
+          className=' flex items-center justify-center my-4 '
+          bor="border-black border-2"
+          animate={true}
+          src={`/${topic}/${subTopic}/${j[i][1]}`}
+        />);
+        break;
+      case "displayFormula":
+        bodyChildren.push(<div
+          key={i}
+          className={' text-xl grid h-[200px] items-center justify-items-center'}
+          style={{gridTemplateColumns:"auto 90% auto"}}
+        ><span></span><div className={' border-black border-2 bg-white px-1 overflow-x-auto h-min max-w-min w-full'}>
+          <Latex strict>{j[i][1]}</Latex>
+        </div><span></span></div>);
+        break;
+      case "ol":
+        bodyChildren.push(<ListComp numbered={true} key={i} content={j[i][1]}/>);
+        break;
+      case "ul":
+        bodyChildren.push(<ListComp numbered={false} key={i} content={j[i][1]}/>);
+        break;
+      case "source_format":
+        bodyChildren.push(<SourcesSectionInner key={i} content={j[i][1]}/>);
+        break;
+      default:
+        bodyChildren.push(<p className={'bg-red-950 text-xl w-full text-center text-red-600'} key={i}>There was a problem rendering this.<br/>Please screenshot and report this.</p>);
+    }
+  }
+  return bodyChildren;
 }
 
 const ArticleHeader = memo(function ArticleHeaderMemo(props: {text: string}){

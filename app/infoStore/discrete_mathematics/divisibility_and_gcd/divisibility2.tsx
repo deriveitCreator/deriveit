@@ -1,3 +1,0 @@
-export const title="If a|b and c|d then ac|bd";
-const content = [['h1', 'If a|b And c|d Then ac|bd'], ['pmain', 'If \\(a|b\\) and \\(c|d\\), then there are integers \\(e\\) and \\(f\\), such that \\(ae = b\\) and \\(cf = d\\). That means:'], ['displayFormula', '\\[bd = (ae) * (cf) = (ac)*(ef)\\]'], ['pmain', 'In other words:'], ['displayFormula', '\\[bd = (ac)*k\\]'], ['pmain', 'where \\(k \\in &integers;\\). This shows that \\(ac|bd\\).']];
-export default content;

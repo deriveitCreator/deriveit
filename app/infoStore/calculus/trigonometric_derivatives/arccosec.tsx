@@ -1,3 +1,0 @@
-export const title="Proof Of The Derivative Of Arccosecant(x)";
-const content = [['h1', 'Proof Of The Derivative Of Arccosecant(x)'], ['pmain', 'First lets start with a triangle where one of the angles is y. Lets say the hypotenuse side is\nof length x and that the adjacent side is of length 1:'], ['displayimg', 'acosec1.png'], ['pmain', 'Using the triangle above, we can say:'], ['displayimg', 'acosec2.png'], ['pmain', 'We already know that the derivative of x with respect to x is 1:'], ['displayimg', 'as3.png'], ['pmain', 'Since x = cosec(y):'], ['displayimg', 'acosec4.png'], ['pmain', 'Using the chain rule:'], ['displayimg', 'acosec5.png'], ['pmain', 'And we already know what cosec(y) and cotan(y) is equal to:'], ['displayimg', 'acosec6.png']];
-export default content;

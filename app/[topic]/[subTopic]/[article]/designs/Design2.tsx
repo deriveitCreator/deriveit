@@ -20,105 +20,36 @@ var FontSizeContext = createContext({h2:"", main: "", quote: ""});
 
 export default function Design2(props: {topic:string, subTopic:string, contentArray: [[string, any]]}){
   const [fontSize,setFS] = useState({h2:"text-4xl", main: "text-3xl", quote: "text-[28px]"});
-  const [bodyVal, setBV] = useState<React.JSX.Element[] | null>(null);
   const [showDB, changeSDB] = useState(false);
   const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"})
   const [asideW, setAW] = useState("0px");
 
   useEffect(()=>{
-    if(bodyVal){
-      if (screen.width < parseInt(styles.minDeviceWidth)) setFS({h2:"text-3xl", main: "text-[28px]", quote: "text-2xl"});
-      else document.querySelectorAll("[data-title]").forEach((el)=>{
-        el.addEventListener("mouseenter",(event)=>{
-          //@ts-ignore
-          changeEIBS({text: el.getAttribute("data-title")!,posX: event.clientX - 20,posY: event.clientY + 20,visibility:"visible"});
-        });
-        el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"})});
+    //check mobile (else set [data-title] on desktop)
+    if (screen.width < parseInt(styles.minDeviceWidth)) setFS({h2:"text-3xl", main: "text-[28px]", quote: "text-2xl"});
+    else document.querySelectorAll("[data-title]").forEach((el)=>{
+      el.addEventListener("mouseenter",(event)=>{
+        //@ts-ignore
+        changeEIBS({text: el.getAttribute("data-title")!,posX: event.clientX - 20,posY: event.clientY + 20,visibility:"visible"});
       });
-      var ads = document.getElementsByClassName('adsbygoogle').length;
-      for (var i = 0; i < ads; i++) {
-        try {
-          //@ts-ignore
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {}
-      }
+      el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"})});
+    });
+    //ad stuff
+    var ads = document.getElementsByClassName('adsbygoogle').length;
+    for (var i = 0; i < ads; i++) {
+      try {
+        //@ts-ignore
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {}
     }
-    else{
-      document.documentElement.style.overflowY = "scroll";
-      document.documentElement.style.backgroundColor = "white";
-      let bodyChildren = [];
-      let j = props.contentArray;
-      for(let i = 1; i<j.length; i++){
-        switch(j[i][0]){
-          case "h2":
-            bodyChildren.push(<SubHeading key={i}>{j[i][1]}</SubHeading>);
-            break;
-          case "pmain":
-            bodyChildren.push(<PMain mode={1} key={i}>{j[i][1] }</PMain>);
-            break;
-          case "pmain2":
-            bodyChildren.push(<PMain mode={2} key={i}>{j[i][1] }</PMain>);
-            break;
-          case "subText":
-            bodyChildren.push(<PMain mode={3} key={i}>{j[i][1] }</PMain>);
-            break;
-          case "figure":
-            bodyChildren.push(<ImageWrapper
-              key={i}
-              alt=""
-              h =' h-[240px]'
-              className={' flex flex-col items-center justify-center my-4 font-bold '+mainTextFont.className}
-              src={`/${props.topic}/${props.subTopic}/${j[i][1][0]}`}
-              figcaption ={j[i][1][1]}
-            />);
-            break;
-          case ("displayimg"):
-            bodyChildren.push(<ImageWrapper
-              key={i}
-              alt=""
-              h = {screen.width > parseInt(styles.minDeviceWidth) ? ' max-h-[200px]': ' max-h-[150px]'}
-              className=' flex items-center justify-center my-4 font-bold '
-              src={`/${props.topic}/${props.subTopic}/${j[i][1]}`}
-            />);
-            break;
-          case ("displayimg2"):
-            bodyChildren.push(<ImageWrapper
-              key={i}
-              alt=""
-              h ={screen.width > parseInt(styles.minDeviceWidth) ? ' h-[220px]': ' h-[150px]'}
-              className=' flex items-center justify-center my-4 '
-              src={`/${props.topic}/${props.subTopic}/${j[i][1]}`}
-            />);
-            break;
-          case "displayFormula":
-            bodyChildren.push(<div
-              key={i}
-              className={' text-xl grid h-[150px] items-center justify-items-center '}
-              style={{gridTemplateColumns:"auto auto auto"}}
-            ><span></span><div className={' bg-white px-1 overflow-x-auto h-min w-11/12 '}>
-              <Latex strict>{j[i][1]}</Latex>
-            </div><span></span></div>);
-            break;
-          case "ol":
-            bodyChildren.push(<ListComp numbered={true} key={i} content={j[i][1]}/>);
-            break;
-          case "ul":
-            bodyChildren.push(<ListComp numbered={false} key={i} content={j[i][1]}/>);
-            break;
-          case "source_format":
-            bodyChildren.push(<SourcesSectionInner key={i} content={j[i][1]}/>);
-            break;
-          default:
-            bodyChildren.push(<p className={'bg-red-950 text-xl w-full text-center text-red-600'} key={i}>There was a problem rendering this.<br/>Please screenshot and report this.</p>);
-        }
-      }
-      setBV(bodyChildren);
-    }
-  },[bodyVal]); // eslint-disable-line no-use-before-define
+    //set style directly
+    document.documentElement.style.overflowY = "scroll";
+    document.documentElement.style.backgroundColor = "white";
+  },[]); // eslint-disable-line no-use-before-define
 
   return <FontSizeContext.Provider value={fontSize}>
     <ArticleHeader text={props.contentArray[0][1]}/>
-    <MainPart content={bodyVal}/>
+    <MainPart content={getBodyContent(props.topic, props.subTopic, props.contentArray)}/>
     <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
     <SideOption asideW={asideW} setAW={setAW}/>
     <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/>
@@ -132,8 +63,83 @@ export default function Design2(props: {topic:string, subTopic:string, contentAr
         data-ad-slot="6823528647"
       ></ins></div>
     </section>
-    {bodyVal === null ? null: <FooterEl/>}
+    <FooterEl/>
   </FontSizeContext.Provider>;
+}
+
+function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
+  let bodyChildren = [];
+  for(let i = 1; i<j.length; i++){
+    switch(j[i][0]){
+      case "h2":
+        bodyChildren.push(<H2Main key={i}>{j[i][1]}</H2Main>);
+        break;
+      case "pmain":
+        bodyChildren.push(<PMain mode={1} key={i}>{j[i][1] }</PMain>);
+        break;
+      case "pmain2":
+        bodyChildren.push(<PMain mode={2} key={i}>{j[i][1] }</PMain>);
+        break;
+      case "subText":
+        bodyChildren.push(<PMain mode={3} key={i}>{j[i][1] }</PMain>);
+        break;
+      case "figure":
+        bodyChildren.push(<ImageWrapper
+          key={i}
+          alt=""
+          h =' h-[240px]'
+          className={' flex flex-col items-center justify-center my-4 '+mainTextFont.className}
+          bor="border-black border-2"
+          animate={true}
+          src={`/${topic}/${subTopic}/${j[i][1][0]}`}
+          figcaption ={j[i][1][1]}
+        />);
+        break;
+      case ("displayimg"):
+        bodyChildren.push(<ImageWrapper
+          key={i}
+          alt=""
+          h =' max-h-[200px]'
+          className=' flex items-center justify-center my-4 '
+          bor="border-black border-2"
+          animate={true}
+          src={`/${topic}/${subTopic}/${j[i][1]}`}
+        />);
+        break;
+      case ("displayimg2"):
+        bodyChildren.push(<ImageWrapper
+          key={i}
+          alt=""
+          h =' max-h-[220px]'
+          className=' flex items-center justify-center my-4 '
+          bor="border-black border-2"
+          animate={true}
+          src={`/${topic}/${subTopic}/${j[i][1]}`}
+        />);
+        break;
+      case "displayFormula":
+        bodyChildren.push(<div
+          key={i}
+          className={' text-xl grid h-[200px] items-center justify-items-center'}
+          style={{gridTemplateColumns:"auto 90% auto"}}
+        ><span></span><div className={' border-black border-2 bg-white px-1 overflow-x-auto h-min max-w-min w-full'}>
+          <Latex strict>{j[i][1]}</Latex>
+        </div><span></span></div>);
+        break;
+      case "ol":
+        bodyChildren.push(<ListComp numbered={true} key={i} content={j[i][1]}/>);
+        break;
+      case "ul":
+        bodyChildren.push(<ListComp numbered={false} key={i} content={j[i][1]}/>);
+        break;
+      case "source_format":
+        bodyChildren.push(<SourcesSectionInner key={i} content={j[i][1]}/>);
+        break;
+      default:
+        bodyChildren.push(<p className={'bg-red-950 text-xl w-full text-center text-red-600'} key={i}>There was a problem rendering this.<br/>Please screenshot and report this.</p>);
+    }
+  }
+  return bodyChildren;
 }
 
 const ArticleHeader = memo(function ArticleHeaderMemo(props: {text: string}){
@@ -150,33 +156,40 @@ const ArticleHeader = memo(function ArticleHeaderMemo(props: {text: string}){
 });
 
 const MainPart = memo(function MainPartMemo(props: {content: (JSX.Element[] | null)}){
-  const [op,setOp] = useState(0);
+  const [firsTime,setFT] = useState(true);
 
   useEffect(()=>{
-    if(props.content){
+    if(firsTime) setFT(false);
+    else {
       //@ts-ignore
-      if(op) window.MathJax.typeset();
-      else setOp(1);
+      window.MathJax.typeset();
     }
-  },[props.content, op]);
+  },[firsTime]);
 
-  if (props.content) {
-    let paddingLevel = screen.width > parseInt(styles.minDeviceWidth) ? "px-7 grow": "px-2";
-    return <main className={`mb-10  ${paddingLevel}`} style={{opacity:op,transition:"opacity 0.5s ease-out 0.1s"}}>{props.content}</main>
+  let paddingLevel = "px-2";
+  if ((!firsTime) && (screen.width > parseInt(styles.minDeviceWidth))) {
+    paddingLevel = "px-7 grow";
   }
-  else return null;
+  return <main className={`mb-10 ${paddingLevel}`}>{props.content}</main>;
 });
 
-function SubHeading({children}: {children: string}){
+function H2Main({children}: {children: string}){
   const FontSizeContextVal = useContext(FontSizeContext);
   return <h2 className={FontSizeContextVal.h2 + ' underline font-bold mb-4 ' + headingFont.className} dangerouslySetInnerHTML={{__html: children}}></h2>
 }
 
 function PMain({children, mode}: {children: string, mode:number}){
   const FontSizeContextVal = useContext(FontSizeContext);
+  const [firstTime,setFT] = useState(true);
+
+  useEffect(()=>{
+    setFT(false);
+  },[]);
 
   var responsiveStyle = ["mx-1","mx-4","mx-6"];
-  if (screen.width > parseInt(styles.minDeviceWidth)) responsiveStyle = ["mx-2","mx-8 [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help","mx-16"];
+  if ((!firstTime) && (screen.width > parseInt(styles.minDeviceWidth))) {
+    responsiveStyle = ["mx-2","mx-8 [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help","mx-16"];
+  }
 
   if(mode === 1) return <p className={`pmain ${mainTextFont.className} mb-4 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums ${responsiveStyle[0]}`} dangerouslySetInnerHTML={{__html: children}}></p>
   if(mode === 2) return <p className={`pmain2 ${mainTextFont.className} mb-4 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums ${responsiveStyle[1]}`} dangerouslySetInnerHTML={{__html: children}}></p>
@@ -299,8 +312,13 @@ function BrushButton(){
 }
 
 function FooterEl(){
+  const [firstTime, setFT] = useState(true);
 	const [footerState, changeFS] = useState(false);
 	const formType = useRef(0);
+
+  useEffect(()=>{
+    setFT(false);
+  },[])
 		
 	function dispatch(arg0: {type: string}){
 			arg0.type==="SHOW_FORM_BOX"? changeFS(true):changeFS(false);
@@ -311,52 +329,55 @@ function FooterEl(){
 			dispatch({type: "SHOW_FORM_BOX"});
 	}
 
-	return <div className={printFont2.className+' font-bold'}>
-		<footer>
-		{
-      screen.width > parseInt(styles.minDeviceWidth) ?
-			<>
-        <hr style={{backgroundColor:"black", height:"4px", border:"none"}}/>
-				<div style={{display:"grid",gridTemplateColumns:"140px auto",margin:"0px 15px 0px 20px"}}>
-					<Link href="/" >
-							<ImageWrapper className=' mx-4 my-4 ' src="/link_logo_trans2.png" alt="" />
-					</Link>
-					<div style={{border:`solid black 3px`, marginTop:"10px", display:"flex",flexDirection:"row",justifyContent:"space-between", height:"min-content"}}>
-						<p style={{paddingLeft:"10px"}}>
-								If you find a bug in this website or want to report an error, <ClickButton type={0} func={showForm} /><br/>
-								If there are any equations for which you want proof for, <ClickButton type={1} func={showForm} /><br/>
-								For any suggestion and ideas, <ClickButton type={2} func={showForm} />
-						</p>
-						<Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center",padding:"0px 25px"}} target="_blank">
-								<p className={" text-center font-bold text-sm "}>Want To Donate?</p>
-								<ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
-						</Link>
-					</div>
-					<Suspense fallback={<></>}><FormBox showFB={footerState} reducerDis={dispatch} type={formType.current}/></Suspense>
-				</div>
-			</>:
-			<div style={{ borderTop:`solid black 3px`,marginTop:"10px",letterSpacing:"-1px"}}>
-				<div style={{height:"min-content"}}>
-					<p style={{paddingLeft:"10px", paddingBottom:"4px"}}>
-							If you find a bug in this website or want to report an error, <ClickButton type={0} func={showForm} /><br/>
-							If there are any equations for which you want proof for, <ClickButton type={1} func={showForm} /><br/>
-							For any suggestion and ideas, <ClickButton type={2} func={showForm} />
-					</p>
-					<div style={{display:"grid", gridTemplateColumns:"100px 150px", justifyContent:"space-evenly"}}>
-						<Link href="/" >
-								<ImageWrapper className=' mx-1 my-5 ' src="/link_logo_trans2.png" alt="" />
-						</Link>
-						<Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center"}} target="_blank">
-							<p className={" text-center font-bold text-sm "}>Want To Donate?</p>
-							<ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
-						</Link>
-					</div>
-				</div>
-				<Suspense fallback={<></>}><FormBox showFB={footerState} reducerDis={dispatch} type={formType.current}/></Suspense>
-			</div>
-		}
-		</footer>
-	</div>
+  if(!firstTime){
+    return <div className={printFont2.className+' font-bold'}>
+      <footer>
+      {
+        screen.width > parseInt(styles.minDeviceWidth) ?
+        <>
+          <hr style={{backgroundColor:"black", height:"4px", border:"none"}}/>
+          <div style={{display:"grid",gridTemplateColumns:"140px auto",margin:"0px 15px 0px 20px"}}>
+            <Link href="/" >
+                <ImageWrapper className=' mx-4 my-4 ' src="/link_logo_trans2.png" alt="" />
+            </Link>
+            <div style={{border:`solid black 3px`, marginTop:"10px", display:"flex",flexDirection:"row",justifyContent:"space-between", height:"min-content"}}>
+              <p style={{paddingLeft:"10px"}}>
+                  If you find a bug in this website or want to report an error, <ClickButton type={0} func={showForm} /><br/>
+                  If there are any equations for which you want proof for, <ClickButton type={1} func={showForm} /><br/>
+                  For any suggestion and ideas, <ClickButton type={2} func={showForm} />
+              </p>
+              <Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center",padding:"0px 25px"}} target="_blank">
+                  <p className={" text-center font-bold text-sm "}>Want To Donate?</p>
+                  <ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
+              </Link>
+            </div>
+            <Suspense fallback={<></>}><FormBox showFB={footerState} reducerDis={dispatch} type={formType.current}/></Suspense>
+          </div>
+        </>:
+        <div style={{ borderTop:`solid black 3px`,marginTop:"10px",letterSpacing:"-1px"}}>
+          <div style={{height:"min-content"}}>
+            <p style={{paddingLeft:"10px", paddingBottom:"4px"}}>
+                If you find a bug in this website or want to report an error, <ClickButton type={0} func={showForm} /><br/>
+                If there are any equations for which you want proof for, <ClickButton type={1} func={showForm} /><br/>
+                For any suggestion and ideas, <ClickButton type={2} func={showForm} />
+            </p>
+            <div style={{display:"grid", gridTemplateColumns:"100px 150px", justifyContent:"space-evenly"}}>
+              <Link href="/" >
+                  <ImageWrapper className=' mx-1 my-5 ' src="/link_logo_trans2.png" alt="" />
+              </Link>
+              <Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center"}} target="_blank">
+                <p className={" text-center font-bold text-sm "}>Want To Donate?</p>
+                <ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
+              </Link>
+            </div>
+          </div>
+          <Suspense fallback={<></>}><FormBox showFB={footerState} reducerDis={dispatch} type={formType.current}/></Suspense>
+        </div>
+      }
+      </footer>
+    </div>
+  }
+  else return null;
 }
 
 function ClickButton(props: {type: number, func: (arg0: number) => void}){

@@ -15,7 +15,7 @@ export default function Page({ params }: { params: { topic:string, subTopic: str
   const topic2 = decodeURIComponent(params.topic.toLowerCase());
   const subTopic2 = decodeURIComponent(params.subTopic);
   const article2 = decodeURIComponent(params.article);
-  const [contentArray, setContentArray] = useState(null);
+  const [contentArray, setContentArray] = useState([['h1',''],['pmain','Fetching data from the backend...']]);
 
   useEffect(() => {
     document.documentElement.style.overflowY = "auto";
@@ -31,8 +31,7 @@ export default function Page({ params }: { params: { topic:string, subTopic: str
   },[]);
 
   const designSelectedVal = parseInt(useCookies().get('designSelected')!) || DEFAULT_DESIGN_SELECTION;
-  const MainComp = memo(dynamic<ImportType>(() => import(`./designs/Design${designSelectedVal}`)));
+  const MainComp = dynamic<ImportType>(() => import(`./designs/Design${designSelectedVal}`));
   //@ts-ignore
-  if(contentArray) return <MainComp topic={topic2} subTopic={subTopic2} contentArray={contentArray!}/>;
-  else return null;
+  return <MainComp topic={topic2} subTopic={subTopic2} contentArray={contentArray}/>;
 }
