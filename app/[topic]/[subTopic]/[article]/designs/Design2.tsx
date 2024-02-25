@@ -89,9 +89,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
           key={i}
           alt=""
           h =' h-[240px]'
-          className={' flex flex-col items-center justify-center my-4 '+mainTextFont.className}
-          bor="border-black border-2"
-          animate={true}
+          className={' flex flex-col items-center justify-center my-4 font-bold '+mainTextFont.className}
           src={`/${topic}/${subTopic}/${j[i][1][0]}`}
           figcaption ={j[i][1][1]}
         />);
@@ -100,10 +98,8 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
         bodyChildren.push(<ImageWrapper
           key={i}
           alt=""
-          h =' max-h-[200px]'
-          className=' flex items-center justify-center my-4 '
-          bor="border-black border-2"
-          animate={true}
+          h = {screen.width > parseInt(styles.minDeviceWidth) ? ' max-h-[200px]': ' max-h-[150px]'}
+          className=' flex items-center justify-center my-4 font-bold '
           src={`/${topic}/${subTopic}/${j[i][1]}`}
         />);
         break;
@@ -111,19 +107,17 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
         bodyChildren.push(<ImageWrapper
           key={i}
           alt=""
-          h =' max-h-[220px]'
+          h ={screen.width > parseInt(styles.minDeviceWidth) ? ' h-[220px]': ' h-[150px]'}
           className=' flex items-center justify-center my-4 '
-          bor="border-black border-2"
-          animate={true}
           src={`/${topic}/${subTopic}/${j[i][1]}`}
         />);
         break;
       case "displayFormula":
         bodyChildren.push(<div
           key={i}
-          className={' text-xl grid h-[200px] items-center justify-items-center'}
-          style={{gridTemplateColumns:"auto 90% auto"}}
-        ><span></span><div className={' border-black border-2 bg-white px-1 overflow-x-auto h-min max-w-min w-full'}>
+          className={' text-xl grid h-[150px] items-center justify-items-center '}
+          style={{gridTemplateColumns:"auto auto auto"}}
+        ><span></span><div className={' bg-white px-1 overflow-x-auto h-min w-11/12 '}>
           <Latex strict>{j[i][1]}</Latex>
         </div><span></span></div>);
         break;
