@@ -2,8 +2,7 @@ This website was made just via HTML, CSS and JavaScript (with the JQuery library
 
 Now it's remade using:
 
-![React JS](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB") ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![MongoDB][https://img.shields.io/badge/mongodb-00684a?style=for-the-badge&logo=mongodb&logoColor=00ed64&labelColor=001e2b
-]
+![React JS](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB") ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![MongoDB](https://img.shields.io/badge/mongodb-00684a?style=for-the-badge&logo=mongodb&logoColor=00ed64&labelColor=001e2b)
 
 One major thing I added was the design feature, where you can choose different designs in the homepage. The designs will apply to the entire website.
 
@@ -55,7 +54,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Feb 25, 2024
 
-<b>update 10.2 - 10.6:</b>
+<b>update 10.2 - 10.7:</b>
 - When loading article, a loading text is displayed.
 - Several bug fixes in both designs.
 
