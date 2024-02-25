@@ -25,46 +25,51 @@ export default function Design1(props: {topic:string, subTopic:string, contentAr
   const responsiveStyleRef = useRef("flex");
 
   useEffect(()=>{
-    //add scroll
-    document.documentElement.style.overflowY = "scroll";
-    //[data-title] stuff
-    document.querySelectorAll("[data-title]").forEach((el)=>{
-      el.addEventListener("mouseenter",(event)=>{
-        //@ts-ignore
-        changeEIBS({text: el.getAttribute("data-title")!,posX: event.clientX - 20,posY: event.clientY + 20,visibility:"visible"});
-      });
-      el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"});});
-    });
-    //ad stuff
-    var ads = document.getElementsByClassName('adsbygoogle').length;
-    for (var i = 0; i < ads; i++) {
-      try {
-        //@ts-ignore
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (e) {}
-    }
-    //blackboard stuff
-    if(screen.width > parseInt(styles.minDeviceWidth)) {
-      if(props.contentArray[0][1].length) {
-        blackboardRef.current = <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>;
-        setNum(1);
+    if(blackboardRef.current){
+      //ad stuff
+      var ads = document.getElementsByClassName('adsbygoogle').length;
+      for (var i = 0; i < ads; i++) {
+        try {
+          //@ts-ignore
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {}
       }
     }
     else{
-      blackboardRef.current = <section>
-        {/*@ts-ignore*/}
-        <div id={styles.adBelowArticle} align="center"><ins
-          className="adsbygoogle"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-4860967711062471"
-          data-ad-slot="6823528647"
-        ></ins></div>
-      </section>
-      responsiveStyleRef.current = "block";
-      setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
+      //add scroll
+      document.documentElement.style.overflowY = "scroll";
+      //[data-title] stuff
+      document.querySelectorAll("[data-title]").forEach((el)=>{
+        el.addEventListener("mouseenter",(event)=>{
+          //@ts-ignore
+          changeEIBS({text: el.getAttribute("data-title")!,posX: event.clientX - 20,posY: event.clientY + 20,visibility:"visible"});
+        });
+        el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"});});
+      });
+      //blackboard stuff
+      if(screen.width > parseInt(styles.minDeviceWidth)) {
+        if(props.contentArray[0][1].length) {
+          blackboardRef.current = <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>;
+          setNum(1);
+        }
+      }
+      else{
+        //variable stores ad section instead of blackboard
+        blackboardRef.current = <section>
+          {/*@ts-ignore*/}
+          <div id={styles.adBelowArticle} align="center"><ins
+            className="adsbygoogle"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-4860967711062471"
+            data-ad-slot="6823528647"
+          ></ins></div>
+        </section>
+        responsiveStyleRef.current = "block";
+        setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
+      }
     }
-  },[]); // eslint-disable-line no-use-before-define
+  }); // eslint-disable-line no-use-before-define
 
   return <FontSizeContext.Provider value={fontSize}>
     <ArticleHeader text={props.contentArray[0][1]}/>
