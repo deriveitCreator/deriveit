@@ -4,7 +4,7 @@ import React, { Suspense, useRef, useState } from 'react'
 import ImageWrapper from '../components/ImageWrapper';
 import Link from 'next/link';
 import { printFont2 } from '../infoStore/fonts';
-import FormBox from '../components/formBox';
+import FormBox from '../components/FormBox';
 import styles from "./variables.module.scss";
 import { link } from '../infoStore/paypalLink';
 

@@ -1,8 +1,8 @@
-This website was made just via HTML, CSS and JavaScript (with the JQuery library)
+This website was originally made using only HTML, CSS and JavaScript (with the JQuery library)
 
 Now it's remade using:
 
-![React JS](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB") ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![MongoDB](https://img.shields.io/badge/mongodb-00684a?style=for-the-badge&logo=mongodb&logoColor=00ed64&labelColor=001e2b)
+![React JS](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB") ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![MongoDB](https://img.shields.io/badge/mongodb-00684a?style=for-the-badge&logo=mongodb&logoColor=00ed64&labelColor=001e2b) ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
 
 One major thing I added was the design feature, where you can choose different designs in the homepage. The designs will apply to the entire website.
 
@@ -31,15 +31,18 @@ One major thing I added was the design feature, where you can choose different d
     - `BlackBoard.tsx`: for the giant blackboard on the home page
     - `ImageWrapper.tsx`: a wrapper for images (this is a global component)
     - `StyleSelectionBox.tsx`: a dialog box for choosing different styles
+    - `FormBox.tsx`: the website has a feedback form, and the code for it is stored in this file.
 
 - The `infoStore` folder is the default place where all the information is stored:
-    - `fonts.tsx`: stores information about the fonts
-    - `topicsInfo.tsx`: for the associated information for all the different topics
-    - `designInfo.tsx`: for storing the default design number
-    - All the folders in this folder (except for `getArticleContent`, `setCookie` and `sendEmail`) stores article content. Article content gets sent to the user (when requested) using the API in `getArticleContent` folder.
-    - `setCookie` contains the code for change the cookie for the design number.
-    - `sendEmail` contains the api to email client feedback to me.
+    - `fonts.tsx`: stores information about the fonts.
+    - `/downloadedFonts`: this folder contains local fonts.
+    - `designInfo.tsx`: for storing the default design number.
+    - `topicsInfo.tsx`: stores information for all the different topics.
+    - `/setCookie`: contains the code for changing the design number and storing it in cookies.
+    - `/sendEmail`: contains the api to email client feedback to me.
     - `sourcesForCitation.tsx`: Stores citation information, more on this later.
+    - `paypalLink.tsx`: contains the code for the PayPal donation button.
+    - All the folders in this folder (except for `getArticleContent`, `setCookie` and `sendEmail`) stores article content. Article content gets sent to the user (when requested) using the API in `getArticleContent` folder.
 
 ### [topic], [subTopic] and [article] folders
 
@@ -54,7 +57,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Feb 25, 2024
 
-<b>update 10.2 - 10.7:</b>
+<b>update 10.2 - 10.8:</b>
 - When loading article, a loading text is displayed.
 - Several bug fixes in both designs.
 

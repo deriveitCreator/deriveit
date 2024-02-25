@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import ImageWrapper from '../components/ImageWrapper';
 import { printFont, cursiveMain } from '../infoStore/fonts';
-import FormBox from '../components/formBox';
+import FormBox from '../components/FormBox';
 import { Suspense, useReducer, useState } from 'react';
 import styles from "./variables.module.scss";
 import { link } from '../infoStore/paypalLink';

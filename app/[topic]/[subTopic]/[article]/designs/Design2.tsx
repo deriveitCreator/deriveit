@@ -8,7 +8,7 @@ import Latex from 'react-latex-next';
 import 'katex/dist/katex.min.css';
 import StyleSelectionBox from "@/app/components/StyleSelectionBox";
 import Link from "next/link";
-import FormBox from "@/app/components/formBox";
+import FormBox from "@/app/components/FormBox";
 import { IconContext } from "react-icons";
 import { FaChevronLeft, FaChevronRight, FaPaintbrush } from "react-icons/fa6";
 import { allTopics } from "@/app/infoStore/topicsInfo";
