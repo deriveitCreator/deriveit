@@ -31,12 +31,3 @@ export const printFont2 = localFont({ src: './downloadedFonts/LinLibertine_R.ttf
 export const headingFont = localFont({ src: './downloadedFonts/Nationpp.ttf' });
 
 export const mainTextFont = localFont({ src: './downloadedFonts/SF_Cartoonist_Hand.ttf'});
-
-
-//Archived
-/*
-export const textMain = Cormorant_Upright({
-  weight: ["500","700"],
-  subsets: ["latin"]
-})
-*/

@@ -31,7 +31,7 @@ const StyleSelectionBox = (props: {showDB: boolean, changeSDB: React.Dispatch<Se
             router.refresh();
         }
         else{
-            alert("There was an error.\nPlease report this.");
+            alert("There was an error with the cookies.\nPlease report this.");
         }
     }
 

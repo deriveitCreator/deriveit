@@ -17,10 +17,8 @@ import styles from "./design1.module.scss";
 
 var FontSizeContext = createContext({h2: "", main: "", quote: ""});
 
-export default function Design1(props: {topic: string, subTopic: string, article: string}){
+export default function Design1(props: {topic:string, subTopic:string, contentArray: [[string, any]]}){
   const [fontSize,setFS] = useState({h2:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
-  const [headerVal, setHV] = useState<string>("");
-  const jsonForBody: MutableRefObject<any> = useRef(null);
   const [bodyVal, setBV] = useState<React.JSX.Element[] | null>(null);
   const blackboardRef: any = useRef(null);
   const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"});
@@ -43,12 +41,30 @@ export default function Design1(props: {topic: string, subTopic: string, article
         } catch (e) {}
       }
     }
-    else if(headerVal !== "") {
-      let j = jsonForBody.current!;
+    else {
+      document.documentElement.style.overflowY = "scroll";
+      if(screen.width > parseInt(styles.minDeviceWidth)) {
+        blackboardRef.current = <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>;
+      }
+      else{
+        blackboardRef.current = <section>
+          {/*@ts-ignore*/}
+          <div id={styles.adBelowArticle} align="center"><ins
+            className="adsbygoogle"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-4860967711062471"
+            data-ad-slot="6823528647"
+          ></ins></div>
+        </section>
+        responsiveStyleRef.current = "block";
+        setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
+      }
+      let j = props.contentArray;
       let bodyChildren = [];
       for(let i = 1; i<j.length; i++){
         switch(j[i][0]){
-          case "h3":
+          case "h2":
             bodyChildren.push(<H2Main key={i}>{j[i][1]}</H2Main>);
             break;
           case "pmain":
@@ -118,39 +134,10 @@ export default function Design1(props: {topic: string, subTopic: string, article
       }
       setBV(bodyChildren);
     }
-    else{
-      document.documentElement.style.overflowY = "scroll";
-      if(screen.width > parseInt(styles.minDeviceWidth)) {
-        blackboardRef.current = <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>;
-      }
-      else{
-        blackboardRef.current = <section>
-          {/*@ts-ignore*/}
-          <div id={styles.adBelowArticle} align="center"><ins
-            className="adsbygoogle"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-4860967711062471"
-            data-ad-slot="6823528647"
-          ></ins></div>
-        </section>
-        responsiveStyleRef.current = "block";
-        setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
-      }
-      fetch("../../../infoStore/getArticleContent", {
-        method:"POST",
-        cache: "no-cache",
-        headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({topic: props.topic, subTopic: props.subTopic, article: props.article})
-      }).then( res =>{ res.json().then(j=>{
-        jsonForBody.current = j;
-        setHV(j[0][1]);
-      })})
-    }
-  },[headerVal, bodyVal]); // eslint-disable-line no-use-before-define
+  },[bodyVal]); // eslint-disable-line no-use-before-define
 
   return <FontSizeContext.Provider value={fontSize}>
-    <ArticleHeader text={headerVal}/>
+    <ArticleHeader text={props.contentArray[0][1]}/>
     <div style={{display: responsiveStyleRef.current,width:"100%" , marginBottom:"40px",minHeight:"100vh"}}>
       <MainPart content={bodyVal!}/>
       <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>

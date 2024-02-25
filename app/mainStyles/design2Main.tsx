@@ -3,7 +3,7 @@
 import React, { Suspense, useState, useEffect, useRef, MutableRefObject, createRef, RefObject } from 'react';
 import ImageWrapper from '../components/ImageWrapper';
 import styles from "./design2.module.scss";
-import { logoFont2, printFont2, headingFont } from '../infoStore/fonts';
+import { logoFont2, printFont2, headingFont, mainTextFont } from '../infoStore/fonts';
 import { IconContext } from "react-icons";
 import { FaPaintbrush, FaAngleRight, FaAngleLeft, FaCaretDown } from "react-icons/fa6";
 import StyleSelectionBox from '../components/StyleSelectionBox';
@@ -102,31 +102,33 @@ function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean
 }
 
 function MainTable(){
-    return <section><table id={styles.mainTable} className={logoFont2.className}>
-        <thead><tr><th>Choose Your Topic:</th></tr></thead>
-        {/*When making images in powerpoint, the width should be 646px and height should be 334px*/}
-        <tbody>
-            {allTopics.map((elem,i)=>{
-                if(i%2 === 0){
-                    const name1 = allTopics[i].name.toLowerCase().replaceAll(" ","_");
-                    const name2 = allTopics[i+1].name.toLowerCase().replaceAll(" ","_");
-                    return <tr key={i}><td>
-                        <div className=' w-1/2 inline-block'><Link href={`/${name1}`}>
-                            <ImageWrapper alt={name1} src={`/topicsPics/${name1}.png`}/>
-                        </Link></div>
-                        {   
-                            name2==="error"?
-                            <div className=' w-1/2 inline-block'><ImageWrapper className='inline-block' alt={name2} bor={styles.uc} src={`/topicsPics/uncategorized.png`}/></div>:
-                            <div className=' w-1/2 inline-block '><Link href={`/${name2}`}>
-                                <ImageWrapper alt={name2} src={`/topicsPics/${name2}.png`}/>
-                            </Link></div>
-                        }
-                    </td></tr>;
-                }
-                else return null;
-            })}
-        </tbody>
-    </table></section>
+	return <section><table id={styles.mainTable} className={logoFont2.className}>
+		{screen.width > parseInt(styles.minDeviceWidth) ? <thead><tr><th>Choose Your Topic:</th></tr></thead> : null}
+		{/*When making images in powerpoint, the width should be 646px and height should be 334px*/}
+		<tbody>
+			{allTopics.map((elem,i)=>{
+				if(i%2 === 0){
+					const name1 = allTopics[i].name.toLowerCase().replaceAll(" ","_");
+					const name2 = allTopics[i+1].name.toLowerCase().replaceAll(" ","_");
+					return <tr key={i}><td>
+						<div className=' w-1/2 inline-block'><Link href={`/${name1}`}>
+							<ImageWrapper alt={name1} src={`/topicsPics/${name1}.png`}/>
+						</Link></div>
+						{   
+							name2==="error"?
+							<div className=' w-1/2 inline-block'>
+								<ImageWrapper className='inline-block' alt={name2} bor={styles.uc} src={`/topicsPics/uncategorized.png`}/>
+							</div>:
+							<div className=' w-1/2 inline-block '><Link href={`/${name2}`}>
+								<ImageWrapper alt={name2} src={`/topicsPics/${name2}.png`}/>
+							</Link></div>
+						}
+					</td></tr>;
+				}
+				else return null;
+			})}
+		</tbody>
+	</table></section>
 }
 
 function HeaderEl(props:{continueButtonClicked:boolean}){
@@ -141,7 +143,7 @@ function HeaderEl(props:{continueButtonClicked:boolean}){
 
     let h1El = screen.width > parseInt(styles.minDeviceWidth) ?
     <h1>Welcome To <span style={{color:"#0066FF"}}>Derive</span> It<span style={{color:"#0066FF"}}>!</span></h1> :
-    <h1>DeriveIt.net</h1>;
+    <h1>deriveit.net</h1>;
 
     return <header id={styles.headerId} className={logoFont2.className}>
         <div id={styles.mainheading}>
@@ -293,40 +295,59 @@ function SearchOptions(props:{display:string, optionsArr:{ text: string; link: s
 }
 
 function BelowTables(props: {recentlyAdded: boolean}){
-    var largeScreen = screen.width > parseInt(styles.minDeviceWidth);
-	return <section><table id={styles.tableForRecent} className={logoFont2.className}>
-        {largeScreen ? null : <thead><tr>
-            <th style={{textAlign:"center"}}>Recently {props.recentlyAdded?"Added":"Edited"}</th>
-        </tr></thead>}
-        <tbody>{(props.recentlyAdded ?  getRecentlyAdded():getRecentlyEdited()).map((elem, i)=>{
-            let perPos = elem.indexOf("%");
-            let bgColor: string;
-            let borderColor: string;
-            for(let record of allTopics){
-                if(record.name.replaceAll(" ","_").toLowerCase() === elem.substring(perPos+1, elem.indexOf("/"))){
-                    bgColor = record.bgColor;
-                    borderColor = record.borderColor;
-                    break;
-                }
-            }
+	
+	if(screen.width > parseInt(styles.minDeviceWidth)){
+		return <section><table id={styles.tableForRecent}>
+			<tbody>{(props.recentlyAdded ?  getRecentlyAdded():getRecentlyEdited()).map((elem, i)=>{
+				let perPos = elem.indexOf("%");
+				let bgColor: string;
+				let borderColor: string;
+				for(let record of allTopics){
+					if(record.name.replaceAll(" ","_").toLowerCase() === elem.substring(perPos+1, elem.indexOf("/"))){
+						bgColor = record.bgColor;
+						borderColor = record.borderColor;
+						break;
+					}
+				}
 
-            if(largeScreen){
-                if(i===0) return <tr key={0}>
-                    <th scope='col' rowSpan={4} className=' border-4'><span className=' float-left'>Recently</span><span className=' float-right'>{props.recentlyAdded?"Added":"Edited"}</span></th>
-                    <td style={{ backgroundColor: bgColor!, color: borderColor!, borderLeft: `solid 3px ${borderColor!}`, fontWeight:"bold"}}><Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link></td>
-                </tr>;
-                else return <tr key={i}><td style={{ backgroundColor: bgColor!, color: borderColor!, borderLeft: `solid 3px ${borderColor!}`, fontWeight:"bold"}}><Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link></td></tr>;
-            }
-            else{
-                if(i===0) return <tr key={0}>
-                    <td style={{ backgroundColor: bgColor!, color: borderColor!, fontWeight:"bold"}}>
-                        <Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link>
-                    </td>
-                </tr>;
-                else return <tr key={i}><td style={{ backgroundColor: bgColor!, color: borderColor!, fontWeight:"bold"}}><Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link></td></tr>;
-            }
-        })}
-    </tbody></table></section>
+				if(i===0) return <tr key={0}>
+					<th scope='col' rowSpan={4} className={`border-4 ${logoFont2.className}`}>
+						<span className=' float-left'>Recently</span>
+						<span className=' float-right'>{props.recentlyAdded?"Added":"Edited"}</span>
+					</th>
+					<td style={{ backgroundColor: bgColor!, color: borderColor!, borderLeft: `solid 3px ${borderColor!}`, fontWeight:"bold"}} className={mainTextFont.className}>
+						<Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link>
+					</td>
+				</tr>;
+				else return <tr key={i}><td style={{ backgroundColor: bgColor!, color: borderColor!, borderLeft: `solid 3px ${borderColor!}`, fontWeight:"bold"}} className={mainTextFont.className}>
+					<Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link>
+				</td></tr>;
+			})}</tbody>
+		</table></section>
+	}
+	else{
+		return <section><table id={styles.tableForRecent}>
+			<thead className={logoFont2.className}><tr>
+				<th style={{textAlign:"center"}}>Recently {props.recentlyAdded?"Added":"Edited"}</th>
+			</tr></thead>
+			<tbody>{(props.recentlyAdded ?  getRecentlyAdded():getRecentlyEdited()).map((elem, i)=>{
+				let perPos = elem.indexOf("%");
+				let bgColor: string;
+				let borderColor: string;
+				for(let record of allTopics){
+					if(record.name.replaceAll(" ","_").toLowerCase() === elem.substring(perPos+1, elem.indexOf("/"))){
+						bgColor = record.bgColor;
+						borderColor = record.borderColor;
+						break;
+					}
+				}
+				
+				return <tr key={0}><td style={{ backgroundColor: bgColor!, color: borderColor!, fontWeight:"bold"}} className={mainTextFont.className}>
+					<Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link>
+				</td></tr>;
+			})}</tbody>
+		</table></section>
+	}
 }
 
 function BackgroundImage(props:{continueClicked: boolean}){

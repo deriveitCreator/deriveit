@@ -52,6 +52,11 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.1:</b>
+- In design 2, in the home page, the font in "Recently table" is now "SF_Cartoonist_Hand".
+- For design 1 and design 2, the article content is fetched at `page.tsx` instead of doing it in useEffect.
+- MongoDB is now being used to store articles. When fetching from backend, first the MongoDB server will be used, then there is an error, then the local file system will be used.
+
 ### Feb 15, 2024
 
 <b>update 9.35 - 9.36:</b>

@@ -164,6 +164,7 @@ $brown2: #663300;
 			}
 		}
 	}
+
 	#typingArea{
 		display: grid;
 		grid-template-columns: 100%;
@@ -171,7 +172,6 @@ $brown2: #663300;
 		#searchBox{
 			margin: 5px 0px;
 			padding: 0px 5px;
-			border: none;
 			outline: none;
 			border: solid 2px #552200;
 			background-color: #CC5511;
@@ -341,9 +341,8 @@ $brown2: #663300;
 			text-align:left;
 			border-left-style:solid;
 			padding: 4px 0px 4px 4px;
-			font-size: 16px;
-			line-height: 22px;
-			letter-spacing: -1px;
+			font-size: 20px;
+			line-height: 24px;
 
 			&:hover{
 				margin-left: 0px;
@@ -376,7 +375,7 @@ $brown2: #663300;
 		padding-bottom: 0px;
 
 		#mainheading{
-			font-size:25px;
+			font-size:20px;
 			line-height:42px;
 			width:100%;
 			max-width:100%;
@@ -384,11 +383,12 @@ $brown2: #663300;
 			border:none;
 			grid-template-columns: auto 25px;
 			background-image:linear-gradient(45deg,#FFBF5D,#FFDA72);
+			vertical-align: bottom;
 
 			h1{
 				color: $brown1;
 				padding-left: 10px;
-				letter-spacing: -1px;
+				letter-spacing: -2px;
 			}
 		}
 	}
@@ -406,12 +406,21 @@ $brown2: #663300;
 				letter-spacing: 0px;
 			}
 		}
+		#typingArea{
+			#pageOptions{
+				font-size: 14px;
+				.poptions{
+					padding: 1px 2px;
+					border-right: none;
+				}
+				.poptions:hover{
+					padding: 1px 2px;
+				}
+			}
+		}
 	}
 
 	#mainTable{
-		th{
-			display: none;
-		}
 		tbody {
 			tr{
 				td{
@@ -438,7 +447,7 @@ $brown2: #663300;
 			}
 			td{
 				margin-left:0px;
-				font-size: 15px;
+				font-size: 18px;
 				line-height: 20px;
 				padding: 4px;
 			}

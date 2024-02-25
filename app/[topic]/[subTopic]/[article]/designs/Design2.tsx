@@ -1,7 +1,7 @@
 "use client"
 
 import { mainTextFont, headingFont, printFont2 } from "@/app/infoStore/fonts";
-import { LegacyRef, createContext, useContext, useEffect, useRef, useState, memo, MutableRefObject, Suspense, Dispatch, SetStateAction } from "react";
+import { LegacyRef, createContext, useContext, useEffect, useRef, useState, memo, Suspense, Dispatch, SetStateAction } from "react";
 import { citationList } from '@/app/infoStore/sourcesForCitation';
 import ImageWrapper from '@/app/components/ImageWrapper';
 import Latex from 'react-latex-next';
@@ -18,10 +18,8 @@ import { link } from "@/app/infoStore/paypalLink";
 
 var FontSizeContext = createContext({h2:"", main: "", quote: ""});
 
-export default function Design2(props: {topic: string, subTopic: string, article: string}){
+export default function Design2(props: {topic:string, subTopic:string, contentArray: [[string, any]]}){
   const [fontSize,setFS] = useState({h2:"text-4xl", main: "text-3xl", quote: "text-[28px]"});
-  const [headerVal, setHV] = useState<string>("");
-  const jsonForBody: MutableRefObject<any> = useRef(null);
   const [bodyVal, setBV] = useState<React.JSX.Element[] | null>(null);
   const [showDB, changeSDB] = useState(false);
   const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"})
@@ -37,13 +35,22 @@ export default function Design2(props: {topic: string, subTopic: string, article
         });
         el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"})});
       });
+      var ads = document.getElementsByClassName('adsbygoogle').length;
+      for (var i = 0; i < ads; i++) {
+        try {
+          //@ts-ignore
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {}
+      }
     }
-    else if(headerVal !== "") {
-      let j = jsonForBody.current!;
+    else{
+      document.documentElement.style.overflowY = "scroll";
+      document.documentElement.style.backgroundColor = "white";
       let bodyChildren = [];
+      let j = props.contentArray;
       for(let i = 1; i<j.length; i++){
         switch(j[i][0]){
-          case "h3":
+          case "h2":
             bodyChildren.push(<SubHeading key={i}>{j[i][1]}</SubHeading>);
             break;
           case "pmain":
@@ -107,31 +114,11 @@ export default function Design2(props: {topic: string, subTopic: string, article
       }
       setBV(bodyChildren);
     }
-    else{
-      document.documentElement.style.overflowY = "scroll";
-      document.documentElement.style.backgroundColor = "white";
-      fetch("../../../infoStore/getArticleContent", {
-        method:"POST",
-        cache: "no-cache",
-        headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({topic: props.topic, subTopic: props.subTopic, article: props.article})
-      }).then( res =>{ res.json().then(j=>{
-        jsonForBody.current = j;
-        setHV(j[0][1]);
-      })})
-    }
-    var ads = document.getElementsByClassName('adsbygoogle').length;
-    for (var i = 0; i < ads; i++) {
-      try {
-        //@ts-ignore
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (e) {}
-    }
-  },[headerVal, bodyVal]); // eslint-disable-line no-use-before-define
+  },[bodyVal]); // eslint-disable-line no-use-before-define
 
   return <FontSizeContext.Provider value={fontSize}>
-    <ArticleHeaderMemo text={headerVal}/>
-    <MainPartMemo content={bodyVal}/>
+    <ArticleHeader text={props.contentArray[0][1]}/>
+    <MainPart content={bodyVal}/>
     <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
     <SideOption asideW={asideW} setAW={setAW}/>
     <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/>
@@ -146,10 +133,10 @@ export default function Design2(props: {topic: string, subTopic: string, article
       ></ins></div>
     </section>
     {bodyVal === null ? null: <FooterEl/>}
-  </FontSizeContext.Provider>
+  </FontSizeContext.Provider>;
 }
 
-const ArticleHeaderMemo = memo(function ArticleHeader(props: {text: string}){
+const ArticleHeader = memo(function ArticleHeaderMemo(props: {text: string}){
   const animationState = useRef("");
   
   var responsiveStyle = "text-4xl px-8";
@@ -162,7 +149,7 @@ const ArticleHeaderMemo = memo(function ArticleHeader(props: {text: string}){
   </header>
 });
 
-const MainPartMemo = memo(function MainPart(props: {content: (JSX.Element[] | null)}){
+const MainPart = memo(function MainPartMemo(props: {content: (JSX.Element[] | null)}){
   const [op,setOp] = useState(0);
 
   useEffect(()=>{

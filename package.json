@@ -16,8 +16,10 @@
     "crypto-js": "^4.2.0",
     "googleapis": "^129.0.0",
     "jquery": "^3.7.1",
+    "mongodb": "6.3",
     "next": "^14.0.4-canary.35",
     "next-client-cookies": "^1.1.0",
+    "node-fetch": "^3.3.2",
     "nodemailer": "^6.9.7",
     "react": "^18",
     "react-dom": "^18",
@@ -39,6 +41,8 @@
     "react-icons": "^4.12.0",
     "sass": "^1.69.5",
     "tailwindcss": "^3.3.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.7.1",
     "typescript": "^5"
   }
 }

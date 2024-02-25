@@ -1,12 +1,27 @@
 
 export async function POST(request: Request) {
-    let res = await request.json();
-    try{
-        let fileImp = await import(`../${res.topic}/${res.subTopic}/${res.article}`);
-        return Response.json(fileImp.default);
-    }
-    catch(e){
-        console.log(`rendering the content from /${res.topic}/${res.subTopic}/${res.article} led to this error:\n${e}`);
-        return Response.json([["h1","404 error"],["pmain",`No "${res.article}" article found, please check the article title or topic title in the URL. If you think this is a mistake, please report it.`]]);
-    }
+	let res = await request.json();
+	try{
+		const { MongoClient } = require("mongodb");
+		const uri = process.env.MONGODB_URI;
+		const client = new MongoClient(uri);
+		const database = client.db(res.topic);
+		const collection = database.collection(res.subTopic);
+		let result = await collection.findOne({"referenceLink": res.article});
+		return Response.json([result.title, result.content]);
+	}
+	catch(e1){
+		try{
+			console.log(`fetching from database led to this error:\n${e1}`);
+			let fileImp = await import(`../${res.topic}/${res.subTopic}/${res.article}`);
+			return Response.json([fileImp.title,fileImp.default]);
+		}
+		catch(e2){
+			console.log(`rendering the content from /${res.topic}/${res.subTopic}/${res.article} led to this error:\n${e2}`);
+			return Response.json(["404 error (article not found)",[
+				["h1","404 error"],
+				["pmain",`No "${res.article}" article found, please check the article title or topic title in the URL.`],["pmain","If you think this is a mistake, please report it."]
+			]]);
+		}
+	}
 }
