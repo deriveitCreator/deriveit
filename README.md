@@ -54,7 +54,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Feb 25, 2024
 
-<b>update 10.2:</b>
+<b>update 10.2 - 10.3:</b>
 - When loading article, a loading text is displayed.
 
 <b>update 10.1:</b>

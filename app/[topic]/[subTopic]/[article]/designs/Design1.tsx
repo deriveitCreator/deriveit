@@ -165,17 +165,21 @@ const ArticleHeader = memo(function ArticleHeaderMemo(props: {text: string}){
 });
 
 const MainPart = memo(function MainPartMemo(props: {content: JSX.Element[]}){
-  const [op,setOp] = useState(0);
+  const [firsTime,setFT] = useState(true);
 
   useEffect(()=>{
-    if(props.content) setOp(1);
-  },[props.content]);
+    if(firsTime) setFT(false);
+    else {
+      //@ts-ignore
+      window.MathJax.typeset();
+    }
+  },[firsTime]);
 
-  let content = props.content;
-  let responsiveStyle = op ? ((screen.width > parseInt(styles.minDeviceWidth)) ? "px-7 grow" : "px-3") : null;
-  return <main className={`${responsiveStyle}`} style={{opacity:op,transition:"opacity 0.5s ease-out 0.1s"}}>
-    {content}
-  </main>
+  let paddingLevel = "px-3";
+  if ((!firsTime) && (screen.width > parseInt(styles.minDeviceWidth))) {
+    paddingLevel = "px-7 grow";
+  }
+  return <main className={`${paddingLevel}`}>{props.content}</main>;
 })
 
 function H2Main({children}: {children: string}){
@@ -185,11 +189,6 @@ function H2Main({children}: {children: string}){
 
 function PMain({children, mode}: {children: string, mode:number}){
   const fontSizeContextVal = useContext(FontSizeContext);
-
-  useEffect(()=>{
-    //@ts-ignore
-    window.MathJax.typeset();
-  }, [fontSizeContextVal]);  // eslint-disable-line no-use-before-define
 
   if(mode === 1) return <p className={`pmain ${textMain.className} mb-3 ${fontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-1 [&>sup]:text-[60%] oldstyle-nums`} dangerouslySetInnerHTML={{__html: children}}></p>
   if(mode === 2) return <p className={`pmain2 ${textMain.className} mb-3 ${fontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-4 [&>sup]:text-[60%] oldstyle-nums [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help`} dangerouslySetInnerHTML={{__html: children}}></p>
