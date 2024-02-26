@@ -11,7 +11,12 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Welcome to deriveit.net',
     description: 'A website dedicated to proving some mathematical formulae, and providing the history of some scientific theories',
-    icons: `/favicon${cookieVal || DEFAULT_DESIGN_SELECTION}.ico`
+    icons: `/favicon${cookieVal || DEFAULT_DESIGN_SELECTION}.ico`,
+    openGraph: {
+      images:[{
+        url: `/link_logo_trans${DEFAULT_DESIGN_SELECTION}.png`
+      }]
+    }
   }
 }
 

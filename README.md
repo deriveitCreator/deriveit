@@ -57,6 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Feb 25, 2024
 
+<b>update 10.9:</b>
+- Added og:image to the meta tag.
+
 <b>update 10.2 - 10.8:</b>
 - When loading article, a loading text is displayed.
 - Several bug fixes in both designs.
