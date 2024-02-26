@@ -14,7 +14,9 @@ export async function generateMetadata(): Promise<Metadata> {
     icons: `/favicon${cookieVal || DEFAULT_DESIGN_SELECTION}.ico`,
     openGraph: {
       images:[{
-        url: `/link_logo_trans${DEFAULT_DESIGN_SELECTION}.png`
+        url: `/link_logo_short${DEFAULT_DESIGN_SELECTION}.png`,
+        width: 600,
+        height: 600,
       }]
     }
   }
