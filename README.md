@@ -57,7 +57,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Feb 25, 2024
 
-<b>update 10.9 - 10.11:</b>
+<b>update 10.9 - 10.12:</b>
 - Added og:image to the meta tag.
 
 <b>update 10.2 - 10.8:</b>
