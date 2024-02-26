@@ -38,6 +38,7 @@ const StyleSelectionBox = (props: {showDB: boolean, changeSDB: React.Dispatch<Se
     switch(parseInt(useCookies().get('designSelected')!) || DEFAULT_DESIGN_SELECTION){
         case 1: return <dialog onClose={diaClose} ref={dialogRef} className=' outline-none border-black border-8 rounded-xl bg-gray-100'>
             <h3 className={cursiveMain.className + " text-6xl mt-5 text-center"}>Styles</h3>
+            <p className={cursiveMain.className + " text-xl text-center"}>(uses cookies)</p>
             <StylesOptions changeToStyle={changeToStyle}/>
             <button
                 className={chalkWriting.className + " bg-zinc-900 w-full text-gray-300 pt-1"}
@@ -47,6 +48,7 @@ const StyleSelectionBox = (props: {showDB: boolean, changeSDB: React.Dispatch<Se
         </dialog>;
         case 2: return <dialog onClose={diaClose} ref={dialogRef} className=' outline-none border-orange-950 border-8 rounded-xl bg-[#FFDD77]'>
             <h3 className={logoFont2.className + " text-5xl mt-5 text-center text-orange-950"}>Styles</h3>
+            <p className={logoFont2.className + " text-center text-lg text-orange-950 mt-1 tracking-tight"}>(uses cookies)</p>
             <StylesOptions changeToStyle={changeToStyle}/>
             <button
                 className={printFont2.className + " font-bold text-2xl w-full text-orange-950 border-t-4 border-t-orange-950 bg-[#CC5511] h-12"}

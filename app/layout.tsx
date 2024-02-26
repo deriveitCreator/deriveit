@@ -12,6 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: 'Welcome to deriveit.net',
     description: 'A website dedicated to proving some mathematical formulae, and providing the history of some scientific theories',
     icons: `/favicon${cookieVal || DEFAULT_DESIGN_SELECTION}.ico`,
+    metadataBase: new URL('https://www.deriveit.net'),
     openGraph: {
       images:[{
         url: `/link_logo${DEFAULT_DESIGN_SELECTION}.png`
