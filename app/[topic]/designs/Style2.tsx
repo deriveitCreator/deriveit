@@ -24,7 +24,6 @@ export default function Style2(props: {topic: string, styleObject:{
 	useEffect(()=>{
 		document.documentElement.style.overflowY = "auto";
 		document.documentElement.style.backgroundColor = props.styleObject.headerBgColor;
-		document.documentElement.classList.remove("scroll2");
 	},[]);
 
 	let headerBgColor = props.styleObject.headerBgColor;

@@ -285,9 +285,10 @@ $brown2: #663300;
 
 				a{	
 					display: inline-block;
-					width: min-content;
+					max-width: 100%;
 				}
 				img{
+					width: 100%;
 					max-width: 260px;
 					margin-top: 15px;
 					margin-bottom: 10px;

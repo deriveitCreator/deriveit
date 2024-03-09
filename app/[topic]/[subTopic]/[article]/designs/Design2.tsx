@@ -115,7 +115,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
       case "displayFormula":
         bodyChildren.push(<div
           key={i}
-          className={' text-xl grid h-[150px] items-center justify-items-center '}
+          className={' text-xl grid min-h-[150px] items-center justify-items-center '}
           style={{gridTemplateColumns:"auto auto auto"}}
         ><span></span><div className={' bg-white px-1 overflow-x-auto h-min w-11/12 '}>
           <Latex strict>{j[i][1]}</Latex>
