@@ -55,6 +55,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.16:</b>
+- Added `robots.txt`
+
 <b>update 10.15:</b>
 - In design 2, images in the main table (at home page) would shrink in small screen
 - In Article for both design, the math formula display now have 200px as min height instead of normal height.
