@@ -55,6 +55,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.22:</b>
+- Added `expected_value_and_variance_of_a_geometric_distribution.tsx`, and changed `expected_value_and_variance_of_the_binomial_distribution` to `expected_value_and_variance_of_a_binomial_distribution`.
+
 <b>update 10.21:</b>
 - Fixed the 404 bug in the subtopics page when URL contains "&" in the topic part.
 

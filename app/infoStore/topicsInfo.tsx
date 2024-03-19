@@ -185,7 +185,7 @@ const calculusLinks: Array<[string,string[]]> = [
 ]
 
 const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
-	["expected_value_and_variance", [
+	["expected_value_and_variance_basics", [
 		"E[X + Y] = E[X] + E[Y]%linearity_of_expectation",
 		"E[cX] = c * E[X] where c is a constant%loe2",
 		"E[XY] = E[X] * E[Y] where X and Y are independent variables%exMul",
@@ -194,11 +194,12 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
 		"Var[kX] = k^2 * Var[X]%varCons",
 		"Var[X + Y] = Var[X] + Var[Y] where X and Y are independent variables%varAdd",
 		"deriving the E[X] and Var[X] for the iid variables%varMean",
+		"an equation for the population variance using the sample mean and the sample size%varsamp",
 		"Markov's Inequality%markov",
-		"an equation for the population variance using the sample mean and the sample size%varsamp"
 	]],
 	["probability_distribution_stuff", [
-		"expected_value_and_variance_of_the_binomial_distribution"
+		"expected_value_and_variance_of_a_binomial_distribution",
+		"expected_value_and_variance_of_a_geometric_distribution"
 	]],
 	["miscellaneous",["deriving the regression coefficient of y on x%line_of_best_fit"]]
 ]
