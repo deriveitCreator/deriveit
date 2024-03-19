@@ -15,7 +15,7 @@ export default function Page({ params }: { params: { topic:string, subTopic: str
   const topic2 = decodeURIComponent(params.topic.toLowerCase());
   const subTopic2 = decodeURIComponent(params.subTopic);
   const article2 = decodeURIComponent(params.article);
-  const [contentArray, setContentArray] = useState([['h1',''],['pmain','Fetching data from the backend...']]);
+  const [contentArray, setContentArray] = useState([['h1',''],['pmain','Loading...']]);
 
   useEffect(() => {
     document.documentElement.style.overflowY = "auto";

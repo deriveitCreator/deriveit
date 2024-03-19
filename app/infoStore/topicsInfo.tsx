@@ -195,7 +195,10 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
         "Var[X + Y] = Var[X] + Var[Y] where X and Y are independent variables%varAdd",
         "deriving the E[X] and Var[X] for the iid variables%varMean",
         "Markov's Inequality%markov",
-        "an equation for the population variance using the sample mean, and the sample size%varsamp"
+        "an equation for the population variance using the sample mean and the sample size%varsamp"
+    ]],
+    ["probability_distribution_stuff", [
+        "expected_value_and_variance_of_the_binomial_distribution"
     ]],
     ["miscellaneous",["deriving the regression coefficient of y on x%line_of_best_fit"]]
 ]

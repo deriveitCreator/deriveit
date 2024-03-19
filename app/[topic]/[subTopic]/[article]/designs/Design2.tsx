@@ -46,6 +46,9 @@ export default function Design2(props: {topic:string, subTopic:string, contentAr
     //set style directly
     document.documentElement.style.overflowY = "scroll";
     document.documentElement.style.backgroundColor = "white";
+    return ()=>{
+			document.documentElement.classList.remove("scroll2"); //incase exiting via side bar links
+    }
   },[]); // eslint-disable-line no-use-before-define
 
   return <FontSizeContext.Provider value={fontSize}>
