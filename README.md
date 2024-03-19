@@ -55,7 +55,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
-<b>update 10.18:</b>
+<b>update 10.18 - 10.19:</b>
 - Updated 'sitemap.xml'
 
 <b>update 10.17:</b>
