@@ -17,10 +17,12 @@ export default function Page({ params }: { params: { topic: string } }){
   const MainComp = dynamic<ImportType>(() => import(`@/app/[topic]/designs/Style${designSelectedVal}`), { ssr: false });
   const decodedTopic = decodeURIComponent(params.topic);
   var recordInd = 0;
+  
   while (
     (allTopics[recordInd].name.replaceAll(" ","_").toLowerCase() != decodedTopic) &&
     (recordInd < allTopics.length-1)
   ) recordInd += 1;
+
   if(designSelectedVal === 1){
     return <>
       <TopicHeader ds={1} styleObject={allTopics[recordInd]}/>

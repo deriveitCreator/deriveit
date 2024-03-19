@@ -55,6 +55,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.21:</b>
+- Fixed to 404 bug for subtopics when topics contains "&".
+
 <b>update 10.18 - 10.20:</b>
 - Updated 'sitemap.xml'
 

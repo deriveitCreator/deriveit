@@ -5,8 +5,7 @@ import dynamic from 'next/dynamic';
 import SubTopicHeader from './designs/SubTopicHeader';
 import { useCookies } from 'next-client-cookies';
 import { DEFAULT_DESIGN_SELECTION } from '@/app/infoStore/designInfo';
-import { getTopicLinks } from '../../infoStore/topicsInfo';
-import { allTopics } from '@/app/infoStore/topicsInfo';
+import { allTopics, getTopicLinks } from '@/app/infoStore/topicsInfo';
 
 type ImportType = {
   topic: string,
@@ -19,14 +18,14 @@ export default function Page({ params }: { params: { topic: string, subTopic: st
   const MainComp = dynamic<ImportType>(() => import(`./designs/Design${designSelectedVal}`), { ssr: false });
   const decodedTopic = decodeURIComponent(params.topic);
   const decodedSubTopic = decodeURIComponent(params.subTopic).replaceAll(" ","_").toLowerCase();
-  const topicsInfoState: Array<[string,string[]]> = getTopicLinks(params.topic);
+  const topicsInfoState: Array<[string,string[]]> = getTopicLinks(decodedTopic);
 
   var curSubTopic: [string, string[]] = ["error",[""]];
   for(let i in topicsInfoState){
-      if(topicsInfoState[i][0].replaceAll(" ","_").toLowerCase() === decodedSubTopic){
-        curSubTopic = topicsInfoState[i];
-        break;
-      }
+    if(topicsInfoState[i][0].replaceAll(" ","_").toLowerCase() === decodedSubTopic){
+      curSubTopic = topicsInfoState[i];
+      break;
+    }
   };
 
   var recordInd = 0;
