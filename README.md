@@ -55,6 +55,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.18:</b>
+- Updated 'sitemap.xml'
+
 <b>update 10.17:</b>
 - Added `expected_value_and_variance_of_the_binomial_distribution`.
 

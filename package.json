@@ -26,7 +26,8 @@
     "react-latex-next": "^2.2.0",
     "react-scroll-parallax": "^3.4.5",
     "resend": "^2.0.0",
-    "rough-notation": "^0.5.1"
+    "rough-notation": "^0.5.1",
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
     "@types/crypto-js": "^4.2.1",
