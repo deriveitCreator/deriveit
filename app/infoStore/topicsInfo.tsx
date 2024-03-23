@@ -49,10 +49,10 @@ export function getTopicLinks(name: string): Array<[string,string[]]>{
 
 export function getRecentlyAdded(): string[]{
 	return [
-		"expected value and variance of an exponential distribution%discrete_mathematics/probability_distribution_stuff/expected_value_and_variance_of_an_exponential_distribution",
-		"probability function of the Poisson distribution%discrete_mathematics/probability_distribution_stuff/probability_function_of_the_Poisson_distribution",
-		"Chebyshev's inequality%discrete_mathematics/probability_distribution_stuff/chebyshevs_inequality",
-		"expected value and variance of a geometric distribution%discrete_mathematics/probability_distribution_stuff/expected_value_and_variance_of_a_geometric_distribution",
+		"expected value and variance of an exponential distribution%probability_&_statistics/probability_distribution_stuff/expected_value_and_variance_of_an_exponential_distribution",
+		"probability function of the Poisson distribution%probability_&_statistics/probability_distribution_stuff/probability_function_of_the_Poisson_distribution",
+		"Chebyshev's inequality%probability_&_statistics/probability_distribution_stuff/chebyshevs_inequality",
+		"expected value and variance of a geometric distribution%probability_&_statistics/probability_distribution_stuff/expected_value_and_variance_of_a_geometric_distribution",
 	]
 }
 
