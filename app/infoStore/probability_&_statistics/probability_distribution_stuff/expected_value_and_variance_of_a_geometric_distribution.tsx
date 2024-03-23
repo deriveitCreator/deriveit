@@ -1,6 +1,6 @@
-export const title="Deriving The Expected Value And Variance Of The Binomial Distribution";
+export const title="Deriving the expected value and the variance of the geometric distribution";
 const content = [
-  ['h1', 'The Mean And Variance Of The Binomial Distribution'],
+  ['h1', 'Deriving The Mean And The Variance Of The Geometric Distribution'],
   ["pmain","If \\(X \\sim G(p)\\), then:"],
   ["displayFormula","$$\\begin{align} E[X] &= \\sum_{x=1}^{\\infty} x (1-p)^{x-1}p \\\\ &= 1p + 2p(1-p) + 3p(1-p)^2 + 4p(1-p)^3 + \\ldots \\end{align}$$"],
   ["pmain","If we multiple both sides with \\((1-p)\\):"],

@@ -55,6 +55,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.24:</b>
+- Added `probability_function_of_the_Poisson_distribution.tsx`, `expected_value_and_variance_of_an_exponential_distribution.tsx`, `memoryless.tsx` and `chebyshevs_inequality.tsx`.
+
 <b>update 10.23:</b>
 - In the public folder, the `expected_value_and_variance` is changed to `expected_value_and_variance_basics`.
 

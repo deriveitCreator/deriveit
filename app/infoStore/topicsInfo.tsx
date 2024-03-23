@@ -49,10 +49,10 @@ export function getTopicLinks(name: string): Array<[string,string[]]>{
 
 export function getRecentlyAdded(): string[]{
 	return [
-		"differentiability implies continuity%calculus/differential_calculus/differentiability_implies_continuity",
-		"how cosh and sinh form the right half of a hyperbola%trigonometry/hyperbolic_functions/how_cosh_and_sinh_form_the_right_half_of_a_hyperbola",
-		"deriving the asymptote of a hyperbola%geometry/Hyperbola/deriving_the_asymptote_of_a_hyperbola",
-		"getting the standard form equation of a hyperbola from the geometric definition%geometry/Hyperbola/getting_the_standard_form_equation_from_the_geometric_definition",
+		"expected value and variance of an exponential distribution%discrete_mathematics/probability_distribution_stuff/expected_value_and_variance_of_an_exponential_distribution",
+		"probability function of the Poisson distribution%discrete_mathematics/probability_distribution_stuff/probability_function_of_the_Poisson_distribution",
+		"Chebyshev's inequality%discrete_mathematics/probability_distribution_stuff/chebyshevs_inequality",
+		"expected value and variance of a geometric distribution%discrete_mathematics/probability_distribution_stuff/expected_value_and_variance_of_a_geometric_distribution",
 	]
 }
 
@@ -176,7 +176,6 @@ const calculusLinks: Array<[string,string[]]> = [
 	]],
 	["l'hospital's_rule", ["indeterminate form of type 0/0%zeroOverZero",]],
 	["antiderivative", [
-		"antiderivative of 1/x (incomplete)%ln",
 		"antiderivative_of_secant(x)_and_cosecant(x)",
 		"antiderivative_of_tangent(x)_and_cotangent(x)",
 	]],
@@ -196,10 +195,14 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
 		"deriving the E[X] and Var[X] for the iid variables%varMean",
 		"an equation for the population variance using the sample mean and the sample size%varsamp",
 		"Markov's Inequality%markov",
+		"Chebyshev's_inequality%chebyshevs_inequality",
 	]],
 	["probability_distribution_stuff", [
 		"expected_value_and_variance_of_a_binomial_distribution",
-		"expected_value_and_variance_of_a_geometric_distribution"
+		"expected_value_and_variance_of_a_geometric_distribution",
+		"probability_function_of_the_Poisson_distribution",
+		"if X is a positive continuous random variable with a memoryless property, then X is exponentially distributed%memoryless",
+		"expected_value_and_variance_of_an_exponential_distribution"
 	]],
 	["miscellaneous",["deriving the regression coefficient of y on x%line_of_best_fit"]]
 ]

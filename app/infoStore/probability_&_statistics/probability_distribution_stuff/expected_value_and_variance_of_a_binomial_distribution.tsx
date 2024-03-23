@@ -1,6 +1,6 @@
-export const title="Deriving The Expected Value And Variance Of The Binomial Distribution";
+export const title="Deriving the expected value and the variance of the binomial distribution";
 const content = [
-  ['h1', 'The Mean And Variance Of The Binomial Distribution'],
+  ['h1', 'Deriving The Mean And The Variance Of The Binomial Distribution'],
   ["pmain","If \\(X \\sim B(n,p)\\), then:"],
   ["displayFormula","\\[ P(X=x) = {n \\choose x} p^x (1-p)^{n-x} \\]"],
   ["pmain","Where \\(x\\) is the number of successes. We can rewrite this as:"],
