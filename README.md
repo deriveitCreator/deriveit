@@ -55,6 +55,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.26:</b>
+- Edited "recently added" table content.
+
 <b>update 10.25:</b>
 - Edited the recently added table at home page.
 

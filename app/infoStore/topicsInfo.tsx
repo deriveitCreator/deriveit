@@ -51,7 +51,7 @@ export function getRecentlyAdded(): string[]{
 	return [
 		"expected value and variance of an exponential distribution%probability_&_statistics/probability_distribution_stuff/expected_value_and_variance_of_an_exponential_distribution",
 		"probability function of the Poisson distribution%probability_&_statistics/probability_distribution_stuff/probability_function_of_the_Poisson_distribution",
-		"Chebyshev's inequality%probability_&_statistics/probability_distribution_stuff/chebyshevs_inequality",
+		"Chebyshev's inequality%probability_&_statistics/expected_value_and_variance_basics/chebyshevs_inequality",
 		"expected value and variance of a geometric distribution%probability_&_statistics/probability_distribution_stuff/expected_value_and_variance_of_a_geometric_distribution",
 	]
 }
