@@ -55,6 +55,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.27:</b>
+- In discrete maths, in the "factorials, permutations and combinations" section, images weren't being displayed, so that bug is fixed now.
+
 <b>update 10.26:</b>
 - Edited "recently added" table content.
 
