@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.deriveit.net/</loc>
@@ -361,9 +360,6 @@
     <loc>https://www.deriveit.net/calculus/l'hospital's_rule/zeroOverZero</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/antiderivative/ln</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_secant(x)_and_cosecant(x)</loc>
   </url>
   <url>
@@ -391,43 +387,58 @@
     <loc>https://www.deriveit.net/calculus/integral_calculus/using_integration_to_find_surface_area_(incomplete)</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/probability_&amp;_statistics</loc>
+    <loc>https://www.deriveit.net/probability_&_statistics</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance/linearity_of_expectation</loc>
+    <loc>https://www.deriveit.net/probability_&_statistics/expected_value_and_variance_basics/linearity_of_expectation</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance/loe2</loc>
+    <loc>https://www.deriveit.net/probability_&_statistics/expected_value_and_variance_basics/loe2</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance/exMul</loc>
+    <loc>https://www.deriveit.net/probability_&_statistics/expected_value_and_variance_basics/exMul</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance/spread</loc>
+    <loc>https://www.deriveit.net/probability_&_statistics/expected_value_and_variance_basics/spread</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance/varDef</loc>
+    <loc>https://www.deriveit.net/probability_&_statistics/expected_value_and_variance_basics/varDef</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance/varCons</loc>
+    <loc>https://www.deriveit.net/probability_&_statistics/expected_value_and_variance_basics/varCons</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance/varAdd</loc>
+    <loc>https://www.deriveit.net/probability_&_statistics/expected_value_and_variance_basics/varAdd</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance/varMean</loc>
+    <loc>https://www.deriveit.net/probability_&_statistics/expected_value_and_variance_basics/varMean</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance/markov</loc>
+    <loc>https://www.deriveit.net/probability_&_statistics/expected_value_and_variance_basics/varsamp</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance/varsamp</loc>
+    <loc>https://www.deriveit.net/probability_&_statistics/expected_value_and_variance_basics/markov</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/probability_&amp;_statistics/probability_distribution_stuff/expected_value_and_variance_of_the_binomial_distribution</loc>
+    <loc>https://www.deriveit.net/probability_&_statistics/expected_value_and_variance_basics/chebyshevs_inequality</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/probability_&amp;_statistics/miscellaneous/line_of_best_fit</loc>
+    <loc>https://www.deriveit.net/probability_&_statistics/probability_distribution_stuff/expected_value_and_variance_of_a_binomial_distribution</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/probability_&_statistics/probability_distribution_stuff/expected_value_and_variance_of_a_geometric_distribution</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/probability_&_statistics/probability_distribution_stuff/probability_function_of_the_Poisson_distribution</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/probability_&_statistics/probability_distribution_stuff/memoryless</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/probability_&_statistics/probability_distribution_stuff/expected_value_and_variance_of_an_exponential_distribution</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/probability_&_statistics/miscellaneous/line_of_best_fit</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/mechanics</loc>
@@ -476,26 +487,5 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/chemistry/history/discovery_of_oxygen</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/electricity_&amp;_magnetism</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/electricity_&amp;_magnetism/history/history_of_electricity</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/biology</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/biology/history/cell_theory</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/biology/history/fermentation</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/biology/history/immunity</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/computer_science</loc>
   </url>
 </urlset>

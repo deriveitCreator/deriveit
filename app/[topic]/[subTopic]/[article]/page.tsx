@@ -3,7 +3,6 @@ import { cookies } from 'next/headers';
 import { DEFAULT_DESIGN_SELECTION } from '@/app/infoStore/designInfo';
 import ClientPart from './clientPart';
 
-
 export async function generateMetadata({ params }: { params: { topic:string, subTopic: string, article: string } }){
   const topic2 = decodeURIComponent(params.topic.toLowerCase());
   const subTopic2 = decodeURIComponent(params.subTopic);

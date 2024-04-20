@@ -55,6 +55,10 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.29:</b>
+- Updated `sitemap.xml`.
+- Added "og:site_name"
+
 <b>update 10.28:</b>
 - The `page.tsx` in the `article` folder now renders in the server side.
 - Added `clientPart.tsx` in `article` folder which does the client side rendering part for `page.tsx`.
