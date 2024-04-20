@@ -55,6 +55,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.30:</b>
+- Updated `sitemap.xml` again.
+
 <b>update 10.29:</b>
 - Updated `sitemap.xml`.
 - Added "og:site_name"
