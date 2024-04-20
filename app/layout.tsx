@@ -21,7 +21,6 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-
 export default async function RootLayout({children}: {children: React.ReactNode}) {
   const cookieVal = parseInt(cookies().get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
 

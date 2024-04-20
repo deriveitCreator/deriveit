@@ -55,6 +55,10 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.28:</b>
+- The `page.tsx` in the `article` folder now renders in the server side.
+- Added `clientPart.tsx` in `article` folder which does the client side rendering part for `page.tsx`.
+
 <b>update 10.27:</b>
 - In discrete maths, in the "factorials, permutations and combinations" section, images weren't being displayed, so that bug is fixed now.
 
