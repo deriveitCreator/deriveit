@@ -55,6 +55,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.31:</b>
+- Changed `public/calculus/using_euler's_number/s1.png` to `.../s1.PNG`.
+
 <b>update 10.30:</b>
 - Updated `sitemap.xml` again.
 
