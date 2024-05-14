@@ -37,6 +37,6 @@ next-env.d.ts
 
 #cusotm files/folders
 /public/logo.html
-/localEditingScripts
+localEditingScripts
 *.pptx
 /backup

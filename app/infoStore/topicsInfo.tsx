@@ -16,6 +16,8 @@ export const allTopics = [
 	{name:"Error",headerBgColor: "#d61", bgColor:"#fc6", footerColor:"#520", borderColor:"#520"}
 ]
 
+export const topicsLinkFormat = ["algebra","geometry","discrete_mathematics","linear_algebra","trigonometry","calculus","probability_&_statistics","mechanics","astronomy","chemistry","electricity_&_magnetism","biology"];
+
 export function getTopicLinks(name: string): Array<[string,string[]]>{
 	switch(name){
 		case "algebra":

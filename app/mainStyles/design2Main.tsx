@@ -5,11 +5,11 @@ import ImageWrapper from '../components/ImageWrapper';
 import styles from "./design2.module.scss";
 import { logoFont2, printFont2, headingFont, mainTextFont } from '../infoStore/fonts';
 import { IconContext } from "react-icons";
-import { FaPaintbrush, FaAngleRight, FaAngleLeft, FaCaretDown } from "react-icons/fa6";
+import { FaPaintbrush, FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import StyleSelectionBox from '../components/StyleSelectionBox';
 import Link from 'next/link';
 import Design2Footer from '../footerStyles/design2Footer';
-import { allTopics, getRecentlyAdded, getRecentlyEdited, getTopicLinks } from '../infoStore/topicsInfo';
+import { allTopics, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';
 import { ParallaxProvider, useParallax } from 'react-scroll-parallax';
 
 export default function Design2(){
@@ -233,62 +233,58 @@ function Slideshow(props:{continueButtonClicked:boolean}){
 	</>;
 }
 
+//For future reading, more sure to add a feature where inputting the 5th letter stops the searchDatabase function  when the 4th letter was pressed.
 function SearchEl(){
-	const [display, changeDisplay] = useState({searchOpDis:"none", optionsDis:"none"});
-	const searchButtonText = useRef("Search Topic");
+	const [displayVal, changeDisplay] = useState("none");
 	const timerRef: MutableRefObject<null|number> = useRef(null);
-	const optionsArr = useRef([{text:"", link:""}]);
-
-	return <div id={styles.searchDiv} className={printFont2.className} onMouseLeave={()=>{
-		timerRef.current = window.setTimeout(()=>{
-			searchButtonText.current = "Search Topic";
-			changeDisplay({searchOpDis:"none", optionsDis:"none"});
-		}, 1000);
-	}} onMouseEnter={()=>{if(timerRef.current) window.clearTimeout(timerRef.current);}}>
-		<div id={styles.searchSelection}>
-			<div id={styles.topicSelect} onClick={()=>{display.searchOpDis==="none"?changeDisplay({searchOpDis:"block", optionsDis:"none"}):changeDisplay({searchOpDis:"none", optionsDis:"none"});}}>
-				{
-					screen.width > parseInt(styles.minDeviceWidth)?
-					<IconContext.Provider value={{style:{display:"inline",margin:"0px 12px",height:"18px"}}}>
-						<FaCaretDown />
-					</IconContext.Provider>
-					:null
-				}
-				<span style={{textOverflow:"ellipsis", overflow:"hidden"}} title={searchButtonText.current}>{searchButtonText.current}</span>
-			</div>
-			<div id={styles.searchOptions} style={{display: display.searchOpDis}}>{allTopics.map((record, i)=>{
-				if (i !== allTopics.length-1) return <div onClick={()=>{
-					searchButtonText.current = record.name;
-					let combinedLinks: ({text: string, link: string})[] = [];
-					let title = record.name.toLowerCase().replaceAll(" ","_");
-					for (let [subTitle, links] of getTopicLinks(title)){
-						for(let elem of links){
-							let perPos = elem.indexOf("%");
-							if(perPos > 0) combinedLinks.push({text: elem.substring(0, perPos).replaceAll("_"," "), link: `/${title}/${subTitle.replaceAll(" ","_")}/${elem.substring(perPos)+1}`});
-							else combinedLinks.push({text: elem.replaceAll("_"," "), link: `/${title}/${subTitle.replaceAll(" ","_")}/${elem}`});
-						}
-					}
-					optionsArr.current = combinedLinks;
-					changeDisplay({searchOpDis:"none", optionsDis:"block"});
-				}} key={i} style={{color: record.borderColor, backgroundColor: record.bgColor}}>{record.name}</div>
-				else return null;
-			})}</div>
-		</div>
-		<SearchOptions display={display.optionsDis} optionsArr={optionsArr.current} searchButtonText={searchButtonText.current}/>
-	</div>
-}
-
-function SearchOptions(props:{display:string, optionsArr:{ text: string; link: string; }[], searchButtonText:string}){
-	const [searchVal, changeSV] = useState("");
 	const inputRef: RefObject<HTMLInputElement> = createRef<HTMLInputElement>();
+	const linksArr = useRef([""]);
+	const topicsArr = useRef([""]);
+	const minLetters = 4;
 
-	return <div id={styles.typingArea}>
-		<input onKeyUp={()=>{changeSV(inputRef.current?.value!)}} ref={inputRef} autoComplete="off" disabled={props.searchButtonText === "Search Topic"} id={styles.searchBox} type="text" placeholder={props.searchButtonText !== "Search Topic" ?`Search ${props.searchButtonText}`:""}/>
-		<div id={styles.pageOptions} style={{display: props.display}}>
-			{props.optionsArr.map((elem, i)=>{
-				let newSV = searchVal.replaceAll(" ","").toLowerCase();
-				if(elem.text.replaceAll(" ","").toLowerCase().includes(newSV) || elem.link.replaceAll("_","").toLowerCase().includes(newSV)) return <div key={i} className={styles.poptions}><Link href={elem.link} className='hover:no-underline' dangerouslySetInnerHTML={{__html: elem.text}}></Link></div>;
-			})}
+	async function searchDatabase(searchText: string){
+		let linksList = await fetch("/infoStore/getDatabases", {
+			method:"POST",
+			headers: {"Content-Type":"application/json"},
+			body: JSON.stringify({searchText: searchText})
+		}).then((res) => res.json());
+		if(linksList[0].length){
+			linksArr.current = linksList[0];
+			topicsArr.current = linksList[1];
+		}
+		else linksArr.current = [];
+		changeDisplay("block");
+	}
+
+	return <div id={styles.searchDiv} className={printFont2.className}>
+		<div id={styles.typingArea}>
+			<input
+				onKeyUp={()=>{
+					let textVal = inputRef.current?.value!;
+					if(textVal.length >= minLetters) searchDatabase(textVal);
+					else if (displayVal == "block") changeDisplay("none");
+				}}
+				ref={inputRef}
+				autoComplete="off"
+				id={styles.searchBox}
+				type="text"
+				placeholder={"Search..."}
+			/>
+			<div id={styles.pageOptions} style={{display: displayVal}} onMouseLeave={()=>{
+				timerRef.current = window.setTimeout(()=>{
+					changeDisplay("none");
+				}, 500);
+			}} onMouseEnter={()=>{if(timerRef.current) window.clearTimeout(timerRef.current);}}>
+				{
+					linksArr.current.length ?
+					linksArr.current.map((elem, i)=>{
+						return <div key={i} className={styles.poptions}>
+								<Link href={linksArr.current[i]} className='hover:no-underline' dangerouslySetInnerHTML={{__html: topicsArr.current[i]}}></Link> 
+						</div>
+					}) :
+					<div className={styles.poptions}>Sorry, no article were found.</div>
+				}
+			</div>
 		</div>
 	</div>;
 	

@@ -55,6 +55,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.32:</b>
+- Added a search box in the home page in design 2, but needs more work.
+
 <b>update 10.31:</b>
 - Changed `public/calculus/using_euler's_number/s1.png` to `.../s1.PNG`.
 
