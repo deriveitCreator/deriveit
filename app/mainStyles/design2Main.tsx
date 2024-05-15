@@ -282,7 +282,7 @@ function SearchEl(){
 								<Link href={linksArr.current[i]} className='hover:no-underline' dangerouslySetInnerHTML={{__html: topicsArr.current[i]}}></Link> 
 						</div>
 					}) :
-					<div className={styles.poptions}>Sorry, no article were found.</div>
+					<div className={styles.poptions} style={{cursor:"default"}}>Sorry, no article were found.</div>
 				}
 			</div>
 		</div>

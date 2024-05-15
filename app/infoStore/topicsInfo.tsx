@@ -172,7 +172,7 @@ const calculusLinks: Array<[string,string[]]> = [
 	]],
 	["differential_calculus", ["differentiability_implies_continuity","the power rule (when exponent is a postive integer)%power_rule","the product rule%paq","the quotient rule%quo","the_chain_rule"
 	]],
-	["using_euler's_number", ["definition of e%define_e","[d/dx]b<sup>x</sup> = b<sup>x</sup>ln(b)%bx","[d/dx]log<sub>b</sub>x = 1/(x * ln(b))%log","the power rule (when exponent is any real number)%power_rule2","only_functions_of_the_form_Ae^x_are_derivatives_of_themselves%functions_which_are_derivatives_of_themselves","representing e<sup>x</sup> as a limit%e_limit","representing e<sup>x</sup> as an infinite series (proof 1)%e_series","representing e<sup>x</sup> as an infinite series (proof 2)%e_series2","Euler's_formula"
+	["using_euler's_number", ["definition of e%define_e","[d/dx]b<sup>x</sup> = b<sup>x</sup>ln(b)%bx","[d/dx]log<sub>b</sub>x = 1/(x * ln(b))%log","the power rule (when exponent is any real number)%power_rule_when_exponent_is_real","only_functions_of_the_form_Ae^x_are_derivatives_of_themselves%functions_which_are_derivatives_of_themselves","representing e<sup>x</sup> as a limit%e_limit","representing e<sup>x</sup> as an infinite series (proof 1)%e_series","representing e<sup>x</sup> as an infinite series (proof 2)%e_series2","Euler's_formula"
 	]],
 	["trigonometric_derivatives", ["[d/dx]sin(x) = cos(x)%sin","[d/dx]cos(x) = -sin(x)%cos","derivative of sec(x) and cosec(x)%sec","derivative of tan(x) and cotan(x)%tan","derivative of arcsine(x)%arcsin","derivative of arccosine(x)%arccos","derivative of arcsecant(x)%arcsec","derivative of arccosecant(x)%arccosec","derivative of arctangent(x)%arctan","derivative of arccotangent(x)%arccot"
 	]],
