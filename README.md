@@ -55,6 +55,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.35:</b>
+- Added `the_inverse_function_rule` in calculus.
+
 <b>update 10.32 - 10.34:</b>
 - Added a search box in the home page in design 2, but needs more work.
 

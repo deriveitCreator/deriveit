@@ -170,7 +170,13 @@ const trigonometryLinks: Array<[string,string[]]> = [
 const calculusLinks: Array<[string,string[]]> = [
 	["limits", ["the sum law%sum","the product law%product","limit<sub>x→a</sub>f(g(x)) = f(limit<sub>x→a</sub>g(x))%inner","the root law and the power law%root","limi<sub>tx→0</sub> [sin(x)/x] = 1%limit_sin","limit<sub>x→0</sub> [(cos(x)-1)/x] = 0%limit_cos",
 	]],
-	["differential_calculus", ["differentiability_implies_continuity","the power rule (when exponent is a postive integer)%power_rule","the product rule%paq","the quotient rule%quo","the_chain_rule"
+	["differential_calculus", [
+		"differentiability_implies_continuity",
+		"the power rule (when exponent is a postive integer)%power_rule",
+		"the product rule%paq",
+		"the quotient rule%quo",
+		"the_chain_rule",
+		"the_inverse_function_rule"
 	]],
 	["using_euler's_number", ["definition of e%define_e","[d/dx]b<sup>x</sup> = b<sup>x</sup>ln(b)%bx","[d/dx]log<sub>b</sub>x = 1/(x * ln(b))%log","the power rule (when exponent is any real number)%power_rule_when_exponent_is_real","only_functions_of_the_form_Ae^x_are_derivatives_of_themselves%functions_which_are_derivatives_of_themselves","representing e<sup>x</sup> as a limit%e_limit","representing e<sup>x</sup> as an infinite series (proof 1)%e_series","representing e<sup>x</sup> as an infinite series (proof 2)%e_series2","Euler's_formula"
 	]],
