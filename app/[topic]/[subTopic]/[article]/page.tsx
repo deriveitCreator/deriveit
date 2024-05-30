@@ -22,7 +22,8 @@ export async function generateMetadata({ params }: { params: { topic:string, sub
   const fetchRes = await fetch(domainName + "/infoStore/getArticleContent", {
     method:"POST",
     headers:{"Content-Type":"application/json"},
-    body: JSON.stringify({topic: topic2, subTopic: subTopic2, article: article2})
+    body: JSON.stringify({topic: topic2, subTopic: subTopic2, article: article2}),
+    cache: cacheType
   }).then((res) => res.json());
 
   return {
