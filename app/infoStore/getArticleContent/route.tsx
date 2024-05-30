@@ -8,6 +8,7 @@ export async function POST(request: Request) {
 		const database = client.db(res.topic);
 		const collection = database.collection(res.subTopic);
 		let result = await collection.findOne({"referenceLink": res.article});
+		await client.close();
 		return Response.json([result.title, result.content]);
 	}
 	catch(e1){

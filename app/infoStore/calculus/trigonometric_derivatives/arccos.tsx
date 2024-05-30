@@ -1,0 +1,3 @@
+export const title="Proof Of The Derivative Of Arccos(x)";
+const content = [['h1', 'Proof Of The Derivative Of Arccos(x)'], ['pmain', 'First lets start with a right-angled triangle where one of the angles is y. Lets say the adjacent side is\nof length x and that the hypotenuse is of length 1:'], ['displayimg', 'ac1.png'], ['pmain', 'Using the triangle above, we can say:'], ['displayimg', 'ac2.png'], ['pmain', 'We already know that the derivative of x with respect to x is 1:'], ['displayimg', 'as3.png'], ['pmain', 'Since x = cos(y):'], ['displayimg', 'ac4.png'], ['pmain', 'Using the chain rule:'], ['displayimg', 'ac5.png'], ['pmain', 'And we already know what sin(y) is equal to (look above):'], ['displayimg', 'ac6.png']];
+export default content;
