@@ -55,6 +55,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.36:</b>
+- Added many topics in `discrete maths`.
+
 <b>update 10.35:</b>
 - Added `the_inverse_function_rule` in calculus.
 

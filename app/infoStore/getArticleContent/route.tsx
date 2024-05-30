@@ -12,12 +12,12 @@ export async function POST(request: Request) {
 	}
 	catch(e1){
 		try{
-			console.log(`fetching from database led to this error:\n${e1}`);
+			console.log(`\nFetching from database led to this error:\n${e1}`);
 			let fileImp = await import(`../${res.topic}/${res.subTopic}/${res.article}`);
 			return Response.json([fileImp.title,fileImp.default]);
 		}
 		catch(e2){
-			console.log(`rendering the content from /${res.topic}/${res.subTopic}/${res.article} led to this error:\n${e2}`);
+			console.log(`Rendering the content from /${res.topic}/${res.subTopic}/${res.article} led to this error:\n${e2}`);
 			return Response.json(["404 error (article not found)",[
 				["h1","404 error"],
 				["pmain",`No "${res.article}" article found, please check the article title or topic title in the URL.`],["pmain","If you think this is a mistake, please report it."]

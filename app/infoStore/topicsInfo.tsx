@@ -99,9 +99,11 @@ const geometryLinks: Array<[string,string[]]> = [
 ];
 
 const discreteMathematicsLinks: Array<[string,string[]]> = [
-	["divisibility_and_gcd", [
+	["divisibility", [
 		"if α|β and α|ε, then α|(mβ + nε)%divisibility1",
 		"if α|β and ε|δ, then αε|βδ%divisibility2",
+		"3|n<sup>3</sup>-n%threeDividesNCubedMinusN",
+		"5|n<sup>5</sup>-n%fiveDividesNToThe5MinusN",
 		"smallest positive linear combination of α and β = gcd(α, β)%linear_combination_smallest_gcd",
 		"every linear combination of α and β is a multiple of gcd(α, β), and vice versa%every_linear_combination",
 		"gcd(α, β) = gcd(β, α mod β); why the euclidean algorithm works%why_the_euclidean_algorithm_works",
@@ -109,11 +111,13 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"if α<sub>1</sub>|b, α<sub>2</sub>|b and gcd(α<sub>1</sub>, α<sub>2</sub>) = 1 ⇒ α<sub>1</sub>α<sub>2</sub>|b%gcdLemma14",
 		"δ = gcd(α, β) ⇒ 1 = gcd(α/δ, β/δ)%gcdLemma8",
 		"if ε|αβ and gcd(ε, α) = 1, then ε|β%other",
-		"if ρ is prime and ρ|αβ, then ρ|α or ρ|β%gcdLemma7",
+	]],
+	["prime_numbers", [
+		"if ρ is prime and ρ|αβ, then ρ|α or ρ|β%primeLemma1",
+		"if n is composite then there is a prime divisor ≤ √n%nCompositeSoPrimeDivisorLessThanRootN",
 		"there are infinite number of primes%infinite_primes",
 		"Legendre's formula%legendres_formula",
-		"lower bound for Legendre's formula%legendres_formula_lower_bound",
-		"there are infinite primes of the form 4k + 1%infinite_primes_4k_plus_1",
+		"lower bound for Legendre's formula%legendres_formula_lower_bound"
 	]],
 	["modular_arithmetic", [
 		"(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ α + ε ≡ β + δ mod Μ%modLemma1",
