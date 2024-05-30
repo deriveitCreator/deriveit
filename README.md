@@ -55,6 +55,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.38:</b>
+- fetching from backend is done first, then database later.
+
 <b>update 10.37:</b>
 - database is being avoided for now.
 
