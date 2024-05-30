@@ -117,7 +117,9 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"if n is composite then there is a prime divisor ≤ √n%nCompositeSoPrimeDivisorLessThanRootN",
 		"there are infinite number of primes%infinite_primes",
 		"Legendre's formula%legendres_formula",
-		"lower bound for Legendre's formula%legendres_formula_lower_bound"
+		"lower bound for Legendre's formula%legendres_formula_lower_bound",
+		"for every positive integer n, there are n consecutive composite integers%nConsecutiveCompositeInteger",
+		"gcd(a, b) * lcm(a, b) = ab%gcdTimesLcmGivesProduct"
 	]],
 	["modular_arithmetic", [
 		"(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ α + ε ≡ β + δ mod Μ%modLemma1",

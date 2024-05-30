@@ -96,46 +96,58 @@
     <loc>https://www.deriveit.net/discrete_mathematics</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_and_gcd/divisibility1</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/divisibility1</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_and_gcd/divisibility2</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/divisibility2</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_and_gcd/linear_combination_smallest_gcd</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/threeDividesNCubedMinusN</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_and_gcd/every_linear_combination</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/fiveDividesNToThe5MinusN</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_and_gcd/why_the_euclidean_algorithm_works</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/linear_combination_smallest_gcd</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_and_gcd/multiplicative</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/every_linear_combination</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_and_gcd/gcdLemma14</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/why_the_euclidean_algorithm_works</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_and_gcd/gcdLemma8</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/multiplicative</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_and_gcd/other</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/gcdLemma14</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_and_gcd/gcdLemma7</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/gcdLemma8</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_and_gcd/infinite_primes</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/other</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_and_gcd/legendres_formula</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/primeLemma1</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_and_gcd/legendres_formula_lower_bound</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/nCompositeSoPrimeDivisorLessThanRootN</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_and_gcd/infinite_primes_4k_plus_1</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/infinite_primes</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/legendres_formula</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/legendres_formula_lower_bound</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/nConsecutiveCompositeInteger</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/gcdTimesLcmGivesProduct</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma1</loc>
@@ -300,6 +312,9 @@
     <loc>https://www.deriveit.net/calculus/differential_calculus/the_chain_rule</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/calculus/differential_calculus/the_inverse_function_rule</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/calculus/using_euler's_number/define_e</loc>
   </url>
   <url>
@@ -309,7 +324,7 @@
     <loc>https://www.deriveit.net/calculus/using_euler's_number/log</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/using_euler's_number/power_rule2</loc>
+    <loc>https://www.deriveit.net/calculus/using_euler's_number/power_rule_when_exponent_is_real</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/using_euler's_number/functions_which_are_derivatives_of_themselves</loc>
@@ -487,5 +502,11 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/chemistry/history/discovery_of_oxygen</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/electricity_&amp;_magnetism</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/electricity_&amp;_magnetism/history/history_of_electricity</loc>
   </url>
 </urlset>

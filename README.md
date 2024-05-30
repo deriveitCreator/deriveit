@@ -55,6 +55,12 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.41:</b>
+- Updated `sitemap.xml`.
+
+<b>update 10.40:</b>
+- Added more articles to `discrete_mathematics`.
+
 <b>update 10.38 - 10.39:</b>
 - fetching from backend is done first, then database later.
 
