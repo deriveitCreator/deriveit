@@ -10,18 +10,18 @@ One major thing I added was the design feature, where you can choose different d
 
 ### Top-Level folders
 
-- The `public` folder contains the all the images, logo icons, `sitemap.xml` and `ads.txt`.
+- The `public` folder contains the all the images, logo icons, `sitemap.xml`, `ads.txt` and `robots.txt`.
 
 - The `app` folder contains:
     - `global.css`
     - `layout.tsx`
     - `page.tsx`
+    - `variables.scss`
     - `components`: stores some home-page components
     - `mainStyles`: this folder stores all the different designs for the main part of the homepage. By 'main part', I mean excluding footer.
     - `footerStyles`: store info about footer (which is global)
     - `[topic]`: when you select a particular topic in the home page, this is the folder you are routed to.
     - `infoStore`: store website info that is not found in other folders; all the article content is stored here.
-    - `ads.txt`: this is for Google ads.
 
 - The `mainStyles` folder contains the design code for home page.
 
@@ -42,18 +42,25 @@ One major thing I added was the design feature, where you can choose different d
     - `/sendEmail`: contains the api to email client feedback to me.
     - `sourcesForCitation.tsx`: Stores citation information, more on this later.
     - `paypalLink.tsx`: contains the code for the PayPal donation button.
-    - All the folders in this folder (except for `getArticleContent`, `setCookie` and `sendEmail`) stores article content. Article content gets sent to the user (when requested) using the API in `getArticleContent` folder.
+    - `/getTopicLinks`: Contains a `POST` function which gets the subtopics of a particular topic. 
+    - All the other folders (except for `getArticleContent`) stores article content. Article content gets sent to the user (when requested) using the API in `getArticleContent` folder.
 
 ### [topic], [subTopic] and [article] folders
 
-- The `designs`: folder that contains code for the different designs
+- The `/designs` folder that contains code for the different designs
 
-- The `page.tsx`: sets the header and body based on the selected design 
+- The `page.tsx` sends the article links (or article content if in `\article` folder) and design number to `clientPart.tsx`. This file is suppose to run on the server.
 
-- The `layout.tsx`: sets meta-tag
+- The `clientPart.tsx` gets the article links (or article content) and design number from the `page.tsx` and then sets the header and body based on the design number. The file runs on the client side.
 
+- The `layout.tsx` sets the title
 
 ## Updates
+
+<b>update 10.42:</b>
+- Made `clientPart.tsx` in the `/topic` and `/subTopic` folder.
+- Topics links now are taken from the backend in `page.tsx` and then the design number and topic links gets sent to `clientPart.tsx`.
+- Added `all_primes_are_of_the_form.tsx` and re-added `infinite_primes_4k_plus_3.tsx`.
 
 <b>update 10.41:</b>
 - Updated `sitemap.xml`.

@@ -2,56 +2,60 @@
 
 import React, { Suspense, useEffect, useRef, useState } from 'react';
 import { headingFont, mainTextFont, printFont2 } from "@/app/infoStore/fonts";
-import { getTopicLinks } from '../../infoStore/topicsInfo';
 import Link from "next/link";
 import FormBox from '@/app/components/FormBox';
 import ImageWrapper from '@/app/components/ImageWrapper';
 import styles from "./variables.module.scss";
 import { link } from "../../infoStore/paypalLink";
 
-export default function Style2(props: {topic: string, styleObject:{
+export default function Style2(props: {
+	topic: string,
+	topicsInfoState: Array<[string,string[]]>,
+	styleObject:{
     name: string;
     headerBgColor: string;
     bgColor: string;
     footerColor: string;
     borderColor: string;
-}}){ 
-	const topicsInfoState: Array<[string,string[]]> = getTopicLinks(props.topic);
-	const responsiveH2Style = (screen.width > parseInt(styles.minDeviceWidth)) ?
-	"font-bold text-4xl mx-12 capitalize pt-10" :
-	"font-bold text-4xl mx-4 capitalize pt-10" ;
+	}
+}){
 
 	useEffect(()=>{
 		document.documentElement.style.overflowY = "auto";
 		document.documentElement.style.backgroundColor = props.styleObject.headerBgColor;
 	},[]);
 
+
+	const responsiveH2Style = (screen.width > parseInt(styles.minDeviceWidth)) ?
+	"font-bold text-4xl mx-12 capitalize pt-10" :
+	"font-bold text-4xl mx-4 capitalize pt-10" ;
+
 	let headerBgColor = props.styleObject.headerBgColor;
 	let footerColor = props.styleObject.footerColor;
 	let borderColor = props.styleObject.borderColor;
 
-	if(topicsInfoState[0][0] === "error"){ return <div>
+	if(props.topicsInfoState[0][0] === "error") return <div>
 		<main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}>
 			<h2 className={`${headingFont.className} ${responsiveH2Style}`} style={{color: borderColor!}}>Error</h2>
 			<p className={`${mainTextFont.className} text-[28px] leading-[32px] mx-20 mt-5 `} style={{color: headerBgColor!, letterSpacing:"1px"}}>There is no content on this page</p>
 		</main>
 		<FooterEl borderColor={borderColor!} textColor={footerColor!} headerBgColor={headerBgColor!}/>
-	</div>}
-	return <div>
+	</div>
+	else return <div>
 		<main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}>
-			{topicsInfoState.map((subArr: [string, string[]], i:number)=>{
+			{props.topicsInfoState.map((subArr: [string, string[]], i:number)=>{
 				return <section key={i}>
 					<h2 className={`${headingFont.className} ${responsiveH2Style}`} style={{color: borderColor}}>
 						{subArr[0].replaceAll("_"," ")}
 					</h2>
 					{(subArr[1]).map((val:string,i: number)=> {
-						if(val.includes("%")){ return <StyledP
+						if(val.includes("%")) return <StyledP
 							key={i}
 							textColor={headerBgColor}
 							text={val.substring(0,val.lastIndexOf('%')).replaceAll("_"," ")}
 							link={`${props.topic}/${subArr[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`.replaceAll(" ","_")}
 						/>;
-						}else return <StyledP
+						else return <StyledP
 							key={i}
 							textColor={headerBgColor}
 							text={val.replaceAll("_"," ")}
@@ -80,12 +84,12 @@ function FooterEl(props:{borderColor:string, textColor: string, headerBgColor: s
 	const formType = useRef(0);
 		
 	function dispatch(arg0: {type: string}){
-			arg0.type==="SHOW_FORM_BOX"? changeFS(true):changeFS(false);
+		arg0.type==="SHOW_FORM_BOX"? changeFS(true):changeFS(false);
 	}
 
 	function showForm(type: number){
-			formType.current = type;
-			dispatch({type: "SHOW_FORM_BOX"});
+		formType.current = type;
+		dispatch({type: "SHOW_FORM_BOX"});
 	}
 
 	return <div className={printFont2.className+' font-bold'} style={{color:props.textColor}}>
@@ -136,5 +140,5 @@ function FooterEl(props:{borderColor:string, textColor: string, headerBgColor: s
 }
 
 function ClickButton(props: {type: number, func: (arg0: number) => void}){
-    return <button onClick={()=>{props.func(props.type)}} className=' hover:underline outline-none'>click here</button>
+  return <button onClick={()=>{props.func(props.type)}} className=' hover:underline outline-none'>click here</button>
 }

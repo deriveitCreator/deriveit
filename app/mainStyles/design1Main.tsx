@@ -47,6 +47,7 @@ const HomeLoading=(props:{disabledState:boolean,hlDis:React.Dispatch<{type:strin
 
   useEffect(()=>{
     document.documentElement.style.overflowY = "hidden";
+    document.documentElement.style.backgroundColor = "rgb(249 250 251)";
   },[])
 
   function buttonClick(){

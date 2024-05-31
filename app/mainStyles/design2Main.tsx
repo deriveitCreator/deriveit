@@ -243,16 +243,8 @@ function SearchEl(){
 	const minLetters = 4;
 
 	async function searchDatabase(searchText: string){
-		let linksList = await fetch("/infoStore/getDatabases", {
-			method:"POST",
-			headers: {"Content-Type":"application/json"},
-			body: JSON.stringify({searchText: searchText})
-		}).then((res) => res.json());
-		if(linksList[0].length){
-			linksArr.current = linksList[0];
-			topicsArr.current = linksList[1];
-		}
-		else linksArr.current = [];
+		linksArr.current = [];
+		topicsArr.current = [];
 		changeDisplay("block");
 	}
 
