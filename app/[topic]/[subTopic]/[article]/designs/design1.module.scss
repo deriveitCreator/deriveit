@@ -4,6 +4,17 @@
   minDeviceWidth: $varForMinDeviceWidth;
 }
 
+#main ul{
+  position: relative;
+
+  li::before{
+    content: '🙡';
+    position: absolute;
+    left: -30px;
+  }
+
+}
+
 #adInBlackBloard {
   flex: auto;
   display: flex;

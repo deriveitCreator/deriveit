@@ -17,12 +17,19 @@ import styles from "./design1.module.scss";
 
 var FontSizeContext = createContext({h2: "", main: "", quote: ""});
 
+interface infoBoxType {
+  text: string;
+  posX: number;
+  posY: number;
+  visibility: "hidden" | "visible";
+};
+
 export default function Design1(props: {topic:string, subTopic:string, contentArray: [[string, any]]}){
   const [fontSize,setFS] = useState({h2:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
   const blackboardRef: any = useRef(null);
   const [numToReRender, setNum] = useState(0);
-  const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"});
   const responsiveStyleRef = useRef("flex");
+  const [ExtraInfoBoxStates, changeEIBS] = useState<infoBoxType>({text:"", posX:0, posY:0, visibility:"hidden"});
 
   useEffect(()=>{
     if(blackboardRef.current){
@@ -34,19 +41,15 @@ export default function Design1(props: {topic:string, subTopic:string, contentAr
           (window.adsbygoogle = window.adsbygoogle || []).push({});
         } catch (e) {}
       }
+      //[data-title] stuff (only for desktop)
+      document.querySelectorAll("[data-title]").forEach( (el) => {
+        addEventForDataTitle(el, changeEIBS);
+      });
     }
     else{
       //add scroll
       document.documentElement.style.overflowY = "scroll";
-      //[data-title] stuff
-      document.querySelectorAll("[data-title]").forEach((el)=>{
-        el.addEventListener("mouseenter",(event)=>{
-          //@ts-ignore
-          changeEIBS({text: el.getAttribute("data-title")!,posX: event.clientX - 20,posY: event.clientY + 20,visibility:"visible"});
-        });
-        el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"});});
-      });
-      //blackboard stuff
+      //blackboard stuff (or ad instead of the blackboard section for mobile)
       if(screen.width > parseInt(styles.minDeviceWidth)) {
         if(props.contentArray[0][1].length) {
           blackboardRef.current = <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>;
@@ -75,7 +78,12 @@ export default function Design1(props: {topic:string, subTopic:string, contentAr
     <ArticleHeader text={props.contentArray[0][1]}/>
     <div style={{display: responsiveStyleRef.current,width:"100%" , marginBottom:"40px",minHeight:"100vh"}}>
       <MainPart content={getBodyContent(props.topic, props.subTopic, props.contentArray)}/>
-      <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
+      <ExtraInfoBox
+        text={ExtraInfoBoxStates.text}
+        pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}}
+        visibility={ExtraInfoBoxStates.visibility}
+        supportedFunc={changeEIBS}
+      />
       {blackboardRef.current}
     </div>
   </FontSizeContext.Provider>
@@ -113,7 +121,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
         bodyChildren.push(<ImageWrapper
           key={i}
           alt=""
-          h =' max-h-[200px]'
+          h = {screen.width > parseInt(styles.minDeviceWidth) ? ' max-h-[200px]': ' max-h-[150px]'}
           className=' flex items-center justify-center my-4 '
           bor="border-black border-2"
           animate={true}
@@ -124,7 +132,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
         bodyChildren.push(<ImageWrapper
           key={i}
           alt=""
-          h =' max-h-[220px]'
+          h = {screen.width > parseInt(styles.minDeviceWidth) ? ' h-[220px]': ' h-[150px]'}
           className=' flex items-center justify-center my-4 '
           bor="border-black border-2"
           animate={true}
@@ -184,7 +192,7 @@ const MainPart = memo(function MainPartMemo(props: {content: JSX.Element[]}){
   if ((!firsTime) && (screen.width > parseInt(styles.minDeviceWidth))) {
     paddingLevel = "px-7 grow";
   }
-  return <main className={`${paddingLevel}`}>{props.content}</main>;
+  return <main className={`${paddingLevel}`} id={styles.main}>{props.content}</main>;
 })
 
 function H2Main({children}: {children: string}){
@@ -194,15 +202,34 @@ function H2Main({children}: {children: string}){
 
 function PMain({children, mode}: {children: string, mode:number}){
   const fontSizeContextVal = useContext(FontSizeContext);
+  
+  let curStyle;
+  switch(mode){
+    case 1: curStyle = `pmain   ${textMain.className} mb-3 ${fontSizeContextVal.main}  leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-1 [&>sup]:text-[60%] oldstyle-nums`; break;
+    case 2: curStyle = `pmain2  ${textMain.className} mb-3 ${fontSizeContextVal.main}  leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-4 [&>sup]:text-[60%] oldstyle-nums [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help`; break;
+    case 3: curStyle = `subText ${textMain.className} mb-3 ${fontSizeContextVal.quote} leading-7 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-6 mx-9 [&>sup]:text-[60%] oldstyle-nums text-zinc-700 `; break;
+    default: alert(`There is an error, please leave this page and report this:\n"PMain (Design1) mode ${mode} reached!"`);
+  }
+  return <p className={curStyle} dangerouslySetInnerHTML={{__html: children}}></p>;
+}
 
-  if(mode === 1) return <p className={`pmain ${textMain.className} mb-3 ${fontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-1 [&>sup]:text-[60%] oldstyle-nums`} dangerouslySetInnerHTML={{__html: children}}></p>
-  if(mode === 2) return <p className={`pmain2 ${textMain.className} mb-3 ${fontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-4 [&>sup]:text-[60%] oldstyle-nums [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help`} dangerouslySetInnerHTML={{__html: children}}></p>
-  if(mode === 3) return <p className={`subText ${textMain.className} mb-3 ${fontSizeContextVal.quote} leading-7 text-zinc-700 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-6 mx-9 [&>sup]:text-[60%] oldstyle-nums`} dangerouslySetInnerHTML={{__html: children}}></p>
+function addEventForDataTitle(el: Element, supportedFunc: Dispatch<SetStateAction<infoBoxType>>){
+  el.addEventListener("mouseenter", ()=>{
+    supportedFunc({
+      text: el.getAttribute("data-title")!,
+      posX: el.getBoundingClientRect().x - 20,
+      posY: el.getBoundingClientRect().y + 50, 
+      visibility:"visible"
+    });
+  });
+  el.addEventListener("mouseleave",()=>{
+    supportedFunc({text: "", posX: 0, posY: 0, visibility:"hidden"});
+  });
 }
 
 function ListComp(props:{numbered: boolean, content:string}){
-  if(props.numbered) return <ol className={`${textMain.className} list-decimal text-2xl mx-12 mb-3`} dangerouslySetInnerHTML={{__html: props.content}}></ol>
-  else return <ul className={`${textMain.className} list-decimal text-2xl mx-12 mb-3`} dangerouslySetInnerHTML={{__html: props.content}}></ul>
+  if(props.numbered) return <ol className={`${textMain.className} list-decimal  text-2xl mx-12 mb-3`} dangerouslySetInnerHTML={{__html: props.content}}></ol>
+  else               return <ul className={`${textMain.className} list-none     text-2xl mx-12 mb-3`} dangerouslySetInnerHTML={{__html: props.content}}></ul>
 }
 
 function SourcesSectionInner(props: {content: string[]}){
@@ -392,6 +419,16 @@ function BrushPaint(props: {brushRef: RefObject<HTMLButtonElement>}){
   </>
 }
 
-function ExtraInfoBox(props:{text:string, pos:{X:number, Y:number}, visibility: "hidden" | "visible"}){
-    return <div className={textMain.className + " bg-zinc-400 border-2 border-dashed border-black fixed text-2xl font-bold p-2 max-w-sm "} style={{top:props.pos.Y,left:props.pos.X, visibility: props.visibility}} dangerouslySetInnerHTML={{__html: props.text}}></div>
+function ExtraInfoBox(props:{
+  text:string,
+  pos:{X:number, Y:number},
+  visibility: "hidden" | "visible",
+  supportedFunc: Dispatch<SetStateAction<infoBoxType>>
+}){
+  return <div
+    className={textMain.className + " bg-zinc-400 border-2 border-dashed border-black fixed text-2xl font-bold p-2 max-w-sm z-10 "}
+    style={{top:props.pos.Y, left:props.pos.X, visibility: props.visibility}}
+    dangerouslySetInnerHTML={{__html: props.text}}
+    onMouseLeave={()=> props.supportedFunc({text: "", posX: 0, posY: 0, visibility:"hidden"})}
+  ></div>
 }

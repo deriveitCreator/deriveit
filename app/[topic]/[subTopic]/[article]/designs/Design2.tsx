@@ -26,15 +26,6 @@ export default function Design2(props: {topic:string, subTopic:string, contentAr
   const bodyContent = useMemo(()=>getBodyContent(props.topic, props.subTopic, props.contentArray),[]);
 
   useEffect(()=>{
-    //check mobile (else set [data-title] on desktop)
-    if (screen.width < parseInt(styles.minDeviceWidth)) setFS({h2:"text-3xl", main: "text-[28px]", quote: "text-2xl"});
-    else document.querySelectorAll("[data-title]").forEach((el)=>{
-      el.addEventListener("mouseenter",(event)=>{
-        //@ts-ignore
-        changeEIBS({text: el.getAttribute("data-title")!,posX: event.clientX - 20,posY: event.clientY + 20,visibility:"visible"});
-      });
-      el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"})});
-    });
     //ad stuff
     var ads = document.getElementsByClassName('adsbygoogle').length;
     for (var i = 0; i < ads; i++) {
@@ -46,6 +37,19 @@ export default function Design2(props: {topic:string, subTopic:string, contentAr
     //set style directly
     document.documentElement.style.overflowY = "scroll";
     document.documentElement.style.backgroundColor = "white";
+    //check mobile (else set [data-title] on desktop)
+    if (screen.width < parseInt(styles.minDeviceWidth)) setFS({h2:"text-3xl", main: "text-[28px]", quote: "text-2xl"});
+    else document.querySelectorAll("[data-title]").forEach((el)=>{
+      el.addEventListener("mouseenter",()=>{
+        changeEIBS({
+          text: el.getAttribute("data-title")!,
+          posX: el.getBoundingClientRect().x - 20,
+          posY: el.getBoundingClientRect().y + 50,
+          visibility:"visible"
+        });
+      });
+      el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"})});
+    });
     return ()=>{
 			document.documentElement.classList.remove("scroll2"); //incase exiting via side bar links
     }
@@ -54,7 +58,11 @@ export default function Design2(props: {topic:string, subTopic:string, contentAr
   return <FontSizeContext.Provider value={fontSize}>
     <ArticleHeader text={props.contentArray[0][1]}/>
     <MainPart content={bodyContent}/>
-    <ExtraInfoBox text={ExtraInfoBoxStates.text} pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}} visibility={ExtraInfoBoxStates.visibility}/>
+    <ExtraInfoBox 
+      text={ExtraInfoBoxStates.text}
+      pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}}
+      visibility={ExtraInfoBoxStates.visibility}
+    />
     <SideOption asideW={asideW} setAW={setAW}/>
     <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/>
     <section style={{display:((asideW=="0px"))?"block":"none"}}>
@@ -110,7 +118,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
         bodyChildren.push(<ImageWrapper
           key={i}
           alt=""
-          h ={screen.width > parseInt(styles.minDeviceWidth) ? ' h-[220px]': ' h-[150px]'}
+          h = {screen.width > parseInt(styles.minDeviceWidth) ? ' h-[220px]': ' h-[150px]'}
           className=' flex items-center justify-center my-4 '
           src={`/${topic}/${subTopic}/${j[i][1]}`}
         />);
@@ -178,20 +186,19 @@ function H2Main({children}: {children: string}){
 
 function PMain({children, mode}: {children: string, mode:number}){
   const FontSizeContextVal = useContext(FontSizeContext);
-  const [firstTime,setFT] = useState(true);
-
-  useEffect(()=>{
-    setFT(false);
-  },[]);
 
   var responsiveStyle = ["mx-1","mx-4","mx-6"];
-  if ((!firstTime) && (screen.width > parseInt(styles.minDeviceWidth))) {
+  if (screen.width > parseInt(styles.minDeviceWidth)) {
     responsiveStyle = ["mx-2","mx-8 [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help","mx-16"];
   }
 
-  if(mode === 1) return <p className={`pmain ${mainTextFont.className} mb-4 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums ${responsiveStyle[0]}`} dangerouslySetInnerHTML={{__html: children}}></p>
-  if(mode === 2) return <p className={`pmain2 ${mainTextFont.className} mb-4 ${FontSizeContextVal.main} leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums ${responsiveStyle[1]}`} dangerouslySetInnerHTML={{__html: children}}></p>
-  if(mode === 3) return <p className={`subText ${mainTextFont.className} mb-4 ${FontSizeContextVal.quote} leading-7 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-6 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] text-zinc-700 oldstyle-nums ${responsiveStyle[2]}`} dangerouslySetInnerHTML={{__html: children}}></p>
+  if(mode === 1)      return <p className={`pmain   ${mainTextFont.className} mb-4 ${FontSizeContextVal.main}  leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums ${responsiveStyle[0]}`} dangerouslySetInnerHTML={{__html: children}}></p>
+  else if(mode === 2) return <p className={`pmain2  ${mainTextFont.className} mb-4 ${FontSizeContextVal.main}  leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums ${responsiveStyle[1]}`} dangerouslySetInnerHTML={{__html: children}}></p>
+  else if(mode === 3) return <p className={`subText ${mainTextFont.className} mb-4 ${FontSizeContextVal.quote} leading-7 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-6 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] text-zinc-700   oldstyle-nums ${responsiveStyle[2]}`} dangerouslySetInnerHTML={{__html: children}}></p>
+  else {
+    alert(`There is an error, please leave this page and report this:\n"PMain (Design1) mode ${mode} reached!"`);
+    return null;
+  }
 }
 
 function ExtraInfoBox(props:{text:string, pos:{X:number, Y:number}, visibility: "hidden" | "visible"}){
@@ -204,7 +211,7 @@ function ListComp(props:{numbered: boolean, content:string}){
   var responsiveStyle = "mx-20"
   if (screen.width < parseInt(styles.minDeviceWidth)) responsiveStyle = "mx-10";
   if(props.numbered) return <ol className={`${mainTextFont.className} list-decimal mb-4 leading-8 ${fontSizeContextVal.quote} ${responsiveStyle}`} dangerouslySetInnerHTML={{__html: props.content}}></ol>
-  else return <ul className={`${mainTextFont.className} list-decimal mb-4 leading-8 ${fontSizeContextVal.quote} ${responsiveStyle}`} dangerouslySetInnerHTML={{__html: props.content}}></ul>
+  else               return <ul className={`${mainTextFont.className} list-disc    mb-4 leading-8 ${fontSizeContextVal.quote} ${responsiveStyle}`} dangerouslySetInnerHTML={{__html: props.content}}></ul>
 }
 
 function SourcesSectionInner(props: {content: string[]}){

@@ -210,7 +210,7 @@ const mechanicsLink: Array<[string,string[]]> = [
 const astronomyLink: Array<[string,string[]]> = [
 	["history", [
 		"the geocentric view",
-		"the Eqyption calendar%e_calendar",
+		"the Egyptian calendar%e_calendar",
 		"how Eratosthenes calculated Earth's circumference%c_of_earth",
 		"the introduction to De Revolutionibus Orbium Coelestium%heliocentric",
 	]],

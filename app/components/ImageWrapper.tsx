@@ -28,7 +28,7 @@ export const ImageWrapper = (props: {
     let animate = (props.animate === undefined)? false: props.animate;
     if(props.figcaption !== undefined) return <figure className={`${props.className} ${divW} h-auto m-auto overflow-hidden `} style={{transition:"width 0.5s linear 1s"}}>
         <Image alt={altVal} src={props.src} width={0} height={0} sizes="100vw" className={`w-auto ${imgH} ${props.bor} object-contain bg-white`}/>
-        <figcaption className=' text-lg ' dangerouslySetInnerHTML={{__html: props.figcaption}}></figcaption>
+        <figcaption className=' text-lg w-4/5 text-center ' dangerouslySetInnerHTML={{__html: props.figcaption}}></figcaption>
     </figure>;
     else if(animate) return <div className={`${props.className} ${divW} h-auto m-auto px-6 `} style={{transition:"width 0.5s linear 1s"}}>
         <Image alt={altVal} src={props.src} width={0} height={0} sizes="100vw" className={`w-auto ${imgH} ${props.bor} object-contain bg-white`}/>

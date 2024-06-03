@@ -57,6 +57,12 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.43:</b>
+- The "data-title" box element wasn't showing on hover, so that's fixed now.
+- Made minor changes to all history content.
+- The `figure` element now has its text centered.
+- In `Design1`, the size of the images is the same as the size of `Design2` images.
+
 <b>update 10.42:</b>
 - Made `clientPart.tsx` in the `/topic` and `/subTopic` folder.
 - Topics links now are taken from the backend in `page.tsx` and then the design number and topic links gets sent to `clientPart.tsx`.

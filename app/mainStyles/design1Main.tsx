@@ -56,20 +56,18 @@ const HomeLoading=(props:{disabledState:boolean,hlDis:React.Dispatch<{type:strin
     props.hlDis({type: "START_SLIDESHOW"});
   }
 
-  return (
-    <div
-      className={'fixed top-0 flex justify-center w-full bg-gray-100 border-b-black border-b-2 overflow-hidden z-10 ' + wrapperH} style={{transition:"height 1s, opacity 1s linear 1s"}}
-    >
-      <div className='grid grid-cols-2 grid-rows-2 self-center' style={{gridTemplateColumns:"auto 30px auto"}}>
-        <ImageWrapper className='row-span-2 justify-self-center' alt="" src={`/link_logo_trans1.png`} w= 'w-36'/>
-        <div className='row-span-2 h-full mx-3.5 bg-gradient-to-b from-transparent via-black to-transparent'></div>
-        <p className={cursiveMain.className + " py-2 text-2xl leading-7"}>Imagine some useful<br/>info here</p>
-        <button disabled={props.disabledState} onClick={buttonClick} id={styles.continue} className={chalkWriting.className}>
-          {props.disabledState?"loading":"continue"}
-        </button>
-      </div>
+  return <div
+    className={'fixed top-0 flex justify-center w-full bg-gray-100 border-b-black border-b-2 overflow-hidden z-10 ' + wrapperH} style={{transition:"height 1s, opacity 1s linear 1s"}}
+  >
+    <div className='grid grid-cols-2 grid-rows-2 self-center' style={{gridTemplateColumns:"auto 30px auto"}}>
+      <ImageWrapper className='row-span-2 justify-self-center' alt="" src={`/link_logo_trans1.png`} w= 'w-36'/>
+      <div className='row-span-2 h-full mx-3.5 bg-gradient-to-b from-transparent via-black to-transparent'></div>
+      <p className={cursiveMain.className + " py-2 text-2xl leading-7"}>Imagine some useful<br/>info here</p>
+      <button disabled={props.disabledState} onClick={buttonClick} id={styles.continue} className={chalkWriting.className}>
+        {props.disabledState?"loading":"continue"}
+      </button>
     </div>
-  )
+  </div>
 }
 
 function HomeBody(props:{design1States:any, disFunc:React.Dispatch<{type:string;payload?: string|undefined}>}){
@@ -124,70 +122,70 @@ function HomeBody(props:{design1States:any, disFunc:React.Dispatch<{type:string;
 }
 
 const HeaderEl = () => {
-    const [showDB, changeSDB] = useState(false);
-    
-    return <header className={cursiveMain.className + " px-6 after:clear-both after:block"}>
-        <h1 className=' float-left text-3xl py-2'>Deriveit.net</h1>
-        <IconContext.Provider value={{style:{float:"right",cursor:"pointer",height:"52px",width:"20px",paddingTop:"14px",paddingBottom:"18px"}}}><FaPaintbrush onClick={()=>{changeSDB(true)}} /></IconContext.Provider>
-        <Suspense><StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/></Suspense>
-    </header>;
+  const [showDB, changeSDB] = useState(false);
+  
+  return <header className={cursiveMain.className + " px-6 after:clear-both after:block"}>
+    <h1 className=' float-left text-3xl py-2'>Deriveit.net</h1>
+    <IconContext.Provider value={{style:{float:"right",cursor:"pointer",height:"52px",width:"20px",paddingTop:"14px",paddingBottom:"18px"}}}><FaPaintbrush onClick={()=>{changeSDB(true)}} /></IconContext.Provider>
+    <Suspense><StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/></Suspense>
+  </header>;
 }
 
 function TopicLink(props: {refTo: string, floatD: string}){
-    const clickFlag = useRef(true);
-    const router = useRouter();
-    
-    function divClicked(e: {target: any}){
-        if(clickFlag.current){
-            clickFlag.current = false;
-            document.documentElement.style.overflowY = "hidden";
-            e.target.parentElement.style.width = "100%";
-            if(props.floatD === "left") {
-                e.target.parentElement.nextElementSibling.style.width = "0%";
-                e.target.parentElement.nextElementSibling.style.opacity = "0";
-            }
-            else {
-                e.target.parentElement.previousElementSibling.style.width = "0%";
-                e.target.parentElement.previousElementSibling.style.opacity = "0";
-            }
-            e.target.parentElement.parentElement.parentElement.style.top = e.target.parentElement.parentElement.parentElement.getBoundingClientRect().top  + window.scrollY + "px";
+  const clickFlag = useRef(true);
+  const router = useRouter();
+  
+  function divClicked(e: {target: any}){
+    if(clickFlag.current){
+      clickFlag.current = false;
+      document.documentElement.style.overflowY = "hidden";
+      e.target.parentElement.style.width = "100%";
+      if(props.floatD === "left") {
+        e.target.parentElement.nextElementSibling.style.width = "0%";
+        e.target.parentElement.nextElementSibling.style.opacity = "0";
+      }
+      else {
+        e.target.parentElement.previousElementSibling.style.width = "0%";
+        e.target.parentElement.previousElementSibling.style.opacity = "0";
+      }
+      e.target.parentElement.parentElement.parentElement.style.top = e.target.parentElement.parentElement.parentElement.getBoundingClientRect().top  + window.scrollY + "px";
+      setTimeout(()=>{
+        e.target.parentElement.parentElement.parentElement.style.position = "absolute";
+        e.target.parentElement.parentElement.parentElement.style.top = "0px";
+        e.target.parentElement.classList.remove("notSelectedForShrink");
+        window.scroll(0,0);
+        setTimeout(()=>{
+          e.target.style.fontSize = "36px";
+          e.target.style.lineHeight = "74px";
+          e.target.style.height = "80px"; 
+          //@ts-ignore 
+          document.querySelectorAll(".notSelectedForShrink").forEach(el => el.style.height = '0px');
+          setTimeout(()=>{
+            e.target.classList.add("border-b-4");
+            e.target.classList.add("border-gray-600");
+            e.target.parentElement.parentElement.parentElement.classList.remove("border-b-4");
+            e.target.parentElement.style.height = "1000px";
             setTimeout(()=>{
-                e.target.parentElement.parentElement.parentElement.style.position = "absolute";
-                e.target.parentElement.parentElement.parentElement.style.top = "0px";
-                e.target.parentElement.classList.remove("notSelectedForShrink");
-                window.scroll(0,0);
-                setTimeout(()=>{
-                  e.target.style.fontSize = "36px";
-                  e.target.style.lineHeight = "74px";
-                  e.target.style.height = "80px"; 
-                  //@ts-ignore 
-                  document.querySelectorAll(".notSelectedForShrink").forEach(el => el.style.height = '0px');
-                  setTimeout(()=>{
-                      e.target.classList.add("border-b-4");
-                      e.target.classList.add("border-gray-600");
-                      e.target.parentElement.parentElement.parentElement.classList.remove("border-b-4");
-                      e.target.parentElement.style.height = "1000px";
-                      setTimeout(()=>{
-                          router.push("/"+props.refTo.toLowerCase().replaceAll(" ","_"));
-                      }, 1);
-                  }, 300);
-                }, 300);
-            },200);
-        }
+              router.push("/"+props.refTo.toLowerCase().replaceAll(" ","_"));
+            }, 1);
+          }, 300);
+        }, 300);
+      },200);
     }
+  }
 
-    function linkClicked(e: object){
-        //@ts-ignore
-        e.preventDefault();
-    }
+  function linkClicked(e: object){
+    //@ts-ignore
+    e.preventDefault();
+  }
 
-    if(props.refTo == "Error") return <div id={styles.errorDiv} className={`bg-gray-100 overflow-hidden float-${props.floatD} notSelectedForShrink block ${cursiveMain.className} ${styles.topicClass}`} style={{width:"50%",height:"60px",transition:"width 0.2s ease-out, opacity 0.2s ease-out, height 0.3s ease-out "}}>Under Construction</div>
-    else return <div onClick={divClicked} className={`bg-gray-50 overflow-hidden float-${props.floatD} notSelectedForShrink `} style={{width:"50%",height:"60px",transition:"width 0.2s ease-out, opacity 0.2s ease-out, height 0.3s ease-out "}} ><Link
-      href={"/"+props.refTo.toLowerCase()}
-      className={`bg-gray-100 block hover:no-underline ${cursiveMain.className} ${styles.topicClass}`}
-      style={{transition:"font-size 0.2s ease-out, height 0.3s ease-out"}}
-      onClick={linkClicked}
-    >{props.refTo}</Link></div>
+  if(props.refTo == "Error") return <div id={styles.errorDiv} className={`bg-gray-100 overflow-hidden float-${props.floatD} notSelectedForShrink block ${cursiveMain.className} ${styles.topicClass}`} style={{width:"50%",height:"60px",transition:"width 0.2s ease-out, opacity 0.2s ease-out, height 0.3s ease-out "}}>Under Construction</div>
+  else return <div onClick={divClicked} className={`bg-gray-50 overflow-hidden float-${props.floatD} notSelectedForShrink `} style={{width:"50%",height:"60px",transition:"width 0.2s ease-out, opacity 0.2s ease-out, height 0.3s ease-out "}} ><Link
+    href={"/"+props.refTo.toLowerCase()}
+    className={`bg-gray-100 block hover:no-underline ${cursiveMain.className} ${styles.topicClass}`}
+    style={{transition:"font-size 0.2s ease-out, height 0.3s ease-out"}}
+    onClick={linkClicked}
+  >{props.refTo}</Link></div>
 }
 
 function RecentlySection(type:string){
