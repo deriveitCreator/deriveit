@@ -18,18 +18,18 @@ export const allTopics = [
 
 export function getRecentlyAdded(): string[]{
 	return [
+		"ax ≡ b mod m has a solution if and only if gcd(a, m)|b%discrete_mathematics/modular_arithmetic/congruence_solution_possible",
 		"expected value and variance of an exponential distribution%probability_&_statistics/probability_distribution_stuff/expected_value_and_variance_of_an_exponential_distribution",
 		"probability function of the Poisson distribution%probability_&_statistics/probability_distribution_stuff/probability_function_of_the_Poisson_distribution",
 		"Chebyshev's inequality%probability_&_statistics/expected_value_and_variance_basics/chebyshevs_inequality",
-		"expected value and variance of a geometric distribution%probability_&_statistics/probability_distribution_stuff/expected_value_and_variance_of_a_geometric_distribution",
 	]
 }
 
 export function getRecentlyEdited(): string[]{
 	return [
+		"solution of ax ≡ b mod m (if gcd(a, m)|b)%discrete_mathematics/modular_arithmetic/congruence_solution",
+		"gcd(a, b) * lcm(a, b) = ab%discrete_mathematics/prime_numbers/gcdTimesLcmGivesProduct",
 		"the sum of a geometric series with finite terms%discrete_mathematics/sequence_and_series/the_sum_of_a_geometric_series_with_finite_terms",
 		"differentiability implies continuity%calculus/differential_calculus/differentiability_implies_continuity",
-		"how cosh and sinh form the right half of a hyperbola%trigonometry/hyperbolic_functions/how_cosh_and_sinh_form_the_right_half_of_a_hyperbola",
-		"deriving the asymptote of a hyperbola%geometry/Hyperbola/deriving_the_asymptote_of_a_hyperbola",
 	]
 }

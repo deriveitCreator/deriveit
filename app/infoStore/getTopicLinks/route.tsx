@@ -97,15 +97,16 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"there are infinite number of primes%infinite_primes",
 		"Legendre's formula%legendres_formula",
 		"lower bound for Legendre's formula%legendres_formula_lower_bound",
-		"for every positive integer n, there are n consecutive composite integers%nConsecutiveCompositeInteger",
+		"for any positive integer n, there are at least n consecutive composite integers%nConsecutiveCompositeInteger",
 		"gcd(a, b) * lcm(a, b) = ab%gcdTimesLcmGivesProduct",
-		"all primes are of the form 4k+1 and 4k+3%all_primes_are_of_the_form",
+		"all primes are of the form 4k+1 or 4k+3%all_primes_are_of_the_form",
 		"there are infinite primes of the form 4k+3%infinite_primes_4k_plus_3"
 	]],
 	["modular_arithmetic", [
 		"(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ α + ε ≡ β + δ mod Μ%modLemma1",
 		"(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ αε ≡ βδ mod Μ%modLemma2",
 		"(αε ≡ βε mod Μ and gcd(ε, Μ) = 1) ⇒ α ≡ β mod Μ%modLemma3",
+		"ax ≡ b mod m has a solution if and only if gcd(a, m)|b%congruence_solution_possible",
 		"Euler's Theorem%eulers_theorem",
 		"Fermat's Little Theorem%fermats_little_theorem",
 		"Freshman's Dream%freshmans_dream",
@@ -113,7 +114,7 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"Wilson's Theorem%wilsons_theorem",
 		"x<sup>2</sup> ≡ 1 mod p ⇒ x ≡ +1 or -1 mod p%x_square_solution",
 		"x<sup>2</sup> ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%x_square_solvable",
-		"ax ≡ b mod m has a solution if and only if gcd(a, m)|b%congruence_solution",
+		"solution of ax ≡ b mod m (if gcd(a, m)|b)%congruence_solution",
 		"Chinese remainder theorem%chinese_remainder_theorem"
 	]],
 	["factorials,_permutations_and_combinations", [

@@ -1,6 +1,6 @@
-export const title="For every positive integer n, there are n consecutive composite integers";
+export const title="For any positive integer n, there are at least n consecutive composite integers";
 const content = [
-  ['h1', 'For Every Positive Integer n, There Are n Consecutive Composite Integers'],
+  ['h1', 'For any Positive Integer n, There Are At Least n Consecutive Composite Integers'],
   ['pmain', 'Given a positive integer \\(n\\), consider the sequences of integers of the form \\((n+1)!+i\\) where \\(i\\) is an integer and \\(2 \\le i \\le n+1\\):'],
   ['displayFormula', '$$ (n+1)!+2, \\ (n+1)!+3, \\ \\ldots, \\ (n+1)! + (n+1) $$'],
   ['pmain', 'The integer \\(i\\) (where \\(2 \\le i \\le n+1\\)) will have a duplicate inside \\((n+1)!\\), this means \\(i \\mid (n+1)! \\).'],
