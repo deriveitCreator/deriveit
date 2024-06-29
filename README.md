@@ -57,6 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.47:</b>
+- Added `Mersenne_prime1.tsx`.
+- 
 <b>update 10.46:</b>
 - Added `differenceOfFourthPowers.tsx`.
 
