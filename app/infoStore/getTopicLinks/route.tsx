@@ -96,12 +96,13 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"if ρ is prime and ρ|αβ, then ρ|α or ρ|β%primeLemma1",
 		"if n is composite then there is a prime divisor ≤ √n%nCompositeSoPrimeDivisorLessThanRootN",
 		"there are infinite number of primes%infinite_primes",
+		"all primes are of the form 4k+1 or 4k+3%all_primes_are_of_the_form",
+		"there are infinite primes of the form 4k+3%infinite_primes_4k_plus_3",
+		"no primes can be expressed as a<sup>4</sup> - b<sup>4</sup>%differenceOfFourthPowers",
+		"for any positive integer n, there are at least n consecutive composite integers%nConsecutiveCompositeInteger",
 		"Legendre's formula%legendres_formula",
 		"lower bound for Legendre's formula%legendres_formula_lower_bound",
-		"for any positive integer n, there are at least n consecutive composite integers%nConsecutiveCompositeInteger",
-		"gcd(a, b) * lcm(a, b) = ab%gcdTimesLcmGivesProduct",
-		"all primes are of the form 4k+1 or 4k+3%all_primes_are_of_the_form",
-		"there are infinite primes of the form 4k+3%infinite_primes_4k_plus_3"
+		"gcd(a, b) * lcm(a, b) = ab%gcdTimesLcmGivesProduct"
 	]],
 	["modular_arithmetic", [
 		"(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ α + ε ≡ β + δ mod Μ%modLemma1",
