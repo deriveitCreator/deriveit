@@ -57,6 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.45:</b>
+- Added `multipleOf8.tsx`.
+
 <b>update 10.44:</b>
 - In the `prime_numbers` sections, I change `For every positive integer n...` to `For any positive integer n...`. I also changed `the form 4k+1 and 4k+3` to `the form 4k+1 or 4k+3`.
 - Added `congruence_solution_possible.tsx`
