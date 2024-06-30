@@ -18,18 +18,18 @@ export const allTopics = [
 
 export function getRecentlyAdded(): string[]{
 	return [
-		"ax ≡ b mod m has a solution if and only if gcd(a, m)|b%discrete_mathematics/modular_arithmetic/congruence_solution_possible",
-		"expected value and variance of an exponential distribution%probability_&_statistics/probability_distribution_stuff/expected_value_and_variance_of_an_exponential_distribution",
-		"probability function of the Poisson distribution%probability_&_statistics/probability_distribution_stuff/probability_function_of_the_Poisson_distribution",
-		"Chebyshev's inequality%probability_&_statistics/expected_value_and_variance_basics/chebyshevs_inequality",
+		"if (n^2)+1 is prime, then n^2 = 4k%discrete_mathematics/prime_numbers/n_square_prime",
+		"if (a^n) + 1 is an odd prime, then a is even and n is a power of 2%discrete_mathematics/prime_numbers/a_to_the_n_plus_one_prime",
+		"if n > 1 and (a^n) - 1 is prime, then a=2%discrete_mathematics/prime_numbers/Mersenne_prime2",
+		"if (2^p) - 1 is prime, then p is prime%discrete_mathematics/prime_numbers/Mersenne_prime1",
 	]
 }
 
 export function getRecentlyEdited(): string[]{
 	return [
+		"if (n^2)+1 is prime, then n^2 = 4k%discrete_mathematics/prime_numbers/n_square_prime",
+		"if n > 1 and (a^n) - 1 is prime, then a=2%discrete_mathematics/prime_numbers/Mersenne_prime2",
 		"solution of ax ≡ b mod m (if gcd(a, m)|b)%discrete_mathematics/modular_arithmetic/congruence_solution",
 		"gcd(a, b) * lcm(a, b) = ab%discrete_mathematics/prime_numbers/gcdTimesLcmGivesProduct",
-		"the sum of a geometric series with finite terms%discrete_mathematics/sequence_and_series/the_sum_of_a_geometric_series_with_finite_terms",
-		"differentiability implies continuity%calculus/differential_calculus/differentiability_implies_continuity",
 	]
 }
