@@ -57,6 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.51:</b>
+- Changed `nSquarePrime.tsx` to `n_square_prime.tsx`.
+  
 <b>update 10.50:</b>
 - Added `nSquarePrime.tsx`.
 
