@@ -57,6 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.53:</b>
+- Made changes to `gcdDividesPlus.tsx`.
+  
 <b>update 10.52:</b>
 - Made changes to `n_square_prime.tsx`.
 - Updated the "recently added" table and "recently edited" table.
