@@ -100,12 +100,13 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"there are infinite primes of the form 4k+3%infinite_primes_4k_plus_3",
 		"no prime can be expressed as a<sup>4</sup> - b<sup>4</sup>%differenceOfFourthPowers",
 		"for any positive integer n, there are at least n consecutive composite integers%nConsecutiveCompositeInteger",
-		"Legendre's formula%legendres_formula",
-		"lower bound for Legendre's formula%legendres_formula_lower_bound",
 		"gcd(a, b) * lcm(a, b) = ab%gcdTimesLcmGivesProduct",
 		"if 2<sup>p</sup> - 1 is prime, then p is prime%Mersenne_prime1",
 		"if n > 1 and a<sup>n</sup> - 1 is prime, then a=2%Mersenne_prime2",
-		"if a<sup>n</sup> + 1 is an odd prime, then a is even and n is a power of 2%a_to_the_n_plus_one_prime"
+		"if a<sup>n</sup> + 1 is an odd prime, then a is even and n is a power of 2%a_to_the_n_plus_one_prime",
+		"if n<sup>2</sup>+1 is prime, then n<sup>2</sup> = 4k%nSquarePrime",
+		"Legendre's formula%legendres_formula",
+		"lower bound for Legendre's formula%legendres_formula_lower_bound",
 	]],
 	["modular_arithmetic", [
 		"(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ α + ε ≡ β + δ mod Μ%modLemma1",
