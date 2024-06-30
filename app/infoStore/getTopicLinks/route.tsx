@@ -104,7 +104,8 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"lower bound for Legendre's formula%legendres_formula_lower_bound",
 		"gcd(a, b) * lcm(a, b) = ab%gcdTimesLcmGivesProduct",
 		"if 2<sup>p</sup> - 1 is prime, then p is prime%Mersenne_prime1",
-		"if n > 1 and a<sup>n</sup> - 1 is prime, then a=2%Mersenne_prime2"
+		"if n > 1 and a<sup>n</sup> - 1 is prime, then a=2%Mersenne_prime2",
+		"if a<sup>n</sup> + 1 is an odd prime, then a is even and n is a power of 2%a_to_the_n_plus_one_prime"
 	]],
 	["modular_arithmetic", [
 		"(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ α + ε ≡ β + δ mod Μ%modLemma1",
