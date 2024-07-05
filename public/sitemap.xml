@@ -108,6 +108,9 @@
     <loc>https://www.deriveit.net/discrete_mathematics/divisibility/fiveDividesNToThe5MinusN</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/multipleOf8</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/discrete_mathematics/divisibility/linear_combination_smallest_gcd</loc>
   </url>
   <url>
@@ -129,6 +132,12 @@
     <loc>https://www.deriveit.net/discrete_mathematics/divisibility/other</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/gcdDividesPlus</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/divisibilityLemma1</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/primeLemma1</loc>
   </url>
   <url>
@@ -138,16 +147,37 @@
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/infinite_primes</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/legendres_formula</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/all_primes_are_of_the_form</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/legendres_formula_lower_bound</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/infinite_primes_4k_plus_3</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/differenceOfFourthPowers</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/nConsecutiveCompositeInteger</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/gcdTimesLcmGivesProduct</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/Mersenne_prime1</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/Mersenne_prime2</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/a_to_the_n_plus_one_prime</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/n_square_prime</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/legendres_formula</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/legendres_formula_lower_bound</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma1</loc>
@@ -157,6 +187,9 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma3</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/congruence_solution_possible</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/eulers_theorem</loc>
@@ -508,5 +541,20 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/electricity_&amp;_magnetism/history/history_of_electricity</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/biology</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/biology/history/cell_theory</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/biology/history/fermentation</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/biology/history/immunity</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/computer_science</loc>
   </url>
 </urlset>

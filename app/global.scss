@@ -4,56 +4,56 @@
 @import './variables.scss';
 
 :root{
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .scroll1{
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
+	::-webkit-scrollbar {
+		width: 10px;
+	}
 
-    ::-webkit-scrollbar-track {
-        background: #222;
-    }
+	::-webkit-scrollbar-track {
+		background: #222;
+	}
 
-    ::-webkit-scrollbar-thumb {
-        background: #aaa;
-    }
+	::-webkit-scrollbar-thumb {
+		background: #aaa;
+	}
 
-    ::-webkit-scrollbar-corner{ 
-        background: #222;
-    }
+	::-webkit-scrollbar-corner{ 
+		background: #222;
+	}
 }
 
 .scroll2{
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-      background: rgb(150,60,00);
-    }
-    ::-webkit-scrollbar-thumb {
-        background: rgb(180,90,00);
-        border: none;
-        border-radius:4px 
-    }
-    ::-webkit-scrollbar-corner{ 
-        background: rgb(150,60,00);
-    }
+	::-webkit-scrollbar {
+	  width: 10px;
+	}
+	::-webkit-scrollbar-track {
+	  background: rgb(150,60,00);
+	}
+	::-webkit-scrollbar-thumb {
+		background: rgb(180,90,00);
+		border: none;
+		border-radius:4px 
+	}
+	::-webkit-scrollbar-corner{ 
+		background: rgb(150,60,00);
+	}
 }
 
 a:hover{
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 .eqn-num{
-    display: none !important;
+	display: none !important;
 }
 
 @media only screen and (min-device-width: $varForMinDeviceWidth) {
-    :root{
-        min-width: $varForMinDeviceWidth;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-    }
+	:root{
+		min-width: $varForMinDeviceWidth;
+		overflow-x: auto;
+		scroll-behavior: smooth;
+	}
 }

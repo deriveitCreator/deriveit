@@ -98,15 +98,15 @@ function getLabelAndTA(font: string, inputFont:string, type:number, textSize: st
 	switch(type){
 		case 0: return <>
 			<label className={`${font} ${textSize} mt-4 block ml-3`} htmlFor={"mainText"} style={{color:labelColor}}>Feedback:</label>
-			<textarea placeholder={`"I think there is a problem at..." `}  name="mainText" id="textarea" required style={{color:labelColor,borderColor:labelColor}} className={`${inputFont} resize-none h-28 mx-3 text-lg outline-none border-2 rounded-md px-1 text-ellipsis ${textBg} font-bold w-80 ${placeholderClass}`}/>
+			<textarea placeholder={`"I think there is a problem at..." `}  name="mainText" id="mainText" required style={{color:labelColor,borderColor:labelColor}} className={`${inputFont} resize-none h-28 mx-3 text-lg outline-none border-2 rounded-md px-1 text-ellipsis ${textBg} font-bold w-80 ${placeholderClass}`}/>
 		</>
 		case 1: return <>
 			<label className={`${font} ${textSize} mt-4 block ml-3`} htmlFor={"mainText"} style={{color:labelColor}}>Feedback:</label>
-			<textarea placeholder={`"I want the derivation of..." `} name="mainText" id="textarea" required style={{color:labelColor,borderColor:labelColor}} className={`${inputFont} resize-none h-28 mx-3 text-lg outline-none border-2 rounded-md px-1 text-ellipsis ${textBg} font-bold w-80 ${placeholderClass}`}/>
+			<textarea placeholder={`"I want the derivation of..." `} name="mainText" id="mainText" required style={{color:labelColor,borderColor:labelColor}} className={`${inputFont} resize-none h-28 mx-3 text-lg outline-none border-2 rounded-md px-1 text-ellipsis ${textBg} font-bold w-80 ${placeholderClass}`}/>
 		</>
 		case 2: return <>
 			<label className={`${font} ${textSize} mt-4 block ml-3`} htmlFor={"mainText"} style={{color:labelColor}}>Feedback:</label>
-			<textarea placeholder={`"There can be an improvement at..." `} name="mainText" id="textarea" required style={{color:labelColor,borderColor:labelColor}} className={`${inputFont} resize-none h-28 mx-3 text-lg outline-none border-2 rounded-md px-1 text-ellipsis ${textBg} font-bold w-80 ${placeholderClass}`}/>
+			<textarea placeholder={`"There can be an improvement at..." `} name="mainText" required style={{color:labelColor,borderColor:labelColor}} className={`${inputFont} resize-none h-28 mx-3 text-lg outline-none border-2 rounded-md px-1 text-ellipsis ${textBg} font-bold w-80 ${placeholderClass}`}/>
 		</>
 		default:  return <p className={`${font} ${textSize} mt-4 block`} style={{color:labelColor}}>There was a problem rendering this.</p>
 	}

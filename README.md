@@ -57,6 +57,11 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.55:</b>
+- Updated `divisibilityLemma1.tsx`.
+- Added the `getTopicLinks` function in `getTopicLinks` route.
+- In formbox, changed textarea element id to `mainText`.
+
 <b>update 10.54:</b>
 - Made changes to `every_linear_combination.tsx` and `a_to_the_n_plus_one_prime.tsx`.
 - Added `divisibilityLemma1.tsx`.

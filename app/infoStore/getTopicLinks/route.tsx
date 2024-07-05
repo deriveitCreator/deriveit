@@ -1,9 +1,13 @@
 
 export async function POST(request: Request) {
 	let req = await request.json();
-  let result;
+  let result = getTopicLinks(req.topic);
+  return Response.json(result);
+}
 
-	switch(req.topic){
+export function getTopicLinks(topic: string){
+  let result: Array<[string,string[]]>;
+	switch(topic){
 		case "algebra":
 			result = algebraLinks;
       break;
@@ -43,7 +47,8 @@ export async function POST(request: Request) {
 		default:
 			result = [["error",[]]];
 	}
-  return Response.json(result);
+
+	return result;
 }
 
 const algebraLinks: Array<[string,string[]]> = [
