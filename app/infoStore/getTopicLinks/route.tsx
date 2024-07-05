@@ -5,7 +5,7 @@ export async function POST(request: Request) {
   return Response.json(result);
 }
 
-export function getTopicLinks(topic: string){
+function getTopicLinks(topic: string){
   let result: Array<[string,string[]]>;
 	switch(topic){
 		case "algebra":

@@ -1,0 +1,3 @@
+const content = [ ['h1', 'Proof Of The Power Rule'], ['pmain', 'Lets start with this:'], ['displayimg', 'f.png'], ['pmain', 'If we bring <span style="color:orange">a</span> to the other side, we get:'], ['displayimg', 'other.png'], ['pmain', 'Now if we raise both sides with <span style="color:red">b</span>, we get:'], ['displayimg', '3.png'], ['pmain', 'From which we get:'], ['displayimg', 'root.png'], ['pmain', 'We can now take log of both sides with the base <span style="color:red">b</span>:'], ['displayimg', 'last2.png'], ['pmain', 'And we already know what <span style="color:#CC6600">d</span> is:'], ['displayimg', 'last3.png']];
+export default content;
+export const title = 'Proof Of The Power Rule';
