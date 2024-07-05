@@ -4,14 +4,14 @@ import { DEFAULT_DESIGN_SELECTION } from '@/app/infoStore/designInfo';
 import ClientPart from './clientPart';
 
 var domainName: string;
-var cacheType: "force-cache" | "no-store";
+var cacheType: "default" | "no-store";
 if((!process.env.NODE_ENV || process.env.NODE_ENV === 'development')){
   domainName = "http://localhost:3001";
   cacheType = "no-store";
 }
 else{
   domainName = "https://www.deriveit.net";
-  cacheType = "force-cache";
+  cacheType = "default";
 }
 
 export async function generateMetadata({ params }: { params: { topic:string, subTopic: string, article: string } }){

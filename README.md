@@ -57,6 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 10.57:</b>
+- In `[article]/page.tsx`, I changed the production build cache to `default`.
+
 <b>update 10.56:</b>
 - Apparently, the algebra folder was missing, so that's restored now. 
 
