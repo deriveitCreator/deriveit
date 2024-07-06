@@ -13,37 +13,37 @@ One major thing I added was the design feature, where you can choose different d
 - The `public` folder contains the all the images, logo icons, `sitemap.xml`, `ads.txt` and `robots.txt`.
 
 - The `app` folder contains:
-    - `global.css`
-    - `layout.tsx`
-    - `page.tsx`
-    - `variables.scss`
-    - `components`: stores some home-page components
-    - `mainStyles`: this folder stores all the different designs for the main part of the homepage. By 'main part', I mean excluding footer.
-    - `footerStyles`: store info about footer (which is global)
-    - `[topic]`: when you select a particular topic in the home page, this is the folder you are routed to.
-    - `infoStore`: store website info that is not found in other folders; all the article content is stored here.
+	- `global.css`
+	- `layout.tsx`
+	- `page.tsx`
+	- `variables.scss`
+	- `components`: stores some home-page components
+	- `mainStyles`: this folder stores all the different designs for the main part of the homepage. By 'main part', I mean excluding footer.
+	- `footerStyles`: store info about footer (which is global)
+	- `[topic]`: when you select a particular topic in the home page, this is the folder you are routed to.
+	- `infoStore`: store website info that is not found in other folders; all the article content is stored here.
 
 - The `mainStyles` folder contains the design code for home page.
 
 - The `footerStyles` folder contains the component for the footer, the are multiple footers that will be used depending on the chosen style.
 
 - The `components` folder currently contains three components for the index page:
-    - `BlackBoard.tsx`: for the giant blackboard on the home page
-    - `ImageWrapper.tsx`: a wrapper for images (this is a global component)
-    - `StyleSelectionBox.tsx`: a dialog box for choosing different styles
-    - `FormBox.tsx`: the website has a feedback form, and the code for it is stored in this file.
+	- `BlackBoard.tsx`: for the giant blackboard on the home page
+	- `ImageWrapper.tsx`: a wrapper for images (this is a global component)
+	- `StyleSelectionBox.tsx`: a dialog box for choosing different styles
+	- `FormBox.tsx`: the website has a feedback form, and the code for it is stored in this file.
 
 - The `infoStore` folder is the default place where all the information is stored:
-    - `fonts.tsx`: stores information about the fonts.
-    - `/downloadedFonts`: this folder contains local fonts.
-    - `designInfo.tsx`: for storing the default design number.
-    - `topicsInfo.tsx`: stores information for all the different topics.
-    - `/setCookie`: contains the code for changing the design number and storing it in cookies.
-    - `/sendEmail`: contains the api to email client feedback to me.
-    - `sourcesForCitation.tsx`: Stores citation information, more on this later.
-    - `paypalLink.tsx`: contains the code for the PayPal donation button.
-    - `/getTopicLinks`: Contains a `POST` function which gets the subtopics of a particular topic. 
-    - All the other folders (except for `getArticleContent`) stores article content. Article content gets sent to the user (when requested) using the API in `getArticleContent` folder.
+	- `designInfo.tsx`: for storing the default design number.
+	- `fonts.tsx`: stores information about the fonts.
+	- `paypalLink.tsx`: contains the code for the PayPal donation button.
+	- `sourcesForCitation.tsx`: Stores citation information, more on this later.
+	- `topicsInfo.tsx`: stores topic-related information for the home page.
+	- `/downloadedFonts`: this folder contains local fonts.
+	- `/setCookie`: contains the code for changing the design number and storing it in cookies.
+	- `/sendEmail`: contains the api to email client feedback to me.
+	- `/getTopicLinks`: Contains a `POST` function which gets all the subtopics and articler title of a particular topic. 
+	- All the other folders (except for `getArticleContent`) stores article content. Article content gets sent to the user (when requested) using the API in `getArticleContent` folder.
 
 ### [topic], [subTopic] and [article] folders
 
@@ -57,8 +57,11 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 11.3:</b>
+- Updated this file.
+
 <b>update 11.2:</b>
-- Updated file name in GitHub
+- Configured git (`git config core.ignorecase false`).
  
 <b>update 11.1:</b>
 - Removed the apostrophes and capital letters in URLs.
