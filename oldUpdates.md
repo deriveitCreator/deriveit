@@ -1,4 +1,43 @@
 
+<b>update 9.35 - 9.36:</b>
+- When switching from design 2 to 1, the background color didn't change, so that's fixed now.
+- Changed paypal donation link.
+
+<b>update 9.26 - 9.34:</b>
+- Apparently, google adsense adds their own inline css, so I had to disabled it using JavaScript. 
+
+<b>update 9.5 - 9.25:</b>
+- In design 1's home page, the last topic is "Under Construction", and is not clickable.
+- In design 2's home page, the "under construction" image was not showing, so that's fixed now.
+- In design 1 and design 2, made minor style changes.
+- Made minor changes to the form box.
+- In design 1, blackboard now shows an ad.
+
+<b>update 9.4:</b>
+- In `design2Main.tsx`, the main table now has a separate table, and made style changes.
+- For Article, images on mobile are now responsive and math displays now overflow when width is too small. Also, on mobile, inline MathJax wasn't rendering, so that's fixed now.
+- Home page for design 2 now plays Conway's Game of Life in the background and added parallax to it.
+- Added mobile support for design 1.
+
+<b>update 9.2 - 9.3:</b>
+- Added `differentiability_implies_continuity.tsx`.
+
+<b>update 9.1:</b>
+- Changed `Conic_Sections` in Geometry section to `Parabola`.
+- Removed the `More Quadrilateral Related Stuff` folder in the Geometry section and moved the files to `Quadrilateral Related Stuff`.
+- `Quadrilateral Related Stuff` now comes after `Triangle Related Stuff`.
+- Added a `Hyperbola` subtopic to the Geometry section.
+- Added a `Hyperbolic functions` subtopic to the Trigonometry section.
+- Added mobile support for design 2. Mobile support for Design 1 will be added later.
+
+<b>update 8.2:</b>
+- Fixed the error of 404 page not showing.
+- Blackboard in design 1 is now clickable.
+
+<b>update 8.1:</b>
+- When giving feedback, the last page you were in will also be sent (along with the form details).
+- Changed the placeholder color in FormBox's textarea.
+
 <b>update 7.1 - 7.22:</b>
 - Added code in the second style to handle 404 error.
 - Added site-map stuff.
