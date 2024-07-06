@@ -57,6 +57,10 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 11.4:</b>
+- In public `geometry`, changed folder names to lowercase.
+- The `geometry` folder in `infoStore` was missing for some reason.
+ 
 <b>update 11.3:</b>
 - Updated this file.
 
