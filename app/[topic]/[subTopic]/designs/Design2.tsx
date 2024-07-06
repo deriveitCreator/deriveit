@@ -9,19 +9,19 @@ import ImageWrapper from '@/app/components/ImageWrapper';
 import styles from "./variables.module.scss";
 
 export default function Style2(props: {topic: string, subTopic: [string,string[]], styleObject:{
-    name: string;
-    headerBgColor: string;
-    bgColor: string;
-    footerColor: string;
-    borderColor: string;
+	name: string;
+	headerBgColor: string;
+	bgColor: string;
+	footerColor: string;
+	borderColor: string;
 }}){ 
 	const responsiveH2Style = (screen.width > parseInt(styles.minDeviceWidth)) ?
 	"font-bold text-4xl mx-12 capitalize pt-10" :
 	"font-bold text-4xl mx-4 capitalize pt-10" ;
 
 	useEffect(()=>{
-			document.documentElement.style.overflowY = "auto";
-			document.documentElement.style.backgroundColor = props.styleObject.headerBgColor;
+		document.documentElement.style.overflowY = "auto";
+		document.documentElement.style.backgroundColor = props.styleObject.headerBgColor;
 	},[]);
 
 	let headerBgColor = props.styleObject.headerBgColor;
@@ -30,31 +30,31 @@ export default function Style2(props: {topic: string, subTopic: [string,string[]
 	let curTopic = props.subTopic;
 
 	if(curTopic[0] === "error") return <div>
-			<main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}>
-					<h2 className={`${headingFont.className} ${responsiveH2Style}`} style={{color: borderColor!}}>Error</h2>
-					<p className={`${mainTextFont.className} text-[28px] leading-[32px] mx-20 mt-5 `} style={{color: headerBgColor!, letterSpacing:"1px"}}>There is no content on this page</p>
-			</main>
-			<FooterEl borderColor={borderColor!} textColor={footerColor!} headerBgColor={headerBgColor!}/>
+		<main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}>
+			<h2 className={`${headingFont.className} ${responsiveH2Style}`} style={{color: borderColor!}}>Error</h2>
+			<p className={`${mainTextFont.className} text-[28px] leading-[32px] mx-20 mt-5 `} style={{color: headerBgColor!, letterSpacing:"1px"}}>There is no content on this page</p>
+		</main>
+		<FooterEl borderColor={borderColor!} textColor={footerColor!} headerBgColor={headerBgColor!}/>
 	</div>
 	else return <div>
-			<main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}>
-				<h2 className={`${headingFont.className} ${responsiveH2Style}`} style={{color: borderColor}}>{curTopic[0].replaceAll("_"," ")}</h2>
-				{(curTopic[1]).map((val:string,i: number)=> {
-					if(val.includes("%")){ return <StyledP
-						key={i}
-						textColor={headerBgColor}
-						text={val.substring(0,val.lastIndexOf('%')).replaceAll("_"," ")}
-						link={`${curTopic[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`.replaceAll(" ","_")}
-					/>;
-					}else return <StyledP
-						key={i}
-						textColor={headerBgColor}
-						text={val.replaceAll("_"," ")}
-						link={`${curTopic[0]}/${val}`.replaceAll(" ","_")}
-					/>;
-				})}
-			</main>
-			<FooterEl borderColor={borderColor!} textColor={footerColor!} headerBgColor={headerBgColor!}/>
+		<main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}>
+			<h2 className={`${headingFont.className} ${responsiveH2Style}`} style={{color: borderColor}}>{curTopic[0].replaceAll("_"," ")}</h2>
+			{(curTopic[1]).map((val:string,i: number)=> {
+				if(val.includes("%")){ return <StyledP
+					key={i}
+					textColor={headerBgColor}
+					text={val.substring(0,val.lastIndexOf('%')).replaceAll("_"," ")}
+					link={`${curTopic[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`}
+				/>;
+				}else return <StyledP
+					key={i}
+					textColor={headerBgColor}
+					text={val.replaceAll("_"," ")}
+					link={`${curTopic[0]}/${val}`}
+				/>;
+			})}
+		</main>
+		<FooterEl borderColor={borderColor!} textColor={footerColor!} headerBgColor={headerBgColor!}/>
 	</div>
 }
 
@@ -73,12 +73,12 @@ function FooterEl(props:{borderColor:string, textColor: string, headerBgColor: s
 	const formType = useRef(0);
 		
 	function dispatch(arg0: {type: string}){
-			arg0.type==="SHOW_FORM_BOX"? changeFS(true):changeFS(false);
+		arg0.type==="SHOW_FORM_BOX"? changeFS(true):changeFS(false);
 	}
 
 	function showForm(type: number){
-			formType.current = type;
-			dispatch({type: "SHOW_FORM_BOX"});
+		formType.current = type;
+		dispatch({type: "SHOW_FORM_BOX"});
 	}
 
 	return <div className={printFont2.className+' font-bold'} style={{color:props.textColor}}>

@@ -57,6 +57,10 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 11.1</b>
+- Removed the apostrophes and capital letters in URLs.
+- Subtopics are now assumed to have no space and no capital letters.
+
 <b>update 10.57:</b>
 - In `[article]/page.tsx`, I changed the production build cache to `default`.
 

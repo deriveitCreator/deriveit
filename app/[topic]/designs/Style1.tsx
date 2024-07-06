@@ -31,13 +31,13 @@ export default function Test(props: {topic: string, topicsInfoState: Array<[stri
 					if(val.includes("%")){ return <StyledP
 						key={i}
 						text={val.substring(0,val.lastIndexOf('%')).replaceAll("_"," ")}
-						link={`${props.topic}/${subArr[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`.replaceAll(",","").replaceAll(" ","_")}
+						link={`${props.topic}/${subArr[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`}
 						styles={responsivePStyle}
 					/>;
 					}else return <StyledP
 						key={i}
 						text={val.replaceAll("_"," ")}
-						link={`${props.topic}/${subArr[0]}/${val}`.replaceAll(" ","_").replaceAll(",","")}
+						link={`${props.topic}/${subArr[0]}/${val}`}
 						styles={responsivePStyle}
 					/>;
 				})}

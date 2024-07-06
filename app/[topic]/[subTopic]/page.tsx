@@ -12,7 +12,7 @@ else domainName = "https://www.deriveit.net";
 export default async function Page({ params }: { params: { topic: string, subTopic: string } }){
   const designSelectedVal = parseInt(cookies().get("designSelected")?.value!) || DEFAULT_DESIGN_SELECTION;
   const decodedTopic = decodeURIComponent(params.topic);
-  const decodedSubTopic = decodeURIComponent(params.subTopic).replaceAll(" ","_").toLowerCase();
+  const decodedSubTopic = decodeURIComponent(params.subTopic);
 
   const topicLinks = await fetch(domainName + "/infoStore/getTopicLinks", {
     method:"POST",

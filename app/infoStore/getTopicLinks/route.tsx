@@ -61,14 +61,14 @@ const algebraLinks: Array<[string,string[]]> = [
 		"x<sup>-n</sup> is equal to 1/(x<sup>n</sup>)%raising_to_negative"
 	]],
 	["logarithms", ["change_of_base","power","product and quotient rule"]],
-	["quadratic formula", ["quadratic formula"]]
+	["quadratic_formula", ["quadratic formula"]]
 ];
 
 const geometryLinks: Array<[string,string[]]> = [
-	["Triangle Related Stuff", ["angles_in_a_triangle_add_to_180","area_of_a_triangle","constructing_an_equilateral_triangle","pythagoras_theorem","sides_of_30_90_60"]],
-	["Quadrilateral Related Stuff", ["area_of_a_parallelogram","area_of_a_trapezium","constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle"]],
-	["Circle Related Stuff", ["thales_theorem"]],
-	["Parabola", [
+	["triangle_related_stuff", ["angles_in_a_triangle_add_to_180","area_of_a_triangle","constructing_an_equilateral_triangle","pythagoras_theorem","sides_of_30_90_60"]],
+	["quadrilateral_related_stuff", ["area_of_a_parallelogram","area_of_a_trapezium","constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle"]],
+	["circle_related_stuff", ["thales_theorem"]],
+	["parabola", [
 		"getting_the_standard_form_equation_of_a_parabola_from_the_focus-directrix_definition%getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition",
 		"axis_of_symmetry_of_a_parabola",
 		"getting_the_focus,_directrix_and_vertex%getting_the_focus_directrix_and_vertex",
@@ -76,7 +76,7 @@ const geometryLinks: Array<[string,string[]]> = [
 		"the_reflective_property_of_a_parabola",
 		"the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola",
 	]],
-	["Hyperbola",[
+	["hyperbola",[
 		"getting_the_standard_form_equation_from_the_geometric_definition",
 		"deriving_the_asymptote_of_a_hyperbola"
 	]]
@@ -134,7 +134,7 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"0! = 1%0fac",
 		"the formula of permutations%factorials_and_permutations",
 		"the formula of combinations%com",
-		"using_combinations_to_find_a_number_in_the_Pascal's_triangle",
+		"using_combinations_to_find_a_number_in_the_Pascal's_triangle%pascals_triangle.tsx",
 		"number of ways of arranging n objects with k identical objects%binomial_theorem"
 	]],
 	["sequence_and_series", [
@@ -179,11 +179,11 @@ const calculusLinks: Array<[string,string[]]> = [
 		"the_chain_rule",
 		"the_inverse_function_rule"
 	]],
-	["using_euler's_number", ["definition of e%define_e","[d/dx]b<sup>x</sup> = b<sup>x</sup>ln(b)%bx","[d/dx]log<sub>b</sub>x = 1/(x * ln(b))%log","the power rule (when exponent is any real number)%power_rule_when_exponent_is_real","only_functions_of_the_form_Ae^x_are_derivatives_of_themselves%functions_which_are_derivatives_of_themselves","representing e<sup>x</sup> as a limit%e_limit","representing e<sup>x</sup> as an infinite series (proof 1)%e_series","representing e<sup>x</sup> as an infinite series (proof 2)%e_series2","Euler's_formula"
+	["using_eulers_number", ["definition of e%define_e","[d/dx]b<sup>x</sup> = b<sup>x</sup>ln(b)%bx","[d/dx]log<sub>b</sub>x = 1/(x * ln(b))%log","the power rule (when exponent is any real number)%power_rule_when_exponent_is_real","only_functions_of_the_form_Ae^x_are_derivatives_of_themselves%functions_which_are_derivatives_of_themselves","representing e<sup>x</sup> as a limit%e_limit","representing e<sup>x</sup> as an infinite series (proof 1)%e_series","representing e<sup>x</sup> as an infinite series (proof 2)%e_series2","eulers_formula"
 	]],
 	["trigonometric_derivatives", ["[d/dx]sin(x) = cos(x)%sin","[d/dx]cos(x) = -sin(x)%cos","derivative of sec(x) and cosec(x)%sec","derivative of tan(x) and cotan(x)%tan","derivative of arcsine(x)%arcsin","derivative of arccosine(x)%arccos","derivative of arcsecant(x)%arcsec","derivative of arccosecant(x)%arccosec","derivative of arctangent(x)%arctan","derivative of arccotangent(x)%arccot"
 	]],
-	["l'hospital's_rule", ["indeterminate form of type 0/0%zeroOverZero",]],
+	["lhospitals_rule", ["indeterminate form of type 0/0%zeroOverZero",]],
 	["antiderivative", [
 		"antiderivative_of_secant(x)_and_cosecant(x)",
 		"antiderivative_of_tangent(x)_and_cotangent(x)",

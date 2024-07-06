@@ -23,12 +23,12 @@ export default function Design1(props: {topic: string, subTopic: [string, string
             if(val.includes("%")){ return <StyledP
                 key={i}
                 text={val.substring(0,val.lastIndexOf('%')).replaceAll("_"," ")}
-                link={`${curTopic[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`.replaceAll(",","").replaceAll(" ","_")}
+                link={`${curTopic[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`}
             />;
             }else return <StyledP
                 key={i}
                 text={val.replaceAll("_"," ")}
-                link={`${curTopic[0]}/${val}`.replaceAll(" ","_").replaceAll(",","")}
+                link={`${curTopic[0]}/${val}`}
             />;
         })}
     </section></main>;
