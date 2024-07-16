@@ -9,7 +9,7 @@ import { FaPaintbrush, FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import StyleSelectionBox from '../components/StyleSelectionBox';
 import Link from 'next/link';
 import Design2Footer from '../footerStyles/design2Footer';
-import { allTopics, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';
+import { topicsAndLinks, getTopicColorInfo, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';
 import { ParallaxProvider, useParallax } from 'react-scroll-parallax';
 
 export default function Design2(){
@@ -106,10 +106,10 @@ function MainTable(){
 		{screen.width > parseInt(styles.minDeviceWidth) ? <thead><tr><th>Choose Your Topic:</th></tr></thead> : null}
 		{/*When making images in powerpoint, the width should be 646px and height should be 334px*/}
 		<tbody>
-			{allTopics.map((elem,i)=>{
+			{topicsAndLinks.map((elem,i)=>{
 				if(i%2 === 0){
-					const name1 = allTopics[i].name.toLowerCase().replaceAll(" ","_");
-					const name2 = allTopics[i+1].name.toLowerCase().replaceAll(" ","_");
+					const name1 = topicsAndLinks[i].link;
+					const name2 = topicsAndLinks[i+1].link;
 					return <tr key={i}><td>
 						<div className=' w-1/2 inline-block'><Link href={`/${name1}`}>
 							<ImageWrapper alt={name1} src={`/topicsPics/${name1}.png`}/>
@@ -288,15 +288,10 @@ function BelowTables(props: {recentlyAdded: boolean}){
 		return <section><table id={styles.tableForRecent}>
 			<tbody>{(props.recentlyAdded ?  getRecentlyAdded():getRecentlyEdited()).map((elem, i)=>{
 				let perPos = elem.indexOf("%");
-				let bgColor: string;
-				let borderColor: string;
-				for(let record of allTopics){
-					if(record.name.replaceAll(" ","_").toLowerCase() === elem.substring(perPos+1, elem.indexOf("/"))){
-						bgColor = record.bgColor;
-						borderColor = record.borderColor;
-						break;
-					}
-				}
+				let topicName = elem.substring(perPos+1, elem.indexOf("/",perPos))
+				let colorInfo = getTopicColorInfo(topicName);
+				let bgColor = colorInfo.bgColor;
+				let borderColor = colorInfo.borderColor;
 
 				if(i===0) return <tr key={0}>
 					<th scope='col' rowSpan={4} className={`border-4 ${logoFont2.className}`}>
@@ -320,19 +315,17 @@ function BelowTables(props: {recentlyAdded: boolean}){
 			</tr></thead>
 			<tbody>{(props.recentlyAdded ?  getRecentlyAdded():getRecentlyEdited()).map((elem, i)=>{
 				let perPos = elem.indexOf("%");
-				let bgColor: string;
-				let borderColor: string;
-				for(let record of allTopics){
-					if(record.name.replaceAll(" ","_").toLowerCase() === elem.substring(perPos+1, elem.indexOf("/"))){
-						bgColor = record.bgColor;
-						borderColor = record.borderColor;
-						break;
-					}
-				}
+				let topicName = elem.substring(perPos+1, elem.indexOf("/",perPos));
+				let colorInfo = getTopicColorInfo(topicName);
 				
-				return <tr key={0}><td style={{ backgroundColor: bgColor!, color: borderColor!, fontWeight:"bold"}} className={mainTextFont.className}>
-					<Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link>
-				</td></tr>;
+				return <tr key={0}>
+					<td
+						style={{backgroundColor: colorInfo.bgColor!, color: colorInfo.borderColor!, fontWeight:"bold"}}
+						className={mainTextFont.className}
+					>
+						<Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link>
+					</td>
+				</tr>;
 			})}</tbody>
 		</table></section>
 	}

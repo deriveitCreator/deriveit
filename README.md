@@ -57,6 +57,11 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 11.5:</b>
+- Made changes to `limits/limits_sin.tsx`, `limits/limits_cos.tsx` and `trigonometric_derivatives/sin.tsx`.
+- In `topicsInfo.tsx`, I added the `topicsAndLinks` array to write the associated "link name" with the topic name.
+- In `topicsInfo.tsx`, the color information is in a separate object (`colorInfo`). I may remove `allTopics` in the future.
+
 <b>update 11.4:</b>
 - In public `geometry`, changed folder names to lowercase.
 - The `geometry` folder in `infoStore` was missing for some reason.
