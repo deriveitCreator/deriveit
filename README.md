@@ -57,6 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 11.6:</b>
+- Fixed some naming issues.
+
 <b>update 11.5:</b>
 - Made changes to `limits/limits_sin.tsx`, `limits/limits_cos.tsx` and `trigonometric_derivatives/sin.tsx`.
 - In `topicsInfo.tsx`, I added the `topicsAndLinks` array to write the associated "link name" with the topic name.

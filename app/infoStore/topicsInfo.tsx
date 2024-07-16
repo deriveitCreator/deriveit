@@ -27,7 +27,7 @@ export const topicsAndLinks = [
 	{name:"Mechanics", link:"mechanics"},
 	{name:"Astronomy", link:"astronomy"},
 	{name:"Chemistry", link:"chemistry"},
-	{name:"Electricity & Magnetism", link:"electricity_&_Magnetism"},
+	{name:"Electricity & Magnetism", link:"electricity_&_magnetism"},
 	{name:"Biology", link:"biology"},
 	{name:"Computer Science", link:"computer_science"},
 	{name:"Error",link:"error"}
@@ -44,7 +44,7 @@ const colorInfo = {
 	"mechanics":{ headerBgColor: "#AA0000", bgColor:"#FFEEAA", footerColor:"#FEF1B5", borderColor:"#600000"},
 	"astronomy":{ headerBgColor: "#88AABB", bgColor:"black", footerColor:"#333333", borderColor:"#DD0000"},
 	"chemistry":{ headerBgColor: "#CC5599", bgColor:"#FFBBFF", footerColor:"#FFAAFF", borderColor:"#993366"},
-	"electricity_&_Magnetism":{ headerBgColor: "#777777", bgColor:"#F4F4F4", footerColor:"white", borderColor:"#535353"},
+	"electricity_&_magnetism":{ headerBgColor: "#777777", bgColor:"#F4F4F4", footerColor:"white", borderColor:"#535353"},
 	"biology":{ headerBgColor: "#FF9966", bgColor:"#FFEAA9", footerColor:"#FFEAA9", borderColor:"#FF6655"},
 	"computer_science":{ headerBgColor: "#36e", bgColor:"#1f1f1f", footerColor:"#111", borderColor:"#AAA"},
 	"error":{ headerBgColor: "#d61", bgColor:"#fc6", footerColor:"#520", borderColor:"#520"}
