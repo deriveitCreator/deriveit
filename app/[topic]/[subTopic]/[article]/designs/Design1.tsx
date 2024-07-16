@@ -359,7 +359,7 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
         <IconContext.Provider value={{style:{display:"inline",height:"25px"}}}>
           <FaLongArrowAltLeft/>
         </IconContext.Provider>
-        &nbsp;Topic Page
+        &nbsp;Topics Page
       </Link>
       <p className=" w-full text-center text-xl pb-2">
         <button onClick={()=>this.decFS(this.fontSizeMain, this.setFS)} ref={this.DecFontSizeEl }>-</button>

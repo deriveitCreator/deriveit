@@ -16,27 +16,51 @@ export const allTopics = [
 	{name:"Error",headerBgColor: "#d61", bgColor:"#fc6", footerColor:"#520", borderColor:"#520"}
 ]
 
-export const topicsAndLinks = [
-	{name:"Algebra", link: "algebra"},
-	{name:"Geometry", link:"geometry"},
-	{name:"Discrete Mathematics", link:"discrete_mathematics"},
-	{name:"Linear Algebra", link: "linear_algebra"},
-	{name:"Trigonometry", link:"trigonometry"},
-	{name:"Calculus", link: "calculus"},
-	{name:"Probability & Statistics", link:"probability_&_statistics"},
-	{name:"Mechanics", link:"mechanics"},
-	{name:"Astronomy", link:"astronomy"},
-	{name:"Chemistry", link:"chemistry"},
-	{name:"Electricity & Magnetism", link:"electricity_&_magnetism"},
-	{name:"Biology", link:"biology"},
-	{name:"Computer Science", link:"computer_science"},
-	{name:"Error",link:"error"}
+export const topicsOrder = [
+	"algebra",
+	"geometry",
+	"discrete_mathematics",
+	"linear_algebra",
+	"trigonometry",
+	"calculus",
+	"probability_&_statistics",
+	"mechanics",
+	"astronomy",
+	"chemistry",
+	"electricity_&_magnetism",
+	"biology",
+	"computer_science",
+	"error"
 ]
 
-const colorInfo = {
+export const LinksWithTopicName: {[key:string]: string} = {
+	"algebra": "Algebra",
+	"geometry": "Geometry",
+	"discrete_mathematics": "Discrete Mathematics",
+	"linear_algebra": "Linear Algebra",
+	"trigonometry": "Trigonometry",
+	"calculus": "Calculus",
+	"probability_&_statistics": "Probability & Statistics",
+	"mechanics":"Mechanics",
+	"astronomy":"Astronomy",
+	"chemistry":"Chemistry",
+	"electricity_&_magnetism":"Electricity & Magnetism",
+	"biology":"Biology",
+	"computer_science":"Computer Science",
+	"error":"Error"
+}
+
+export type colorInfoType = {
+	headerBgColor: string,
+	bgColor: string,
+	footerColor: string,
+	borderColor: string
+}
+
+const colorInfo: {[key:string]: colorInfoType} = {
 	"algebra": {headerBgColor: "#B95C00", bgColor:"rgb(251, 227, 155)", footerColor:"#FBE39B", borderColor:"#663300"},
 	"geometry": {headerBgColor: "#00CC00", bgColor:"#CCFF99", footerColor:"#99FF66", borderColor:"green"},
-	"discrete_mathematics": {headerBgColor: "#FF9900", bgColor:"#FFEEAA", footerColor:"#FFDB91", borderColor:"#FF6600",text:"Discrete Mathematics"},
+	"discrete_mathematics": {headerBgColor: "#FF9900", bgColor:"#FFEEAA", footerColor:"#FFDB91", borderColor:"#FF6600"},
 	"linear_algebra":{ headerBgColor: "#777", bgColor:"#eee", footerColor:"#CCCCCC", borderColor:"#444"},
 	"trigonometry":{ headerBgColor: "#3366CC", bgColor:"#99CCFF", footerColor:"#FFFFCC", borderColor:"#000099"},
 	"calculus":{ headerBgColor: "teal", bgColor:"#88DFDF", footerColor:"#AACCCC", borderColor:"#005555"},
@@ -50,7 +74,7 @@ const colorInfo = {
 	"error":{ headerBgColor: "#d61", bgColor:"#fc6", footerColor:"#520", borderColor:"#520"}
 }
 
-export function getTopicColorInfo(value: string){
+export function getTopicColorInfo(value: string): colorInfoType{
 	//@ts-ignore
 	return colorInfo[value];
 }

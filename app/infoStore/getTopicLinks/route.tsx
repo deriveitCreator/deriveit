@@ -60,8 +60,8 @@ const algebraLinks: Array<[string,string[]]> = [
 		"<sup>m</sup>√a is equal to a<sup>1/m</sup>%roots_as_exponents",
 		"x<sup>-n</sup> is equal to 1/(x<sup>n</sup>)%raising_to_negative"
 	]],
-	["logarithms", ["change_of_base","power","product and quotient rule"]],
-	["quadratic_formula", ["quadratic formula"]]
+	["logarithms", ["change_of_base","power","product_and_quotient_rule"]],
+	["quadratic_formula", ["quadratic_formula"]]
 ];
 
 const geometryLinks: Array<[string,string[]]> = [

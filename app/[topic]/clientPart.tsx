@@ -2,19 +2,27 @@
 
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from "react";
-import { allTopics } from '../infoStore/topicsInfo';
 import TopicHeader from './designs/TopicHeader';
+
+export type styleObjectType = {
+  headerBgColor: string;
+  bgColor: string;
+  footerColor: string;
+  borderColor: string;
+}
 
 type ImportType = {
   topic: string,
   topicsInfoState: Array<[string,string[]]>,
-  styleObject?: typeof allTopics[0]
+  styleObject?: styleObjectType,
 }
 
 export default function ClientPart(props: {
-  topic:string,
+  topic: string,
   topicsInfoState: Array<[string,string[]]>,
-  design: number
+  design: number,
+  name: string,
+  styleObject: null | styleObjectType
 }){
   const [firstLoad, changeFL] = useState(true);
   const MainComp = dynamic<ImportType>(() => import(`@/app/[topic]/designs/Style${props.design}`), { ssr: false });
@@ -27,23 +35,18 @@ export default function ClientPart(props: {
 
   if(firstLoad) return null;
 
-  var recordInd = 0;
-  while (
-    (allTopics[recordInd].name.replaceAll(" ","_").toLowerCase() != props.topic) &&
-    (recordInd < allTopics.length-1)
-  ) recordInd += 1;
-
   if(props.design === 1){
     return <>
-      <TopicHeader ds={1} styleObject={allTopics[recordInd]}/>
+      <TopicHeader styleNumber={1} name={props.name}/>
       <MainComp topic={props.topic} topicsInfoState={props.topicsInfoState}/>
     </>
   }
-  else{
-    let bgColor = allTopics[recordInd].bgColor;
+  else if(props.design === 2){
+    let bgColor = props.styleObject!.bgColor;
     return (<div style={{backgroundColor: bgColor, minHeight:"100vh"}}>
-      <TopicHeader ds={props.design} styleObject={allTopics[recordInd]}/>
-      <MainComp topic={props.topic} topicsInfoState={props.topicsInfoState} styleObject={allTopics[recordInd]}/>
+      <TopicHeader styleNumber={2} name={props.name} styleObject={props.styleObject!}/>
+      <MainComp topic={props.topic} topicsInfoState={props.topicsInfoState} styleObject={props.styleObject!}/>
     </div>)
   }
+  else throw new Error("Wrong design number value");
 }

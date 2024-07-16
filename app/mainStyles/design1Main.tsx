@@ -4,7 +4,7 @@ import React, { useState, useRef, useReducer, Suspense, useEffect } from 'react'
 import styles from "./design1.module.scss";
 import { chalkWriting, cursiveMain } from '../infoStore/fonts';
 import Link from 'next/link';
-import { allTopics, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';
+import { topicsOrder, LinksWithTopicName, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';
 import { ImageWrapper } from "../components/ImageWrapper";
 import { useRouter } from 'next/navigation';
 import { IconContext } from "react-icons";
@@ -42,7 +42,7 @@ export default function Design1(){
   </>;
 }
 
-const HomeLoading=(props:{disabledState:boolean,hlDis:React.Dispatch<{type:string;payload?: string|undefined}>})=>{
+const HomeLoading=(props:{disabledState:boolean, hlDis:React.Dispatch<{type:string;payload?: string|undefined}>})=>{
   const [wrapperH, setWH] = useState("h-screen");
 
   useEffect(()=>{
@@ -92,13 +92,12 @@ function HomeBody(props:{design1States:any, disFunc:React.Dispatch<{type:string;
       <section>
         <h2 className={`${cursiveMain.className} ${styles.h2Class}`}>Topics</h2>
         <div className={`after:clear-both after:block after:w-full after:content-[' '] border-gray-600 border-b-4 border-t-4 text-center after:text-gray-800 w-full`} style={{transition: "top 0.3s ease-out"}}>
-          {allTopics.map((topic, i) => {
+          {topicsOrder.map((topic, i) => {
             if(i%2) return null;
             else{
-            let nextTopic = allTopics[i+1];
             return <div key={i}>
-              <TopicLink refTo={topic.name} floatD={"left"}/>
-              <TopicLink refTo={nextTopic.name} floatD={"right"}/>
+              <TopicLink refTo={topicsOrder[i]} floatD={"left"}/>
+              <TopicLink refTo={topicsOrder[i+1]} floatD={"right"}/>
             </div>
             }
           })}
@@ -179,13 +178,23 @@ function TopicLink(props: {refTo: string, floatD: string}){
     e.preventDefault();
   }
 
-  if(props.refTo == "Error") return <div id={styles.errorDiv} className={`bg-gray-100 overflow-hidden float-${props.floatD} notSelectedForShrink block ${cursiveMain.className} ${styles.topicClass}`} style={{width:"50%",height:"60px",transition:"width 0.2s ease-out, opacity 0.2s ease-out, height 0.3s ease-out "}}>Under Construction</div>
-  else return <div onClick={divClicked} className={`bg-gray-50 overflow-hidden float-${props.floatD} notSelectedForShrink `} style={{width:"50%",height:"60px",transition:"width 0.2s ease-out, opacity 0.2s ease-out, height 0.3s ease-out "}} ><Link
-    href={"/"+props.refTo.toLowerCase()}
-    className={`bg-gray-100 block hover:no-underline ${cursiveMain.className} ${styles.topicClass}`}
-    style={{transition:"font-size 0.2s ease-out, height 0.3s ease-out"}}
-    onClick={linkClicked}
-  >{props.refTo}</Link></div>
+  if(props.refTo == "error"){
+    return <div id={styles.errorDiv} className={`bg-gray-100 overflow-hidden float-${props.floatD} notSelectedForShrink block ${cursiveMain.className} ${styles.topicClass}`} style={{width:"50%",height:"60px",transition:"width 0.2s ease-out, opacity 0.2s ease-out, height 0.3s ease-out "}}>
+      Under Construction
+    </div>
+  }
+  else {
+    return <div onClick={divClicked} className={`bg-gray-50 overflow-hidden float-${props.floatD} notSelectedForShrink `} style={{width:"50%",height:"60px",transition:"width 0.2s ease-out, opacity 0.2s ease-out, height 0.3s ease-out "}} >
+      <Link
+        href={"/"+props.refTo}
+        className={`bg-gray-100 block hover:no-underline ${cursiveMain.className} ${styles.topicClass}`}
+        style={{transition:"font-size 0.2s ease-out, height 0.3s ease-out"}}
+        onClick={linkClicked}
+      >
+        {LinksWithTopicName[props.refTo]}
+      </Link>
+    </div>
+  }
 }
 
 function RecentlySection(type:string){

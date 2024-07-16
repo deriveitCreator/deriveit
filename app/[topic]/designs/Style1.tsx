@@ -5,7 +5,7 @@ import { cursiveMain, textMain } from "@/app/infoStore/fonts";
 import Link from "next/link";
 import styles from "./variables.module.scss";
 
-export default function Test(props: {topic: string, topicsInfoState: Array<[string,string[]]>}){ 
+export default function Style1(props: {topic: string, topicsInfoState: Array<[string,string[]]>}){ 
 	const [curOp,setOp] = useState(0);
 	const responsiveH2Style = (screen.width > parseInt(styles.minDeviceWidth)) ?
 	"text-4xl px-8 capitalize mt-3" :

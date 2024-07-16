@@ -7,17 +7,12 @@ import FormBox from '@/app/components/FormBox';
 import ImageWrapper from '@/app/components/ImageWrapper';
 import styles from "./variables.module.scss";
 import { link } from "../../infoStore/paypalLink";
+import { styleObjectType } from '../clientPart';
 
 export default function Style2(props: {
 	topic: string,
 	topicsInfoState: Array<[string,string[]]>,
-	styleObject:{
-    name: string;
-    headerBgColor: string;
-    bgColor: string;
-    footerColor: string;
-    borderColor: string;
-	}
+	styleObject: styleObjectType
 }){
 
 	useEffect(()=>{

@@ -9,7 +9,7 @@ import { FaPaintbrush, FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import StyleSelectionBox from '../components/StyleSelectionBox';
 import Link from 'next/link';
 import Design2Footer from '../footerStyles/design2Footer';
-import { topicsAndLinks, getTopicColorInfo, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';
+import { topicsOrder, LinksWithTopicName, getTopicColorInfo, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';
 import { ParallaxProvider, useParallax } from 'react-scroll-parallax';
 
 export default function Design2(){
@@ -106,10 +106,10 @@ function MainTable(){
 		{screen.width > parseInt(styles.minDeviceWidth) ? <thead><tr><th>Choose Your Topic:</th></tr></thead> : null}
 		{/*When making images in powerpoint, the width should be 646px and height should be 334px*/}
 		<tbody>
-			{topicsAndLinks.map((elem,i)=>{
+			{topicsOrder.map((elem,i)=>{
 				if(i%2 === 0){
-					const name1 = topicsAndLinks[i].link;
-					const name2 = topicsAndLinks[i+1].link;
+					const name1 = topicsOrder[i];
+					const name2 = topicsOrder[i+1];
 					return <tr key={i}><td>
 						<div className=' w-1/2 inline-block'><Link href={`/${name1}`}>
 							<ImageWrapper alt={name1} src={`/topicsPics/${name1}.png`}/>
