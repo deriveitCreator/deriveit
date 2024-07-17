@@ -2,20 +2,28 @@
 
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from "react";
-import { allTopics } from '../../infoStore/topicsInfo';
 import SubTopicHeader from './designs/SubTopicHeader';
+
+export type styleObjectType = {
+  headerBgColor: string;
+  bgColor: string;
+  footerColor: string;
+  borderColor: string;
+}
 
 type ImportType = {
   topic: string,
   subTopic:[string,string[]],
-  styleObject?: typeof allTopics[0]
+  styleObject?: styleObjectType
 }
 
 export default function ClientPart(props: {
   topic:string,
   subTopic:string,
-  topicsInfoState: Array<[string,string[]]>,
-  design: number
+  topicInfo: Array<[string,string[]]>,
+  design: number,
+  name: string,
+  styleObject: styleObjectType | null
 }){
   const [firstLoad, changeFL] = useState(true);
   const MainComp = dynamic<ImportType>(() => import(`./designs/Design${props.design}`), { ssr: false });
@@ -29,29 +37,23 @@ export default function ClientPart(props: {
   if(firstLoad) return null;
 
   var curSubTopic: [string, string[]] = ["error",[""]];
-  for(let i in props.topicsInfoState){
-    if(props.topicsInfoState[i][0].replaceAll(" ","_").toLowerCase() === props.subTopic){
-      curSubTopic = props.topicsInfoState[i];
+  for(let i in props.topicInfo){
+    if(props.topicInfo[i][0] === props.subTopic){
+      curSubTopic = props.topicInfo[i];
       break;
     }
   };
-  
-  var recordInd = 0;
-  if(curSubTopic[0] === "error") recordInd = allTopics.length-1;
-  else while (
-    (allTopics[recordInd].name.replaceAll(" ","_").toLowerCase() != props.topic) &&
-    (recordInd < allTopics.length-1)
-  ) recordInd += 1;
 
   if(props.design === 1) return <>
-    <SubTopicHeader ds={1} styleObject={allTopics[recordInd]}/>
+    <SubTopicHeader styleNumber={1} name={props.name}/>
     <MainComp topic={props.topic} subTopic={curSubTopic}/>
   </>
-  else{
-    let bgColor = allTopics[recordInd].bgColor;
+  else if(props.design === 2) {
+    let bgColor = props.styleObject!.bgColor;
     return <div style={{backgroundColor: bgColor, minHeight:"100vh"}}>
-      <SubTopicHeader ds={props.design} styleObject={allTopics[recordInd]}/>
-      <MainComp topic={props.topic} subTopic={curSubTopic} styleObject={allTopics[recordInd]}/>
+      <SubTopicHeader styleNumber={props.design} styleObject={props.styleObject!} name={props.name}/>
+      <MainComp topic={props.topic} subTopic={curSubTopic} styleObject={props.styleObject!}/>
     </div>
   }
+  else throw new Error("Wrong design number value");
 }

@@ -3,6 +3,7 @@ import React from 'react';
 import { cookies } from 'next/headers';
 import { DEFAULT_DESIGN_SELECTION } from '@/app/infoStore/designInfo';
 import ClientPart from './clientPart';
+import { LinksWithTopicName, getTopicColorInfo, colorInfoType } from '../../infoStore/topicsInfo';
 
 var domainName: string;
 if((!process.env.NODE_ENV || process.env.NODE_ENV === 'development'))
@@ -19,11 +20,18 @@ export default async function Page({ params }: { params: { topic: string, subTop
     headers:{"Content-Type":"application/json"},
     body: JSON.stringify({topic: decodedTopic}),
   }).then((res) => res.json());
+
+  let styleObject: colorInfoType | null;
+  if (designSelectedVal==1) styleObject = null;
+  else if (designSelectedVal==2) styleObject = getTopicColorInfo(decodedTopic);
+  else return null;
   
   return <ClientPart
     topic={decodedTopic}
     subTopic={decodedSubTopic}
-    topicsInfoState={topicLinks}
+    topicInfo={topicLinks}
     design={designSelectedVal}
+    name={LinksWithTopicName[decodedTopic]}
+    styleObject={styleObject}
   />;
 }

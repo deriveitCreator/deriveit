@@ -57,8 +57,11 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 11.8:</b>
+- Made changes to code and data structures in the "subtopics" pages.
+
 <b>update 11.7:</b>
-- Made changes to code and data structures in the topics page.
+- Made changes to code and data structures in the "topics" pages.
 
 <b>update 11.6:</b>
 - Fixed some naming issues.

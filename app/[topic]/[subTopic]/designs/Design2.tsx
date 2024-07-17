@@ -7,14 +7,9 @@ import Link from "next/link";
 import FormBox from '@/app/components/FormBox';
 import ImageWrapper from '@/app/components/ImageWrapper';
 import styles from "./variables.module.scss";
+import { styleObjectType } from '../clientPart';
 
-export default function Style2(props: {topic: string, subTopic: [string,string[]], styleObject:{
-	name: string;
-	headerBgColor: string;
-	bgColor: string;
-	footerColor: string;
-	borderColor: string;
-}}){ 
+export default function Style2(props: {topic: string, subTopic: [string,string[]], styleObject: styleObjectType}){ 
 	const responsiveH2Style = (screen.width > parseInt(styles.minDeviceWidth)) ?
 	"font-bold text-4xl mx-12 capitalize pt-10" :
 	"font-bold text-4xl mx-4 capitalize pt-10" ;

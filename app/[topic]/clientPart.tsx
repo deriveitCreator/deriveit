@@ -22,7 +22,7 @@ export default function ClientPart(props: {
   topicsInfoState: Array<[string,string[]]>,
   design: number,
   name: string,
-  styleObject: null | styleObjectType
+  styleObject: styleObjectType | null
 }){
   const [firstLoad, changeFL] = useState(true);
   const MainComp = dynamic<ImportType>(() => import(`@/app/[topic]/designs/Style${props.design}`), { ssr: false });

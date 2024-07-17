@@ -6,7 +6,7 @@ import { FaPaintbrush } from "react-icons/fa6";
 import { TiHome } from "react-icons/ti";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { annotate } from 'rough-notation';
-import { LegacyRef, createContext, useContext, useEffect, useRef, useState, Component, memo, createRef, useReducer, RefObject, Dispatch, SetStateAction, MutableRefObject, Context } from "react";
+import { LegacyRef, createContext, useContext, useEffect, useRef, useState, Component, memo, createRef, RefObject, Dispatch, SetStateAction } from "react";
 import Link from "next/link";
 import { citationList } from '@/app/infoStore/sourcesForCitation';
 import ImageWrapper from '@/app/components/ImageWrapper';
