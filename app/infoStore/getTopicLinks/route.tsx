@@ -96,8 +96,10 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"if α<sub>1</sub>|b, α<sub>2</sub>|b and gcd(α<sub>1</sub>, α<sub>2</sub>) = 1 ⇒ α<sub>1</sub>α<sub>2</sub>|b%gcdLemma14",
 		"δ = gcd(α, β) ⇒ gcd(α/δ, β/δ) = 1%gcdLemma8",
 		"if ε|αβ and gcd(ε, α) = 1, then ε|β%other",
-		"there are infinite values of x and y such that gcd(x, y) divides (x + y)%gcdDividesPlus",
-		"if m|n, then (a<sup>m</sup>-b<sup>m</sup>)|(a<sup>n</sup>-b<sup>n</sup>)%divisibilityLemma1"
+		"if m|n, then (a<sup>m</sup>-b<sup>m</sup>)|(a<sup>n</sup>-b<sup>n</sup>)%divisibilityLemma1",
+		"if gcd(x, y) divides (x + y), then there are infinite values of x and y, otherwise no values of x and y exists%gcdDividesPlus",
+		"if gcd(α, β) = 1, then gcd(mα, mβ) = m %gcdLemma15",
+		"if gcd(α, β) = 1, then gcd(α+β, α-β) is either 1 or 2%gcdLemma16"
 	]],
 	["prime_numbers", [
 		"if ρ is prime and ρ|αβ, then ρ|α or ρ|β%primeLemma1",

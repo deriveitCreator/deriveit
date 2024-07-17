@@ -81,10 +81,10 @@ export function getTopicColorInfo(value: string): colorInfoType{
 
 export function getRecentlyAdded(): string[]{
 	return [
+		"if gcd(a, b) = 1, then gcd(ma, mb) = m%discrete_mathematics/divisibility/gcdLemma15",
+		"if gcd(a, b) = 1, then gcd(a+b, a-b) is either 1 or 2%discrete_mathematics/divisibility/gcdLemma16",
 		"if (n^2)+1 is prime, then n^2 = 4k%discrete_mathematics/prime_numbers/n_square_prime",
 		"if (a^n) + 1 is an odd prime, then a is even and n is a power of 2%discrete_mathematics/prime_numbers/a_to_the_n_plus_one_prime",
-		"if n > 1 and (a^n) - 1 is prime, then a=2%discrete_mathematics/prime_numbers/Mersenne_prime2",
-		"if (2^p) - 1 is prime, then p is prime%discrete_mathematics/prime_numbers/Mersenne_prime1",
 	]
 }
 

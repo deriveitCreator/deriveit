@@ -57,6 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
+<b>update 11.9:</b>
+- Added `gcdLemma15.tsx` and `gcdLemma16.tsx`.
+
 <b>update 11.8:</b>
 - Made changes to code and data structures in the "subtopics" pages.
 
