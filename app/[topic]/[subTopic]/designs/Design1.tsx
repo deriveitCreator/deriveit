@@ -17,6 +17,7 @@ export default function Design1(props: {topic: string, subTopic: [string, string
 	useEffect(()=>{
 		window.setTimeout(()=>setOp(1),500);
 		document.documentElement.style.overflowY = "scroll";
+    document.documentElement.style.backgroundColor = "rgb(249 250 251)";
 	},[]);
 
 	let curTopic = props.subTopic;

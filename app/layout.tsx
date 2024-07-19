@@ -41,6 +41,17 @@ export default async function RootLayout({children}: {children: React.ReactNode}
           <FooterEl/>
         </body>
       </html>
+      {/*Prevent Google Ad from changing my style */}
+      <Script>{`
+        var wrapper = document.querySelector('body>div');
+        const observer = new MutationObserver(function (mutations, observer) {
+          wrapper.style.minHeight = '100vh'
+        })
+        observer.observe(wrapper, {
+          attributes: true,
+          attributeFilter: ['style']
+        })
+      `}</Script>
     </CookiesProvider>
   }
   else if (cookieVal === 2) return <CookiesProvider>

@@ -57,7 +57,7 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
-<b>update 11.10:</b>
+<b>update 11.10 - 11.11:</b>
 - Google Ad script was injecting it's own style, so that's patched now.
 - Added `mean_value_theorem.tsx`.
 

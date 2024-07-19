@@ -25,15 +25,39 @@ interface infoBoxType {
 };
 
 export default function Design1(props: {topic:string, subTopic:string, contentArray: [[string, any]]}){
-  const [fontSize,setFS] = useState({h2:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
-  const blackboardRef: any = useRef(null);
-  const [numToReRender, setNum] = useState(0);
+  const [fontSize, setFS] = useState({h2:"", main: "", quote: ""});
+  const [blackboardOrAd, setBBOrAd] = useState("");
   const responsiveStyleRef = useRef("flex");
   const [ExtraInfoBoxStates, changeEIBS] = useState<infoBoxType>({text:"", posX:0, posY:0, visibility:"hidden"});
   const mainEl: RefObject<HTMLElement> = useRef(null);
 
   useEffect(()=>{
-    if(blackboardRef.current){
+    if(blackboardOrAd === ""){
+      //add scroll and background color
+      document.documentElement.style.overflowY = "scroll";
+      document.documentElement.style.backgroundColor = "rgb(249 250 251)";
+      //blackboard stuff (or ad instead of the blackboard section for mobile)
+      if(screen.width > parseInt(styles.minDeviceWidth)) {
+        if(props.contentArray[0][1].length) {
+          setBBOrAd("blackboard");
+          setFS({h2:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
+        }
+      }
+      else{
+        //variable stores ad section instead of blackboard
+        responsiveStyleRef.current = "block";
+        setBBOrAd("ad");
+        setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
+      }
+    }
+    else{
+      //Prevent Google Ad script from changing element height
+      let elToObserve = mainEl.current!;
+      const observer = new MutationObserver(() => {elToObserve.style.minHeight = '100vh'});
+      observer.observe(elToObserve, {
+        attributes: true,
+        attributeFilter: ['style']
+      });
       //ad stuff
       var ads = document.getElementsByClassName('adsbygoogle').length;
       for (var i = 0; i < ads; i++) {
@@ -47,42 +71,24 @@ export default function Design1(props: {topic:string, subTopic:string, contentAr
         addEventForDataTitle(el, changeEIBS);
       });
     }
-    else{
-      //add scroll
-      document.documentElement.style.overflowY = "scroll";
-      //blackboard stuff (or ad instead of the blackboard section for mobile)
-      if(screen.width > parseInt(styles.minDeviceWidth)) {
-        if(props.contentArray[0][1].length) {
-          blackboardRef.current = <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>;
-          setNum(1);
-        }
-      }
-      else{
-        //variable stores ad section instead of blackboard
-        blackboardRef.current = <section>
-          {/*@ts-ignore*/}
-          <div id={styles.adBelowArticle} align="center"><ins
-            className="adsbygoogle"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-4860967711062471"
-            data-ad-slot="6823528647"
-          ></ins></div>
-        </section>
-        responsiveStyleRef.current = "block";
-        setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
-      }
-      //Prevent Google Ad script from changing element height
-      let elToObserve = mainEl.current!;
-      const observer = new MutationObserver(function (mutations, observer) {
-        elToObserve.style.minHeight = '100vh';
-      })
-      observer.observe(elToObserve, {
-        attributes: true,
-        attributeFilter: ['style']
-      });
-    }
-  }); // eslint-disable-line no-use-before-define
+  }, [blackboardOrAd]);
+
+  let blackboardOrAdResult = <></>;
+  if (blackboardOrAd === "blackboard") {
+    blackboardOrAdResult = <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>
+  }
+  else if (blackboardOrAd === "ad") {
+    blackboardOrAdResult = <section>
+      {/*@ts-ignore*/}
+      <div id={styles.adBelowArticle} align="center"><ins
+        className="adsbygoogle"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-4860967711062471"
+        data-ad-slot="6823528647"
+      ></ins></div>
+    </section>;
+  }
 
   return <FontSizeContext.Provider value={fontSize}>
     <ArticleHeader text={props.contentArray[0][1]}/>
@@ -94,7 +100,7 @@ export default function Design1(props: {topic:string, subTopic:string, contentAr
         visibility={ExtraInfoBoxStates.visibility}
         supportedFunc={changeEIBS}
       />
-      {blackboardRef.current}
+      {blackboardOrAdResult}
     </main>
   </FontSizeContext.Provider>
 }

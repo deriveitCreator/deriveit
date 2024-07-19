@@ -17,6 +17,7 @@ export default function Style1(props: {topic: string, topicsInfoState: Array<[st
 	useEffect(()=>{
 		window.setTimeout(()=>setOp(1),500);
 		document.documentElement.style.overflowY = "scroll";
+    document.documentElement.style.backgroundColor = "rgb(249 250 251)";
 	},[]);
 
 	if(props.topicsInfoState[0][0] === "error") return <section>
