@@ -83,7 +83,7 @@ function HomeBody(props:{design1States:any, disFunc:React.Dispatch<{type:string;
         } catch (e) {}
       }
     } 
-  }) // eslint-disable-line no-use-before-define
+  }); // eslint-disable-line no-use-before-define
 
   return <>
     <HeaderEl/>

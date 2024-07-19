@@ -24,7 +24,7 @@ export default function Design1(props: {topic: string, subTopic: [string, string
 		<h2 className={`${cursiveMain.className} ${responsiveH2Style}`}>Error</h2>
 		<p className={`${textMain.className} ${responsivePStyle}`}>There is no content on this page</p>
 	</section>
-	else return <main style={{transition:"opacity 0.5s linear",marginBottom:"40px",opacity: curOp}}>
+	else return <main style={{transition:"opacity 0.5s linear",paddingBottom:"40px",opacity: curOp}}>
 		<section>
 			<h2 className={`${cursiveMain.className} ${responsiveH2Style}`}>
 				{curTopic[0].replaceAll("_"," ")}

@@ -9,7 +9,14 @@ type ImportType = {
   article: string
 }
 
-export default function ClientPart(props: { topic:string, subTopic: string, contentArray: [[string, any]], design: number }){
+type ClientPartType =  {
+  topic:string,
+  subTopic: string,
+  contentArray: [[string, any]],
+  design: number
+};
+
+export default function ClientPart(props: ClientPartType){
   const [firstLoad, changeFL] = useState(true);
 
   useEffect(()=>{

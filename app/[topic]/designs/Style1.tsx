@@ -23,7 +23,7 @@ export default function Style1(props: {topic: string, topicsInfoState: Array<[st
 		<h2 className={`${cursiveMain.className} ${responsiveH2Style}`}>Error</h2>
 		<p className={`${textMain.className} ${responsivePStyle}`}>There is no content on this page</p>
 	</section>
-	else return <main style={{transition:"opacity 0.5s linear",marginBottom:"40px",opacity: curOp}}>
+	else return <main style={{transition:"opacity 0.5s linear", paddingBottom:"40px", opacity: curOp}}>
 		{props.topicsInfoState.map((subArr: [string, string[]], i:number)=>{
 			return <section key={i}>
 				<h2 className={`${cursiveMain.className} ${responsiveH2Style}`}>{subArr[0].replaceAll("_"," ")}</h2>

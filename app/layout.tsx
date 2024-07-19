@@ -30,6 +30,10 @@ export default async function RootLayout({children}: {children: React.ReactNode}
     return <CookiesProvider>
       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471"
       crossOrigin="anonymous"/>
+      {/*
+        For some reason, google adsense adds it own style like
+        "min-height: 0px !important; height: auto !important;"
+      */}
       <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
       <html lang="en" className={`overflow-hidden scroll1`}>
         <body>
@@ -37,25 +41,18 @@ export default async function RootLayout({children}: {children: React.ReactNode}
           <FooterEl/>
         </body>
       </html>
-      {/*For some reason, google adsense adds it own style to the div wrapper and changes the height, this observer resets the height to 100vh every time a change is detected. */}
-      <Script id='fixedHeightScript'>{`
-        var wrapper = document.querySelector('body>div');
-        const observer = new MutationObserver(function (mutations, observer) {
-          wrapper.style.height = 'auto',
-          wrapper.style.minHeight = '100vh'
-        })
-        observer.observe(wrapper, {
-          attributes: true,
-          attributeFilter: ['style']
-        })
-      `}</Script>
     </CookiesProvider>
   }
-  else return <CookiesProvider>
+  else if (cookieVal === 2) return <CookiesProvider>
     <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471" crossOrigin="anonymous"/>
+    {/*
+      For some reason, google adsense adds it own style like
+      "min-height: 0px !important; height: auto !important;"
+    */}
     <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
     <html lang="en">
       <body>{children}</body>
     </html>
   </CookiesProvider>
+  else throw new Error("wrong design number value");
 }

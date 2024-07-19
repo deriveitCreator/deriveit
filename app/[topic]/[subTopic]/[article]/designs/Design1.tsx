@@ -30,6 +30,7 @@ export default function Design1(props: {topic:string, subTopic:string, contentAr
   const [numToReRender, setNum] = useState(0);
   const responsiveStyleRef = useRef("flex");
   const [ExtraInfoBoxStates, changeEIBS] = useState<infoBoxType>({text:"", posX:0, posY:0, visibility:"hidden"});
+  const mainEl: RefObject<HTMLElement> = useRef(null);
 
   useEffect(()=>{
     if(blackboardRef.current){
@@ -71,13 +72,22 @@ export default function Design1(props: {topic:string, subTopic:string, contentAr
         responsiveStyleRef.current = "block";
         setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
       }
+      //Prevent Google Ad script from changing element height
+      let elToObserve = mainEl.current!;
+      const observer = new MutationObserver(function (mutations, observer) {
+        elToObserve.style.minHeight = '100vh';
+      })
+      observer.observe(elToObserve, {
+        attributes: true,
+        attributeFilter: ['style']
+      });
     }
   }); // eslint-disable-line no-use-before-define
 
   return <FontSizeContext.Provider value={fontSize}>
     <ArticleHeader text={props.contentArray[0][1]}/>
-    <div style={{display: responsiveStyleRef.current,width:"100%" , marginBottom:"40px",minHeight:"100vh"}}>
-      <MainPart content={getBodyContent(props.topic, props.subTopic, props.contentArray)}/>
+    <main style={{display: responsiveStyleRef.current}} id={styles.main} ref={mainEl}>
+      <Article content={getBodyContent(props.topic, props.subTopic, props.contentArray)}/>
       <ExtraInfoBox
         text={ExtraInfoBoxStates.text}
         pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}}
@@ -85,7 +95,7 @@ export default function Design1(props: {topic:string, subTopic:string, contentAr
         supportedFunc={changeEIBS}
       />
       {blackboardRef.current}
-    </div>
+    </main>
   </FontSizeContext.Provider>
 }
 
@@ -177,7 +187,7 @@ const ArticleHeader = memo(function ArticleHeaderMemo(props: {text: string}){
   </header>
 });
 
-const MainPart = memo(function MainPartMemo(props: {content: JSX.Element[]}){
+const Article = memo(function ArticleMemo(props: {content: JSX.Element[]}){
   const [firsTime,setFT] = useState(true);
 
   useEffect(()=>{
@@ -192,7 +202,7 @@ const MainPart = memo(function MainPartMemo(props: {content: JSX.Element[]}){
   if ((!firsTime) && (screen.width > parseInt(styles.minDeviceWidth))) {
     paddingLevel = "px-7 grow";
   }
-  return <main className={`${paddingLevel}`} id={styles.main}>{props.content}</main>;
+  return <article className={`${paddingLevel}`} id={styles.article}>{props.content}</article>;
 })
 
 function H2Main({children}: {children: string}){
