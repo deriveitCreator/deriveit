@@ -23,7 +23,6 @@ export default function Design2(props: {topic:string, subTopic:string, contentAr
   const [showDB, changeSDB] = useState(false);
   const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"})
   const [asideW, setAW] = useState("0px");
-  const bodyContent = useMemo(()=>getBodyContent(props.topic, props.subTopic, props.contentArray),[]);
 
   useEffect(()=>{
     //ad stuff
@@ -57,7 +56,7 @@ export default function Design2(props: {topic:string, subTopic:string, contentAr
 
   return <FontSizeContext.Provider value={fontSize}>
     <ArticleHeader text={props.contentArray[0][1]}/>
-    <MainPart content={bodyContent}/>
+    <MainPart content={getBodyContent(props.topic, props.subTopic, props.contentArray)}/>
     <ExtraInfoBox 
       text={ExtraInfoBoxStates.text}
       pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}}

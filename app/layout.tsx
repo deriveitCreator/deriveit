@@ -42,7 +42,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
         </body>
       </html>
       {/*Prevent Google Ad from changing my style */}
-      <Script>{`
+      <Script id="setMinHeight">{`
         var wrapper = document.querySelector('body>div');
         const observer = new MutationObserver(function (mutations, observer) {
           wrapper.style.minHeight = '100vh'

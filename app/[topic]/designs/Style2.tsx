@@ -18,7 +18,7 @@ export default function Style2(props: {
 	useEffect(()=>{
 		document.documentElement.style.overflowY = "auto";
 		document.documentElement.style.backgroundColor = props.styleObject.headerBgColor;
-	},[]);
+	},[]); // eslint-disable-line
 
 
 	const responsiveH2Style = (screen.width > parseInt(styles.minDeviceWidth)) ?

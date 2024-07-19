@@ -38,10 +38,8 @@ export default function Design1(props: {topic:string, subTopic:string, contentAr
       document.documentElement.style.backgroundColor = "rgb(249 250 251)";
       //blackboard stuff (or ad instead of the blackboard section for mobile)
       if(screen.width > parseInt(styles.minDeviceWidth)) {
-        if(props.contentArray[0][1].length) {
-          setBBOrAd("blackboard");
-          setFS({h2:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
-        }
+        setBBOrAd("blackboard");
+        setFS({h2:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
       }
       else{
         //variable stores ad section instead of blackboard

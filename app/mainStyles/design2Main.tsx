@@ -23,7 +23,11 @@ export default function Design2(){
 	</>;
 }
 
-const HomeLoading=(props:{disabledState:boolean, changeSBL: React.Dispatch<React.SetStateAction<boolean>>, changeCBC: React.Dispatch<React.SetStateAction<boolean>>})=>{
+const HomeLoading=(props:{
+	disabledState: boolean,
+	changeSBL: React.Dispatch<React.SetStateAction<boolean>>,
+	changeCBC: React.Dispatch<React.SetStateAction<boolean>>
+})=>{
 	const wrapperH = useRef("h-screen");
 
 	useEffect(()=>{
@@ -34,7 +38,7 @@ const HomeLoading=(props:{disabledState:boolean, changeSBL: React.Dispatch<React
 		return ()=>{
 			document.documentElement.classList.remove("scroll2");
 		}
-	},[])
+	},[]); // eslint-disable-line
   
 	function buttonClick(){
 	  document.documentElement.style.overflowY = "scroll";
@@ -165,7 +169,7 @@ function Slideshow(props:{continueButtonClicked:boolean}){
 			slideshowRef.current!.scrollTo(slideshowRef.current!.clientWidth,0);
 			autoTimer.current = window.setTimeout(changeRight, 3000);
 		}
-	}, [props.continueButtonClicked]);
+	}, [props.continueButtonClicked]);  // eslint-disable-line
 
 	function changeLeft(){
 		if(leftTurning.current === null){

@@ -17,7 +17,7 @@ export default function Style2(props: {topic: string, subTopic: [string,string[]
 	useEffect(()=>{
 		document.documentElement.style.overflowY = "auto";
 		document.documentElement.style.backgroundColor = props.styleObject.headerBgColor;
-	},[]);
+	},[]); // eslint-disable-line
 
 	let headerBgColor = props.styleObject.headerBgColor;
 	let footerColor = props.styleObject.footerColor;
@@ -33,7 +33,9 @@ export default function Style2(props: {topic: string, subTopic: [string,string[]
 	</div>
 	else return <div>
 		<main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}>
-			<h2 className={`${headingFont.className} ${responsiveH2Style}`} style={{color: borderColor}}>{curTopic[0].replaceAll("_"," ")}</h2>
+			<h2 className={`${headingFont.className} ${responsiveH2Style}`} style={{color: borderColor}}>
+				{curTopic[0].replaceAll("_"," ")}
+			</h2>
 			{(curTopic[1]).map((val:string,i: number)=> {
 				if(val.includes("%")){ return <StyledP
 					key={i}
