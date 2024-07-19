@@ -57,7 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
-<b>update 11.13:</b>
+Versioning is done using "npm version [new-version] --git-tag-version false"
+
+<b>update 11.13 - 11.14:</b>
 - Testing `npm version`.
 
 <b>update 11.10 - 11.12:</b>
