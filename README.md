@@ -59,6 +59,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 11.15:</b>
+- Shifted `gcdTimesLcmGivesProduct.tsx` to `divisibility` subTopic.
+
 <b>update 11.13 - 11.14:</b>
 - Testing `npm version`.
 

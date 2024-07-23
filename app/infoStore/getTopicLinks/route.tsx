@@ -99,7 +99,8 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"if m|n, then (a<sup>m</sup>-b<sup>m</sup>)|(a<sup>n</sup>-b<sup>n</sup>)%divisibilityLemma1",
 		"if gcd(x, y) divides (x + y), then there are infinite values of x and y, otherwise no values of x and y exists%gcdDividesPlus",
 		"if gcd(α, β) = 1, then gcd(mα, mβ) = m %gcdLemma15",
-		"if gcd(α, β) = 1, then gcd(α+β, α-β) is either 1 or 2%gcdLemma16"
+		"if gcd(α, β) = 1, then gcd(α+β, α-β) is either 1 or 2%gcdLemma16",
+		"gcd(a, b) * lcm(a, b) = ab%gcdTimesLcmGivesProduct",
 	]],
 	["prime_numbers", [
 		"if ρ is prime and ρ|αβ, then ρ|α or ρ|β%primeLemma1",
@@ -109,7 +110,6 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"there are infinite primes of the form 4k+3%infinite_primes_4k_plus_3",
 		"no prime can be expressed as a<sup>4</sup> - b<sup>4</sup>%differenceOfFourthPowers",
 		"for any positive integer n, there are at least n consecutive composite integers%nConsecutiveCompositeInteger",
-		"gcd(a, b) * lcm(a, b) = ab%gcdTimesLcmGivesProduct",
 		"if 2<sup>p</sup> - 1 is prime, then p is prime%Mersenne_prime1",
 		"if n > 1 and a<sup>n</sup> - 1 is prime, then a=2%Mersenne_prime2",
 		"if a<sup>n</sup> + 1 is an odd prime, then a is even and n is a power of 2%a_to_the_n_plus_one_prime",
