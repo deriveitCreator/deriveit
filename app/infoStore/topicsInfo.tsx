@@ -90,9 +90,9 @@ export function getRecentlyAdded(): string[]{
 
 export function getRecentlyEdited(): string[]{
 	return [
+		"the inverse function theorem%calculus/differential_calculus/the_inverse_function_theorem",
 		"proof That [d/dx]sin(x) = cos(x)%calculus/trigonometric_derivatives/sin",
 		"proof That sin(x)/x approaches 1 as x approaches 0%calculus/limits/limit_sin",
 		"if (n^2)+1 is prime, then n^2 = 4k%discrete_mathematics/prime_numbers/n_square_prime",
-		"if n > 1 and (a^n) - 1 is prime, then a=2%discrete_mathematics/prime_numbers/Mersenne_prime2",
 	]
 }
