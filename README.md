@@ -61,7 +61,7 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
-<b>update 12.0:</b>
+<b>update 12.0 - 12.1:</b>
 - Added `not-found.tsx` to `/topic`, `/subTopic` and `/article` to handle 404 errors.
 - Added a lot of content for discrete mathematics.
 
