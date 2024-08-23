@@ -4,8 +4,6 @@ import { mainTextFont, headingFont, printFont2 } from "@/app/infoStore/fonts";
 import { LegacyRef, createContext, useContext, useEffect, useRef, useState, memo, Suspense, Dispatch, SetStateAction, useMemo } from "react";
 import { citationList } from '@/app/infoStore/sourcesForCitation';
 import ImageWrapper from '@/app/components/ImageWrapper';
-import Latex from 'react-latex-next';
-import 'katex/dist/katex.min.css';
 import StyleSelectionBox from "@/app/components/StyleSelectionBox";
 import Link from "next/link";
 import FormBox from "@/app/components/FormBox";
@@ -128,7 +126,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
           className={' text-xl grid min-h-[150px] items-center justify-items-center '}
           style={{gridTemplateColumns:"auto auto auto"}}
         ><span></span><div className={' bg-white px-1 overflow-x-auto h-min w-11/12 '}>
-          <Latex strict>{j[i][1]}</Latex>
+          {j[i][1]}
         </div><span></span></div>);
         break;
       case "ol":

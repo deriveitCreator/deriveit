@@ -1,4 +1,4 @@
-export const title="If a1|b,  a2|b and gcd(a1, a2) = 1, then a1a2|b";
+export const title="If a1|b, a2|b and gcd(a1, a2) = 1, then a1a2|b";
 const content = [
   ['h1', 'If a<sub>1</sub>|b,  a<sub>2</sub>|b And gcd(a<sub>1</sub>, a<sub>2</sub>) = 1, Then a<sub>1</sub>a<sub>2</sub>|b'],
   ['pmain', 'Since \\(a_1|b\\) and \\(a_2|b\\):'],

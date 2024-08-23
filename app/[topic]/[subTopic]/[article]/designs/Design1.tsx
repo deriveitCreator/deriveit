@@ -10,8 +10,6 @@ import { LegacyRef, createContext, useContext, useEffect, useRef, useState, Comp
 import Link from "next/link";
 import { citationList } from '@/app/infoStore/sourcesForCitation';
 import ImageWrapper from '@/app/components/ImageWrapper';
-import Latex from 'react-latex-next';
-import 'katex/dist/katex.min.css';
 import StyleSelectionBox from "@/app/components/StyleSelectionBox";
 import styles from "./design1.module.scss";
 
@@ -159,7 +157,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
           className={' text-xl grid min-h-[200px] items-center justify-items-center'}
           style={{gridTemplateColumns:"auto 90% auto"}}
         ><span></span><div className={' border-black border-2 bg-white px-1 overflow-x-auto h-min max-w-min w-full'}>
-          <Latex strict>{j[i][1]}</Latex>
+         {j[i][1]}
         </div><span></span></div>);
         break;
       case "ol":

@@ -120,19 +120,16 @@
     <loc>https://www.deriveit.net/discrete_mathematics/divisibility/why_the_euclidean_algorithm_works</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/multiplicative</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/discrete_mathematics/divisibility/gcdLemma14</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/gcdLemma8</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/gcdLemma13</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/other</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/gcdLemma10</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/gcdDividesPlus</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/gcdLemma9</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/divisibility/divisibilityLemma1</loc>
@@ -159,9 +156,6 @@
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/nConsecutiveCompositeInteger</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/gcdTimesLcmGivesProduct</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/Mersenne_prime1</loc>
   </url>
   <url>
@@ -178,6 +172,36 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/legendres_formula_lower_bound</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma18</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma8</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma7</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdDividesPlus</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma15</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma16</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdTimesLcmGivesProduct</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma17</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma12</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma11</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma1</loc>
@@ -345,7 +369,10 @@
     <loc>https://www.deriveit.net/calculus/differential_calculus/the_chain_rule</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/differential_calculus/the_inverse_function_rule</loc>
+    <loc>https://www.deriveit.net/calculus/differential_calculus/the_inverse_function_theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/differential_calculus/mean_value_theorem</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/using_eulers_number/define_e</loc>

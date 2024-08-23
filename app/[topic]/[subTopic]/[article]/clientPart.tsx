@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 type ImportType = {
   topic: string,
   subTopic: string,
-  contentArray: [[string, any]],
+  contentArray: string[][],
 }
 
 type ClientPartType =  ImportType & {design: number};

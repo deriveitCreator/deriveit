@@ -1,0 +1,5 @@
+export const title="Any integer greater than 6 can be represented as a sum of two relatively prime integers";
+
+const content = [['h1', 'Any Integer Greater Than 6 Can Be Represented As A Sum Of Two Relatively Prime Integers'], ['pmain', 'All integers can be represented in three ways:'], ['displayFormula', '$$ \\begin{align} n &= 2k+1 \\\\ n &= 4k \\\\ n &= 4k+2 \\end{align} $$'], ['pmain', 'If \\(n\\) is odd (\\(2k+1\\)), then \\(n=(k)+(k+1)\\), and both \\(k\\) and \\(k+1\\) are relatively prime.'], ['pmain', 'If \\(n=4k\\), then \\(n=(2k+1) + (2k-1)\\), and both \\(2k+1\\) and \\(2k-1\\) are relatively prime, see <a href="https://www.deriveit.net/discrete_mathematics/divisibility/gcdLemma10">this article</a> for more detail.'], ['pmain', 'If \\(n=4k+2\\), then \\(n=(2k-1) + (2k+3)\\), and both \\(2k-1\\) and \\(2k+3\\) are relatively prime.']];
+
+export default content;

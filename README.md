@@ -55,9 +55,15 @@ One major thing I added was the design feature, where you can choose different d
 
 - The `layout.tsx` sets the title
 
+- The `not-found.tsx` handles the 404 errors.
+
 ## Updates
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
+
+<b>update 12.0:</b>
+- Added `not-found.tsx` to `/topic`, `/subTopic` and `/article` to handle 404 errors.
+- Added a lot of content for discrete mathematics.
 
 <b>update 11.16:</b>
 - Changed `the_inverse_function_rule` to `the_inverse_function_theorem`, and made changes to the file.

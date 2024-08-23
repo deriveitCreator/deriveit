@@ -30,10 +30,6 @@ export default async function RootLayout({children}: {children: React.ReactNode}
     return <CookiesProvider>
       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471"
       crossOrigin="anonymous"/>
-      {/*
-        For some reason, google adsense adds it own style like
-        "min-height: 0px !important; height: auto !important;"
-      */}
       <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
       <html lang="en" className={`overflow-hidden scroll1`}>
         <body>
@@ -41,7 +37,11 @@ export default async function RootLayout({children}: {children: React.ReactNode}
           <FooterEl/>
         </body>
       </html>
-      {/*Prevent Google Ad from changing my style */}
+      {/*
+        For some reason, google adsense adds it own style like
+        "min-height: 0px !important; height: auto !important;"
+        The code below prevents that
+      */}
       <Script id="setMinHeight">{`
         var wrapper = document.querySelector('body>div');
         const observer = new MutationObserver(function (mutations, observer) {
@@ -56,10 +56,6 @@ export default async function RootLayout({children}: {children: React.ReactNode}
   }
   else if (cookieVal === 2) return <CookiesProvider>
     <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471" crossOrigin="anonymous"/>
-    {/*
-      For some reason, google adsense adds it own style like
-      "min-height: 0px !important; height: auto !important;"
-    */}
     <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
     <html lang="en">
       <body>{children}</body>

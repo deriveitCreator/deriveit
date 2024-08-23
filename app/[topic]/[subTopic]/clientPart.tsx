@@ -36,7 +36,7 @@ export default function ClientPart(props: {
 
   if(firstLoad) return null;
 
-  var curSubTopic: [string, string[]] = ["error",[""]];
+  var curSubTopic: [string, string[]] = ["",[""]];
   for(let i in props.topicInfo){
     if(props.topicInfo[i][0] === props.subTopic){
       curSubTopic = props.topicInfo[i];
