@@ -3,8 +3,7 @@ const ERROR_VALUE: Array<[string,string[]]> = [["error",[]]];
 export async function POST(request: Request) {
 	let req = await request.json();
   let result = getTopicLinks(req.topic);
-	if(result === ERROR_VALUE)
-		return Response.json(null, {status:404});
+	if(result === ERROR_VALUE) return Response.json(null, {status:404});
 	else if (req.subTopic) {
 		for(let topicLink of result)
 			if (topicLink[0] === req.subTopic)

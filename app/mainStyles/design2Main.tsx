@@ -301,11 +301,11 @@ function BelowTables(props: {recentlyAdded: boolean}){
 						<span className=' float-right'>{props.recentlyAdded?"Added":"Edited"}</span>
 					</th>
 					<td style={{ backgroundColor: bgColor!, color: borderColor!, borderLeft: `solid 3px ${borderColor!}`, fontWeight:"bold"}} className={mainTextFont.className}>
-						<Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link>
+						<Link href={elem.substring(perPos+1)} dangerouslySetInnerHTML={{__html: elem.substring(0,perPos).replaceAll("_"," ")}}></Link>
 					</td>
 				</tr>;
 				else return <tr key={i}><td style={{ backgroundColor: bgColor!, color: borderColor!, borderLeft: `solid 3px ${borderColor!}`, fontWeight:"bold"}} className={mainTextFont.className}>
-					<Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link>
+					<Link href={elem.substring(perPos+1)} dangerouslySetInnerHTML={{__html: elem.substring(0,perPos).replaceAll("_"," ")}}></Link>
 				</td></tr>;
 			})}</tbody>
 		</table></section>

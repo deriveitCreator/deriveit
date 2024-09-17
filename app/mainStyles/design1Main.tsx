@@ -208,7 +208,7 @@ function RecentlySection(type:string){
           className={`bg-gray-100 block hover:no-underline group ${cursiveMain.className} ${styles.recentTableText}`}
         >
           <span className=' opacity-0 group-hover:opacity-100 absolute left-2'>&#128609;</span>
-          <span>{item.substring(0,item.indexOf("%")).replaceAll("_"," ")}</span>
+          <span dangerouslySetInnerHTML={{__html: item.substring(0,item.indexOf("%")).replaceAll("_"," ")}}></span>
         </Link></div>
       })}
     </div>

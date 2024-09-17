@@ -42,8 +42,8 @@ One major thing I added was the design feature, where you can choose different d
 	- `/downloadedFonts`: this folder contains local fonts.
 	- `/setCookie`: contains the code for changing the design number and storing it in cookies.
 	- `/sendEmail`: contains the api to email client feedback to me.
-	- `/getTopicLinks`: Contains a `POST` function which gets all the subtopics and articler title of a particular topic. 
-	- All the other folders (except for `getArticleContent`) stores article content. Article content gets sent to the user (when requested) using the API in `getArticleContent` folder.
+	- `/getTopicLinks`: contains a `POST` function which gets all the subtopics and article title of a particular topic. 
+	- `/contents`: contains all article contents.
 
 ### [topic], [subTopic] and [article] folders
 
@@ -60,6 +60,10 @@ One major thing I added was the design feature, where you can choose different d
 ## Updates
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
+
+<b>update 12.2:</b>
+- All article contents are now stored at `infoStore/contents`.
+- Made minor changes to blackboard in design 1.
 
 <b>update 12.0 - 12.1:</b>
 - Added `not-found.tsx` to `/topic`, `/subTopic` and `/article` to handle 404 errors.
