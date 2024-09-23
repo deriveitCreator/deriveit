@@ -24,16 +24,13 @@ export default function ClientPart(props: {
   name: string,
   styleObject: styleObjectType | null
 }){
-  const [firstLoad, changeFL] = useState(true);
   const MainComp = dynamic<ImportType>(() => import(`@/app/[topic]/designs/Style${props.design}`), { ssr: false });
 
   useEffect(()=>{
     document.documentElement.style.overflowY = "auto";
     document.documentElement.classList.remove("scroll2");
-    changeFL(false);
   },[]);
 
-  if(firstLoad) return null;
 
   if(props.design === 1){
     return <>

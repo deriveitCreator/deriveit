@@ -61,6 +61,14 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 12.3:</b>
+- Remove some useless state updates, and design body stuff are returned on first render.
+- Article header are now rendered on server side.
+- Some articles weren't accessible because of file naming errors. This is fixed now.
+- API now return `Response.error()` if there is an error, instead of a `Response.json()`.
+- Article images don't use `ImageWrapper` anymore.
+- Some article dynamic styles are shifted to CSS instead of doing it via JavaScript.
+
 <b>update 12.2:</b>
 - All article contents are now stored at `infoStore/contents`.
 - Made minor changes to blackboard in design 1.

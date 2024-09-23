@@ -87,7 +87,6 @@ export default function Design1(props: {topic:string, subTopic:string, contentAr
   }
 
   return <FontSizeContext.Provider value={fontSize}>
-    <ArticleHeader text={props.contentArray[0][1]}/>
     <main style={{display: responsiveStyleRef.current}} id={styles.main} ref={mainEl}>
       <Article content={getBodyContent(props.topic, props.subTopic, props.contentArray)}/>
       <ExtraInfoBox
@@ -176,18 +175,6 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
   return bodyChildren;
 }
 
-const ArticleHeader = memo(function ArticleHeaderMemo(props: {text: string}){
-  const animationState = useRef("");
-  
-  let paddingLevel = null;
-  if(props.text !== "") {
-    animationState.current = "animate-[becomeBlack_0.5s_ease-out_0.5s_forwards]";
-    paddingLevel = (screen.width > parseInt(styles.minDeviceWidth)) ? "px-8" : "px-2";
-  }
-  return <header className='border-t-4 w-full border-gray-600 bg-gray-100 border-b-4 mb-8 min-h-[84px] flex items-center justify-center'>
-    <h1 className={`${cursiveMain.className} text-center text-4xl leading-[50px] text-gray-100 ${animationState.current} ${paddingLevel}`} dangerouslySetInnerHTML={{__html: props.text.replaceAll("&amp;","&")}} />
-  </header>
-});
 
 const Article = memo(function ArticleMemo(props: {content: JSX.Element[]}){
   const [firsTime,setFT] = useState(true);

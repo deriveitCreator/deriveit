@@ -4,6 +4,13 @@
   minDeviceWidth: $varForMinDeviceWidth;
 }
 
+#header{
+  h1{
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
 #main {
   width:100%;
   padding-bottom:40px;
@@ -49,4 +56,14 @@
 
 #adBelowArticle:has([data-ad-status=unfilled]){
   display: none;
+}
+
+
+@media (min-width: $varForMinDeviceWidth) {
+  #header{
+    h1{
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+  }
 }

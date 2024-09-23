@@ -1,9 +1,10 @@
 "use client"
 
 import { mainTextFont, headingFont, printFont2 } from "@/app/infoStore/fonts";
-import { LegacyRef, createContext, useContext, useEffect, useRef, useState, memo, Suspense, Dispatch, SetStateAction, useMemo } from "react";
+import { LegacyRef, createContext, useContext, useEffect, useRef, useState, memo, Suspense, Dispatch, SetStateAction } from "react";
 import { citationList } from '@/app/infoStore/sourcesForCitation';
-import ImageWrapper from '@/app/components/ImageWrapper';
+import Image from 'next/image';
+import {ImageWrapper} from '@/app/components/ImageWrapper';
 import StyleSelectionBox from "@/app/components/StyleSelectionBox";
 import Link from "next/link";
 import FormBox from "@/app/components/FormBox";
@@ -17,7 +18,7 @@ import { link } from "@/app/infoStore/paypalLink";
 var FontSizeContext = createContext({h2:"", main: "", quote: ""});
 
 export default function Design2(props: {topic:string, subTopic:string, contentArray: [[string, any]]}){
-  const [fontSize,setFS] = useState({h2:"text-4xl", main: "text-3xl", quote: "text-[28px]"});
+  const [fontSize,setFS] = useState({h2:"", main: "", quote: ""});
   const [showDB, changeSDB] = useState(false);
   const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"})
   const [asideW, setAW] = useState("0px");
@@ -35,25 +36,32 @@ export default function Design2(props: {topic:string, subTopic:string, contentAr
     document.documentElement.style.overflowY = "scroll";
     document.documentElement.style.backgroundColor = "white";
     //check mobile (else set [data-title] on desktop)
-    if (screen.width < parseInt(styles.minDeviceWidth)) setFS({h2:"text-3xl", main: "text-[28px]", quote: "text-2xl"});
-    else document.querySelectorAll("[data-title]").forEach((el)=>{
-      el.addEventListener("mouseenter",()=>{
-        changeEIBS({
-          text: el.getAttribute("data-title")!,
-          posX: el.getBoundingClientRect().x - 20,
-          posY: el.getBoundingClientRect().y + 50,
-          visibility:"visible"
+    if (screen.width < parseInt(styles.minDeviceWidth)) setFS({h2:"text-3xl", main: "text-[28px]", quote: "text-2xl"})
+    else {
+      document.querySelectorAll("[data-title]").forEach((el)=>{
+        el.addEventListener("mouseenter",()=>{
+          changeEIBS({
+            text: el.getAttribute("data-title")!,
+            posX: el.getBoundingClientRect().x - 20,
+            posY: el.getBoundingClientRect().y + 50,
+            visibility:"visible"
+          });
         });
+        el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"})});
       });
-      el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"})});
-    });
+      setFS({h2:"text-4xl", main: "text-3xl", quote: "text-[28px]"});
+    };
     return ()=>{
 			document.documentElement.classList.remove("scroll2"); //incase exiting via side bar links
     }
   },[]); // eslint-disable-line no-use-before-define
 
+  useEffect(()=>{
+    //@ts-ignore
+    window.MathJax.typeset();
+  }, [fontSize]);
+
   return <FontSizeContext.Provider value={fontSize}>
-    <ArticleHeader text={props.contentArray[0][1]}/>
     <MainPart content={getBodyContent(props.topic, props.subTopic, props.contentArray)}/>
     <ExtraInfoBox 
       text={ExtraInfoBoxStates.text}
@@ -77,7 +85,8 @@ export default function Design2(props: {topic:string, subTopic:string, contentAr
 }
 
 function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
-  let bodyChildren = [];
+  var bodyChildren = [];
+  var imageParentStyle: any = {position:"relative",display:"flex",justifyContent:"center",alignContent:"center",marginTop:"16px",marginBottom:"16px"};
   for(let i = 1; i<j.length; i++){
     switch(j[i][0]){
       case "h2":
@@ -93,41 +102,41 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
         bodyChildren.push(<PMain mode={3} key={i}>{j[i][1] }</PMain>);
         break;
       case "figure":
-        bodyChildren.push(<ImageWrapper
-          key={i}
-          alt=""
-          h =' h-[240px]'
-          className={' flex flex-col items-center justify-center my-4 font-bold '+mainTextFont.className}
-          src={`/${topic}/${subTopic}/${j[i][1][0]}`}
-          figcaption ={j[i][1][1]}
-        />);
+        bodyChildren.push(
+          <figure key={i} className={mainTextFont.className} style={{height:"240px", fontWeight:"bold" , ...imageParentStyle, flexDirection:"column"}}>
+            <Image
+              alt=""
+              src={`/${topic}/${subTopic}/${j[i][1][0]}`}
+              fill
+              style={{objectFit:"contain"}}
+            />
+            <figcaption>{j[i][1][1]}</figcaption>
+          </figure>
+        );
         break;
-      case ("displayimg"):
-        bodyChildren.push(<ImageWrapper
-          key={i}
+      case "displayimg":
+        bodyChildren.push(<div key={i} style={{height:"200px", ...imageParentStyle}}><Image
           alt=""
-          h = {screen.width > parseInt(styles.minDeviceWidth) ? ' max-h-[200px]': ' max-h-[150px]'}
-          className=' flex items-center justify-center my-4 font-bold '
           src={`/${topic}/${subTopic}/${j[i][1]}`}
-        />);
+          fill
+          style={{objectFit:"contain"}}
+        /></div>);
         break;
-      case ("displayimg2"):
-        bodyChildren.push(<ImageWrapper
-          key={i}
+      case "displayimg2":
+        bodyChildren.push(<div key={i} style={{height:"220px", ...imageParentStyle}}><Image
           alt=""
-          h = {screen.width > parseInt(styles.minDeviceWidth) ? ' h-[220px]': ' h-[150px]'}
-          className=' flex items-center justify-center my-4 '
           src={`/${topic}/${subTopic}/${j[i][1]}`}
-        />);
+          fill
+          style={{objectFit:"contain"}}
+        /></div>);
         break;
       case "displayFormula":
         bodyChildren.push(<div
           key={i}
-          className={' text-xl grid min-h-[150px] items-center justify-items-center '}
-          style={{gridTemplateColumns:"auto auto auto"}}
-        ><span></span><div className={' bg-white px-1 overflow-x-auto h-min w-11/12 '}>
-          {j[i][1]}
-        </div><span></span></div>);
+          className={' text-xl grid items-center justify-items-center min-h-[150px] '}
+        >
+          <div className={' bg-white px-1 overflow-x-auto h-min w-11/12 '} style={{overflow:"visible"}}>{j[i][1]}</div>
+        </div>);
         break;
       case "ol":
         bodyChildren.push(<ListComp numbered={true} key={i} content={j[i][1]}/>);
@@ -145,36 +154,9 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
   return bodyChildren;
 }
 
-const ArticleHeader = memo(function ArticleHeaderMemo(props: {text: string}){
-  const animationState = useRef("");
-  
-  var responsiveStyle = "text-4xl px-8";
-  if(props.text !== "") {
-    animationState.current = "animate-[becomeBlack_0.5s_ease-out_0.5s_forwards]";
-    if(screen.width < parseInt(styles.minDeviceWidth)) responsiveStyle = "text-3xl px-2";
-  }
-  return <header className=' w-full border-black border-b-4 mb-8 min-h-[84px] flex items-center justify-center'>
-    <h1 className={`${headingFont.className} text-center leading-[50px] text-white font-bold ${animationState.current} ${responsiveStyle}`} dangerouslySetInnerHTML={{__html: props.text.replaceAll("&amp;","&")}} />
-  </header>
-});
-
-const MainPart = memo(function MainPartMemo(props: {content: (JSX.Element[] | null)}){
-  const [firsTime,setFT] = useState(true);
-
-  useEffect(()=>{
-    if(firsTime) setFT(false);
-    else {
-      //@ts-ignore
-      window.MathJax.typeset();
-    }
-  },[firsTime]);
-
-  let paddingLevel = "px-2";
-  if ((!firsTime) && (screen.width > parseInt(styles.minDeviceWidth))) {
-    paddingLevel = "px-7 grow";
-  }
-  return <main className={`mb-10 ${paddingLevel}`}>{props.content}</main>;
-});
+function MainPart(props: {content: (JSX.Element[] | null)}){
+  return <main id={styles.main} className={`mb-10`}>{props.content}</main>;
+};
 
 function H2Main({children}: {children: string}){
   const FontSizeContextVal = useContext(FontSizeContext);
@@ -183,14 +165,16 @@ function H2Main({children}: {children: string}){
 
 function PMain({children, mode}: {children: string, mode:number}){
   const FontSizeContextVal = useContext(FontSizeContext);
+  const [responsiveStyle, changeRS] = useState(["mx-1","mx-4","mx-6"]);
 
-  var responsiveStyle = ["mx-1","mx-4","mx-6"];
-  if (screen.width > parseInt(styles.minDeviceWidth)) {
-    responsiveStyle = ["mx-2","mx-8 [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help","mx-16"];
-  }
+  useEffect(()=>{
+    if (screen.width > parseInt(styles.minDeviceWidth)) {
+      changeRS(["mx-2","mx-8 [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help","mx-16"]);
+    }
+  },[]);
 
-  if(mode === 1)      return <p className={`pmain   ${mainTextFont.className} mb-4 ${FontSizeContextVal.main}  leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums ${responsiveStyle[0]}`} dangerouslySetInnerHTML={{__html: children}}></p>
-  else if(mode === 2) return <p className={`pmain2  ${mainTextFont.className} mb-4 ${FontSizeContextVal.main}  leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums ${responsiveStyle[1]}`} dangerouslySetInnerHTML={{__html: children}}></p>
+  if(mode === 1) return <p className={`pmain ${mainTextFont.className} mb-4 ${FontSizeContextVal.main}  leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums ${responsiveStyle[0]}`} dangerouslySetInnerHTML={{__html: children}}></p>
+  else if(mode === 2) return <p className={`pmain2 ${mainTextFont.className} mb-4 ${FontSizeContextVal.main}  leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums ${responsiveStyle[1]}`} dangerouslySetInnerHTML={{__html: children}}></p>
   else if(mode === 3) return <p className={`subText ${mainTextFont.className} mb-4 ${FontSizeContextVal.quote} leading-7 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-6 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] text-zinc-700   oldstyle-nums ${responsiveStyle[2]}`} dangerouslySetInnerHTML={{__html: children}}></p>
   else {
     alert(`There is an error, please leave this page and report this:\n"PMain (Design1) mode ${mode} reached!"`);
@@ -199,16 +183,19 @@ function PMain({children, mode}: {children: string, mode:number}){
 }
 
 function ExtraInfoBox(props:{text:string, pos:{X:number, Y:number}, visibility: "hidden" | "visible"}){
-    return <div className={mainTextFont.className + " bg-zinc-400 border-2 border-dashed border-black fixed text-xl font-bold p-1 max-w-sm"} style={{top:props.pos.Y,left:props.pos.X, visibility: props.visibility}} dangerouslySetInnerHTML={{__html: props.text}}></div>
+  return <div className={mainTextFont.className + " bg-zinc-400 border-2 border-dashed border-black fixed text-xl font-bold p-1 max-w-sm"} style={{top:props.pos.Y,left:props.pos.X, visibility: props.visibility}} dangerouslySetInnerHTML={{__html: props.text}}></div>
 }
 
 function ListComp(props:{numbered: boolean, content:string}){
   const fontSizeContextVal = useContext(FontSizeContext);
+  const [responsiveStyle, changeRS] = useState("mx-20");
 
-  var responsiveStyle = "mx-20"
-  if (screen.width < parseInt(styles.minDeviceWidth)) responsiveStyle = "mx-10";
+  useEffect(()=>{
+    if (screen.width < parseInt(styles.minDeviceWidth)) changeRS("mx-10");
+  }, []);
+
   if(props.numbered) return <ol className={`${mainTextFont.className} list-decimal mb-4 leading-8 ${fontSizeContextVal.quote} ${responsiveStyle}`} dangerouslySetInnerHTML={{__html: props.content}}></ol>
-  else               return <ul className={`${mainTextFont.className} list-disc    mb-4 leading-8 ${fontSizeContextVal.quote} ${responsiveStyle}`} dangerouslySetInnerHTML={{__html: props.content}}></ul>
+  else return <ul className={`${mainTextFont.className} list-disc    mb-4 leading-8 ${fontSizeContextVal.quote} ${responsiveStyle}`} dangerouslySetInnerHTML={{__html: props.content}}></ul>
 }
 
 function SourcesSectionInner(props: {content: string[]}){

@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 import { DEFAULT_DESIGN_SELECTION } from '@/app/infoStore/designInfo';
 import ClientPart from './clientPart';
 import { notFound } from 'next/navigation';
+import dynamic from 'next/dynamic';
 
 var domainName: string;
 var cacheType: "default" | "no-store";
@@ -25,11 +26,12 @@ export async function generateMetadata({ params }: { params: { topic:string, sub
     headers:{"Content-Type":"application/json"},
     body: JSON.stringify({topic: topic2, subTopic: subTopic2, article: article2}),
     cache: cacheType
-  }).then((res) => res.json());
+  }).then((res) => res.json())
+  .catch(()=> null);
 
   return {
-    title:  (fetchRes[0].substring(0,9) === "404 error") ? "404 error" : fetchRes[0],
-    robots: (fetchRes[0].substring(0,9) === "404 error") ? "noindex" : "index, follow"
+    title:  fetchRes ? fetchRes[0] : "404 error",
+    robots: fetchRes ? "index, follow" : "noindex"
   }
 }
 
@@ -43,10 +45,16 @@ export default async function Page({ params }: { params: { topic:string, subTopi
     headers:{"Content-Type":"application/json"},
     body: JSON.stringify({topic: topic2, subTopic: subTopic2, article: article2}),
     cache: cacheType
-  }).then((res) => res.json());
+  }).then((res) => res.json())
+  .catch(()=> null);
 
-  if (fetchRes[0].substring(0,9) === "404 error") return notFound();
+  if (!fetchRes) return notFound();
 
   const designSelectedVal = parseInt(cookies().get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
-  return <ClientPart topic={topic2} subTopic={subTopic2} contentArray={fetchRes[1]} design={designSelectedVal}/>;
+  const HeaderComp = dynamic<{text: string}>(() => import(`./designs/Design${designSelectedVal}Header`));
+  
+  return <>
+    <HeaderComp text={fetchRes[1][0][1]}/>
+    <ClientPart topic={topic2} subTopic={subTopic2} contentArray={fetchRes[1]} design={designSelectedVal}/>;
+  </>
 }

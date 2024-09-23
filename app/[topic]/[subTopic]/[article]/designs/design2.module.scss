@@ -4,6 +4,20 @@
   minDeviceWidth: $varForMinDeviceWidth;
 }
 
+//all styles in media query is for desktop
+
+#header{
+  h1{
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
+
+#main{
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
 #idDiv{
   margin-bottom:20px;
 
@@ -20,4 +34,19 @@
 
 #idDiv:has([data-ad-status=unfilled]){
   display: none;
+}
+
+@media (min-width: $varForMinDeviceWidth) {
+  #header{
+    h1{
+      font-size: 36px;
+      line-height: 40px;
+    }
+  }
+
+  #main{
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
 }

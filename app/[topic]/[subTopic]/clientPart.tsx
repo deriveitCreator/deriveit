@@ -1,7 +1,7 @@
 "use client"
 
 import dynamic from 'next/dynamic';
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import SubTopicHeader from './designs/SubTopicHeader';
 
 export type styleObjectType = {
@@ -25,16 +25,12 @@ export default function ClientPart(props: {
   name: string,
   styleObject: styleObjectType | null
 }){
-  const [firstLoad, changeFL] = useState(true);
   const MainComp = dynamic<ImportType>(() => import(`./designs/Design${props.design}`), { ssr: false });
 
   useEffect(()=>{
     document.documentElement.style.overflowY = "auto";
     document.documentElement.classList.remove("scroll2");
-    changeFL(false);
   },[]);
-
-  if(firstLoad) return null;
 
   var curSubTopic: [string, string[]] = ["",[""]];
   for(let i in props.topicInfo){

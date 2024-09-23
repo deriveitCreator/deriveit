@@ -40,7 +40,7 @@ export default function Style2(props: {topic: string, subTopic: [string,string[]
 					key={i}
 					textColor={headerBgColor}
 					text={val.replaceAll("_"," ")}
-					link={`${curTopic[0]}/${val}`}
+					link={`${curTopic[0]}/${val.replaceAll(" ","_")}`}
 				/>;
 			})}
 		</main>
@@ -53,8 +53,13 @@ const StyledP = (props: {text: string, link: string, textColor: string}) =>{
 	"text-[28px] leading-[32px] mx-20 mt-5" :
 	"text-2xl leading-[26px] mx-6 mt-5" ;
 
+	var pContent;
+	if (props.text.slice(-11,) === "incomplete)")
+		pContent = <span dangerouslySetInnerHTML={{ __html: props.text }}></span>;
+	else pContent = <Link href={`./${props.link}`} dangerouslySetInnerHTML={{ __html: props.text }}></Link>;
+
 	return <p className={`${mainTextFont.className} ${responsivePStyle} `} style={{color: props.textColor, letterSpacing:"1px"}}>
-		{(props.text.slice(-11,) !== "incomplete)") ? <Link href={`./${props.link}`} dangerouslySetInnerHTML={{ __html: props.text }}></Link> : <span dangerouslySetInnerHTML={{ __html: props.text }}></span>}
+		{pContent}
 	</p>;
 }
 

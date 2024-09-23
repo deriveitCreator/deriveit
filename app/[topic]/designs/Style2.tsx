@@ -26,7 +26,6 @@ export default function Style2(props: {
 	let headerBgColor = props.styleObject.headerBgColor;
 	let footerColor = props.styleObject.footerColor;
 	let borderColor = props.styleObject.borderColor;
-
 	return <div>
 		<main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}> {
 			props.topicsInfoState.map((subArr: [string, string[]], i:number) => {
@@ -39,13 +38,13 @@ export default function Style2(props: {
 							key={i}
 							textColor={headerBgColor}
 							text={val.substring(0,val.lastIndexOf('%')).replaceAll("_"," ")}
-							link={`${props.topic}/${subArr[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`}
+							link={`${props.topic}/${subArr[0]}/${(val.substring(val.lastIndexOf('%')+1,val.length))}`}
 						/>;
 						else return <StyledP
 							key={i}
 							textColor={headerBgColor}
 							text={val.replaceAll("_"," ")}
-							link={`${props.topic}/${subArr[0]}/${val}`}
+							link={`${props.topic}/${subArr[0]}/${val.replaceAll(" ","_")}`}
 						/>;
 					})}
 				</section>
@@ -60,9 +59,12 @@ const StyledP = (props: {text: string, link: string, textColor: string}) =>{
 	"text-[28px] leading-[32px] mx-20 mt-5" :
 	"text-2xl leading-[26px] mx-6 mt-5" ;
 
-	return <p className={`${mainTextFont.className} ${responsivePStyle} `} style={{color: props.textColor, letterSpacing:"1px"}}> {
-		(props.text.slice(-11,) !== "incomplete)") ? 
-		<Link href={`./${props.link}`} dangerouslySetInnerHTML={{ __html: props.text }}></Link> : 
-		<span dangerouslySetInnerHTML={{ __html: props.text }}></span>
-	} </p>;
+	var pContent;
+	if (props.text.slice(-11,) === "incomplete)")
+		pContent = <span dangerouslySetInnerHTML={{ __html: props.text }}></span>;
+	else pContent = <Link href={`./${props.link}`} dangerouslySetInnerHTML={{ __html: props.text }}></Link>;
+
+	return <p className={`${mainTextFont.className} ${responsivePStyle} `} style={{color: props.textColor, letterSpacing:"1px"}}>
+		{pContent}
+	</p>;
 }

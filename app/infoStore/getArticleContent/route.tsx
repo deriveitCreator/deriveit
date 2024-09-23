@@ -1,11 +1,11 @@
 
 export async function POST(request: Request) {
-	let res = await request.json();
 	try{
+		let res = await request.json();
 		let fileImp = await import(`../contents/${res.topic}/${res.subTopic}/${res.article}`);
 		return Response.json([fileImp.title,fileImp.default]);
 	}
-	catch(e1){
-		return Response.json(["404 error (article not found)"]);
+	catch{
+		return Response.error();
 	}
 }

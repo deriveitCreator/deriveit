@@ -9,7 +9,7 @@ import { FaPaintbrush, FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import StyleSelectionBox from '../components/StyleSelectionBox';
 import Link from 'next/link';
 import Design2Footer from '../footerStyles/design2Footer';
-import { topicsOrder, LinksWithTopicName, getTopicColorInfo, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';
+import { topicsOrder, getTopicColorInfo, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';
 import { ParallaxProvider, useParallax } from 'react-scroll-parallax';
 
 export default function Design2(){
