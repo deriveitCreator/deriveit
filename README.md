@@ -61,6 +61,10 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 12.4:</b>
+- In `[article]`, there are separate folders for each design.
+- 404 page now shows header.
+
 <b>update 12.3:</b>
 - Remove some useless state updates, and design body stuff are returned on first render.
 - Article header are now rendered on server side.

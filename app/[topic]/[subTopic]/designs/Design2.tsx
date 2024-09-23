@@ -17,6 +17,9 @@ export default function Style2(props: {topic: string, subTopic: [string,string[]
 	useEffect(()=>{
 		document.documentElement.style.overflowY = "auto";
 		document.documentElement.style.backgroundColor = props.styleObject.headerBgColor;
+		return () => {
+			document.documentElement.style.backgroundColor = "white";
+		}
 	},[]); // eslint-disable-line
 
 	let headerBgColor = props.styleObject.headerBgColor;

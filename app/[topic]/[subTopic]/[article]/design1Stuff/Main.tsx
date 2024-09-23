@@ -175,7 +175,6 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
   return bodyChildren;
 }
 
-
 const Article = memo(function ArticleMemo(props: {content: JSX.Element[]}){
   const [firsTime,setFT] = useState(true);
 

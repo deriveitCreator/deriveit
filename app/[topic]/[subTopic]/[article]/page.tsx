@@ -51,7 +51,7 @@ export default async function Page({ params }: { params: { topic:string, subTopi
   if (!fetchRes) return notFound();
 
   const designSelectedVal = parseInt(cookies().get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
-  const HeaderComp = dynamic<{text: string}>(() => import(`./designs/Design${designSelectedVal}Header`));
+  const HeaderComp = dynamic<{text: string}>(() => import(`./design${designSelectedVal}Stuff/Header`));
   
   return <>
     <HeaderComp text={fetchRes[1][0][1]}/>

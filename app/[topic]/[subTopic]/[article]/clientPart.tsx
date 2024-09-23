@@ -18,6 +18,6 @@ export default function ClientPart(props: ClientPartType){
     document.documentElement.classList.remove("scroll2");
   },[]);
 
-  const MainComp = dynamic<ImportType>(() => import(`./designs/Design${props.design}Main`));
+  const MainComp = dynamic<ImportType>(() => import(`./design${props.design}Stuff/Main`));
   return <MainComp topic={props.topic} subTopic={props.subTopic} contentArray={props.contentArray}/>;
 }

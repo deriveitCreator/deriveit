@@ -62,7 +62,9 @@ export default function Design2(props: {topic:string, subTopic:string, contentAr
   }, [fontSize]);
 
   return <FontSizeContext.Provider value={fontSize}>
-    <MainPart content={getBodyContent(props.topic, props.subTopic, props.contentArray)}/>
+    <main id={styles.main} className={`mb-10`}>{
+      getBodyContent(props.topic, props.subTopic, props.contentArray)
+    }</main>
     <ExtraInfoBox 
       text={ExtraInfoBoxStates.text}
       pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}}
@@ -153,10 +155,6 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
   }
   return bodyChildren;
 }
-
-function MainPart(props: {content: (JSX.Element[] | null)}){
-  return <main id={styles.main} className={`mb-10`}>{props.content}</main>;
-};
 
 function H2Main({children}: {children: string}){
   const FontSizeContextVal = useContext(FontSizeContext);
