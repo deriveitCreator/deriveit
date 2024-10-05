@@ -61,9 +61,8 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
-<b>update 12.5:</b>
-- `app/page.tsx` is now server side.
-- Remove the `LinksWithTopicName` variable from `topicsInfo.tsx`.
+<b>update 12.5 - 12.6</b>
+- Removed the `LinksWithTopicName` variable from `topicsInfo.tsx`.
 - For design 2, most of the content is now loaded server side.
 - `CITE` tag now uses `title` attribute instead of `className` to refer to their source in `citationList`.
 

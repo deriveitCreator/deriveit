@@ -8,7 +8,6 @@ import FormBox from '../components/FormBox';
 import styles from "./variables.module.scss";
 import { link } from '../infoStore/paypalLink';
 
-
 const Design2Footer = (props:{id:any}) => {
   const [footerState, changeFS] = useState(false);
   const formType = useRef(0);
