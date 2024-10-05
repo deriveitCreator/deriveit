@@ -28,23 +28,6 @@ export function getTopicColorInfo(value: string): colorInfoType{
 	return colorInfo[value];
 }
 
-export const allTopics = [
-	{name:"Algebra", ...colorInfo["algebra"]},
-	{name:"Geometry", ...colorInfo["geometry"]},
-	{name:"Discrete Mathematics", ...colorInfo["discrete_mathematics"]},
-	{name:"Linear Algebra", ...colorInfo["linear_algebra"]},
-	{name:"Trigonometry", ...colorInfo["trigonometry"]},
-	{name:"Calculus", ...colorInfo["calculus"]},
-	{name:"Probability & Statistics", ...colorInfo["probability_&_statistics"]},
-	{name:"Mechanics", ...colorInfo["mechanics"]},
-	{name:"Astronomy", ...colorInfo["astronomy"]},
-	{name:"Chemistry", ...colorInfo["chemistry"]},
-	{name:"Electricity & Magnetism", ...colorInfo["electricity_&_magnetism"]},
-	{name:"Biology", ...colorInfo["biology"]},
-	{name:"Computer Science", ...colorInfo["computer_science"]},
-	{name:"Error", ...colorInfo["error"]}
-]
-
 export const topicsOrder = [
 	"algebra",
 	"geometry",
@@ -62,6 +45,7 @@ export const topicsOrder = [
 	"error"
 ]
 
+/*
 export const LinksWithTopicName: {[key:string]: string} = {
 	"algebra": "Algebra",
 	"geometry": "Geometry",
@@ -78,6 +62,7 @@ export const LinksWithTopicName: {[key:string]: string} = {
 	"computer_science":"Computer Science",
 	"error":"Error"
 }
+*/
 
 export function getRecentlyAdded(): string[]{
 	return [

@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from "react";
 import TopicHeader from './designs/TopicHeader';
+import React from 'react';
 
 export type styleObjectType = {
   headerBgColor: string;

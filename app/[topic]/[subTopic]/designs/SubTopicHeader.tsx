@@ -7,7 +7,7 @@ export default function getHeader(props:{styleNumber: number, name: string, styl
 	footerColor: string;
 	borderColor: string;
 }}){
-	var headerText = (props.name=="Error") ? "404 Error" : props.name;
+	var headerText = (props.name=="error") ? "404 Error" : props.name;
 	switch(props.styleNumber){
 		case 1:
 			return <header className='border-t-4 border-gray-600 capitalize'>

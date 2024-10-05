@@ -12,6 +12,7 @@ import { citationList } from '@/app/infoStore/sourcesForCitation';
 import ImageWrapper from '@/app/components/ImageWrapper';
 import StyleSelectionBox from "@/app/components/StyleSelectionBox";
 import styles from "./design1.module.scss";
+import React from "react";
 
 var FontSizeContext = createContext({h2: "", main: "", quote: ""});
 
@@ -22,7 +23,7 @@ interface infoBoxType {
   visibility: "hidden" | "visible";
 };
 
-export default function Design1(props: {topic:string, subTopic:string, contentArray: [[string, any]]}){
+export default function Main(props: {topic: string, subTopic: string, contentArray: [[string, any]]}){
   const [fontSize, setFS] = useState({h2:"", main: "", quote: ""});
   const [blackboardOrAd, setBBOrAd] = useState("");
   const responsiveStyleRef = useRef("flex");
@@ -35,16 +36,18 @@ export default function Design1(props: {topic:string, subTopic:string, contentAr
       document.documentElement.style.overflowY = "scroll";
       document.documentElement.style.backgroundColor = "rgb(249 250 251)";
       //blackboard stuff (or ad instead of the blackboard section for mobile)
-      if(screen.width > parseInt(styles.minDeviceWidth)) {
-        setBBOrAd("blackboard");
-        setFS({h2:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
-      }
-      else{
-        //variable stores ad section instead of blackboard
-        responsiveStyleRef.current = "block";
-        setBBOrAd("ad");
-        setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
-      }
+      afterScreenWidthDefined(()=>{
+        if(screen.width > parseInt(styles.maxMobileWidth)) {
+          setBBOrAd("blackboard");
+          setFS({h2:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
+        }
+        else{
+          //variable stores ad section instead of blackboard
+          responsiveStyleRef.current = "block";
+          setBBOrAd("ad");
+          setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
+        }
+      });
     }
     else{
       //Prevent Google Ad script from changing element height
@@ -70,10 +73,9 @@ export default function Design1(props: {topic:string, subTopic:string, contentAr
   }, [blackboardOrAd]);
 
   let blackboardOrAdResult = <></>;
-  if (blackboardOrAd === "blackboard") {
+  if (blackboardOrAd === "blackboard") 
     blackboardOrAdResult = <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>
-  }
-  else if (blackboardOrAd === "ad") {
+  else if (blackboardOrAd === "ad")
     blackboardOrAdResult = <section>
       {/*@ts-ignore*/}
       <div id={styles.adBelowArticle} align="center"><ins
@@ -84,7 +86,6 @@ export default function Design1(props: {topic:string, subTopic:string, contentAr
         data-ad-slot="6823528647"
       ></ins></div>
     </section>;
-  }
 
   return <FontSizeContext.Provider value={fontSize}>
     <main style={{display: responsiveStyleRef.current}} id={styles.main} ref={mainEl}>
@@ -132,7 +133,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
         bodyChildren.push(<ImageWrapper
           key={i}
           alt=""
-          h = {screen.width > parseInt(styles.minDeviceWidth) ? ' max-h-[200px]': ' max-h-[150px]'}
+          h = {afterScreenWidthDefined(()=> screen.width > parseInt(styles.maxMobileWidth) ? ' max-h-[200px]': ' max-h-[150px]' )}
           className=' flex items-center justify-center my-4 '
           bor="border-black border-2"
           animate={true}
@@ -143,7 +144,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
         bodyChildren.push(<ImageWrapper
           key={i}
           alt=""
-          h = {screen.width > parseInt(styles.minDeviceWidth) ? ' h-[220px]': ' h-[150px]'}
+          h = {afterScreenWidthDefined(()=> screen.width > parseInt(styles.maxMobileWidth) ? ' h-[220px]': 'h-[150px]' )}
           className=' flex items-center justify-center my-4 '
           bor="border-black border-2"
           animate={true}
@@ -155,7 +156,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
           key={i}
           className={' text-xl grid min-h-[200px] items-center justify-items-center'}
           style={{gridTemplateColumns:"auto 90% auto"}}
-        ><span></span><div className={' border-black border-2 bg-white px-1 overflow-x-auto h-min max-w-min w-full'}>
+        ><span></span><div className={' border-black border-2 bg-white px-1 overflow-x-auto overflow-y-hidden h-min max-w-min w-full'}>
          {j[i][1]}
         </div><span></span></div>);
         break;
@@ -180,18 +181,25 @@ const Article = memo(function ArticleMemo(props: {content: JSX.Element[]}){
 
   useEffect(()=>{
     if(firsTime) setFT(false);
-    else {
-      //@ts-ignore
-      window.MathJax.typeset();
-    }
+    else setMathTypeset();
   },[firsTime]);
 
   let paddingLevel = "px-3";
-  if ((!firsTime) && (screen.width > parseInt(styles.minDeviceWidth))) {
+  if ((!firsTime) && (screen.width > parseInt(styles.maxMobileWidth))) {
     paddingLevel = "px-7 grow";
   }
   return <article className={`${paddingLevel}`} id={styles.article}>{props.content}</article>;
-})
+});
+
+function setMathTypeset(){
+  try{
+    //@ts-ignore
+    window.MathJax.typeset();
+  }
+  catch{
+    window.setTimeout(setMathTypeset,100);
+  }
+}
 
 function H2Main({children}: {children: string}){
   const FontSizeContextVal = useContext(FontSizeContext);
@@ -429,4 +437,14 @@ function ExtraInfoBox(props:{
     dangerouslySetInnerHTML={{__html: props.text}}
     onMouseLeave={()=> props.supportedFunc({text: "", posX: 0, posY: 0, visibility:"hidden"})}
   ></div>
+}
+
+function afterScreenWidthDefined(func: any){
+  try{
+    screen.width;
+    return func();
+  }
+  catch{
+    setTimeout(() => afterScreenWidthDefined(func),100);
+  }
 }

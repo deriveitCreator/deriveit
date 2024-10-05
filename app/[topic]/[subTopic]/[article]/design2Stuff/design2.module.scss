@@ -1,21 +1,44 @@
 @import '../../../../variables.scss';
 
 :export {
-  minDeviceWidth: $varForMinDeviceWidth;
+  maxMobileWidth: $maxMobileWidth;
 }
-
-//all styles in media query is for desktop
 
 #header{
   h1{
-    font-size: 30px;
-    line-height: 36px;
+    font-size: 36px;
+    line-height: 40px;
   }
 }
 
 #main{
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 40px;
+  padding-right: 40px;
+
+  .pmain{
+    margin-left: 8px; 
+    margin-right: 8px; 
+    font-size: 30px;
+  }
+  .subHeading{
+    font-size: 36px;
+  }
+  .pmain2{
+    margin-left: 32px; 
+    margin-right: 32px; 
+    font-size: 30px;
+  }
+  .subText{
+    margin-left: 64px; 
+    margin-right: 64px;
+    font-size: 28px;
+  }
+
+  .listStuff{
+    margin-left: 80px; 
+    margin-right: 80px;
+    font-size: 28px;
+  }
 }
 
 #idDiv{
@@ -36,17 +59,40 @@
   display: none;
 }
 
-@media (min-width: $varForMinDeviceWidth) {
+@media (max-width: $maxMobileWidth) {
   #header{
     h1{
-      font-size: 36px;
-      line-height: 40px;
+      font-size: 30px;
+      line-height: 36px;
     }
   }
 
   #main{
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 8px;
+    padding-right: 8px;
+
+    .pmain{
+      margin-left: 4px; 
+      margin-right: 4px; 
+      font-size: 28px;
+    }
+    .subHeading{
+      font-size: 30px;
+    }
+    .pmain2{
+      margin-left: 16px; 
+      margin-right: 16px; 
+      font-size: 28px;
+    }
+    .subText{
+      margin-left: 24px; 
+      margin-right: 24px; 
+      font-size: 24px;
+    }
+    .listStuff{
+      margin-left: 40px; 
+      margin-right: 40px;
+      font-size: 24px;
+    }
   }
-  
 }

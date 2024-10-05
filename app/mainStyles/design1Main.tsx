@@ -4,7 +4,7 @@ import React, { useState, useRef, useReducer, Suspense, useEffect } from 'react'
 import styles from "./design1.module.scss";
 import { chalkWriting, cursiveMain } from '../infoStore/fonts';
 import Link from 'next/link';
-import { topicsOrder, LinksWithTopicName, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';
+import { topicsOrder, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';
 import { ImageWrapper } from "../components/ImageWrapper";
 import { useRouter } from 'next/navigation';
 import { IconContext } from "react-icons";
@@ -187,11 +187,11 @@ function TopicLink(props: {refTo: string, floatD: string}){
     return <div onClick={divClicked} className={`bg-gray-50 overflow-hidden float-${props.floatD} notSelectedForShrink `} style={{width:"50%",height:"60px",transition:"width 0.2s ease-out, opacity 0.2s ease-out, height 0.3s ease-out "}} >
       <Link
         href={"/"+props.refTo}
-        className={`bg-gray-100 block hover:no-underline ${cursiveMain.className} ${styles.topicClass}`}
+        className={`bg-gray-100 block hover:no-underline ${cursiveMain.className} ${styles.topicClass} capitalize`}
         style={{transition:"font-size 0.2s ease-out, height 0.3s ease-out"}}
         onClick={linkClicked}
       >
-        {LinksWithTopicName[props.refTo]}
+        {props.refTo.replaceAll("_"," ")}
       </Link>
     </div>
   }

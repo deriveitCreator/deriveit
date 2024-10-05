@@ -41,9 +41,9 @@ const content = [
   ['pmain2', 'It was not until 1932 that <b>James Chadwick</b> found evidence of <b>neutrons</b>: uncharged, subatomic particles with a mass approximately the same as that of protons. The existence of the neutron also explained isotopes: They differ in mass because they have different numbers of neutrons, but they are chemically identical because they have the same number of protons.<sup>[4]</sup>'],
   ['source_format', [
     '<a href="https://en.wikipedia.org/wiki/Parmenides">https://en.wikipedia.org/wiki/Parmenides</a>',
-    '<cite className="Two Thousand Years of science, The Birth Time Of Science"></cite>',
+    '<cite title="Two Thousand Years of science, The Birth Time Of Science"></cite>',
     '<a href="https://en.wikipedia.org/wiki/Atomism#Greek_atomism">https://en.wikipedia.org/wiki/Atomism#Greek_atomism</a>',
-    '<cite className="Chemistry 2e"></cite>'
+    '<cite title="Chemistry 2e"></cite>'
   ]]
 ];
 export default content;

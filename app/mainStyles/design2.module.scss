@@ -4,7 +4,7 @@ $brown1: #552200;
 $brown2: #663300;
 
 :export {
-  minDeviceWidth: $varForMinDeviceWidth;
+  minDeviceWidth: $maxMobileWidth;
 	brown1: $brown1;
 }
 
@@ -317,7 +317,7 @@ $brown2: #663300;
 	position: relative;
 }
 
-@media only screen and (max-device-width: $varForMinDeviceWidth) {
+@media only screen and (max-device-width: $maxMobileWidth) {
 	#loading{
 		border-bottom: 4px solid $brown1;
 	}

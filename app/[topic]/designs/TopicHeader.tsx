@@ -7,11 +7,11 @@ export default function TopicHeader(props: {styleNumber: number, name: string, s
 	footerColor: string;
 	borderColor: string;
 }}){
-	var headerText = (props.name=="Error") ? "404 Error" : props.name;
+	var headerText = (props.name=="error") ? "404 Error" : props.name;
 	switch(props.styleNumber){
 		case 1:
-			return <header className='border-t-4 border-gray-600 capitalize'>
-				<h1 className={`${cursiveMain.className} bg-gray-100 border-b-4 border-gray-600 text-center text-4xl  leading-[74px] h-20 w-full mb-8`}>{headerText}</h1>
+			return <header className='border-t-4 border-gray-600'>
+				<h1 className={`${cursiveMain.className} bg-gray-100 border-b-4 border-gray-600 text-center text-4xl leading-[74px] h-20 w-full mb-8 capitalize`}>{headerText}</h1>
 			</header>
 		case 2:
 			let headerBgColor = props.styleObject!.headerBgColor;

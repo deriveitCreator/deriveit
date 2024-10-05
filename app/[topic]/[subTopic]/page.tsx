@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { DEFAULT_DESIGN_SELECTION } from '@/app/infoStore/designInfo';
 import ClientPart from './clientPart';
-import { LinksWithTopicName, getTopicColorInfo, colorInfoType } from '../../infoStore/topicsInfo';
+import { getTopicColorInfo, colorInfoType } from '../../infoStore/topicsInfo';
 
 var domainName: string;
 if((!process.env.NODE_ENV || process.env.NODE_ENV === 'development'))
@@ -35,7 +35,7 @@ export default async function Page({ params }: { params: { topic: string, subTop
     subTopic={decodedSubTopic}
     topicInfo={topicLinks}
     design={designSelectedVal}
-    name={LinksWithTopicName[decodedTopic]}
+    name={decodedTopic.replaceAll("_"," ")}
     styleObject={styleObject}
   />;
 }

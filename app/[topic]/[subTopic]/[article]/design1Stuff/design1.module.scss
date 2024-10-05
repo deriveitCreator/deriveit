@@ -1,13 +1,13 @@
 @import '../../../../variables.scss';
 
 :export {
-  minDeviceWidth: $varForMinDeviceWidth;
+  maxMobileWidth: $maxMobileWidth;
 }
 
 #header{
   h1{
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 }
 
@@ -59,11 +59,11 @@
 }
 
 
-@media (min-width: $varForMinDeviceWidth) {
+@media (max-width: $maxMobileWidth) {
   #header{
     h1{
-      padding-left: 32px;
-      padding-right: 32px;
+      padding-left: 8px;
+      padding-right: 8px;
     }
   }
 }

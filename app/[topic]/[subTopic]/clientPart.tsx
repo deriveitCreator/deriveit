@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import { useEffect } from "react";
 import SubTopicHeader from './designs/SubTopicHeader';
+import React from 'react';
 
 export type styleObjectType = {
   headerBgColor: string;

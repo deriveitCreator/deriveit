@@ -37,6 +37,7 @@ const HomeLoading=(props:{
 		props.changeSBL(true);
 		return ()=>{
 			document.documentElement.classList.remove("scroll2");
+			document.documentElement.style.backgroundColor = "white";
 		}
 	},[]); // eslint-disable-line
   

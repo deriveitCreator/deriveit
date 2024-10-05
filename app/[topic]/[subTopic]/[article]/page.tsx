@@ -1,9 +1,9 @@
 
 import { cookies } from 'next/headers';
 import { DEFAULT_DESIGN_SELECTION } from '@/app/infoStore/designInfo';
-import ClientPart from './clientPart';
 import { notFound } from 'next/navigation';
 import dynamic from 'next/dynamic';
+import React from 'react';
 
 var domainName: string;
 var cacheType: "default" | "no-store";
@@ -14,6 +14,12 @@ if((!process.env.NODE_ENV || process.env.NODE_ENV === 'development')){
 else{
   domainName = "https://www.deriveit.net";
   cacheType = "default";
+}
+
+type CompImportType = {
+  topic: string,
+  subTopic: string,
+  content: string[][],
 }
 
 export async function generateMetadata({ params }: { params: { topic:string, subTopic: string, article: string } }){
@@ -51,10 +57,8 @@ export default async function Page({ params }: { params: { topic:string, subTopi
   if (!fetchRes) return notFound();
 
   const designSelectedVal = parseInt(cookies().get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
-  const HeaderComp = dynamic<{text: string}>(() => import(`./design${designSelectedVal}Stuff/Header`));
+  const Comp = dynamic<CompImportType>(() => import(`./design${designSelectedVal}Stuff/Comp`));
   
-  return <>
-    <HeaderComp text={fetchRes[1][0][1]}/>
-    <ClientPart topic={topic2} subTopic={subTopic2} contentArray={fetchRes[1]} design={designSelectedVal}/>;
-  </>
+  //@ts-ignore
+  return <Comp topic={topic2} subTopic={subTopic2} content={fetchRes[1]}/>
 }
