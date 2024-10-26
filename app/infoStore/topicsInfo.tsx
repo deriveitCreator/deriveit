@@ -45,25 +45,6 @@ export const topicsOrder = [
 	"error"
 ]
 
-/*
-export const LinksWithTopicName: {[key:string]: string} = {
-	"algebra": "Algebra",
-	"geometry": "Geometry",
-	"discrete_mathematics": "Discrete Mathematics",
-	"linear_algebra": "Linear Algebra",
-	"trigonometry": "Trigonometry",
-	"calculus": "Calculus",
-	"probability_&_statistics": "Probability & Statistics",
-	"mechanics":"Mechanics",
-	"astronomy":"Astronomy",
-	"chemistry":"Chemistry",
-	"electricity_&_magnetism":"Electricity & Magnetism",
-	"biology":"Biology",
-	"computer_science":"Computer Science",
-	"error":"Error"
-}
-*/
-
 export function getRecentlyAdded(): string[]{
 	return [
 		"gcd(a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, ..., a<sub>n</sub>) ⇒ gcd(gcd(a<sub>1</sub>, a<sub>2</sub>), a<sub>3</sub>, ..., a<sub>n</sub>)%discrete_mathematics/more_gcd/gcdLemma7",

@@ -7,6 +7,11 @@ export const chalkWriting = Kalam({
   subsets: ["latin"],
 })
 
+export const cursiveMainServer = Niconne({
+  weight: ["400"],
+  subsets: ["latin"]
+})
+
 export const cursiveMain = Niconne({
   weight: ["400"],
   subsets: ["latin"]
@@ -16,6 +21,11 @@ export const printFont = Karla({
   subsets: ["latin"],
   weight: ["500","700"],
   style: "italic"
+})
+
+export const textMainServer = Rochester({
+  weight: ["400"],
+  subsets: ["latin"]
 })
 
 export const textMain = Rochester({

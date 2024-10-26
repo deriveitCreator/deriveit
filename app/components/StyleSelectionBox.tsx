@@ -1,13 +1,12 @@
-
 import React, { useRef, useEffect, SetStateAction } from 'react';
 import {cursiveMain, chalkWriting, printFont2, logoFont2 } from "@/app/infoStore/fonts";
 import { NextFont } from 'next/dist/compiled/@next/font';
-import ImageWrapper from './ImageWrapper';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { DEFAULT_DESIGN_SELECTION } from '../infoStore/designInfo';
 import { useCookies } from 'next-client-cookies';
 
-const StyleSelectionBox = (props: {showDB: boolean, changeSDB: React.Dispatch<SetStateAction<boolean>>}) => {
+export default function StyleSelectionBox(props: {showDB: boolean, changeSDB: React.Dispatch<SetStateAction<boolean>>}) {
 	const dialogRef = useRef<HTMLDialogElement>(null);
 	const scrollVal = useRef("");
 	const router = useRouter();
@@ -27,12 +26,8 @@ const StyleSelectionBox = (props: {showDB: boolean, changeSDB: React.Dispatch<Se
 
 	async function changeToStyle(num: number){
 		const fetchRes =  await fetch("/infoStore/setCookie?"+ new URLSearchParams({selected: num.toString()}), {method:"get", cache:"no-cache"});
-		if(fetchRes.ok){
-			router.refresh();
-		}
-		else{
-			alert("There was an error with the cookies.\nPlease report this.");
-		}
+		if(fetchRes.ok) router.refresh();
+		else alert("There was an error with the cookies.\nPlease report this.");
 	}
 
 	switch(parseInt(useCookies().get('designSelected')!) || DEFAULT_DESIGN_SELECTION){
@@ -51,7 +46,7 @@ const StyleSelectionBox = (props: {showDB: boolean, changeSDB: React.Dispatch<Se
 			<p className={logoFont2.className + " text-center text-lg text-orange-950 mt-1 tracking-tight"}>(uses cookies)</p>
 			<StylesOptions changeToStyle={changeToStyle}/>
 			<button
-				className={printFont2.className + " font-bold text-2xl w-full text-orange-950 border-t-4 border-t-orange-950 bg-[#CC5511] h-12"}
+				className={`${logoFont2.className} block font-bold text-lg w-full text-orange-950 border-t-4 border-t-orange-950 bg-[#CC5511] h-10`}
 				onClick={()=>dialogRef.current?.close()}
 			>Close</button>
 		</dialog>;
@@ -71,14 +66,12 @@ function StylesOptions(props:{changeToStyle: (num: number) => Promise<void>}){
 			<button
 				key={i}
 				onClick={()=>{props.changeToStyle(i+1)}}
-				style={{border:"solid 3px " + stylesBorder[i], fontSize: stylesSize[i],padding:"0px 5px",borderRadius:"8px",backgroundColor:stylesBg[i], color: stylesBorder[i]}}
+				style={{border:"solid 3px " + stylesBorder[i], fontSize: stylesSize[i], padding:"5px 5px 0px", borderRadius:"8px",backgroundColor:stylesBg[i], color: stylesBorder[i], display: "flex", flexDirection:"column", alignItems:"center"}}
 				className={stylesFont[i].className}
 			>
-				<ImageWrapper w='w-32' src={`/link_logo_short_${i+1}.png`}/>
-				{text}
+				<Image width={120} height={120} src={`/link_logo_short_${i+1}.png`} alt=""/>
+				<span style={{lineHeight: "30px", height: "30px", display:"inline-block"}}>{text}</span>
 			</button>
 		)}
 	</div>;
 }
-
-export default StyleSelectionBox

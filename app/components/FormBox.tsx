@@ -3,14 +3,13 @@ import { cursiveMain, printFont, chalkWriting, printFont2, logoFont2 } from '../
 import { useCookies } from "next-client-cookies";
 import { DEFAULT_DESIGN_SELECTION } from "../infoStore/designInfo";
 
-export default function FormBox(props: {showFB: boolean, reducerDis: React.Dispatch<{type: string}>, type: number}){
+export default function FormBox(props: {type: number}){
 	const dialogRef = useRef<HTMLDialogElement>(null);
 	const formRes = useRef("");
 	const [submitted,changeSubmitted] = useState(false);
 
 	function diaClose(){
 		document.documentElement.style.overflowY = "scroll";
-		props.reducerDis({type: "HIDE_FORM_BOX"});
 		if(formRes.current !== ""){
 			alert(formRes.current);
 			formRes.current = "";
@@ -18,7 +17,7 @@ export default function FormBox(props: {showFB: boolean, reducerDis: React.Dispa
 	}
 
 	useEffect(()=>{
-		if(props.showFB) {
+		if(props.type >= 0) {
 			document.documentElement.style.overflowY = "hidden";
 			dialogRef.current?.showModal();
 		}
@@ -35,8 +34,10 @@ export default function FormBox(props: {showFB: boolean, reducerDis: React.Dispa
 			case 1:
 				formData.append("title","Derivation");
 				break;
-			default:
+			case 2:
 				formData.append("title","Suggestion");
+			default:
+				null;
 		}
 		formData.append("pathname",window.location.pathname);
 		const fetchData = await fetch(window.location.origin+"/infoStore/sendEmail", {

@@ -133,7 +133,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
         bodyChildren.push(<ImageWrapper
           key={i}
           alt=""
-          h = {afterScreenWidthDefined(()=> screen.width > parseInt(styles.maxMobileWidth) ? ' max-h-[200px]': ' max-h-[150px]' )}
+          h = {' max-h-[150px]'}
           className=' flex items-center justify-center my-4 '
           bor="border-black border-2"
           animate={true}

@@ -55,7 +55,6 @@ export default async function Page({ params }: { params: { topic:string, subTopi
   .catch(()=> null);
 
   if (!fetchRes) return notFound();
-
   const designSelectedVal = parseInt(cookies().get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
   const Comp = dynamic<CompImportType>(() => import(`./design${designSelectedVal}Stuff/Comp`));
   

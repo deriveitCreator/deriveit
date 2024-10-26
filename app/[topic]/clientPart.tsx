@@ -1,7 +1,7 @@
 "use client"
 
 import dynamic from 'next/dynamic';
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import TopicHeader from './designs/TopicHeader';
 import React from 'react';
 
@@ -25,11 +25,12 @@ export default function ClientPart(props: {
   name: string,
   styleObject: styleObjectType | null
 }){
-  const MainComp = dynamic<ImportType>(() => import(`@/app/[topic]/designs/Style${props.design}`), { ssr: false });
+  const MainComp = dynamic<ImportType>(() => import(`@/app/[topic]/designs/Style${props.design}`));
 
   useEffect(()=>{
     document.documentElement.style.overflowY = "auto";
     document.documentElement.classList.remove("scroll2");
+    if(props.design === 1) document.documentElement.style.backgroundColor = "rgb(249 250 251)";
   },[]);
 
 

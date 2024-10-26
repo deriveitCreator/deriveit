@@ -1,11 +1,14 @@
 "use client"
 
-import React, { useEffect } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import { headingFont, mainTextFont } from "@/app/infoStore/fonts";
 import Link from "next/link";
 import styles from "./variables.module.scss";
 import { styleObjectType } from '../clientPart';
-import FooterEl from "./Style2Footer";
+import FormBox from '@/app/components/FormBox';
+import ImageWrapper from '@/app/components/ImageWrapper';
+import { link } from "../../infoStore/paypalLink";
+import { printFont2 } from "@/app/infoStore/fonts";
 
 export default function Style2(props: {
 	topic: string,
@@ -71,4 +74,35 @@ const StyledP = (props: {text: string, link: string, textColor: string}) =>{
 	return <p className={`${mainTextFont.className} ${responsivePStyle} `} style={{color: props.textColor, letterSpacing:"1px"}}>
 		{pContent}
 	</p>;
+}
+
+function FooterEl(props:{borderColor:string, textColor: string, headerBgColor: string}){
+	const [formType, changeType] = useState(-1);
+		
+	return <div className={printFont2.className+' font-bold'} style={{color:props.textColor}}>
+		<footer>
+			<hr style={{backgroundColor:props.borderColor, height:"4px", border:"none"}}/>
+			<div style={{display:"grid",gridTemplateColumns:"140px auto",margin:"0px 15px 0px 20px"}}>
+				<Link href="/" >
+						<ImageWrapper className=' mx-4 my-4 ' src="/link_logo_trans2.png" alt="" />
+				</Link>
+				<div style={{border:`solid ${props.borderColor} 3px`, marginTop:"10px", backgroundColor: props.headerBgColor, display:"flex",flexDirection:"row",justifyContent:"space-between", height:"min-content"}}>
+					<p style={{paddingLeft:"10px"}}>
+							If you find a bug in this website or want to report an error, <ClickButton type={0} func={changeType} /><br/>
+							If there are any equations for which you want proof for, <ClickButton type={1} func={changeType} /><br/>
+							For any suggestion and ideas, <ClickButton type={2} func={changeType} />
+					</p>
+					<Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center",padding:"0px 25px"}} target="_blank">
+							<p className={" text-center font-bold text-sm "}>Want To Donate?</p>
+							<ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
+					</Link>
+				</div>
+				<Suspense fallback={<></>}><FormBox type={formType}/></Suspense>
+			</div>
+		</footer>
+	</div>
+}
+
+function ClickButton(props: {type: number, func: React.Dispatch<React.SetStateAction<number>>}){
+  return <button onClick={()=>{props.func(props.type)}} className=' hover:underline outline-none'>click here</button>
 }

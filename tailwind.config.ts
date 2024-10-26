@@ -16,6 +16,9 @@ const config: Config = {
       keyframes: {
         becomeBlack: {
           '100%': { color: '#000' },
+        },
+        becomeVisible: {
+          '100%': { opacity: '1' },
         }
       }
     },

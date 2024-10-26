@@ -103,7 +103,6 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"if α<sub>1</sub>|b, α<sub>2</sub>|b and gcd(α<sub>1</sub>, α<sub>2</sub>) = 1 ⇒ α<sub>1</sub>α<sub>2</sub>|b%gcdLemma14",
 		"if ε|αβ and gcd(ε, α) = 1, then ε|β%gcdLemma13",
 		"if α is odd then gcd(α, α-2) = 1%gcdLemma10",
-		"any integer greater than 6 can be represented as a sum of two relatively prime integers%gcdLemma9",
 		"if m|n, then (a<sup>m</sup>-b<sup>m</sup>)|(a<sup>n</sup>-b<sup>n</sup>)%divisibilityLemma1"
 	]],
 	["prime_numbers", [
@@ -112,6 +111,7 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"there are infinite number of primes%infinite_primes",
 		"all primes are of the form 4k+1 or 4k+3%all_primes_are_of_the_form",
 		"there are infinite primes of the form 4k+3%infinite_primes_4k_plus_3",
+		"there are infinite primes of the form 3k+2%infinite_primes_3k_plus_2",
 		"no prime can be expressed as a<sup>4</sup> - b<sup>4</sup>%differenceOfFourthPowers",
 		"for any positive integer n, there are at least n consecutive composite integers%nConsecutiveCompositeInteger",
 		"if 2<sup>p</sup> - 1 is prime, then p is prime%Mersenne_prime1",
@@ -120,18 +120,26 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"if n<sup>2</sup>+1 is prime, then n<sup>2</sup> = 4k%n_square_prime",
 		"Legendre's formula%legendres_formula",
 		"lower bound for Legendre's formula%legendres_formula_lower_bound",
+		"a powerful number is a product of a square number and a cube number%powerful_from_square_and_cube",
+		"any integer greater than 6 can be represented as a sum of two relatively prime integers%primeLemma2",
+		"if a<sup>k</sup>|b<sup>k</sup> then a|b%aSquare_divides_bSquare_implies_a_divides_b"
 	]],
 	["more_gcd", [
 		"if gcd(α, ε) = 1 and gcd(β, ε) = 1, then gcd(αβ, ε) = 1%gcdLemma18",
+		"if gcd(α, β) = 1, then gcd(αβ, ε) = gcd(α, ε) * gcd(β, ε)%multiplicative",
 		"δ = gcd(α, β) ⇒ gcd(α/δ, β/δ) = 1%gcdLemma8",
 		"gcd(α<sub>1</sub>, α<sub>2</sub>, α<sub>3</sub>, ..., α<sub>n</sub>) ⇒ gcd(gcd(α<sub>1</sub>, α<sub>2</sub>), α<sub>3</sub>, ..., α<sub>n</sub>)%gcdLemma7",
 		"if gcd(x, y) divides (x + y), then there are infinite values of x and y%gcdDividesPlus",
 		"m * gcd(α, β) = gcd(mα, mβ)%gcdLemma15",
 		"if gcd(α, β) = 1, then gcd(α+β, α-β) is either 1 or 2%gcdLemma16",
-		"gcd(α, β) * lcm(α, β) = αβ%gcdTimesLcmGivesProduct",
 		"if gcd(α, β) = δ and  gcd(α, ε) = δ, then  gcd(α, β, ε) = δ%gcdLemma17",
 		"if gcd(α, β) = 1 then gcd(α<sup>m</sup>, β<sup>n</sup>) = 1%gcdLemma12",
 		"if gcd(α, β) = 1 then gcd(α + β, αβ) = 1%gcdLemma11"
+	]],
+	["lcm", [
+		"gcd(α, β) * lcm(α, β) = αβ%gcdTimesLcmGivesProduct",
+		"[ca, cb] = c[a, b]%lcmLemma2",
+		"[a, b, c] = [[a, b], c]%lcmLemma3",
 	]],
 	["modular_arithmetic", [
 		"(α ≡ β mod Μ and ε ≡ δ mod Μ) ⇒ α + ε ≡ β + δ mod Μ%modLemma1",
@@ -187,7 +195,7 @@ const trigonometryLinks: Array<[string,string[]]> = [
 ]
 
 const calculusLinks: Array<[string,string[]]> = [
-	["limits", ["the sum law%sum","the product law%product","limit<sub>x→a</sub>f(g(x)) = f(limit<sub>x→a</sub>g(x))%inner","the root law and the power law%root","limi<sub>tx→0</sub> [sin(x)/x] = 1%limit_sin","limit<sub>x→0</sub> [(cos(x)-1)/x] = 0%limit_cos",
+	["limits", ["the sum law%sum","the product law%product","limit<sub>x→a</sub>f(g(x)) = f(limit<sub>x→a</sub>g(x))%inner","the root law and the power law%root","limit<sub>x→0</sub> [sin(x)/x] = 1%limit_sin","limit<sub>x→0</sub> [(cos(x)-1)/x] = 0%limit_cos",
 	]],
 	["differential_calculus", [
 		"differentiability_implies_continuity",

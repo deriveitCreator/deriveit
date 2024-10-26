@@ -1,4 +1,3 @@
-
 import { cursiveMain, headingFont } from "@/app/infoStore/fonts";
 
 export default function TopicHeader(props: {styleNumber: number, name: string, styleObject?:{

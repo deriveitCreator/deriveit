@@ -61,6 +61,14 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 12.9:</b>
+- For design 1, in the topic and subtopic pages now use server side rendering.
+- For design 1, in the articles pages, `displayimg` now all have 150px as their max height.
+- For design 2, in the articles pages, `ImageWrapper` is no longer used. Now the `Image` component is being used directly.
+- For design 2, in the articles pages, the footer changes structure based on css instead of JavaScript.
+- Made coding changes to `FormBox`, no functionality changes were made.
+- Added some content for discrete mathematics.
+
 <b>update 12.8:</b>
 - Upgraded Next.js version and removed some unused packages.
 

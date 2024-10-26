@@ -31,6 +31,7 @@ export default function ClientPart(props: {
   useEffect(()=>{
     document.documentElement.style.overflowY = "auto";
     document.documentElement.classList.remove("scroll2");
+    if(props.design === 1) document.documentElement.style.backgroundColor = "rgb(249 250 251)";
   },[]);
 
   var curSubTopic: [string, string[]] = ["",[""]];

@@ -9,7 +9,7 @@ import { topicsOrder } from "@/app/infoStore/topicsInfo";
 import { FaHome } from "react-icons/fa";
 import Link from "next/link";
 import StyleSelectionBox from "@/app/components/StyleSelectionBox";
-import {ImageWrapper} from '@/app/components/ImageWrapper';
+import Image from 'next/image';
 import FormBox from "@/app/components/FormBox";
 import { link } from "@/app/infoStore/paypalLink";
 import { citationList } from '@/app/infoStore/sourcesForCitation';
@@ -110,8 +110,8 @@ function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<strin
   }
 
   return  <>
-    <div onClick={()=>{props.asideW==="0px"?turnOnAside():turnOffAside()}} className="fixed top-28 cursor-pointer" style={{backgroundColor: "#BB5500",borderColor: "#663300",borderWidth: "5px",borderStyle: "solid", borderRightStyle:"none", borderRadius:"10px 0px 0px 10px", color: "#FFDD77",right:iconRightRef.current,zIndex:"10",transition:"right 0.4s"}}><IconContext.Provider value={{style:{height:"45px",margin:"0px 10px",fontWeight:"bold"}}}>{iconRef.current}</IconContext.Provider></div>
-    <div className={`${sideOpDis} fixed h-full w-full grid top-0 right-0`} style={{gridTemplateColumns:`auto ${props.asideW}`,transition:"0.4s"}}>
+    <div onClick={()=>{props.asideW==="0px"?turnOnAside():turnOffAside()}} className="fixed top-28 cursor-pointer border-solid" style={{backgroundColor: "#BB5500",borderColor: "#663300",borderWidth: "5px", borderRightStyle:"none", borderRadius:"10px 0px 0px 10px", color: "#FFDD77",right:iconRightRef.current,transition:"right 0.4s", zIndex: "11"}}><IconContext.Provider value={{style:{height:"45px",margin:"0px 10px",fontWeight:"bold"}}}>{iconRef.current}</IconContext.Provider></div>
+    <div className={`${sideOpDis} fixed h-full w-full grid top-0 right-0 z-10`} style={{gridTemplateColumns:`auto ${props.asideW}`,transition:"0.4s"}}>
       <div className={` bg-zinc-700 ${grayAreaOp.current} transition-all`} onClick={turnOffAside}></div>
       <aside className={"overflow-y-scroll"} style={{
         backgroundColor: "#BB5500",
@@ -132,7 +132,9 @@ function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<strin
           </div>
           {topicsOrder.map((topic, i)=>{
             if(topic === "error") return null;
-            return <Link key={i} href={`/${topic}`}><ImageWrapper className="mx-6 my-4 hover:transform hover:scale-105" src={`/topicsPics/${topic}.png`} w="w-full"/></Link>
+            return <Link key={i} href={`/${topic}`} className="relative flex mx-6 h-28 ">
+              <Image className=" hover:transform hover:scale-105" src={`/topicsPics/${topic}.png`} alt="" layout='fill' objectFit='contain'/>
+            </Link>
           })}
         </div>
       </aside>
@@ -154,74 +156,30 @@ function BrushButton(){
 }
 
 function FooterEl(){
-  const [firstTime, setFT] = useState(true);
-	const [footerState, changeFS] = useState(false);
-	const formType = useRef(0);
+	const [formType, changeType] = useState(-1);
 
-  useEffect(()=>{
-    setFT(false);
-  },[])
-		
-	function dispatch(arg0: {type: string}){
-			arg0.type==="SHOW_FORM_BOX"? changeFS(true):changeFS(false);
-	}
-
-	function showForm(type: number){
-			formType.current = type;
-			dispatch({type: "SHOW_FORM_BOX"});
-	}
-
-  if(!firstTime){
-    return <div className={printFont2.className+' font-bold'}>
-      <footer>
-      {
-        screen.width > parseInt(styles.maxMobileWidth) ?
-        <>
-          <hr style={{backgroundColor:"black", height:"4px", border:"none"}}/>
-          <div style={{display:"grid",gridTemplateColumns:"140px auto",margin:"0px 15px 0px 20px"}}>
-            <Link href="/" >
-                <ImageWrapper className=' mx-4 my-4 ' src="/link_logo_trans2.png" alt="" />
-            </Link>
-            <div style={{border:`solid black 3px`, marginTop:"10px", display:"flex",flexDirection:"row",justifyContent:"space-between", height:"min-content"}}>
-              <p style={{paddingLeft:"10px"}}>
-                  If you find a bug in this website or want to report an error, <ClickButton type={0} func={showForm} /><br/>
-                  If there are any equations for which you want proof for, <ClickButton type={1} func={showForm} /><br/>
-                  For any suggestion and ideas, <ClickButton type={2} func={showForm} />
-              </p>
-              <Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center",padding:"0px 25px"}} target="_blank">
-                  <p className={" text-center font-bold text-sm "}>Want To Donate?</p>
-                  <ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
-              </Link>
-            </div>
-            <Suspense fallback={<></>}><FormBox showFB={footerState} reducerDis={dispatch} type={formType.current}/></Suspense>
-          </div>
-        </>:
-        <div style={{ borderTop:`solid black 3px`,marginTop:"10px",letterSpacing:"-1px"}}>
-          <div style={{height:"min-content"}}>
-            <p style={{paddingLeft:"10px", paddingBottom:"4px"}}>
-                If you find a bug in this website or want to report an error, <ClickButton type={0} func={showForm} /><br/>
-                If there are any equations for which you want proof for, <ClickButton type={1} func={showForm} /><br/>
-                For any suggestion and ideas, <ClickButton type={2} func={showForm} />
-            </p>
-            <div style={{display:"grid", gridTemplateColumns:"100px 150px", justifyContent:"space-evenly"}}>
-              <Link href="/" >
-                  <ImageWrapper className=' mx-1 my-5 ' src="/link_logo_trans2.png" alt="" />
-              </Link>
-              <Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center"}} target="_blank">
-                <p className={" text-center font-bold text-sm "}>Want To Donate?</p>
-                <ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
-              </Link>
-            </div>
-          </div>
-          <Suspense fallback={<></>}><FormBox showFB={footerState} reducerDis={dispatch} type={formType.current}/></Suspense>
+  return <footer className={printFont2.className+' font-bold'}>
+    <hr style={{backgroundColor:"black", height:"4px", border:"none"}}/>
+    <div style={{display:"grid" ,margin:"0px 15px 0px 20px"}} id={styles.mainFooter}>
+      <Link href="/" className={'mx-4 my-4 relative h-[121px]'} id={styles.homeLink}>
+        <Image src="/link_logo_trans2.png" alt="" sizes="100vw" fill/>
+      </Link>
+      <div style={{paddingLeft:"10px", marginTop:"10px"}} id={styles.feedback}>
+        <p>If you find a bug in this website or want to report an error, <ClickButton type={0} func={changeType} /></p>
+        <p>If there are any equations for which you want proof for, <ClickButton type={1} func={changeType} /></p>
+        <p>For any suggestion and ideas, <ClickButton type={2} func={changeType} /></p>
+      </div>
+      <Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center",padding:"0px 25px", marginTop:"10px"}} target="_blank" id={styles.donate}>
+        <p className={"text-center font-bold text-sm"}>Want To Donate?</p>
+        <div className={'flex justify-center h-6 relative'}>
+          <Image src="/payPal.png" alt="" layout='fill' objectFit='contain'/>
         </div>
-      }
-      </footer>
+      </Link>
     </div>
-  }
-  else return null;
+    <Suspense fallback={<></>}><FormBox type={formType}/></Suspense>
+  </footer>;
 }
 
-function ClickButton(props: {type: number, func: (arg0: number) => void}){
-  return <button onClick={()=>{props.func(props.type)}} className=' hover:underline outline-none'>click here</button>
+function ClickButton(props: {type: number, func: React.Dispatch<React.SetStateAction<number>>}){
+  return <button onClick={()=>{props.func(props.type)}} className=' hover:underline outline-none'>click here</button>;
 }
