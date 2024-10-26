@@ -67,7 +67,7 @@ Versioning is done using "npm version [new-version] --git-tag-version false"
 - For design 2, in the articles pages, `ImageWrapper` is no longer used. Now the `Image` component is being used directly.
 - For design 2, in the articles pages, the footer changes structure based on css instead of JavaScript.
 - Made coding changes to `FormBox`, no functionality changes were made.
-- Added some content for discrete mathematics.
+- Made some changes and added content for discrete mathematics.
 
 <b>update 12.8:</b>
 - Upgraded Next.js version and removed some unused packages.
