@@ -72,6 +72,8 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
     }
   }, [blackboardOrAd]);
 
+  useEffect(setMathTypeset, [fontSize]);
+
   let blackboardOrAdResult = <></>;
   if (blackboardOrAd === "blackboard") 
     blackboardOrAdResult = <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>

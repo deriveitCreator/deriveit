@@ -61,6 +61,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 12.10:</b>
+- For design1, `MathJax.typeset()` executes after font size changes.
+
 <b>update 12.9:</b>
 - For design 1, in the topic and subtopic pages now use server side rendering.
 - For design 1, in the articles pages, `displayimg` now all have 150px as their max height.
