@@ -8,9 +8,11 @@ import { IconContext } from "react-icons";
 import { FaPaintbrush, FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import StyleSelectionBox from '../components/StyleSelectionBox';
 import Link from 'next/link';
-import Design2Footer from '../footerStyles/design2Footer';
+import { link } from '../infoStore/paypalLink';
+import Image from 'next/image';
 import { topicsOrder, getTopicColorInfo, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';
 import { ParallaxProvider, useParallax } from 'react-scroll-parallax';
+import FormBox from '../components/FormBox';
 
 export default function Design2(){
 	const [continueEnabled, setCE] = useState(false);
@@ -32,12 +34,11 @@ const HomeLoading=(props:{
 
 	useEffect(()=>{
 		document.documentElement.style.overflowY = "hidden";
-		document.documentElement.style.backgroundColor = "rgb(150,60,00)";
 		document.documentElement.classList.add("scroll2");
 		props.changeSBL(true);
 		return ()=>{
+			document.documentElement.style.overflowY = "scroll";
 			document.documentElement.classList.remove("scroll2");
-			document.documentElement.style.backgroundColor = "white";
 		}
 	},[]); // eslint-disable-line
   
@@ -67,9 +68,32 @@ const MainPartMemo = React.memo(function MainPart(props:{
 	return <ParallaxProvider><div style={{backgroundColor:"#FFD966",position:"relative", visibility: props.continueButtonClicked?"visible":"hidden"}}>
 		<BackgroundImage continueClicked={props.continueButtonClicked}/>
 		<HomeBody setConFunc={props.setCE} continueButtonClicked={props.continueButtonClicked}/>
-		<Design2Footer id={styles.footerId}/>
+		<Design2Footer/>
 	</div></ParallaxProvider>;
 });
+
+function BackgroundImage(props:{continueClicked: boolean}){
+	const parallaxRef = useParallax<HTMLDivElement>({ speed: -50 });
+
+	useEffect(()=>{
+		if(props.continueClicked) setTimeout( function(){
+			if(screen.width < parseInt(styles.minDeviceWidth)){
+				parallaxRef.ref.current!.style.backgroundSize = "contain";
+				parallaxRef.ref.current!.style.backgroundImage = `url(/cgolSmall.gif)`;
+				parallaxRef.ref.current!.style.opacity = "0";
+				window.setTimeout(()=>{
+					parallaxRef.ref.current!.style.transition = "opacity 1.5s linear";
+					parallaxRef.ref.current!.style.opacity = "1";
+				},500)
+			}
+			else parallaxRef.ref.current!.style.backgroundImage = `url(/cgol${Math.floor(Math.random() * 3) + 1}.gif)`;
+		}, 1000);
+	});
+
+	return <div id={styles.backgroundImage}>
+		<div ref={parallaxRef.ref}></div>
+	</div>;
+}
 
 function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean>>, continueButtonClicked:boolean}){
 
@@ -236,7 +260,7 @@ function Slideshow(props:{continueButtonClicked:boolean}){
 	</>;
 }
 
-//For future reading, more sure to add a feature where inputting the 5th letter stops the searchDatabase function  when the 4th letter was pressed.
+//For future reading, more sure to add a feature where inputting the 5th letter stops the searchDatabase function when the 4th letter was pressed.
 function SearchEl(){
 	const [displayVal, changeDisplay] = useState("none");
 	const timerRef: MutableRefObject<null|number> = useRef(null);
@@ -326,7 +350,7 @@ function BelowTables(props: {recentlyAdded: boolean}){
 						style={{backgroundColor: colorInfo.bgColor!, color: colorInfo.borderColor!, fontWeight:"bold"}}
 						className={mainTextFont.className}
 					>
-						<Link href={elem.substring(perPos+1)}>{elem.substring(0,perPos).replaceAll("_"," ")}</Link>
+						<Link href={elem.substring(perPos+1)} dangerouslySetInnerHTML={{__html: elem.substring(0,perPos).replaceAll("_"," ")}}></Link>
 					</td>
 				</tr>;
 			})}</tbody>
@@ -334,25 +358,25 @@ function BelowTables(props: {recentlyAdded: boolean}){
 	}
 }
 
-function BackgroundImage(props:{continueClicked: boolean}){
-	const parallaxRef = useParallax<HTMLDivElement>({ speed: -50 });
+function Design2Footer() {
+  const [formType, changeFT] = useState(-1);
 
-	useEffect(()=>{
-		if(props.continueClicked) setTimeout( function(){
-			if(screen.width < parseInt(styles.minDeviceWidth)){
-				parallaxRef.ref.current!.style.backgroundSize = "contain";
-				parallaxRef.ref.current!.style.backgroundImage = `url(/cgolSmall.gif)`;
-				parallaxRef.ref.current!.style.opacity = "0";
-				window.setTimeout(()=>{
-					parallaxRef.ref.current!.style.transition = "opacity 1.5s linear";
-					parallaxRef.ref.current!.style.opacity = "1";
-				},500)
-			}
-			else parallaxRef.ref.current!.style.backgroundImage = `url(/cgol${Math.floor(Math.random() * 3) + 1}.gif)`;
-		}, 1000);
-	});
+  return <footer className={`w-full py-5 ${printFont2.className}`} id={styles.footerId}>
+    <div id={styles.footerGrid}>
+      <p id={styles.footerP}>
+				If you find a bug in this website or want to report an error, <ClickButton type={0} func={changeFT} />.<br/>
+				If there are any equations for which you want proof for, <ClickButton type={1} func={changeFT} />.<br/>
+				For any suggestion and ideas, <ClickButton type={2} func={changeFT} />.
+      </p>
+      <Link id={styles.paypalLink} href={link} target="_blank">
+				<p className={" text-center font-bold text-xs "}>Want To Donate?</p>
+				<Image alt="" src={"/payPal.png"} width={0} height={0} sizes="100vw" id={styles.paypalImage}/>
+      </Link>
+      <Suspense fallback={<></>}><FormBox type={formType}/></Suspense>
+    </div>
+  </footer>;
+}
 
-	return <div id={styles.backgroundImage}>
-		<div ref={parallaxRef.ref}></div>
-	</div>;
+function ClickButton(props: {type: number, func: React.Dispatch<React.SetStateAction<number>>}){
+  return <button onClick={()=>{props.func(props.type)}} className=' hover:underline outline-none' style={{color:"rgb(204, 51, 0)"}}>click here</button>
 }

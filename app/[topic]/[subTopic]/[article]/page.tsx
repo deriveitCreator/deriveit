@@ -1,4 +1,3 @@
-
 import { cookies } from 'next/headers';
 import { DEFAULT_DESIGN_SELECTION } from '@/app/infoStore/designInfo';
 import { notFound } from 'next/navigation';

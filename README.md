@@ -19,7 +19,6 @@ One major thing I added was the design feature, where you can choose different d
 	- `variables.scss`
 	- `components`: stores some home-page components
 	- `mainStyles`: this folder stores all the different designs for the main part of the homepage. By 'main part', I mean excluding footer.
-	- `footerStyles`: store info about footer (which is global)
 	- `[topic]`: when you select a particular topic in the home page, this is the folder you are routed to.
 	- `infoStore`: store website info that is not found in other folders; all the article content is stored here.
 
@@ -51,8 +50,6 @@ One major thing I added was the design feature, where you can choose different d
 
 - The `page.tsx` sends the article links (or article content if in `\article` folder) and design number to `clientPart.tsx`. This file is suppose to run on the server.
 
-- The `clientPart.tsx` gets the article links (or article content) and design number from the `page.tsx` and then sets the header and body based on the design number. The file runs on the client side.
-
 - The `layout.tsx` sets the title
 
 - The `not-found.tsx` handles the 404 errors.
@@ -60,6 +57,23 @@ One major thing I added was the design feature, where you can choose different d
 ## Updates
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
+
+<b>update 13.1:</b>
+- Added articles `modLemma4`.
+- Edited articles `powerful_from_square_and_cube`, `gcdLemma8`, `the_geocentric_view` and `eulers_theorem`.
+- Topic links are now stored in `infoStore/topicsInfo.tsx` instead of `infoStore/getTopicLinks/route/tsx`.
+- Removed the `footerStyles` folder. Footers are now in the `mainStyles` folder.
+- In `FormBox.tsx`, input elements have hydration warning suppressed.
+- Removed z-index from topic header.
+- For design 2, the document background is always `rgb(150,60,0)`.
+- Removed `ClientPart.tsx` from topic and subtopic.
+- Transfer some tailwind styling to scss.
+- Links in the subtopic page for design 1 now replace spaces with underscore.
+- For design 2, topic and subtopic pages now render server side (except for the footer).
+- For design 2, made coding style changes for the aside element.
+- For design 2, responsive styling is now done by css instead of javascript.
+- For design 2, `ExtraInfoBox` in article pages was not showing, that is fixed now.
+- For design 1, when navigating to the topic page form the home page, the scroll bar would not appear. This is fixed now.
 
 <b>update 12.10:</b>
 - For design1, `MathJax.typeset()` executes after font size changes.

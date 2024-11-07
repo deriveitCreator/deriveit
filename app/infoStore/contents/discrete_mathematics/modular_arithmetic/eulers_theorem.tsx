@@ -1,7 +1,7 @@
 export const title="Proving Euler's Theorem";
 const content = [
   ['h1', 'Proving Euler\'s Theorem'],
-  ['pmain', 'Let \\((a, m) = 1\\) and let the set \\(\\{ar_1 \\ldots ar_k \\}\\) be a reduced residue system mod \\(m\\) where \\(k = \\phi(m)\\). To prove Euler\'s theorem, we first need to show that that \\(ar_i\\) are all coprime to \\(m\\) and distinct mod \\(m\\). If \\((r, m) = 1\\) and \\((a, m) = 1\\) then \\((ar, m) = 1\\), this shows \\(ar\\) is coprime to \\(m\\). Also, if we had \\(ar_i ≡ ar_j \\mod m\\), then:'],
+  ['pmain', 'Let \\((a, m) = 1\\) and let the set \\(\\{ar_1 \\ldots ar_k \\}\\) be a reduced residue system mod \\(m\\) where \\(k = \\phi(m)\\). To prove Euler\'s theorem, we first need to show that \\(ar_i\\) are all coprime to \\(m\\) and distinct mod \\(m\\). If \\((r, m) = 1\\) and \\((a, m) = 1\\) then \\((ar, m) = 1\\), this shows \\(ar\\) is coprime to \\(m\\). Also, if we had \\(ar_i ≡ ar_j \\mod m\\), then:'],
   ['displayFormula', '$$ m|ar_i - ar_j = a(r_i - r_j ) $$'],
   ['pmain', 'If (a, m) = 1 then \\(m|r_i - r_j\\) (using <a href="../divisibility_and_gcd/other">this lemma</a>):'],
   ['displayFormula', '$$ m|r_i - r_j ⇒ r_i ≡ r_j \\mod m $$'],

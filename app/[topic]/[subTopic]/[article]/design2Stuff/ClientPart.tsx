@@ -14,8 +14,15 @@ import FormBox from "@/app/components/FormBox";
 import { link } from "@/app/infoStore/paypalLink";
 import { citationList } from '@/app/infoStore/sourcesForCitation';
 
+interface infoBoxType {
+  text: string;
+  posX: number;
+  posY: number;
+  visibility: "hidden" | "visible";
+};
+
 export default function ClientPart(){
-  const [ExtraInfoBoxStates, changeEIBS] = useState<{text:string,posX:number,posY:number,visibility:"hidden"|"visible"}>({text:"",posX:0,posY:0,visibility:"hidden"});
+  const [ExtraInfoBoxStates, changeEIBS] = useState<infoBoxType>({text:"",posX:0,posY:0,visibility:"hidden"});
   const [asideW, setAW] = useState("0px");
   const [showDB, changeSDB] = useState(false);
 
@@ -28,8 +35,7 @@ export default function ClientPart(){
         (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) {}
     }
-    document.documentElement.style.overflowY = "scroll";
-    document.documentElement.style.backgroundColor = "white";
+    
     if (screen.width > parseInt(styles.maxMobileWidth)){
       document.querySelectorAll("[data-title]").forEach((el)=>{
         el.addEventListener("mouseenter",()=>{
@@ -47,16 +53,20 @@ export default function ClientPart(){
     document.querySelectorAll("cite").forEach(el =>{
       el.innerHTML = el.getAttribute("title") ? citationList[el.getAttribute("title")!] : "Error, please report this!";
     });
+
+    //incase exiting via side bar links
     return ()=>{
-      document.documentElement.classList.remove("scroll2"); //incase exiting via side bar links (design 2)
+      document.documentElement.classList.remove("scroll2");
+      document.documentElement.style.overflowY = "auto";
     }
   },[]);
 
   return <>
     <ExtraInfoBox 
-      text={ExtraInfoBoxStates.text}
-      pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}}
-      visibility={ExtraInfoBoxStates.visibility}
+      text = {ExtraInfoBoxStates.text}
+      posX = {ExtraInfoBoxStates.posX}
+      posY = {ExtraInfoBoxStates.posY}
+      visibility = {ExtraInfoBoxStates.visibility}
     />
     <SideOption asideW={asideW} setAW={setAW}/>
     <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/>
@@ -72,74 +82,81 @@ function setMathTypeSet(){
   }
 }
 
-function ExtraInfoBox(props:{text:string, pos:{X:number, Y:number}, visibility: "hidden" | "visible"}){
-  return <div className={mainTextFont.className + " bg-zinc-400 border-2 border-dashed border-black fixed text-xl font-bold p-1 max-w-sm"} style={{top:props.pos.Y,left:props.pos.X, visibility: props.visibility}} dangerouslySetInnerHTML={{__html: props.text}}></div>
+function ExtraInfoBox(props:infoBoxType){
+  return <div className={mainTextFont.className + " bg-zinc-400 border-2 border-dashed border-black fixed text-xl font-bold p-1 max-w-sm"} style={{top:props.posY,left:props.posX, visibility: props.visibility}} dangerouslySetInnerHTML={{__html: props.text}}></div>
 }
 
 function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<string>>}){
   const grayAreaOp = useRef("opacity-0");
   const iconRef = useRef(<FaChevronLeft/>);
   const iconRightRef = useRef("0");
-  const [sideOpDis, changeSOD] = useState("hidden");
 
   useEffect(()=>{
-    if(props.asideW==="0px") window.setTimeout(()=>{
-      iconRef.current = <FaChevronLeft/>;
-      changeSOD("hidden");
-    },450);
+    if (props.asideW==="0px") window.setTimeout(()=>{
+      document.documentElement.style.overflowY = "auto";
+      document.documentElement.classList.remove("scroll2");
+    }, 400);
+    else {
+      document.documentElement.style.overflowY = "hidden";
+      document.documentElement.classList.add("scroll2");
+    };
+
   }, [props.asideW]); // eslint-disable-line no-use-before-define
 
-  function turnOffAside(){
-    document.documentElement.style.overflowY = "auto";
-    document.documentElement.style.overflowX = "auto";
-    document.documentElement.classList.remove("scroll2");
+  let turnOffAside = () => props.setAW("0px");
+  let turnOnAside = () => props.setAW("240px");
+
+  if(props.asideW === "0px"){
+    iconRef.current = <FaChevronLeft/>;
     iconRightRef.current = "0";
     grayAreaOp.current = "opacity-0";
-    props.setAW("0px");
   }
-
-  function turnOnAside(){
-    document.documentElement.style.overflowY = "hidden";
-    document.documentElement.style.overflowX = "hidden";
-    document.documentElement.classList.add("scroll2");
-    iconRightRef.current = "240px";
+  else{
     iconRef.current = <FaChevronRight/>;
+    iconRightRef.current = "240px";
     grayAreaOp.current = "opacity-50";
-    changeSOD("block");
-    props.setAW("240px");
   }
 
-  return  <>
-    <div onClick={()=>{props.asideW==="0px"?turnOnAside():turnOffAside()}} className="fixed top-28 cursor-pointer border-solid" style={{backgroundColor: "#BB5500",borderColor: "#663300",borderWidth: "5px", borderRightStyle:"none", borderRadius:"10px 0px 0px 10px", color: "#FFDD77",right:iconRightRef.current,transition:"right 0.4s", zIndex: "11"}}><IconContext.Provider value={{style:{height:"45px",margin:"0px 10px",fontWeight:"bold"}}}>{iconRef.current}</IconContext.Provider></div>
-    <div className={`${sideOpDis} fixed h-full w-full grid top-0 right-0 z-10`} style={{gridTemplateColumns:`auto ${props.asideW}`,transition:"0.4s"}}>
+  return <>
+    <div id={styles.sideButton} onClick={()=>{props.asideW==="0px"?turnOnAside():turnOffAside()}} style={{right:iconRightRef.current}}>
+      <IconContext.Provider value={{style:{height:"45px",margin:"0px 10px",fontWeight:"bold"}}}>
+        {iconRef.current}
+      </IconContext.Provider>
+    </div>
+    <div className={`fixed h-full w-full grid top-0 right-0 z-10`} style={{gridTemplateColumns:`auto ${props.asideW}`,transition:"0.4s"}}>
       <div className={` bg-zinc-700 ${grayAreaOp.current} transition-all`} onClick={turnOffAside}></div>
-      <aside className={"overflow-y-scroll"} style={{
-        backgroundColor: "#BB5500",
-        borderLeftColor: "#663300",
-        borderLeftWidth: "5px",
-        borderLeftStyle: "solid",
-        position:"relative"
-      }}>
-        <div style={{
-          borderRightColor: "#663300",
-          borderRightWidth: "5px",
-          borderRightStyle: "solid",
-          padding:"1px 0px"
-        }}>
-          <div className="flex flex-row justify-evenly mt-4">
-            <Link href={"/"}><IconContext.Provider value={{style:{color:"#FFDD77",border:"solid 4px #663300",borderRadius:"8px",height:"50px",width:"50px",padding:"4px",backgroundColor:"#c60"}}}><FaHome/></IconContext.Provider></Link>
-            <BrushButton/>
-          </div>
-          {topicsOrder.map((topic, i)=>{
-            if(topic === "error") return null;
-            return <Link key={i} href={`/${topic}`} className="relative flex mx-6 h-28 ">
-              <Image className=" hover:transform hover:scale-105" src={`/topicsPics/${topic}.png`} alt="" layout='fill' objectFit='contain'/>
-            </Link>
-          })}
-        </div>
-      </aside>
+      <AsideEl/>
     </div>
   </>
+}
+
+function AsideEl(){
+  return <aside className={"overflow-y-scroll"} style={{
+    backgroundColor: "#BB5500",
+    borderLeftColor: "#663300",
+    borderLeftWidth: "5px",
+    borderLeftStyle: "solid",
+    position:"relative"
+  }}>
+    <div style={{
+      borderRightColor: "#663300",
+      borderRightWidth: "5px",
+      borderRightStyle: "solid",
+      padding:"1px 0px"
+    }}>
+      <div className="flex flex-row justify-evenly mt-4">
+        <Link href={"/"}><IconContext.Provider value={{style:{color:"#FFDD77",border:"solid 4px #663300",borderRadius:"8px",height:"50px",width:"50px",padding:"4px",backgroundColor:"#c60"}}}><FaHome/></IconContext.Provider></Link>
+        <BrushButton/>
+      </div>
+      {topicsOrder.map((topic, i)=>{
+        if(topic === "error") return null;
+        return <Link key={i} href={`/${topic}`} className="relative flex mx-6 h-28">
+          <Image className="hover:transform hover:scale-105" src={`/topicsPics/${topic}.png`} alt="" fill objectFit='contain'/>
+        </Link>
+      })}
+    </div>
+  </aside>
+
 }
 
 function BrushButton(){
@@ -158,11 +175,11 @@ function BrushButton(){
 function FooterEl(){
 	const [formType, changeType] = useState(-1);
 
-  return <footer className={printFont2.className+' font-bold'}>
+  return <footer className={printFont2.className + ' font-bold'}>
     <hr style={{backgroundColor:"black", height:"4px", border:"none"}}/>
     <div style={{display:"grid" ,margin:"0px 15px 0px 20px"}} id={styles.mainFooter}>
       <Link href="/" className={'mx-4 my-4 relative h-[121px]'} id={styles.homeLink}>
-        <Image src="/link_logo_trans2.png" alt="" sizes="100vw" fill/>
+        <Image src="/link_logo_trans2.png" alt="" fill objectFit='contain'/>
       </Link>
       <div style={{paddingLeft:"10px", marginTop:"10px"}} id={styles.feedback}>
         <p>If you find a bug in this website or want to report an error, <ClickButton type={0} func={changeType} /></p>
@@ -172,7 +189,7 @@ function FooterEl(){
       <Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center",padding:"0px 25px", marginTop:"10px"}} target="_blank" id={styles.donate}>
         <p className={"text-center font-bold text-sm"}>Want To Donate?</p>
         <div className={'flex justify-center h-6 relative'}>
-          <Image src="/payPal.png" alt="" layout='fill' objectFit='contain'/>
+          <Image src="/payPal.png" alt="" fill objectFit='contain'/>
         </div>
       </Link>
     </div>

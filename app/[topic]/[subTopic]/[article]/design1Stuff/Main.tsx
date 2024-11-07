@@ -9,10 +9,10 @@ import { annotate } from 'rough-notation';
 import { LegacyRef, createContext, useContext, useEffect, useRef, useState, Component, memo, createRef, RefObject, Dispatch, SetStateAction } from "react";
 import Link from "next/link";
 import { citationList } from '@/app/infoStore/sourcesForCitation';
-import ImageWrapper from '@/app/components/ImageWrapper';
 import StyleSelectionBox from "@/app/components/StyleSelectionBox";
 import styles from "./design1.module.scss";
 import React from "react";
+import Image from 'next/image';
 
 var FontSizeContext = createContext({h2: "", main: "", quote: ""});
 
@@ -25,29 +25,22 @@ interface infoBoxType {
 
 export default function Main(props: {topic: string, subTopic: string, contentArray: [[string, any]]}){
   const [fontSize, setFS] = useState({h2:"", main: "", quote: ""});
-  const [blackboardOrAd, setBBOrAd] = useState("");
-  const responsiveStyleRef = useRef("flex");
-  const [ExtraInfoBoxStates, changeEIBS] = useState<infoBoxType>({text:"", posX:0, posY:0, visibility:"hidden"});
+  const [boxStates, changeBS] = useState<infoBoxType>({text:"", posX:0, posY:0, visibility:"hidden"});
+  const blackboardOrAd = useRef<null|string>(null);
   const mainEl: RefObject<HTMLElement> = useRef(null);
+  const [firstRender, updateFR] = useState(true);
 
   useEffect(()=>{
-    if(blackboardOrAd === ""){
+    if(firstRender){
       //add scroll and background color
       document.documentElement.style.overflowY = "scroll";
       document.documentElement.style.backgroundColor = "rgb(249 250 251)";
-      //blackboard stuff (or ad instead of the blackboard section for mobile)
-      afterScreenWidthDefined(()=>{
-        if(screen.width > parseInt(styles.maxMobileWidth)) {
-          setBBOrAd("blackboard");
-          setFS({h2:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
-        }
-        else{
-          //variable stores ad section instead of blackboard
-          responsiveStyleRef.current = "block";
-          setBBOrAd("ad");
-          setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
-        }
-      });
+      //set blackboard for desktop
+      //and below ad for mobile
+      if(screen.width > parseInt(styles.maxMobileWidth)) {
+        blackboardOrAd.current = "blackboard";
+      }else blackboardOrAd.current = "ad";
+      updateFR(false);
     }
     else{
       //Prevent Google Ad script from changing element height
@@ -65,19 +58,37 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
           (window.adsbygoogle = window.adsbygoogle || []).push({});
         } catch (e) {}
       }
-      //[data-title] stuff (only for desktop)
-      document.querySelectorAll("[data-title]").forEach( (el) => {
-        addEventForDataTitle(el, changeEIBS);
-      });
+      //set fontsize
+      if(screen.width > parseInt(styles.maxMobileWidth))
+        setFS({h2:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
+      else setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
     }
-  }, [blackboardOrAd]);
+  }, [firstRender]);
 
-  useEffect(setMathTypeset, [fontSize]);
+  useEffect(()=>{
+    if (!firstRender){
+      //@ts-ignore
+      window.MathJax.typeset();
+      //add hover func to data titles (if desktop) 
+      if(screen.width > parseInt(styles.maxMobileWidth))
+        document.querySelectorAll("[data-title]").forEach((el)=>{
+          el.addEventListener("mouseenter",()=>{
+            changeBS({
+              text: el.getAttribute("data-title")!,
+              posX: el.getBoundingClientRect().x - 20,
+              posY: el.getBoundingClientRect().y + 50,
+              visibility:"visible"
+            });
+          });
+          el.addEventListener("mouseleave",()=>{changeBS({text: "",posX: 0,posY: 0,visibility:"hidden"})});
+        });
+    }
+  }, [fontSize]);
 
   let blackboardOrAdResult = <></>;
-  if (blackboardOrAd === "blackboard") 
-    blackboardOrAdResult = <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>
-  else if (blackboardOrAd === "ad")
+  if (blackboardOrAd.current === "blackboard") 
+    blackboardOrAdResult = <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>;
+  else if (blackboardOrAd.current === "ad")
     blackboardOrAdResult = <section>
       {/*@ts-ignore*/}
       <div id={styles.adBelowArticle} align="center"><ins
@@ -90,117 +101,93 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
     </section>;
 
   return <FontSizeContext.Provider value={fontSize}>
-    <main style={{display: responsiveStyleRef.current}} id={styles.main} ref={mainEl}>
-      <Article content={getBodyContent(props.topic, props.subTopic, props.contentArray)}/>
-      <ExtraInfoBox
-        text={ExtraInfoBoxStates.text}
-        pos={{X:ExtraInfoBoxStates.posX, Y:ExtraInfoBoxStates.posY}}
-        visibility={ExtraInfoBoxStates.visibility}
-        supportedFunc={changeEIBS}
-      />
+    <main id={styles.main} ref={mainEl} style={{opacity: blackboardOrAd.current?"1":"0"}}>
+      <Article topic={props.topic} subTopic={props.subTopic} contentArray={props.contentArray}/>
+      {blackboardOrAd.current==="blackboard" ? <ExtraInfoBox boxStates={boxStates} changeBS={changeBS}/> : null}
       {blackboardOrAdResult}
     </main>
-  </FontSizeContext.Provider>
+  </FontSizeContext.Provider>;
 }
 
-function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
-  let bodyChildren = [];
-  for(let i = 1; i<j.length; i++){
-    switch(j[i][0]){
-      case "h2":
-        bodyChildren.push(<H2Main key={i}>{j[i][1]}</H2Main>);
-        break;
-      case "pmain":
-        bodyChildren.push(<PMain mode={1} key={i}>{j[i][1] }</PMain>);
-        break;
-      case "pmain2":
-        bodyChildren.push(<PMain mode={2} key={i}>{j[i][1] }</PMain>);
-        break;
-      case "subText":
-        bodyChildren.push(<PMain mode={3} key={i}>{j[i][1] }</PMain>);
-        break;
-      case "figure":
-        bodyChildren.push(<ImageWrapper
-          key={i}
-          alt=""
-          h =' h-[240px]'
-          className={' flex flex-col items-center justify-center my-4 '+cursiveMain.className}
-          bor="border-black border-2"
-          animate={true}
-          src={`/${topic}/${subTopic}/${j[i][1][0]}`}
-          figcaption ={j[i][1][1]}
-        />);
-        break;
-      case ("displayimg"):
-        bodyChildren.push(<ImageWrapper
-          key={i}
-          alt=""
-          h = {' max-h-[150px]'}
-          className=' flex items-center justify-center my-4 '
-          bor="border-black border-2"
-          animate={true}
-          src={`/${topic}/${subTopic}/${j[i][1]}`}
-        />);
-        break;
-      case ("displayimg2"):
-        bodyChildren.push(<ImageWrapper
-          key={i}
-          alt=""
-          h = {afterScreenWidthDefined(()=> screen.width > parseInt(styles.maxMobileWidth) ? ' h-[220px]': 'h-[150px]' )}
-          className=' flex items-center justify-center my-4 '
-          bor="border-black border-2"
-          animate={true}
-          src={`/${topic}/${subTopic}/${j[i][1]}`}
-        />);
-        break;
-      case "displayFormula":
-        bodyChildren.push(<div
-          key={i}
-          className={' text-xl grid min-h-[200px] items-center justify-items-center'}
-          style={{gridTemplateColumns:"auto 90% auto"}}
-        ><span></span><div className={' border-black border-2 bg-white px-1 overflow-x-auto overflow-y-hidden h-min max-w-min w-full'}>
-         {j[i][1]}
-        </div><span></span></div>);
-        break;
-      case "ol":
-        bodyChildren.push(<ListComp numbered={true} key={i} content={j[i][1]}/>);
-        break;
-      case "ul":
-        bodyChildren.push(<ListComp numbered={false} key={i} content={j[i][1]}/>);
-        break;
-      case "source_format":
-        bodyChildren.push(<SourcesSectionInner key={i} content={j[i][1]}/>);
-        break;
-      default:
-        bodyChildren.push(<p className={'bg-red-950 text-xl w-full text-center text-red-600'} key={i}>There was a problem rendering this.<br/>Please screenshot and report this.</p>);
-    }
-  }
-  return bodyChildren;
-}
-
-const Article = memo(function ArticleMemo(props: {content: JSX.Element[]}){
-  const [firsTime,setFT] = useState(true);
-
-  useEffect(()=>{
-    if(firsTime) setFT(false);
-    else setMathTypeset();
-  },[firsTime]);
-
-  let paddingLevel = "px-3";
-  if ((!firsTime) && (screen.width > parseInt(styles.maxMobileWidth))) {
-    paddingLevel = "px-7 grow";
-  }
-  return <article className={`${paddingLevel}`} id={styles.article}>{props.content}</article>;
+const Article = memo(function ArticleMemo(props: {topic:string, subTopic:string, contentArray: [[string, any]]}){
+  return <article id={styles.article}>{
+    props.contentArray.map((record, i)=>{
+      if (i) return getBodyContent(props.topic, props.subTopic, record[0], record[1], i);
+      else return null;
+    })
+  }</article>;
 });
 
-function setMathTypeset(){
-  try{
-    //@ts-ignore
-    window.MathJax.typeset();
+function getBodyContent(topic:string, subTopic:string, type: string, content: any, i: number){
+  switch(type){
+    case "h2":
+      return (<H2Main key={i}>{content}</H2Main>);
+    case "pmain":
+      return (<PMain mode={1} key={i}>{content }</PMain>);
+    case "pmain2":
+      return (<PMain mode={2} key={i}>{content }</PMain>);
+    case "subText":
+      return (<PMain mode={3} key={i}>{content }</PMain>);
+    case "figure":
+      return (<Figure src={`/${topic}/${subTopic}/${content[0]}`} figcaption={content[1]} key={i}/>);
+    case ("displayimg"):
+      return <DisplayImg src={`/${topic}/${subTopic}/${content}`} maxH={"max-h-[150px]"} key={i}/>;
+    case ("displayimg2"):
+      return <DisplayImg src={`/${topic}/${subTopic}/${content}`} maxH={"max-h-[220px]"} key={i}/>;
+    case "displayFormula":
+      return (<div
+        key={i}
+        className={' text-xl grid min-h-[200px] items-center justify-items-center'}
+        style={{gridTemplateColumns:"auto 90% auto"}}
+      >
+        <span></span>
+        <div
+          className={' border-black border-2 bg-white px-1 overflow-x-auto overflow-y-hidden h-min max-w-min w-full'} suppressHydrationWarning
+        >{content}</div>
+        <span></span>
+      </div>);
+    case "ol":
+      return <ol key={i} className={`${textMain.className} list-decimal text-2xl mx-12 mb-3`} dangerouslySetInnerHTML={{__html: content}}></ol>;
+    case "ul":
+      return <ul key={i} className={`${textMain.className} list-none text-2xl mx-12 mb-3`} dangerouslySetInnerHTML={{__html: content}}></ul>;
+    case "source_format":
+      return <section key={i}>
+      <hr className=' mt-8 border-black border' style={{transform:"skewX(40deg)"}}/>
+      <h3 className={`underline text-3xl ${cursiveMain.className}`}>Sources:</h3>
+      <div style={{overflowX:"auto"}}>
+        <ol id='source_format' className={`${textMain.className} list-decimal text-xl mx-6`}>{content.map((stuff:any, i:number)=>{
+          return <LiForSources key={i}>{stuff}</LiForSources>;
+        })}</ol>
+      </div>
+    </section>;
+    default:
+      return (<p className={'bg-red-950 text-xl w-full text-center text-red-600'} key={i}>There was a problem rendering this.<br/>Please screenshot and report this.</p>);
   }
-  catch{
-    window.setTimeout(setMathTypeset,100);
-  }
+}
+
+function DisplayImg(props:{src: string, maxH: string}){
+	const [divW,setDivW] = useState("w-0");
+
+	useEffect(()=>{
+		setDivW("w-auto");
+	}, []);
+
+  return <div className={`flex items-center justify-center my-4 ${divW} m-auto px-6 min-h-fit relative`} style={{transition:"width 0.5s linear 1s"}}>
+    <Image alt={""} src={props.src} width={0} height={0} sizes="100vw" className={`border-black border-2 object-contain ${props.maxH} bg-white w-auto`}/>
+  </div>;
+}
+
+function Figure(props:{src: string, figcaption: any}){
+	const [divW,setDivW] = useState("w-0");
+
+	useEffect(()=>{
+		setDivW("w-full");
+	}, []);
+
+  return <figure className={`flex flex-col items-center justify-center my-4 ${cursiveMain.className} ${divW} h-auto m-auto overflow-hidden`} style={{transition:"width 0.5s linear 1s"}}>
+    <Image alt={""} src={props.src} width={0} height={0} sizes="100vw" className={`w-auto h-[240px] border-black border-2 object-contain bg-white`}/>
+  <figcaption className=' text-lg w-4/5 text-center ' dangerouslySetInnerHTML={{__html: props.figcaption}}></figcaption>
+</figure>;
 }
 
 function H2Main({children}: {children: string}){
@@ -212,44 +199,14 @@ function PMain({children, mode}: {children: string, mode:number}){
   const fontSizeContextVal = useContext(FontSizeContext);
   
   let curStyle;
+  let commonStyle = "mb-3 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>sup]:text-[60%] oldstyle-nums";
   switch(mode){
-    case 1: curStyle = `pmain   ${textMain.className} mb-3 ${fontSizeContextVal.main}  leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-1 [&>sup]:text-[60%] oldstyle-nums`; break;
-    case 2: curStyle = `pmain2  ${textMain.className} mb-3 ${fontSizeContextVal.main}  leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 mx-4 [&>sup]:text-[60%] oldstyle-nums [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help`; break;
-    case 3: curStyle = `subText ${textMain.className} mb-3 ${fontSizeContextVal.quote} leading-7 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-6 mx-9 [&>sup]:text-[60%] oldstyle-nums text-zinc-700 `; break;
+    case 1: curStyle = `pmain ${commonStyle} ${textMain.className} ${fontSizeContextVal.main}  leading-8 [&>.overLine]:leading-7 mx-1`; break;
+    case 2: curStyle = `pmain2 ${commonStyle} ${textMain.className} ${fontSizeContextVal.main}  leading-8 [&>.overLine]:leading-7 mx-4 `; break;
+    case 3: curStyle = `subText ${commonStyle} ${textMain.className} ${fontSizeContextVal.quote} leading-7 [&>.overLine]:leading-6 mx-9  text-zinc-700`; break;
     default: alert(`There is an error, please leave this page and report this:\n"PMain (Design1) mode ${mode} reached!"`);
   }
   return <p className={curStyle} dangerouslySetInnerHTML={{__html: children}}></p>;
-}
-
-function addEventForDataTitle(el: Element, supportedFunc: Dispatch<SetStateAction<infoBoxType>>){
-  el.addEventListener("mouseenter", ()=>{
-    supportedFunc({
-      text: el.getAttribute("data-title")!,
-      posX: el.getBoundingClientRect().x - 20,
-      posY: el.getBoundingClientRect().y + 50, 
-      visibility:"visible"
-    });
-  });
-  el.addEventListener("mouseleave",()=>{
-    supportedFunc({text: "", posX: 0, posY: 0, visibility:"hidden"});
-  });
-}
-
-function ListComp(props:{numbered: boolean, content:string}){
-  if(props.numbered) return <ol className={`${textMain.className} list-decimal  text-2xl mx-12 mb-3`} dangerouslySetInnerHTML={{__html: props.content}}></ol>
-  else               return <ul className={`${textMain.className} list-none     text-2xl mx-12 mb-3`} dangerouslySetInnerHTML={{__html: props.content}}></ul>
-}
-
-function SourcesSectionInner(props: {content: string[]}){
-  return <section>
-    <hr className=' mt-8 border-black border' style={{transform:"skewX(40deg)"}}/>
-    <h3 className={`underline text-3xl ${cursiveMain.className}`}>Sources:</h3>
-    <div style={{overflowX:"auto"}}>
-      <ol id='source_format' className={`${textMain.className} list-decimal text-xl mx-6`}>{(props.content).map((stuff:any, i:number)=>{
-        return <LiForSources key={i}>{stuff}</LiForSources>;
-      })}</ol>
-    </div>
-  </section>
 }
 
 function LiForSources(props: {children: string}){
@@ -427,26 +384,11 @@ function BrushPaint(props: {brushRef: RefObject<HTMLButtonElement>}){
   </>
 }
 
-function ExtraInfoBox(props:{
-  text:string,
-  pos:{X:number, Y:number},
-  visibility: "hidden" | "visible",
-  supportedFunc: Dispatch<SetStateAction<infoBoxType>>
-}){
+const ExtraInfoBox = memo((props:{boxStates: infoBoxType, changeBS: Dispatch<SetStateAction<infoBoxType>>})=>{
   return <div
-    className={textMain.className + " bg-zinc-400 border-2 border-dashed border-black fixed text-2xl font-bold p-2 max-w-sm z-10 "}
-    style={{top:props.pos.Y, left:props.pos.X, visibility: props.visibility}}
-    dangerouslySetInnerHTML={{__html: props.text}}
-    onMouseLeave={()=> props.supportedFunc({text: "", posX: 0, posY: 0, visibility:"hidden"})}
+    className={`${textMain.className} bg-zinc-400 border-2 border-dashed border-black fixed text-2xl font-bold p-2 max-w-sm z-10`}
+    style={{top: props.boxStates.posY, left: props.boxStates.posX, visibility: props.boxStates.visibility}}
+    dangerouslySetInnerHTML={{__html: props.boxStates.text}}
+    onMouseLeave={()=> props.changeBS({text: "", posX: 0, posY: 0, visibility:"hidden"})}
   ></div>
-}
-
-function afterScreenWidthDefined(func: any){
-  try{
-    screen.width;
-    return func();
-  }
-  catch{
-    setTimeout(() => afterScreenWidthDefined(func),100);
-  }
-}
+});

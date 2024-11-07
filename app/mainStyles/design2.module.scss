@@ -63,7 +63,6 @@ $brown2: #663300;
 			padding-left: 50px;
 			font-weight: bold;
 		}
-
 	}
 }
 
@@ -315,6 +314,45 @@ $brown2: #663300;
 #footerId{
 	border-bottom: 5px solid $brown1;
 	position: relative;
+
+	#footerGrid{
+		display:grid;
+		grid-template-columns: auto 200px;
+		background-color: #FF9933;
+		max-width: 1080px;
+		width: 96%;
+		margin: 0px auto;
+
+		#footerP{
+			padding: 5px 15px;
+			font-size: 15px;
+			color: black;
+			line-height: 22px;
+			font-weight: bold;
+			height: min-content;
+		}
+
+		#paypalLink{
+			border: #CC3300 4px ridge;
+			background-color:wheat;
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: min-content;
+			margin: auto 20px;
+
+			&:hover{
+				text-decoration: none;
+			}
+
+			#paypalImage{
+				width: 100%;
+				max-width: 100px;
+			}
+		}
+	}
 }
 
 @media only screen and (max-device-width: $maxMobileWidth) {
@@ -397,5 +435,23 @@ $brown2: #663300;
 
 	#footerId{
 		border-bottom: 4px solid $brown1;
+
+		#footerGrid{
+			grid-template-columns: auto 130px;
+
+			#footerP{
+				padding: 5px;
+				font-size: 14px;
+				line-height: 18px;
+			}
+
+			#paypalLink{
+				margin: auto 5px;
+
+				#paypalImage{
+					max-width: 60px;
+				}
+			}
+		}
 	}
 }

@@ -1,11 +1,13 @@
-
 import { cookies } from 'next/headers';
 import { DEFAULT_DESIGN_SELECTION } from '../../infoStore/designInfo';
-import ClientPart from './clientPart';
 import { getTopicColorInfo } from '../../infoStore/topicsInfo';
+import SubTopicHeader from './designs/SubTopicHeader';
+import dynamic from 'next/dynamic';
+import { ImportType } from './page';
 
 export default function Custom404() {
   const designSelectedVal = parseInt(cookies().get("designSelected")?.value!) || DEFAULT_DESIGN_SELECTION;
+  const MainComp = dynamic<ImportType>(() => import(`./designs/Design${designSelectedVal}`));
 
   var calStyleObj;
 
@@ -13,13 +15,17 @@ export default function Custom404() {
   else if(designSelectedVal == 2) calStyleObj = getTopicColorInfo("error");
   else return <p>The design value is wrong, please report this.</p>;
 
-  return <ClientPart
-    topic={"404 Error"}
-    subTopic = {""}
-    topicInfo={[]}
-    design={designSelectedVal}
-    name={"Error"}
-    styleObject={calStyleObj}
-  />;
+  if(designSelectedVal === 1) return <>
+    <SubTopicHeader styleNumber={designSelectedVal} name={"Error"}/>
+    <MainComp topic={"404 Error"} subTopic={["",[""]]}/>
+  </>
+  else if(designSelectedVal === 2) {
+    let bgColor = calStyleObj!.bgColor;
+    return <div style={{backgroundColor: bgColor, minHeight:"100vh"}}>
+      <SubTopicHeader styleNumber={designSelectedVal} styleObject={calStyleObj!} name={"Error"}/>
+      <MainComp topic={"404 Error"} subTopic={["",[""]]} styleObject={calStyleObj!}/>
+    </div>
+  }
+  else throw new Error("Wrong design number value");
 
 }

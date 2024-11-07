@@ -5,7 +5,7 @@ import ImageWrapper from '../components/ImageWrapper';
 import { printFont, cursiveMain } from '../infoStore/fonts';
 import FormBox from '../components/FormBox';
 import { Suspense, useState } from 'react';
-import styles from "./variables.module.scss";
+import styles from "./design1.module.scss";
 import { link } from '../infoStore/paypalLink';
 
 const footerPStyle = {
@@ -23,14 +23,13 @@ const footerIdStyle = {
 	paddingBottom:"30px"
 }
 
-
 export default function FooterComp(){
 	const [formType, changeFT] = useState(-1);
 	
-	return (window.innerWidth > parseInt(styles.minWidthForResponsive)) ?
+	return (window.innerWidth > parseInt(styles.maxMobileWidth)) ?
 	<footer style={{gridTemplateColumns:"15% 65% 20%", paddingTop:"25px", ...footerIdStyle}}>
 		<Link href={"/"}>
-			<ImageWrapper mw="max-w-[80%]" h="h-full" w="w-3/4" src="/link_logo_short_1.png" alt=""  className="flex justify-center items-center "/>
+			<ImageWrapper mw="max-w-[80%]" h="h-full" w="w-3/4" src="/link_logo_short_1.png" alt="" className="flex justify-center items-center "/>
 		</Link>
 		<p className={cursiveMain.className} style={{padding: "0px", ...footerPStyle}}>
 			If you find a bug in this website or want to report an error, <ClickButton type={0} func={changeFT} /><br/>

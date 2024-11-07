@@ -6,14 +6,14 @@ import Image from 'next/image';
 import { mainTextFont, headingFont, printFont2 } from "@/app/infoStore/fonts";
 
 export default function Comp(props: {topic:string, subTopic:string, content: any}){
-  return <>
+  return <div style={{backgroundColor:"white"}}>
     <ArticleHeader text={props.content[0][1]}/>
-    <main id={styles.main} className={`mb-10`}>{
+    <main id={styles.main}>{
       getBodyContent(props.topic, props.subTopic, props.content)
     }</main>
     <section>
       {/*@ts-ignore*/}
-      <div id={styles.idDiv} align="center">
+      <div id={styles.adDiv} align="center">
         <ins
           className="adsbygoogle"
           data-ad-layout="in-article"
@@ -24,7 +24,7 @@ export default function Comp(props: {topic:string, subTopic:string, content: any
       </div>
     </section>
     <ClientPart />
-  </>
+  </div>
 }
 
 function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
@@ -46,14 +46,16 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
         break;
       case "figure":
         bodyChildren.push(
-          <figure key={i} className={mainTextFont.className} style={{height:"240px", fontWeight:"bold" , ...imageParentStyle, flexDirection:"column"}}>
+          <figure key={i} className={mainTextFont.className} style={{display: "grid", gridTemplateRows:"240px auto", position:"relative", fontWeight:"bold", marginTop:"16px", marginBottom:"16px", justifyItems:"center"}}>
             <Image
               alt=""
               src={`/${topic}/${subTopic}/${j[i][1][0]}`}
-              fill
-              style={{objectFit:"contain"}}
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{width: "auto",height: "100%"}}
             />
-            <figcaption>{j[i][1][1]}</figcaption>
+            <figcaption dangerouslySetInnerHTML={{__html: j[i][1][1]}}></figcaption>
           </figure>
         );
         break;
@@ -74,18 +76,17 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
         /></div>);
         break;
       case "displayFormula":
-        bodyChildren.push(<div
-          key={i}
-          className={' text-xl grid items-center justify-items-center min-h-[150px] '}
-        >
-          <div className={' bg-white px-1 overflow-x-auto h-min w-11/12 '} style={{overflow:"visible"}}>{j[i][1]}</div>
+        bodyChildren.push(<div key={i} className={'text-xl grid items-center justify-items-center min-h-[150px]'}>
+          <div className={'bg-white px-1 overflow-x-auto h-min w-11/12 overflow-y-hidden'} suppressHydrationWarning>
+            {j[i][1]}
+          </div>
         </div>);
         break;
       case "ol":
-        bodyChildren.push(<ListComp numbered={true} key={i} content={j[i][1]}/>);
+        bodyChildren.push(<ol key={i} className={`${styles.listStuff} ${mainTextFont.className} list-decimal`} dangerouslySetInnerHTML={{__html: j[i][1]}}></ol>);
         break;
       case "ul":
-        bodyChildren.push(<ListComp numbered={false} key={i} content={j[i][1]}/>);
+        bodyChildren.push(<ul className={`${styles.listStuff} ${mainTextFont.className} list-disc`} dangerouslySetInnerHTML={{__html: j[i][1]}}></ul>);
         break;
       case "source_format":
         bodyChildren.push(<SourcesSectionInner key={i} content={j[i][1]}/>);
@@ -102,19 +103,13 @@ function H2Main({children}: {children: string}){
 }
 
 function PMain({children, mode}: {children: string, mode:number}){
-
-  if(mode === 1) return <p className={`${styles.pmain} ${mainTextFont.className} mb-4 leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums `} dangerouslySetInnerHTML={{__html: children}}></p>
-  else if(mode === 2) return <p className={`${styles.pmain2} ${mainTextFont.className} mb-4 leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums `} dangerouslySetInnerHTML={{__html: children}}></p>
-  else if(mode === 3) return <p className={`${styles.subText} ${mainTextFont.className} mb-4 leading-7 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-6 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] text-zinc-700 oldstyle-nums `} dangerouslySetInnerHTML={{__html: children}}></p>
+  if(mode === 1) return <p className={`${styles.pmain} ${mainTextFont.className} mb-4 leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums `} dangerouslySetInnerHTML={{__html: children}} suppressHydrationWarning></p>
+  else if(mode === 2) return <p className={`${styles.pmain2} ${mainTextFont.className} mb-4 leading-8 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-7 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] [&>sup]:font-bold oldstyle-nums [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help`} dangerouslySetInnerHTML={{__html: children}} suppressHydrationWarning></p>
+  else if(mode === 3) return <p className={`${styles.subText} ${mainTextFont.className} mb-4 leading-7 [&>.overLine]:border-t-2 [&>span>.katex]:text-2xl [&>.overLine]:border-black [&>.overLine]:inline-block [&>.overLine]:leading-6 [&>a]:text-[#24e] [&>a]:underline [&>sup]:text-[60%] text-zinc-700 oldstyle-nums [&>[data-title]]:underline [&>[data-title]]:decoration-dashed [&>[data-title]]:cursor-help`} dangerouslySetInnerHTML={{__html: children}} suppressHydrationWarning></p>
   else {
     alert(`There is an error, please leave this page and report this:\n"PMain (Design 2) mode ${mode} reached!"`);
     return null;
   }
-}
-
-function ListComp(props:{numbered: boolean, content:string}){
-  if(props.numbered) return <ol className={`${styles.listStuff} ${mainTextFont.className} list-decimal mb-4 leading-8`} dangerouslySetInnerHTML={{__html: props.content}}></ol>
-  else return <ul className={`${styles.listStuff} ${mainTextFont.className} list-disc mb-4 leading-8`} dangerouslySetInnerHTML={{__html: props.content}}></ul>
 }
 
 function SourcesSectionInner(props: {content: string[]}){

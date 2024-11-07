@@ -120,7 +120,7 @@ function HomeBody(props:{design1States:any, disFunc:React.Dispatch<{type:string;
   </>;
 }
 
-const HeaderEl = () => {
+function HeaderEl(){
   const [showDB, changeSDB] = useState(false);
   
   return <header className={cursiveMain.className + " px-6 after:clear-both after:block"}>
@@ -137,7 +137,6 @@ function TopicLink(props: {refTo: string, floatD: string}){
   function divClicked(e: {target: any}){
     if(clickFlag.current){
       clickFlag.current = false;
-      document.documentElement.style.overflowY = "hidden";
       e.target.parentElement.style.width = "100%";
       if(props.floatD === "left") {
         e.target.parentElement.nextElementSibling.style.width = "0%";

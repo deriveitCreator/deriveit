@@ -18,7 +18,7 @@ export default function Style1(props: {topic: string, topicsInfoState: Array<[st
 					}else return <StyledP
 						key={i}
 						text={val.replaceAll("_"," ")}
-						link={`${props.topic}/${subArr[0]}/${val}`}
+						link={`${props.topic}/${subArr[0]}/${val}`.replaceAll(" ","_")}
 					/>;
 				})}
 			</section>

@@ -1,27 +1,11 @@
-"use client"
-
-import React, { Suspense, useEffect, useRef, useState } from 'react';
-import { headingFont, mainTextFont, printFont2 } from "@/app/infoStore/fonts";
-import { link } from '@/app/infoStore/paypalLink';
+import React from 'react';
+import { headingFont, mainTextFont } from "@/app/infoStore/fonts";
 import Link from "next/link";
-import FormBox from '@/app/components/FormBox';
-import ImageWrapper from '@/app/components/ImageWrapper';
-import styles from "./variables.module.scss";
-import { styleObjectType } from '../clientPart';
+import styles from "./design2.module.scss";
+import { styleObjectType } from '../page';
+import FooterEl from './Design2Footer';
 
 export default function Style2(props: {topic: string, subTopic: [string,string[]], styleObject: styleObjectType}){ 
-	const responsiveH2Style = (screen.width > parseInt(styles.minDeviceWidth)) ?
-	"font-bold text-4xl mx-12 capitalize pt-10" :
-	"font-bold text-4xl mx-4 capitalize pt-10" ;
-
-	useEffect(()=>{
-		document.documentElement.style.overflowY = "auto";
-		document.documentElement.style.backgroundColor = props.styleObject.headerBgColor;
-		return () => {
-			document.documentElement.style.backgroundColor = "white";
-		}
-	},[]); // eslint-disable-line
-
 	let headerBgColor = props.styleObject.headerBgColor;
 	let footerColor = props.styleObject.footerColor;
 	let borderColor = props.styleObject.borderColor;
@@ -29,7 +13,7 @@ export default function Style2(props: {topic: string, subTopic: [string,string[]
 
 	return <div>
 		<main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}>
-			<h2 className={`${headingFont.className} ${responsiveH2Style}`} style={{color: borderColor}}>
+			<h2 className={`${headingFont.className} ${styles.heading}`} style={{color: borderColor}}>
 				{curTopic[0].replaceAll("_"," ")}
 			</h2>
 			{(curTopic[1]).map((val:string,i: number)=> {
@@ -43,7 +27,7 @@ export default function Style2(props: {topic: string, subTopic: [string,string[]
 					key={i}
 					textColor={headerBgColor}
 					text={val.replaceAll("_"," ")}
-					link={`${curTopic[0]}/${val.replaceAll(" ","_")}`}
+					link={`${curTopic[0]}/${val}`.replaceAll(" ","_")}
 				/>;
 			})}
 		</main>
@@ -52,47 +36,12 @@ export default function Style2(props: {topic: string, subTopic: [string,string[]
 }
 
 const StyledP = (props: {text: string, link: string, textColor: string}) =>{
-	const responsivePStyle = (screen.width > parseInt(styles.minDeviceWidth)) ?
-	"text-[28px] leading-[32px] mx-20 mt-5" :
-	"text-2xl leading-[26px] mx-6 mt-5" ;
-
 	var pContent;
 	if (props.text.slice(-11,) === "incomplete)")
 		pContent = <span dangerouslySetInnerHTML={{ __html: props.text }}></span>;
 	else pContent = <Link href={`./${props.link}`} dangerouslySetInnerHTML={{ __html: props.text }}></Link>;
 
-	return <p className={`${mainTextFont.className} ${responsivePStyle} `} style={{color: props.textColor, letterSpacing:"1px"}}>
+	return <p className={`${mainTextFont.className} ${styles.linkText} `} style={{color: props.textColor, letterSpacing:"1px"}}>
 		{pContent}
 	</p>;
-}
-
-function FooterEl(props:{borderColor:string, textColor: string, headerBgColor: string}){
-	const [formType, changeType] = useState(-1);
-
-	return <div className={printFont2.className+' font-bold'} style={{color:props.textColor}}>
-		<footer>
-			<hr style={{backgroundColor:props.borderColor, height:"4px", border:"none"}}/>
-			<div style={{display:"grid",gridTemplateColumns:"140px auto",margin:"0px 15px 0px 20px"}}>
-				<Link href="/" >
-					<ImageWrapper className=' mx-4 my-4 ' src="/link_logo_trans2.png" alt="" />
-				</Link>
-				<div style={{border:`solid ${props.borderColor} 3px`, marginTop:"10px", backgroundColor: props.headerBgColor, display:"flex",flexDirection:"row",justifyContent:"space-between", height:"min-content"}}>
-					<p style={{paddingLeft:"10px"}}>
-						If you find a bug in this website or want to report an error, <ClickButton type={0} func={changeType} /><br/>
-						If there are any equations for which you want proof for, <ClickButton type={1} func={changeType} /><br/>
-						For any suggestion and ideas, <ClickButton type={2} func={changeType} />
-					</p>
-					<Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center",padding:"0px 25px"}} target="_blank">
-						<p className={" text-center font-bold text-sm "}>Want To Donate?</p>
-						<ImageWrapper className='flex justify-center ' mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
-					</Link>
-				</div>
-				<Suspense fallback={<></>}><FormBox type={formType}/></Suspense>
-			</div>
-		</footer>
-	</div>
-}
-
-function ClickButton(props: {type: number, func: React.Dispatch<React.SetStateAction<number>>}){
-    return <button onClick={()=>{props.func(props.type)}} className=' hover:underline outline-none'>click here</button>
 }

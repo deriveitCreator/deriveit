@@ -16,7 +16,7 @@ export default function TopicHeader(props: {styleNumber: number, name: string, s
 			let headerBgColor = props.styleObject!.headerBgColor;
 			let textColor = props.styleObject!.footerColor;
 			let borderColor = props.styleObject!.borderColor;
-			return <header className=" sticky h-[78px] top-0">
+			return <header className=" sticky h-[78px] top-0 z-10">
 				<h1 className={`${headingFont.className} capitalize text-center text-[38px] leading-[78px] w-full font-bold`} style={{backgroundColor: headerBgColor, color: textColor, borderBottom: `${borderColor} solid 5px`, letterSpacing:"3px"}}>{headerText}</h1>
 			</header>
 		default:

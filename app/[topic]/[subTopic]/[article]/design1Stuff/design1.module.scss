@@ -14,17 +14,29 @@
 #main {
   width:100%;
   padding-bottom:40px;
+  display: flex;
+  transition: ease-out 1s opacity;
+
+  [data-title]{
+    cursor: help;
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+  }
 }
 
-#article ul{
-  position: relative;
+#article {
+  flex-grow: 1;
+  padding-left: 28px;
+  padding-right: 28px;
+  ul{
+    position: relative;
 
-  li::before{
-    content: '🙡';
-    position: absolute;
-    left: -30px;
+    li::before{
+      content: '🙡';
+      position: absolute;
+      left: -30px;
+    }
   }
-
 }
 
 #adInBlackBloard {
@@ -60,10 +72,18 @@
 
 
 @media (max-width: $maxMobileWidth) {
+  #main{
+    display: block;
+  }
   #header{
     h1{
       padding-left: 8px;
       padding-right: 8px;
     }
+  }
+  #article{
+    flex-grow: none;
+    padding-left: 12px ;
+    padding-right: 12px ;
   }
 }

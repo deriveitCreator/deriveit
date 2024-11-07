@@ -78,11 +78,11 @@ export default function FormBox(props: {type: number}){
 				<div className="block">
 					<div className="float-left inline-block">
 						<label htmlFor="name" className={`${printFont2.className} text-2xl mt-4 block ml-3`}>Name:</label>
-						<input id="name"  type="text" required className={`${logoFont2.className} mx-3 text-lg outline-none border-orange-950 border-2 rounded-md px-1 text-ellipsis bg-[#CC5511] font-bold  w-60`} name="name"/>
+						<input id="name" type="text" required className={`${logoFont2.className} mx-3 text-lg outline-none border-orange-950 border-2 rounded-md px-1 text-ellipsis bg-[#CC5511] font-bold  w-60`} name="name" suppressHydrationWarning/>
 						<label htmlFor="email" className={`${printFont2.className} text-2xl mt-4 block ml-3`}>Email:</label>
-						<input id="email" type="email" required className={`${logoFont2.className} mx-3 text-lg outline-none border-orange-950 border-2 rounded-md px-1 text-ellipsis bg-[#CC5511] font-bold  w-60`} name="email"/>
+						<input id="email" type="email" required className={`${logoFont2.className} mx-3 text-lg outline-none border-orange-950 border-2 rounded-md px-1 text-ellipsis bg-[#CC5511] font-bold  w-60`} name="email" suppressHydrationWarning/>
 					</div>
-					<div className=" inline-block">{getLabelAndTA(printFont2.className, logoFont2.className, props.type, "text-2xl", "bg-[#CC5511]", "#431407", "placeholder-orange-900")}</div>
+					<div className="inline-block">{getLabelAndTA(printFont2.className, logoFont2.className, props.type, "text-2xl", "bg-[#CC5511]", "#431407", "placeholder-orange-900")}</div>
 				</div>
 				<input type="submit" className={` pt-1 text-xl block w-full cursor-pointer bg-[#CC5511] border-t-4 border-t-orange-950 mt-8 ${printFont2.className}`} value={"Submit"}/>
 			</form>

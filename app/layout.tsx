@@ -26,7 +26,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
   const cookieVal = parseInt(cookies().get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
 
   if(cookieVal === 1){
-    const FooterEl = dynamic(() =>  import(`./footerStyles/design1Footer`), {ssr:false});
+    const FooterEl = dynamic(() =>  import(`./mainStyles/design1Footer`), {ssr:false});
     return <CookiesProvider>
       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471"
       crossOrigin="anonymous"/>
@@ -57,7 +57,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
   else if (cookieVal === 2) return <CookiesProvider>
     <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471" crossOrigin="anonymous"/>
     <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
-    <html lang="en">
+    <html lang="en" style={{backgroundColor:"rgb(150,60,0)"}}>
       <body>{children}</body>
     </html>
   </CookiesProvider>
