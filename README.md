@@ -54,9 +54,12 @@ One major thing I added was the design feature, where you can choose different d
 
 - The `not-found.tsx` handles the 404 errors.
 
-## Updates
+## U
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
+
+<b>update 13.4:</b>
+- `calculus/integral_calculus/11.png` was missing, it is added now.
 
 <b>update 13.3:</b>
 - Fixed the "Component definition is missing display name  react/display-name" error.
