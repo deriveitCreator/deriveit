@@ -90,15 +90,18 @@ function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<strin
   const grayAreaOp = useRef("opacity-0");
   const iconRef = useRef(<FaChevronLeft/>);
   const iconRightRef = useRef("0");
+  const [gridH, changeGH] = useState("h-0");
 
   useEffect(()=>{
     if (props.asideW==="0px") window.setTimeout(()=>{
       document.documentElement.style.overflowY = "auto";
       document.documentElement.classList.remove("scroll2");
+      changeGH("h-0");
     }, 400);
     else {
       document.documentElement.style.overflowY = "hidden";
       document.documentElement.classList.add("scroll2");
+      changeGH("h-full");
     };
 
   }, [props.asideW]); // eslint-disable-line no-use-before-define
@@ -123,8 +126,8 @@ function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<strin
         {iconRef.current}
       </IconContext.Provider>
     </div>
-    <div className={`fixed h-full w-full grid top-0 right-0 z-10`} style={{gridTemplateColumns:`auto ${props.asideW}`,transition:"0.4s"}}>
-      <div className={` bg-zinc-700 ${grayAreaOp.current} transition-all`} onClick={turnOffAside}></div>
+    <div className={`fixed w-full grid top-0 right-0 z-10 ${gridH}`} style={{gridTemplateColumns:`auto ${props.asideW}`,transition:"grid-template-columns 0.4s"}}>
+      <div className={`bg-zinc-700 ${grayAreaOp.current} transition-all`} onClick={turnOffAside}></div>
       <AsideEl/>
     </div>
   </>

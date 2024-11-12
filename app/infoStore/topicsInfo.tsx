@@ -265,10 +265,16 @@ const calculusLinks: Array<[string,string[]]> = [
 	]],
 	["lhospitals_rule", ["indeterminate form of type 0/0%zeroOverZero",]],
 	["antiderivative", [
-		"antiderivative_of_secant(x)_and_cosecant(x)",
+		"antiderivative_of_secant(x)",
+		"antiderivative_of_cosecant(x)",
 		"antiderivative_of_tangent(x)_and_cotangent(x)",
+		"antiderivative_of_ln(x)",
 	]],
-	["integral_calculus", ["fundamental theorem of calculus, part 1%part1","fundamental theorem of calculus, part 2%part2","trapezium_rule","integration by parts (incomplete)","using integration to find volume (incomplete)","using integration to find arc length (incomplete)","using integration to find surface area (incomplete)"
+	["integral_calculus", [
+		"fundamental theorem of calculus, part 1%part1",
+		"fundamental theorem of calculus, part 2%part2",
+		"trapezium_rule","integration by parts (incomplete)",
+		"using integration to find volume (incomplete)","using integration to find arc length (incomplete)","using integration to find surface area (incomplete)"
 	]],
 ]
 

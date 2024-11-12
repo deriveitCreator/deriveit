@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { mainTextFont, headingFont, printFont2 } from "@/app/infoStore/fonts";
 
 export default function Comp(props: {topic:string, subTopic:string, content: any}){
-  return <div style={{backgroundColor:"white"}}>
+  return <div style={{backgroundColor:"white", minHeight: "100vh"}}>
     <ArticleHeader text={props.content[0][1]}/>
     <main id={styles.main}>{
       getBodyContent(props.topic, props.subTopic, props.content)

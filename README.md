@@ -58,6 +58,13 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 13.2:</b>
+- Added `antiderivative_of_ln(x).tsx`.
+- Updated `integral_calculus/part1.tsx` and `integral_calculus/part2.tsx`.
+- Divided `antiderivative_of_secant(x)_and_cosecant(x).tsx` into `antiderivative_of_secant(x).tsx` and `antiderivative_of_cosecant(x).tsx`.
+- User select on articles is now working.
+- Articles now have `100vh` minimum height.
+
 <b>update 13.1:</b>
 - Added articles `modLemma4`.
 - Edited articles `powerful_from_square_and_cube`, `gcdLemma8`, `the_geocentric_view` and `eulers_theorem`.

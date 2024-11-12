@@ -1,3 +1,28 @@
 export const title="Proof For The Fundamental Thoerem Of Calculus, Part 1";
-const content = [['h1', 'Proof For The Fundamental Thoerem Of Calculus, Part 1'], ['pmain', '\n\tLets say the function <span style="color:blue">f</span> is continous on [a,b], and lets say function\n\t<span style="color:red">g</span> is defined by:\n'], ['displayimg', '11.png'], ['pmain', '\n\tThe function <span style="color:red">g(<span style="color:black">x</span>)</span> represents the area under\n\tthe graph of <span style="color:blue">f(<span style="color:black">x</span>)</span> from a to x, where\n\tx varies between a and b:\n'], ['displayimg', '12.png'], ['pmain', 'The graph of <span style="color:red">g(<span style="color:black">x</span>)</span> would look something like this:'], ['displayimg', '13.png'], ['pmain', 'By definition of <span style="color:red">g(<span style="color:black">x</span>)</span>:'], ['displayimg', '14.png'], ['pmain', 'If h &ne; 0:'], ['displayimg', '15.png'], ['pmain', '\n\tLets define m as the absolute minimun of <span style="color:blue">f(<span style="color:black">t</span>)</span> and M as the absolute maximum of <span style="color:blue">f(<span style="color:black">t</span>)</span> on the interval [x, x+h]:\n'], ['displayimg', '16.png'], ['pmain', '\n\tLets say m = <span style="color:blue">f(<span style="color:black">u</span>)</span> and lets say M =\n\t<span style="color:blue">f(<span style="color:black">v</span>)</span>:\n'], ['displayimg', '17.png'], ['pmain', 'We can write this as:'], ['displayimg', '18.png'], ['pmain', '\n\tBoth u and v are in the interval [x, x+h], if h-&gt;0 then both u and v will approach x. Therefore:\n'], ['displayimg', '19.png'], ['pmain', 'Using Leibniz notation:'], ['displayimg', '10.png'], ['pmain', 'This is the fundamental theorem of calculus (part 1).']];
+const content = [
+  ['h1', 'Proof For The Fundamental Thoerem Of Calculus, Part 1'],
+  ['pmain', 'Lets say the function \\(f(x)\\) is continous on [a,b], and lets say function the \\(F(x)\\) is defined by:'],
+  ['displayFormula',"\\[ F(x) = \\int^x_a f(t) \\ dt \\]"],
+  ['pmain', 'The function \\(F(x)\\) represents the area under the curve of \\(f(x)\\) from \\(a\\) to \\(x\\), where \\(x\\) varies between \\(a\\) and \\(b\\):'],
+  ['displayimg', '1.png'],
+  ['pmain', 'By definition of a derivative:'],
+  ['displayFormula',"\\[ F'(x) = \\lim_{h \\to 0} \\frac{F(x+h)-F(x)}{h} \\]"],
+  ['pmain', 'If we expand \\(F(x)\\):'],
+  ['displayFormula',"\\[ F'(x) = \\lim_{h \\to 0} \\frac{ \\int^{x+h}_a f(t) \\ dt - \\int^{x}_a f(t) \\ dt }{h} \\]"],
+  ['pmain', 'We can rewrite this as:'],
+  ['displayFormula',"\\[ \\begin{align} F'(x) &= \\lim_{h \\to 0} \\frac{ \\int^{x}_a f(t) \\ dt + \\int^{x+h}_x f(t) \\ dt - \\int^{x}_a f(t) \\ dt }{h} \\\\ &= \\lim_{h \\to 0} \\frac{ \\int^{x+h}_x f(t) \\ dt }{h} = \\lim_{h \\to 0} \\frac{1}{h} \\left( \\int^{x+h}_x f(t) \\ dt \\right) \\end{align}\\]"],
+  ['pmain', 'Before going any further, let\'s first think about just integral of \\( f(t)\\) between \\(x\\) and \\(x+h\\):'],
+  ['displayimg', '2.png'],
+  ['pmain', 'This area can be represented in two ways, one is the integral, and the second is the average value of \\(f\\) in [x, x+h] times the interval width (\\(h\\)):'],
+  ['displayFormula',"\\[A = \\int^{x+h}_x f(t) \\ dt = f_{avg}(t) * (h) \\]"],
+  ['pmain', 'This means:'],
+  ['displayFormula',"\\[ f_{avg}(t) = \\frac{1}{h} \\int^{x+h}_x f(t) \\ dt \\]"],
+  ['pmain', 'Going back to \\(F\'(x)\\):'],
+  ['displayFormula',"\\[ F'(x) = \\lim_{h \\to 0} \\frac{1}{h} \\int^{x+h}_x f(t) = \\lim_{h \\to 0} f_{avg}(t) \\]"],
+  ['pmain', 'where \\(f_{avg}(t)\\) is the average value of \\(f\\) in [x, x+h]. This means if \\(h \\to 0\\), then \\(f_{avg}(t) = f(x)\\), so:'],
+  ['displayFormula',"\\[ F'(x) = f(x) \\]"],
+  ['pmain', 'This is the fundamental theorem of calculus (part 1).'],
+  ['displayimg', '3.png'],
+  ['pmain', '\\(F\'(x) = f(x)\\) means a tiny increase of \\(F(x)\\) at \\(x\\) is equal to \\(f(x)\\). Also, the lower bound of the integral (\\(a\\)) has no affect on \\(F\'(x)\\).'],
+];
 export default content;

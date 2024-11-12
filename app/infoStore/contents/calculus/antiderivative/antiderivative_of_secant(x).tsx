@@ -1,0 +1,3 @@
+export const title="Antiderivative Of sec(x)";
+const content = [['h1', 'Antiderivative Of sec(x)'], ['pmain', 'This is the integral we want to evaluate is:'], ['displayimg', 's1.PNG'], ['pmain', "Let's multiply the numerator and denominator by [sec(x)+tan(x)]:"], ['displayimg', 's2.PNG'], ['pmain', 'Lets say [u = sec(x) + tan(x)], which means [du/dx = sec(x)tan(x) + sec<sup>2</sup>(x)]:'], ['displayimg', 's3.PNG'], ['pmain', 'If we evaluate the integral:'], ['displayimg', 's4.PNG']];
+export default content;
