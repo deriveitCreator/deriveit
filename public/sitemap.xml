@@ -129,9 +129,6 @@
     <loc>https://www.deriveit.net/discrete_mathematics/divisibility/gcdLemma10</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/gcdLemma9</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/discrete_mathematics/divisibility/divisibilityLemma1</loc>
   </url>
   <url>
@@ -148,6 +145,9 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/infinite_primes_4k_plus_3</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/infinite_primes_3k_plus_2</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/differenceOfFourthPowers</loc>
@@ -174,7 +174,19 @@
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/legendres_formula_lower_bound</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/powerful_from_square_and_cube</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/primeLemma2</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/aSquare_divides_bSquare_implies_a_divides_b</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma18</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/multiplicative</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma8</loc>
@@ -192,9 +204,6 @@
     <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma16</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdTimesLcmGivesProduct</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma17</loc>
   </url>
   <url>
@@ -204,6 +213,15 @@
     <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma11</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/lcm/gcdTimesLcmGivesProduct</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/lcm/lcmLemma2</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/lcm/lcmLemma3</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma1</loc>
   </url>
   <url>
@@ -211,6 +229,9 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma3</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma4</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/congruence_solution_possible</loc>
@@ -435,10 +456,16 @@
     <loc>https://www.deriveit.net/calculus/lhospitals_rule/zeroOverZero</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_secant(x)_and_cosecant(x)</loc>
+    <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_secant(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_cosecant(x)</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_tangent(x)_and_cotangent(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_ln(x)</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/integral_calculus/part1</loc>

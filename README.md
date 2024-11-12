@@ -58,6 +58,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 13.5:</b>
+- Updated `sitemap.xml`.
+
 <b>update 13.4:</b>
 - `calculus/integral_calculus/11.png` was missing, it is added now.
 
