@@ -63,7 +63,7 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
         setFS({h2:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
       else setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
     }
-  }, [firstRender]);
+  }, [firstRender]); // eslint-disable-line
 
   useEffect(()=>{
     if (!firstRender){
@@ -83,7 +83,7 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
           el.addEventListener("mouseleave",()=>{changeBS({text: "",posX: 0,posY: 0,visibility:"hidden"})});
         });
     }
-  }, [fontSize]);
+  }, [fontSize]); // eslint-disable-line
 
   let blackboardOrAdResult = <></>;
   if (blackboardOrAd.current === "blackboard") 
@@ -384,7 +384,7 @@ function BrushPaint(props: {brushRef: RefObject<HTMLButtonElement>}){
   </>
 }
 
-const ExtraInfoBox = memo((props:{boxStates: infoBoxType, changeBS: Dispatch<SetStateAction<infoBoxType>>})=>{
+const ExtraInfoBox = memo(function ExtraInfoBoxMemo(props:{boxStates: infoBoxType, changeBS: Dispatch<SetStateAction<infoBoxType>>}){
   return <div
     className={`${textMain.className} bg-zinc-400 border-2 border-dashed border-black fixed text-2xl font-bold p-2 max-w-sm z-10`}
     style={{top: props.boxStates.posY, left: props.boxStates.posX, visibility: props.boxStates.visibility}}

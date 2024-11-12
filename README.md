@@ -58,6 +58,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 13.3:</b>
+- Fixed the "Component definition is missing display name  react/display-name" error.
+
 <b>update 13.2:</b>
 - Added `antiderivative_of_ln(x).tsx`.
 - Updated `integral_calculus/part1.tsx` and `integral_calculus/part2.tsx`.
