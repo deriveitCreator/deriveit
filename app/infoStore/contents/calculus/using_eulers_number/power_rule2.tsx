@@ -1,3 +1,0 @@
-export const title="Proof That [d/dx](x^n) = nx^(n-1) When Exponent Is A Real Number";
-const content = [['h1', 'Proof That [d/dx](x^n) = nx^(n-1) When Exponent Is A Real Number'], ['pmain', 'This proof requires chain rule and logarithmic derivatives. Lets start by rewriting\n<span style="color:#3333FF">x<sup>n</sup></span> in a different way:'], ['displayimg', 'r1.png'], ['pmain', 'If we derivate both sides:'], ['displayimg', 'r2.png'], ['pmain', 'Now lets simplify the right hand side:'], ['displayimg', 'r3.png'], ['pmain', 'Or:'], ['displayimg', 'r4.png']];
-export default content;
