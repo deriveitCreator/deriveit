@@ -21,13 +21,13 @@ export default function Style2(props: {topic: string, subTopic: [string,string[]
 					key={i}
 					textColor={headerBgColor}
 					text={val.substring(0,val.lastIndexOf('%')).replaceAll("_"," ")}
-					link={`${curTopic[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`}
+					link={`${curTopic[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`.replaceAll("'","")}
 				/>;
 				}else return <StyledP
 					key={i}
 					textColor={headerBgColor}
 					text={val.replaceAll("_"," ")}
-					link={`${curTopic[0]}/${val}`.replaceAll(" ","_")}
+					link={`${curTopic[0]}/${val}`.replaceAll(" ","_").replaceAll("'","")}
 				/>;
 			})}
 		</main>

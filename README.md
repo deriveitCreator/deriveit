@@ -58,6 +58,10 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 13.8:</b>
+- Changed the name of some of the articles.
+- Apostrophes in links are now removed.
+
 <b>update 13.7:</b>
 - Changed the topic name "[d/dx] cos(x) = cosec<sup>2</sup>(x)" to "[d/dx] cotan(x) = -cosec<sup>2</sup>(x)".
 

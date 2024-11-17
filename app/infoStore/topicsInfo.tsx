@@ -111,6 +111,9 @@ export function getTopicLinks(topic: string){
 	return result;
 }
 
+//if there is no percentage, then the link is the topic name with
+//" " replaced with "_" and "'" removed
+
 const algebraLinks: Array<[string,string[]]> = [
 	["fractions", ["[a/b] + [c/b] gives [(a+c)/b]%adding_fractions","multiplying [a/b] by [c/d] gives [ac/bd]%multiplying_fractions"]],
 	["exponents", [
@@ -170,7 +173,7 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"if n > 1 and a<sup>n</sup> - 1 is prime, then a=2%Mersenne_prime2",
 		"if a<sup>n</sup> + 1 is an odd prime, then a is even and n is a power of 2%a_to_the_n_plus_one_prime",
 		"if n<sup>2</sup>+1 is prime, then n<sup>2</sup> = 4k%n_square_prime",
-		"Legendre's formula%legendres_formula",
+		"Legendre's formula",
 		"lower bound for Legendre's formula%legendres_formula_lower_bound",
 		"a powerful number is a product of a square number and a cube number%powerful_from_square_and_cube",
 		"any integer greater than 6 can be represented as a sum of two relatively prime integers%primeLemma2",
@@ -198,15 +201,15 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"(α ≡ β mod M and ε ≡ δ mod M) ⇒ αε ≡ βδ mod Μ%modLemma2",
 		"(εα ≡ εβ mod M) ⟺ (α ≡ β mod Μ/(ε, M)) %modLemma4",
 		"ax ≡ b mod m has a solution if and only if gcd(a, m)|b%congruence_solution_possible",
-		"Euler's Theorem%eulers_theorem",
-		"Fermat's Little Theorem%fermats_little_theorem",
-		"Freshman's Dream%freshmans_dream",
+		"Euler's theorem",
+		"Fermat's little theorem",
+		"Freshman's dream",
 		"existence and uniqueness of modular inverse if gcd(a, m) = 1%modular_inverse",
-		"Wilson's Theorem%wilsons_theorem",
+		"Wilson's theorem",
 		"x<sup>2</sup> ≡ 1 mod p ⇒ x ≡ +1 or -1 mod p%x_square_solution",
 		"x<sup>2</sup> ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%x_square_solvable",
 		"solution of ax ≡ b mod m (if gcd(a, m)|b)%congruence_solution",
-		"Chinese remainder theorem%chinese_remainder_theorem"
+		"Chinese remainder theorem"
 	]],
 	["factorials,_permutations_and_combinations", [
 		"0! = 1%0fac",
@@ -258,13 +261,13 @@ const calculusLinks: Array<[string,string[]]> = [
 		"the_inverse_function_theorem",
 		"mean_value_theorem"
 	]],
-	["using_eulers_number", [
+	["using_Euler's_number", [
 		"definition of e%define_e",
 		"[d/dx] b<sup>x</sup> = b<sup>x</sup>ln(b)%bx",
 		"[d/dx] log<sub>b</sub>x = 1/(x * ln(b))%log",
 		"the power rule (when exponent is any real number)%power_rule_when_exponent_is_real","only_functions_of_the_form_Ae^x_are_derivatives_of_themselves%functions_which_are_derivatives_of_themselves",
 		"representing e<sup>x</sup> as a limit%e_limit","representing e<sup>x</sup> as an infinite series (proof 1)%e_series","representing e<sup>x</sup> as an infinite series (proof 2)%e_series2",
-		"eulers_formula"
+		"Euler's_formula"
 	]],
 	["trigonometric_derivatives", [
 		"[d/dx] sin(x) = cos(x)%sin",
@@ -280,7 +283,7 @@ const calculusLinks: Array<[string,string[]]> = [
 		"derivative of arctangent(x)%arctan",
 		"derivative of arccotangent(x)%arccot"
 	]],
-	["lhospitals_rule", ["indeterminate form of type 0/0%zeroOverZero",]],
+	["l'hospitals_rule", ["indeterminate form of type 0/0%zeroOverZero",]],
 	["antiderivative", [
 		"antiderivative_of_1/x%antiderivative_of_one_over_x",
 		"antiderivative_of_secant(x)",
@@ -293,7 +296,9 @@ const calculusLinks: Array<[string,string[]]> = [
 		"fundamental theorem of calculus, part 1%part1",
 		"fundamental theorem of calculus, part 2%part2",
 		"trapezium_rule","integration by parts (incomplete)",
-		"using integration to find volume (incomplete)","using integration to find arc length (incomplete)","using integration to find surface area (incomplete)"
+		"using integration to find volume (incomplete)",
+		"using integration to find arc length (incomplete)",
+		"using integration to find surface area (incomplete)"
 	]],
 ]
 
@@ -308,8 +313,8 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
 		"Var[X + Y] = Var[X] + Var[Y] where X and Y are independent variables%varAdd",
 		"deriving the E[X] and Var[X] for the iid variables%varMean",
 		"an equation for the population variance using the sample mean and the sample size%varsamp",
-		"Markov's Inequality%markov",
-		"Chebyshev's_inequality%chebyshevs_inequality",
+		"Markov's inequality",
+		"Chebyshev's inequality",
 	]],
 	["probability_distribution_stuff", [
 		"expected_value_and_variance_of_a_binomial_distribution",

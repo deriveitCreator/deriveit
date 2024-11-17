@@ -1,6 +1,5 @@
 import {getTopicLinks, ERROR_VALUE} from "../topicsInfo";
 
-
 export async function POST(request: Request) {
 	let req = await request.json();
   let result = getTopicLinks(req.topic);

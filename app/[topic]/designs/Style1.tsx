@@ -12,12 +12,12 @@ export default function Style1(props: {topic: string, topicsInfoState: Array<[st
 					if(val.includes("%")){ return <StyledP
 						key={i}
 						text={val.substring(0,val.lastIndexOf('%')).replaceAll("_"," ")}
-						link={`${props.topic}/${subArr[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`}
+						link={`${props.topic}/${subArr[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`.replaceAll("'","")}
 					/>;
 					}else return <StyledP
 						key={i}
 						text={val.replaceAll("_"," ")}
-						link={`${props.topic}/${subArr[0]}/${val}`.replaceAll(" ","_")}
+						link={`${props.topic}/${subArr[0]}/${val}`.replaceAll(" ","_").replaceAll("'","")}
 					/>;
 				})}
 			</section>

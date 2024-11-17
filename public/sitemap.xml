@@ -168,7 +168,7 @@
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/n_square_prime</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/legendres_formula</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/Legendres_formula</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/legendres_formula_lower_bound</loc>
@@ -234,19 +234,19 @@
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/congruence_solution_possible</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/eulers_theorem</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/Eulers_theorem</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/fermats_little_theorem</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/Fermats_little_theorem</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/freshmans_dream</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/Freshmans_dream</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modular_inverse</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/wilsons_theorem</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/Wilsons_theorem</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/x_square_solution</loc>
@@ -258,7 +258,7 @@
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/congruence_solution</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/chinese_remainder_theorem</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/Chinese_remainder_theorem</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/factorials,_permutations_and_combinations/0fac</loc>
@@ -393,31 +393,31 @@
     <loc>https://www.deriveit.net/calculus/differential_calculus/mean_value_theorem</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/using_eulers_number/define_e</loc>
+    <loc>https://www.deriveit.net/calculus/using_Eulers_number/define_e</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/using_eulers_number/bx</loc>
+    <loc>https://www.deriveit.net/calculus/using_Eulers_number/bx</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/using_eulers_number/log</loc>
+    <loc>https://www.deriveit.net/calculus/using_Eulers_number/log</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/using_eulers_number/power_rule_when_exponent_is_real</loc>
+    <loc>https://www.deriveit.net/calculus/using_Eulers_number/power_rule_when_exponent_is_real</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/using_eulers_number/functions_which_are_derivatives_of_themselves</loc>
+    <loc>https://www.deriveit.net/calculus/using_Eulers_number/functions_which_are_derivatives_of_themselves</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/using_eulers_number/e_limit</loc>
+    <loc>https://www.deriveit.net/calculus/using_Eulers_number/e_limit</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/using_eulers_number/e_series</loc>
+    <loc>https://www.deriveit.net/calculus/using_Eulers_number/e_series</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/using_eulers_number/e_series2</loc>
+    <loc>https://www.deriveit.net/calculus/using_Eulers_number/e_series2</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/using_eulers_number/eulers_formula</loc>
+    <loc>https://www.deriveit.net/calculus/using_Eulers_number/Eulers_formula</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/trigonometric_derivatives/sin</loc>
@@ -528,10 +528,10 @@
     <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance_basics/varsamp</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance_basics/markov</loc>
+    <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance_basics/Markovs_inequality</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance_basics/chebyshevs_inequality</loc>
+    <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance_basics/Chebyshevs_inequality</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/probability_&amp;_statistics/probability_distribution_stuff/expected_value_and_variance_of_a_binomial_distribution</loc>
