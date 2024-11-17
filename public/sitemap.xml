@@ -228,9 +228,6 @@
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma2</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma3</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma4</loc>
   </url>
   <url>
@@ -432,7 +429,13 @@
     <loc>https://www.deriveit.net/calculus/trigonometric_derivatives/sec</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/calculus/trigonometric_derivatives/cosec</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/calculus/trigonometric_derivatives/tan</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/trigonometric_derivatives/cot</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/trigonometric_derivatives/arcsin</loc>
@@ -456,6 +459,9 @@
     <loc>https://www.deriveit.net/calculus/lhospitals_rule/zeroOverZero</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_one_over_x</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_secant(x)</loc>
   </url>
   <url>
@@ -465,7 +471,10 @@
     <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_tangent(x)_and_cotangent(x)</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_ln(x)</loc>
+    <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_exponentials</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_log</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/integral_calculus/part1</loc>

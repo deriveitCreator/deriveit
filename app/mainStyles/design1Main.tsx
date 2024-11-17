@@ -31,6 +31,7 @@ const reducer = (state:object, action: {type:string, payload?:string}) => {
 export default function Design1(){
   const [d1s, dispatch] = useReducer(reducer, design1States);
   const [firstRender, changeFR] = useState(true);
+
   useEffect(()=>{
     changeFR(false);
   },[]);
@@ -42,12 +43,12 @@ export default function Design1(){
   </>;
 }
 
-const HomeLoading=(props:{disabledState:boolean, hlDis:React.Dispatch<{type:string;payload?: string|undefined}>})=>{
+function HomeLoading(props:{disabledState:boolean, hlDis:React.Dispatch<{type:string;payload?: string|undefined}>}){
   const [wrapperH, setWH] = useState("h-screen");
 
   useEffect(()=>{
     document.documentElement.style.overflowY = "hidden";
-    document.documentElement.style.backgroundColor = "rgb(249 250 251)";
+    return ()=>{document.documentElement.style.overflowY = "scroll"};
   },[])
 
   function buttonClick(){

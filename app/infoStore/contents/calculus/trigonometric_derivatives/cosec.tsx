@@ -1,0 +1,3 @@
+export const title="Differentiation of cosec(x)";
+const content = [['h1', 'Differentiation of cosec(x)'], ['pmain', 'Now lets try to find the derivative of cosec(x).\nFinding the derivative of cosec(x) is the same as finding the derivative of 1/sin(x):'], ['displayimg', 'sec5.png'], ['pmain', 'If we simplify the above equation:'], ['displayimg', 'sec6.png'], ['pmain', 'Since cotan(x) = cos(x)/sin(x), we get the derivative as -cosec(x)cotan(x):'], ['displayimg', 'sec7.png']];
+export default content;

@@ -54,9 +54,16 @@ One major thing I added was the design feature, where you can choose different d
 
 - The `not-found.tsx` handles the 404 errors.
 
-## U
+## Updates
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
+
+<b>update 13.6:</b>
+- Added `antiderivative_of_log.tsx` and `antiderivative_of_exponentials.tsx`.
+- Renamed `antiderivative_of_ln(x).tsx` to `antiderivative_of_one_over_x.tsx`.
+- For design 1, the scroll bar wasn't showing in the topics page, that it fixed now.
+- `sec.tsx` was split into `sec.tsx` and `cosec.tsx`.
+- `tan.tsx` was split into `tan.tsx` and `cot.tsx`.
 
 <b>update 13.5:</b>
 - Updated `sitemap.xml`.

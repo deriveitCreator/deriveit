@@ -4,8 +4,7 @@ import Link from "next/link";
 import styles2 from "./style1.module.scss";
 
 export default function Style1(props: {topic: string, topicsInfoState: Array<[string,string[]]>}){ 
-
-	return <main style={{paddingBottom:"40px",opacity:'0'}} className='animate-[becomeVisible_0.5s_ease-out_0.5s_forwards]'>
+	return <main style={{paddingBottom:"40px", opacity:'0'}} className='animate-[becomeVisible_0.5s_ease-out_0.5s_forwards]'>
 		{props.topicsInfoState.map((subArr: [string, string[]], i:number)=>{
 			return <section key={i}>
 				<h2 className={`${cursiveMainServer.className} capitalize mt-3 ${styles2.heading}`}>{subArr[0].replaceAll("_"," ")}</h2>

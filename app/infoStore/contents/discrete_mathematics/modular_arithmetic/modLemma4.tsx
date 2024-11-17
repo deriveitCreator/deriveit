@@ -1,6 +1,6 @@
 export const title="Proof That ca ≡ cb (mod m) If And Only If a ≡ b (mod m/(c, m))";
 const content = [
-  ['h1', 'Proof that ca ≡ cb (mod m) if and only if a ≡ b (mod m/(c, m))'],
+  ['h1', 'Proof That ca ≡ cb (mod m) If And Only If a ≡ b (mod m/(c, m))'],
   ['pmain', 'Let \\(ca ≡ cb \\bmod m\\) and let \\(d = (c, m)\\):'],
   ['displayFormula', '$$\\begin{align} m | (ca - cb) &\\implies m | c(a - b) \\\\ &\\implies (m/d) | (c/d) (a - b) \\end{align}$$'],
   ['pmain', 'Since \\(d\\) is the gcd, then \\((m/d, c/d) = 1\\). So:'],

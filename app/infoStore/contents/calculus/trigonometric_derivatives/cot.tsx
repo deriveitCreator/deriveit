@@ -1,0 +1,3 @@
+export const title="Differentiation of cotan(x)";
+const content = [['h1', 'Differentiation of cotan(x)'], ['pmain', 'Finding the derivative of cotan(x) is the same as finding the derivative of cos(x)/sin(x):'], ['displayimg', 'tan5.png'], ['pmain', 'If we simplify the above equation:'], ['displayimg', 'tan6.png'], ['pmain', 'This gives our answer as:'], ['displayimg', 'tan7.png']];
+export default content;

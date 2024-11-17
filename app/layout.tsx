@@ -31,8 +31,8 @@ export default async function RootLayout({children}: {children: React.ReactNode}
       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471"
       crossOrigin="anonymous"/>
       <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
-      <html lang="en" className={`overflow-hidden scroll1`}>
-        <body>
+      <html lang="en" className={`scroll1`} style={{backgroundColor:"rgb(249 250 251)"}}>
+        <body suppressHydrationWarning>
           <div style={{height:"auto",minHeight:"100vh"}}>{children}</div>
           <FooterEl/>
         </body>

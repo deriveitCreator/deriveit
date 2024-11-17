@@ -32,14 +32,9 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
 
   useEffect(()=>{
     if(firstRender){
-      //add scroll and background color
-      document.documentElement.style.overflowY = "scroll";
-      document.documentElement.style.backgroundColor = "rgb(249 250 251)";
-      //set blackboard for desktop
-      //and below ad for mobile
-      if(screen.width > parseInt(styles.maxMobileWidth)) {
+      if(screen.width > parseInt(styles.maxMobileWidth))
         blackboardOrAd.current = "blackboard";
-      }else blackboardOrAd.current = "ad";
+      else blackboardOrAd.current = "ad";
       updateFR(false);
     }
     else{

@@ -196,7 +196,6 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 	["modular_arithmetic", [
 		"(α ≡ β mod M and ε ≡ δ mod M) ⇒ α + ε ≡ β + δ mod Μ%modLemma1",
 		"(α ≡ β mod M and ε ≡ δ mod M) ⇒ αε ≡ βδ mod Μ%modLemma2",
-		"(αε ≡ βε mod M and gcd(ε, M) = 1) ⇒ α ≡ β mod Μ%modLemma3",
 		"(εα ≡ εβ mod M) ⟺ (α ≡ β mod Μ/(ε, M)) %modLemma4",
 		"ax ≡ b mod m has a solution if and only if gcd(a, m)|b%congruence_solution_possible",
 		"Euler's Theorem%eulers_theorem",
@@ -259,16 +258,36 @@ const calculusLinks: Array<[string,string[]]> = [
 		"the_inverse_function_theorem",
 		"mean_value_theorem"
 	]],
-	["using_eulers_number", ["definition of e%define_e","[d/dx]b<sup>x</sup> = b<sup>x</sup>ln(b)%bx","[d/dx]log<sub>b</sub>x = 1/(x * ln(b))%log","the power rule (when exponent is any real number)%power_rule_when_exponent_is_real","only_functions_of_the_form_Ae^x_are_derivatives_of_themselves%functions_which_are_derivatives_of_themselves","representing e<sup>x</sup> as a limit%e_limit","representing e<sup>x</sup> as an infinite series (proof 1)%e_series","representing e<sup>x</sup> as an infinite series (proof 2)%e_series2","eulers_formula"
+	["using_eulers_number", [
+		"definition of e%define_e",
+		"[d/dx] b<sup>x</sup> = b<sup>x</sup>ln(b)%bx",
+		"[d/dx] log<sub>b</sub>x = 1/(x * ln(b))%log",
+		"the power rule (when exponent is any real number)%power_rule_when_exponent_is_real","only_functions_of_the_form_Ae^x_are_derivatives_of_themselves%functions_which_are_derivatives_of_themselves",
+		"representing e<sup>x</sup> as a limit%e_limit","representing e<sup>x</sup> as an infinite series (proof 1)%e_series","representing e<sup>x</sup> as an infinite series (proof 2)%e_series2",
+		"eulers_formula"
 	]],
-	["trigonometric_derivatives", ["[d/dx]sin(x) = cos(x)%sin","[d/dx]cos(x) = -sin(x)%cos","derivative of sec(x) and cosec(x)%sec","derivative of tan(x) and cotan(x)%tan","derivative of arcsine(x)%arcsin","derivative of arccosine(x)%arccos","derivative of arcsecant(x)%arcsec","derivative of arccosecant(x)%arccosec","derivative of arctangent(x)%arctan","derivative of arccotangent(x)%arccot"
+	["trigonometric_derivatives", [
+		"[d/dx] sin(x) = cos(x)%sin",
+		"[d/dx] cos(x) = -sin(x)%cos",
+		"[d/dx] sec(x) = sec(x)tan(x)%sec",
+		"[d/dx] cosec(x) = -cosec(x)cotan(x)%cosec",
+		"[d/dx] tan(x) = sec<sup>2</sup>(x)%tan",
+		"[d/dx] cos(x) = cosec<sup>2</sup>(x)%cot",
+		"derivative of arcsine(x)%arcsin",
+		"derivative of arccosine(x)%arccos",
+		"derivative of arcsecant(x)%arcsec",
+		"derivative of arccosecant(x)%arccosec",
+		"derivative of arctangent(x)%arctan",
+		"derivative of arccotangent(x)%arccot"
 	]],
 	["lhospitals_rule", ["indeterminate form of type 0/0%zeroOverZero",]],
 	["antiderivative", [
+		"antiderivative_of_1/x%antiderivative_of_one_over_x",
 		"antiderivative_of_secant(x)",
 		"antiderivative_of_cosecant(x)",
 		"antiderivative_of_tangent(x)_and_cotangent(x)",
-		"antiderivative_of_ln(x)",
+		"antiderivative_of_a<sup>x</sup>%antiderivative_of_exponentials",
+		"antiderivative_of_log<sub>a</sub>(x)%antiderivative_of_log",
 	]],
 	["integral_calculus", [
 		"fundamental theorem of calculus, part 1%part1",

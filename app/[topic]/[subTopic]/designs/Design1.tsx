@@ -4,9 +4,8 @@ import Link from "next/link";
 import styles2 from "./design1.module.scss";
 
 export default function Design1(props: {topic: string, subTopic: [string, string[]]}){  
-
 	let curTopic = props.subTopic;
-	return <main style={{paddingBottom:"40px",opacity: '0'}} className='animate-[becomeVisible_0.5s_ease-out_0.5s_forwards]'>
+	return <main style={{paddingBottom:"40px", opacity:'0'}} className='animate-[becomeVisible_0.5s_ease-out_0.5s_forwards]'>
 		<section>
 			<h2 className={`${cursiveMain.className} capitalize mt-3 ${styles2.heading}`}>{curTopic[0].replaceAll("_"," ")}</h2>
 			{(curTopic[1]).map((val:string,i: number)=> {
