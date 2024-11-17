@@ -58,6 +58,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 13.7:</b>
+- Changed the topic name "[d/dx] cos(x) = cosec<sup>2</sup>(x)" to "[d/dx] cotan(x) = -cosec<sup>2</sup>(x)".
+
 <b>update 13.6:</b>
 - Added `antiderivative_of_log.tsx` and `antiderivative_of_exponentials.tsx`.
 - Renamed `antiderivative_of_ln(x).tsx` to `antiderivative_of_one_over_x.tsx`.

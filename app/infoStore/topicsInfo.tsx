@@ -272,7 +272,7 @@ const calculusLinks: Array<[string,string[]]> = [
 		"[d/dx] sec(x) = sec(x)tan(x)%sec",
 		"[d/dx] cosec(x) = -cosec(x)cotan(x)%cosec",
 		"[d/dx] tan(x) = sec<sup>2</sup>(x)%tan",
-		"[d/dx] cos(x) = cosec<sup>2</sup>(x)%cot",
+		"[d/dx] cotan(x) = -cosec<sup>2</sup>(x)%cot",
 		"derivative of arcsine(x)%arcsin",
 		"derivative of arccosine(x)%arccos",
 		"derivative of arcsecant(x)%arcsec",
