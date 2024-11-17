@@ -58,6 +58,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 13.9:</b>
+- Added `forceConsistentCasingInFileNames` in `tsconfig.json`.
+
 <b>update 13.8:</b>
 - Changed the name of some of the articles.
 - Apostrophes in links are now removed.
