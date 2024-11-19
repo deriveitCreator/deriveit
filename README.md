@@ -58,6 +58,18 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 13.11:</b>
+- Added articles about the antiderivatives of inverse trigonometric functions.
+- `displayimg`s are larger (230px).
+- For calculus, improved the explanation of several articles.
+- For calculus, renamed the directory `lhospitals_rule` to `lHopitals_rule`.
+- For `trigonometry`, Added `doubleTan.tsx`.
+- For `trigonometry`, renamed the directory `basic_identity` to `basic_identities`.
+- For `trigonometry`, added `unit_circle.tsx`.
+
+<b>update 13.10:</b>
+- Deleted `using_eulers_number` directory from GitHub repo.
+ 
 <b>update 13.9:</b>
 - Added `forceConsistentCasingInFileNames` in `tsconfig.json`.
 

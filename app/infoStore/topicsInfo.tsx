@@ -236,12 +236,20 @@ const linearAlgebraLinks: Array<[string,string[]]> = [
 ]
 
 const trigonometryLinks: Array<[string,string[]]> = [
-	["basic_identity", ["sine_rule","cosine_rule","tan(x) = sin(x)/cos(x)%tan","sin<sup>2</sup>(x) + cos<sup>2</sup>(x) = 1%pt","sin(x + 90) = cos(x)%90_2","sin(x) = -sin(-x) and cos(x) = cos(-x)%basic_identity","sin(90 - x) = cos(x) and cos(90 - x) = sin(x)%90"]],
+	["basic_identities", [
+		"unit circle definitions%unit_circle",
+		"sine_rule",
+		"cosine_rule",
+		"tan(x) = sin(x)/cos(x)%tan",
+		"sin(x) = -sin(-x) and cos(x) = cos(-x)%basic_identity",
+		"Pythagorean identities%pt",
+	]],
 	["advanced",[
 		"addition and subtraction formulas for cos(x)%addsubcos",
 		"addition and subtraction formulas for sin(x)%addsubsin",
 		"addition and subtraction formulas for tan(x)%addsubtan",
 		"double angle and half angle formulas for sin(x) and cos(x)%double",
+		"double angle and half angle formulas for tan(x)%doubleTan",
 		"the product formula for sin(x) and cos(x)%product"
 	]],
 	["hyperbolic_functions",[
@@ -283,7 +291,7 @@ const calculusLinks: Array<[string,string[]]> = [
 		"derivative of arctangent(x)%arctan",
 		"derivative of arccotangent(x)%arccot"
 	]],
-	["l'hospitals_rule", ["indeterminate form of type 0/0%zeroOverZero",]],
+	["l'Hopital's_rule", ["indeterminate form of type 0/0%zeroOverZero",]],
 	["antiderivative", [
 		"antiderivative_of_1/x%antiderivative_of_one_over_x",
 		"antiderivative_of_secant(x)",
@@ -291,6 +299,12 @@ const calculusLinks: Array<[string,string[]]> = [
 		"antiderivative_of_tangent(x)_and_cotangent(x)",
 		"antiderivative_of_a<sup>x</sup>%antiderivative_of_exponentials",
 		"antiderivative_of_log<sub>a</sub>(x)%antiderivative_of_log",
+		"antiderivative_of_arcsine(x)",
+		"antiderivative_of_arccosine(x)",
+		"antiderivative_of_arctan(x)",
+		"antiderivative_of_arccotan(x)",
+		"antiderivative_of_arcsec(x)",
+		"antiderivative_of_arccosec(x)",
 	]],
 	["integral_calculus", [
 		"fundamental theorem of calculus, part 1%part1",

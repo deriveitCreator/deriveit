@@ -312,25 +312,22 @@
     <loc>https://www.deriveit.net/trigonometry</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/trigonometry/basic_identity/sine_rule</loc>
+    <loc>https://www.deriveit.net/trigonometry/basic_identities/unit_circle</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/trigonometry/basic_identity/cosine_rule</loc>
+    <loc>https://www.deriveit.net/trigonometry/basic_identities/sine_rule</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/trigonometry/basic_identity/tan</loc>
+    <loc>https://www.deriveit.net/trigonometry/basic_identities/cosine_rule</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/trigonometry/basic_identity/pt</loc>
+    <loc>https://www.deriveit.net/trigonometry/basic_identities/tan</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/trigonometry/basic_identity/90_2</loc>
+    <loc>https://www.deriveit.net/trigonometry/basic_identities/basic_identity</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/trigonometry/basic_identity/basic_identity</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/trigonometry/basic_identity/90</loc>
+    <loc>https://www.deriveit.net/trigonometry/basic_identities/pt</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/trigonometry/advanced/addsubcos</loc>
@@ -343,6 +340,9 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/trigonometry/advanced/double</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/trigonometry/advanced/doubleTan</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/trigonometry/advanced/product</loc>
@@ -456,7 +456,7 @@
     <loc>https://www.deriveit.net/calculus/trigonometric_derivatives/arccot</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/lhospitals_rule/zeroOverZero</loc>
+    <loc>https://www.deriveit.net/calculus/lHopitals_rule/zeroOverZero</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_one_over_x</loc>
@@ -475,6 +475,24 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_log</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_arcsine(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_arccosine(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_arctan(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_arccotan(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_arcsec(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_arccosec(x)</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/integral_calculus/part1</loc>

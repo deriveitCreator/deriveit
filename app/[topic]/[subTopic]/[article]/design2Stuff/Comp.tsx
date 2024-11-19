@@ -60,7 +60,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
         );
         break;
       case "displayimg":
-        bodyChildren.push(<div key={i} style={{height:"200px", ...imageParentStyle}}><Image
+        bodyChildren.push(<div key={i} style={{height:"230px", ...imageParentStyle}}><Image
           alt=""
           src={`/${topic}/${subTopic}/${j[i][1]}`}
           fill
