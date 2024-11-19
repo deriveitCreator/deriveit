@@ -58,6 +58,10 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 13.12:</b>
+- Fixed some directory naming errors.
+- `calculus/lhopitals_rule` was missing, that is fixed now.
+
 <b>update 13.11:</b>
 - Added articles about the antiderivatives of inverse trigonometric functions.
 - `displayimg`s are larger (230px).
