@@ -48,7 +48,7 @@ export default async function Page({ params }: { params: { topic: string, subTop
 
   var curSubTopic: [string, string[]] = ["",[""]];
   for(let i in topicLinks){
-    if(topicLinks[i][0] === decodedSubTopic){
+    if(topicLinks[i][0] === decodedSubTopic.replaceAll("'","")){
       curSubTopic = topicLinks[i];
       break;
     }
