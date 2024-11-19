@@ -58,9 +58,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
-<b>update 13.16 - 13.17:</b>
+<b>update 13.16 - 13.18:</b>
 - subtopics with apotrophes were leading to the 404 page, this is fixed now.
-- Some articles in `calculus/using_Eulers_number` was mssing, this is fixed now.
+- Some articles in `calculus/using_Eulers_number` was missing, this is fixed now.
 
 <b>update 13.12 - 13.15:</b>
 - Fixed some directory naming errors.

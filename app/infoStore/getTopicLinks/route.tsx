@@ -6,7 +6,7 @@ export async function POST(request: Request) {
 	if(result === ERROR_VALUE) return Response.error();
 	else if (req.subTopic) {
 		for(let topicLink of result)
-			if (topicLink[0] === req.subTopic)
+			if (topicLink[0].replaceAll("'","") === req.subTopic)
 				return Response.json(result);
 		return Response.error();
 	}
