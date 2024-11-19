@@ -58,7 +58,7 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
-<b>update 13.12:</b>
+<b>update 13.12 - 13.13:</b>
 - Fixed some directory naming errors.
 - `calculus/lhopitals_rule` was missing, that is fixed now.
 
