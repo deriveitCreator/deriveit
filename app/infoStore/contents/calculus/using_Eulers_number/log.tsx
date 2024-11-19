@@ -1,3 +1,0 @@
-export const title="Differentiating Logarithms";
-const content = [['h1', 'Differentiating Logarithms'], ['pmain', 'Lets say [y = log<sub>b</sub>x], which means:'], ['displayimg', 'l1.png'], ['pmain', 'Now lets differentiate both sides with respect to x:'], ['displayimg', 'l2.png'], ['pmain', 'Instead of doing [[d/dx](b<sup>y</sup>)], we can do this [[dy/dx] * [d/dy](b<sup>y</sup>)]:'], ['displayimg', 'l3.png'], ['pmain', 'You should already know that [[d/dy](b<sup>y</sup>) = (b<sup>y</sup> * ln(b))] (if you don\'t,\nthen <a href="e.html" style="color:blue" target="_blank">click here</a>):'], ['displayimg', 'l4.png'], ['pmain', 'We can write this as:'], ['displayimg', 'l5.png'], ['pmain', 'And that completes our proof.']];
-export default content;
