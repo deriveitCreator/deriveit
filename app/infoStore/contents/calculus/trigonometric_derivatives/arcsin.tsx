@@ -1,3 +1,25 @@
-export const title="Proof Of The Derivative Of Arcsin(x)";
-const content = [['h1', 'Proof Of The Derivative Of Arcsin(x)'], ['pmain', 'First lets start with a right-angled triangle where one of the angles is y. Lets say the opposite side is\nof length x and that the hypotenuse is of length 1:'], ['displayimg', 'as1.png'], ['pmain', 'Using the triangle above, we can say:'], ['displayimg', 'as2.png'], ['pmain', 'We already know that the derivative of x with respect to x is 1:'], ['displayimg', 'as3.png'], ['pmain', 'Since x = sin(y):'], ['displayimg', 'as4.png'], ['pmain', 'Using the chain rule:'], ['displayimg', 'as5.png'], ['pmain', 'And we already know what cos(y) is equal to (look above):'], ['displayimg', 'as6.png']];
+export const title="Proof Of The Derivative Of arcsin(x)";
+const content = [
+  ['h1', 'Proof Of The Derivative Of arcsin(x)'],
+  ['pmain', 'First look at this unit circle:'],
+  ['displayimg', 'as1.png'],
+  ['pmain', 'Let \\(y\\) be the angle between the line \\(\\overline{QA}\\) and the x-axis. Let \\(x\\) be the signed distance from \\(C\\) to \\(A\\). This means \\(x = \\sin(y)\\), and:'],
+  ['displayimg', 'as2.png'],
+  ['pmain', 'We want to find the derivative to \\(y = \\arcsin(x)\\). The domain is \\([-1,1]\\), and the range is \\(y \\in [\\frac{-\\pi}{2} , \\frac{\\pi}{2}]\\):'],
+  ['displayimg', 'as7.gif'],
+  ['pmain', 'This means \\(cos(y)\\) will always be a positive value. We already know that the derivative of x with respect to x is 1:'],
+  ['displayimg', 'as3.png'],
+  ['pmain', 'Since \\(x = \\sin(y)\\):'],
+  ['displayimg', 'as4.png'],
+  ['pmain', 'Using the chain rule:'],
+  ['displayimg', 'as5.png'],
+  ['pmain', 'And we already know what \\(\\cos(y)\\) is:'],
+  ['displayimg', 'as6.png'],
+  ['pmain', 'Now let\'s find the derivative of \\(\\arcsin(\\frac{x}{a})\\). We can use the chain rule:'],
+  ['displayFormula','\\[\\frac{d}{dx} \\arcsin \\left( \\frac{x}{a} \\right) = \\frac{1}{\\sqrt{1-\\frac{x^2}{a^2}}} \\frac{1}{a}\\]'],
+  ['pmain', 'Remember \\(\\cos(y)\\) is always positive, so:'],
+  ['displayFormula','\\[\\frac{d}{dx} \\arcsin \\left( \\frac{x}{a} \\right) = \\frac{1}{\\left| \\sqrt{1-\\frac{x^2}{a^2}} \\right|} \\frac{1}{a}\\]'],
+  ['pmain', 'We can put \\(a\\) inside the square root as well:'],
+  ['displayFormula','\\[\\frac{d}{dx} \\arcsin \\left(\\frac{x}{a} \\right) = \\frac{1}{\\left| \\sqrt{1-\\frac{x^2}{a^2}} \\right|} \\frac{\\operatorname{sign}(a)}{|a|} = \\frac{\\operatorname{sign}(a)}{| \\sqrt{a^2-x^2} |}\\]'],
+];
 export default content;

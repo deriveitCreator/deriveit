@@ -58,6 +58,11 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 13.19:</b>
+- Added articles about integration stuff.
+- Edited articles concerning inverse trigonometry antiderivatives.
+- For `geometry`, added `cone_lateral_surface_area` and `conical_frustum_lateral_surface_area`.
+
 <b>update 13.16 - 13.18:</b>
 - subtopics with apotrophes were leading to the 404 page, this is fixed now.
 - Some articles in `calculus/using_Eulers_number` was missing, this is fixed now.

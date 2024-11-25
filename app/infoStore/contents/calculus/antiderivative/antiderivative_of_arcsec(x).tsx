@@ -1,6 +1,6 @@
-export const title="Proof of the derivative of arcsec(x)";
+export const title="Antiderivative of arcsec(x)";
 const content = [
-  ['h1', 'Proof Of The Derivative Of Arcsec(x)'],
+  ['h1', 'Antiderivative Of arcsec(x)'],
   ['pmain', 'What we are trying to find is:'],
   ['displayFormula', '\\[ \\int \\operatorname{arcsec}(x) \\ dx \\]'],
   ['pmain', 'If \\(y = \\operatorname{arcsec}(x)\\), then \\(\\sec(x) = y\\). So:'],

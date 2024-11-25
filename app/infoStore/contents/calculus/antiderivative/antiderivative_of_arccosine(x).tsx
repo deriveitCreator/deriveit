@@ -1,6 +1,6 @@
-export const title="Proof of the derivative of arccosine(x)";
+export const title="Antiderivative of arccosine(x)";
 const content = [
-  ['h1', 'Proof Of The Derivative Of Arccosine(x)'],
+  ['h1', 'Antiderivative Of arccosine(x)'],
   ['pmain', 'What we are trying to find is:'],
   ['displayFormula', '\\[ \\int \\arccos(x) \\ dx \\]'],
   ['pmain', 'We are going to use integration by parts:'],

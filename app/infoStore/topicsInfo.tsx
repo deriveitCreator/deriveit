@@ -142,6 +142,10 @@ const geometryLinks: Array<[string,string[]]> = [
 	["hyperbola",[
 		"getting_the_standard_form_equation_from_the_geometric_definition",
 		"deriving_the_asymptote_of_a_hyperbola"
+	]],
+	["other_shapes",[
+		"lateral surface area of a right circular cone%cone_lateral_surface_area",
+		"lateral surface area of a right circular conical frustrum%conical_frustum_lateral_surface_area"
 	]]
 ];
 
@@ -307,12 +311,15 @@ const calculusLinks: Array<[string,string[]]> = [
 		"antiderivative_of_arccosec(x)",
 	]],
 	["integral_calculus", [
+		"trapezium_rule",
 		"fundamental theorem of calculus, part 1%part1",
 		"fundamental theorem of calculus, part 2%part2",
-		"trapezium_rule","integration by parts (incomplete)",
-		"using integration to find volume (incomplete)",
-		"using integration to find arc length (incomplete)",
-		"using integration to find surface area (incomplete)"
+		"finding the volume (slicing method)%slicing_method",
+		"finding the volume of a solid of revolution (disk method)%disk",
+		"finding the volume using cylindrical shells%cylindrical_shells",
+		"finding the arc length of a curve%arc_length",
+		"finding area of a surface of revolution%revolution_area",
+		"integration by parts (incomplete)",
 	]],
 ]
 

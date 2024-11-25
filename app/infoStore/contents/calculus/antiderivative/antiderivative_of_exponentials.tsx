@@ -1,4 +1,4 @@
-export const title="AntiderivativeoOf exponentials";
+export const title="Antiderivativeo of exponentials";
 const content = [['h1', 'Antiderivative Of Exponentials'], 
 ['pmain', 'Let\'s start with the derivative of \\(a^x\\):'],
 ['displayFormula', '\\[ \\frac{d}{dx} a^x = a^x \\ln (a) \\]'],

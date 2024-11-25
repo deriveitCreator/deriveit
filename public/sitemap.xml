@@ -93,6 +93,12 @@
     <loc>https://www.deriveit.net/geometry/hyperbola/deriving_the_asymptote_of_a_hyperbola</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/geometry/other_shapes/cone_lateral_surface_area</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/geometry/other_shapes/conical_frustum_lateral_surface_area</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/discrete_mathematics</loc>
   </url>
   <url>
@@ -495,25 +501,31 @@
     <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_arccosec(x)</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/calculus/integral_calculus/trapezium_rule</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/calculus/integral_calculus/part1</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/integral_calculus/part2</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/integral_calculus/trapezium_rule</loc>
+    <loc>https://www.deriveit.net/calculus/integral_calculus/slicing_method</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/integral_calculus/disk</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/integral_calculus/cylindrical_shells</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/integral_calculus/arc_length</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/integral_calculus/revolution_area</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/integral_calculus/integration_by_parts_(incomplete)</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus/integral_calculus/using_integration_to_find_volume_(incomplete)</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus/integral_calculus/using_integration_to_find_arc_length_(incomplete)</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus/integral_calculus/using_integration_to_find_surface_area_(incomplete)</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/probability_&amp;_statistics</loc>

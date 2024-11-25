@@ -1,6 +1,6 @@
-export const title="Proof of the derivative of arctan(x)";
+export const title="Antiderivative of arctan(x)";
 const content = [
-  ['h1', 'Proof Of The Derivative Of Arctan(x)'],
+  ['h1', 'Antiderivative Of arctan(x)'],
   ['pmain', 'What we are trying to find is:'],
   ['displayFormula', '\\[ \\int \\arctan(x) \\ dx \\]'],
   ['pmain', 'We are going to use integration by parts:'],

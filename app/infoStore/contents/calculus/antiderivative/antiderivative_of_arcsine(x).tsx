@@ -1,6 +1,6 @@
-export const title="Proof of the derivative of arcsine(x)";
+export const title="Antiderivative of arcsine(x)";
 const content = [
-  ['h1', 'Proof Of The Derivative Of Arcsine(x)'],
+  ['h1', 'Antiderivative Of arcsine(x)'],
   ['pmain', 'What we are trying to find is:'],
   ['displayFormula', '\\[ \\int \\arcsin(x) \\ dx \\]'],
   ['pmain', 'We are going to use integration by parts:'],
