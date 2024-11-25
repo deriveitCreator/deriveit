@@ -58,6 +58,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 13.20:</b>
+- Converted `jfif` pictures to `png`.
+
 <b>update 13.19:</b>
 - Added articles about integration stuff.
 - Edited articles concerning inverse trigonometry antiderivatives.

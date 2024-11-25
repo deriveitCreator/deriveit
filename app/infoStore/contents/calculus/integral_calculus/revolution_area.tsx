@@ -2,9 +2,9 @@ export const title="(Integration) Finding the area of a surface of revolution";
 const content = [
   ['h1', 'Finding The Area Of A Surface Of Revolution'],
   ['pmain', 'Let \\(f(x)\\) be a nonnegative smooth function over the interval \\([a,b]\\). We wish to find the surface area of the surface of revolution created by revolving the graph of \\(y=f(x)\\) around the x-axis:'],
-  ['figure', ['9.jfif','Image from openstax.org (Calculus Volume 1)']],
+  ['figure', ['9.png','Image from openstax.org (Calculus Volume 1)']],
   ['pmain', 'We are going to partition the interval \\([a,b]\\) and approximate the surface area by calculating the surface area of simpler shapes. We start by using line segments to approximate the curve. For  \\(i=1,2,…,n\\), construct a line segment from the point \\((x_{i-1},f(x_{i-1}))\\) to the point \\((x_i,f(x_i))\\). Now, revolve these line segments around the x-axis to generate an approximation of the surface of revolution:'],
-  ['figure', ['8.jfif','Image from openstax.org (Calculus Volume 1)']],
+  ['figure', ['8.png','Image from openstax.org (Calculus Volume 1)']],
   ['pmain', 'The shape of each band is a frustrum of a right circular cone. The lateral surface area of a right circular conical frustrum is.:'],
   ['displayFormula', '\\[SA_{frustrum} = \\pi (r_1 + r_2) l\\]'],
   ['pmain', 'Where \\(r_1\\) is the radius of the top circle, \\(r_2\\) is the radius of the bottom circle and \\(l\\) is the slant height. The proof of this can be found <a href="../../geometry/other_shapes/conical_frustum_lateral_surface_area">here</a>. The lateral surface area of one of these bands is:'],
