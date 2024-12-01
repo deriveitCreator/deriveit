@@ -12,19 +12,34 @@
     <loc>https://www.deriveit.net/algebra/fractions/multiplying_fractions</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/algebra/exponents/product_rule</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/algebra/exponents/power_of_product_rule</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/algebra/exponents/raising_exponents</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/algebra/exponents/power_of_quotient_rule</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/algebra/exponents/zero_exponential_rule</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/algebra/exponents/raising_to_negative</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/algebra/exponents/quotient_rule</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/algebra/exponents/roots_as_exponents</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/algebra/exponents/square_root_multiply</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/algebra/exponents/roots_with_exponents</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/algebra/exponents/roots_as_exponents</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/algebra/exponents/raising_to_negative</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/algebra/logarithms/change_of_base</loc>
@@ -66,7 +81,7 @@
     <loc>https://www.deriveit.net/geometry/quadrilateral_related_stuff/constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/circle_related_stuff/thales_theorem</loc>
+    <loc>https://www.deriveit.net/geometry/circle_related_stuff/Thaless_theorem</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/geometry/parabola/getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition</loc>
@@ -357,6 +372,30 @@
     <loc>https://www.deriveit.net/trigonometry/hyperbolic_functions/how_cosh_and_sinh_form_the_right_half_of_a_hyperbola</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/trigonometry/hyperbolic_functions/Pythagorean1</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/trigonometry/hyperbolic_functions/Pythagorean2</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/trigonometry/inverse_hyperbolic_functions/definition_of_arsinh(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/trigonometry/inverse_hyperbolic_functions/definition_of_arcosh(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/trigonometry/inverse_hyperbolic_functions/definition_of_artanh(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/trigonometry/inverse_hyperbolic_functions/definition_of_arcoth(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/trigonometry/inverse_hyperbolic_functions/definition_of_arsech(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/trigonometry/inverse_hyperbolic_functions/definition_of_arcsch(x)</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/calculus</loc>
   </url>
   <url>
@@ -408,7 +447,7 @@
     <loc>https://www.deriveit.net/calculus/using_Eulers_number/log</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/using_Eulers_number/power_rule_when_exponent_is_real</loc>
+    <loc>https://www.deriveit.net/calculus/using_Eulers_number/power_rule2</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/using_Eulers_number/functions_which_are_derivatives_of_themselves</loc>
@@ -501,6 +540,42 @@
     <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_arccosec(x)</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_sinh(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_cosh(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_sech(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_csch(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_tanh(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_coth(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_arsinh(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_arcosh(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_artanh(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_arcoth(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_arsech(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_arcsch(x)</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/calculus/integral_calculus/trapezium_rule</loc>
   </url>
   <url>
@@ -525,7 +600,7 @@
     <loc>https://www.deriveit.net/calculus/integral_calculus/revolution_area</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/integral_calculus/integration_by_parts_(incomplete)</loc>
+    <loc>https://www.deriveit.net/calculus/integral_calculus/by_parts</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/probability_&amp;_statistics</loc>

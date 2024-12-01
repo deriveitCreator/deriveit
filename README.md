@@ -58,6 +58,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 13.22:</b>
+- Updated `sitemap.xml`.
+
 <b>update 13.21:</b>
 - Edited and added articles for algebra.
 - Added articles about the derivatives of hyperbolic functions.
