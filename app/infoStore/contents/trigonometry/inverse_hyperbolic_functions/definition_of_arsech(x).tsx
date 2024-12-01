@@ -1,0 +1,27 @@
+export const title="Deriving the formula for arsech(x)";
+const content = [
+  ['h1', 'Deriving The Formula For arsech(x)'],
+  ['pmain', 'Let \\(y= \\operatorname{sech}(x)\\):'],
+  ['displayFormula', '\\[ y = \\frac{2}{e^x + e^{-x}}\\]'],
+  ['pmain', 'In order to find the formula for the inverse of \\(\\operatorname{sech}\\) we need to make \\(x\\) the subject of the above formula.'],
+  ['displayFormula', '\\[ y(e^x) + y(e^{-x}) - 2 = 0\\]'],
+  ['pmain', 'If we multiply both sides by \\(e^x\\):'],
+  ['displayFormula', '\\[\\begin{gathered} y(e^x)^2 + y - 2e^x = 0 \\end{gathered}\\]'],
+  ['pmain', 'Let \\(v = e^x\\):'],
+  ['displayFormula', '\\[ yv^2 -2v + y = 0 \\]'],
+  ['pmain', 'We can use the quadratic formula here:'],
+  ['displayFormula', '\\[v=\\frac{-(-2) ± \\sqrt{(-2)^2 - 4(y)(y)}}{2(y)} = \\frac{2 ± \\sqrt{4 - 4y^2}}{2y} \\]'],
+  ['pmain', 'Simplifying:'],
+  ['displayFormula', '\\[v = \\frac{1}{y} ± \\sqrt{\\frac{4-4y^2}{4y^2}} = \\frac{1}{y} ± \\sqrt{\\frac{1}{y^2} - 1} \\]'],
+  ['pmain', 'Since \\(v=e^x\\):'],
+  ['displayFormula', '\\[x = \\ln \\left( \\frac{1}{y} ± \\sqrt{\\frac{1}{y^2} - 1} \\right) \\]'],
+  ['pmain', 'Keep in mind the input for \\(\\ln\\) cannot be negative.'],
+  ['displayFormula', '\\[\\frac{1}{\\frac{1}{y} + \\sqrt{\\frac{1}{y^2} - 1}} = \\frac{ \\frac{1}{y} - \\sqrt{\\frac{1}{y^2} - 1}}{\\left( \\frac{1}{y} + \\sqrt{\\frac{1}{y^2} - 1} \\right) \\left( \\frac{1}{y} - \\sqrt{\\frac{1}{y^2} - 1} \\right)} = \\frac{1}{y} - \\sqrt{\\frac{1}{y^2} - 1} \\]'],
+  ['pmain', 'The above shows that:'],
+  ['displayFormula', '\\[\\begin{gathered} \\left( \\frac{1}{y} + \\sqrt{\\frac{1}{y^2} - 1} \\right) ^{-1}= \\frac{1}{y} - \\sqrt{\\frac{1}{y^2} - 1} \\\\ \\frac{1}{y} + \\sqrt{\\frac{1}{y^2} - 1} = \\left( \\frac{1}{y} - \\sqrt{\\frac{1}{y^2} - 1}\\right) ^{-1} \\end{gathered}\\]'],
+  ['pmain', 'This means:'],
+  ['displayFormula', '\\[ - \\ln \\left( \\frac{1}{y} + \\sqrt{\\frac{1}{y^2} - 1} \\right) = \\ln \\left( \\frac{1}{y} - \\sqrt{\\frac{1}{y^2} - 1}\\right) \\]'],
+  ['pmain', 'The function \\(y=\\operatorname{sech}(x)\\) has the range \\(y \\in (0,1]\\) and the domain \\(x \\in (-\\infty, \\infty)\\). Since \\(\\operatorname{sech}\\) is an even function, it\'s inverse will fail the vertical line test, so \\(\\operatorname{arsech}(y)\\) is only defined for \\(x \\in [0,\\infty)\\). This means \\(\\sqrt{1/(y^2) - 1}\\) will always be positive:'],
+  ['displayFormula', '\\[\\operatorname{arsech}(y) = \\ln \\left( \\frac{1}{y} + \\left| \\sqrt{\\frac{1}{y^2} - 1} \\right| \\right) \\]'],
+];
+export default content;

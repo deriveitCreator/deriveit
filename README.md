@@ -58,6 +58,13 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 13.21:</b>
+- Edited and added articles for algebra.
+- Added articles about the derivatives of hyperbolic functions.
+- Added articles for the definition of inverse hyperbolic functions and their derivatives.
+- Added `/integral_calculus/by_parts.tsx`.
+- Made some minor changes in other articles.
+
 <b>update 13.20:</b>
 - Converted `jfif` pictures to `png`.
 

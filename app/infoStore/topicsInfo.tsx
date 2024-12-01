@@ -117,11 +117,16 @@ export function getTopicLinks(topic: string){
 const algebraLinks: Array<[string,string[]]> = [
 	["fractions", ["[a/b] + [c/b] gives [(a+c)/b]%adding_fractions","multiplying [a/b] by [c/d] gives [ac/bd]%multiplying_fractions"]],
 	["exponents", [
-		"(a<sup>m</sup>)<sup>n</sup> is equal to a<sup>m*n</sup> (where n is an integer)%raising_exponents",
+		"a<sup>m</sup> * a<sup>n</sup> is equal to a<sup>m+n</sup> (where m and n are integers)%product_rule",
+		"(ab)<sup>m</sup> is equal to a<sup>m</sup> * b<sup>m</sup> (where m is an integer)%power_of_product_rule",
+		"(a<sup>m</sup>)<sup>n</sup> is equal to a<sup>m*n</sup> (where m and n are integers)%raising_exponents",
+		"(a/b)<sup>m</sup> is equal to (a<sup>m</sup>)/(b<sup>m</sup>) (where m is an integer)%power_of_quotient_rule",
+		"x<sup>0</sup> = 1%zero_exponential_rule",
+		"x<sup>-n</sup> is equal to 1/(x<sup>n</sup>)%raising_to_negative",
+		"(a<sup>m</sup>)÷(a<sup>n</sup>) is equal to (a<sup>m-n</sup>) (where m and n are integers)%quotient_rule",
+		"<sup>m</sup>√a is equal to a<sup>1/m</sup>%roots_as_exponents",
 		"<sup>m</sup>√(ab) is equal to (<sup>m</sup>√a) * (<sup>m</sup>√b)%square_root_multiply",
 		"<sup>n</sup>√(a<sup>q</sup>) is equal to (<sup>n</sup>√a)<sup>q</sup>%roots_with_exponents",
-		"<sup>m</sup>√a is equal to a<sup>1/m</sup>%roots_as_exponents",
-		"x<sup>-n</sup> is equal to 1/(x<sup>n</sup>)%raising_to_negative"
 	]],
 	["logarithms", ["change_of_base","power","product_and_quotient_rule"]],
 	["quadratic_formula", ["quadratic_formula"]]
@@ -130,7 +135,7 @@ const algebraLinks: Array<[string,string[]]> = [
 const geometryLinks: Array<[string,string[]]> = [
 	["triangle_related_stuff", ["angles_in_a_triangle_add_to_180","area_of_a_triangle","constructing_an_equilateral_triangle","pythagoras_theorem","sides_of_30_90_60"]],
 	["quadrilateral_related_stuff", ["area_of_a_parallelogram","area_of_a_trapezium","constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle"]],
-	["circle_related_stuff", ["thales_theorem"]],
+	["circle_related_stuff", ["Thales's_theorem"]],
 	["parabola", [
 		"getting_the_standard_form_equation_of_a_parabola_from_the_focus-directrix_definition%getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition",
 		"axis_of_symmetry_of_a_parabola",
@@ -257,7 +262,17 @@ const trigonometryLinks: Array<[string,string[]]> = [
 		"the product formula for sin(x) and cos(x)%product"
 	]],
 	["hyperbolic_functions",[
-		"how_cosh_and_sinh_form_the_right_half_of_a_hyperbola"
+		"how_cosh_and_sinh_form_the_right_half_of_a_hyperbola",
+		"sech<sup>2</sup>(x) = 1 - tanh<sup>2</sup>(x)%Pythagorean1",
+		"csch<sup>2</sup>(x) = coth<sup>2</sup>(x) - 1%Pythagorean2"
+	]],
+	["inverse_hyperbolic_functions",[
+		"definition_of_arsinh(x)",
+		"definition_of_arcosh(x)",
+		"definition_of_artanh(x)",
+		"definition_of_arcoth(x)",
+		"definition_of_arsech(x)",
+		"definition_of_arcsch(x)",
 	]]
 ]
 
@@ -277,7 +292,7 @@ const calculusLinks: Array<[string,string[]]> = [
 		"definition of e%define_e",
 		"[d/dx] b<sup>x</sup> = b<sup>x</sup>ln(b)%bx",
 		"[d/dx] log<sub>b</sub>x = 1/(x * ln(b))%log",
-		"the power rule (when exponent is any real number)%power_rule_when_exponent_is_real","only_functions_of_the_form_Ae^x_are_derivatives_of_themselves%functions_which_are_derivatives_of_themselves",
+		"the power rule (when exponent is any real number)%power_rule2","only_functions_of_the_form_Ae^x_are_derivatives_of_themselves%functions_which_are_derivatives_of_themselves",
 		"representing e<sup>x</sup> as a limit%e_limit","representing e<sup>x</sup> as an infinite series (proof 1)%e_series","representing e<sup>x</sup> as an infinite series (proof 2)%e_series2",
 		"Euler's_formula"
 	]],
@@ -310,6 +325,20 @@ const calculusLinks: Array<[string,string[]]> = [
 		"antiderivative_of_arcsec(x)",
 		"antiderivative_of_arccosec(x)",
 	]],
+	["hyperbolic_functions", [
+		"[d/dx] sinh(x) = cosh(x)%derivative_of_sinh(x)",
+		"[d/dx] cosh(x) = sinh(x)%derivative_of_cosh(x)",
+		"[d/dx] sech(x) = -sech(x)tanh(x)%derivative_of_sech(x)",
+		"[d/dx] csch(x) = -csch(x)coth(x)%derivative_of_csch(x)",
+		"[d/dx] tanh(x) = sech<sup>2</sup>(x)%derivative_of_tanh(x)",
+		"[d/dx] coth(x) = -csch<sup>2</sup>(x)%derivative_of_coth(x)",
+		"derivative_of_arsinh(x)",
+		"derivative_of_arcosh(x)",
+		"derivative_of_artanh(x)",
+		"derivative_of_arcoth(x)",
+		"derivative_of_arsech(x)",
+		"derivative_of_arcsch(x)",
+	]],
 	["integral_calculus", [
 		"trapezium_rule",
 		"fundamental theorem of calculus, part 1%part1",
@@ -319,7 +348,7 @@ const calculusLinks: Array<[string,string[]]> = [
 		"finding the volume using cylindrical shells%cylindrical_shells",
 		"finding the arc length of a curve%arc_length",
 		"finding area of a surface of revolution%revolution_area",
-		"integration by parts (incomplete)",
+		"integration by parts%by_parts",
 	]],
 ]
 
