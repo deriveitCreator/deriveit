@@ -12,6 +12,6 @@ const content = [
   ['displayFormula', '\\[ \\frac{\\overbrace{a*a*\\ldots}^{m}}{\\overbrace{a*a*\\ldots}^{n}} = \\frac{1}{\\overbrace{a*a*\\ldots}^{n-m}}\\]'],
   ['pmain', 'Since \\(1/a^k =  a^{-k}\\). Then:'],
   ['displayFormula', '\\[ \\frac{\\overbrace{a*a*\\ldots}^{m}}{\\overbrace{a*a*\\ldots}^{n}} = \\frac{1}{\\overbrace{a*a*\\ldots}^{n-m}} = a^{m-n}\\]'],
-  ['pmain', 'we have proven that regardless of whether \\(m\\) or \\(n\\) is bigger, \\(a^m ÷ a^n = a^(m-n)\\). Keep in mind this proof only works when \\(m\\) and \\(n\\) are integers.'],
+  ['pmain', 'we have proven that regardless of whether \\(m\\) or \\(n\\) is bigger, \\(a^m ÷ a^n = a^{(m-n)}\\). Keep in mind this proof only works when \\(m\\) and \\(n\\) are integers.'],
 ];
 export default content;
