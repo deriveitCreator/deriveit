@@ -9,6 +9,7 @@ const content = [
   ['pmain', 'Using the product rule:'],
   ['displayimg', 'rewrite.png'],
   ['pmain', 'This means:'],
-  ['displayimg', 'topic3.png']
+  ['displayimg', 'topic3.png'],
+  ['pmain', 'Keep in mind that this is definitionally true.'],
 ];
 export default content;

@@ -128,7 +128,11 @@ const algebraLinks: Array<[string,string[]]> = [
 		"<sup>m</sup>√(ab) is equal to (<sup>m</sup>√a) * (<sup>m</sup>√b)%square_root_multiply",
 		"<sup>n</sup>√(a<sup>q</sup>) is equal to (<sup>n</sup>√a)<sup>q</sup>%roots_with_exponents",
 	]],
-	["logarithms", ["change_of_base","power","product_and_quotient_rule"]],
+	["logarithms", [
+		"power_rule",
+		"change_of_base",
+		"product_and_quotient_rule"
+	]],
 	["quadratic_formula", ["quadratic_formula"]]
 ];
 

@@ -58,6 +58,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 13.24:</b>
+- For algebra, made minor content changes.
+
 <b>update 13.23:</b>
 - Edited `exponents/quotient_rule.tx`.
 
