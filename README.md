@@ -58,6 +58,10 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 13.26:</b>
+- Made changed to `Eulers_theorem.tsx` and `probability_function_of_the_Poisson_distribution.tsx`.
+- Added `multiplying_reduced_residue_system.tsx`.
+
 <b>update 13.25:</b>
 - Made changes to `divisibility/multipleOf8.tsx`.
 

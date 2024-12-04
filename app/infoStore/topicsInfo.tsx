@@ -214,6 +214,7 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"(α ≡ β mod M and ε ≡ δ mod M) ⇒ αε ≡ βδ mod Μ%modLemma2",
 		"(εα ≡ εβ mod M) ⟺ (α ≡ β mod Μ/(ε, M)) %modLemma4",
 		"ax ≡ b mod m has a solution if and only if gcd(a, m)|b%congruence_solution_possible",
+		"Let (α, m) = 1 and let {r<sub>1</sub>, ..., r<sub>φ(m)</sub>} be a reduced residue system (modulo m), then {αr<sub>1</sub>, ..., αr<sub>φ(m)</sub>} is also a reduced residue system%multiplying_reduced_residue_system",
 		"Euler's theorem",
 		"Fermat's little theorem",
 		"Freshman's dream",

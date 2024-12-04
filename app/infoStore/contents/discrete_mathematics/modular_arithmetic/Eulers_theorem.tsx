@@ -1,12 +1,8 @@
 export const title="Proving Euler's Theorem";
 const content = [
   ['h1', 'Proving Euler\'s Theorem'],
-  ['pmain', 'Let \\((a, m) = 1\\) and let the set \\(\\{ar_1 \\ldots ar_k \\}\\) be a reduced residue system mod \\(m\\) where \\(k = \\phi(m)\\). To prove Euler\'s theorem, we first need to show that \\(ar_i\\) are all coprime to \\(m\\) and distinct mod \\(m\\). If \\((r, m) = 1\\) and \\((a, m) = 1\\) then \\((ar, m) = 1\\), this shows \\(ar\\) is coprime to \\(m\\). Also, if we had \\(ar_i ≡ ar_j \\mod m\\), then:'],
-  ['displayFormula', '$$ m|ar_i - ar_j = a(r_i - r_j ) $$'],
-  ['pmain', 'If (a, m) = 1 then \\(m|r_i - r_j\\) (using <a href="../divisibility_and_gcd/other">this lemma</a>):'],
-  ['displayFormula', '$$ m|r_i - r_j ⇒ r_i ≡ r_j \\mod m $$'],
-  ['pmain', 'which cannot happen unless i = j. This shows all \\(ar\\) are distinct, therefore \\(\\{ar_1 \\ldots ar_k \\}\\) is also a reduced residue system mod \\(m\\). If \\(\\gcd(r_1, m) = 1\\) and \\(\\gcd(r_2, m) = 1\\), then \\(\\gcd(r_1r_2, m) = 1\\), which means:'],
-  ['displayFormula', '$$\\begin{align} r_1r_2 \\ldots r_k &≡ 1 \\mod m \\\\ ar_1ar_2 \\ldots ar_k &≡ 1 \\mod m \\\\ a^{\\phi(m)}(r_1r_2 \\ldots r_k) &≡ 1 \\mod m \\end{align}$$'],
-  ['pmain', 'If \\( [(1)*(r_1r_2 \\ldots r_k)] ≡ [(a^{\\phi(m)}) * (r_1r_2 \\ldots r_k)]\\) and \\((r_1r_2 \\ldots r_k, m) = 1\\), then \\(a^{\\phi(m)} ≡ 1\\) (using <a href="modLemma3">this lemma</a>).']
+  ['pmain', 'Let \\((a, m) = 1\\) and let the set \\(\\{r_1 , \\ldots , r_k \\}\\) be a reduced residue system mod \\(m\\) where \\(k = \\phi(m)\\). According to <a href="multiplying_reduced_residue_system">this lemma</a>, \\(\\{ar_1 , \\ldots , ar_k \\}\\) would also be a reduced residue system. If \\(\\gcd(ar_1, m) = 1\\) and \\(\\gcd(ar_2, m) = 1\\), then \\(\\gcd(ar_1 * ar_2, m) = 1\\), which means:'],
+  ['displayFormula', '$$\\begin{align} ar_1ar_2 \\ldots ar_k &≡ 1 \\mod m \\\\ a^{\\phi(m)}(r_1r_2 \\ldots r_k) &≡ 1 \\mod m \\end{align}$$'],
+  ['pmain', 'If \\((r_1r_2 \\ldots r_k) * (1) ≡ (r_1r_2 \\ldots r_k) * (a^{\\phi(m)})\\) and \\((r_1r_2 \\ldots r_k, m) = 1\\), then \\(a^{\\phi(m)} ≡ 1\\) (using <a href="modLemma4">this lemma</a>).']
 ];
 export default content;
