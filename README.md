@@ -58,6 +58,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 13.28:</b>
+- Made changes to `Eulers_theorem.tsx`.
+
 <b>update 13.27:</b>
 - Made changes to `multiplying_reduced_residue_system.tsx` and `Eulers_theorem.tsx`.
 
