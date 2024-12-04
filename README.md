@@ -58,7 +58,7 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
-<b>update 13.28:</b>
+<b>update 13.28 - 13.29:</b>
 - Made changes to `Eulers_theorem.tsx`.
 
 <b>update 13.27:</b>
