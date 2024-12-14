@@ -58,6 +58,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 13.31:</b>
+- Made changes to trigonometric articles related to `tan(x)`.
+
 <b>update 13.30:</b>
 - Made changes `integral_calculus/revolution_area.tsx`.
 

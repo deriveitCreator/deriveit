@@ -19,5 +19,9 @@ const content = [
   ['displayFormula', '\\[\\begin{align} \\sin^2(x) &= \\frac{1-\\cos(2x)}{2} \\\\ \\cos^2(x) &= \\frac{1+\\cos(2x)}{2} \\end{align}\\]'],
   ['pmain', 'By definition of \\(\\tan(x)\\):'],
   ['displayFormula', '\\[\\tan^2(x) = \\frac{\\sin^2(x)}{\\cos^2(x)} = \\frac{1-\\cos(2x)}{1+\\cos(2x)} \\]'],
+  ['pmain', 'If we multiple both sides by \\(1-\\cos(2x)\\):'],
+  ['displayFormula', '\\[\\tan^2(x) = \\frac{(1-\\cos (2x))^2}{1-\\cos^2(2x)} = \\frac{(1-\\cos (2x))^2}{\\sin^2(2x)} \\]'],
+  ['pmain', 'and this will lead to the half-angle formula, just replace \\(x\\) by \\(\\frac{y}{2}\\):'],
+  ['displayFormula', '\\[\\tan \\left( \\frac{y}{2} \\right) = ± \\frac{1-\\cos(y)}{\\sin(y)} \\]'],
 ];
 export default content;
