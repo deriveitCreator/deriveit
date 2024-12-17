@@ -345,9 +345,10 @@ const calculusLinks: Array<[string,string[]]> = [
 		"derivative_of_arcsch(x)",
 	]],
 	["integral_calculus", [
-		"trapezium_rule",
 		"fundamental theorem of calculus, part 1%part1",
 		"fundamental theorem of calculus, part 2%part2",
+		"trapezium_rule",
+		"Simpson's_rule",
 		"finding the volume (slicing method)%slicing_method",
 		"finding the volume of a solid of revolution (disk method)%disk",
 		"finding the volume using cylindrical shells%cylindrical_shells",

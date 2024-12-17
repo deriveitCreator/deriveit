@@ -42,10 +42,10 @@
     <loc>https://www.deriveit.net/algebra/exponents/roots_with_exponents</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/algebra/logarithms/change_of_base</loc>
+    <loc>https://www.deriveit.net/algebra/logarithms/power_rule</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/algebra/logarithms/power_rule</loc>
+    <loc>https://www.deriveit.net/algebra/logarithms/change_of_base</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/algebra/logarithms/product_and_quotient_rule</loc>
@@ -253,6 +253,9 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/congruence_solution_possible</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/multiplying_reduced_residue_system</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/Eulers_theorem</loc>
@@ -576,13 +579,16 @@
     <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_arcsch(x)</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/integral_calculus/trapezium_rule</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/calculus/integral_calculus/part1</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/integral_calculus/part2</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/integral_calculus/trapezium_rule</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/integral_calculus/Simpsons_rule</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/integral_calculus/slicing_method</loc>

@@ -58,6 +58,10 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 13.32:</b>
+- Added `Simpsons_rule.tsx`.
+- Edited `derivative_arsech(x).tsx` and `revolution_area.tsx`.
+
 <b>update 13.31:</b>
 - Made changes to trigonometric articles related to `tan(x)`.
 
