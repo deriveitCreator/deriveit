@@ -8,6 +8,6 @@ const content = [
   ['pmain', 'Since \\(\\operatorname{csch}^2(x) = \\coth^2(x) -1\\):'],
   ['displayFormula', '\\[ \\frac{dx}{dy} = \\frac{-1}{\\operatorname{csch}(x) \\left( ±\\sqrt{\\operatorname{csch}^2(x)+1} \\right)} \\]'],
   ['pmain', 'Keep in mind the sign of \\(\\operatorname{csch}\\) and \\(\\coth(x)\\) are the same. If \\(\\coth(x)\\) is negative then \\(\\operatorname{csch}(x)\\) is negative, and vice versa. If \\(\\coth(x)\\) is positive then \\(\\operatorname{csch}(x)\\) is positive, and vice versa.'],
-  ['displayFormula', '\\[\\begin{align} \\frac{dx}{dy} &= \\frac{-1}{\\operatorname{csch}(x) \\frac{|\\operatorname{csch}(x)|}{\\operatorname{csch}(x)} \\sqrt{\\operatorname{csch}^2(x)+1}} \\\\ &= \\frac{-1}{y \\frac{|y|}{y} \\sqrt{y^2+1}} = \\frac{-1}{|y| \\sqrt{y^2+1}} \\end{align}\\]'],
+  ['displayFormula', '\\[\\begin{align} \\frac{dx}{dy} &= \\frac{-1}{\\operatorname{csch}(x) \\frac{|\\operatorname{csch}(x)|}{\\operatorname{csch}(x)} |\\sqrt{\\operatorname{csch}^2(x)+1}| } \\\\ &= \\frac{-1}{y \\frac{|y|}{y} \\sqrt{y^2+1}} = \\frac{-1}{|y| |\\sqrt{y^2+1}|} \\end{align}\\]'],
 ];
 export default content;

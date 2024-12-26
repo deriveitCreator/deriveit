@@ -543,22 +543,28 @@
     <loc>https://www.deriveit.net/calculus/antiderivative/antiderivative_of_arccosec(x)</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/calculus/antiderivative/reduction_formula_for_tan</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/antiderivative/reduction_formula_for_sec</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_sinh(x)</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_cosh(x)</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_sech(x)</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_csch(x)</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_tanh(x)</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_coth(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_sech(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_csch(x)</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_arsinh(x)</loc>
@@ -577,6 +583,21 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/hyperbolic_functions/derivative_of_arcsch(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/antiderivative_of_tanh(x)_and_coth(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/antiderivative_of_sech(x)_and_csch(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/antiderivative_of_arsinh(x)_and_arcosh(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/antiderivative_of_artanh(x)_and_arcoth(x)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/hyperbolic_functions/antiderivative_of_arsech(x)_and_arcsch(x)</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/integral_calculus/part1</loc>
@@ -607,6 +628,15 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/integral_calculus/by_parts</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/differential_equations/solution_to_the_logistic_differential_equation</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/differential_equations/inflection_point_of_the_solution_to_the_logistic_differential_equation</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/differential_equations/solution_of_a_first-order_linear_equation</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/probability_&amp;_statistics</loc>

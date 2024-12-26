@@ -7,7 +7,7 @@ const content = [
   ['displayimg', 'ac2.png'],
   ['pmain', 'The range of \\(\\arccos(x)\\) is \\(y \\in [0, \\pi]\\). Within this range, \\(\\sin(y)\\) will always be positive. We already know that the derivative of x with respect to x is 1:'],
   ['displayimg', 'as3.png'],
-  ['pmain', 'Since \\(x = cos(y)\\):'],
+  ['pmain', 'Since \\(x = \\cos(y)\\):'],
   ['displayimg', 'ac4.png'],
   ['pmain', 'Using the chain rule:'],
   ['displayimg', 'ac5.png'],

@@ -7,5 +7,6 @@ const content = [
   ['displayFormula', '\\[\\begin{gathered} \\frac{dy}{dx} = \\operatorname{sech}^2(x) \\\\ \\frac{d}{dy} \\operatorname{artanh}(y) = \\frac{dx}{dy} = \\frac{1}{\\operatorname{sech}^2(x)} \\end{gathered}\\]'],
   ['pmain', 'Since \\(\\operatorname{sech}^2(x) = 1 - \\tanh^2(x)\\):'],
   ['displayFormula', '\\[\\begin{align} \\frac{dx}{dy} &= \\frac{1}{1 - \\tanh^2(x)} \\\\ &= \\frac{1}{1-y^2} \\end{align}\\]'],
+  ['pmain', 'Since \\(y = \\tanh(x)\\), then \\(|y| \\lt 1 \\).'],
 ];
 export default content;

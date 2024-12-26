@@ -291,7 +291,7 @@ const calculusLinks: Array<[string,string[]]> = [
 		"the quotient rule%quo",
 		"the_chain_rule",
 		"the_inverse_function_theorem",
-		"mean_value_theorem"
+		"mean_value_theorem",
 	]],
 	["using_Euler's_number", [
 		"definition of e%define_e",
@@ -329,20 +329,27 @@ const calculusLinks: Array<[string,string[]]> = [
 		"antiderivative_of_arccotan(x)",
 		"antiderivative_of_arcsec(x)",
 		"antiderivative_of_arccosec(x)",
+		"reduction formula for tan(x)%reduction_formula_for_tan",
+		"reduction formula for sec(x)%reduction_formula_for_sec",
 	]],
 	["hyperbolic_functions", [
 		"[d/dx] sinh(x) = cosh(x)%derivative_of_sinh(x)",
 		"[d/dx] cosh(x) = sinh(x)%derivative_of_cosh(x)",
-		"[d/dx] sech(x) = -sech(x)tanh(x)%derivative_of_sech(x)",
-		"[d/dx] csch(x) = -csch(x)coth(x)%derivative_of_csch(x)",
 		"[d/dx] tanh(x) = sech<sup>2</sup>(x)%derivative_of_tanh(x)",
 		"[d/dx] coth(x) = -csch<sup>2</sup>(x)%derivative_of_coth(x)",
+		"[d/dx] sech(x) = -sech(x)tanh(x)%derivative_of_sech(x)",
+		"[d/dx] csch(x) = -csch(x)coth(x)%derivative_of_csch(x)",
 		"derivative_of_arsinh(x)",
 		"derivative_of_arcosh(x)",
 		"derivative_of_artanh(x)",
 		"derivative_of_arcoth(x)",
 		"derivative_of_arsech(x)",
 		"derivative_of_arcsch(x)",
+		"antiderivative_of_tanh(x)_and_coth(x)",
+		"antiderivative_of_sech(x)_and_csch(x)",
+		"antiderivative_of_arsinh(x)_and_arcosh(x)",
+		"antiderivative_of_artanh(x)_and_arcoth(x)",
+		"antiderivative_of_arsech(x)_and_arcsch(x)",
 	]],
 	["integral_calculus", [
 		"fundamental theorem of calculus, part 1%part1",
@@ -356,6 +363,11 @@ const calculusLinks: Array<[string,string[]]> = [
 		"finding area of a surface of revolution%revolution_area",
 		"integration by parts%by_parts",
 	]],
+	["differential_equations", [
+		"solution_to_the_logistic_differential_equation",
+		"inflection_point_of_the_solution_to_the_logistic_differential_equation",
+		"solution_of_a_first-order_linear_equation"
+	]]
 ]
 
 const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
