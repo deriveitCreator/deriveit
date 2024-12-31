@@ -58,6 +58,10 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 14.2:</b>
+- Added and edited articles for the `modular_arithmetic` section.
+- Added a `more_congruence` section.
+
 <b>update 14.1:</b>
 - Added a section for differential equations
 - Added articles about:

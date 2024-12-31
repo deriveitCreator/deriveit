@@ -1,15 +1,14 @@
 export const title="x^2 ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4";
 const content = [
-  ['h1', 'x<sup>2</sup> ≡ -1 mod p Is Solvable If And Only If p = 2 or p ≡ 1 mod 4 (incomplete)'],
-  ['pmain', 'Suppose we have a prime \\(p\\), if we take modulo 4, then there are four possibilities, \\((1 \\mod 4)\\), \\((2 \\mod 4)\\), \\((3 \\mod 4)\\) and \\((4 \\mod 4)\\). Since \\(p\\) is even only when 2, then \\(p\\) cannot be \\((2 \\mod 4)\\) or \\((4 \\mod 4)\\) except when 2. To prove \\(x^2 ≡ -1 \\mod p\\) is solvable if and only if \\(p = 2\\) or \\(p ≡ 1 \\mod 4\\), we just need to show that there is no solution when:'],
-  ['displayFormula', '$$ p ≡ 3 \\mod 4 $$'],
-  ['pmain', 'If \\(p ≡ 3 \\mod 4\\), then \\(p = 4k + 3\\), which would also mean:'],
+  ['h1', 'x<sup>2</sup> ≡ -1 mod p Is Solvable If And Only If p = 2 or p ≡ 1 mod 4'],
+  ['pmain', 'Suppose we have a prime \\(p\\) and \\(x^2 ≡ -1 \\bmod p\\). If \\(p=2\\), then the solution would be trivial \\((x = 1)\\).'],
+  ['pmain', 'If \\(p> 2\\), then we can consider four possibilities, \\((1 \\bmod 4)\\), \\((2 \\bmod 4)\\), \\((3 \\bmod 4)\\) and \\((4 \\bmod 4)\\). If \\(p > 2\\), then \\(p\\) can only be \\((1 \\bmod 4)\\) or \\((3 \\bmod 4)\\).'],
+  ['pmain', 'Let\'s assume \\(p ≡ 3 \\bmod 4\\), then \\(p = 4k + 3\\), which would also mean:'],
   ['displayFormula', '$$ p - 1 = 4k + 2 = 2(2k + 1) $$'],
-  ['pmain', 'Since \\(x^2 ≡ -1 \\mod p\\):'],
-  ['displayFormula', '$$ (x^2)^{(2k + 1)} ≡ (-1)^{(2k + 1)} ≡ -1 \\mod p $$'],
-  ['pmain', 'but also:'],
-  ['displayFormula', '$$ x^{(4k + 2)} ≡ x^{(p-1)} ≡ 1 \\mod p $$'],
-  ['pmain', 'So \\(1 ≡ -1 \\mod p\\), that\'s possible when \\(p=2\\), but not when \\(p=3 \\mod 4\\). If \\(p ≡ 1 \\mod 4\\), then \\(p = 4k + 1\\) for some positive integer k. Thus, \\((p - 1)/2\\) is even. By Wilson\'s Theorem:'],
+  ['pmain', 'Since \\(x^2 ≡ -1 \\bmod p\\):'],
+  ['displayFormula', '$$\\begin{gather} (x^2)^{(2k + 1)} ≡ (-1)^{(2k + 1)} ≡ -1 \\bmod p \\\\ x^{(4k + 2)} = x^{(p-1)} ≡ -1 \\bmod p\\end{gather}$$'],
+  ['pmain', 'But according to Fermat\'s little theorem: \\([x^{(p-1)} ≡ 1 \\bmod p]\\). So we end up with \\([1 ≡ -1 \\bmod p]\\), therefore \\(p=2\\), but contradicts our assumption that \\(p=3 \\bmod 4\\).'],
+  ['pmain', 'Now let \\(p ≡ 1 \\bmod 4\\), then \\(p = 4k + 1\\). Thus, \\((p - 1)/2\\) is even. By Wilson\'s Theorem:'],
   ['displayFormula', '$$ (p - 1)! ≡ -1 \\mod p $$'],
   ['pmain', 'If we expand:'],
   ['displayFormula', '$$ (1)(2) \\ldots \\left( \\frac{p-1}{2} \\right) \\left( \\frac{p+1}{2} \\right) \\ldots(p-2)(p - 1) ≡ -1 \\mod p $$'],
@@ -21,6 +20,6 @@ const content = [
   ['displayFormula', '$$ \\left ( (1)(2) \\ldots \\left( \\frac{p-1}{2} \\right) \\right)^2 \\times (1) ≡ -1 \\mod p $$'],
   ['pmain', 'which means:'],
   ['displayFormula', '$$ \\left ( \\left( \\frac{p-1}{2} \\right) ! \\right)^2 ≡ -1 \\mod p $$'],
-  ['pmain', 'Thus, \\(x^2 ≡ -1 \\mod p\\) has the solution \\(x = ((p - 1)/2)!\\) when \\(p ≡ 1 \\mod 4\\).'],
+  ['pmain', 'Thus, \\(x^2 ≡ -1 \\bmod p\\) has the solution \\(x = ((p - 1)/2)!\\) when \\(p ≡ 1 \\bmod 4\\).'],
 ];
 export default content;

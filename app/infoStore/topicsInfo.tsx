@@ -168,10 +168,10 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"smallest positive linear combination of α and β = gcd(α, β)%linear_combination_smallest_gcd",
 		"every linear combination of α and β is a multiple of gcd(α, β), and vice versa%every_linear_combination",
 		"gcd(α, β) = gcd(β, α mod β); why the euclidean algorithm works%why_the_euclidean_algorithm_works",
-		"if α<sub>1</sub>|b, α<sub>2</sub>|b and gcd(α<sub>1</sub>, α<sub>2</sub>) = 1 ⇒ α<sub>1</sub>α<sub>2</sub>|b%gcdLemma14",
-		"if ε|αβ and gcd(ε, α) = 1, then ε|β%gcdLemma13",
-		"if α is odd then gcd(α, α-2) = 1%gcdLemma10",
-		"if m|n, then (a<sup>m</sup>-b<sup>m</sup>)|(a<sup>n</sup>-b<sup>n</sup>)%divisibilityLemma1"
+		"α<sub>1</sub>|b, α<sub>2</sub>|b and gcd(α<sub>1</sub>, α<sub>2</sub>) = 1 ⇒ α<sub>1</sub>α<sub>2</sub>|b%gcdLemma14",
+		"ε|αβ and gcd(ε, α) = 1, ⇒ ε|β%gcdLemma13",
+		"if α is odd, then gcd(α, α-2) = 1%gcdLemma10",
+		"m|n ⇒ (a<sup>m</sup>-b<sup>m</sup>)|(a<sup>n</sup>-b<sup>n</sup>)%divisibilityLemma1"
 	]],
 	["prime_numbers", [
 		"if ρ is prime and ρ|αβ, then ρ|α or ρ|β%primeLemma1",
@@ -210,20 +210,34 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"[a, b, c] = [[a, b], c]%lcmLemma3",
 	]],
 	["modular_arithmetic", [
-		"(α ≡ β mod M and ε ≡ δ mod M) ⇒ α + ε ≡ β + δ mod Μ%modLemma1",
-		"(α ≡ β mod M and ε ≡ δ mod M) ⇒ αε ≡ βδ mod Μ%modLemma2",
-		"(εα ≡ εβ mod M) ⟺ (α ≡ β mod Μ/(ε, M)) %modLemma4",
-		"ax ≡ b mod m has a solution if and only if gcd(a, m)|b%congruence_solution_possible",
-		"If (α, m) = 1 and if {r<sub>1</sub>, ..., r<sub>φ(m)</sub>} is a reduced residue system (modulo m), then {αr<sub>1</sub>, ..., αr<sub>φ(m)</sub>} is also a reduced residue system%multiplying_reduced_residue_system",
+		"(α ≡ β mod M) ∧ (ε ≡ δ mod M) ⇒ (α + ε ≡ β + δ mod M)%modLemma1",
+		"(α ≡ β mod M) ∧ (ε ≡ δ mod M) ⇒ (αε ≡ βδ mod M)%modLemma2",
+		"(α ≡ β mod M) ∧ (ε ≡ δ mod M) ∧ ε|α ∧ δ|β ⇒ (α/ε ≡ β/δ mod M)%modLemma8",
+		"(α ≡ β mod M) ∧ (n|M) ⇒ (α ≡ β mod nM)%modLemma3",
+		"if c is an odd integer, then (c<sup>2</sup> ≡ 1 mod 4) and (c<sup>2</sup> ≡ 1 mod 8)%modLemma9",
+		"(c ∈ Z) ∧ (α ≡ β mod M) ⇒ (cα ≡ cβ mod cM)%modLemma5",
+		"d|α ∧ d|β ∧ d|M ∧ α ≡ β mod M ⇒ (α/d ≡ β/d mod M/d)%modLemma6",
+		"(εα ≡ εβ mod M) ⟺ (α ≡ β mod M/(ε, M))%modLemma4",
+		"(α ≡ β mod M) ⇒ (β, M) = (α, M)%modLemma7",
+		"if n is a positve integer and (n ≡ 3 mod 4), then n cannot be written as a sum of two square integers%modLemma10",
+		"if (α ≡ β mod M), (α ≡ β mod N) and gcd(M, N) = 1, then (α ≡ β mod MN)%modLemma11",
+		"if n is odd and (3 ∤ n), then (n<sup>2</sup> ≡ 1 mod 24)%modLemma12",
+		"If p is prime ∧ (a<sup>2</sup> ≡ b<sup>2</sup> mod p) ⇒ a ≡ ±b mod p%x_square_solution",
+		"if (α, m) = 1 and if {r<sub>1</sub>, ..., r<sub>φ(m)</sub>} is a reduced residue system (modulo m), then {αr<sub>1</sub>, ..., αr<sub>φ(m)</sub>} is also a reduced residue system%multiplying_reduced_residue_system",
+		"If p is prime ∧ (a<sup>2</sup> ≡ a mod p) ⇒ (a ≡ 0) or (a ≡ 1)%a_square_congruent_a_mod_p",
 		"Euler's theorem",
 		"Fermat's little theorem",
 		"Freshman's dream",
 		"existence and uniqueness of modular inverse if gcd(a, m) = 1%modular_inverse",
-		"Wilson's theorem",
-		"x<sup>2</sup> ≡ 1 mod p ⇒ x ≡ +1 or -1 mod p%x_square_solution",
-		"x<sup>2</sup> ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%x_square_solvable",
+		"ax ≡ b mod m has a solution if and only if gcd(a, m)|b%congruence_solution_possible",
 		"solution of ax ≡ b mod m (if gcd(a, m)|b)%congruence_solution",
-		"Chinese remainder theorem"
+		"x<sup>2</sup> ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%x_square_solvable",
+	]],
+	["divisibility_rules",[
+		"an integer is divisible by 2 if its last digit is divisible by 2%divisibility_rule_for_2",
+		"an integer is divisble by 3 if the sum of its digits is divisible by 3%divisibility_rule_for_3",
+		"an integer is divisble by 7 if the alternating sum of blocks of three from is divisible by 7%divisibility_rule_for_7",
+		"an integer is divisible by 11 if the integer obtained by alternately adding and substracting the digits is divisible by 11%divisibility_rule_for_11"
 	]],
 	["factorials,_permutations_and_combinations", [
 		"0! = 1%0fac",
@@ -242,6 +256,13 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"sum_of_the_squares_of_the_first_n_positive_integers",
 		"sum_of_the_cubes_of_the_first_n_positive_integers",
 		"showing_that_the_harmonic_series_diverges"
+	]],
+	["more_congruence",[
+		"1 + 2 + 3 + ... + (n-1) ≡ 0 mod n if and only if n is odd%sum_congruence",
+		"1<sup>2</sup> + 2<sup>2</sup> + 3<sup>2</sup> + ... + (n-1)<sup>2</sup> ≡ 0 mod n ⇒ n ≡ ±1 mod 6%square_sum_congruence",
+		"1<sup>3</sup> + 2<sup>3</sup> + 3<sup>3</sup> + ... + (n-1)<sup>3</sup> ≡ 0 mod n ⇒ n is not congruent to 2 mod 4%cube_sum_congruence",
+		"Wilson's theorem",
+		"Chinese remainder theorem"
 	]]
 ]
 

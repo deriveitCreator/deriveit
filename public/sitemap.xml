@@ -249,13 +249,43 @@
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma2</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma8</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma3</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma9</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma5</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma6</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma4</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/congruence_solution_possible</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma7</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma10</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma11</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma12</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/x_square_solution</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/multiplying_reduced_residue_system</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/a_square_congruent_a_mod_p</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/Eulers_theorem</loc>
@@ -270,19 +300,25 @@
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modular_inverse</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/Wilsons_theorem</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/x_square_solution</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/x_square_solvable</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/congruence_solution_possible</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/congruence_solution</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/Chinese_remainder_theorem</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/x_square_solvable</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_rules/divisibility_rule_for_2</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_rules/divisibility_rule_for_3</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_rules/divisibility_rule_for_7</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_rules/divisibility_rule_for_11</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/factorials,_permutations_and_combinations/0fac</loc>
@@ -325,6 +361,21 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/sequence_and_series/showing_that_the_harmonic_series_diverges</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/sum_congruence</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/square_sum_congruence</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/cube_sum_congruence</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/Wilsons_theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/Chinese_remainder_theorem</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/linear_algebra</loc>
