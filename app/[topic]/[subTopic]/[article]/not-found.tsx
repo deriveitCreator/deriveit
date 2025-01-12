@@ -1,5 +1,5 @@
 
-import { cookies } from 'next/headers';
+import { cookies, type UnsafeUnwrappedCookies } from 'next/headers';
 import { DEFAULT_DESIGN_SELECTION } from '@/app/infoStore/designInfo';
 import dynamic from 'next/dynamic';
 import React from 'react';
@@ -17,7 +17,7 @@ type CompImportType = {
 }
 
 export default function Custom404() {
-  const designSelectedVal = parseInt(cookies().get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
+  const designSelectedVal = parseInt((cookies() as unknown as UnsafeUnwrappedCookies).get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
   const Comp = dynamic<CompImportType>(() => import(`./design${designSelectedVal}Stuff/Comp`));
   
   return <>

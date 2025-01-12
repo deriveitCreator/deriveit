@@ -1,6 +1,6 @@
-export const title="Proving the existence of a modular inverse if (a, m) = 1";
+export const title="Proving the existence and uniqueness of a modular inverse if (a, m) = 1";
 const content = [
-  ['h1', 'Proving the existence of a modular inverse if (a, m) = 1'],
+  ['h1', 'Proving The Existence And Uniqueness Of A Modular Inverse If (a, m) = 1'],
   ['pmain', 'If \\((a, m) = 1\\), then \\(ax+my=1\\) or \\(ax=m(q)+1\\), which means:'],
   ['displayFormula', '$$ ax ≡ 1 \\mod m $$'],
   ['pmain', 'Here, \\(x\\) is the inverse. If \\(ab_1 ≡ 1\\) and \\(ab_2 ≡ 1\\), then:'],

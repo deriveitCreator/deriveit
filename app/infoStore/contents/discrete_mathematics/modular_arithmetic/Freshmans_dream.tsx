@@ -1,4 +1,4 @@
-export const title="Proving Freshman's Dream";
+export const title="Proving freshman's dream";
 const content = [
   ['h1', 'Proving Freshman\'s Dream'],
   ['pmain', 'Let \\(p\\) be a prime. Using the binomial theorem, we use expand \\((x + y)^p\\):'],

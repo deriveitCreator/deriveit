@@ -24,10 +24,11 @@ export type ImportType = {
   styleObject?: styleObjectType
 }
 
-export default async function Page({ params }: { params: { topic: string } }){
-  const designSelectedVal = parseInt(cookies().get("designSelected")?.value!) || DEFAULT_DESIGN_SELECTION;
+export default async function Page(props: { params: Promise<{ topic: string }> }) {
+  const params = await props.params;
+  const designSelectedVal = parseInt((await cookies()).get("designSelected")?.value!) || DEFAULT_DESIGN_SELECTION;
   const decodedTopic = decodeURIComponent(params.topic);
-  
+
   const topicLinks = await fetch(domainName + "/infoStore/getTopicLinks", {
     method:"POST",
     headers:{"Content-Type":"application/json"},
@@ -53,5 +54,4 @@ export default async function Page({ params }: { params: { topic: string } }){
     </div>
   }
   else throw new Error("Wrong design number value");
-
 }

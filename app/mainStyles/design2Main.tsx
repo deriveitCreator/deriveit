@@ -264,7 +264,7 @@ function Slideshow(props:{continueButtonClicked:boolean}){
 function SearchEl(){
 	const [displayVal, changeDisplay] = useState("none");
 	const timerRef: MutableRefObject<null|number> = useRef(null);
-	const inputRef: RefObject<HTMLInputElement> = createRef<HTMLInputElement>();
+	const inputRef: RefObject<HTMLInputElement | null> = createRef<HTMLInputElement>();
 	const linksArr = useRef([""]);
 	const topicsArr = useRef([""]);
 	const minLetters = 4;

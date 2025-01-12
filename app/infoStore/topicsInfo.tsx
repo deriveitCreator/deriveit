@@ -222,16 +222,15 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"if n is a positve integer and (n ≡ 3 mod 4), then n cannot be written as a sum of two square integers%modLemma10",
 		"if (α ≡ β mod M), (α ≡ β mod N) and gcd(M, N) = 1, then (α ≡ β mod MN)%modLemma11",
 		"if n is odd and (3 ∤ n), then (n<sup>2</sup> ≡ 1 mod 24)%modLemma12",
-		"If p is prime ∧ (a<sup>2</sup> ≡ b<sup>2</sup> mod p) ⇒ a ≡ ±b mod p%x_square_solution",
 		"if (α, m) = 1 and if {r<sub>1</sub>, ..., r<sub>φ(m)</sub>} is a reduced residue system (modulo m), then {αr<sub>1</sub>, ..., αr<sub>φ(m)</sub>} is also a reduced residue system%multiplying_reduced_residue_system",
-		"If p is prime ∧ (a<sup>2</sup> ≡ a mod p) ⇒ (a ≡ 0) or (a ≡ 1)%a_square_congruent_a_mod_p",
 		"Euler's theorem",
 		"Fermat's little theorem",
 		"Freshman's dream",
-		"existence and uniqueness of modular inverse if gcd(a, m) = 1%modular_inverse",
 		"ax ≡ b mod m has a solution if and only if gcd(a, m)|b%congruence_solution_possible",
 		"solution of ax ≡ b mod m (if gcd(a, m)|b)%congruence_solution",
-		"x<sup>2</sup> ≡ -1 mod p is solvable if and only if p = 2 or p ≡ 1 mod 4%x_square_solvable",
+		"If p is prime ∧ (a<sup>2</sup> ≡ b<sup>2</sup> mod p) ⇒ a ≡ ±b mod p%x_square_solution",
+		"If p is prime ∧ (a<sup>2</sup> ≡ a mod p) ⇒ (a ≡ 0) or (a ≡ 1)%a_square_congruent_a_mod_p",
+		"existence and uniqueness of modular inverse if gcd(a, m) = 1%modular_inverse",
 	]],
 	["divisibility_rules",[
 		"an integer is divisible by 2 if its last digit is divisible by 2%divisibility_rule_for_2",
@@ -262,6 +261,10 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"1<sup>2</sup> + 2<sup>2</sup> + 3<sup>2</sup> + ... + (n-1)<sup>2</sup> ≡ 0 mod n ⇒ n ≡ ±1 mod 6%square_sum_congruence",
 		"1<sup>3</sup> + 2<sup>3</sup> + 3<sup>3</sup> + ... + (n-1)<sup>3</sup> ≡ 0 mod n ⇒ n is not congruent to 2 mod 4%cube_sum_congruence",
 		"Wilson's theorem",
+		"converse of Wilson's theorem",
+		"Let p be prime, then 2(p-3)! ≡ -1 mod p%two_times_p_minus_3_factorial",
+		"solution to x<sup>2</sup> ≡ -1 mod p if p = 2 or p ≡ 1 mod 4%x_square_solvable",
+		"if p ≡ 3 mod 4, then ((p-1)/2)! ≡ ±1 mod p%modLemma13",
 		"Chinese remainder theorem"
 	]]
 ]
@@ -387,8 +390,12 @@ const calculusLinks: Array<[string,string[]]> = [
 	["differential_equations", [
 		"solution_to_the_logistic_differential_equation",
 		"inflection_point_of_the_solution_to_the_logistic_differential_equation",
-		"solution_of_a_first-order_linear_equation"
+		"solution_to_a_first-order_linear_equation"
+	]],
+	["sequences_and_series", [
+		"integral_test"
 	]]
+
 ]
 
 const probabilityAndStatisticsLinks: Array<[string,string[]]> = [

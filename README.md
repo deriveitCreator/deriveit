@@ -58,6 +58,12 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+
+<b>update 15:</b>
+- upgraded to Next.js 15.
+- Added some content and edited some of the articles to `discrete_mathematics`.
+- Added some content to `calculus`.
+
 <b>update 14.2:</b>
 - Added and edited articles for the `modular_arithmetic` section.
 - Added a `more_congruence` section.

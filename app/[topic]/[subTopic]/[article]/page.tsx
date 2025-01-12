@@ -21,11 +21,14 @@ type CompImportType = {
   content: string[][],
 }
 
-export async function generateMetadata({ params }: { params: { topic:string, subTopic: string, article: string } }){
+export async function generateMetadata(
+  props: { params: Promise<{ topic:string, subTopic: string, article: string }> }
+) {
+  const params = await props.params;
   const topic2 = decodeURIComponent(params.topic.toLowerCase());
   const subTopic2 = decodeURIComponent(params.subTopic);
   const article2 = decodeURIComponent(params.article);
-  
+
   const fetchRes = await fetch(domainName + "/infoStore/getArticleContent", {
     method:"POST",
     headers:{"Content-Type":"application/json"},
@@ -40,11 +43,14 @@ export async function generateMetadata({ params }: { params: { topic:string, sub
   }
 }
 
-export default async function Page({ params }: { params: { topic:string, subTopic: string, article: string } }) {
+export default async function Page(
+  props: { params: Promise<{ topic:string, subTopic: string, article: string }> }
+) {
+  const params = await props.params;
   const topic2 = decodeURIComponent(params.topic.toLowerCase());
   const subTopic2 = decodeURIComponent(params.subTopic);
   const article2 = decodeURIComponent(params.article);
-  
+
   const fetchRes = await fetch(domainName + "/infoStore/getArticleContent", {
     method:"POST",
     headers:{"Content-Type":"application/json"},
@@ -54,9 +60,9 @@ export default async function Page({ params }: { params: { topic:string, subTopi
   .catch(()=> null);
 
   if (!fetchRes) return notFound();
-  const designSelectedVal = parseInt(cookies().get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
+  const designSelectedVal = parseInt((await cookies()).get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
   const Comp = dynamic<CompImportType>(() => import(`./design${designSelectedVal}Stuff/Comp`));
-  
+
   //@ts-ignore
   return <Comp topic={topic2} subTopic={subTopic2} content={fetchRes[1]}/>
 }

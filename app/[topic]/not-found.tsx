@@ -1,4 +1,4 @@
-import { cookies } from 'next/headers';
+import { cookies, type UnsafeUnwrappedCookies } from 'next/headers';
 import { DEFAULT_DESIGN_SELECTION } from '../infoStore/designInfo';
 import { getTopicColorInfo } from '../infoStore/topicsInfo';
 import TopicHeader from './designs/TopicHeader';
@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 import { ImportType } from './page';
 
 export default function Custom404() {
-  const designSelectedVal = parseInt(cookies().get("designSelected")?.value!) || DEFAULT_DESIGN_SELECTION;
+  const designSelectedVal = parseInt((cookies() as unknown as UnsafeUnwrappedCookies).get("designSelected")?.value!) || DEFAULT_DESIGN_SELECTION;
   const MainComp = dynamic<ImportType>(() => import(`@/app/[topic]/designs/Style${designSelectedVal}`));
 
   if (designSelectedVal==1)

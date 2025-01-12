@@ -24,8 +24,9 @@ export type ImportType = {
   styleObject?: styleObjectType
 }
 
-export default async function Page({ params }: { params: { topic: string, subTopic: string } }){
-  const designSelectedVal = parseInt(cookies().get("designSelected")?.value!) || DEFAULT_DESIGN_SELECTION;
+export default async function Page(props: { params: Promise<{ topic: string, subTopic: string }> }) {
+  const params = await props.params;
+  const designSelectedVal = parseInt((await cookies()).get("designSelected")?.value!) || DEFAULT_DESIGN_SELECTION;
   const decodedTopic = decodeURIComponent(params.topic);
   const decodedSubTopic = decodeURIComponent(params.subTopic);
 
@@ -52,7 +53,7 @@ export default async function Page({ params }: { params: { topic: string, subTop
       curSubTopic = topicLinks[i];
       break;
     }
-  };
+  }
 
   if(designSelectedVal === 1) return <>
     <SubTopicHeader styleNumber={designSelectedVal} name={decodedTopic.replaceAll("_"," ")}/>

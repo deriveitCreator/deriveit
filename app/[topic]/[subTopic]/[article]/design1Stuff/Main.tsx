@@ -6,7 +6,7 @@ import { FaPaintbrush } from "react-icons/fa6";
 import { TiHome } from "react-icons/ti";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { annotate } from 'rough-notation';
-import { LegacyRef, createContext, useContext, useEffect, useRef, useState, Component, memo, createRef, RefObject, Dispatch, SetStateAction } from "react";
+import { Ref, createContext, useContext, useEffect, useRef, useState, Component, memo, createRef, RefObject, Dispatch, SetStateAction } from "react";
 import Link from "next/link";
 import { citationList } from '@/app/infoStore/sourcesForCitation';
 import StyleSelectionBox from "@/app/components/StyleSelectionBox";
@@ -27,7 +27,7 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
   const [fontSize, setFS] = useState({h2:"", main: "", quote: ""});
   const [boxStates, changeBS] = useState<infoBoxType>({text:"", posX:0, posY:0, visibility:"hidden"});
   const blackboardOrAd = useRef<null|string>(null);
-  const mainEl: RefObject<HTMLElement> = useRef(null);
+  const mainEl: RefObject<HTMLElement | null> = useRef(null);
   const [firstRender, updateFR] = useState(true);
 
   useEffect(()=>{
@@ -205,7 +205,7 @@ function PMain({children, mode}: {children: string, mode:number}){
 }
 
 function LiForSources(props: {children: string}){
-  const refConst: LegacyRef<HTMLLIElement>|null = useRef(null);
+  const refConst: Ref<HTMLLIElement>|null = useRef(null);
   const [htmlVar, changeHTML] = useState(props.children);
   
   useEffect(()=>{
@@ -234,12 +234,12 @@ const asideStyle = {
 type setFSType = Dispatch<SetStateAction<{h2: string;main: string;quote: string;}>>;
 interface BBProps {fontSizeMain:string, setFS: setFSType};
 class SideBlackBoard extends Component<BBProps, {op: string}>{
-  homeIcon: RefObject<HTMLAnchorElement>;
-  brushIcon: RefObject<HTMLButtonElement>;
-  topicLink: RefObject<HTMLDivElement>;
-  DecFontSizeEl: RefObject<HTMLButtonElement>;
-  IncFontSizeEl: RefObject<HTMLButtonElement>;
-  aboveAdSpacing: RefObject<HTMLParagraphElement>;
+  homeIcon: RefObject<HTMLAnchorElement | null>;
+  brushIcon: RefObject<HTMLButtonElement | null>;
+  topicLink: RefObject<HTMLDivElement | null>;
+  DecFontSizeEl: RefObject<HTMLButtonElement | null>;
+  IncFontSizeEl: RefObject<HTMLButtonElement | null>;
+  aboveAdSpacing: RefObject<HTMLParagraphElement | null>;
   fontSizeMain: string;
   setFS: any;
 
@@ -362,7 +362,7 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
 
 }
 
-function BrushPaint(props: {brushRef: RefObject<HTMLButtonElement>}){
+function BrushPaint(props: {brushRef: RefObject<HTMLButtonElement | null>}){
   const [showDB, changeSDB] = useState(false);
 
   function iconClicked(){

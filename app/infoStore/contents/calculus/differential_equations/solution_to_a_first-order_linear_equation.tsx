@@ -1,6 +1,6 @@
-export const title="Solving a first-order linear equation";
+export const title="Solving a first-order linear differential equation";
 const content = [
-  ['h1', 'Solving A First-Order Linear Equation'],
+  ['h1', 'Solving A First-Order Linear Differential Equation'],
   ['pmain', 'A first-order linear equation in standard form is written like this:'], 
   ["displayFormula","\\[ y' + p(x)y = q(x) \\]"],
   ['pmain', 'We start by multiplying both sides by an unknown function \\(u(x)\\):'], 

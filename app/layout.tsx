@@ -7,7 +7,7 @@ import { CookiesProvider } from 'next-client-cookies/server';
 import { DEFAULT_DESIGN_SELECTION } from './infoStore/designInfo';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const cookieVal = parseInt(cookies().get("designSelected")?.value!);
+  const cookieVal = parseInt((await cookies()).get("designSelected")?.value!);
   return {
     title: 'Welcome to deriveit.net',
     description: 'A website dedicated to proving some mathematical formulae, and providing the history of some scientific theories',
@@ -23,10 +23,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function RootLayout({children}: {children: React.ReactNode}) {
-  const cookieVal = parseInt(cookies().get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
+  const cookieVal = parseInt((await cookies()).get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
 
   if(cookieVal === 1){
-    const FooterEl = dynamic(() =>  import(`./mainStyles/design1Footer`), {ssr:false});
+    const FooterEl = dynamic(() =>  import(`./mainStyles/design1Footer`));
     return <CookiesProvider>
       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471"
       crossOrigin="anonymous"/>
