@@ -11,7 +11,7 @@ const content = [
   ['displayFormula', '$$\\begin{gather} \\left( \\frac{a}{g} \\right) (cp - x_i) = \\left( \\frac{m}{g} \\right) f \\\\ \\frac{m}{g} | \\frac{a}{g}(cp - x_i) \\end{gather}$$'],
   ['pmain', 'Since \\(\\gcd(\\frac{a}{g},\\frac{m}{g})=1\\):'],
   ['displayFormula', '$$\\begin{gather} \\frac{m}{g} | (cp - x_i) \\end{gather}$$'],
-  ['pmain', 'We can rewrite \\( \\frac{m}{g} | (x_i - cp)\\) as \\( \\frac{m}{g} | (x_i - cp)\\). This means \\(x_i = cp + \\frac{m}{g} (h)\\) where \\(h \\in \\mathbb{Z}\\). These means the solutions are:'],
+  ['pmain', 'We can rewrite \\( \\frac{m}{g} | (x_i - cp)\\) as \\(x_i = cp + \\frac{m}{g} (h)\\) where \\(h \\in \\mathbb{Z}\\). These means the solutions are:'],
   ['displayFormula', '$$ cp, \\quad cp + \\frac{m}{g}, \\quad cp + 2\\frac{m}{g}, \\quad cp + 3\\frac{m}{g}, \\ldots$$'],
   ['pmain', 'In the least residue system of modulo \\(m\\): \\(\\{ 0, 1, 2, \\ldots, m-1 \\}\\), all the integers are unique modulo \\(m\\). Any integer \\(\\ge m\\) will be congruent to an integer in the least residue system. This means \\((\\frac{m}{g} h)\\) will be unique modulo \\(m\\) as long as \\(0 \\le h \\lt g\\). If \\(h \\ge g\\), or \\((\\frac{m}{g} h) \\ge m \\), then \\((\\frac{m}{g} h)\\) will be congruent to an integer in the least residue system.'],
   ['pmain', 'Since \\((\\frac{m}{g} h)\\) will be unique modulo \\(m\\) if \\(0 \\le h \\lt g\\), then \\((cp + \\frac{m}{g} h)\\) will also be unique modulo \\(m\\) if \\(0 \\le h \\lt g\\). This means there are \\(g\\) unique solutions.'],
@@ -20,10 +20,10 @@ const content = [
   ['pmain', '<u>Conclusion:</u> If \\([ax ≡ b \\bmod m]\\), \\([g = (a, m)]\\) and \\([g|b]\\), then there are \\(g\\) solutions of the form:'],
   ['displayFormula', '$$ x_0 + \\left( \\frac{m}{g} \\right) h, \\quad h = 0, 1, 2, \\ldots, (g-1) $$'],
   ['pmain', 'where \\(x_0\\) is any particular solution.'],
-  ['pmain', 'For example, let\'s try to solve \\(8x ≡ 6 \\mod 14\\), where \\(a=8, b=6\\) and \\(m=14\\), so \\(g\\) is:'],
+  ['pmain', 'For example, let\'s try to solve \\(8x ≡ 6 \\bmod 14\\), where \\(a=8, b=6\\) and \\(m=14\\), so \\(g\\) is:'],
   ['displayFormula', '$$ (8, 14) = 2 $$'],
   ['pmain', 'Since \\( g | b\\), solutions exist. If \\(b=gc\\), then \\(c=3\\). Since \\(g = a*2 + m*-1\\), then \\(x = cp = 3*2 = 6\\), which is one solution. There are other solutions where:'],
   ['displayFormula', '$$\\begin{gather} x_i ≡ 6 \\mod \\frac{14}{2} \\\\ x_i ≡ 6 \\mod 7 \\end{gather}$$'],
-  ['pmain', 'This means \\(x_i = 6 + 7h\\), so \\(x_i\\) could be 6 and 13.'],
+  ['pmain', 'This means \\(x_i = 6 + 7h\\), so \\(x_i\\) could be 6 or 13.'],
 ];
 export default content;

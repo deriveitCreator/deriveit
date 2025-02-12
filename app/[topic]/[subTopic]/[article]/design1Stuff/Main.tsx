@@ -286,7 +286,7 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
         return <p className=" text-xl mt-20 rotate-45">
           <span>cool people</span>
             <br/>
-          <span className=" text-center w-full inline-block">{"don't use"}</span>
+          <span className=" text-center w-full inline-block">don't use</span>
             <br/>
           <span className=" text-right w-full inline-block">adblock!</span>
         </p>;
@@ -307,7 +307,7 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
     return <aside style={asideStyle} className={chalkWriting.className}>
     <div className="relative mb-2">
       <div style={{display:"inline-grid",gridTemplateColumns:"50% 50%",justifyItems: "center",alignItems:"center",width:"100%",marginTop:"10px"}}>
-        <Link ref={this.homeIcon} className=" cursor-pointer hover:no-underline" href="/">
+        <Link ref={this.homeIcon} className=" cursor-pointer hover:no-underline" href="/" title="Go to home page">
           <IconContext.Provider value={{style:{height:"32px",width:"100%",padding:"2px"}}}>
             <TiHome/>
           </IconContext.Provider>
@@ -315,16 +315,16 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
         <BrushPaint brushRef={this.brushIcon}/>
       </div>
       <div className=" w-10/12 mx-auto h-0 mt-1" ref={this.topicLink}>&nbsp;</div>
-      <Link className=" text-center text-xl pb-4 pt-1 cursor-pointer block hover:no-underline " href="./../">
+      <Link className=" text-center text-xl pb-4 pt-1 cursor-pointer block hover:no-underline " href="./../" aria-label="Explore other articles">
         <IconContext.Provider value={{style:{display:"inline",height:"25px"}}}>
           <FaLongArrowAltLeft/>
         </IconContext.Provider>
         &nbsp;Other Articles
       </Link>
       <p className=" w-full text-center text-xl pb-2">
-        <button onClick={()=>this.decFS(this.fontSizeMain, this.setFS)} ref={this.DecFontSizeEl }>-</button>
+        <button onClick={()=>this.decFS(this.fontSizeMain, this.setFS)} ref={this.DecFontSizeEl } title="Decrease font size">-</button>
         &nbsp;&nbsp;Font Size&nbsp;&nbsp;
-        <button onClick={()=>this.incFS(this.fontSizeMain, this.setFS)} ref={this.IncFontSizeEl }>+</button>
+        <button onClick={()=>this.incFS(this.fontSizeMain, this.setFS)} ref={this.IncFontSizeEl } title="Increase font size">+</button>
       </p>
       <p className=" w-11/12 mx-auto h-0" ref={this.aboveAdSpacing}>&nbsp;</p>
       <p className=" text-center text-xl">Advertisement:</p>
@@ -370,7 +370,7 @@ function BrushPaint(props: {brushRef: RefObject<HTMLButtonElement | null>}){
   }
 
   return  <>
-    <button ref={props.brushRef} className=" cursor-pointer hover:no-underline" onClick={iconClicked}>
+    <button ref={props.brushRef} className=" cursor-pointer hover:no-underline" onClick={iconClicked} title="Change the site's style">
       <IconContext.Provider value={{style:{height:"32px",width:"100%",padding:"4px"}}}>
         <FaPaintbrush/>
       </IconContext.Provider>

@@ -5,6 +5,6 @@ const content = [
   ['displayFormula', '$$ m|ar_i - ar_j = a(r_i - r_j ) $$'],
   ['pmain', 'If \\((a, m) = 1\\) then, according to <a href="../divisibility/gcdLemma13">this lemma</a>, \\(m|r_i - r_j\\):'],
   ['displayFormula', '$$ m|r_i - r_j ⇒ r_i ≡ r_j \\mod m $$'],
-  ['pmain', 'This cannot be true unless i = j. This shows all \\(ar_i\\) are distinct modulo \\(m\\), therefore \\(\\{ar_1 \\ldots ar_k \\}\\) is also a reduced residue system.'],
+  ['pmain', 'This cannot be true unless \\(i = j\\). This shows all \\(ar_i\\) are distinct modulo \\(m\\), therefore \\(\\{ar_1 \\ldots ar_k \\}\\) is also a reduced residue system.'],
 ];
 export default content;

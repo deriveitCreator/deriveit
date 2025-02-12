@@ -138,19 +138,33 @@ const algebraLinks: Array<[string,string[]]> = [
 
 const geometryLinks: Array<[string,string[]]> = [
 	["triangle_related_stuff", ["angles_in_a_triangle_add_to_180","area_of_a_triangle","constructing_an_equilateral_triangle","pythagoras_theorem","sides_of_30_90_60"]],
-	["quadrilateral_related_stuff", ["area_of_a_parallelogram","area_of_a_trapezium","constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle"]],
-	["circle_related_stuff", ["Thales's_theorem"]],
+	["quadrilateral_related_stuff", [
+		"area_of_a_parallelogram",
+		"area_of_a_trapezium",
+		"constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle"
+	]],
+	["circle_related_stuff", [
+		"the_perpendicular_bisector_of_a_chord_is_the_diametre",
+		"Thales's_theorem",
+		"inscribed_angle_theorem",
+	]],
+	["ellipse", [
+		"the_equivalence_of_the_geometric_definition_and_the_conic_section_definition_of_an_ellipse",
+		"getting_the_standard_form_equation_from_the_geometric_definition",
+		"equation_of_the_directrix",
+	]],
 	["parabola", [
-		"getting_the_standard_form_equation_of_a_parabola_from_the_focus-directrix_definition%getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition",
+		"the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola",
+		"getting_the_vertex_form_equation_from_the_focus-directrix_definition",
+		"getting_the_standard_form_equation_from_the_vertex_form",
 		"axis_of_symmetry_of_a_parabola",
 		"getting_the_focus,_directrix_and_vertex%getting_the_focus_directrix_and_vertex",
-		"vertex_equation_of_a_parabola",
 		"the_reflective_property_of_a_parabola",
-		"the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola",
 	]],
 	["hyperbola",[
 		"getting_the_standard_form_equation_from_the_geometric_definition",
-		"deriving_the_asymptote_of_a_hyperbola"
+		"deriving_the_asymptote_of_a_hyperbola",
+		"equation_of_the_directrix",
 	]],
 	["other_shapes",[
 		"lateral surface area of a right circular cone%cone_lateral_surface_area",
@@ -174,10 +188,10 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"m|n ⇒ (a<sup>m</sup>-b<sup>m</sup>)|(a<sup>n</sup>-b<sup>n</sup>)%divisibilityLemma1"
 	]],
 	["prime_numbers", [
-		"if ρ is prime and ρ|αβ, then ρ|α or ρ|β%primeLemma1",
+		"if p is prime and p|αβ, then p|α or p|β%primeLemma1",
+		"if p is prime and p∤α, then gcd(p, α) = 1%primeLemma3",
 		"if n is composite then there is a prime divisor ≤ √n%nCompositeSoPrimeDivisorLessThanRootN",
 		"there are infinite number of primes%infinite_primes",
-		"all primes are of the form 4k+1 or 4k+3%all_primes_are_of_the_form",
 		"there are infinite primes of the form 4k+3%infinite_primes_4k_plus_3",
 		"there are infinite primes of the form 3k+2%infinite_primes_3k_plus_2",
 		"no prime can be expressed as a<sup>4</sup> - b<sup>4</sup>%differenceOfFourthPowers",
@@ -213,7 +227,7 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"(α ≡ β mod M) ∧ (ε ≡ δ mod M) ⇒ (α + ε ≡ β + δ mod M)%modLemma1",
 		"(α ≡ β mod M) ∧ (ε ≡ δ mod M) ⇒ (αε ≡ βδ mod M)%modLemma2",
 		"(α ≡ β mod M) ∧ (ε ≡ δ mod M) ∧ ε|α ∧ δ|β ⇒ (α/ε ≡ β/δ mod M)%modLemma8",
-		"(α ≡ β mod M) ∧ (n|M) ⇒ (α ≡ β mod nM)%modLemma3",
+		"(α ≡ β mod M) ∧ (n|M) ⇒ (α ≡ β mod n)%modLemma3",
 		"if c is an odd integer, then (c<sup>2</sup> ≡ 1 mod 4) and (c<sup>2</sup> ≡ 1 mod 8)%modLemma9",
 		"(c ∈ Z) ∧ (α ≡ β mod M) ⇒ (cα ≡ cβ mod cM)%modLemma5",
 		"d|α ∧ d|β ∧ d|M ∧ α ≡ β mod M ⇒ (α/d ≡ β/d mod M/d)%modLemma6",
@@ -228,12 +242,12 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"Freshman's dream",
 		"ax ≡ b mod m has a solution if and only if gcd(a, m)|b%congruence_solution_possible",
 		"solution of ax ≡ b mod m (if gcd(a, m)|b)%congruence_solution",
+		"existence and uniqueness of modular inverse if gcd(a, m) = 1%modular_inverse",
 		"If p is prime ∧ (a<sup>2</sup> ≡ b<sup>2</sup> mod p) ⇒ a ≡ ±b mod p%x_square_solution",
 		"If p is prime ∧ (a<sup>2</sup> ≡ a mod p) ⇒ (a ≡ 0) or (a ≡ 1)%a_square_congruent_a_mod_p",
-		"existence and uniqueness of modular inverse if gcd(a, m) = 1%modular_inverse",
+		"If p is prime ∧ (a<sup>p</sup> ≡ b<sup>p</sup> mod p) ∧ (p ∤ a) ∧ (p ∤ b) ⇒ a<sup>p</sup> ≡ b<sup>p</sup> mod p<sup>2</sup>%square_mod_prime",
 	]],
 	["divisibility_rules",[
-		"an integer is divisible by 2 if its last digit is divisible by 2%divisibility_rule_for_2",
 		"an integer is divisble by 3 if the sum of its digits is divisible by 3%divisibility_rule_for_3",
 		"an integer is divisble by 7 if the alternating sum of blocks of three from is divisible by 7%divisibility_rule_for_7",
 		"an integer is divisible by 11 if the integer obtained by alternately adding and substracting the digits is divisible by 11%divisibility_rule_for_11"
@@ -393,7 +407,37 @@ const calculusLinks: Array<[string,string[]]> = [
 		"solution_to_a_first-order_linear_equation"
 	]],
 	["sequences_and_series", [
-		"integral_test"
+		"monotone_convergence_theorem",
+		"divergence_test",
+		"integral_test",
+		"convergence_and_divergence_of_p-series",
+		"remainder_estimate_for_the_integral_test",
+		"the_comparison_test",
+		"the_limit_comparison_test",
+		"alternating_series_test",
+		"alternating_series_estimation_theorem",
+		"absolute_convergence_implies_convergence",
+		"ratio_test",
+		"root_test"
+	]],
+	["power_series",[
+		"convergence_of_a_power_series",
+		"uniqueness_of_a_power_series",
+		"derivative_of_a_power_series_has_the_same_radius_of_convergence",
+		"understanding_the_Taylor_series",
+		"Lagrange's_form_of_the_remainder",
+		"Taylor's_inequality",
+		"the_binomial_series_is_equal_to_it's_Maclaurin_series", /* incomplete */
+		"sin(x)_and_cos(x)_are_equal_to_their_Maclaurin_series",
+	]],
+	["parametric_curves",[
+		"derivative_of_a_parametric_equations",
+		"second_derivative_of_a_parametric_equations",
+		"area_under_a_parametric_curve",
+		"area_length_of_a_parametric_curve",
+		"surface_area_generated_by_a_parametric_curve",
+		"areas_of_regions_bounded_by_polar_curves",
+		"arc_length_of_a_curve_defined_by_a_polar_function"
 	]]
 
 ]
@@ -437,7 +481,15 @@ const astronomyLink: Array<[string,string[]]> = [
 ]
 
 const chemistryLink: Array<[string,string[]]> = [
-	["history", ["history_of_atomic_theory","early_metallurgy","acid, alakli and litmus%litmus","phlogiston_theory","discovery of carbon dioxide%discovery_of_co2","discovery_of_hydrogen","discovery_of_oxygen",]]
+	["history", [
+		"history_of_atomic_theory", /* incomplete */
+		"early_metallurgy", /*incomplete */
+		"acid, alakli and litmus%litmus", /* incomplete */
+		"phlogiston_theory",
+		"discovery of carbon dioxide%discovery_of_co2", /*incomplete */
+		"discovery_of_hydrogen", /*incomplete */
+		"discovery_of_oxygen",
+	]]
 ]
 
 const electricityAndMagnetismLinks: Array<[string,string[]]> = [

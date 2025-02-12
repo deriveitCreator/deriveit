@@ -1,6 +1,6 @@
-export const title="If (a ≡ b mod m and n|m), then a ≡ b mod nm";
+export const title="If a ≡ b mod m and n|m, then a ≡ b mod n";
 const content = [
-  ['h1', 'If (a ≡ b mod m and n|m), then a ≡ b mod nm'],
+  ['h1', 'If a ≡ b mod m And n|m, Then a ≡ b mod n'],
   ['pmain', 'If \\(a ≡ b \\bmod m\\), then there is an integer \\(k\\) such that:'],
   ['displayFormula', '$$ mk = b - a $$'],
   ['pmain', 'If \\(n|m\\), then there is an integer \\(q\\) such that:'],

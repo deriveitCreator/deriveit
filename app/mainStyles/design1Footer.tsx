@@ -28,7 +28,7 @@ export default function FooterComp(){
 	
 	return (window.innerWidth > parseInt(styles.maxMobileWidth)) ?
 	<footer style={{gridTemplateColumns:"15% 65% 20%", paddingTop:"25px", ...footerIdStyle}}>
-		<Link href={"/"}>
+		<Link href={"/"} aria-label='Go to home page'>
 			<ImageWrapper mw="max-w-[80%]" h="h-full" w="w-3/4" src="/link_logo_short_1.png" alt="" className="flex justify-center items-center "/>
 		</Link>
 		<p className={cursiveMain.className} style={{padding: "0px", ...footerPStyle}}>

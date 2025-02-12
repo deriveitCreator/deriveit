@@ -103,7 +103,6 @@ function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<strin
       document.documentElement.classList.add("scroll2");
       changeGH("h-full");
     };
-
   }, [props.asideW]); // eslint-disable-line no-use-before-define
 
   let turnOffAside = () => props.setAW("0px");
@@ -153,13 +152,12 @@ function AsideEl(){
       </div>
       {topicsOrder.map((topic, i)=>{
         if(topic === "error") return null;
-        return <Link key={i} href={`/${topic}`} className="relative flex mx-6 h-28">
+        return <Link key={i} href={`/${topic}`} className="relative flex mx-6 h-28" aria-label={`Explore ${topic}`}>
           <Image className="hover:transform hover:scale-105" src={`/topicsPics/${topic}.png`} alt="" fill objectFit='contain'/>
         </Link>
       })}
     </div>
   </aside>
-
 }
 
 function BrushButton(){
@@ -170,7 +168,7 @@ function BrushButton(){
   }
   
   return <>
-    <button onClick={iconClicked}><IconContext.Provider value={{style:{color:"#FFDD77",border:"solid 4px #663300",borderRadius:"8px",height:"50px",width:"50px",padding:"4px",backgroundColor:"#c60"}}}><FaPaintbrush/></IconContext.Provider></button>
+    <button onClick={iconClicked} title="Change the site's style"><IconContext.Provider value={{style:{color:"#FFDD77",border:"solid 4px #663300",borderRadius:"8px",height:"50px",width:"50px",padding:"4px",backgroundColor:"#c60"}}}><FaPaintbrush/></IconContext.Provider></button>
     <Suspense><StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/></Suspense>
   </>
 }
@@ -181,7 +179,7 @@ function FooterEl(){
   return <footer className={printFont2.className + ' font-bold'}>
     <hr style={{backgroundColor:"black", height:"4px", border:"none"}}/>
     <div style={{display:"grid" ,margin:"0px 15px 0px 20px"}} id={styles.mainFooter}>
-      <Link href="/" className={'mx-4 my-4 relative h-[121px]'} id={styles.homeLink}>
+      <Link href="/" className={'mx-4 my-4 relative h-[121px]'} id={styles.homeLink} aria-label="Go to home page">
         <Image src="/link_logo_trans2.png" alt="" fill objectFit='contain'/>
       </Link>
       <div style={{paddingLeft:"10px", marginTop:"10px"}} id={styles.feedback}>

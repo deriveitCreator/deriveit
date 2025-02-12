@@ -1,12 +1,12 @@
-import { cookies, type UnsafeUnwrappedCookies } from 'next/headers';
+import { cookies } from 'next/headers';
 import { DEFAULT_DESIGN_SELECTION } from '../../infoStore/designInfo';
 import { getTopicColorInfo } from '../../infoStore/topicsInfo';
 import SubTopicHeader from './designs/SubTopicHeader';
 import dynamic from 'next/dynamic';
 import { ImportType } from './page';
 
-export default function Custom404() {
-  const designSelectedVal = parseInt((cookies() as unknown as UnsafeUnwrappedCookies).get("designSelected")?.value!) || DEFAULT_DESIGN_SELECTION;
+export default async function Custom404() {
+  const designSelectedVal = parseInt((await cookies()).get("designSelected")?.value!) || DEFAULT_DESIGN_SELECTION;
   const MainComp = dynamic<ImportType>(() => import(`./designs/Design${designSelectedVal}`));
 
   var calStyleObj;
