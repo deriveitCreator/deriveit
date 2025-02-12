@@ -58,6 +58,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 16.2:</b>
+- Generated a new site map.
+
 <b>update 16.1:</b>
 - Added some new subtopics:
   - `calculus/power_series`
@@ -65,7 +68,7 @@ Versioning is done using "npm version [new-version] --git-tag-version false"
   - `geometry/ellipse`
 - Added and/or changed some content in `geometry`, `trigonometry`, `discrete_mathematics`, `linear_algebra` and `calculus`.
 - In design2, body element has hydration warning suppressed.
-- Added some `aria-label` and `title` attirbutes in article files.
+- Added some `aria-label` and `title` attirbutes in the article files.
 
 <b>update 15.1:</b>
 - upgraded to Next.js 15.

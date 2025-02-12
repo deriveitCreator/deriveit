@@ -81,10 +81,31 @@
     <loc>https://www.deriveit.net/geometry/quadrilateral_related_stuff/constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/geometry/circle_related_stuff/the_perpendicular_bisector_of_a_chord_is_the_diametre</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/geometry/circle_related_stuff/Thaless_theorem</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/parabola/getting_the_standard_form_equation_of_a_parabola_from_the_focus_and_directrix_definition</loc>
+    <loc>https://www.deriveit.net/geometry/circle_related_stuff/inscribed_angle_theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/geometry/ellipse/the_equivalence_of_the_geometric_definition_and_the_conic_section_definition_of_an_ellipse</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/geometry/ellipse/getting_the_standard_form_equation_from_the_geometric_definition</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/geometry/ellipse/equation_of_the_directrix</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/geometry/parabola/the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/geometry/parabola/getting_the_vertex_form_equation_from_the_focus-directrix_definition</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/geometry/parabola/getting_the_standard_form_equation_from_the_vertex_form</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/geometry/parabola/axis_of_symmetry_of_a_parabola</loc>
@@ -93,19 +114,16 @@
     <loc>https://www.deriveit.net/geometry/parabola/getting_the_focus_directrix_and_vertex</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/parabola/vertex_equation_of_a_parabola</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/geometry/parabola/the_reflective_property_of_a_parabola</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/geometry/parabola/the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/geometry/hyperbola/getting_the_standard_form_equation_from_the_geometric_definition</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/geometry/hyperbola/deriving_the_asymptote_of_a_hyperbola</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/geometry/hyperbola/equation_of_the_directrix</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/geometry/other_shapes/cone_lateral_surface_area</loc>
@@ -156,13 +174,13 @@
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/primeLemma1</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/primeLemma3</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/nCompositeSoPrimeDivisorLessThanRootN</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/infinite_primes</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/all_primes_are_of_the_form</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/infinite_primes_4k_plus_3</loc>
@@ -279,13 +297,7 @@
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma12</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/x_square_solution</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/multiplying_reduced_residue_system</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/a_square_congruent_a_mod_p</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/Eulers_theorem</loc>
@@ -297,19 +309,22 @@
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/Freshmans_dream</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modular_inverse</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/congruence_solution_possible</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/congruence_solution</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/x_square_solvable</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modular_inverse</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_rules/divisibility_rule_for_2</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/x_square_solution</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/a_square_congruent_a_mod_p</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/square_mod_prime</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/divisibility_rules/divisibility_rule_for_3</loc>
@@ -373,6 +388,18 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/Wilsons_theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/converse_of_Wilsons_theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/two_times_p_minus_3_factorial</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/x_square_solvable</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/modLemma13</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/Chinese_remainder_theorem</loc>
@@ -687,7 +714,88 @@
     <loc>https://www.deriveit.net/calculus/differential_equations/inflection_point_of_the_solution_to_the_logistic_differential_equation</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/differential_equations/solution_of_a_first-order_linear_equation</loc>
+    <loc>https://www.deriveit.net/calculus/differential_equations/solution_to_a_first-order_linear_equation</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/sequences_and_series/monotone_convergence_theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/sequences_and_series/divergence_test</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/sequences_and_series/integral_test</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/sequences_and_series/convergence_and_divergence_of_p-series</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/sequences_and_series/remainder_estimate_for_the_integral_test</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/sequences_and_series/the_comparison_test</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/sequences_and_series/the_limit_comparison_test</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/sequences_and_series/alternating_series_test</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/sequences_and_series/alternating_series_estimation_theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/sequences_and_series/absolute_convergence_implies_convergence</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/sequences_and_series/ratio_test</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/sequences_and_series/root_test</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/power_series/convergence_of_a_power_series</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/power_series/uniqueness_of_a_power_series</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/power_series/derivative_of_a_power_series_has_the_same_radius_of_convergence</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/power_series/understanding_the_Taylor_series</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/power_series/Lagranges_form_of_the_remainder</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/power_series/Taylors_inequality</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/power_series/the_binomial_series_is_equal_to_its_Maclaurin_series</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/power_series/sin(x)_and_cos(x)_are_equal_to_their_Maclaurin_series</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/parametric_curves/derivative_of_a_parametric_equations</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/parametric_curves/second_derivative_of_a_parametric_equations</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/parametric_curves/area_under_a_parametric_curve</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/parametric_curves/area_length_of_a_parametric_curve</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/parametric_curves/surface_area_generated_by_a_parametric_curve</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/parametric_curves/areas_of_regions_bounded_by_polar_curves</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus/parametric_curves/arc_length_of_a_curve_defined_by_a_polar_function</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/probability_&amp;_statistics</loc>

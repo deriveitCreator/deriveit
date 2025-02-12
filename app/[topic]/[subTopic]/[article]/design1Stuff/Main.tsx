@@ -286,7 +286,7 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
         return <p className=" text-xl mt-20 rotate-45">
           <span>cool people</span>
             <br/>
-          <span className=" text-center w-full inline-block">don't use</span>
+          <span className=" text-center w-full inline-block">{"don't use"}</span>
             <br/>
           <span className=" text-right w-full inline-block">adblock!</span>
         </p>;
