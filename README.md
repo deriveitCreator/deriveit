@@ -58,6 +58,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 16.3:</b>
+- Added some articles regarding ellipses.
+
 <b>update 16.2:</b>
 - Generated a new site map.
 
