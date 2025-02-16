@@ -57,49 +57,52 @@
     <loc>https://www.deriveit.net/geometry</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/triangle_related_stuff/angles_in_a_triangle_add_to_180</loc>
+    <loc>https://www.deriveit.net/geometry/triangles/angles_in_a_triangle_add_to_180</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/triangle_related_stuff/area_of_a_triangle</loc>
+    <loc>https://www.deriveit.net/geometry/triangles/area_of_a_triangle</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/triangle_related_stuff/constructing_an_equilateral_triangle</loc>
+    <loc>https://www.deriveit.net/geometry/triangles/constructing_an_equilateral_triangle</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/triangle_related_stuff/pythagoras_theorem</loc>
+    <loc>https://www.deriveit.net/geometry/triangles/pythagoras_theorem</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/triangle_related_stuff/sides_of_30_90_60</loc>
+    <loc>https://www.deriveit.net/geometry/triangles/sides_of_30_90_60</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/quadrilateral_related_stuff/area_of_a_parallelogram</loc>
+    <loc>https://www.deriveit.net/geometry/quadrilaterals/area_of_a_parallelogram</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/quadrilateral_related_stuff/area_of_a_trapezium</loc>
+    <loc>https://www.deriveit.net/geometry/quadrilaterals/area_of_a_trapezium</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/quadrilateral_related_stuff/constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle</loc>
+    <loc>https://www.deriveit.net/geometry/quadrilaterals/constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/circle_related_stuff/the_perpendicular_bisector_of_a_chord_is_the_diametre</loc>
+    <loc>https://www.deriveit.net/geometry/circles/the_perpendicular_bisector_of_a_chord_is_the_diametre</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/circle_related_stuff/Thaless_theorem</loc>
+    <loc>https://www.deriveit.net/geometry/circles/Thaless_theorem</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/circle_related_stuff/inscribed_angle_theorem</loc>
+    <loc>https://www.deriveit.net/geometry/circles/inscribed_angle_theorem</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/ellipse/getting_the_standard_form_equation_from_the_geometric_definition</loc>
+    <loc>https://www.deriveit.net/geometry/circles/every_triangle_can_be_circumscribed_by_a_circle</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/ellipse/the_equivalence_of_the_geometric_definition_and_the_conic_section_definition_of_an_ellipse</loc>
+    <loc>https://www.deriveit.net/geometry/ellipses/getting_the_standard_form_equation_from_the_geometric_definition</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/ellipse/the_stretched_cicle_definition</loc>
+    <loc>https://www.deriveit.net/geometry/ellipses/the_equivalence_of_the_geometric_definition_and_the_conic_section_definition_of_an_ellipse</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/ellipse/the_focus-directrix_definition</loc>
+    <loc>https://www.deriveit.net/geometry/ellipses/the_stretched_cicle_definition</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/geometry/ellipses/the_focus-directrix_definition</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/geometry/parabola/the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola</loc>

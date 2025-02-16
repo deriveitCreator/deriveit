@@ -137,18 +137,25 @@ const algebraLinks: Array<[string,string[]]> = [
 ];
 
 const geometryLinks: Array<[string,string[]]> = [
-	["triangle_related_stuff", ["angles_in_a_triangle_add_to_180","area_of_a_triangle","constructing_an_equilateral_triangle","pythagoras_theorem","sides_of_30_90_60"]],
-	["quadrilateral_related_stuff", [
+	["triangles", [
+		"angles_in_a_triangle_add_to_180",
+		"area_of_a_triangle",
+		"constructing_an_equilateral_triangle",
+		"pythagoras_theorem",
+		"sides_of_30_90_60"
+	]],
+	["quadrilaterals", [
 		"area_of_a_parallelogram",
 		"area_of_a_trapezium",
 		"constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle"
 	]],
-	["circle_related_stuff", [
+	["circles", [
 		"the_perpendicular_bisector_of_a_chord_is_the_diametre",
 		"Thales's_theorem",
 		"inscribed_angle_theorem",
+		"every_triangle_can_be_circumscribed_by_a_circle"
 	]],
-	["ellipse", [
+	["ellipses", [
 		"getting_the_standard_form_equation_from_the_geometric_definition",
 		"the_equivalence_of_the_geometric_definition_and_the_conic_section_definition_of_an_ellipse",
 		"the_stretched_cicle_definition",
