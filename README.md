@@ -58,6 +58,10 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 17.2:</b>
+- Added some articles in `geometry`.
+- Made some changes to historical content.
+
 <b>update 17.1:</b>
 - Changed `geometry` some subtopics names.
 - Added `every_triangle_can_be_circumscribed_by_a_circle`.

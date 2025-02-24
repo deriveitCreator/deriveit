@@ -1,0 +1,25 @@
+export const title="Proving the reflective property of an ellipse";
+const content = [
+  ['h1', 'Proving The Reflective Property Of An Ellipse'],
+  ['pmain', 'Consider an ellipse where the centre is at the origin and choose of point \\(A\\) that lies on the ellipse:'],
+  ['displayimg', 'r1.png'],
+  ['pmain', 'The point \\(F_1\\) is the left focus while \\(F_2\\) is the right focus. Now imagine a tangent line at \\(A\\):'],
+  ['displayimg', 'r2.png'],
+  ['pmain', 'Let the tangent line act as a mirror, and let \\(F_1^*\\) be the image of \\(F_1\\):'],
+  ['displayimg', 'r3.png'],
+  ['pmain', 'The blue line goes from \\(F_1\\) to \\(A\\), and the dashed line is the mirror image of the blue line, so it goes from \\(A\\) to \\(F_1^*\\). According to the reflective property, if the blue line is reflected off the ellipse, it should meet the other focus. If that were to be true, then \\(F_2\\), \\(A\\) and \\(F_1^*\\) would form a straight line:'],
+  ['displayimg', 'r4.png'],
+  ['pmain', 'Since \\(\\Vert F_2 \\ A \\Vert + \\Vert A \\ F_1 \\Vert\ = 2a\\), then \\(\\Vert F_2 \\ A \\Vert + \\Vert A \\ F_1^* \\Vert = 2a\\). How do we prove that for any point \\(A\\), points \\(F_2\\), \\(A\\) and \\(F_1^*\\) would form a straight line?'],
+  ['displayimg', 'r5.gif'],
+  ['pmain', 'We can try proof by contradiction. Let\'s say the image \\(F_1^*\\) does not lie on the line \\(\\scriptstyle{\\overleftrightarrow{F_2 \\ A}}\\), despite \\(\\Vert F_1 \\ A \\Vert = \\Vert A \\ F_1^* \\Vert\\):'],
+  ['displayimg', 'r6.png'],
+  ['pmain', 'This means \\(F_2\\), \\(A\\) and \\(F_1^*\\) would form a triangle, and according to the triangle inequality theorem:'],
+  ["displayFormula","\\[ \\begin{align} &\\Vert F_2 \\ F_1^* \\Vert \\lt \\Vert F_2 \\ A \\Vert + \\Vert A \\ F_1^* \\Vert \\\\ \\therefore &\\Vert F_2 \\ F_1^* \\Vert \\lt 2a\\end{align} \\]"],
+  ['pmain', 'This is our first claim. Now think about the random points inside and outside of the ellipse:'],
+  ['displayimg', 'r7.png'],
+  ['pmain', 'The ellipse is the locus of all points where the sum of the distances between a point and the two focii is always \\(2a\\). This means for a point inside the ellipse, the sum of the distances between that point and the two focii is always \\(\\lt 2a\\). For a point outside the ellipse, the sum of the distances between that point and two focii is always \\(\\gt 2a\\):'],
+  ["displayFormula","\\[ \\Vert F_2 \\ F_1^* \\Vert \\gt 2a\\]"],
+  ['pmain', 'This is our second claim, notice how it contradicts with the first claim. Since there is a contradiction, it cannot be possible that \\(F_1^*\\) does not lie on \\(\\scriptstyle{\\overleftrightarrow{F_2 \\ A}}\\). Therefore, \\(F_1^*\\) definitely lies on the line \\(\\scriptstyle{\\overleftrightarrow{F_2 \\ A}}\\), and this proves the reflective property of the ellipse.'],
+
+];
+export default content;

@@ -160,6 +160,8 @@ const geometryLinks: Array<[string,string[]]> = [
 		"the_equivalence_of_the_geometric_definition_and_the_conic_section_definition_of_an_ellipse",
 		"the_stretched_cicle_definition",
 		"the_focus-directrix_definition",
+		"the_polar_equation",
+		"the_reflective_property_of_an_ellipse"
 	]],
 	["parabola", [
 		"the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola",
