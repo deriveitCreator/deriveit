@@ -58,7 +58,7 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
-<b>update 17.3:</b>
+<b>update 17.3 - 17.4:</b>
 - Made changes to `geometry/the_reflective_property_of_an_ellipse`.
 
 <b>update 17.2:</b>
