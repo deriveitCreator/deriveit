@@ -1,0 +1,25 @@
+export const title="(Dot product) Equivalence of the component-wise definition and the geometric definition";
+const content = [
+  ['h1', 'Equivalence of the component-wise definition and the geometric definition'],
+  ['pmain', 'Let vectors \\(\\textbf{v}\\) and \\(\\textbf{u}\\) be defined as follows:'], 
+  ['displayFormula', '$$ \\textbf{v} = \\begin{bmatrix} v_1 \\\\ v_2 \\\\ v_3 \\end{bmatrix} \\quad \\textbf{u} = \\begin{bmatrix} u_1 \\\\ u_2 \\\\ u_3 \\end{bmatrix} $$'],
+  ['pmain', 'The dot product \\(\\textbf{v} \\cdot \\textbf{u}\\) is defined as follows:'], 
+  ['displayFormula', '$$ \\textbf{v} \\cdot \\textbf{u} = v_1u_1 + v_2u_2 + v_3u_3 $$'],
+  ['pmain', 'This is the component-wise definition. Let\'s the angle between the vectors is \\(\\theta \\lt 90^{\\circ}\\):'], 
+  ['figure', ['cosine1.jpeg','Image from opentstax.org (Calculus 3)']],
+  ['pmain', 'This means \\(\\textbf{v}\\), \\(\\textbf{u}\\), \\(\\textbf{v}-\\textbf{u}\\) can form a triangle:'], 
+  ['figure', ['cosine2.jpeg','Image from opentstax.org (Calculus 3)']],
+  ['pmain', 'According to the <a href="https://www.deriveit.net/trigonometry/basic_identities/cosine_rule">cosine rule</a> from trigonometry:'], 
+  ['displayFormula', '$$ \\Vert \\textbf{v} - \\textbf{u} \\Vert^2 = \\Vert \\textbf{v} \\Vert^2+ \\Vert \\textbf{u} \\Vert^2 -2(\\Vert \\textbf{v} \\Vert \\ \\Vert \\textbf{u} \\Vert) \\cos(\\theta) $$'],
+  ['pmain', 'Since <a href="./dot_product_with_itself">the square of a vector\'s magnitude is the dot product of that vector with itself</a>:'], 
+  ['displayFormula', '$$ \\Vert \\textbf{v} - \\textbf{u} \\Vert^2 ={\\color{red} (\\textbf{v} - \\textbf{u} )} \\cdot {\\color{green}(\\textbf{v} - \\textbf{u})} $$'],
+  ['pmain', 'According to the <a href="./distributive_property_of_the_dot_product">distributive property</a>:'], 
+  ['displayFormula', '$$\\begin{align} \\Vert \\textbf{v} - \\textbf{u} \\Vert^2 &= ({\\color{red} (\\textbf{v} - \\textbf{u} )} \\cdot {\\color{green}\\textbf{v}}) - ({\\color{red} (\\textbf{v} - \\textbf{u} )} \\cdot {\\color{green}\\textbf{u}}) \\\\ &=  \\textbf{v}\\cdot \\textbf{v} - \\textbf{u} \\cdot \\textbf{v} -\\textbf{v} \\cdot \\textbf{u}+ \\textbf{u}\\cdot\\textbf{u} \\\\ &= \\Vert \\textbf{v} \\Vert ^2- 2\\textbf{u} \\cdot \\textbf{v} + \\Vert \\textbf{u}\\Vert^2\\end{align}$$'],
+  ['pmain', 'This means:'], 
+  ['displayFormula', '$$\\begin{align} \\Vert \\textbf{v} - \\textbf{u} \\Vert^2 &= \\Vert \\textbf{v} \\Vert^2+ \\Vert \\textbf{u} \\Vert^2 -2(\\Vert \\textbf{v} \\Vert \\ \\Vert \\textbf{u} \\Vert) \\cos(\\theta) \\\\ \\Vert \\textbf{v} \\Vert ^2- 2\\textbf{u} \\cdot \\textbf{v} + \\Vert \\textbf{u}\\Vert^2 &= \\Vert \\textbf{v} \\Vert^2+ \\Vert \\textbf{u} \\Vert^2 -2(\\Vert \\textbf{v} \\Vert \\ \\Vert \\textbf{u} \\Vert) \\cos(\\theta)\\end{align} $$'],
+  ['pmain', 'Cancelling out like terms:'], 
+  ['displayFormula', '$$- 2\\textbf{u} \\cdot \\textbf{v} = -2(\\Vert \\textbf{v} \\Vert \\ \\Vert \\textbf{u} \\Vert) \\cos(\\theta) $$'],
+  ['pmain', 'Dividing both sides by -2:'], 
+  ['displayFormula', '$$ \\textbf{u} \\cdot \\textbf{v} = \\Vert \\textbf{v} \\Vert \\ \\Vert \\textbf{u} \\Vert \\ \\cos(\\theta) $$'],
+];
+export default content;

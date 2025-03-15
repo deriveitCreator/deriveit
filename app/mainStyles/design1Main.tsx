@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation';
 import { IconContext } from "react-icons";
 import { FaPaintbrush } from "react-icons/fa6";
 import StyleSelectionBox from '../components/StyleSelectionBox';
-import { Blackboard } from '../components/BlackBoard';
+import { Blackboard } from './design1BlackBoard';
 
 const design1States = {
   continueDisabled: true,

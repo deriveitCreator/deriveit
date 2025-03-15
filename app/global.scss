@@ -1,7 +1,7 @@
+@use './variables';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import './variables.scss';
 
 :root{
 	box-sizing: border-box;
@@ -50,9 +50,9 @@ a:hover{
 	display: none !important;
 }
 
-@media only screen and (min-device-width: $maxMobileWidth) {
+@media only screen and (min-device-width: variables.$maxMobileWidth) {
 	:root{
-		min-width: $maxMobileWidth;
+		min-width: variables.$maxMobileWidth;
 		overflow-x: auto;
 		scroll-behavior: smooth;
 	}

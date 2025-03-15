@@ -180,7 +180,10 @@
     <loc>https://www.deriveit.net/discrete_mathematics/divisibility/gcdLemma10</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/divisibilityLemma1</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/divisibility3</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/divisibility4</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/primeLemma1</loc>
@@ -190,6 +193,9 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/nCompositeSoPrimeDivisorLessThanRootN</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/fundamental_theorem_of_arithmetic</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/infinite_primes</loc>
@@ -417,10 +423,52 @@
     <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/Chinese_remainder_theorem</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/arithmetic_lemma1</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/linear_algebra</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/linear_algebra/basics/product_of_perpendicular</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/dot_product/commutative_property_of_the_dot_product</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/dot_product/distributive_property_of_the_dot_product</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/dot_product/associative_property_of_the_dot_product</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/dot_product/dot_product_with_itself</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/dot_product/geometric_definition</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/dot_product/projection_of_a_vector_onto_another</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/cross_product/cross_product_definition</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/cross_product/anticommutative_property_of_the_cross_product</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/cross_product/distributive_property_of_the_cross_product</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/cross_product/scalar_triple_product_is_unchanged_under_a_circular_shift_of_its_three_operands</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/cross_product/sin_rule</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/cross_product/area_of_a_parallelogram</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/cross_product/volume_of_a_parallelepiped</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/trigonometry</loc>

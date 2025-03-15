@@ -2,7 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { DEFAULT_DESIGN_SELECTION } from '@/app/infoStore/designInfo';
-import { getTopicColorInfo, colorInfoType } from '../../infoStore/topicsInfo';
+import { getTopicColorInfo, ColorInfoType } from '../../infoStore/topicsInfo';
 import SubTopicHeader from './designs/SubTopicHeader';
 import dynamic from 'next/dynamic';
 
@@ -11,17 +11,10 @@ if((!process.env.NODE_ENV || process.env.NODE_ENV === 'development'))
   domainName = "http://localhost:3001";
 else domainName = "https://www.deriveit.net";
 
-export type styleObjectType = {
-  headerBgColor: string;
-  bgColor: string;
-  footerColor: string;
-  borderColor: string;
-}
-
-export type ImportType = {
+export type MainType = {
   topic: string,
   subTopic: [string,string[]],
-  styleObject?: styleObjectType
+  styleObject?: ColorInfoType
 }
 
 export default async function Page(props: { params: Promise<{ topic: string, subTopic: string }> }) {
@@ -40,13 +33,7 @@ export default async function Page(props: { params: Promise<{ topic: string, sub
 
   if (!topicLinks) return notFound();
 
-  let styleObject: colorInfoType | null;
-  if (designSelectedVal==1) styleObject = null;
-  else if (designSelectedVal==2) styleObject = getTopicColorInfo(decodedTopic);
-  else return <p>The design value is wrong, please report this.</p>;
-
-  const MainComp = dynamic<ImportType>(() => import(`./designs/Design${designSelectedVal}`));
-
+  const emptyCurSub = ["",[""]];
   var curSubTopic: [string, string[]] = ["",[""]];
   for(let i in topicLinks){
     if(topicLinks[i][0].replaceAll("'","") === decodedSubTopic){
@@ -55,15 +42,21 @@ export default async function Page(props: { params: Promise<{ topic: string, sub
     }
   }
 
+  if (curSubTopic == emptyCurSub) throw new Error("The subtopic list is empty. Please report this!");
+
+  const MainComp = dynamic<MainType>(() => import(`./designs/Design${designSelectedVal}`));
+
   if(designSelectedVal === 1) return <>
     <SubTopicHeader styleNumber={designSelectedVal} name={decodedTopic.replaceAll("_"," ")}/>
     <MainComp topic={decodedTopic} subTopic={curSubTopic}/>
   </>
   else if(designSelectedVal === 2) {
-    let bgColor = styleObject!.bgColor;
-    return <div style={{backgroundColor: bgColor, minHeight:"100vh"}}>
-      <SubTopicHeader styleNumber={designSelectedVal} styleObject={styleObject!} name={decodedTopic.replaceAll("_"," ")}/>
-      <MainComp topic={decodedTopic} subTopic={curSubTopic} styleObject={styleObject!}/>
+    const styleObject = getTopicColorInfo(decodedTopic);
+    const FooterEl = dynamic<ColorInfoType>(() => import(`@/app/[topic]/designs/Style2Footer`));
+    return <div style={{backgroundColor: styleObject.bgColor!, minHeight:"100vh"}}>
+      <SubTopicHeader styleNumber={designSelectedVal} styleObject={styleObject} name={decodedTopic.replaceAll("_"," ")}/>
+      <MainComp topic={decodedTopic} subTopic={curSubTopic} styleObject={styleObject}/>
+      <FooterEl borderColor={styleObject.borderColor!} footerColor={styleObject.footerColor!} headerBgColor={styleObject.headerBgColor!} bgColor={styleObject.bgColor!}/>
     </div>
   }
   else throw new Error("Wrong design number value");

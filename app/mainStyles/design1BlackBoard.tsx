@@ -5,7 +5,7 @@ import styles from "../mainStyles/design1.module.scss";
 import { IconContext } from "react-icons";
 import { chalkWriting } from '../infoStore/fonts';
 import { FaSquare, FaRegSquare, FaRightLong, FaLeftLong } from "react-icons/fa6";
-import ImageWrapper from './ImageWrapper';
+import ImageWrapper from '../components/ImageWrapper';
 import Link from 'next/link';
 
 const blackboardContent = [

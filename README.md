@@ -42,6 +42,7 @@ One major thing I added was the design feature, where you can choose different d
 	- `/setCookie`: contains the code for changing the design number and storing it in cookies.
 	- `/sendEmail`: contains the api to email client feedback to me.
 	- `/getTopicLinks`: contains a `POST` function which gets all the subtopics and article title of a particular topic. 
+	- `/getArticleContent`: contains a `POST` function which returns the page content for a particular article. 
 	- `/contents`: contains all article contents.
 
 ### [topic], [subTopic] and [article] folders
@@ -57,6 +58,13 @@ One major thing I added was the design feature, where you can choose different d
 ## Updates
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
+
+<b>update 18.1:</b>
+- In 'linear_algebra', added more sections.
+- Added more content for 'discrete_mathematics'
+- Changed `@import` to `@use` is `.scss` files.
+- Upgraded next.js from 15.1 to 15.2.
+- Made some changes to the coding structure.
 
 <b>update 17.3 - 17.4:</b>
 - Made changes to `geometry/the_reflective_property_of_an_ellipse`.

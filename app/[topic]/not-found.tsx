@@ -3,11 +3,11 @@ import { DEFAULT_DESIGN_SELECTION } from '../infoStore/designInfo';
 import { getTopicColorInfo } from '../infoStore/topicsInfo';
 import TopicHeader from './designs/TopicHeader';
 import dynamic from 'next/dynamic';
-import { ImportType } from './page';
+import { MainType } from './page';
 
 export default async function Custom404() {
   const designSelectedVal = parseInt((await cookies()).get("designSelected")?.value!) || DEFAULT_DESIGN_SELECTION;
-  const MainComp = dynamic<ImportType>(() => import(`@/app/[topic]/designs/Style${designSelectedVal}`));
+  const MainComp = dynamic<MainType>(() => import(`@/app/[topic]/designs/Style${designSelectedVal}`));
 
   if (designSelectedVal==1)
     return <>

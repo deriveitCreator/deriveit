@@ -1,4 +1,4 @@
-@import '../../../../variables.scss';
+@use '../../../../variables.scss';
 
 #header{
   h1{
@@ -92,7 +92,7 @@
   }
 }
 
-@media (max-width: $maxMobileWidth) {
+@media (max-width: variables.$maxMobileWidth) {
   #header{
     h1{
       font-size: 30px;

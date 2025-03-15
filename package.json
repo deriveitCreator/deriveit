@@ -3,7 +3,7 @@
   "version": "17.4.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack -p 3001",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start -p 3001",
     "lint": "next lint"
@@ -15,7 +15,7 @@
     "autoprefixer": "^10.4.20",
     "googleapis": "^144.0.0",
     "mongodb": "6.3",
-    "next": "^15.1.4",
+    "next": "^15.2.1",
     "next-client-cookies": "^1.1.0",
     "node-fetch": "^3.3.2",
     "nodemailer": "^6.9.7",
@@ -24,6 +24,7 @@
     "react-scroll-parallax": "^3.4.5",
     "resend": "^2.0.0",
     "rough-notation": "^0.5.1",
+    "sass": "^1.85.1",
     "xmlbuilder": "^15.1.1"
   },
   "devDependencies": {
@@ -33,7 +34,6 @@
     "eslint": "^8",
     "eslint-config-next": "15.1.4",
     "react-icons": "^4.12.0",
-    "sass": "^1.69.5",
     "tailwindcss": "^3.3.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.7.1",

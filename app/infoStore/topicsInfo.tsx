@@ -1,12 +1,12 @@
 
-export type colorInfoType = {
+export type ColorInfoType = {
 	headerBgColor: string,
 	bgColor: string,
 	footerColor: string,
 	borderColor: string
 }
 
-const colorInfo: {[key:string]: colorInfoType} = {
+const colorInfo: {[key:string]: ColorInfoType} = {
 	"algebra": {headerBgColor: "#B95C00", bgColor:"rgb(251, 227, 155)", footerColor:"#FBE39B", borderColor:"#663300"},
 	"geometry": {headerBgColor: "#00CC00", bgColor:"#CCFF99", footerColor:"#99FF66", borderColor:"green"},
 	"discrete_mathematics": {headerBgColor: "#FF9900", bgColor:"#FFEEAA", footerColor:"#FFDB91", borderColor:"#FF6600"},
@@ -23,7 +23,7 @@ const colorInfo: {[key:string]: colorInfoType} = {
 	"error":{ headerBgColor: "#d61", bgColor:"#fc6", footerColor:"#520", borderColor:"#520"}
 }
 
-export function getTopicColorInfo(value: string): colorInfoType{
+export function getTopicColorInfo(value: string): ColorInfoType{
 	//@ts-ignore
 	return colorInfo[value];
 }
@@ -47,10 +47,10 @@ export const topicsOrder = [
 
 export function getRecentlyAdded(): string[]{
 	return [
+		"anticommutative_property_of_the_cross_product%linear_algebra/cross_product/anticommutative_property_of_the_cross_product",
+		"the fundamental theorem of arithmetic%discrete_mathematics/prime_numbers/fundamental_theorem_of_arithmetic",
+		"deriving the polar form equation of an ellipse%geometry/ellipses/the_polar_equation",
 		"gcd(a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, ..., a<sub>n</sub>) ⇒ gcd(gcd(a<sub>1</sub>, a<sub>2</sub>), a<sub>3</sub>, ..., a<sub>n</sub>)%discrete_mathematics/more_gcd/gcdLemma7",
-		"any integer greater than 6 can be represented as a sum of two relatively prime integers%discrete_mathematics/divisibility/gcdLemma9",
-		"if n is odd then gcd(n, n-2) = 1%discrete_mathematics/divisibility/gcdLemma10",
-		"if gcd(a, b) = 1, then gcd(a + b, ab) = 1%discrete_mathematics/divisibility/gcdLemma11",
 	]
 }
 
@@ -195,12 +195,14 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"α<sub>1</sub>|b, α<sub>2</sub>|b and gcd(α<sub>1</sub>, α<sub>2</sub>) = 1 ⇒ α<sub>1</sub>α<sub>2</sub>|b%gcdLemma14",
 		"ε|αβ and gcd(ε, α) = 1, ⇒ ε|β%gcdLemma13",
 		"if α is odd, then gcd(α, α-2) = 1%gcdLemma10",
-		"m|n ⇒ (a<sup>m</sup>-b<sup>m</sup>)|(a<sup>n</sup>-b<sup>n</sup>)%divisibilityLemma1"
+		"m|n ⇒ (a<sup>m</sup>-b<sup>m</sup>)|(a<sup>n</sup>-b<sup>n</sup>)%divisibility3",
+		"[(m, n) = 1 ∧ d|mn] ⇒ ∃d<sub>1</sub>, d<sub>2</sub> ∈ Z such that d<sub>1</sub>d<sub>2</sub> = d, d<sub>1</sub>|m, d<sub>2</sub>|n and (d<sub>1</sub>, d<sub>2</sub>) = 1%divisibility4",
 	]],
 	["prime_numbers", [
 		"if p is prime and p|αβ, then p|α or p|β%primeLemma1",
 		"if p is prime and p∤α, then gcd(p, α) = 1%primeLemma3",
 		"if n is composite then there is a prime divisor ≤ √n%nCompositeSoPrimeDivisorLessThanRootN",
+		"fundamental_theorem_of_arithmetic",
 		"there are infinite number of primes%infinite_primes",
 		"there are infinite primes of the form 4k+3%infinite_primes_4k_plus_3",
 		"there are infinite primes of the form 3k+2%infinite_primes_3k_plus_2",
@@ -290,11 +292,31 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"solution to x<sup>2</sup> ≡ -1 mod p if p = 2 or p ≡ 1 mod 4%x_square_solvable",
 		"if p ≡ 3 mod 4, then ((p-1)/2)! ≡ ±1 mod p%modLemma13",
 		"Chinese remainder theorem"
+	]],
+	["arithmetic_functions",[
+		"If f is a multiplicative function, then [F(n) = ∑<sub>d|n, d>0</sub> f(d)] is also a multiplicative function%arithmetic_lemma1"
 	]]
 ]
 
 const linearAlgebraLinks: Array<[string,string[]]> = [
-	["basics", ["two lines are perpendicular if the gradient of one line is the negative reciprocal of the other%product_of_perpendicular"]]
+	["basics", ["two lines are perpendicular if the gradient of one line is the negative reciprocal of the other%product_of_perpendicular"]],
+	["dot_product", [
+		"commutative_property_of_the_dot_product",
+		"distributive_property_of_the_dot_product",
+		"associative_property_of_the_dot_product",
+		"the_dot_product_of_a_vector_with_itself_gives_the_square_of_it's_magnitude%dot_product_with_itself",
+		"equivalence of the component-wise definition and the geometric definition of the dot product%geometric_definition",
+		"projection_of_a_vector_onto_another",
+	]],
+	["cross_product",[
+		"cross_product_definition",
+		"anticommutative_property_of_the_cross_product",
+		"distributive_property_of_the_cross_product",
+		"scalar_triple_product_is unchanged under a circular shift of its three operands",
+		"||a x b|| = ||a|| ||b|| sin(θ)%sin_rule",
+		"area_of_a_parallelogram",
+		"volume_of_a_parallelepiped",
+	]]
 ]
 
 const trigonometryLinks: Array<[string,string[]]> = [

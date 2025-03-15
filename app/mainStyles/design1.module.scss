@@ -1,4 +1,8 @@
-@import '../variables.scss';
+@use '../variables';
+
+:export {
+  minDeviceWidth: variables.$maxMobileWidth;
+}
 
 #continue{
 	background-color: #222;
@@ -79,7 +83,7 @@
 	position: relative;
 }
 
-@media only screen and (max-device-width: $maxMobileWidth) {
+@media only screen and (max-device-width: variables.$maxMobileWidth) {
 
 	#blackboard {
 		font-size: 80%;

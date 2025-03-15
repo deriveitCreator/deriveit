@@ -4,12 +4,13 @@ import ClientPart from "./ClientPart";
 import styles from "./design2.module.scss";
 import Image from 'next/image';
 import { mainTextFont, headingFont, printFont2 } from "@/app/infoStore/fonts";
+import { CompImportType } from '../page';
 
-export default function Comp(props: {topic:string, subTopic:string, content: any}){
+export default function Comp(props: CompImportType){
   return <div style={{backgroundColor:"white", minHeight: "100vh"}}>
-    <ArticleHeader text={props.content[0][1]}/>
+    <ArticleHeader text={props.content[0][1] as string}/>
     <main id={styles.main}>{
-      getBodyContent(props.topic, props.subTopic, props.content)
+      getBodyContent(props.topic, props.subTopic, props.content as [[string, any]])
     }</main>
     <section>
       {/*@ts-ignore*/}

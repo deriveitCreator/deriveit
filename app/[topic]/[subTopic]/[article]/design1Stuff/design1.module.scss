@@ -1,4 +1,8 @@
-@import '../../../../variables.scss';
+@use '../../../../variables.scss';
+
+:export {
+  minDeviceWidth: variables.$maxMobileWidth;
+}
 
 #header{
   h1{
@@ -32,6 +36,9 @@
       position: absolute;
       left: -30px;
     }
+  }
+  a{
+    text-decoration: underline;
   }
 }
 
@@ -67,7 +74,7 @@
 }
 
 
-@media (max-width: $maxMobileWidth) {
+@media (max-width: variables.$maxMobileWidth) {
   #main{
     display: block;
   }

@@ -28,14 +28,19 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
   const [boxStates, changeBS] = useState<infoBoxType>({text:"", posX:0, posY:0, visibility:"hidden"});
   const blackboardOrAd = useRef<null|string>(null);
   const mainEl: RefObject<HTMLElement | null> = useRef(null);
-  const [firstRender, updateFR] = useState(true);
+  const firstRender = useRef(true);
 
   useEffect(()=>{
-    if(firstRender){
-      if(screen.width > parseInt(styles.maxMobileWidth))
+    if(firstRender.current){
+      firstRender.current = false;
+      if(screen.width > parseInt(styles.minDeviceWidth)){
         blackboardOrAd.current = "blackboard";
-      else blackboardOrAd.current = "ad";
-      updateFR(false);
+        setFS({h2:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
+      }
+      else {
+        blackboardOrAd.current = "ad";
+        setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
+      }
     }
     else{
       //Prevent Google Ad script from changing element height
@@ -53,19 +58,14 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
           (window.adsbygoogle = window.adsbygoogle || []).push({});
         } catch (e) {}
       }
-      //set fontsize
-      if(screen.width > parseInt(styles.maxMobileWidth))
-        setFS({h2:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
-      else setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
     }
-  }, [firstRender]); // eslint-disable-line
+  }, []); // eslint-disable-line
 
   useEffect(()=>{
-    if (!firstRender){
-      //@ts-ignore
-      window.MathJax.typeset();
+    if ((!firstRender.current) && (fontSize.h2 !== "")){
+      setMathTypeSet();
       //add hover func to data titles (if desktop) 
-      if(screen.width > parseInt(styles.maxMobileWidth))
+      if(screen.width > parseInt(styles.minDeviceWidth))
         document.querySelectorAll("[data-title]").forEach((el)=>{
           el.addEventListener("mouseenter",()=>{
             changeBS({
@@ -80,7 +80,7 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
     }
   }, [fontSize]); // eslint-disable-line
 
-  let blackboardOrAdResult = <></>;
+  let blackboardOrAdResult = null;
   if (blackboardOrAd.current === "blackboard") 
     blackboardOrAdResult = <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>;
   else if (blackboardOrAd.current === "ad")
@@ -102,6 +102,16 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
       {blackboardOrAdResult}
     </main>
   </FontSizeContext.Provider>;
+}
+
+
+function setMathTypeSet(){
+  console.log("mathTypeset");
+  //@ts-ignore
+  try{window.MathJax.typeset()}
+  catch{
+    window.setTimeout(setMathTypeSet,100);
+  }
 }
 
 const Article = memo(function ArticleMemo(props: {topic:string, subTopic:string, contentArray: [[string, any]]}){

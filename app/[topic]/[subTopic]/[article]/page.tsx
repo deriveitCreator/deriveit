@@ -15,10 +15,10 @@ else{
   cacheType = "default";
 }
 
-type CompImportType = {
+export type CompImportType = {
   topic: string,
   subTopic: string,
-  content: string[][],
+  content: (string | string[])[][],
 }
 
 export async function generateMetadata(

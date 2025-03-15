@@ -1,12 +1,7 @@
-
 import { cursiveMain, headingFont } from "@/app/infoStore/fonts";
+import { ColorInfoType } from '../../../infoStore/topicsInfo';
 
-export default function getHeader(props:{styleNumber: number, name: string, styleObject?:{
-	headerBgColor: string;
-	bgColor: string;
-	footerColor: string;
-	borderColor: string;
-}}){
+export default function getHeader(props:{styleNumber: number, name: string, styleObject?: ColorInfoType}){
 	var headerText = (props.name=="error") ? "404 Error" : props.name;
 	switch(props.styleNumber){
 		case 1:

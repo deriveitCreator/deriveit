@@ -14,7 +14,7 @@ import FormBox from "@/app/components/FormBox";
 import { link } from "@/app/infoStore/paypalLink";
 import { citationList } from '@/app/infoStore/sourcesForCitation';
 
-interface infoBoxType {
+interface InfoBoxType {
   text: string;
   posX: number;
   posY: number;
@@ -22,11 +22,12 @@ interface infoBoxType {
 };
 
 export default function ClientPart(){
-  const [ExtraInfoBoxStates, changeEIBS] = useState<infoBoxType>({text:"",posX:0,posY:0,visibility:"hidden"});
+  const [ExtraInfoBoxStates, changeEIBS] = useState<InfoBoxType>({text:"",posX:0,posY:0,visibility:"hidden"});
   const [asideW, setAW] = useState("0px");
   const [showDB, changeSDB] = useState(false);
 
   useEffect(()=>{
+    document.documentElement.style.backgroundColor = "white";
     //ad stuff
     var ads = document.getElementsByClassName('adsbygoogle').length;
     for (var i = 0; i < ads; i++) {
@@ -82,7 +83,7 @@ function setMathTypeSet(){
   }
 }
 
-function ExtraInfoBox(props:infoBoxType){
+function ExtraInfoBox(props:InfoBoxType){
   return <div className={mainTextFont.className + " bg-zinc-400 border-2 border-dashed border-black fixed text-xl font-bold p-1 max-w-sm"} style={{top:props.posY,left:props.posX, visibility: props.visibility}} dangerouslySetInnerHTML={{__html: props.text}}></div>
 }
 

@@ -1,4 +1,4 @@
-@import '../../variables.scss';
+@use '../../variables.scss';
 
 .heading{
   margin-left: 40px;
@@ -34,11 +34,18 @@ footer{
     #donate{
       border: solid black 3px;
       border-left: none;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items: center;
+      padding:0px 25px;
+      margin-top:10px;
+      
     }
   }
 }
 
-@media (max-width: $maxMobileWidth) {
+@media (max-width: variables.$maxMobileWidth) {
   .heading{
     margin-left: 16px;
     margin-right: 16px;
@@ -67,7 +74,6 @@ footer{
       #donate{
         border: none;
         background-color: transparent !important;
-        color: black !important;
       }
     }
   }

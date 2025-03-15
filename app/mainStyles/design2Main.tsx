@@ -1,18 +1,18 @@
 "use client";
 
-import React, { Suspense, useState, useEffect, useRef, MutableRefObject, createRef, RefObject } from 'react';
+import React, { Suspense, useState, useEffect, useRef, createRef, RefObject } from 'react';
 import ImageWrapper from '../components/ImageWrapper';
 import styles from "./design2.module.scss";
-import { logoFont2, printFont2, headingFont, mainTextFont } from '../infoStore/fonts';
+import { logoFont2, printFont2, headingFont } from '../infoStore/fonts';
 import { IconContext } from "react-icons";
 import { FaPaintbrush, FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import StyleSelectionBox from '../components/StyleSelectionBox';
 import Link from 'next/link';
 import { link } from '../infoStore/paypalLink';
 import Image from 'next/image';
-import { topicsOrder, getTopicColorInfo, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';
 import { ParallaxProvider, useParallax } from 'react-scroll-parallax';
 import FormBox from '../components/FormBox';
+import { MainTable, BelowTables } from './design2Tables';
 
 export default function Design2(){
 	const [continueEnabled, setCE] = useState(false);
@@ -35,9 +35,11 @@ const HomeLoading=(props:{
 	useEffect(()=>{
 		document.documentElement.style.overflowY = "hidden";
 		document.documentElement.classList.add("scroll2");
+		document.documentElement.style.backgroundColor = "rgb(150,60,0)";
 		props.changeSBL(true);
 		return ()=>{
-			document.documentElement.style.overflowY = "scroll";
+			//incase continue button not pressed
+			document.documentElement.style.overflowY = "scroll"; 
 			document.documentElement.classList.remove("scroll2");
 		}
 	},[]); // eslint-disable-line
@@ -49,16 +51,14 @@ const HomeLoading=(props:{
 	  props.changeCBC(true);
 	}
   
-	return (
-	  <div id={styles.loading} className={'fixed top-0 flex justify-center w-full overflow-hidden z-10 bg-[#FFAA33] ' + wrapperH.current} style={{transition:"height 1s"}}>
+	return <div id={styles.loading} className={'fixed top-0 flex justify-center w-full overflow-hidden z-10 bg-[#FFAA33] ' + wrapperH.current} style={{transition:"height 1s"}}>
 		<div className=' grid grid-cols-2 grid-rows-2 self-center' style={{gridTemplateColumns:"auto 30px auto"}}>
-		  <ImageWrapper className='row-span-2 justify-self-center' alt="" src={`/link_logo_trans2.png`} w= 'w-32'/>
-		  <div id={styles.lineDiv} className={`row-span-2 h-full mx-3.5`}></div>
-		  <p className={printFont2.className + " py-2 text-lg font-bold"}>Imagine some useful<br/>info here</p>
-		  <button disabled={props.disabledState} onClick={buttonClick} id={styles.continue} className={headingFont.className}>{props.disabledState?"loading":"continue"}</button>
+			<ImageWrapper className='row-span-2 justify-self-center' alt="" src={`/link_logo_trans2.png`} w= 'w-32'/>
+			<div id={styles.lineDiv} className={`row-span-2 h-full mx-3.5`}></div>
+			<p className={printFont2.className + " py-2 text-lg font-bold"}>Imagine some useful<br/>info here</p>
+			<button disabled={props.disabledState} onClick={buttonClick} id={styles.continue} className={headingFont.className}>{props.disabledState?"loading":"continue"}</button>
 		</div>
-	  </div>
-	)
+	</div>
 }
 
 const MainPartMemo = React.memo(function MainPart(props:{
@@ -108,6 +108,8 @@ function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean
 		if (!props.continueButtonClicked) props.setConFunc(true);
 	}) // eslint-disable-line no-use-before-define
 
+	let belowTableType: "desktop" | "mobile" = screen.width > parseInt(styles.minDeviceWidth) ? "desktop" : "mobile";
+
 	return <>
 		<HeaderEl continueButtonClicked={props.continueButtonClicked}/>
 		<SearchEl/>
@@ -122,40 +124,9 @@ function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean
 				data-ad-format="auto"
 				data-full-width-responsive="true"
 			></ins></div>
-			<BelowTables recentlyAdded={true}/>
-			<BelowTables recentlyAdded={false}/>
+			<BelowTables type={belowTableType}/>
 		</main>
 	</>;
-}
-
-function MainTable(){
-	return <section><table id={styles.mainTable} className={logoFont2.className}>
-		{screen.width > parseInt(styles.minDeviceWidth) ? <thead><tr><th>Choose Your Topic:</th></tr></thead> : null}
-		{/*When making images in powerpoint, the width should be 646px and height should be 334px*/}
-		<tbody>
-			{topicsOrder.map((elem,i)=>{
-				if(i%2 === 0){
-					const name1 = topicsOrder[i];
-					const name2 = topicsOrder[i+1];
-					return <tr key={i}><td>
-						<div className=' w-1/2 inline-block'><Link href={`/${name1}`}>
-							<ImageWrapper alt={name1} src={`/topicsPics/${name1}.png`}/>
-						</Link></div>
-						{   
-							name2==="error"?
-							<div className=' w-1/2 inline-block'>
-								<ImageWrapper className='inline-block' alt={name2} bor={styles.uc} src={`/topicsPics/uncategorized.png`}/>
-							</div>:
-							<div className=' w-1/2 inline-block '><Link href={`/${name2}`}>
-								<ImageWrapper alt={name2} src={`/topicsPics/${name2}.png`}/>
-							</Link></div>
-						}
-					</td></tr>;
-				}
-				else return null;
-			})}
-		</tbody>
-	</table></section>
 }
 
 function HeaderEl(props:{continueButtonClicked:boolean}){
@@ -175,7 +146,9 @@ function HeaderEl(props:{continueButtonClicked:boolean}){
 	return <header id={styles.headerId} className={logoFont2.className}>
 		<div id={styles.mainheading}>
 			{h1El}
-			<IconContext.Provider value={{style:{cursor:"pointer", color: styles.brown1, ...iconResponsiveStyle}}}><FaPaintbrush onClick={iconClicked} /></IconContext.Provider>
+			<IconContext.Provider value={{style:{cursor:"pointer", color: styles.brown1, ...iconResponsiveStyle}}}>
+				<FaPaintbrush onClick={iconClicked} />
+			</IconContext.Provider>
 			<Suspense><StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/></Suspense>
 		</div>
 		{screen.width > parseInt(styles.minDeviceWidth) ? <Slideshow continueButtonClicked={props.continueButtonClicked}/>:null}
@@ -263,7 +236,7 @@ function Slideshow(props:{continueButtonClicked:boolean}){
 //For future reading, more sure to add a feature where inputting the 5th letter stops the searchDatabase function when the 4th letter was pressed.
 function SearchEl(){
 	const [displayVal, changeDisplay] = useState("none");
-	const timerRef: MutableRefObject<null|number> = useRef(null);
+	const timerRef: RefObject<null|number> = useRef(null);
 	const inputRef: RefObject<HTMLInputElement | null> = createRef<HTMLInputElement>();
 	const linksArr = useRef([""]);
 	const topicsArr = useRef([""]);
@@ -309,55 +282,6 @@ function SearchEl(){
 	
 }
 
-function BelowTables(props: {recentlyAdded: boolean}){
-	
-	if(screen.width > parseInt(styles.minDeviceWidth)){
-		return <section><table id={styles.tableForRecent}>
-			<tbody>{(props.recentlyAdded ?  getRecentlyAdded():getRecentlyEdited()).map((elem, i)=>{
-				let perPos = elem.indexOf("%");
-				let topicName = elem.substring(perPos+1, elem.indexOf("/",perPos))
-				let colorInfo = getTopicColorInfo(topicName);
-				let bgColor = colorInfo.bgColor;
-				let borderColor = colorInfo.borderColor;
-
-				if(i===0) return <tr key={0}>
-					<th scope='col' rowSpan={4} className={`border-4 ${logoFont2.className}`}>
-						<span className=' float-left'>Recently</span>
-						<span className=' float-right'>{props.recentlyAdded?"Added":"Edited"}</span>
-					</th>
-					<td style={{ backgroundColor: bgColor!, color: borderColor!, borderLeft: `solid 3px ${borderColor!}`, fontWeight:"bold"}} className={mainTextFont.className}>
-						<Link href={elem.substring(perPos+1)} dangerouslySetInnerHTML={{__html: elem.substring(0,perPos).replaceAll("_"," ")}}></Link>
-					</td>
-				</tr>;
-				else return <tr key={i}><td style={{ backgroundColor: bgColor!, color: borderColor!, borderLeft: `solid 3px ${borderColor!}`, fontWeight:"bold"}} className={mainTextFont.className}>
-					<Link href={elem.substring(perPos+1)} dangerouslySetInnerHTML={{__html: elem.substring(0,perPos).replaceAll("_"," ")}}></Link>
-				</td></tr>;
-			})}</tbody>
-		</table></section>
-	}
-	else{
-		return <section><table id={styles.tableForRecent}>
-			<thead className={logoFont2.className}><tr>
-				<th style={{textAlign:"center"}}>Recently {props.recentlyAdded?"Added":"Edited"}</th>
-			</tr></thead>
-			<tbody>{(props.recentlyAdded ?  getRecentlyAdded():getRecentlyEdited()).map((elem, i)=>{
-				let perPos = elem.indexOf("%");
-				let topicName = elem.substring(perPos+1, elem.indexOf("/",perPos));
-				let colorInfo = getTopicColorInfo(topicName);
-				
-				return <tr key={0}>
-					<td
-						style={{backgroundColor: colorInfo.bgColor!, color: colorInfo.borderColor!, fontWeight:"bold"}}
-						className={mainTextFont.className}
-					>
-						<Link href={elem.substring(perPos+1)} dangerouslySetInnerHTML={{__html: elem.substring(0,perPos).replaceAll("_"," ")}}></Link>
-					</td>
-				</tr>;
-			})}</tbody>
-		</table></section>
-	}
-}
-
 function Design2Footer() {
   const [formType, changeFT] = useState(-1);
 
@@ -370,7 +294,7 @@ function Design2Footer() {
       </p>
       <Link id={styles.paypalLink} href={link} target="_blank">
 				<p className={" text-center font-bold text-xs "}>Want To Donate?</p>
-				<Image alt="" src={"/payPal.png"} width={0} height={0} sizes="100vw" id={styles.paypalImage}/>
+				<Image alt="" src={"/payPal.png"} width={124} height={33} id={styles.paypalImage}/>
       </Link>
       <Suspense fallback={<></>}><FormBox type={formType}/></Suspense>
     </div>
