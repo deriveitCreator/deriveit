@@ -60,7 +60,8 @@ export default async function Page(
   .catch(()=> null);
 
   if (!fetchRes) return notFound();
-  const designSelectedVal = parseInt((await cookies()).get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
+  const cookiesStore = await cookies();
+  const designSelectedVal = parseInt(cookiesStore.get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
   const Comp = dynamic<CompImportType>(() => import(`./design${designSelectedVal}Stuff/Comp`));
 
   //@ts-ignore

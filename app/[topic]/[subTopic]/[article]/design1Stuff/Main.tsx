@@ -178,7 +178,7 @@ function DisplayImg(props:{src: string, maxH: string}){
 	}, []);
 
   return <div className={`flex items-center justify-center my-4 ${divW} m-auto px-6 min-h-fit relative`} style={{transition:"width 0.5s linear 1s"}}>
-    <Image alt={""} src={props.src} width={0} height={0} sizes="100vw" className={`border-black border-2 object-contain ${props.maxH} bg-white w-auto`}/>
+    <Image alt={""} src={props.src} width={0} height={0} sizes="100vw" className={`border-black border-2 object-contain ${props.maxH} bg-white w-auto`} priority/>
   </div>;
 }
 
@@ -190,7 +190,7 @@ function Figure(props:{src: string, figcaption: any}){
 	}, []);
 
   return <figure className={`flex flex-col items-center justify-center my-4 ${cursiveMain.className} ${divW} h-auto m-auto overflow-hidden`} style={{transition:"width 0.5s linear 1s"}}>
-    <Image alt={""} src={props.src} width={0} height={0} sizes="100vw" className={`w-auto h-[240px] border-black border-2 object-contain bg-white`}/>
+    <Image alt={""} src={props.src} width={0} height={0} sizes="100vw" className={`w-auto h-[240px] border-black border-2 object-contain bg-white`} priority/>
   <figcaption className=' text-lg w-4/5 text-center ' dangerouslySetInnerHTML={{__html: props.figcaption}}></figcaption>
 </figure>;
 }

@@ -59,6 +59,11 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 18.2:</b>
+- Article images are now prioritized.
+- In design2, side images have low quality.
+- `MathJax.typeset()` is now replaced with `MathJax.typesetPromise()`.
+
 <b>update 18.1:</b>
 - In 'linear_algebra', added more sections.
 - Added more content for 'discrete_mathematics'

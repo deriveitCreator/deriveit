@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, SetStateAction } from 'react';
-import {cursiveMain, chalkWriting, printFont2, logoFont2 } from "@/app/infoStore/fonts";
+import {cursiveMain, chalkWriting, logoFont2 } from "@/app/infoStore/fonts";
 import { NextFont } from 'next/dist/compiled/@next/font';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';

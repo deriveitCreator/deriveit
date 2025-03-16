@@ -9,25 +9,16 @@
   }
 }
 
-#sideButton{
-  position: fixed;
-  top: 112px;
-  color: #FFDD77;
-  background-color: #BB5500;
-  border-color: #663300;
-  border-width: 5px;
-  border-style: solid;
-  cursor: pointer;
-  border-right-style: none;
-  border-radius: 10px 0px 0px 10px;
-  transition: right 0.4s;
-  z-index: 11;
+@keyframes becomeVisible{
+  from{opacity: 0;}
+  to{opacity: 1;}
 }
-
 #main{
   margin-bottom: 40px;
   padding-left: 40px;
   padding-right: 40px;
+  opacity: 0;
+  animation: becomeVisible 0.5s linear 1s 1 forwards;
 
   .pmain{
     margin-left: 8px; 
@@ -73,6 +64,21 @@
     text-align: center;
     max-width: 95%;
   }
+}
+
+#sideButton{
+  position: fixed;
+  top: 112px;
+  color: #FFDD77;
+  background-color: #BB5500;
+  border-color: #663300;
+  border-width: 5px;
+  border-style: solid;
+  cursor: pointer;
+  border-right-style: none;
+  border-radius: 10px 0px 0px 10px;
+  transition: right 0.4s;
+  z-index: 11;
 }
 
 #mainFooter{
