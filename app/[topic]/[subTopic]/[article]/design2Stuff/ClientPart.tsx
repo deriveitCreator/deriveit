@@ -121,7 +121,7 @@ function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<strin
   }
 
   return <>
-    <button id={styles.sideButton} onClick={()=>{props.asideW==="0px"?turnOnAside():turnOffAside()}} style={{right:iconRightRef.current}}>
+    <button id={styles.sideButton} title={"Show side links"} onClick={()=>{props.asideW==="0px"?turnOnAside():turnOffAside()}} style={{right:iconRightRef.current}}>
       <IconContext.Provider value={{style:{height:"45px",margin:"0px 10px",fontWeight:"bold"}}}>
         {iconRef.current}
       </IconContext.Provider>
@@ -148,7 +148,7 @@ function AsideEl(){
       padding:"12px 0px"
     }}>
       <div className="flex flex-row justify-evenly mb-2">
-        <Link href={"/"}><IconContext.Provider value={{style:{color:"#FFDD77",border:"solid 4px #663300",borderRadius:"8px",height:"50px",width:"50px",padding:"4px",backgroundColor:"#c60"}}}><FaHome/></IconContext.Provider></Link>
+        <Link href={"www.deriveit.net"}><IconContext.Provider value={{style:{color:"#FFDD77",border:"solid 4px #663300",borderRadius:"8px",height:"50px",width:"50px",padding:"4px",backgroundColor:"#c60"}}}><FaHome/></IconContext.Provider></Link>
         <BrushButton/>
       </div>
       {topicsOrder.map((topic, i)=>{
