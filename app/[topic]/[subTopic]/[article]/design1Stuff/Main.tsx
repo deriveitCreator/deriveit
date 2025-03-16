@@ -104,7 +104,6 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
   </FontSizeContext.Provider>;
 }
 
-
 function setMathTypeSet(){
   console.log("mathTypeset");
   //@ts-ignore

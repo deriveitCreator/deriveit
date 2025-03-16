@@ -59,6 +59,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 18.4:</b>
+- Added `aria-label` text to some links.
+
 <b>update 18.3:</b>
 - In design 2, side button now has `title` attribute.
 

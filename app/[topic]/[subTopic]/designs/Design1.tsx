@@ -28,7 +28,7 @@ export default function Design1(props: MainType){
 const StyledP = (props: {text: string, link: string}) =>{
 	var pChild;
 	if(props.text.slice(-11,) !== "incomplete)")
-		pChild = <Link href={`./${props.link}`} dangerouslySetInnerHTML={{ __html: props.text }}></Link>;
+		pChild = <Link href={`./${props.link}`} dangerouslySetInnerHTML={{ __html: props.text }} aria-label={`${props.text}`}></Link>;
 	else pChild = <span dangerouslySetInnerHTML={{ __html: props.text }}></span>;
 	
 	return <p className={`${textMainServer.className} text-zinc-500 mb-1 ${styles2.articleLinks}`}>{pChild}</p>;

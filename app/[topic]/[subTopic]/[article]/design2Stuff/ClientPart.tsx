@@ -148,7 +148,7 @@ function AsideEl(){
       padding:"12px 0px"
     }}>
       <div className="flex flex-row justify-evenly mb-2">
-        <Link href={"www.deriveit.net"}><IconContext.Provider value={{style:{color:"#FFDD77",border:"solid 4px #663300",borderRadius:"8px",height:"50px",width:"50px",padding:"4px",backgroundColor:"#c60"}}}><FaHome/></IconContext.Provider></Link>
+        <Link href={"/"} aria-label="Go to home page"><IconContext.Provider value={{style:{color:"#FFDD77",border:"solid 4px #663300",borderRadius:"8px",height:"50px",width:"50px",padding:"4px",backgroundColor:"#c60"}}}><FaHome/></IconContext.Provider></Link>
         <BrushButton/>
       </div>
       {topicsOrder.map((topic, i)=>{
@@ -188,7 +188,7 @@ function FooterEl(){
         <p>If there are any equations for which you want proof for, <ClickButton type={1} func={changeType} /></p>
         <p>For any suggestion and ideas, <ClickButton type={2} func={changeType} /></p>
       </div>
-      <Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center",padding:"0px 25px", marginTop:"10px"}} target="_blank" id={styles.donate}>
+      <Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center",padding:"0px 25px", marginTop:"10px"}} target="_blank" id={styles.donate} aria-label="Want to donate?">
         <p className={"text-center font-bold text-sm"}>Want To Donate?</p>
         <Image src="/payPal.png" alt="" width={124} height={33}/>
       </Link>

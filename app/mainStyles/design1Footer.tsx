@@ -42,7 +42,7 @@ export default function FooterComp(){
 				If there are any equations for which you want proof for, <ClickButton type={1} func={changeFT} /><br/>
 				For any suggestion and ideas, <ClickButton type={2} func={changeFT} />
 			</p>
-			<Link href={link} target="_blank" className='flex flex-col justify-center items-center bg-gray-50 mx-10 border-blue-900 border-2 outline-1 outline-white outline h-min py-2 hover:no-underline'>
+			<Link href={link} target="_blank" className='flex flex-col justify-center items-center bg-gray-50 mx-10 border-blue-900 border-2 outline-1 outline-white outline h-min py-2 hover:no-underline' aria-label='Want to donate?'>
 				<p className={" text-center text-lg pb-2 text-blue-900 font-bold "+printFont.className}>Want To Donate?</p>
 				<ImageWrapper mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
 			</Link>
