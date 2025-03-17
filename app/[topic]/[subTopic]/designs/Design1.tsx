@@ -1,14 +1,14 @@
 import React from 'react';
 import { cursiveMain, textMainServer } from "@/app/infoStore/fonts";
 import Link from "next/link";
-import styles2 from "./design1.module.scss";
+import style from "./design1.module.scss";
 import { MainType } from '../page';
 
 export default function Design1(props: MainType){  
 	let curTopic = props.subTopic;
-	return <main style={{paddingBottom:"40px", opacity:'0'}} className='animate-[becomeVisible_0.5s_ease-out_0.5s_forwards]'>
+	return <main className={style.main}>
 		<section>
-			<h2 className={`${cursiveMain.className} capitalize mt-3 ${styles2.heading}`}>{curTopic[0].replaceAll("_"," ")}</h2>
+			<h2 className={`${cursiveMain.className} ${style.heading}`}>{curTopic[0].replaceAll("_"," ")}</h2>
 			{(curTopic[1]).map((val:string,i: number)=> {
 				if(val.includes("%")) return <StyledP
 					key={i}
@@ -31,5 +31,5 @@ const StyledP = (props: {text: string, link: string}) =>{
 		pChild = <Link href={`./${props.link}`} dangerouslySetInnerHTML={{ __html: props.text }} aria-label={`${props.text}`}></Link>;
 	else pChild = <span dangerouslySetInnerHTML={{ __html: props.text }}></span>;
 	
-	return <p className={`${textMainServer.className} text-zinc-500 mb-1 ${styles2.articleLinks}`}>{pChild}</p>;
+	return <p className={`${textMainServer.className} text-zinc-500 mb-1 ${style.articleLinks}`}>{pChild}</p>;
 }

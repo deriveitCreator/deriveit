@@ -9,7 +9,7 @@ export default function Style2(props: MainType){
 	let borderColor = props.styleObject!.borderColor;
 	let curTopic = props.subTopic;
 
-	return <main style={{transition:"opacity 0.5s linear",paddingBottom:"40px"}}>
+	return <main className={styles.main}>
 		<h2 className={`${headingFont.className} ${styles.heading}`} style={{color: borderColor}}>
 			{curTopic[0].replaceAll("_"," ")}
 		</h2>

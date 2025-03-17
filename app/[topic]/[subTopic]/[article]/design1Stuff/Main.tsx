@@ -96,7 +96,12 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
     </section>;
 
   return <FontSizeContext.Provider value={fontSize}>
-    <main id={styles.main} ref={mainEl} style={{opacity: blackboardOrAd.current?"1":"0"}}>
+    <main
+      id={styles.main} 
+      ref={mainEl} 
+      style={{opacity: blackboardOrAd.current?"1":"0"}} 
+      data-is-visible={blackboardOrAd.current !== null}
+    >
       <Article topic={props.topic} subTopic={props.subTopic} contentArray={props.contentArray}/>
       {blackboardOrAd.current==="blackboard" ? <ExtraInfoBox boxStates={boxStates} changeBS={changeBS}/> : null}
       {blackboardOrAdResult}
@@ -141,9 +146,9 @@ function getBodyContent(topic:string, subTopic:string, type: string, content: an
     case "figure":
       return (<Figure src={`/${topic}/${subTopic}/${content[0]}`} figcaption={content[1]} key={i}/>);
     case ("displayimg"):
-      return <DisplayImg src={`/${topic}/${subTopic}/${content}`} maxH={"max-h-[150px]"} key={i}/>;
+      return <DisplayImg src={`/${topic}/${subTopic}/${content}`} h={"h-[200px]"} key={i}/>;
     case ("displayimg2"):
-      return <DisplayImg src={`/${topic}/${subTopic}/${content}`} maxH={"max-h-[220px]"} key={i}/>;
+      return <DisplayImg src={`/${topic}/${subTopic}/${content}`} h={"h-[220px]"} key={i}/>;
     case "displayFormula":
       return (<div
         key={i}
@@ -175,15 +180,9 @@ function getBodyContent(topic:string, subTopic:string, type: string, content: an
   }
 }
 
-function DisplayImg(props:{src: string, maxH: string}){
-	const [divW,setDivW] = useState("w-0");
-
-	useEffect(()=>{
-		setDivW("w-auto");
-	}, []);
-
-  return <div className={`flex items-center justify-center my-4 ${divW} m-auto px-6 min-h-fit relative`} style={{transition:"width 0.5s linear 1s"}}>
-    <Image alt={""} src={props.src} width={0} height={0} sizes="100vw" className={`border-black border-2 object-contain ${props.maxH} bg-white w-auto`} priority quality={100}/>
+function DisplayImg(props:{src: string, h: string}){
+  return <div className={`flex items-center justify-center my-4 m-auto px-6 relative ${styles.divImg}`}>
+    <Image alt={""} src={props.src} width={0} height={0} sizes="100vw" className={`border-black border-2 object-contain ${props.h} bg-white w-auto`} priority quality={100}/>
   </div>;
 }
 

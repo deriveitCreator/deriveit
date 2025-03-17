@@ -3,8 +3,19 @@
 .heading{
   font-size: 36px ;
   line-height: 40px ;
+  margin-top: 12px;
   padding-left: 32px ;
   padding-right: 32px;
+  text-transform: capitalize;
+}
+
+@keyframes becomeVisible{
+  100%{opacity: 1;}
+}
+.main{
+  opacity: 0;
+  animation: becomeVisible 0.5s linear 1s 1 forwards;
+  padding-bottom: 40px;
 }
 
 .articleLinks{

@@ -10,6 +10,15 @@
   line-height: 40px;
 }
 
+@keyframes becomeVisible{
+  100%{opacity: 1;}
+}
+.main{
+  opacity: 0;
+  animation: becomeVisible 0.5s linear 1s 1 forwards;
+  padding-bottom: 40px;
+}
+
 .linkText{
   margin-top: 20px;
   font-size: 28px;

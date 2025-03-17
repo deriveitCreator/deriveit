@@ -4,10 +4,15 @@
   minDeviceWidth: variables.$maxMobileWidth;
 }
 
+@keyframes becomeBlack{
+  100%{opacity: 1;}
+}
 #header{
   h1{
+    opacity: 0;
     padding-left: 32px;
     padding-right: 32px;
+    animation: becomeBlack 0.5s linear 0.5s 1 forwards normal;
   }
 }
 
@@ -22,71 +27,87 @@
     text-decoration-line: underline;
     text-decoration-style: dashed;
   }
-}
 
-#article {
-  flex-grow: 1;
-  padding-left: 28px;
-  padding-right: 28px;
-  ul{
-    position: relative;
+  #article {
+    flex-grow: 1;
+    padding-left: 28px;
+    padding-right: 28px;
 
-    li::before{
-      content: '🙡';
-      position: absolute;
-      left: -30px;
+    .divImg{
+      transition:width 1s linear 0.5s;
+    }
+
+    ul{
+      position: relative;
+
+      li::before{
+        content: '🙡';
+        position: absolute;
+        left: -30px;
+      }
+    }
+    a{
+      text-decoration: underline;
     }
   }
-  a{
-    text-decoration: underline;
+
+  #adInBlackBloard {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+
+    div:has([data-ad-status=unfilled]){
+      display: none;
+    }
+
+    &:not(:has([data-ad-status=unfilled])) #blackBoardDiv{
+      display: none;
+    }
   }
-}
 
-#adInBlackBloard {
-  flex: auto;
-  display: flex;
-  flex-direction: column;
+  #adBelowArticle{
+    margin-bottom:20px;
+    ins{
+      text-align:center;
+      max-width:95%;
+      overflow-x:auto;
+      height: auto !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      display:block;
+    }
+  }
 
-  div:has([data-ad-status=unfilled]){
+  #adBelowArticle:has([data-ad-status=unfilled]){
     display: none;
   }
+}
 
-  &:not(:has([data-ad-status=unfilled])) #blackBoardDiv{
-    display: none;
+#main[data-is-visible=false]{
+  .divImg{
+    width: 0;
   }
 }
-
-#adBelowArticle{
-  margin-bottom:20px;
-  ins{
-    text-align:center;
-    max-width:95%;
-    overflow-x:auto;
-    height: auto !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    display:block;
+#main[data-is-visible=true]{
+  .divImg{
+    width: calc-size(auto,size);
   }
 }
-
-#adBelowArticle:has([data-ad-status=unfilled]){
-  display: none;
-}
-
 
 @media (max-width: variables.$maxMobileWidth) {
-  #main{
-    display: block;
-  }
   #header{
     h1{
       padding-left: 8px;
       padding-right: 8px;
     }
   }
-  #article{
-    flex-grow: none;
-    padding-left: 12px ;
-    padding-right: 12px ;
+  #main{
+    display: block;
+
+    #article{
+      flex-grow: none;
+      padding-left: 12px ;
+      padding-right: 12px ;
+    }
   }
 }

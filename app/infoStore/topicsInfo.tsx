@@ -268,7 +268,7 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"0! = 1%0fac",
 		"the formula of permutations%factorials_and_permutations",
 		"the formula of combinations%com",
-		"using_combinations_to_find_a_number_in_the_Pascal's_triangle%pascals_triangle.tsx",
+		"using_combinations_to_find_a_number_in_the_Pascal's_triangle%pascals_triangle",
 		"number of ways of arranging n objects with k identical objects%binomial_theorem"
 	]],
 	["sequence_and_series", [

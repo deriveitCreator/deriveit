@@ -59,6 +59,10 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 18.8:</b>
+- Some of the tailwind css animation is shifted into the `.scss` file.
+- For design 1, `width` now transition from 0 to `auto`.
+
 <b>update 18.7:</b>
 - Added the `styleNum` prop to one of the footer.
 - Added a `circle_logo.png`.
