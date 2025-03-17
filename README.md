@@ -59,6 +59,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 18.6:</b>
+- In `layout.tsx`, moved `Script` out of `Head`.
+
 <b>update 18.5:</b>
 - Renamed `components` to `global_components`.
 - Moved `design1Footer` to `global_components`.

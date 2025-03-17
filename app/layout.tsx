@@ -4,7 +4,6 @@ import "./global.scss";
 import dynamic from 'next/dynamic';
 import Script from 'next/script';
 import { DEFAULT_DESIGN_SELECTION } from './infoStore/designInfo';
-import Head from 'next/head';
 
 export async function generateMetadata(): Promise<Metadata> {
   const cookieVal = parseInt((await cookies()).get("designSelected")?.value!);
@@ -28,11 +27,8 @@ export default async function RootLayout({children}: {children: React.ReactNode}
   if(cookieVal === 1){
     const FooterEl = dynamic(() =>  import(`./global_components/design1Footer`));
     return <html lang="en" className={`scroll1`} style={{backgroundColor:"rgb(249 250 251)"}}>
-      <Head>
-        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471"
+      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471"
         crossOrigin="anonymous"/>
-      </Head>
-      {/*Putting this Script in Head is leading to undefined error */}
       <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
       <body suppressHydrationWarning>
         <div style={{height:"auto",minHeight:"100vh"}}>{children}</div>
@@ -56,10 +52,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
     </html>
   }
   else if (cookieVal === 2) return <html lang="en">
-    <Head>
-      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471" crossOrigin="anonymous"/>
-    </Head>
-    {/*Putting this Script in Head is leading to undefined error */}
+    <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471" crossOrigin="anonymous"/>
     <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
     <body suppressHydrationWarning>{children}</body>
   </html>
