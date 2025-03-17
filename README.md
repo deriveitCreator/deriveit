@@ -17,7 +17,7 @@ One major thing I added was the design feature, where you can choose different d
 	- `layout.tsx`
 	- `page.tsx`
 	- `variables.scss`
-	- `components`: stores some home-page components
+	- `global_components`: stores some home-page components
 	- `mainStyles`: this folder stores all the different designs for the main part of the homepage. By 'main part', I mean excluding footer.
 	- `[topic]`: when you select a particular topic in the home page, this is the folder you are routed to.
 	- `infoStore`: store website info that is not found in other folders; all the article content is stored here.
@@ -26,11 +26,11 @@ One major thing I added was the design feature, where you can choose different d
 
 - The `footerStyles` folder contains the component for the footer, the are multiple footers that will be used depending on the chosen style.
 
-- The `components` folder currently contains three components for the index page:
-	- `BlackBoard.tsx`: for the giant blackboard on the home page
-	- `ImageWrapper.tsx`: a wrapper for images (this is a global component)
-	- `StyleSelectionBox.tsx`: a dialog box for choosing different styles
-	- `FormBox.tsx`: the website has a feedback form, and the code for it is stored in this file.
+- The `global_components` folder currently contains three components for the index page:
+	- `design1Footer.tsx`.
+	- `ImageWrapper.tsx`: a wrapper for images.
+	- `StyleSelectionBox.tsx`: a dialog box for choosing different styles.
+	- `FormBox.tsx`: a feedback form.
 
 - The `infoStore` folder is the default place where all the information is stored:
 	- `designInfo.tsx`: for storing the default design number.
@@ -58,6 +58,12 @@ One major thing I added was the design feature, where you can choose different d
 ## Updates
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
+
+<b>update 18.5:</b>
+- Renamed `components` to `global_components`.
+- Moved `design1Footer` to `global_components`.
+- `next-client-cookies` is no longer used.
+- In `/layout.tsx`, the first `Script` is now in the `Head` element.
 
 <b>update 18.4:</b>
 - Added `aria-label` text to some links.

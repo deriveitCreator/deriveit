@@ -1,4 +1,3 @@
-import React from "react";
 import ArticleHeader from "./Header";
 import Main from "./Main";
 

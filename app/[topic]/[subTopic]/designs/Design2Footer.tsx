@@ -1,7 +1,7 @@
 "use client"
 
 import React, { Suspense, useState, useEffect } from 'react';
-import FormBox from '@/app/components/FormBox';
+import FormBox from '@/app/global_components/FormBox';
 import Image from 'next/image';
 import { printFont2 } from "@/app/infoStore/fonts";
 import Link from "next/link";

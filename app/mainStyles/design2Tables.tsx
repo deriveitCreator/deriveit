@@ -1,6 +1,6 @@
 import styles from "./design2.module.scss";
 import { topicsOrder } from '../infoStore/topicsInfo';
-import ImageWrapper from '../components/ImageWrapper';
+import ImageWrapper from '../global_components/ImageWrapper';
 import Link from 'next/link';
 import { logoFont2, mainTextFont } from '../infoStore/fonts';
 import { getTopicColorInfo, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';

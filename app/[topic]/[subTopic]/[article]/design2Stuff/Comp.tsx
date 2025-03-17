@@ -1,4 +1,3 @@
-import React from "react";
 import ArticleHeader from "./Header";
 import ClientPart from "./ClientPart";
 import styles from "./design2.module.scss";
@@ -28,9 +27,9 @@ export default function Comp(props: CompImportType){
   </div>
 }
 
+const imageParentStyle: any = {position:"relative",display:"flex",justifyContent:"center",alignContent:"center",marginTop:"16px",marginBottom:"16px"};
 function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
   var bodyChildren = [];
-  var imageParentStyle: any = {position:"relative",display:"flex",justifyContent:"center",alignContent:"center",marginTop:"16px",marginBottom:"16px"};
   for(let i = 1; i<j.length; i++){
     switch(j[i][0]){
       case "h2":

@@ -1,11 +1,11 @@
 "use client"
 
 import Link from 'next/link';
-import ImageWrapper from '../components/ImageWrapper';
+import ImageWrapper from './ImageWrapper';
 import { printFont, cursiveMain } from '../infoStore/fonts';
-import FormBox from '../components/FormBox';
+import FormBox from './FormBox';
 import { Suspense, useEffect, useState } from 'react';
-import styles from "./design1.module.scss";
+import styles from "../mainStyles/design1.module.scss";
 import { link } from '../infoStore/paypalLink';
 
 const footerPStyle = {
@@ -47,7 +47,7 @@ export default function FooterComp(){
 				<ImageWrapper mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
 			</Link>
 			{/*@ts-ignore */}
-			<Suspense fallback={<></>}><FormBox type={formType}/></Suspense>
+			<Suspense fallback={<></>}><FormBox type={formType} styleNum={1}/></Suspense>
 		</footer>;
 	else
 		return <footer style={{gridTemplateColumns:"50% 50%", ...footerIdStyle}}>
@@ -64,7 +64,7 @@ export default function FooterComp(){
 				<ImageWrapper mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
 			</Link>
 			{/*@ts-ignore */}
-			<Suspense fallback={<></>}><FormBox type={formType}/></Suspense>
+			<Suspense fallback={<></>}><FormBox type={formType} styleNum={1}/></Suspense>
 		</footer>;
 }
 

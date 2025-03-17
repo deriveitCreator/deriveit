@@ -9,7 +9,7 @@ import { annotate } from 'rough-notation';
 import { Ref, createContext, useContext, useEffect, useRef, useState, Component, memo, createRef, RefObject, Dispatch, SetStateAction } from "react";
 import Link from "next/link";
 import { citationList } from '@/app/infoStore/sourcesForCitation';
-import StyleSelectionBox from "@/app/components/StyleSelectionBox";
+import StyleSelectionBox from "@/app/global_components/StyleSelectionBox";
 import styles from "./design1.module.scss";
 import React from "react";
 import Image from 'next/image';
@@ -105,11 +105,17 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
 }
 
 function setMathTypeSet(){
-  console.log("mathTypeset");
-  //@ts-ignore
-  try{window.MathJax.typeset()}
-  catch{
-    window.setTimeout(setMathTypeSet,100);
+  try{
+    //@ts-ignore
+    window.MathJax.typesetPromise()
+    .catch((err: any)=>{
+      console.log(err);
+      window.setTimeout(setMathTypeSet,250);
+    })
+  }
+  catch(err){
+    console.log(err);
+    window.setTimeout(setMathTypeSet,250);
   }
 }
 
@@ -177,7 +183,7 @@ function DisplayImg(props:{src: string, maxH: string}){
 	}, []);
 
   return <div className={`flex items-center justify-center my-4 ${divW} m-auto px-6 min-h-fit relative`} style={{transition:"width 0.5s linear 1s"}}>
-    <Image alt={""} src={props.src} width={0} height={0} sizes="100vw" className={`border-black border-2 object-contain ${props.maxH} bg-white w-auto`} priority/>
+    <Image alt={""} src={props.src} width={0} height={0} sizes="100vw" className={`border-black border-2 object-contain ${props.maxH} bg-white w-auto`} priority quality={100}/>
   </div>;
 }
 
@@ -189,7 +195,7 @@ function Figure(props:{src: string, figcaption: any}){
 	}, []);
 
   return <figure className={`flex flex-col items-center justify-center my-4 ${cursiveMain.className} ${divW} h-auto m-auto overflow-hidden`} style={{transition:"width 0.5s linear 1s"}}>
-    <Image alt={""} src={props.src} width={0} height={0} sizes="100vw" className={`w-auto h-[240px] border-black border-2 object-contain bg-white`} priority/>
+    <Image alt={""} src={props.src} width={0} height={0} sizes="100vw" className={`w-auto h-[240px] border-black border-2 object-contain bg-white`} priority quality={100}/>
   <figcaption className=' text-lg w-4/5 text-center ' dangerouslySetInnerHTML={{__html: props.figcaption}}></figcaption>
 </figure>;
 }
@@ -384,7 +390,7 @@ function BrushPaint(props: {brushRef: RefObject<HTMLButtonElement | null>}){
         <FaPaintbrush/>
       </IconContext.Provider>
     </button>
-    {showDB ? <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/> : null}
+    {showDB ? <StyleSelectionBox showDB={showDB} changeSDB={changeSDB} styleNum={1}/> : null}
   </>
 }
 

@@ -8,9 +8,9 @@ import { FaChevronLeft, FaChevronRight, FaPaintbrush } from "react-icons/fa6";
 import { topicsOrder } from "@/app/infoStore/topicsInfo";
 import { FaHome } from "react-icons/fa";
 import Link from "next/link";
-import StyleSelectionBox from "@/app/components/StyleSelectionBox";
+import StyleSelectionBox from "@/app/global_components/StyleSelectionBox";
 import Image from 'next/image';
-import FormBox from "@/app/components/FormBox";
+import FormBox from "@/app/global_components/FormBox";
 import { link } from "@/app/infoStore/paypalLink";
 import { citationList } from '@/app/infoStore/sourcesForCitation';
 
@@ -70,17 +70,24 @@ export default function ClientPart(){
       visibility = {ExtraInfoBoxStates.visibility}
     />
     <SideOption asideW={asideW} setAW={setAW}/>
-    <StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/>
+    <StyleSelectionBox showDB={showDB} changeSDB={changeSDB} styleNum={2}/>
     <FooterEl/>
   </>
 }
 
 function setMathTypeSet(){
-  //@ts-ignore
-  window.MathJax.typesetPromise()
-  .catch(()=>{
+  try{
+    //@ts-ignore
+    window.MathJax.typesetPromise()
+    .catch((err: any)=>{
+      console.log(err);
+      window.setTimeout(setMathTypeSet,250);
+    })
+  }
+  catch(err){
+    console.log(err);
     window.setTimeout(setMathTypeSet,250);
-  })
+  }
 }
 
 function ExtraInfoBox(props:InfoBoxType){
@@ -170,7 +177,7 @@ function BrushButton(){
   
   return <>
     <button onClick={iconClicked} title="Change the site's style"><IconContext.Provider value={{style:{color:"#FFDD77",border:"solid 4px #663300",borderRadius:"8px",height:"50px",width:"50px",padding:"4px",backgroundColor:"#c60"}}}><FaPaintbrush/></IconContext.Provider></button>
-    <Suspense><StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/></Suspense>
+    <Suspense><StyleSelectionBox showDB={showDB} changeSDB={changeSDB} styleNum={2}/></Suspense>
   </>
 }
 
@@ -193,7 +200,7 @@ function FooterEl(){
         <Image src="/payPal.png" alt="" width={124} height={33}/>
       </Link>
     </div>
-    <Suspense fallback={<></>}><FormBox type={formType}/></Suspense>
+    <Suspense fallback={<></>}><FormBox type={formType} styleNum={2}/></Suspense>
   </footer>;
 }
 

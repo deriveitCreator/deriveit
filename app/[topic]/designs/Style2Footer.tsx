@@ -1,7 +1,7 @@
 "use client"
 
 import React, { Suspense, useEffect, useState } from 'react';
-import FormBox from '@/app/components/FormBox';
+import FormBox from '@/app/global_components/FormBox';
 import Image from 'next/image';
 import { printFont2 } from "@/app/infoStore/fonts";
 import Link from "next/link";
@@ -32,7 +32,7 @@ export default function FooterEl(props: ColorInfoType){
         <Image src="/payPal.png" alt="" height={24} width={90}/>
       </Link>
     </div>
-    <Suspense fallback={<></>}><FormBox type={formType}/></Suspense>
+    <Suspense fallback={<></>}><FormBox type={formType} styleNum={2}/></Suspense>
   </footer>;
 }
 function ClickButton(props: {type: number, func: React.Dispatch<React.SetStateAction<number>>}){

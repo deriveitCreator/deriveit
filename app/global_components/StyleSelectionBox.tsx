@@ -3,10 +3,10 @@ import {cursiveMain, chalkWriting, logoFont2 } from "@/app/infoStore/fonts";
 import { NextFont } from 'next/dist/compiled/@next/font';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { DEFAULT_DESIGN_SELECTION } from '../infoStore/designInfo';
-import { useCookies } from 'next-client-cookies';
 
-export default function StyleSelectionBox(props: {showDB: boolean, changeSDB: React.Dispatch<SetStateAction<boolean>>}) {
+export default function StyleSelectionBox(props:
+	{showDB: boolean, changeSDB: React.Dispatch<SetStateAction<boolean>>, styleNum: number}
+) {
 	const dialogRef = useRef<HTMLDialogElement>(null);
 	const scrollVal = useRef("");
 	const router = useRouter();
@@ -30,7 +30,7 @@ export default function StyleSelectionBox(props: {showDB: boolean, changeSDB: Re
 		else alert("There was an error with the cookies.\nPlease report this.");
 	}
 
-	switch(parseInt(useCookies().get('designSelected')!) || DEFAULT_DESIGN_SELECTION){
+	switch(props.styleNum){
 		case 1: return <dialog onClose={diaClose} ref={dialogRef} className=' outline-none border-black border-8 rounded-xl bg-gray-100'>
 			<h3 className={cursiveMain.className + " text-6xl mt-5 text-center"}>Styles</h3>
 			<p className={cursiveMain.className + " text-xl text-center"}>(uses cookies)</p>

@@ -2,7 +2,6 @@ import { cookies } from 'next/headers';
 import { DEFAULT_DESIGN_SELECTION } from '@/app/infoStore/designInfo';
 import { notFound } from 'next/navigation';
 import dynamic from 'next/dynamic';
-import React from 'react';
 
 var domainName: string;
 var cacheType: "default" | "no-store";

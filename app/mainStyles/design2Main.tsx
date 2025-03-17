@@ -1,17 +1,17 @@
 "use client";
 
 import React, { Suspense, useState, useEffect, useRef, createRef, RefObject } from 'react';
-import ImageWrapper from '../components/ImageWrapper';
+import ImageWrapper from '../global_components/ImageWrapper';
 import styles from "./design2.module.scss";
 import { logoFont2, printFont2, headingFont } from '../infoStore/fonts';
 import { IconContext } from "react-icons";
 import { FaPaintbrush, FaAngleRight, FaAngleLeft } from "react-icons/fa6";
-import StyleSelectionBox from '../components/StyleSelectionBox';
+import StyleSelectionBox from '../global_components/StyleSelectionBox';
 import Link from 'next/link';
 import { link } from '../infoStore/paypalLink';
 import Image from 'next/image';
 import { ParallaxProvider, useParallax } from 'react-scroll-parallax';
-import FormBox from '../components/FormBox';
+import FormBox from '../global_components/FormBox';
 import { MainTable, BelowTables } from './design2Tables';
 
 export default function Design2(){
@@ -149,7 +149,7 @@ function HeaderEl(props:{continueButtonClicked:boolean}){
 			<IconContext.Provider value={{style:{cursor:"pointer", color: styles.brown1, ...iconResponsiveStyle}}}>
 				<FaPaintbrush onClick={iconClicked} />
 			</IconContext.Provider>
-			<Suspense><StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/></Suspense>
+			<Suspense><StyleSelectionBox showDB={showDB} changeSDB={changeSDB} styleNum={2}/></Suspense>
 		</div>
 		{screen.width > parseInt(styles.minDeviceWidth) ? <Slideshow continueButtonClicked={props.continueButtonClicked}/>:null}
 	</header>;
@@ -296,7 +296,7 @@ function Design2Footer() {
 				<p className={" text-center font-bold text-xs "}>Want To Donate?</p>
 				<Image alt="" src={"/payPal.png"} width={124} height={33} id={styles.paypalImage}/>
       </Link>
-      <Suspense fallback={<></>}><FormBox type={formType}/></Suspense>
+      <Suspense fallback={<></>}><FormBox type={formType} styleNum={2}/></Suspense>
     </div>
   </footer>;
 }

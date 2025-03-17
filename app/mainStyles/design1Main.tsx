@@ -5,11 +5,11 @@ import styles from "./design1.module.scss";
 import { chalkWriting, cursiveMain } from '../infoStore/fonts';
 import Link from 'next/link';
 import { topicsOrder, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';
-import { ImageWrapper } from "../components/ImageWrapper";
+import { ImageWrapper } from "../global_components/ImageWrapper";
 import { useRouter } from 'next/navigation';
 import { IconContext } from "react-icons";
 import { FaPaintbrush } from "react-icons/fa6";
-import StyleSelectionBox from '../components/StyleSelectionBox';
+import StyleSelectionBox from '../global_components/StyleSelectionBox';
 import { Blackboard } from './design1BlackBoard';
 
 const design1States = {
@@ -127,7 +127,7 @@ function HeaderEl(){
   return <header className={cursiveMain.className + " px-6 after:clear-both after:block"}>
     <h1 className=' float-left text-3xl py-2'>Deriveit.net</h1>
     <IconContext.Provider value={{style:{float:"right",cursor:"pointer",height:"52px",width:"20px",paddingTop:"14px",paddingBottom:"18px"}}}><FaPaintbrush onClick={()=>{changeSDB(true)}} /></IconContext.Provider>
-    <Suspense><StyleSelectionBox showDB={showDB} changeSDB={changeSDB}/></Suspense>
+    <Suspense><StyleSelectionBox showDB={showDB} changeSDB={changeSDB} styleNum={1}/></Suspense>
   </header>;
 }
 

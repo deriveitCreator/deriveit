@@ -1,9 +1,7 @@
 import { useEffect, useRef, FormEvent, useState } from "react";
 import { cursiveMain, printFont, chalkWriting, printFont2, logoFont2 } from '../infoStore/fonts';
-import { useCookies } from "next-client-cookies";
-import { DEFAULT_DESIGN_SELECTION } from "../infoStore/designInfo";
 
-export default function FormBox(props: {type: number}){
+export default function FormBox(props: {type: number, styleNum: number}){
 	const dialogRef = useRef<HTMLDialogElement>(null);
 	const formRes = useRef("");
 	const [submitted,changeSubmitted] = useState(false);
@@ -51,7 +49,7 @@ export default function FormBox(props: {type: number}){
 		changeSubmitted(false);
 	}
 
-	switch(parseInt(useCookies().get('designSelected')!) || DEFAULT_DESIGN_SELECTION){
+	switch(props.styleNum){
 		case 1: return <dialog onClose={diaClose} ref={dialogRef} className=' outline-none border-black border-4 rounded-xl bg-gray-200'>{submitted ?
 			<p className={"m-4 text-3xl w-96 "+cursiveMain.className}>Submitting...</p> : <>
 			<div className={`w-full text-right px-2 text-2xl`}><button onClick={()=>{dialogRef.current?.close()}} dangerouslySetInnerHTML={{__html:"𝑥"}} className=" outline-none"></button></div>
