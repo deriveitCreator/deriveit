@@ -106,7 +106,7 @@ function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean
 			} catch (e) {}
 		}
 		if (!props.continueButtonClicked) props.setConFunc(true);
-	}) // eslint-disable-line no-use-before-define
+	}, []) // eslint-disable-line no-use-before-define
 
 	let belowTableType: "desktop" | "mobile" = screen.width > parseInt(styles.minDeviceWidth) ? "desktop" : "mobile";
 

@@ -59,6 +59,10 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 18.9:</b>
+- The links in `[topic]` and `[subTopic]` appear after 0.5s.
+- Made some coding changes with useEffects and blackboard in design 1.
+
 <b>update 18.8:</b>
 - Some of the tailwind css animation is shifted into the `.scss` file.
 - For design 1, `width` now transition from 0 to `auto`.

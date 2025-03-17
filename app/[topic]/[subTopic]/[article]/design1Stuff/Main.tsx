@@ -27,12 +27,10 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
   const [fontSize, setFS] = useState({h2:"", main: "", quote: ""});
   const [boxStates, changeBS] = useState<infoBoxType>({text:"", posX:0, posY:0, visibility:"hidden"});
   const blackboardOrAd = useRef<null|string>(null);
-  const mainEl: RefObject<HTMLElement | null> = useRef(null);
-  const firstRender = useRef(true);
+  const [firstRender, changeFR] = useState(true);
 
   useEffect(()=>{
-    if(firstRender.current){
-      firstRender.current = false;
+    if(firstRender){
       if(screen.width > parseInt(styles.minDeviceWidth)){
         blackboardOrAd.current = "blackboard";
         setFS({h2:"text-4xl", main: "text-[28px]", quote: "text-2xl"});
@@ -41,31 +39,11 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
         blackboardOrAd.current = "ad";
         setFS({h2:"text-3xl", main: "text-2xl", quote: "text-xl"});
       }
+      changeFR(false);
     }
     else{
-      //Prevent Google Ad script from changing element height
-      let elToObserve = mainEl.current!;
-      const observer = new MutationObserver(() => {elToObserve.style.minHeight = '100vh'});
-      observer.observe(elToObserve, {
-        attributes: true,
-        attributeFilter: ['style']
-      });
-      //ad stuff
-      var ads = document.getElementsByClassName('adsbygoogle').length;
-      for (var i = 0; i < ads; i++) {
-        try {
-          //@ts-ignore
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {}
-      }
-    }
-  }, []); // eslint-disable-line
-
-  useEffect(()=>{
-    if ((!firstRender.current) && (fontSize.h2 !== "")){
-      setMathTypeSet();
       //add hover func to data titles (if desktop) 
-      if(screen.width > parseInt(styles.minDeviceWidth))
+      if(screen.width > parseInt(styles.minDeviceWidth)){
         document.querySelectorAll("[data-title]").forEach((el)=>{
           el.addEventListener("mouseenter",()=>{
             changeBS({
@@ -77,13 +55,28 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
           });
           el.addEventListener("mouseleave",()=>{changeBS({text: "",posX: 0,posY: 0,visibility:"hidden"})});
         });
+      }
+      //ad stuff
+      var ads = document.getElementsByClassName('adsbygoogle').length;
+      for (var i = 0; i < ads; i++) {
+        try {
+          //@ts-ignore
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {}
+      }
+    }
+  }, [firstRender]); // eslint-disable-line
+
+  useEffect(()=>{
+    if ((!firstRender) && (fontSize.h2 !== "")){
+      setMathTypeSet();
     }
   }, [fontSize]); // eslint-disable-line
 
   let blackboardOrAdResult = null;
   if (blackboardOrAd.current === "blackboard") 
     blackboardOrAdResult = <SideBlackBoard fontSizeMain={fontSize.main} setFS={setFS}/>;
-  else if (blackboardOrAd.current === "ad")
+  else if (blackboardOrAd.current === "ad") {
     blackboardOrAdResult = <section>
       {/*@ts-ignore*/}
       <div id={styles.adBelowArticle} align="center"><ins
@@ -94,11 +87,10 @@ export default function Main(props: {topic: string, subTopic: string, contentArr
         data-ad-slot="6823528647"
       ></ins></div>
     </section>;
-
+  }
   return <FontSizeContext.Provider value={fontSize}>
     <main
       id={styles.main} 
-      ref={mainEl} 
       style={{opacity: blackboardOrAd.current?"1":"0"}} 
       data-is-visible={blackboardOrAd.current !== null}
     >
@@ -344,7 +336,7 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
       <p className=" text-center text-xl">Advertisement:</p>
     </div>
     <div id={styles.adInBlackBloard}>
-      <div id={styles.blackBoardDiv} className=" border-2 border-dashed border-zinc-300 m-2 flex-auto">{this.getBlackBoardContent()}</div>
+      <div id={styles.blackBoardDiv} className="border-zinc-300">{this.getBlackBoardContent()}</div>
       {/*@ts-ignore*/}
       <div align="center" style={{marginTop:"10px", marginBottom:"10px", flex:"auto"}}><ins
         className="adsbygoogle"

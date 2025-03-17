@@ -56,6 +56,13 @@
     display: flex;
     flex-direction: column;
 
+    #blackBoardDiv{
+      border-width: 2px;
+      border-style: dashed;
+      margin: 8px;
+      flex: 1 1 auto;
+    }
+
     div:has([data-ad-status=unfilled]){
       display: none;
     }

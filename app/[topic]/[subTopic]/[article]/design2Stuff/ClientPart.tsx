@@ -29,15 +29,9 @@ export default function ClientPart(){
   useEffect(()=>{
     window.setTimeout(setMathTypeSet,100);
     document.documentElement.style.backgroundColor = "white";
-    //ad stuff
-    var ads = document.getElementsByClassName('adsbygoogle').length;
-    for (var i = 0; i < ads; i++) {
-      try {
-        //@ts-ignore
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (e) {}
-    }
-    
+    document.querySelectorAll("cite").forEach(el =>{
+      el.innerHTML = el.getAttribute("title") ? citationList[el.getAttribute("title")!] : "Error, please report this!";
+    });
     if (screen.width > parseInt(styles.maxMobileWidth)){
       document.querySelectorAll("[data-title]").forEach((el)=>{
         el.addEventListener("mouseenter",()=>{
@@ -51,10 +45,14 @@ export default function ClientPart(){
         el.addEventListener("mouseleave",()=>{changeEIBS({text: "",posX: 0,posY: 0,visibility:"hidden"})});
       });
     }
-    document.querySelectorAll("cite").forEach(el =>{
-      el.innerHTML = el.getAttribute("title") ? citationList[el.getAttribute("title")!] : "Error, please report this!";
-    });
-
+    //ad stuff
+    var ads = document.getElementsByClassName('adsbygoogle').length;
+    for (var i = 0; i < ads; i++) {
+      try {
+        //@ts-ignore
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {}
+    }
     //incase exiting via side bar links
     return ()=>{
       document.documentElement.classList.remove("scroll2");
