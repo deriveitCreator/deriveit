@@ -32,7 +32,7 @@ export default function FooterEl(props: ColorInfoType){
         <Image src="/payPal.png" alt="" height={24} width={90}/>
       </Link>
     </div>
-    <Suspense fallback={<></>}><FormBox type={formType}/></Suspense>
+    <Suspense fallback={<></>}><FormBox type={formType} styleNum={2}/></Suspense>
   </footer>;
 }
 function ClickButton(props: {type: number, func: React.Dispatch<React.SetStateAction<number>>}){

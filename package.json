@@ -1,6 +1,6 @@
 {
   "name": "deriveit",
-  "version": "18.6.0",
+  "version": "18.7.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
