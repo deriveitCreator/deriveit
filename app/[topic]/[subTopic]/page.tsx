@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { DEFAULT_DESIGN_SELECTION } from '@/app/infoStore/designInfo';
-import { getTopicColorInfo, ColorInfoType } from '../../infoStore/topicsInfo';
+import { getTopicColorInfo, ColorInfoType, getTopicLinks } from '../../infoStore/topicsInfo';
 import SubTopicHeader from './designs/SubTopicHeader';
 import dynamic from 'next/dynamic';
 
@@ -22,14 +22,7 @@ export default async function Page(props: { params: Promise<{ topic: string, sub
   const decodedTopic = decodeURIComponent(params.topic);
   const decodedSubTopic = decodeURIComponent(params.subTopic);
 
-  const topicLinks = await fetch(domainName + "/infoStore/getTopicLinks", {
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body: JSON.stringify({topic: decodedTopic, subTopic: decodedSubTopic}),
-  })
-  .then(res => res.json())
-  .catch(() => null);
-
+  let topicLinks = getTopicLinks(decodedTopic);
   if (!topicLinks) return notFound();
 
   const emptyCurSub = ["",[""]];
@@ -51,11 +44,9 @@ export default async function Page(props: { params: Promise<{ topic: string, sub
   </>
   else if(designSelectedVal === 2) {
     const styleObject = getTopicColorInfo(decodedTopic);
-    const FooterEl = dynamic<ColorInfoType>(() => import(`@/app/[topic]/designs/Style2Footer`));
     return <div style={{backgroundColor: styleObject.bgColor!, minHeight:"100vh"}}>
       <SubTopicHeader styleNumber={designSelectedVal} styleObject={styleObject} name={decodedTopic.replaceAll("_"," ")}/>
       <MainComp topic={decodedTopic} subTopic={curSubTopic} styleObject={styleObject}/>
-      <FooterEl borderColor={styleObject.borderColor!} footerColor={styleObject.footerColor!} headerBgColor={styleObject.headerBgColor!} bgColor={styleObject.bgColor!}/>
     </div>
   }
   else throw new Error("Wrong design number value");

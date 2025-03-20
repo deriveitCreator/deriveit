@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import dynamic from 'next/dynamic';
 
 var domainName: string;
-var cacheType: "default" | "no-store";
+var cacheType: RequestCache;
 if((!process.env.NODE_ENV || process.env.NODE_ENV === 'development')){
   domainName = "http://localhost:3001";
   cacheType = "no-store";
@@ -20,49 +20,17 @@ export type CompImportType = {
   content: (string | string[])[][],
 }
 
-export async function generateMetadata(
-  props: { params: Promise<{ topic:string, subTopic: string, article: string }> }
-) {
-  const params = await props.params;
-  const topic2 = decodeURIComponent(params.topic.toLowerCase());
-  const subTopic2 = decodeURIComponent(params.subTopic);
-  const article2 = decodeURIComponent(params.article);
-
-  const fetchRes = await fetch(domainName + "/infoStore/getArticleContent", {
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body: JSON.stringify({topic: topic2, subTopic: subTopic2, article: article2}),
-    cache: cacheType
-  }).then((res) => res.json())
-  .catch(()=> null);
-
-  return {
-    title:  fetchRes ? fetchRes[0] : "404 error",
-    robots: fetchRes ? "index, follow" : "noindex"
-  }
-}
-
 export default async function Page(
   props: { params: Promise<{ topic:string, subTopic: string, article: string }> }
 ) {
   const params = await props.params;
   const topic2 = decodeURIComponent(params.topic.toLowerCase());
-  const subTopic2 = decodeURIComponent(params.subTopic);
-  const article2 = decodeURIComponent(params.article);
+  const subTopic2 = decodeURIComponent(params.subTopic)
+  let {default: content} = await import(`../../../infoStore/contents/${topic2}/${subTopic2}/${decodeURIComponent(params.article)}`);
 
-  const fetchRes = await fetch(domainName + "/infoStore/getArticleContent", {
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body: JSON.stringify({topic: topic2, subTopic: subTopic2, article: article2}),
-    cache: cacheType
-  }).then((res) => res.json())
-  .catch(()=> null);
-
-  if (!fetchRes) return notFound();
-  const cookiesStore = await cookies();
-  const designSelectedVal = parseInt(cookiesStore.get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
+  if (!content) return notFound();
+  const designSelectedVal = parseInt((await cookies()).get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
   const Comp = dynamic<CompImportType>(() => import(`./design${designSelectedVal}Stuff/Comp`));
-
   //@ts-ignore
-  return <Comp topic={topic2} subTopic={subTopic2} content={fetchRes[1]}/>
+  return <Comp topic={topic2} subTopic={subTopic2} content={content}/>
 }

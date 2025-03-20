@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { DEFAULT_DESIGN_SELECTION } from '@/app/infoStore/designInfo';
-import { getTopicColorInfo, ColorInfoType } from '../infoStore/topicsInfo';
+import { getTopicColorInfo, ColorInfoType, getTopicLinks } from '../infoStore/topicsInfo';
 import TopicHeader from './designs/TopicHeader';
 import dynamic from 'next/dynamic';
 
@@ -21,18 +21,10 @@ export default async function Page(props: { params: Promise<{ topic: string }> }
   const designSelectedVal = parseInt((await cookies()).get("designSelected")?.value!) || DEFAULT_DESIGN_SELECTION;
   const decodedTopic = decodeURIComponent(params.topic);
 
-  const topicLinks = await fetch(domainName + "/infoStore/getTopicLinks", {
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body: JSON.stringify({topic: decodedTopic}),
-  })
-  .then(res => res.json())
-  .catch(() => null);
-
+  let topicLinks = getTopicLinks(decodedTopic);
   if (!topicLinks) return notFound();
 
   const MainComp = dynamic<MainType>(() => import(`@/app/[topic]/designs/Style${designSelectedVal}`));
-
   if (designSelectedVal==1)
     return <>
       <TopicHeader styleNumber={1} name={decodedTopic.replaceAll("_", " ")}/>
@@ -40,11 +32,9 @@ export default async function Page(props: { params: Promise<{ topic: string }> }
     </>
   else if (designSelectedVal==2) {
     const styleObject = getTopicColorInfo(decodedTopic);
-    const FooterEl = dynamic<ColorInfoType>(() => import(`@/app/[topic]/designs/Style2Footer`));
     return <div style={{backgroundColor: styleObject.bgColor, minHeight:"100vh"}}>
       <TopicHeader styleNumber={2} name={decodedTopic.replaceAll("_", " ")} styleObject={styleObject}/>
       <MainComp topic={decodedTopic} topicsInfoState={topicLinks} styleObject={styleObject}/>
-      <FooterEl borderColor={styleObject.borderColor!} footerColor={styleObject.footerColor!} headerBgColor={styleObject.headerBgColor!} bgColor={styleObject.bgColor}/>
     </div>
   }
   else throw new Error("Wrong design number value");

@@ -17,22 +17,20 @@ One major thing I added was the design feature, where you can choose different d
 	- `layout.tsx`
 	- `page.tsx`
 	- `variables.scss`
-	- `global_components`: stores some home-page components
-	- `mainStyles`: this folder stores all the different designs for the main part of the homepage. By 'main part', I mean excluding footer.
-	- `[topic]`: when you select a particular topic in the home page, this is the folder you are routed to.
-	- `infoStore`: store website info that is not found in other folders; all the article content is stored here.
+	- `/global_components`: stores some home-page components
+	- `/mainStyles`: this folder stores all the different designs for the main part of the homepage. By 'main part', I mean excluding footer.
+	- `/[topic]`: when you select a particular topic in the home page, this is the folder you are routed to.
+	- `/infoStore`: store website info that is not found in other folders; all the article content is stored here.
 
-- The `mainStyles` folder contains the design code for home page.
+- The `/mainStyles` folder contains the design code for home page.
 
-- The `footerStyles` folder contains the component for the footer, the are multiple footers that will be used depending on the chosen style.
-
-- The `global_components` folder currently contains three components for the index page:
+- The `/global_components` folder currently contains three components for the index page:
 	- `design1Footer.tsx`.
 	- `ImageWrapper.tsx`: a wrapper for images.
 	- `StyleSelectionBox.tsx`: a dialog box for choosing different styles.
 	- `FormBox.tsx`: a feedback form.
 
-- The `infoStore` folder is the default place where all the information is stored:
+- The `/infoStore` folder is the default place where all the information is stored:
 	- `designInfo.tsx`: for storing the default design number.
 	- `fonts.tsx`: stores information about the fonts.
 	- `paypalLink.tsx`: contains the code for the PayPal donation button.
@@ -49,7 +47,7 @@ One major thing I added was the design feature, where you can choose different d
 
 - The `/designs` folder that contains code for the different designs
 
-- The `page.tsx` sends the article links (or article content if in `\article` folder) and design number to `clientPart.tsx`. This file is suppose to run on the server.
+- The `page.tsx` sends the article links (or article content if in `/article` folder) and design number to `clientPart.tsx`. This file is suppose to run on the server.
 
 - The `layout.tsx` sets the title
 
@@ -58,6 +56,15 @@ One major thing I added was the design feature, where you can choose different d
 ## Updates
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
+
+<b>update 19.1:</b>
+- Made some changes with the `meta` tag.
+- For design 2, in `[topic]`, `[subTopic]` and `[article]` use `import` instead of `fetch` to get content.
+- Fixed the image aspect ratio bug.
+- In design 2 home page, main table and recently tables are now passed to client from server side.
+- In design 2, website icon is now circular.
+- For design 2, in `[subTopic]`'s `FooterEl` is from `[topic]`.
+- Made coding changes and file name changes. 
 
 <b>update 18.9:</b>
 - The links in `[topic]` and `[subTopic]` appear after 0.5s.

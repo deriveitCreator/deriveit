@@ -6,6 +6,16 @@ import { DEFAULT_DESIGN_SELECTION } from './infoStore/designInfo';
 export default async function Home() {
   const cookieStore = await cookies();
   const designSelectedVal = parseInt(cookieStore.get("designSelected")?.value!)|| DEFAULT_DESIGN_SELECTION;
-  const WholeComp = dynamic(() => import(`./mainStyles/design${designSelectedVal}Main`));
-  return <WholeComp/>;
+  if (designSelectedVal == 1){
+    const WholeComp = dynamic(() => import(`./mainStyles/design1Whole`));
+    return <WholeComp/>;
+  }
+  else if (designSelectedVal == 2){
+    const {default: MainComp} = await import(`./mainStyles/design2MainComp`);
+    const WholeComp = dynamic(() => import(`./mainStyles/design2Whole`));
+    return <WholeComp mainComp={MainComp}/>;
+  }
+  else{
+    throw new Error("Wrong design value");
+  }
 }

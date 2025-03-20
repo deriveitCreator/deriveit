@@ -1,6 +1,6 @@
 {
   "name": "deriveit",
-  "version": "18.9.0",
+  "version": "19.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
@@ -41,5 +41,6 @@
   "overrides": {
     "@types/react": "19.0.3",
     "@types/react-dom": "19.0.2"
-  }
+  },
+  "author": "Uzair Arif"
 }

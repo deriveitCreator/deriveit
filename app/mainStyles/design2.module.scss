@@ -262,7 +262,7 @@ $brown2: #663300;
 	margin-right: auto !important;
 }
 
-#tableForRecent{
+.recentlySection{
 	max-width:1040px;
 	width:95%;
 	border-collapse:collapse;
@@ -270,43 +270,48 @@ $brown2: #663300;
 	border:5px solid #440044;
 	margin:0px auto 20px auto;
 	position: relative;
+	display: grid;
+	grid-template-columns: 200px auto;
+	background-color:#901590;
 	
-	tr{
-		background-color:#901590;
+	.recentlyHeader{
+		border-right: solid #850085 4px;
+		overflow:hidden;
+		font-size: 28px;
+		font-weight: bold;
+		color:#CC35FF;
+		padding:0px 10px;
+		line-height: 52px;
+		grid-row: 1 / span 4;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		span:last-child{
+			align-self: flex-end;
+		}
+	}
 
-		th{
-			text-align:left;
-			border-color: #850085;
-			width:20%;
-			overflow:hidden;
-			font-size:30px;
-			color:#CC35FF;
-			padding:0px 10px;
-			line-height:52px
+	.recentlyRow{
+		margin-left:10px;
+		display:block;
+		text-align:left;
+		border-left-style:solid;
+		padding: 4px 0px 4px 4px;
+		font-size: 20px;
+		line-height: 24px;
+
+		&:hover{
+			margin-left: 0px;
+			padding-right: 14px;
 		}
 
-		td{
-			margin-left:10px;
-			display:block;
-			text-align:left;
-			border-left-style:solid;
-			padding: 4px 0px 4px 4px;
-			font-size: 20px;
-			line-height: 24px;
+		a{
+			display: inline-block;
+			min-width: 100%;
+		}
 
-			&:hover{
-				margin-left: 0px;
-				padding-right: 14px;
-			}
-
-			a{
-				display: inline-block;
-				min-width: 100%;
-			}
-
-			a:hover{
-				text-decoration: none;
-			}
+		a:hover{
+			text-decoration: none;
 		}
 	}
 }
@@ -400,6 +405,7 @@ $brown2: #663300;
 	}
 
 	#mainTable{
+		thead{display: none;}
 		tbody {
 			tr{
 				td{
@@ -413,22 +419,28 @@ $brown2: #663300;
 		}
 	}
 
-	#tableForRecent{
-		border-width: 3px;
-		border: solid $brown1 3px;
-		tr{
-			th{
-				background-color: #BB5500;
-				font-size:20px;
-				line-height:30px;
-				border: solid #410 3px;
-				color: #410;
-			}
-			td{
-				margin-left:0px;
-				font-size: 18px;
-				line-height: 20px;
-				padding: 4px;
+	.recentlySection{
+		border: none;
+		grid-template-columns: 100%;
+		.recentlyHeader{
+			background-color: #BB5500;
+			font-size:20px;
+			line-height:30px;
+			border: solid #410 3px;
+			color: #410;
+			display: block;
+			text-align: center;
+		}
+		.recentlyRow{
+			margin-left:0px;
+			font-size: 18px;
+			line-height: 20px;
+			padding: 4px;
+			border-left: solid $brown1 3px !important;
+			border-right: solid $brown1 3px !important;
+
+			&:last-child{
+				border-bottom: solid $brown1 3px !important;
 			}
 		}
 	}

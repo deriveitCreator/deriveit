@@ -53,7 +53,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
               width={0}
               height={0}
               sizes="100vw"
-              style={{width: "auto",height: "100%"}}
+              style={{width: "auto",objectFit:"contain",height:"100%"}}
               priority
             />
             <figcaption dangerouslySetInnerHTML={{__html: j[i][1][1]}}></figcaption>

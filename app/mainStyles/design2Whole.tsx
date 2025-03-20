@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense, useState, useEffect, useRef, createRef, RefObject } from 'react';
+import React, { Suspense, useState, useEffect, useRef, createRef, RefObject, createContext, useContext } from 'react';
 import ImageWrapper from '../global_components/ImageWrapper';
 import styles from "./design2.module.scss";
 import { logoFont2, printFont2, headingFont } from '../infoStore/fonts';
@@ -12,16 +12,15 @@ import { link } from '../infoStore/paypalLink';
 import Image from 'next/image';
 import { ParallaxProvider, useParallax } from 'react-scroll-parallax';
 import FormBox from '../global_components/FormBox';
-import { MainTable, BelowTables } from './design2Tables';
 
-export default function Design2(){
+export default function Design2(props:{mainComp: React.ReactNode}){
 	const [continueEnabled, setCE] = useState(false);
 	const [startBodyLoading, changeSBL] = useState(false);
 	const [continueButtonClicked, changeCBC] = useState(false);
 
 	return <>
 		<HomeLoading disabledState={!continueEnabled} changeSBL={changeSBL} changeCBC={changeCBC}/>
-		{startBodyLoading ? <MainPartMemo setCE={setCE} continueButtonClicked={continueButtonClicked}/> : null}
+		{startBodyLoading ? <MainPartMemo setCE={setCE} continueButtonClicked={continueButtonClicked} mainComp={props.mainComp} /> : null}
 	</>;
 }
 
@@ -63,11 +62,26 @@ const HomeLoading=(props:{
 
 const MainPartMemo = React.memo(function MainPart(props:{
 	setCE: React.Dispatch<React.SetStateAction<boolean>>,
-	continueButtonClicked:boolean
+	continueButtonClicked: boolean,
+	mainComp: any
 }){
+
+	useEffect(()=>{
+		var ads = document.getElementsByClassName('adsbygoogle').length;
+		for (var i = 0; i < ads; i++) {
+			try {
+				//@ts-ignore
+				(window.adsbygoogle = window.adsbygoogle || []).push({});
+			} catch (e) {}
+		}
+		if (!props.continueButtonClicked) props.setCE(true);
+	}, []) // eslint-disable-line no-use-before-define
+
 	return <ParallaxProvider><div style={{backgroundColor:"#FFD966",position:"relative", visibility: props.continueButtonClicked?"visible":"hidden"}}>
 		<BackgroundImage continueClicked={props.continueButtonClicked}/>
-		<HomeBody setConFunc={props.setCE} continueButtonClicked={props.continueButtonClicked}/>
+		<HeaderEl continueButtonClicked={props.continueButtonClicked}/>
+		<SearchEl/>
+		{ props.mainComp }
 		<Design2Footer/>
 	</div></ParallaxProvider>;
 });
@@ -93,40 +107,6 @@ function BackgroundImage(props:{continueClicked: boolean}){
 	return <div id={styles.backgroundImage}>
 		<div ref={parallaxRef.ref}></div>
 	</div>;
-}
-
-function HomeBody(props:{setConFunc: React.Dispatch<React.SetStateAction<boolean>>, continueButtonClicked:boolean}){
-
-	useEffect(()=>{
-		var ads = document.getElementsByClassName('adsbygoogle').length;
-		for (var i = 0; i < ads; i++) {
-			try {
-				//@ts-ignore
-				(window.adsbygoogle = window.adsbygoogle || []).push({});
-			} catch (e) {}
-		}
-		if (!props.continueButtonClicked) props.setConFunc(true);
-	}, []) // eslint-disable-line no-use-before-define
-
-	let belowTableType: "desktop" | "mobile" = screen.width > parseInt(styles.minDeviceWidth) ? "desktop" : "mobile";
-
-	return <>
-		<HeaderEl continueButtonClicked={props.continueButtonClicked}/>
-		<SearchEl/>
-		<main>
-			<MainTable/>
-			{/*@ts-ignore*/}
-			<div align="center" style={{marginTop:"20px", marginBottom:"20px"}}><ins
-				className="adsbygoogle"
-				id={styles.adId}
-				data-ad-client="ca-pub-4860967711062471"
-				data-ad-slot="1515076236"
-				data-ad-format="auto"
-				data-full-width-responsive="true"
-			></ins></div>
-			<BelowTables type={belowTableType}/>
-		</main>
-	</>;
 }
 
 function HeaderEl(props:{continueButtonClicked:boolean}){

@@ -1,33 +1,37 @@
-import React from 'react';
 import { headingFont, mainTextFont } from "@/app/infoStore/fonts";
 import Link from "next/link";
 import styles from "./design2.module.scss";
 import { MainType } from '../page';
+import FooterEl from '../../designs/Style2Footer';
 
 export default function Style2(props: MainType){ 
-	let headerBgColor = props.styleObject!.headerBgColor;
-	let borderColor = props.styleObject!.borderColor;
+	let styleOb = props.styleObject!;
+	let headerBgColor = styleOb.headerBgColor;
+	let borderColor = styleOb.borderColor;
 	let curTopic = props.subTopic;
 
-	return <main className={styles.main}>
-		<h2 className={`${headingFont.className} ${styles.heading}`} style={{color: borderColor}}>
-			{curTopic[0].replaceAll("_"," ")}
-		</h2>
-		{(curTopic[1]).map((val:string,i: number)=> {
-			if(val.includes("%")){ return <StyledP
-				key={i}
-				textColor={headerBgColor}
-				text={val.substring(0,val.lastIndexOf('%')).replaceAll("_"," ")}
-				link={`${curTopic[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`.replaceAll("'","")}
-			/>;
-			}else return <StyledP
-				key={i}
-				textColor={headerBgColor}
-				text={val.replaceAll("_"," ")}
-				link={`${curTopic[0]}/${val}`.replaceAll(" ","_").replaceAll("'","")}
-			/>;
-		})}
-	</main>;
+	return <>
+		<main className={styles.main}>
+			<h2 className={`${headingFont.className} ${styles.heading}`} style={{color: borderColor}}>
+				{curTopic[0].replaceAll("_"," ")}
+			</h2>
+			{(curTopic[1]).map((val:string,i: number)=> {
+				if(val.includes("%")){ return <StyledP
+					key={i}
+					textColor={headerBgColor}
+					text={val.substring(0,val.lastIndexOf('%')).replaceAll("_"," ")}
+					link={`${curTopic[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`.replaceAll("'","")}
+				/>;
+				}else return <StyledP
+					key={i}
+					textColor={headerBgColor}
+					text={val.replaceAll("_"," ")}
+					link={`${curTopic[0]}/${val}`.replaceAll(" ","_").replaceAll("'","")}
+				/>;
+			})}
+		</main>
+    <FooterEl borderColor={styleOb.borderColor} footerColor={styleOb.footerColor} headerBgColor={styleOb.headerBgColor} bgColor={styleOb.bgColor}/>
+	</>;
 }
 
 const StyledP = (props: {text: string, link: string, textColor: string}) =>{
