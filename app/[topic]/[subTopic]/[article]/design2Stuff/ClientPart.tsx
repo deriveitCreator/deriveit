@@ -126,7 +126,7 @@ function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<strin
   }
 
   return <>
-    <button id={styles.sideButton} title={"Show side links"} onClick={()=>{props.asideW==="0px"?turnOnAside():turnOffAside()}} style={{right:iconRightRef.current}}>
+    <button id={styles.sideButton} title={"Show side links"} onClick={()=>{props.asideW==="0px"?turnOnAside():turnOffAside()}} style={{right:iconRightRef.current}} type="button">
       <IconContext.Provider value={{style:{height:"45px",margin:"0px 10px",fontWeight:"bold"}}}>
         {iconRef.current}
       </IconContext.Provider>

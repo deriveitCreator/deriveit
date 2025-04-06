@@ -14,6 +14,7 @@ const colorInfo: {[key:string]: ColorInfoType} = {
 	"trigonometry":{ headerBgColor: "#3366CC", bgColor:"#99CCFF", footerColor:"#FFFFCC", borderColor:"#000099"},
 	"calculus":{ headerBgColor: "teal", bgColor:"#88DFDF", footerColor:"#AACCCC", borderColor:"#005555"},
 	"probability_&_statistics":{ headerBgColor: "#990099", bgColor:"#EEAADD", footerColor:"#EE77FF", borderColor:"#550055"},
+	"calculus_(advanced)":{ headerBgColor: "teal", bgColor:"#88DFDF", footerColor:"#AACCCC", borderColor:"#005555"},
 	"mechanics":{ headerBgColor: "#AA0000", bgColor:"#FFEEAA", footerColor:"#FEF1B5", borderColor:"#600000"},
 	"astronomy":{ headerBgColor: "#88AABB", bgColor:"black", footerColor:"#333333", borderColor:"#DD0000"},
 	"chemistry":{ headerBgColor: "#CC5599", bgColor:"#FFBBFF", footerColor:"#FFAAFF", borderColor:"#993366"},
@@ -24,7 +25,6 @@ const colorInfo: {[key:string]: ColorInfoType} = {
 }
 
 export function getTopicColorInfo(value: string): ColorInfoType{
-	//@ts-ignore
 	return colorInfo[value];
 }
 
@@ -36,13 +36,13 @@ export const topicsOrder = [
 	"trigonometry",
 	"calculus",
 	"probability_&_statistics",
+	"calculus_(advanced)",
 	"mechanics",
 	"astronomy",
 	"chemistry",
 	"electricity_&_magnetism",
 	"biology",
-	"computer_science",
-	"error"
+	"computer_science"
 ]
 
 export function getRecentlyAdded(): string[]{
@@ -63,7 +63,7 @@ export function getRecentlyEdited(): string[]{
 	]
 }
 
-export const ERROR_VALUE: Array<[string,string[]]> = [["error",[]]];
+export const TOPIC_LINKS_ERROR: Array<[string,string[]]> = [["error",[]]];
 
 export function getTopicLinks(topic: string){
   let result: Array<[string,string[]]>;
@@ -89,6 +89,9 @@ export function getTopicLinks(topic: string){
 		case "probability_&_statistics":
 			result = probabilityAndStatisticsLinks;
       break;
+		case "calculus_(advanced)":
+			result = calculusAdvancedLinks;
+			break;
 		case "mechanics":
 			result = mechanicsLink;
       break;
@@ -105,7 +108,7 @@ export function getTopicLinks(topic: string){
 			result = biologyLinks;
       break;
 		default:
-			result = ERROR_VALUE;
+			result = TOPIC_LINKS_ERROR;
 	}
 
 	return result;
@@ -466,7 +469,7 @@ const calculusLinks: Array<[string,string[]]> = [
 		"derivative_of_a_parametric_equations",
 		"second_derivative_of_a_parametric_equations",
 		"area_under_a_parametric_curve",
-		"area_length_of_a_parametric_curve",
+		"arc_length_of_a_parametric_curve",
 		"surface_area_generated_by_a_parametric_curve",
 		"areas_of_regions_bounded_by_polar_curves",
 		"arc_length_of_a_curve_defined_by_a_polar_function"
@@ -496,6 +499,21 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
 		"expected_value_and_variance_of_an_exponential_distribution"
 	]],
 	["miscellaneous",["deriving the regression coefficient of y on x%line_of_best_fit"]]
+]
+
+const calculusAdvancedLinks: Array<[string,string[]]> = [
+	["vector-valued_functions", [
+		"differentiating_a_vector-valued_function_by_derivating_of_each_of_the_components",
+		"(vector-valued_function_derivatives)_sum_and_difference_property",
+		"(vector-valued_function_derivatives)_scalar_product_property",
+		"(vector-valued_function_derivatives)_dot_product_property",
+		"(vector-valued_function_derivatives)_cross_product_property",
+		"(vector-valued_function_derivatives)_chain_product_property",
+		"r(t) ⋅ r(t) = constant ⇒ r(t) ⋅ r'(t) = 0%self_dot_product_constant_means_dot_product_with_derivative_is_zero",
+		"arc_length_function_and_it's_derivative",
+		"curvature_formulas",
+		"radius_of_curvature",
+	]]
 ]
 
 const mechanicsLink: Array<[string,string[]]> = [

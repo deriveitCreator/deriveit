@@ -2,7 +2,7 @@ export const title="Deriving the directrix of a hyperbola";
 const content = [
   ['h1', 'Deriving The Directrix Of A Hyperbola'],
   ['pmain', 'The definition of an <b>hyperbola</b> is the set of all points for which the absolute difference of their distances from two fixed points (the foci) is constant. Consider a hyperbola where the centre is at the origin:'],
-  ['figure', ['h1.jfif','Image from openstax.org (Calculus Volume 2)']],
+  ['figure', ['h1.png','Image from openstax.org (Calculus Volume 2)']],
   ['pmain', 'Choose any point \\(P=(x_p, y_p)\\) on right side of the hyperbola. \\(x_p\\) and \\(y_p\\) satisfies:'],
   ["displayFormula","\\[\\frac{x_p^2}{a^2} - \\frac{y_p^2}{(c^2 - a^2)} = 1\\]"],
   ['pmain', 'Assume that the distance from any point \\(P\\) to a focus \\(F\\) divided by the distance from \\(P\\) to a fixed line \\(L\\) (called the <b>directrix</b>) is contant. Let the directrix be at \\(x=x_d\\) for some \\(x_d < a\\).'],

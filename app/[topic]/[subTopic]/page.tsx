@@ -1,14 +1,9 @@
 import { notFound } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { DEFAULT_DESIGN_SELECTION } from '@/app/infoStore/designInfo';
-import { getTopicColorInfo, ColorInfoType, getTopicLinks } from '../../infoStore/topicsInfo';
+import { getTopicColorInfo, ColorInfoType, getTopicLinks, TOPIC_LINKS_ERROR } from '../../infoStore/topicsInfo';
 import SubTopicHeader from './designs/SubTopicHeader';
 import dynamic from 'next/dynamic';
-
-var domainName: string;
-if((!process.env.NODE_ENV || process.env.NODE_ENV === 'development'))
-  domainName = "http://localhost:3001";
-else domainName = "https://www.deriveit.net";
 
 export type MainType = {
   topic: string,
@@ -23,9 +18,8 @@ export default async function Page(props: { params: Promise<{ topic: string, sub
   const decodedSubTopic = decodeURIComponent(params.subTopic);
 
   let topicLinks = getTopicLinks(decodedTopic);
-  if (!topicLinks) return notFound();
+  if (topicLinks === TOPIC_LINKS_ERROR) return notFound();
 
-  const emptyCurSub = ["",[""]];
   var curSubTopic: [string, string[]] = ["",[""]];
   for(let i in topicLinks){
     if(topicLinks[i][0].replaceAll("'","") === decodedSubTopic){
@@ -34,7 +28,7 @@ export default async function Page(props: { params: Promise<{ topic: string, sub
     }
   }
 
-  if (curSubTopic == emptyCurSub) throw new Error("The subtopic list is empty. Please report this!");
+  if (curSubTopic[0] === "") return notFound();
 
   const MainComp = dynamic<MainType>(() => import(`./designs/Design${designSelectedVal}`));
 
