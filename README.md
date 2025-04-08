@@ -57,6 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 20.2:</b>
+- `ERROR_VALUE` was changed to `TOPIC_LINKS_ERROR`, but it wasn't reflected in all affected file. This is fixed now.
+
 <b>update 20.1:</b>
 - Added a new topic: `calculus_(advanced)`.
 - Fixed the bug in `[subTopic]`, where article links has a higher z-index than the header.
