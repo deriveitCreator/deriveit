@@ -40,7 +40,7 @@ One major thing I added was the design feature, where you can choose different d
 	- `/setCookie`: contains the code for changing the design number and storing it in cookies.
 	- `/sendEmail`: contains the api to email client feedback to me.
 	- `/getTopicLinks`: contains a `POST` function which gets all the subtopics and article title of a particular topic. 
-	- `/getArticleContent`: contains a `POST` function which returns the page content for a particular article. 
+	- `/getArticleContent`: contains a `POST` function which returns the page content for a particular article (used for other apps). 
 	- `/contents`: contains all article contents.
 
 ### [topic], [subTopic] and [article] folders
@@ -56,6 +56,11 @@ One major thing I added was the design feature, where you can choose different d
 ## Updates
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
+
+<b>update 20.3:</b>
+- Added article `parabola_as_product_calculator`.
+- Updated the not-found page of the topic and subtopic section.
+- Updated sitemap.
 
 <b>update 20.2:</b>
 - `ERROR_VALUE` was changed to `TOPIC_LINKS_ERROR`, but it wasn't reflected in all affected file. This is fixed now.

@@ -173,6 +173,7 @@ const geometryLinks: Array<[string,string[]]> = [
 		"axis_of_symmetry_of_a_parabola",
 		"getting_the_focus,_directrix_and_vertex%getting_the_focus_directrix_and_vertex",
 		"the_reflective_property_of_a_parabola",
+		"using x<sup>2</sup> as a product calculator%parabola_as_product_calculator"
 	]],
 	["hyperbola",[
 		"getting_the_standard_form_equation_from_the_geometric_definition",

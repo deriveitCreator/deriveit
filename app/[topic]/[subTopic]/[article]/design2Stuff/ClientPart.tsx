@@ -27,7 +27,6 @@ export default function ClientPart(){
   const [showDB, changeSDB] = useState(false);
 
   useEffect(()=>{
-    window.setTimeout(setMathTypeSet,100);
     document.documentElement.style.backgroundColor = "white";
     document.querySelectorAll("cite").forEach(el =>{
       el.innerHTML = el.getAttribute("title") ? citationList[el.getAttribute("title")!] : "Error, please report this!";
@@ -60,6 +59,8 @@ export default function ClientPart(){
     }
   },[]);
 
+  useEffect(setMathTypeSet);
+
   return <>
     <ExtraInfoBox 
       text = {ExtraInfoBoxStates.text}
@@ -76,14 +77,11 @@ export default function ClientPart(){
 function setMathTypeSet(){
   try{
     //@ts-ignore
-    window.MathJax.typesetPromise()
-    .catch((err: any)=>{
-      console.log(err);
-      window.setTimeout(setMathTypeSet,250);
-    })
+    window.MathJax.typesetPromise();
   }
   catch(err){
-    console.log(err);
+    console.error(err);
+    console.log("Redoing MathJax typesetting...");
     window.setTimeout(setMathTypeSet,250);
   }
 }

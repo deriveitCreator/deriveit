@@ -5,6 +5,8 @@ import SubTopicHeader from './designs/SubTopicHeader';
 import dynamic from 'next/dynamic';
 import { MainType } from './page';
 
+const SUBTOPIC_VALUE: [string, string[]] = ["Subtopic Not Found",[""]];
+
 export default async function Custom404() {
   const designSelectedVal = parseInt((await cookies()).get("designSelected")?.value!) || DEFAULT_DESIGN_SELECTION;
   const MainComp = dynamic<MainType>(() => import(`./designs/Design${designSelectedVal}`));
@@ -17,13 +19,13 @@ export default async function Custom404() {
 
   if(designSelectedVal === 1) return <>
     <SubTopicHeader styleNumber={designSelectedVal} name={"Error"}/>
-    <MainComp topic={"404 Error"} subTopic={["",[""]]}/>
+    <MainComp topic={"404 Error"} subTopic={SUBTOPIC_VALUE}/>
   </>
   else if(designSelectedVal === 2) {
     let bgColor = calStyleObj!.bgColor;
     return <div style={{backgroundColor: bgColor, minHeight:"100vh"}}>
       <SubTopicHeader styleNumber={designSelectedVal} styleObject={calStyleObj!} name={"Error"}/>
-      <MainComp topic={"404 Error"} subTopic={["",[""]]} styleObject={calStyleObj!}/>
+      <MainComp topic={"404 Error"} subTopic={SUBTOPIC_VALUE} styleObject={calStyleObj!}/>
     </div>
   }
   else throw new Error("Wrong design number value");

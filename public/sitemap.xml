@@ -129,6 +129,9 @@
     <loc>https://www.deriveit.net/geometry/parabola/the_reflective_property_of_a_parabola</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/geometry/parabola/parabola_as_product_calculator</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/geometry/hyperbola/getting_the_standard_form_equation_from_the_geometric_definition</loc>
   </url>
   <url>
@@ -363,7 +366,7 @@
     <loc>https://www.deriveit.net/discrete_mathematics/factorials,_permutations_and_combinations/com</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/factorials,_permutations_and_combinations/pascals_triangle.tsx</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/factorials,_permutations_and_combinations/pascals_triangle</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/factorials,_permutations_and_combinations/binomial_theorem</loc>
@@ -846,7 +849,7 @@
     <loc>https://www.deriveit.net/calculus/parametric_curves/area_under_a_parametric_curve</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/parametric_curves/area_length_of_a_parametric_curve</loc>
+    <loc>https://www.deriveit.net/calculus/parametric_curves/arc_length_of_a_parametric_curve</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/calculus/parametric_curves/surface_area_generated_by_a_parametric_curve</loc>
@@ -910,6 +913,39 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/probability_&amp;_statistics/miscellaneous/line_of_best_fit</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/differentiating_a_vector-valued_function_by_derivating_of_each_of_the_components</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/(vector-valued_function_derivatives)_sum_and_difference_property</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/(vector-valued_function_derivatives)_scalar_product_property</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/(vector-valued_function_derivatives)_dot_product_property</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/(vector-valued_function_derivatives)_cross_product_property</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/(vector-valued_function_derivatives)_chain_product_property</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/self_dot_product_constant_means_dot_product_with_derivative_is_zero</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/arc_length_function_and_its_derivative</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/curvature_formulas</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/radius_of_curvature</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/mechanics</loc>
