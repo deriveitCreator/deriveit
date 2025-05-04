@@ -57,6 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 20.4:</b>
+- Added content to `discrete_mathematics`.
+
 <b>update 20.3:</b>
 - Added article `parabola_as_product_calculator`.
 - Updated the not-found page of the topic and subtopic section.

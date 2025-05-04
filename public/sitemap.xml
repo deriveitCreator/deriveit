@@ -261,16 +261,19 @@
     <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma15</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma16</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma17</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma17</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma16</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma12</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma11</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma1</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/lcm/gcdTimesLcmGivesProduct</loc>
@@ -346,6 +349,9 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/square_mod_prime</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma13</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/divisibility_rules/divisibility_rule_for_3</loc>
@@ -426,7 +432,13 @@
     <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/Chinese_remainder_theorem</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/arithmetic_lemma1</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/multiplicative1</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/multiplicative2</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/multiplicative3</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/linear_algebra</loc>

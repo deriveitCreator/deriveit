@@ -200,7 +200,7 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"ε|αβ and gcd(ε, α) = 1, ⇒ ε|β%gcdLemma13",
 		"if α is odd, then gcd(α, α-2) = 1%gcdLemma10",
 		"m|n ⇒ (a<sup>m</sup>-b<sup>m</sup>)|(a<sup>n</sup>-b<sup>n</sup>)%divisibility3",
-		"[(m, n) = 1 ∧ d|mn] ⇒ ∃d<sub>1</sub>, d<sub>2</sub> ∈ Z such that d<sub>1</sub>d<sub>2</sub> = d, d<sub>1</sub>|m, d<sub>2</sub>|n and (d<sub>1</sub>, d<sub>2</sub>) = 1%divisibility4",
+		"[(m, n) = 1 ∧ d|mn] ⇒ ∃d<sub>1</sub>, d<sub>2</sub> ∈ Z<sup>+</sup> such that d<sub>1</sub>d<sub>2</sub> = d, d<sub>1</sub>|m, d<sub>2</sub>|n and (d<sub>1</sub>, d<sub>2</sub>) = 1%divisibility4",
 	]],
 	["prime_numbers", [
 		"if p is prime and p|αβ, then p|α or p|β%primeLemma1",
@@ -223,16 +223,17 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"if a<sup>k</sup>|b<sup>k</sup> then a|b%aSquare_divides_bSquare_implies_a_divides_b"
 	]],
 	["more_gcd", [
-		"if gcd(α, ε) = 1 and gcd(β, ε) = 1, then gcd(αβ, ε) = 1%gcdLemma18",
-		"if gcd(α, β) = 1, then gcd(αβ, ε) = gcd(α, ε) * gcd(β, ε)%multiplicative",
-		"δ = gcd(α, β) ⇒ gcd(α/δ, β/δ) = 1%gcdLemma8",
+		"(α, ε) = 1 ∧ (β, ε) = 1 ⇒ (αβ, ε) = 1%gcdLemma18",
+		"(α, β) = 1 ⇒ (αβ, ε) = (α, ε) * (β, ε)%multiplicative",
+		"(α, β) = δ ⇒ (α/δ, β/δ) = 1%gcdLemma8",
 		"gcd(α<sub>1</sub>, α<sub>2</sub>, α<sub>3</sub>, ..., α<sub>n</sub>) ⇒ gcd(gcd(α<sub>1</sub>, α<sub>2</sub>), α<sub>3</sub>, ..., α<sub>n</sub>)%gcdLemma7",
-		"if gcd(x, y) divides (x + y), then there are infinite values of x and y%gcdDividesPlus",
-		"m * gcd(α, β) = gcd(mα, mβ)%gcdLemma15",
-		"if gcd(α, β) = 1, then gcd(α+β, α-β) is either 1 or 2%gcdLemma16",
-		"if gcd(α, β) = δ and  gcd(α, ε) = δ, then  gcd(α, β, ε) = δ%gcdLemma17",
-		"if gcd(α, β) = 1 then gcd(α<sup>m</sup>, β<sup>n</sup>) = 1%gcdLemma12",
-		"if gcd(α, β) = 1 then gcd(α + β, αβ) = 1%gcdLemma11"
+		"if (x, y) divides (x + y), then there are infinite values of x and y%gcdDividesPlus",
+		"m * (α, β) = (mα, mβ)%gcdLemma15",
+		"gcd(α, β) = δ ∧ gcd(α, ε) = δ ⇒ gcd(α, β, ε) = δ%gcdLemma17",
+		"(α, β) = 1 ⇒ (α+β, α-β) is either 1 or 2%gcdLemma16",
+		"(α, β) = 1 ⇒ (α<sup>m</sup>, β<sup>n</sup>) = 1%gcdLemma12",
+		"(α, β) = 1 ⇒ (α + β, αβ) = 1%gcdLemma11",
+		"(α, β) = 1 ⇒ (α, kα + β) = 1 where k is any integer%gcdLemma1"
 	]],
 	["lcm", [
 		"gcd(α, β) * lcm(α, β) = αβ%gcdTimesLcmGivesProduct",
@@ -262,6 +263,7 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"If p is prime ∧ (a<sup>2</sup> ≡ b<sup>2</sup> mod p) ⇒ a ≡ ±b mod p%x_square_solution",
 		"If p is prime ∧ (a<sup>2</sup> ≡ a mod p) ⇒ (a ≡ 0) or (a ≡ 1)%a_square_congruent_a_mod_p",
 		"If p is prime ∧ (a<sup>p</sup> ≡ b<sup>p</sup> mod p) ∧ (p ∤ a) ∧ (p ∤ b) ⇒ a<sup>p</sup> ≡ b<sup>p</sup> mod p<sup>2</sup>%square_mod_prime",
+		"If (α, n) = 1 then {β, α+β, 2α+β, ..., (n-1)α+β} forms a complete system of residues modulo n%modLemma13",
 	]],
 	["divisibility_rules",[
 		"an integer is divisble by 3 if the sum of its digits is divisible by 3%divisibility_rule_for_3",
@@ -298,7 +300,9 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"Chinese remainder theorem"
 	]],
 	["arithmetic_functions",[
-		"If f is a multiplicative function, then [F(n) = ∑<sub>d|n, d>0</sub> f(d)] is also a multiplicative function%arithmetic_lemma1"
+		"If f is a multiplicative function, then [F(n) = ∑<sub>d|n, d>0</sub> f(d)] is also a multiplicative function%multiplicative1",
+		"The Euler phi function is multiplicative%multiplicative2",
+		"The formula for φ(p<sup>a</sup>)%multiplicative3"
 	]]
 ]
 
