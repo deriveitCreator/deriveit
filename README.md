@@ -2,7 +2,7 @@ This website was originally made using only HTML, CSS and JavaScript (with the J
 
 Now it's remade using:
 
-![React JS](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB") ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![MongoDB](https://img.shields.io/badge/mongodb-00684a?style=for-the-badge&logo=mongodb&logoColor=00ed64&labelColor=001e2b) ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 One major thing I added was the design feature, where you can choose different designs in the homepage. The designs will apply to the entire website.
 
@@ -57,8 +57,8 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
-<b>update 20.4:</b>
-- Added content to `discrete_mathematics`.
+<b>update 20.4 - 20.5:</b>
+- Added and edited some content.
 
 <b>update 20.3:</b>
 - Added article `parabola_as_product_calculator`.

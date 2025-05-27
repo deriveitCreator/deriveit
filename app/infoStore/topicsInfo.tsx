@@ -47,19 +47,19 @@ export const topicsOrder = [
 
 export function getRecentlyAdded(): string[]{
 	return [
+		"components_of_the_acceleration_vector%mechanics/classical_mechanics/components_of_the_acceleration_vector",
 		"anticommutative_property_of_the_cross_product%linear_algebra/cross_product/anticommutative_property_of_the_cross_product",
 		"the fundamental theorem of arithmetic%discrete_mathematics/prime_numbers/fundamental_theorem_of_arithmetic",
 		"deriving the polar form equation of an ellipse%geometry/ellipses/the_polar_equation",
-		"gcd(a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, ..., a<sub>n</sub>) ⇒ gcd(gcd(a<sub>1</sub>, a<sub>2</sub>), a<sub>3</sub>, ..., a<sub>n</sub>)%discrete_mathematics/more_gcd/gcdLemma7",
 	]
 }
 
 export function getRecentlyEdited(): string[]{
 	return [
+		"equations_of_linear_motion_with_constant_acceleration%mechanics/classical_mechanics/equations_of_linear_motion_with_constant_acceleration",
+		"projection_of_a_vector_onto_another%linear_algebra/dot_product/projection_of_a_vector_onto_another",
 		"the inverse function theorem%calculus/differential_calculus/the_inverse_function_theorem",
 		"proof That [d/dx]sin(x) = cos(x)%calculus/trigonometric_derivatives/sin",
-		"proof That sin(x)/x approaches 1 as x approaches 0%calculus/limits/limit_sin",
-		"if (n^2)+1 is prime, then n^2 = 4k%discrete_mathematics/prime_numbers/n_square_prime",
 	]
 }
 
@@ -522,7 +522,10 @@ const calculusAdvancedLinks: Array<[string,string[]]> = [
 ]
 
 const mechanicsLink: Array<[string,string[]]> = [
-	["classical_mechanics", ["equations_of_linear_motion_with_constant_acceleration"]],
+	["classical_mechanics", [
+		"equations_of_linear_motion_with_constant_acceleration",
+		"components_of_the_acceleration_vector"
+	]],
 	["miscellaneous",["adding_relative_(or_percentage)_uncertainties_when_multiplying_or_dividing_measured_quantities"]]
 ]
 
