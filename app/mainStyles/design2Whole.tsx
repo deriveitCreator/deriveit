@@ -81,7 +81,7 @@ const MainPartMemo = React.memo(function MainPart(props:{
 		<BackgroundImage continueClicked={props.continueButtonClicked}/>
 		<HeaderEl continueButtonClicked={props.continueButtonClicked}/>
 		<SearchEl/>
-		{ props.mainComp }
+		{ props.mainComp }	
 		<Design2Footer/>
 	</div></ParallaxProvider>;
 });
@@ -213,19 +213,26 @@ function Slideshow(props:{continueButtonClicked:boolean}){
 	</>;
 }
 
-//For future reading, more sure to add a feature where inputting the 5th letter stops the searchDatabase function when the 4th letter was pressed.
 function SearchEl(){
 	const [displayVal, changeDisplay] = useState("none");
 	const timerRef: RefObject<null|number> = useRef(null);
+	const textTypingInterval: RefObject<number|null> = useRef(null);
 	const inputRef: RefObject<HTMLInputElement | null> = createRef<HTMLInputElement>();
-	const linksArr = useRef([""]);
-	const topicsArr = useRef([""]);
+	const itemsArr = useRef([]);
 	const minLetters = 4;
 
-	async function searchDatabase(searchText: string){
-		linksArr.current = [];
-		topicsArr.current = [];
-		changeDisplay("block");
+	function evalSearchText(searchText: string){
+		if (textTypingInterval.current) 
+			window.clearTimeout(textTypingInterval.current);
+		textTypingInterval.current = window.setTimeout(()=>{
+			itemsArr.current = [];
+			fetch(window.location.origin+"/infoStore/doSearch?text="+searchText)
+			.then(res=>res.json())
+			.then(res=>{
+				itemsArr.current = res.items;
+				changeDisplay("block");
+			});
+		}, 500);
 	}
 
 	return <div id={styles.searchDiv} className={printFont2.className}>
@@ -233,7 +240,7 @@ function SearchEl(){
 			<input
 				onKeyUp={()=>{
 					let textVal = inputRef.current?.value!;
-					if(textVal.length >= minLetters) searchDatabase(textVal);
+					if(textVal.length >= minLetters) evalSearchText(textVal);
 					else if (displayVal == "block") changeDisplay("none");
 				}}
 				ref={inputRef}
@@ -242,24 +249,24 @@ function SearchEl(){
 				type="text"
 				placeholder={"Search..."}
 			/>
-			<div id={styles.pageOptions} style={{display: displayVal}} onMouseLeave={()=>{
-				timerRef.current = window.setTimeout(()=>{
-					changeDisplay("none");
-				}, 500);
-			}} onMouseEnter={()=>{if(timerRef.current) window.clearTimeout(timerRef.current);}}>
-				{
-					linksArr.current.length ?
-					linksArr.current.map((elem, i)=>{
-						return <div key={i} className={styles.poptions}>
-								<Link href={linksArr.current[i]} className='hover:no-underline' dangerouslySetInnerHTML={{__html: topicsArr.current[i]}}></Link> 
-						</div>
-					}) :
-					<div className={styles.poptions} style={{cursor:"default"}}>Sorry, no article were found.</div>
-				}
-			</div>
+			<div 
+				id={styles.pageOptions} 
+				style={{display: displayVal}} 
+				onMouseLeave={()=>{
+					timerRef.current = window.setTimeout(()=>{ changeDisplay("none"); }, 500);
+				}} 
+				onMouseEnter={()=>{if(timerRef.current) window.clearTimeout(timerRef.current);}}
+			>{
+				itemsArr.current.length ?
+				itemsArr.current.map((elem, i)=>{
+					return <div key={i} className={styles.poptions}>
+						<Link href={elem["link"]} className='hover:no-underline' dangerouslySetInnerHTML={{__html: elem["title"]}}></Link> 
+					</div>
+				}) :
+				<div className={styles.poptions} style={{cursor:"default"}}>Sorry, no article were found.</div>
+			}</div>
 		</div>
 	</div>;
-	
 }
 
 function Design2Footer() {

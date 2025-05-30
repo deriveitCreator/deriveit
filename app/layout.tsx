@@ -56,6 +56,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
   else if (cookieVal === 2) return <html lang="en">
     <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471" crossOrigin="anonymous"/>
     <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
+    <Script async src="https://cse.google.com/cse.js?cx=40f9a25a3e41e4b95"/>
     <body suppressHydrationWarning>{children}</body>
   </html>
   else throw new Error("wrong design number value");
