@@ -57,6 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 21.3:</b>
+- Updated sitemap.
+
 <b>update 21.2:</b>
 - Added more content to `discrete_mathematics`.
 

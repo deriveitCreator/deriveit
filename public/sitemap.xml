@@ -201,6 +201,9 @@
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/fundamental_theorem_of_arithmetic</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/composite_as_coprime_integers</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/infinite_primes</loc>
   </url>
   <url>
@@ -439,6 +442,33 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/multiplicative3</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/multiplicative4</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/phi_lower_bound</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/phi_higher_bound_when_n_composite</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/even_phi</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/odd_phi</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/phi_with_exponent</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/num_divides_so_phi_divides</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/Euler_phi_lemma1</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/multiplicative5</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/linear_algebra</loc>
@@ -964,6 +994,9 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/mechanics/classical_mechanics/equations_of_linear_motion_with_constant_acceleration</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/mechanics/classical_mechanics/components_of_the_acceleration_vector</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/mechanics/miscellaneous/adding_relative_(or_percentage)_uncertainties_when_multiplying_or_dividing_measured_quantities</loc>
