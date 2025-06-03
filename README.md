@@ -57,6 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 21.2:</b>
+- Added more content to `discrete_mathematics`.
+
 <b>update 21.1:</b>
 - Added to a new GET route to handle searches in design 2 (uses Google's custom search engine).
 

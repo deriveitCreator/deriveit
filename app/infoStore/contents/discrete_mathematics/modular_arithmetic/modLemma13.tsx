@@ -9,6 +9,6 @@ const content = [
   ['displayFormula', '$$ k_1 ≡ k_2 \\bmod \\frac{n}{(m,n)} $$'],
   ['pmain', 'Since \\((m,n)=1\\):'], 
   ['displayFormula', '$$ k_1 ≡ k_2 \\bmod n $$'],
-  ['pmain', 'Since \\(k_1\\) and \\(k_2\\) and less than \\(n\\), then \\(k_1 = k_2\\). A similar argument can be made to show that if \\(k_1 m +i \\not ≡ k_2m + i \\bmod n\\), then \\(k_1 \\ne k_2\\). This means no two integers from \\( \\{ i, m+i, 2m+i, \\ldots, (n-1)m+i \\} \\) would be conguent (modulo \\(n\\)) with one integer from \\( \\{ 1,2, \\ldots, n-1 \\} \\). This means \\( \\{ i, m+i, 2m+i, ..., (n-1)m+i \\} \\) forms a complete residue system modulo \\(n\\).'], 
+  ['pmain', 'Since \\(k_1\\) and \\(k_2\\) and less than \\(n\\), then \\(k_1 = k_2\\). This means if two integers from \\( \\{ i, m+i, 2m+i, \\ldots, (n-1)m+i \\} \\) would be conguent (modulo \\(n\\)), then they are the same integer. Therefore, \\( \\{ i, m+i, 2m+i, ..., (n-1)m+i \\} \\) forms a complete residue system modulo \\(n\\).'], 
 ];
 export default content;

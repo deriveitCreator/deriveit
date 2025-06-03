@@ -15,7 +15,7 @@ const content = [
   ['pmain', 'Each \\(d\\) can be written as \\(d_1d_2\\) where \\(d_1|3\\), \\(d_2|4\\), and \\((d_1,d_2)=1\\):'],
   ['displayFormula', '\\[F(12) = f(1*1)+f(1*2)+f(3*1)+f(1*4)+f(3*2)+f(3*4)\\]'],
   ['pmain', 'Since \\(f\\) is multiplicative:'],
-  ['displayFormula', '\\[\\begin{align} F(12) &= f(1)f(1)+f(1)f(2)+f(3)f(1)+f(1)f(4)+f(3)f(2)+f(3)f(4) \\\\ &= [f(1)+f(3)][f(1)+f(2)+f(4)]\\end{align}\\]'],
+  ['displayFormula', '\\[\\begin{align} F(12) &= f(1)f(1)+f(1)f(2)+f(3)f(1)+f(1)f(4)+f(3)f(2)+f(3)f(4) \\\\ &= [f(1)+f(3)][f(1)+f(2)+f(4)] \\\\ &= F(3)F(4) \\end{align}\\]'],
 ];
 
 export default content;

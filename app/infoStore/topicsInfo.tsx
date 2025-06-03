@@ -47,19 +47,19 @@ export const topicsOrder = [
 
 export function getRecentlyAdded(): string[]{
 	return [
-		"components_of_the_acceleration_vector%mechanics/classical_mechanics/components_of_the_acceleration_vector",
-		"anticommutative_property_of_the_cross_product%linear_algebra/cross_product/anticommutative_property_of_the_cross_product",
-		"the fundamental theorem of arithmetic%discrete_mathematics/prime_numbers/fundamental_theorem_of_arithmetic",
-		"deriving the polar form equation of an ellipse%geometry/ellipses/the_polar_equation",
+		"if m|n, then φ(mn) = m φ(n)%discrete_mathematics/arithmetic_functions/Euler_phi_lemma1",
+		"if m|n, then φ(m)|φ(n)%discrete_mathematics/arithmetic_functions/num_divides_so_phi_divides",
+		"φ(n<sup>j</sup>) = n<sup>j-1</sup> φ(n)%discrete_mathematics/arithmetic_functions/phi_with_exponent",
+		"if n is odd, then φ(2n) = φ(n)%discrete_mathematics/arithmetic_functions/odd_phi",
 	]
 }
 
 export function getRecentlyEdited(): string[]{
 	return [
+		"The formula for φ(p<sup>a</sup>)%discrete_mathematics/arithmetic_functions/multiplicative3",
+		"If f is a multiplicative function, then [F(n) = ∑<sub>d|n, d>0</sub> f(d)] is also a multiplicative function%discrete_mathematics/arithmetic_functions/multiplicative1",
 		"equations_of_linear_motion_with_constant_acceleration%mechanics/classical_mechanics/equations_of_linear_motion_with_constant_acceleration",
 		"projection_of_a_vector_onto_another%linear_algebra/dot_product/projection_of_a_vector_onto_another",
-		"the inverse function theorem%calculus/differential_calculus/the_inverse_function_theorem",
-		"proof That [d/dx]sin(x) = cos(x)%calculus/trigonometric_derivatives/sin",
 	]
 }
 
@@ -204,9 +204,10 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 	]],
 	["prime_numbers", [
 		"if p is prime and p|αβ, then p|α or p|β%primeLemma1",
-		"if p is prime and p∤α, then gcd(p, α) = 1%primeLemma3",
+		"if p is prime and p∤α, then (p, α) = 1%primeLemma3",
 		"if n is composite then there is a prime divisor ≤ √n%nCompositeSoPrimeDivisorLessThanRootN",
 		"fundamental_theorem_of_arithmetic",
+		"all composite integers can be expressed as a product of two coprime integers%composite_as_coprime_integers",
 		"there are infinite number of primes%infinite_primes",
 		"there are infinite primes of the form 4k+3%infinite_primes_4k_plus_3",
 		"there are infinite primes of the form 3k+2%infinite_primes_3k_plus_2",
@@ -302,7 +303,16 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 	["arithmetic_functions",[
 		"If f is a multiplicative function, then [F(n) = ∑<sub>d|n, d>0</sub> f(d)] is also a multiplicative function%multiplicative1",
 		"The Euler phi function is multiplicative%multiplicative2",
-		"The formula for φ(p<sup>a</sup>)%multiplicative3"
+		"The formula for φ(p<sup>a</sup>)%multiplicative3",
+		"The formula for φ(n)%multiplicative4",
+		"φ(n) ≥ √(n/2)%phi_lower_bound",
+		"if n is composite, φ(n) ≤ n - √n%phi_higher_bound_when_n_composite",
+		"if n is even, then φ(2n) = 2φ(n)%even_phi",
+		"if n is odd, then φ(2n) = φ(n)%odd_phi",
+		"φ(n<sup>j</sup>) = n<sup>j-1</sup> φ(n)%phi_with_exponent",
+		"if m|n, then φ(m)|φ(n)%num_divides_so_phi_divides",
+		"if m|n, then φ(mn) = m φ(n)%Euler_phi_lemma1",
+		"∑<sub>d|n, d>0</sub> φ(d) = n%multiplicative5",
 	]]
 ]
 
