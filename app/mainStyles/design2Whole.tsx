@@ -241,7 +241,7 @@ function SearchEl(){
 				onKeyUp={()=>{
 					let textVal = inputRef.current?.value!;
 					if(textVal.length >= minLetters) evalSearchText(textVal);
-					else if (displayVal == "block") changeDisplay("none");
+					changeDisplay("none");
 				}}
 				ref={inputRef}
 				autoComplete="off"
@@ -256,17 +256,28 @@ function SearchEl(){
 					timerRef.current = window.setTimeout(()=>{ changeDisplay("none"); }, 500);
 				}} 
 				onMouseEnter={()=>{if(timerRef.current) window.clearTimeout(timerRef.current);}}
-			>{
-				itemsArr.current.length ?
-				itemsArr.current.map((elem, i)=>{
-					return <div key={i} className={styles.poptions}>
-						<Link href={elem["link"]} className='hover:no-underline' dangerouslySetInnerHTML={{__html: elem["title"]}}></Link> 
-					</div>
-				}) :
-				<div className={styles.poptions} style={{cursor:"default"}}>Sorry, no article were found.</div>
-			}</div>
+			>{evalItems(itemsArr)}</div>
 		</div>
 	</div>;
+}
+
+function evalItems(itemsArr: any){
+	try{
+		let items = itemsArr.current && itemsArr.current.length ?
+		//@ts-ignore
+		itemsArr.current.map((elem, i)=>{
+			return <div key={i} className={styles.poptions}>
+				<Link href={elem["link"]} className='hover:no-underline' dangerouslySetInnerHTML={{__html: elem["title"]}}></Link> 
+			</div>
+		}) :
+		<div className={styles.noptions} style={{cursor:"default"}}>Sorry, no article were found.</div>	
+		return items;
+	}
+	catch(e){
+		console.error(e);
+		console.log("itemsArr:", itemsArr);
+		return <div className={styles.noptions} style={{cursor:"default"}}>There was an error, please report this.</div>
+	}
 }
 
 function Design2Footer() {
