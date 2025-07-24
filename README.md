@@ -57,6 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 22.3:</b>
+- Updated sitemap.
+
 <b>update 22.2:</b>
 - In `[article]/page.tsx`, the page props are now a promise.
 
