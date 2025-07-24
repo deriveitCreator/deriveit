@@ -57,6 +57,16 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 22.1:</b>
+- Added a youtube link feature; some article links will have a youtube link at the end.
+- Made some articles link changes.
+- Added more "incomplete" links to be completed later.
+- Added several articles in `mechanics`.
+- Added `equation_of_a_tangent_line.tsx`.
+- Added `differentiation_of_functions_of_several_variables` in `calculus_(advanced)`.
+- Height of figure are now changable by the article data (but only available in design 2).
+- Made color changes in the footer.
+
 <b>update 21.4:</b>
 - Fixed some bugs with the search feature.
 

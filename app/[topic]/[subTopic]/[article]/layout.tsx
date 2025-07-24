@@ -8,7 +8,6 @@ export async function generateMetadata(
   props: { params: Promise<{ topic:string, subTopic: string, article: string }> }
 ): Promise<Metadata> {
   const params = await props.params;
-  let dataParam = local ? `date=${Date.now()}` : ""; 
   let { title } = await import(`@/app/infoStore/contents/${decodeURIComponent(params.topic)}/${decodeURIComponent(params.subTopic)}/${decodeURIComponent(params.article)}`);
   return {
     title:  title ? title : "404 error",

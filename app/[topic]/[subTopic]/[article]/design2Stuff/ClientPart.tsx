@@ -48,7 +48,7 @@ export default function ClientPart(){
     var ads = document.getElementsByClassName('adsbygoogle').length;
     for (var i = 0; i < ads; i++) {
       try {
-        //@ts-ignore
+        // @ts-ignore
         (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) {}
     }
@@ -76,7 +76,7 @@ export default function ClientPart(){
 
 function setMathTypeSet(){
   try{
-    //@ts-ignore
+    // @ts-ignore
     window.MathJax.typesetPromise();
   }
   catch(err){

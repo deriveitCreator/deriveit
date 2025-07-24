@@ -1,11 +1,11 @@
-export const title="(Dot product) Equivalence of the component-wise definition and the geometric definition";
+export const title="(Dot product) Deriving the geometric definition from the component-wise definition";
 const content = [
-  ['h1', 'Equivalence of the component-wise definition and the geometric definition'],
+  ['h1', 'Deriving The Geometric Definition From The Component-Wise Definition'],
   ['pmain', 'Let vectors \\(\\textbf{v}\\) and \\(\\textbf{u}\\) be defined as follows:'], 
   ['displayFormula', '$$ \\textbf{v} = \\begin{bmatrix} v_1 \\\\ v_2 \\\\ v_3 \\end{bmatrix} \\quad \\textbf{u} = \\begin{bmatrix} u_1 \\\\ u_2 \\\\ u_3 \\end{bmatrix} $$'],
   ['pmain', 'The dot product \\(\\textbf{v} \\cdot \\textbf{u}\\) is defined as follows:'], 
   ['displayFormula', '$$ \\textbf{v} \\cdot \\textbf{u} = v_1u_1 + v_2u_2 + v_3u_3 $$'],
-  ['pmain', 'This is the component-wise definition. Let\'s the angle between the vectors is \\(\\theta \\lt 90^{\\circ}\\):'], 
+  ['pmain', 'This is the component-wise definition. Let the angle between the vectors be \\(\\theta \\lt 90^{\\circ}\\):'], 
   ['figure', ['cosine1.jpeg','Image from opentstax.org (Calculus 3)']],
   ['pmain', 'This means \\(\\textbf{v}\\), \\(\\textbf{u}\\), \\(\\textbf{v}-\\textbf{u}\\) can form a triangle:'], 
   ['figure', ['cosine2.jpeg','Image from opentstax.org (Calculus 3)']],

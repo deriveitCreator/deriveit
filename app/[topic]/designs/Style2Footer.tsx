@@ -27,9 +27,9 @@ export default function FooterEl(props: ColorInfoType){
         <p>If there are any equations for which you want proof for, <ClickButton type={1} func={changeType} /></p>
         <p>For any suggestion and ideas, <ClickButton type={2} func={changeType} /></p>
       </div>
-      <Link href={link} style={{borderColor: props.borderColor, backgroundColor: props.headerBgColor}} target="_blank" id={styles.donate}>
-        <p className={"text-center font-bold text-sm"} style={{color: props.borderColor}}>Want To Donate?</p>
-        <Image src="/payPal.png" alt="" height={24} width={90}/>
+      <Link href={link} style={{color: props.footerColor, borderColor: props.borderColor, backgroundColor: props.headerBgColor}} target="_blank" id={styles.donate}>
+        <p className={"text-center font-bold text-sm"}>Want To Donate?</p>
+        <div style={{backgroundColor: props.headerBgColor, backgroundBlendMode:"multiply", height: "24px", width:"90px", backgroundImage:"url(/payPal.png)",backgroundSize:"cover"}}></div>
       </Link>
     </div>
     <Suspense fallback={<></>}><FormBox type={formType} styleNum={2}/></Suspense>

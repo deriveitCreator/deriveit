@@ -114,8 +114,13 @@ export function getTopicLinks(topic: string){
 	return result;
 }
 
+//Special characters: % and $
+//default format: [text]%[link]$[video]
 //if there is no percentage, then the link is the topic name with
 //" " replaced with "_" and "'" removed
+//multiple %'s are allowed, and link is assumed to come after the last %
+//if no $ exists, then there is no video
+//[video] is the youtube video id
 
 const algebraLinks: Array<[string,string[]]> = [
 	["fractions", ["[a/b] + [c/b] gives [(a+c)/b]%adding_fractions","multiplying [a/b] by [c/d] gives [ac/bd]%multiplying_fractions"]],
@@ -145,11 +150,12 @@ const geometryLinks: Array<[string,string[]]> = [
 		"area_of_a_triangle",
 		"constructing_an_equilateral_triangle",
 		"pythagoras_theorem",
-		"sides_of_30_90_60"
+		"sides_of_30_90_60",
+		"perpendicular_bisector_of_all_sides_passes_through_a_common_point_(incomplete)"
 	]],
 	["quadrilaterals", [
 		"area_of_a_parallelogram",
-		"area_of_a_trapezium",
+		"area_of_a_trapezium$XDpSztEflFM",
 		"constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle"
 	]],
 	["circles", [
@@ -164,7 +170,9 @@ const geometryLinks: Array<[string,string[]]> = [
 		"the_stretched_cicle_definition",
 		"the_focus-directrix_definition",
 		"the_polar_equation",
-		"the_reflective_property_of_an_ellipse"
+		"the_reflective_property_of_an_ellipse",
+		"a_parallel_projection_of_an_ellipse_is_another_ellipse_(incomplete)",
+		"a_cone_can_be created_around_any_ellipse_(incomplete)",
 	]],
 	["parabola", [
 		"the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola",
@@ -176,9 +184,13 @@ const geometryLinks: Array<[string,string[]]> = [
 		"using x<sup>2</sup> as a product calculator%parabola_as_product_calculator"
 	]],
 	["hyperbola",[
+		"the_equivalence_of_the_geometric_definition_and_the_conic_section_definition_of_a_hyperbola_(incomplete)",
 		"getting_the_standard_form_equation_from_the_geometric_definition",
 		"deriving_the_asymptote_of_a_hyperbola",
 		"equation_of_the_directrix",
+		"equation of the eccentricity (incomplete)",
+		"how a hanging chain forms a hyperbola (incomplete)",
+		"the area under between unit hyperbola, sinh(a) and cosh(a) is a/2 (incomplete)"
 	]],
 	["other_shapes",[
 		"lateral surface area of a right circular cone%cone_lateral_surface_area",
@@ -317,13 +329,14 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 ]
 
 const linearAlgebraLinks: Array<[string,string[]]> = [
-	["basics", ["two lines are perpendicular if the gradient of one line is the negative reciprocal of the other%product_of_perpendicular"]],
+	["basics", ["two lines are perpendicular if the gradient of one line is the negative reciprocal of the other_(incomplete)%product_of_perpendicular"]],
 	["dot_product", [
 		"commutative_property_of_the_dot_product",
 		"distributive_property_of_the_dot_product",
 		"associative_property_of_the_dot_product",
 		"the_dot_product_of_a_vector_with_itself_gives_the_square_of_it's_magnitude%dot_product_with_itself",
-		"equivalence of the component-wise definition and the geometric definition of the dot product%geometric_definition",
+		"deriving the geometric definition from the component-wise definition%geometric_definition",
+		"deriving the component-wise definition from the geometric definition%geometric_definition_2",
 		"projection_of_a_vector_onto_another",
 	]],
 	["cross_product",[
@@ -380,6 +393,7 @@ const calculusLinks: Array<[string,string[]]> = [
 		"the_chain_rule",
 		"the_inverse_function_theorem",
 		"mean_value_theorem",
+		"equation_of_a_tangent_line"
 	]],
 	["using_Euler's_number", [
 		"definition of e%define_e",
@@ -528,13 +542,33 @@ const calculusAdvancedLinks: Array<[string,string[]]> = [
 		"arc_length_function_and_it's_derivative",
 		"curvature_formulas",
 		"radius_of_curvature",
+	]],
+	["differentiation_of_functions_of_several_variables", [
+		"Clairaut's_theorem",
+		"equation of a tangent plane",
+		"understanding_differentiability_for_functions_of_two_variables",
+		"If z = f(x,y), then f is differentiable at (a, b) if Δz can be expressed in the form [Δz = f<sub>x</sub>(a, b) Δx + f<sub>y</sub>(a, b) Δy + ε<sub>1</sub> Δx + ε<sub>2</sub> Δy]%differentiability_condition",
+		"differentiability implies continuity (incomplete)",
+		"continuity of first partials implies differentiability (incomplete)",
+		"chain rule for one independent variable",
+		"chain rule for two independent variable (incomplete)",
+		"generalized chain rule (incomplete)",
+		"implicit_differentiation_with_two_variables",
+		"implicit_differentiation_with_three_variables",
+		"D<sub>u</sub> f(x,y) = f<sub>x</sub>(x,y) cos(θ) + f<sub>y</sub>(x,y) sin(θ)%directional_derivative_other_definition",
+		"gradient_is_normal_to_the_level_curve",
+		"gradient_vector_is_perpendicular_to_the_tangent_vector_to_any_curve_on_a_surface",
+		"second_derivative_test_(incomplete)"
 	]]
 ]
 
 const mechanicsLink: Array<[string,string[]]> = [
 	["classical_mechanics", [
 		"equations_of_linear_motion_with_constant_acceleration",
-		"components_of_the_acceleration_vector"
+		"components_of_the_acceleration_vector",
+		"time_of_flight,_trajectory,_and_range_equations",
+		"equations_of_uniform_circular_motion",
+		"equations_of_nonuniform_circular_motion"
 	]],
 	["miscellaneous",["adding_relative_(or_percentage)_uncertainties_when_multiplying_or_dividing_measured_quantities"]]
 ]

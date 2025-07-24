@@ -46,7 +46,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
         break;
       case "figure":
         bodyChildren.push(
-          <figure key={i} className={mainTextFont.className} style={{display: "grid", gridTemplateRows:"240px auto", position:"relative", fontWeight:"bold", marginTop:"16px", marginBottom:"16px", justifyItems:"center"}}>
+          <figure key={i} className={mainTextFont.className} style={{display: "grid", gridTemplateRows:`${j[i][1][2] || "240px"} auto`, position:"relative", fontWeight:"bold", marginTop:"16px", marginBottom:"16px", justifyItems:"center"}}>
             <Image
               alt=""
               src={`/${topic}/${subTopic}/${j[i][1][0]}`}
@@ -102,7 +102,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
 }
 
 function H2Main({children}: {children: string}){
-  return <h2 className={styles.subHeading + ' underline font-bold mb-4 ' + headingFont.className} dangerouslySetInnerHTML={{__html: children}}></h2>
+  return <h2 className={styles.subHeading + ' underline font-bold mb-4 ' + headingFont.className} dangerouslySetInnerHTML={{__html: children}}></h2>;
 }
 
 function PMain({children, mode}: {children: string, mode:number}){
@@ -124,7 +124,7 @@ function SourcesSectionInner(props: {content: string[]}){
         return <LiForSources key={i}>{stuff}</LiForSources>;
       })}</ol>
     </div>
-  </section>
+  </section>;
 }
 
 function LiForSources(props: {children: string}){

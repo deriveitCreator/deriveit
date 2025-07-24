@@ -1,0 +1,32 @@
+export const title="Deriving the time of flight, trajectory, and range equations";
+const content = [
+  ['h1', 'Deriving The Time Of Flight, Trajectory, And Range Equations'],
+
+  ['pmain', 'Consider a projectile thrown at angle \\(\\theta\\) on a flat horizontal surface. Let \\(t\\) be the time, where \\(t=0\\) is when the projectile is first thrown. Let \\(y(t)\\) be the position in the \\(y\\) direction and let \\(x(t)\\) be the position in the \\(x\\) direction.'], 
+  ['pmain', 'Let \\(\\textbf{u}(t)\\) be the initial velocity, and let \\(\\textbf{u}_x(t)\\) and \\(\\textbf{u}_y(t)\\) be the initial velocity in the \\(x\\) and \\(y\\) direction respectively:'], 
+  ['displayFormula', '\\[\\begin{gather} \\textbf{u}_y(t) = \\textbf{u}(t) \\sin(\\theta) \\\\  \\textbf{u}_x(t) =\\textbf{u}(t) \\cos(\\theta) \\end{gather}\\]'], 
+  ['pmain', 'Let \\(T_{\\text{tof}}\\) (time of flight) be the time the projectile is in the air. This is the time between \\(y=0\\) the first time (i.e. \\(y(0)\\)), and \\(y=0\\) the second time. We can start with this equation:'], 
+  ['displayFormula', '\\[ \\begin{align} y(t) - y(0) &= \\textbf{u}_y(0) t - \\frac{1}{2} gt^2 \\\\ &= (\\textbf{u}(0) \\sin(\\theta)) t - \\frac{1}{2} gt^2 \\end{align}\\]'], 
+  ['pmain', 'Since we are considering the case where \\(y(t)=0\\):'], 
+  ['displayFormula', '\\[0 = \\textbf{u}_y(0) T_{\\text{tof}} - \\frac{1}{2} g T_{\\text{tof}}^2 \\]'], 
+  ['pmain', 'Rearranging:'], 
+  ['displayFormula', '\\[ \\begin{gather} \\frac{1}{2} g T_{\\text{tof}} = (\\textbf{u}(0) \\sin(\\theta)) \\\\ T_{\\text{tof}} = \\frac{2 (\\textbf{u}(0) \\sin(\\theta))}{g} \\end{gather}\\]'], 
+  ['pmain', 'This is the time of flight for a projectile both launched and impacting on a flat horizontal surface. This equation does not apply when the projectile lands at a different elevation than it was launched.'], 
+  ['pmain', 'We are now going to derive an equation where we get a \\(y\\) position based on \\(x\\). We will assume there is no air resistance:'], 
+  ['displayFormula', '\\[\\begin{gather} x = \\textbf{u}_x(t) t \\\\ t = \\frac{x(t)}{\\textbf{u}_x(t)} = \\frac{x(t)}{\\textbf{u}(t) \\cos(\\theta)}\\end{gather}\\]'], 
+  ['pmain', 'This means:'], 
+  ['displayFormula', '\\[\\begin{align} y(t) - y(0) &= (\\textbf{u}(0) \\sin(\\theta)) t - \\frac{1}{2} gt^2 \\\\  y(t) &= (\\textbf{u}(0) \\sin(\\theta)) \\left( \\frac{x(t)}{\\textbf{u}(t) \\cos(\\theta)} \\right) - \\frac{1}{2} g\\left( \\frac{x(t)}{\\textbf{u}(t) \\cos(\\theta)} \\right)^2 \\end{align}\\]'], 
+  ['pmain', 'Simplifying:'], 
+  ['displayFormula', '\\[ y(t) = \\tan(\\theta) x(t) - \\frac{g}{2} \\left( \\frac{x(t)}{\\textbf{u}(t) \\cos(\\theta)} \\right)^2 \\]'], 
+  ['pmain', 'This means we can define another function \\(y(x)\\), which gives the \\(y\\) position in terms of \\(x\\):'], 
+  ['displayFormula', '\\[ y(x) = \\tan(\\theta) x - \\frac{g}{2} \\left( \\frac{x}{\\textbf{u}(t) \\cos(\\theta)} \\right)^2 \\]'], 
+  ['pmain', 'This is the trajectory equation. From this, we can derive the range equation, which gives the horizontal distance traveled by the projection (i.e. the time when the projectile\'s \\(y\\) position goes back to 0).'], 
+  ['displayFormula', '\\[\\begin{gather} y(x) = \\tan(\\theta) x - \\frac{g}{2} \\left( \\frac{x}{\\textbf{u}(t) \\cos(\\theta)} \\right)^2 \\\\ 0 = \\tan(\\theta) x - \\frac{g}{2(\\textbf{u}(t) \\cos(\\theta))^2} x^2 \\end{gather}\\]'], 
+  ['pmain', 'We can use the quadratic formula here:'], 
+  ['displayFormula', '\\[x = \\frac{-\\tan(\\theta) ± \\sqrt{\\tan^2(\\theta) - 0}}{ 2 \\left(- \\frac{g}{2(\\textbf{u}(t) \\cos(\\theta))^2} \\right)}\\]'], 
+  ['pmain', 'Simplifying:'], 
+  ['displayFormula', '\\[x = 0, \\frac{2\\tan(\\theta) (\\textbf{u}(t) \\cos(\\theta))^2 }{g} = 0, \\frac{2 \\sin(\\theta)\\cos(\\theta) \\textbf{u}(t)^2 }{g}\\]'], 
+  ['pmain', 'Let \\(R\\) be the \\(x\\) position where the projectile lands. Since we want only the landing position, and since \\(\\sin(2 \\theta) = 2 \\sin(\\theta)\\cos(\\theta)\\):'], 
+  ['displayFormula', '\\[R = \\frac{\\textbf{u}(t)^2\\sin(2\\theta)}{g}\\]'], 
+];
+export default content;

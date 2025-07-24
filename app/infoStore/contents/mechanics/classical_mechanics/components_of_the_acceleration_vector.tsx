@@ -9,7 +9,7 @@ const content = [
   ['displayFormula', '$$ \\textbf{N}(t) = \\frac{ \\textbf{T}\'(t) }{ \\Vert \\textbf{T}\'(t) \\Vert} $$'],
   ['pmain', 'Let \\(\\textbf{a}(t)\\) be the acceleration vector that lies in the plane formed by \\(\\textbf{T}(t)\\) and \\(\\textbf{N}(t)\\).'],
   ['pmain', 'Let \\(\\textbf{v}(t)=\\textbf{r}\'(t)\\) be the velocity vector. This means:'],
-  ['displayFormula', '$$ \\textbf{T}(t) = \\frac{ \\textbf{r}\'(t) }{ \\Vert \\textbf{r}\'(t) \\Vert} \\implies \\begin{align} \\textbf{v}(t) &= \\Vert \\textbf{r}\'(t) \\Vert \\textbf{T}(t) \\\\  \\textbf{v}(t) &= \\Vert \\textbf{v}(t) \\Vert \\textbf{T}(t) \\end{align}$$'],
+  ['displayFormula', '$$ \\textbf{T}(t) = \\frac{ \\textbf{r}\'(t) }{ \\Vert \\textbf{r}\'(t) \\Vert} \\implies \\begin{align} \\textbf{r}\'(t) &= \\Vert \\textbf{r}\'(t) \\Vert \\textbf{T}(t) \\\\  \\textbf{v}(t) &= \\Vert \\textbf{v}(t) \\Vert \\textbf{T}(t) \\end{align}$$'],
   ['pmain', 'Let \\(v(t)=\\Vert \\textbf{v}(t) \\Vert \\) be the speed, which is a scalar value. If we differentiate the above:'],
   ['displayFormula', '$$\\begin{align} \\textbf{a}(t)=\\textbf{v}\'(t)=\\frac{d}{dt} (v(t) \\textbf{T}(t)) &= v \'(t) \\textbf{T}(t) + v(t) \\textbf{T}\'(t) \\\\ &= v \'(t) \\textbf{T}(t) + v(t) \\Vert \\textbf{T}\'(t) \\Vert \\textbf{N}(t)\\end{align}$$'],
   ['pmain', 'Let \\(k\\) be the curvature:'],
@@ -35,6 +35,6 @@ const content = [
   ['pmain', 'There is also another expression involving \\(a_\\textbf{N}\\) and \\(a_\\textbf{T}\\). First let\'s start \\(\\Vert \\textbf{a}(t) \\Vert ^2\\):'],
   ['displayFormula', '$$\\begin{align} \\Vert \\textbf{a}(t) \\Vert^2 &= \\textbf{a}(t) \\cdot \\textbf{a}(t)= (a_\\textbf{T} \\textbf{T}(t) + a_\\textbf{N} \\textbf{N}(t)) \\cdot (a_\\textbf{T} \\textbf{T}(t) + a_\\textbf{N} \\textbf{N}(t)) \\\\ &= a_\\textbf{T}^2 (\\textbf{T}(t) \\cdot \\textbf{T}(t)) + 2a_\\textbf{T}a_\\textbf{N} (\\textbf{T}(t) \\cdot \\textbf{N}(t)) + a_\\textbf{N}^2 (\\textbf{N}(t) \\cdot \\textbf{N}(t)) \\\\ &= a_\\textbf{T}^2 (1) + 0 + a_\\textbf{N}^2 (1) \\end{align}$$'],
   ['pmain', 'Therefore:'],
-  ['displayFormula', '$$\\begin{align} a_\\textbf{N}^2 = \\sqrt{\\Vert \\textbf{a}(t) \\Vert^2 - a_\\textbf{T}^2 } \\\\ a_\\textbf{T}^2 = \\sqrt{\\Vert \\textbf{a}(t) \\Vert^2 - a_\\textbf{N}^2 } \\end{align} $$'],
+  ['displayFormula', '$$\\begin{align} a_\\textbf{N} = \\sqrt{\\Vert \\textbf{a}(t) \\Vert^2 - a_\\textbf{T}^2 } \\\\ a_\\textbf{T} = \\sqrt{\\Vert \\textbf{a}(t) \\Vert^2 - a_\\textbf{N}^2 } \\end{align} $$'],
 ];
 export default content;

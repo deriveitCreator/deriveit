@@ -3,6 +3,9 @@ import Link from "next/link";
 import styles from "./design2.module.scss";
 import { MainType } from '../page';
 import FooterEl from '../../designs/Style2Footer';
+import { FaYoutube } from "react-icons/fa";
+
+const YOUTUBE_PREFIX = "https://www.youtube.com/watch?v=";
 
 export default function Style2(props: MainType){ 
 	let styleOb = props.styleObject!;
@@ -12,21 +15,35 @@ export default function Style2(props: MainType){
 
 	return <>
 		<main className={styles.main}>
-			<h2 className={`${headingFont.className} ${styles.heading}`} style={{color: borderColor}}>
-				{curTopic[0].replaceAll("_"," ")}
-			</h2>
-			{(curTopic[1]).map((val:string,i: number)=> {
-				if(val.includes("%")){ return <StyledP
+			<h2 className={`${headingFont.className} ${styles.heading}`} style={{color: borderColor}}>{
+				curTopic[0].replaceAll("_"," ")
+			}</h2>
+			
+			{ (curTopic[1]).map((val:string,i: number) => {
+				
+				let text = val;
+				let youtubeID = '';
+				if (text.includes("$")) {
+					youtubeID = text.substring(text.lastIndexOf('$')+1);
+					text = text.substring(0, text.lastIndexOf('$'));
+				}
+
+				let link;
+				if (text.includes("%")) {
+					link = `${curTopic[0]}/${text.substring(text.lastIndexOf('%')+1)}`.replaceAll("'","");
+					text = text.substring(0,text.lastIndexOf('%')).replaceAll("_"," ");
+				}
+				else{
+					link = `${curTopic[0]}/${text}`.replaceAll(" ","_").replaceAll("'","");
+					text = text.replaceAll("_"," ");
+				}
+
+				return <StyledP
 					key={i}
 					textColor={headerBgColor}
-					text={val.substring(0,val.lastIndexOf('%')).replaceAll("_"," ")}
-					link={`${curTopic[0]}/${val.substring(val.lastIndexOf('%')+1,val.length)}`.replaceAll("'","")}
-				/>;
-				}else return <StyledP
-					key={i}
-					textColor={headerBgColor}
-					text={val.replaceAll("_"," ")}
-					link={`${curTopic[0]}/${val}`.replaceAll(" ","_").replaceAll("'","")}
+					text={text}
+					youtubeID={youtubeID}
+					link={link}
 				/>;
 			})}
 		</main>
@@ -34,13 +51,18 @@ export default function Style2(props: MainType){
 	</>;
 }
 
-const StyledP = (props: {text: string, link: string, textColor: string}) =>{
+const StyledP = (props: {text: string, link: string, textColor: string, youtubeID: string}) =>{
 	var pContent;
 	if (props.text.slice(-11,) === "incomplete)")
 		pContent = <span dangerouslySetInnerHTML={{ __html: props.text }}></span>;
 	else pContent = <Link href={`./${props.link}`} dangerouslySetInnerHTML={{ __html: props.text }}></Link>;
 
-	return <p className={`${mainTextFont.className} ${styles.linkText}`} style={{color: props.textColor, letterSpacing:"1px"}}>
-		{pContent}
+	let videoEl = null;
+	if (props.youtubeID.length) videoEl = <a href={YOUTUBE_PREFIX + props.youtubeID} target="_blank" style={{display:"inline-block", verticalAlign:"middle"}}>
+		<FaYoutube/>
+	</a>;
+
+	return <p className={`${mainTextFont.className} ${styles.linkText}`} style={{color: props.textColor}}>
+		{pContent} {videoEl}
 	</p>;
 }

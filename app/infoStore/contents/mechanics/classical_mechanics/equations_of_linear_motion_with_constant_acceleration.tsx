@@ -2,7 +2,7 @@ export const title="Deriving The Equations Of Linear Motion With Constant Accele
 const content = [
   ['h1', 'Deriving The Equations Of Linear Motion With Constant Acceleration'],
   ['pmain', 'Here is an example of a <span style="color:blue">velocity</span> (<span style="color:blue">v</span>) vs <span style="color:#666666">time</span> (<span style="color:#666666">t</span>) graph with constant <span style="color:red">acceleration</span> (<span style="color:red">a</span>):'], 
-  ['displayimg', 'vt.png'], 
+  ['displayimg', 'c1.png'], 
   ['pmain', 'The formula for <span style="color:red">a</span> is:'], 
   ['displayFormula', '$$ {\\color{red} a} = \\frac{{\\color{blue} v_f} - {\\color{blue} v_i}}{{\\color{gray} t}} $$'],
   ['pmain', '<span style="color:blue">Final velocity</span> is represented as <span style="color:blue">v<sub>f</sub></span> while <span style="color:blue">initial velocity</span> is represented as <span style="color:blue">v<sub>i</sub></span>. Our first equation of motion is:'],

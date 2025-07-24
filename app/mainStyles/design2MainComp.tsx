@@ -10,7 +10,7 @@ function MainTable(){
     <thead><tr><th>Choose Your Topic:</th></tr></thead>
     {/*When making images in powerpoint, the width should be 646px and height should be 334px*/}
     <tbody>
-      {topicsOrder.map((elem,i)=>{
+      {topicsOrder.map((_elem,i)=>{
         if(i%2 === 0){
           const name1 = topicsOrder[i];
           const name2 = topicsOrder[i+1];
