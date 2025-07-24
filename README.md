@@ -57,6 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 22.2:</b>
+- In `[article]/page.tsx`, the page props are now a promise.
+
 <b>update 22.1:</b>
 - Added a youtube link feature; some article links will have a youtube link at the end.
 - Made some articles link changes.

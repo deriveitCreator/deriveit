@@ -75,7 +75,7 @@ const MainPartMemo = React.memo(function MainPart(props:{
 			} catch (e) {}
 		}
 		if (!props.continueButtonClicked) props.setCE(true);
-	}, []); // eslint-disable-line no-use-before-define
+	}, []); 
 
 	return <ParallaxProvider><div style={{backgroundColor:"#FFD966",position:"relative", visibility: props.continueButtonClicked?"visible":"hidden"}}>
 		<BackgroundImage continueClicked={props.continueButtonClicked}/>

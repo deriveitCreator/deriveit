@@ -10,7 +10,7 @@ export type CompImportType = {
 }
 
 export default async function Page(
-  props: { params: { topic:string, subTopic: string, article: string } }
+  props: { params: Promise<{ topic:string, subTopic: string, article: string }> }
 ) {
   const params = await props.params;
   const topic2 = decodeURIComponent(params.topic);
