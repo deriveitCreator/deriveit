@@ -57,6 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 22.6:</b>
+- Updated sitemap.
+
 <b>update 22.5:</b>
 - Made title changes in `mechanics`.
 - Added content in `mechanics`.
