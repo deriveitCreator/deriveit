@@ -1,6 +1,6 @@
 import { headingFont, mainTextFont } from "@/app/infoStore/fonts";
 import Link from "next/link";
-import styles from "./design2.module.scss";
+import styles from "../../designs/style2.module.scss";
 import { MainType } from '../page';
 import FooterEl from '../../designs/Style2Footer';
 import { FaYoutube } from "react-icons/fa";

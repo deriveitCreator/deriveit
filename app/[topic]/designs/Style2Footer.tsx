@@ -5,8 +5,8 @@ import FormBox from '@/app/global_components/FormBox';
 import Image from 'next/image';
 import { printFont2 } from "@/app/infoStore/fonts";
 import Link from "next/link";
-import { link } from "../../infoStore/paypalLink";
-import styles from "./style2.module.scss";
+import { link } from "../../infoStore/donationLink";
+import styles from "../designs/style2.module.scss";
 import { ColorInfoType } from '../../infoStore/topicsInfo';
 
 export default function FooterEl(props: ColorInfoType){
@@ -28,8 +28,7 @@ export default function FooterEl(props: ColorInfoType){
         <p>For any suggestion and ideas, <ClickButton type={2} func={changeType} /></p>
       </div>
       <Link href={link} style={{color: props.footerColor, borderColor: props.borderColor, backgroundColor: props.headerBgColor}} target="_blank" id={styles.donate}>
-        <p className={"text-center font-bold text-sm"}>Want To Donate?</p>
-        <div style={{backgroundColor: props.headerBgColor, backgroundBlendMode:"multiply", height: "24px", width:"90px", backgroundImage:"url(/payPal.png)",backgroundSize:"cover"}}></div>
+        <Image alt="donation link" src={"/support_me_on_kofi_badge_beige.png"} width={112} height={60}/>
       </Link>
     </div>
     <Suspense fallback={<></>}><FormBox type={formType} styleNum={2}/></Suspense>

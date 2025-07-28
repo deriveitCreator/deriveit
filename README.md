@@ -55,7 +55,10 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
-Versioning is done using "npm version [new-version] --git-tag-version false"
+Versioning is done using "	"
+
+<b>update 22.4:</b>
+- Donation link now uses ko-fi instead of payPal.
 
 <b>update 22.3:</b>
 - Updated sitemap.

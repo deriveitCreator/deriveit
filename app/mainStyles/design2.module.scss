@@ -337,25 +337,9 @@ $brown2: #663300;
 			height: min-content;
 		}
 
-		#paypalLink{
-			border: #CC3300 4px ridge;
-			background-color:wheat;
-			position: relative;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			height: min-content;
-			margin: auto 20px;
-
-			&:hover{
-				text-decoration: none;
-			}
-
-			#paypalImage{
-				width: 100%;
-				max-width: 100px;
-			}
+		#donationLink{
+			justify-self: center;
+			align-self: center;
 		}
 	}
 }
@@ -457,12 +441,8 @@ $brown2: #663300;
 				line-height: 18px;
 			}
 
-			#paypalLink{
+			#donationLink{
 				margin: auto 5px;
-
-				#paypalImage{
-					max-width: 60px;
-				}
 			}
 		}
 	}

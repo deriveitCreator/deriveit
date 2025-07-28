@@ -1,0 +1,1 @@
+export const link = "https://ko-fi.com/deriveitcreator"

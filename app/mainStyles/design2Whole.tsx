@@ -8,7 +8,7 @@ import { IconContext } from "react-icons";
 import { FaPaintbrush, FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import StyleSelectionBox from '../global_components/StyleSelectionBox';
 import Link from 'next/link';
-import { link } from '../infoStore/paypalLink';
+import { link } from '../infoStore/donationLink';
 import Image from 'next/image';
 import { ParallaxProvider, useParallax } from 'react-scroll-parallax';
 import FormBox from '../global_components/FormBox';
@@ -290,9 +290,8 @@ function Design2Footer() {
 				If there are any equations for which you want proof for, <ClickButton type={1} func={changeFT} />.<br/>
 				For any suggestion and ideas, <ClickButton type={2} func={changeFT} />.
       </p>
-      <Link id={styles.paypalLink} href={link} target="_blank">
-				<p className={" text-center font-bold text-xs "}>Want To Donate?</p>
-				<Image alt="" src={"/payPal.png"} width={124} height={33} id={styles.paypalImage}/>
+      <Link id={styles.donationLink} href={link} target="_blank" title="donate">
+				<Image alt="donation link" src={"/support_me_on_kofi_badge_beige.png"} width={112} height={60}/>
       </Link>
       <Suspense fallback={<></>}><FormBox type={formType} styleNum={2}/></Suspense>
     </div>

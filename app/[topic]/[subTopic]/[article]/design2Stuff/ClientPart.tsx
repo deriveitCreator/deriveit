@@ -11,7 +11,7 @@ import Link from "next/link";
 import StyleSelectionBox from "@/app/global_components/StyleSelectionBox";
 import Image from 'next/image';
 import FormBox from "@/app/global_components/FormBox";
-import { link } from "@/app/infoStore/paypalLink";
+import { link } from "@/app/infoStore/donationLink";
 import { citationList } from '@/app/infoStore/sourcesForCitation';
 
 interface InfoBoxType {
@@ -75,13 +75,10 @@ export default function ClientPart(){
 }
 
 function setMathTypeSet(){
-  try{
-    // @ts-ignore
-    window.MathJax.typesetPromise();
-  }
-  catch(err){
-    console.error(err);
-    console.log("Redoing MathJax typesetting...");
+  // @ts-ignore
+  if (window.MathJax) window.MathJax.typesetPromise();
+  else {
+    console.log("MathJax in not defined yet.\nRedoing MathJax typesetting...");
     window.setTimeout(setMathTypeSet,250);
   }
 }
@@ -191,9 +188,9 @@ function FooterEl(){
         <p>If there are any equations for which you want proof for, <ClickButton type={1} func={changeType} /></p>
         <p>For any suggestion and ideas, <ClickButton type={2} func={changeType} /></p>
       </div>
-      <Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center",padding:"0px 25px", marginTop:"10px"}} target="_blank" id={styles.donate} aria-label="Want to donate?">
+      <Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",padding:"0px 25px", marginTop:"10px"}} target="_blank" id={styles.donate} aria-label="Want to donate?">
         <p className={"text-center font-bold text-sm"}>Want To Donate?</p>
-        <Image src="/payPal.png" alt="" width={124} height={33}/>
+        <Image src="/kofi_logo.png" alt="" width={90} height={24}/>
       </Link>
     </div>
     <Suspense fallback={<></>}><FormBox type={formType} styleNum={2}/></Suspense>

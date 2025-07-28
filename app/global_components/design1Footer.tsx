@@ -6,7 +6,7 @@ import { printFont, cursiveMain } from '../infoStore/fonts';
 import FormBox from './FormBox';
 import { Suspense, useEffect, useState } from 'react';
 import styles from "../mainStyles/design1.module.scss";
-import { link } from '../infoStore/paypalLink';
+import { link } from '../infoStore/donationLink';
 
 const footerPStyle = {
 	fontSize: "26px",
@@ -42,9 +42,9 @@ export default function FooterComp(){
 				If there are any equations for which you want proof for, <ClickButton type={1} func={changeFT} /><br/>
 				For any suggestion and ideas, <ClickButton type={2} func={changeFT} />
 			</p>
-			<Link href={link} target="_blank" className='flex flex-col justify-center items-center bg-gray-50 mx-10 border-blue-900 border-2 outline-1 outline-white outline h-min py-2 hover:no-underline' aria-label='Want to donate?'>
-				<p className={" text-center text-lg pb-2 text-blue-900 font-bold "+printFont.className}>Want To Donate?</p>
-				<ImageWrapper mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
+			<Link href={link} target="_blank" className='flex flex-col justify-center items-center bg-gray-50 mx-10 border-black border-2 outline-1 outline-white outline h-min py-3 hover:no-underline' aria-label='Want to donate?'>
+				<p className={" text-center text-lg pb-2 font-bold "+printFont.className}>Want To Donate?</p>
+				<ImageWrapper mw="max-w-[70%]" h="h-6" src="/kofi_logo.png" alt="" />
 			</Link>
 			{/*@ts-ignore */}
 			<Suspense fallback={<></>}><FormBox type={formType} styleNum={1}/></Suspense>
@@ -59,9 +59,9 @@ export default function FooterComp(){
 			<Link href={"/"}>
 				<ImageWrapper mw="max-w-[100px]" h="h-full" w="w-1/2" src="/link_logo_short_1.png" alt=""  className="flex justify-center items-center "/>
 			</Link>
-			<Link href={link} target="_blank" className='flex flex-col justify-center items-center bg-gray-50 mx-10 border-blue-900 border-2 outline-1 outline-white outline h-min py-2 hover:no-underline'>
-				<p className={" text-center text-lg pb-2 text-blue-900 font-bold "+printFont.className}>Want To Donate?</p>
-				<ImageWrapper mw="max-w-[70%]" h="h-6" src="/payPal.png" alt="" />
+			<Link href={link} target="_blank" className='flex flex-col justify-center items-center bg-gray-50 mx-10 border-black border-2 outline-1 outline-white outline h-min py-2 hover:no-underline'>
+				<p className={" text-center text-lg pb-2 font-bold "+printFont.className}>Want To Donate?</p>
+				<ImageWrapper mw="max-w-[70%]" h="h-6" src="/kofi_logo.png" alt="" />
 			</Link>
 			{/*@ts-ignore */}
 			<Suspense fallback={<></>}><FormBox type={formType} styleNum={1}/></Suspense>
