@@ -55,7 +55,11 @@ One major thing I added was the design feature, where you can choose different d
 
 ## Updates
 
-Versioning is done using "	"
+Versioning is done using "npm version [new-version] --git-tag-version false"
+
+<b>update 22.5:</b>
+- Made title changes in `mechanics`.
+- Added content in `mechanics`.
 
 <b>update 22.4:</b>
 - Donation link now uses ko-fi instead of payPal.

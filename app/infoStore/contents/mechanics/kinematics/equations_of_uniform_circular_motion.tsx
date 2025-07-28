@@ -20,5 +20,9 @@ const content = [
   ['displayFormula', '\\[ \\vec{\\textbf{v}}(t) = \\frac{d}{dt} \\vec{\\textbf{r}}(t) = - r \\omega \\sin(\\omega t) \\hat{\\textbf{i}} + r \\omega \\cos(\\omega t) \\hat{\\textbf{j}} \\]'],
   ['pmain', 'If we derivate again:'], 
   ['displayFormula', '\\[ \\vec{\\textbf{a}}(t) = \\frac{d}{dt} \\vec{\\textbf{v}}(t) = - r \\omega^2 \\cos(\\omega t) \\hat{\\textbf{i}} - r \\omega^2 \\sin(\\omega t) \\hat{\\textbf{j}} \\]'],
+  ['pmain', 'Going back to angular speed \\(v\\), we can define it as:'], 
+  ['displayFormula', '\\[v = \\frac{\\text{arc length covered in time } t}{t} = \\frac{\\theta \\ r}{t} = \\omega \\ r\\]'],
+  ['pmain', 'This means:'], 
+  ['displayFormula', '\\[a_c = \\omega^2 r\\]'],
 ];
 export default content;

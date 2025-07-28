@@ -563,14 +563,16 @@ const calculusAdvancedLinks: Array<[string,string[]]> = [
 ]
 
 const mechanicsLink: Array<[string,string[]]> = [
-	["classical_mechanics", [
+	["uncertainty",
+		["adding_relative_(or_percentage)_uncertainties_when_multiplying_or_dividing_measured_quantities"]
+	],
+	["kinematics", [
 		"equations_of_linear_motion_with_constant_acceleration",
 		"components_of_the_acceleration_vector",
 		"time_of_flight,_trajectory,_and_range_equations",
 		"equations_of_uniform_circular_motion",
 		"equations_of_nonuniform_circular_motion"
 	]],
-	["miscellaneous",["adding_relative_(or_percentage)_uncertainties_when_multiplying_or_dividing_measured_quantities"]]
 ]
 
 const astronomyLink: Array<[string,string[]]> = [
