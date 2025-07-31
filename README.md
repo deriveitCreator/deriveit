@@ -57,6 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 22.7:</b>
+- Added a `multiple_integration` subtopic.
+
 <b>update 22.6:</b>
 - Updated sitemap.
 

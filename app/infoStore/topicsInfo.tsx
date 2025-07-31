@@ -559,6 +559,17 @@ const calculusAdvancedLinks: Array<[string,string[]]> = [
 		"gradient_is_normal_to_the_level_curve",
 		"gradient_vector_is_perpendicular_to_the_tangent_vector_to_any_curve_on_a_surface",
 		"second_derivative_test_(incomplete)"
+	]],
+	["multiple_integrals", [
+		"definition_of_double_integrals",
+		"properties_of_double_integrals_(incomplete)",
+		"iterated_integral_(incomplete)",
+		"Fubini's_theorem_(incomplete)",
+		"Fubini's Theorem (Strong Form)_(incomplete)",
+		"Fubini's theorem for improper integrals_(incomplete)",
+		"integrating_over_polar_rectangles",
+		"integrating_over_general_polar_regions_(incomplete)",
+		"area_formula_for_polar_regions_(incomplete)"
 	]]
 ]
 
@@ -573,6 +584,9 @@ const mechanicsLink: Array<[string,string[]]> = [
 		"equations_of_uniform_circular_motion",
 		"equations_of_nonuniform_circular_motion"
 	]],
+	["dynamics", [
+		"the_ideal_speed_to_take_on_a_banked_curve"
+	]]
 ]
 
 const astronomyLink: Array<[string,string[]]> = [
