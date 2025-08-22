@@ -136,11 +136,11 @@ function getBodyContent(topic:string, subTopic:string, type: string, content: an
     case "subText":
       return (<PMain mode={3} key={i}>{content }</PMain>);
     case "figure":
-      return (<Figure src={`/${topic}/${subTopic}/${content[0]}`} figcaption={content[1]} key={i}/>);
+      return (<Figure src={`/articlePics/${topic}/${subTopic}/${content[0]}`} figcaption={content[1]} key={i}/>);
     case ("displayimg"):
-      return <DisplayImg src={`/${topic}/${subTopic}/${content}`} h={"h-[200px]"} key={i}/>;
+      return <DisplayImg src={`/articlePics/${topic}/${subTopic}/${content}`} h={"h-[200px]"} key={i}/>;
     case ("displayimg2"):
-      return <DisplayImg src={`/${topic}/${subTopic}/${content}`} h={"h-[220px]"} key={i}/>;
+      return <DisplayImg src={`/articlePics/${topic}/${subTopic}/${content}`} h={"h-[220px]"} key={i}/>;
     case "displayFormula":
       return (<div
         key={i}

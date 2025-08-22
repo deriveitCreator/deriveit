@@ -49,7 +49,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
           <figure key={i} className={mainTextFont.className} style={{display: "grid", gridTemplateRows:`${j[i][1][2] || "240px"} auto`, position:"relative", fontWeight:"bold", marginTop:"16px", marginBottom:"16px", justifyItems:"center"}}>
             <Image
               alt=""
-              src={`/${topic}/${subTopic}/${j[i][1][0]}`}
+              src={`/articlePics/${topic}/${subTopic}/${j[i][1][0]}`}
               width={0}
               height={0}
               sizes="100vw"
@@ -63,7 +63,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
       case "displayimg":
         bodyChildren.push(<div key={i} style={{height:"230px", ...imageParentStyle}}><Image
           alt=""
-          src={`/${topic}/${subTopic}/${j[i][1]}`}
+          src={`/articlePics/${topic}/${subTopic}/${j[i][1]}`}
           fill
           style={{objectFit:"contain"}}
           priority
@@ -72,7 +72,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
       case "displayimg2":
         bodyChildren.push(<div key={i} style={{height:"220px", ...imageParentStyle}}><Image
           alt=""
-          src={`/${topic}/${subTopic}/${j[i][1]}`}
+          src={`/articlePics/${topic}/${subTopic}/${j[i][1]}`}
           fill
           style={{objectFit:"contain"}}
           priority

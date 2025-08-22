@@ -181,7 +181,7 @@ function FooterEl(){
     <hr style={{backgroundColor:"black", height:"4px", border:"none"}}/>
     <div style={{display:"grid" ,margin:"0px 15px 0px 20px"}} id={styles.mainFooter}>
       <Link href="/" className={'mx-4 my-4 h-[121px]'} id={styles.homeLink} aria-label="Go to home page">
-        <Image src="/link_logo_trans2.png" alt="" width={98} height={110}/>
+        <Image src="/logoPics/link_logo_trans2.png" alt="" width={98} height={110}/>
       </Link>
       <div style={{paddingLeft:"10px", marginTop:"10px"}} id={styles.feedback}>
         <p>If you find a bug in this website or want to report an error, <ClickButton type={0} func={changeType} /></p>

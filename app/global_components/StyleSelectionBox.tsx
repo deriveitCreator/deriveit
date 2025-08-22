@@ -69,7 +69,7 @@ function StylesOptions(props:{changeToStyle: (num: number) => Promise<void>}){
 				style={{border:"solid 3px " + stylesBorder[i], fontSize: stylesSize[i], padding:"5px 5px 0px", borderRadius:"8px",backgroundColor:stylesBg[i], color: stylesBorder[i], display: "flex", flexDirection:"column", alignItems:"center"}}
 				className={stylesFont[i].className}
 			>
-				<Image width={120} height={120} src={`/link_logo_short_${i+1}.png`} alt=""/>
+				<Image width={120} height={120} src={`/logoPics/link_logo_short_${i+1}.png`} alt=""/>
 				<span style={{lineHeight: "30px", height: "30px", display:"inline-block"}}>{text}</span>
 			</button>
 		)}

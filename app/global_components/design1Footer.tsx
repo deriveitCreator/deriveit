@@ -35,7 +35,7 @@ export default function FooterComp(){
 	else if (screen.width > parseInt(styles.minDeviceWidth)) 
 		return <footer style={{gridTemplateColumns:"15% 65% 20%", paddingTop:"25px", ...footerIdStyle}}>
 			<Link href={"/"} aria-label='Go to home page'>
-				<ImageWrapper mw="max-w-[80%]" h="h-full" w="w-3/4" src="/link_logo_short_1.png" alt="" className="flex justify-center items-center "/>
+				<ImageWrapper mw="max-w-[80%]" h="h-full" w="w-3/4" src="/logoPics/link_logo_short_1.png" alt="" className="flex justify-center items-center "/>
 			</Link>
 			<p className={cursiveMain.className} style={{padding: "0px", ...footerPStyle}}>
 				If you find a bug in this website or want to report an error, <ClickButton type={0} func={changeFT} /><br/>
@@ -57,7 +57,7 @@ export default function FooterComp(){
 				For any suggestion and ideas, <ClickButton type={2} func={changeFT} />
 			</p>
 			<Link href={"/"}>
-				<ImageWrapper mw="max-w-[100px]" h="h-full" w="w-1/2" src="/link_logo_short_1.png" alt=""  className="flex justify-center items-center "/>
+				<ImageWrapper mw="max-w-[100px]" h="h-full" w="w-1/2" src="/logoPics/link_logo_short_1.png" alt=""  className="flex justify-center items-center "/>
 			</Link>
 			<Link href={link} target="_blank" className='flex flex-col justify-center items-center bg-gray-50 mx-10 border-black border-2 outline-1 outline-white outline h-min py-2 hover:no-underline'>
 				<p className={" text-center text-lg pb-2 font-bold "+printFont.className}>Want To Donate?</p>

@@ -586,6 +586,10 @@ const mechanicsLink: Array<[string,string[]]> = [
 	]],
 	["dynamics", [
 		"the_ideal_speed_to_take_on_a_banked_curve"
+	]],
+	[
+	"work_and_energy", [
+		"work done by a perfectly elastic spring force"
 	]]
 ]
 

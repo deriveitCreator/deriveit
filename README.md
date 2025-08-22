@@ -57,6 +57,10 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 23.1:</b>
+- Organized the public folder, by adding `articlePics` and `logoPics`.
+- Added content to `mechanics`.
+
 <b>update 22.7:</b>
 - Added a `multiple_integration` subtopic.
 
