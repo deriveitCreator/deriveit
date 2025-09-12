@@ -48,19 +48,19 @@ export const topicsOrder = [
 
 export function getRecentlyAdded(): string[]{
 	return [
-		"if m|n, then φ(mn) = m φ(n)%discrete_mathematics/arithmetic_functions/Euler_phi_lemma1",
-		"if m|n, then φ(m)|φ(n)%discrete_mathematics/arithmetic_functions/num_divides_so_phi_divides",
-		"φ(n<sup>j</sup>) = n<sup>j-1</sup> φ(n)%discrete_mathematics/arithmetic_functions/phi_with_exponent",
-		"if n is odd, then φ(2n) = φ(n)%discrete_mathematics/arithmetic_functions/odd_phi",
+		"handshake lemma%discrete_mathematics/graph_theory/handshake_lemma",
+		"Euler's formula for planar graphs%discrete_mathematics/graph_theory/Eulers_formula_for_planar_graphs",
+		"scalar line integrals%calculus_(advanced)/vector_calculus/scalar_line_integrals",
+		"vector line integral%calculus_(advanced)/vector_calculus/vector_line_integrals",
 	]
 }
 
 export function getRecentlyEdited(): string[]{
 	return [
+		"two lines are perpendicular if the gradient of one line is the negative reciprocal of the other%linear_algebra/basics/product_of_perpendicular",
+		"curvature formulas%calculus_(advanced)/vector-valued_functions/curvature_formulas",
 		"The formula for φ(p<sup>a</sup>)%discrete_mathematics/arithmetic_functions/multiplicative3",
 		"If f is a multiplicative function, then [F(n) = ∑<sub>d|n, d>0</sub> f(d)] is also a multiplicative function%discrete_mathematics/arithmetic_functions/multiplicative1",
-		"equations_of_linear_motion_with_constant_acceleration%mechanics/classical_mechanics/equations_of_linear_motion_with_constant_acceleration",
-		"projection_of_a_vector_onto_another%linear_algebra/dot_product/projection_of_a_vector_onto_another",
 	]
 }
 

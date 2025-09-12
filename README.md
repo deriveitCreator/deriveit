@@ -57,6 +57,10 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 24.2:</b>
+- Updated the "recently table" in design 2's home page.
+- Updated `sitemap.xml`.
+
 <b>update 24.1:</b>
 - In the home page for design 2, all the pictures in the main table are changed.
 - Added new topic: `number_theory`, and moved some of the articles from `discrete_mathematics` to `number_theory`.

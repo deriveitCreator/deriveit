@@ -72,9 +72,6 @@
     <loc>https://www.deriveit.net/geometry/triangles/sides_of_30_90_60</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/triangles/perpendicular_bisector_of_all_sides_passes_through_a_common_point_(incomplete)</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/geometry/quadrilaterals/area_of_a_parallelogram</loc>
   </url>
   <url>
@@ -114,12 +111,6 @@
     <loc>https://www.deriveit.net/geometry/ellipses/the_reflective_property_of_an_ellipse</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/ellipses/a_parallel_projection_of_an_ellipse_is_another_ellipse_(incomplete)</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/geometry/ellipses/a_cone_can_be_created_around_any_ellipse_(incomplete)</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/geometry/parabola/the_equivalence_of_the_focus-directrix_definition_and_the_conic_section_definition_of_a_parabola</loc>
   </url>
   <url>
@@ -141,9 +132,6 @@
     <loc>https://www.deriveit.net/geometry/parabola/parabola_as_product_calculator</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/hyperbola/the_equivalence_of_the_geometric_definition_and_the_conic_section_definition_of_a_hyperbola_(incomplete)</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/geometry/hyperbola/getting_the_standard_form_equation_from_the_geometric_definition</loc>
   </url>
   <url>
@@ -151,15 +139,6 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/geometry/hyperbola/equation_of_the_directrix</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/geometry/hyperbola/equation_of_the_eccentricity_(incomplete)</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/geometry/hyperbola/how_a_hanging_chain_forms_a_hyperbola_(incomplete)</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/geometry/hyperbola/the_area_under_between_unit_hyperbola,_sinh(a)_and_cosh(a)_is_a/2_(incomplete)</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/geometry/other_shapes/cone_lateral_surface_area</loc>
@@ -171,220 +150,16 @@
     <loc>https://www.deriveit.net/discrete_mathematics</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/divisibility1</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/graph_theory/handshake_lemma</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/divisibility2</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/graph_theory/number_of_vertices_with_odd_degrees_must_be_even</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/threeDividesNCubedMinusN</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/graph_theory/tree_edges_vertices_number</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/fiveDividesNToThe5MinusN</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/multipleOf8</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/linear_combination_smallest_gcd</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/every_linear_combination</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/why_the_euclidean_algorithm_works</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/gcdLemma14</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/gcdLemma13</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/gcdLemma10</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/divisibility3</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility/divisibility4</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/primeLemma1</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/primeLemma3</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/nCompositeSoPrimeDivisorLessThanRootN</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/fundamental_theorem_of_arithmetic</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/composite_as_coprime_integers</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/infinite_primes</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/infinite_primes_4k_plus_3</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/infinite_primes_3k_plus_2</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/differenceOfFourthPowers</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/nConsecutiveCompositeInteger</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/Mersenne_prime1</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/Mersenne_prime2</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/a_to_the_n_plus_one_prime</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/n_square_prime</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/Legendres_formula</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/legendres_formula_lower_bound</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/powerful_from_square_and_cube</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/primeLemma2</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/prime_numbers/aSquare_divides_bSquare_implies_a_divides_b</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma18</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/multiplicative</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma8</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma7</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdDividesPlus</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma15</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma17</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma16</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma12</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma11</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_gcd/gcdLemma1</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/lcm/gcdTimesLcmGivesProduct</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/lcm/lcmLemma2</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/lcm/lcmLemma3</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma1</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma2</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma8</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma3</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma9</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma5</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma6</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma4</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma7</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma10</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma11</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma12</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/multiplying_reduced_residue_system</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/Eulers_theorem</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/Fermats_little_theorem</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/Freshmans_dream</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/congruence_solution_possible</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/congruence_solution</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modular_inverse</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/x_square_solution</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/a_square_congruent_a_mod_p</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/square_mod_prime</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/modular_arithmetic/modLemma13</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_rules/divisibility_rule_for_3</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_rules/divisibility_rule_for_7</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/divisibility_rules/divisibility_rule_for_11</loc>
+    <loc>https://www.deriveit.net/discrete_mathematics/graph_theory/Eulers_formula_for_planar_graphs</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/factorials,_permutations_and_combinations/0fac</loc>
@@ -429,115 +204,286 @@
     <loc>https://www.deriveit.net/discrete_mathematics/sequence_and_series/showing_that_the_harmonic_series_diverges</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/sum_congruence</loc>
+    <loc>https://www.deriveit.net/number_theory</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/square_sum_congruence</loc>
+    <loc>https://www.deriveit.net/number_theory/divisibility/divisibility1</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/cube_sum_congruence</loc>
+    <loc>https://www.deriveit.net/number_theory/divisibility/divisibility2</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/Wilsons_theorem</loc>
+    <loc>https://www.deriveit.net/number_theory/divisibility/threeDividesNCubedMinusN</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/converse_of_Wilsons_theorem</loc>
+    <loc>https://www.deriveit.net/number_theory/divisibility/fiveDividesNToThe5MinusN</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/two_times_p_minus_3_factorial</loc>
+    <loc>https://www.deriveit.net/number_theory/divisibility/multipleOf8</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/x_square_solvable</loc>
+    <loc>https://www.deriveit.net/number_theory/divisibility/linear_combination_smallest_gcd</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/modLemma13</loc>
+    <loc>https://www.deriveit.net/number_theory/divisibility/every_linear_combination</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/more_congruence/Chinese_remainder_theorem</loc>
+    <loc>https://www.deriveit.net/number_theory/divisibility/why_the_euclidean_algorithm_works</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/multiplicative1</loc>
+    <loc>https://www.deriveit.net/number_theory/divisibility/gcdLemma14</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/multiplicative2</loc>
+    <loc>https://www.deriveit.net/number_theory/divisibility/gcdLemma13</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/multiplicative3</loc>
+    <loc>https://www.deriveit.net/number_theory/divisibility/gcdLemma10</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/multiplicative4</loc>
+    <loc>https://www.deriveit.net/number_theory/divisibility/divisibility3</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/phi_lower_bound</loc>
+    <loc>https://www.deriveit.net/number_theory/divisibility/divisibility4</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/phi_higher_bound_when_n_composite</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/primeLemma1</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/even_phi</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/primeLemma3</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/odd_phi</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/nCompositeSoPrimeDivisorLessThanRootN</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/phi_with_exponent</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/fundamental_theorem_of_arithmetic</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/num_divides_so_phi_divides</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/composite_as_coprime_integers</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/Euler_phi_lemma1</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/infinite_primes</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/discrete_mathematics/arithmetic_functions/multiplicative5</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/infinite_primes_4k_plus_3</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/linear_algebra</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/infinite_primes_3k_plus_2</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/linear_algebra/basics/product_of_perpendicular</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/differenceOfFourthPowers</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/linear_algebra/dot_product/commutative_property_of_the_dot_product</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/nConsecutiveCompositeInteger</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/linear_algebra/dot_product/distributive_property_of_the_dot_product</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/Mersenne_prime1</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/linear_algebra/dot_product/associative_property_of_the_dot_product</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/Mersenne_prime2</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/linear_algebra/dot_product/dot_product_with_itself</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/a_to_the_n_plus_one_prime</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/linear_algebra/dot_product/geometric_definition</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/n_square_prime</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/linear_algebra/dot_product/geometric_definition_2</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/Legendres_formula</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/linear_algebra/dot_product/projection_of_a_vector_onto_another</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/legendres_formula_lower_bound</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/linear_algebra/cross_product/cross_product_definition</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/powerful_from_square_and_cube</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/linear_algebra/cross_product/anticommutative_property_of_the_cross_product</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/primeLemma2</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/linear_algebra/cross_product/distributive_property_of_the_cross_product</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/aSquare_divides_bSquare_implies_a_divides_b</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/linear_algebra/cross_product/scalar_triple_product_is_unchanged_under_a_circular_shift_of_its_three_operands</loc>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma18</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/linear_algebra/cross_product/sin_rule</loc>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/multiplicative</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/linear_algebra/cross_product/area_of_a_parallelogram</loc>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma8</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/linear_algebra/cross_product/volume_of_a_parallelepiped</loc>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma7</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdDividesPlus</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma15</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma17</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma16</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma12</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma11</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma1</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/lcm/gcdTimesLcmGivesProduct</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/lcm/lcmLemma2</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/lcm/lcmLemma3</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modLemma1</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modLemma2</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modLemma8</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modLemma3</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modLemma9</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modLemma5</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modLemma6</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modLemma4</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modLemma7</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modLemma10</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modLemma11</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modLemma12</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/multiplying_reduced_residue_system</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/Eulers_theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/Fermats_little_theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/Freshmans_dream</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/congruence_solution_possible</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/congruence_solution</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modular_inverse</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/x_square_solution</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/a_square_congruent_a_mod_p</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/square_mod_prime</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modLemma13</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/divisibility_rules/divisibility_rule_for_3</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/divisibility_rules/divisibility_rule_for_7</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/divisibility_rules/divisibility_rule_for_11</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_congruence/sum_congruence</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_congruence/square_sum_congruence</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_congruence/cube_sum_congruence</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_congruence/Wilsons_theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_congruence/converse_of_Wilsons_theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_congruence/two_times_p_minus_3_factorial</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_congruence/x_square_solvable</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_congruence/modLemma13</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_congruence/Chinese_remainder_theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/arithmetic_functions/multiplicative1</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/arithmetic_functions/multiplicative2</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/arithmetic_functions/multiplicative3</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/arithmetic_functions/multiplicative4</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/arithmetic_functions/phi_lower_bound</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/arithmetic_functions/phi_higher_bound_when_n_composite</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/arithmetic_functions/even_phi</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/arithmetic_functions/odd_phi</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/arithmetic_functions/phi_with_exponent</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/arithmetic_functions/num_divides_so_phi_divides</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/arithmetic_functions/Euler_phi_lemma1</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/arithmetic_functions/multiplicative5</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/trigonometry</loc>
@@ -930,6 +876,138 @@
     <loc>https://www.deriveit.net/calculus/parametric_curves/arc_length_of_a_curve_defined_by_a_polar_function</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/linear_algebra</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/basics/product_of_perpendicular</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/dot_product/commutative_property_of_the_dot_product</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/dot_product/distributive_property_of_the_dot_product</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/dot_product/associative_property_of_the_dot_product</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/dot_product/dot_product_with_itself</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/dot_product/geometric_definition</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/dot_product/geometric_definition_2</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/dot_product/projection_of_a_vector_onto_another</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/cross_product/cross_product_definition</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/cross_product/anticommutative_property_of_the_cross_product</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/cross_product/distributive_property_of_the_cross_product</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/cross_product/scalar_triple_product_is_unchanged_under_a_circular_shift_of_its_three_operands</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/cross_product/sin_rule</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/cross_product/area_of_a_parallelogram</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/linear_algebra/cross_product/volume_of_a_parallelepiped</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/differentiating_a_vector-valued_function_by_derivating_of_each_of_the_components</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/(vector-valued_function_derivatives)_sum_and_difference_property</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/(vector-valued_function_derivatives)_scalar_product_property</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/(vector-valued_function_derivatives)_dot_product_property</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/(vector-valued_function_derivatives)_cross_product_property</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/(vector-valued_function_derivatives)_chain_product_property</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/self_dot_product_constant_means_dot_product_with_derivative_is_zero</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/arc_length_function_and_its_derivative</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/curvature_formulas</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/radius_of_curvature</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/Clairauts_theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/equation_of_a_tangent_plane</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/directional_derivative_of_a_tangent_plane</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/understanding_differentiability_for_functions_of_two_variables</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/differentiability_condition</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/chain_rule_for_one_independent_variable</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/implicit_differentiation_with_two_variables</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/implicit_differentiation_with_three_variables</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/directional_derivative_other_definition</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/gradient_is_normal_to_the_level_curve</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/gradient_vector_is_perpendicular_to_the_tangent_vector_to_any_curve_on_a_surface</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/multiple_integrals/definition_of_double_integrals</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/multiple_integrals/integrating_over_polar_rectangles</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector_calculus/uniqueness_of_potential_functions</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector_calculus/the_cross_partial_property_of_conservative_vector_fields</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector_calculus/scalar_line_integrals</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector_calculus/vector_line_integrals</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/probability_&amp;_statistics</loc>
   </url>
   <url>
@@ -984,84 +1062,6 @@
     <loc>https://www.deriveit.net/probability_&amp;_statistics/miscellaneous/line_of_best_fit</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/differentiating_a_vector-valued_function_by_derivating_of_each_of_the_components</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/(vector-valued_function_derivatives)_sum_and_difference_property</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/(vector-valued_function_derivatives)_scalar_product_property</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/(vector-valued_function_derivatives)_dot_product_property</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/(vector-valued_function_derivatives)_cross_product_property</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/(vector-valued_function_derivatives)_chain_product_property</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/self_dot_product_constant_means_dot_product_with_derivative_is_zero</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/arc_length_function_and_its_derivative</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/curvature_formulas</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/vector-valued_functions/radius_of_curvature</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/Clairauts_theorem</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/equation_of_a_tangent_plane</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/understanding_differentiability_for_functions_of_two_variables</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/differentiability_condition</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/differentiability_implies_continuity_(incomplete)</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/continuity_of_first_partials_implies_differentiability_(incomplete)</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/chain_rule_for_one_independent_variable</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/chain_rule_for_two_independent_variable_(incomplete)</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/generalized_chain_rule_(incomplete)</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/implicit_differentiation_with_two_variables</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/implicit_differentiation_with_three_variables</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/directional_derivative_other_definition</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/gradient_is_normal_to_the_level_curve</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/gradient_vector_is_perpendicular_to_the_tangent_vector_to_any_curve_on_a_surface</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/calculus_(advanced)/differentiation_of_functions_of_several_variables/second_derivative_test_(incomplete)</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/mechanics</loc>
   </url>
   <url>
@@ -1081,6 +1081,12 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/mechanics/kinematics/equations_of_nonuniform_circular_motion</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/mechanics/dynamics/the_ideal_speed_to_take_on_a_banked_curve</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/mechanics/work_and_energy/work_done_by_a_perfectly_elastic_spring_force</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/astronomy</loc>
