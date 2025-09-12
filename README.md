@@ -57,6 +57,9 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 24.3:</b>
+- Updated `calculus/trigonometric_derivatives/cos.tsx`.
+
 <b>update 24.2:</b>
 - Updated the "recently table" in design 2's home page.
 - Updated `sitemap.xml`.
