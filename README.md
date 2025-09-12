@@ -57,6 +57,14 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 24.1:</b>
+- In the home page for design 2, all the pictures in the main table are changed.
+- Added new topic: `number_theory`, and moved some of the articles from `discrete_mathematics` to `number_theory`.
+- Added `graph_theory` to `discrete_mathematics`.
+- The height of article images in both designs can be changed from the `.tsx` file.
+- Added `vector_calculus` from `calculus_(advanced)`.
+- Edited some of the articles.
+
 <b>update 23.1:</b>
 - Organized the public folder, by adding `articlePics` and `logoPics`.
 - Added content to `mechanics`.

@@ -11,9 +11,8 @@ export default async function Home() {
     return <WholeComp/>;
   }
   else if (designSelectedVal == 2){
-    const {default: MainComp} = await import(`./mainStyles/design2MainComp`);
     const WholeComp = dynamic(() => import(`./mainStyles/design2Whole`));
-    return <WholeComp mainComp={MainComp}/>;
+    return <WholeComp/>;
   }
   else{
     throw new Error("Wrong design value");

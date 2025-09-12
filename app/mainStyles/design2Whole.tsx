@@ -1,6 +1,7 @@
 "use client";
 
-import React, { Suspense, useState, useEffect, useRef, createRef, RefObject, createContext, useContext } from 'react';
+import React, { Suspense, useState, useEffect, useRef, createRef, RefObject } from 'react';
+import MainComp from './design2MainComp';
 import ImageWrapper from '../global_components/ImageWrapper';
 import styles from "./design2.module.scss";
 import { logoFont2, printFont2, headingFont } from '../infoStore/fonts';
@@ -13,14 +14,14 @@ import Image from 'next/image';
 import { ParallaxProvider, useParallax } from 'react-scroll-parallax';
 import FormBox from '../global_components/FormBox';
 
-export default function Design2(props:{mainComp: React.ReactNode}){
+export default function Design2(){
 	const [continueEnabled, setCE] = useState(false);
 	const [startBodyLoading, changeSBL] = useState(false);
 	const [continueButtonClicked, changeCBC] = useState(false);
 
 	return <>
 		<HomeLoading disabledState={!continueEnabled} changeSBL={changeSBL} changeCBC={changeCBC}/>
-		{startBodyLoading ? <MainPartMemo setCE={setCE} continueButtonClicked={continueButtonClicked} mainComp={props.mainComp} /> : null}
+		{startBodyLoading ? <MainPartMemo setCE={setCE} continueButtonClicked={continueButtonClicked}/> : null}
 	</>;
 }
 
@@ -52,7 +53,7 @@ const HomeLoading=(props:{
   
 	return <div id={styles.loading} className={'fixed top-0 flex justify-center w-full overflow-hidden z-10 bg-[#FFAA33] ' + wrapperH.current} style={{transition:"height 1s"}}>
 		<div className=' grid grid-cols-2 grid-rows-2 self-center' style={{gridTemplateColumns:"auto 30px auto"}}>
-			<ImageWrapper className='row-span-2 justify-self-center' alt="" src={`/link_logo_trans2.png`} w= 'w-32'/>
+			<ImageWrapper className='row-span-2 justify-self-center' alt="" src={`/logoPics/link_logo_trans2.png`} w= 'w-32'/>
 			<div id={styles.lineDiv} className={`row-span-2 h-full mx-3.5`}></div>
 			<p className={printFont2.className + " py-2 text-lg font-bold"}>Imagine some useful<br/>info here</p>
 			<button disabled={props.disabledState} onClick={buttonClick} id={styles.continue} className={headingFont.className}>{props.disabledState?"loading":"continue"}</button>
@@ -62,10 +63,8 @@ const HomeLoading=(props:{
 
 const MainPartMemo = React.memo(function MainPart(props:{
 	setCE: React.Dispatch<React.SetStateAction<boolean>>,
-	continueButtonClicked: boolean,
-	mainComp: any
+	continueButtonClicked: boolean
 }){
-
 	useEffect(()=>{
 		var ads = document.getElementsByClassName('adsbygoogle').length;
 		for (var i = 0; i < ads; i++) {
@@ -81,7 +80,7 @@ const MainPartMemo = React.memo(function MainPart(props:{
 		<BackgroundImage continueClicked={props.continueButtonClicked}/>
 		<HeaderEl continueButtonClicked={props.continueButtonClicked}/>
 		<SearchEl/>
-		{ props.mainComp }	
+		<MainComp/>
 		<Design2Footer/>
 	</div></ParallaxProvider>;
 });

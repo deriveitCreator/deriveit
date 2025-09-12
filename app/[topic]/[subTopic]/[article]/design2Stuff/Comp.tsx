@@ -28,7 +28,7 @@ export default function Comp(props: CompImportType){
 }
 
 const imageParentStyle: any = {position:"relative",display:"flex",justifyContent:"center",alignContent:"center",marginTop:"16px",marginBottom:"16px"};
-function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
+function getBodyContent(topic:string, subTopic:string, j: [[string, any, string?]]){
   var bodyChildren = [];
   for(let i = 1; i<j.length; i++){
     switch(j[i][0]){
@@ -61,7 +61,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
         );
         break;
       case "displayimg":
-        bodyChildren.push(<div key={i} style={{height:"230px", ...imageParentStyle}}><Image
+        bodyChildren.push(<div key={i} style={{height: j[i][2] || "230px", ...imageParentStyle}}><Image
           alt=""
           src={`/articlePics/${topic}/${subTopic}/${j[i][1]}`}
           fill
@@ -70,7 +70,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any]]){
         /></div>);
         break;
       case "displayimg2":
-        bodyChildren.push(<div key={i} style={{height:"220px", ...imageParentStyle}}><Image
+        bodyChildren.push(<div key={i} style={{height: j[i][2] || "220px", ...imageParentStyle}}><Image
           alt=""
           src={`/articlePics/${topic}/${subTopic}/${j[i][1]}`}
           fill

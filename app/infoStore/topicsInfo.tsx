@@ -10,11 +10,12 @@ const colorInfo: {[key:string]: ColorInfoType} = {
 	"algebra": {headerBgColor: "#B95C00", bgColor:"rgb(251, 227, 155)", footerColor:"#FBE39B", borderColor:"#663300"},
 	"geometry": {headerBgColor: "#00CC00", bgColor:"#CCFF99", footerColor:"#99FF66", borderColor:"green"},
 	"discrete_mathematics": {headerBgColor: "#FF9900", bgColor:"#FFEEAA", footerColor:"#FFDB91", borderColor:"#FF6600"},
-	"linear_algebra":{ headerBgColor: "#777", bgColor:"#eee", footerColor:"#CCCCCC", borderColor:"#444"},
+	"number_theory": {headerBgColor: "#f62", bgColor:"#fd9", footerColor:"#fd9", borderColor:"#FF3300"},
 	"trigonometry":{ headerBgColor: "#3366CC", bgColor:"#99CCFF", footerColor:"#FFFFCC", borderColor:"#000099"},
 	"calculus":{ headerBgColor: "teal", bgColor:"#88DFDF", footerColor:"#AACCCC", borderColor:"#005555"},
-	"probability_&_statistics":{ headerBgColor: "#990099", bgColor:"#EEAADD", footerColor:"#EE77FF", borderColor:"#550055"},
+	"linear_algebra":{ headerBgColor: "#777", bgColor:"#eee", footerColor:"#CCCCCC", borderColor:"#444"},
 	"calculus_(advanced)":{ headerBgColor: "teal", bgColor:"#88DFDF", footerColor:"#AACCCC", borderColor:"#005555"},
+	"probability_&_statistics":{ headerBgColor: "#990099", bgColor:"#EEAADD", footerColor:"#EE77FF", borderColor:"#550055"},
 	"mechanics":{ headerBgColor: "#AA0000", bgColor:"#FFEEAA", footerColor:"#FEF1B5", borderColor:"#600000"},
 	"astronomy":{ headerBgColor: "#88AABB", bgColor:"black", footerColor:"#333333", borderColor:"#DD0000"},
 	"chemistry":{ headerBgColor: "#CC5599", bgColor:"#FFBBFF", footerColor:"#FFAAFF", borderColor:"#993366"},
@@ -32,17 +33,17 @@ export const topicsOrder = [
 	"algebra",
 	"geometry",
 	"discrete_mathematics",
-	"linear_algebra",
+	"number_theory",
 	"trigonometry",
 	"calculus",
-	"probability_&_statistics",
+	"linear_algebra",
 	"calculus_(advanced)",
+	"probability_&_statistics",
 	"mechanics",
 	"astronomy",
 	"chemistry",
 	"electricity_&_magnetism",
-	"biology",
-	"computer_science"
+	"biology"
 ]
 
 export function getRecentlyAdded(): string[]{
@@ -77,8 +78,8 @@ export function getTopicLinks(topic: string){
 		case "discrete_mathematics":
 			result = discreteMathematicsLinks;
       break;
-		case "linear_algebra":
-			result = linearAlgebraLinks;
+		case "number_theory":
+			result = numberTheoryLinks;
       break;
 		case "trigonometry":
 			result = trigonometryLinks;
@@ -86,12 +87,15 @@ export function getTopicLinks(topic: string){
 		case "calculus":
 			result = calculusLinks;
       break;
-		case "probability_&_statistics":
-			result = probabilityAndStatisticsLinks;
+		case "linear_algebra":
+			result = linearAlgebraLinks;
       break;
 		case "calculus_(advanced)":
 			result = calculusAdvancedLinks;
 			break;
+		case "probability_&_statistics":
+			result = probabilityAndStatisticsLinks;
+      break;
 		case "mechanics":
 			result = mechanicsLink;
       break;
@@ -199,6 +203,40 @@ const geometryLinks: Array<[string,string[]]> = [
 ];
 
 const discreteMathematicsLinks: Array<[string,string[]]> = [
+	["graph_theory", [
+		"handshake_lemma",
+		"number_of_vertices_with_odd_degrees_must_be_even",
+		"number of edges of a tree is one less than the number of vertices%tree_edges_vertices_number",
+		"Euler's_formula_for_planar_graphs",
+		"there_are_exactly_five_regular_polyhedra_(incomplete)",
+		"a graph has an Euler circuit if and only if the degree of every vertex is even_(incomplete)%Euler_circuit",
+		"a graph has an Euler trail if and only if there are at most two vertices with odd degree_(incomplete)%Euler_trail",
+		"the_four_color_theorem_(incomplete)",
+		"Brook's_theorem_(incomplete)",
+		"Vizing's_theorem_(incomplete)",
+		"Hall's_marriage_theorem_(incomplete)"
+	]],
+	["factorials,_permutations_and_combinations", [
+		"0! = 1%0fac",
+		"the formula of permutations%factorials_and_permutations",
+		"the formula of combinations%com",
+		"using_combinations_to_find_a_number_in_the_Pascal's_triangle%pascals_triangle",
+		"number of ways of arranging n objects with k identical objects%binomial_theorem"
+	]],
+	["sequence_and_series", [
+		"finding_a_term_in_an_arithmetic_sequence",
+		"finding_a_term_in_a_geometric_sequence",
+		"the_sum_of_an_arithmetic_series",
+		"the_sum_of_a_geometric_series_with_finite_terms",
+		"the_sum_to_infinity_of_a_geometric_series",
+		"sum_of_the_first_n_positive_integers",
+		"sum_of_the_squares_of_the_first_n_positive_integers",
+		"sum_of_the_cubes_of_the_first_n_positive_integers",
+		"showing_that_the_harmonic_series_diverges"
+	]]
+]
+
+const numberTheoryLinks: Array<[string,string[]]> = [
 	["divisibility", [
 		"if α|β and α|ε, then α|(mβ + nε)%divisibility1",
 		"if α|β and ε|δ, then αε|βδ%divisibility2",
@@ -283,24 +321,6 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"an integer is divisble by 7 if the alternating sum of blocks of three from is divisible by 7%divisibility_rule_for_7",
 		"an integer is divisible by 11 if the integer obtained by alternately adding and substracting the digits is divisible by 11%divisibility_rule_for_11"
 	]],
-	["factorials,_permutations_and_combinations", [
-		"0! = 1%0fac",
-		"the formula of permutations%factorials_and_permutations",
-		"the formula of combinations%com",
-		"using_combinations_to_find_a_number_in_the_Pascal's_triangle%pascals_triangle",
-		"number of ways of arranging n objects with k identical objects%binomial_theorem"
-	]],
-	["sequence_and_series", [
-		"finding_a_term_in_an_arithmetic_sequence",
-		"finding_a_term_in_a_geometric_sequence",
-		"the_sum_of_an_arithmetic_series",
-		"the_sum_of_a_geometric_series_with_finite_terms",
-		"the_sum_to_infinity_of_a_geometric_series",
-		"sum_of_the_first_n_positive_integers",
-		"sum_of_the_squares_of_the_first_n_positive_integers",
-		"sum_of_the_cubes_of_the_first_n_positive_integers",
-		"showing_that_the_harmonic_series_diverges"
-	]],
 	["more_congruence",[
 		"1 + 2 + 3 + ... + (n-1) ≡ 0 mod n if and only if n is odd%sum_congruence",
 		"1<sup>2</sup> + 2<sup>2</sup> + 3<sup>2</sup> + ... + (n-1)<sup>2</sup> ≡ 0 mod n ⇒ n ≡ ±1 mod 6%square_sum_congruence",
@@ -325,28 +345,6 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"if m|n, then φ(m)|φ(n)%num_divides_so_phi_divides",
 		"if m|n, then φ(mn) = m φ(n)%Euler_phi_lemma1",
 		"∑<sub>d|n, d>0</sub> φ(d) = n%multiplicative5",
-	]]
-]
-
-const linearAlgebraLinks: Array<[string,string[]]> = [
-	["basics", ["two lines are perpendicular if the gradient of one line is the negative reciprocal of the other_(incomplete)%product_of_perpendicular"]],
-	["dot_product", [
-		"commutative_property_of_the_dot_product",
-		"distributive_property_of_the_dot_product",
-		"associative_property_of_the_dot_product",
-		"the_dot_product_of_a_vector_with_itself_gives_the_square_of_it's_magnitude%dot_product_with_itself",
-		"deriving the geometric definition from the component-wise definition%geometric_definition",
-		"deriving the component-wise definition from the geometric definition%geometric_definition_2",
-		"projection_of_a_vector_onto_another",
-	]],
-	["cross_product",[
-		"cross_product_definition",
-		"anticommutative_property_of_the_cross_product",
-		"distributive_property_of_the_cross_product",
-		"scalar_triple_product_is unchanged under a circular shift of its three operands",
-		"||a x b|| = ||a|| ||b|| sin(θ)%sin_rule",
-		"area_of_a_parallelogram",
-		"volume_of_a_parallelepiped",
 	]]
 ]
 
@@ -506,6 +504,80 @@ const calculusLinks: Array<[string,string[]]> = [
 
 ]
 
+const linearAlgebraLinks: Array<[string,string[]]> = [
+	["basics", ["two lines are perpendicular if the gradient of one line is the negative reciprocal of the other%product_of_perpendicular"]],
+	["dot_product", [
+		"commutative_property_of_the_dot_product",
+		"distributive_property_of_the_dot_product",
+		"associative_property_of_the_dot_product",
+		"the_dot_product_of_a_vector_with_itself_gives_the_square_of_it's_magnitude%dot_product_with_itself",
+		"deriving the geometric definition from the component-wise definition%geometric_definition",
+		"deriving the component-wise definition from the geometric definition%geometric_definition_2",
+		"projection_of_a_vector_onto_another",
+	]],
+	["cross_product",[
+		"cross_product_definition",
+		"anticommutative_property_of_the_cross_product",
+		"distributive_property_of_the_cross_product",
+		"scalar_triple_product_is unchanged under a circular shift of its three operands",
+		"||a x b|| = ||a|| ||b|| sin(θ)%sin_rule",
+		"area_of_a_parallelogram",
+		"volume_of_a_parallelepiped",
+	]]
+]
+
+const calculusAdvancedLinks: Array<[string,string[]]> = [
+	["vector-valued_functions", [
+		"differentiating_a_vector-valued_function_by_derivating_of_each_of_the_components",
+		"(vector-valued_function_derivatives)_sum_and_difference_property",
+		"(vector-valued_function_derivatives)_scalar_product_property",
+		"(vector-valued_function_derivatives)_dot_product_property",
+		"(vector-valued_function_derivatives)_cross_product_property",
+		"(vector-valued_function_derivatives)_chain_product_property",
+		"r(t) ⋅ r(t) = constant ⇒ r(t) ⋅ r'(t) = 0%self_dot_product_constant_means_dot_product_with_derivative_is_zero",
+		"arc_length_function_and_it's_derivative",
+		"curvature_formulas",
+		"radius_of_curvature",
+	]],
+	["differentiation_of_functions_of_several_variables", [
+		"Clairaut's_theorem",
+		"equation of a tangent plane",
+		"directional_derivative_of_a_tangent_plane",
+		"understanding_differentiability_for_functions_of_two_variables",
+		"If z = f(x,y), then f is differentiable at (a, b) if Δz can be expressed in the form [Δz = f<sub>x</sub>(a, b) Δx + f<sub>y</sub>(a, b) Δy + ε<sub>1</sub> Δx + ε<sub>2</sub> Δy]%differentiability_condition",
+		"differentiability implies continuity (incomplete)",
+		"continuity of first partials implies differentiability (incomplete)",
+		"chain rule for one independent variable",
+		"chain rule for two independent variable (incomplete)",
+		"generalized chain rule (incomplete)",
+		"implicit_differentiation_with_two_variables",
+		"implicit_differentiation_with_three_variables",
+		"D<sub>u</sub> f(x,y) = f<sub>x</sub>(x,y) cos(θ) + f<sub>y</sub>(x,y) sin(θ)%directional_derivative_other_definition",
+		"gradient_is_normal_to_the_level_curve",
+		"gradient_vector_is_perpendicular_to_the_tangent_vector_to_any_curve_on_a_surface",
+		"second_derivative_test_(incomplete)"
+	]],
+	["multiple_integrals", [
+		"definition_of_double_integrals",
+		"properties_of_double_integrals_(incomplete)",
+		"iterated_integral_(incomplete)",
+		"Fubini's_theorem_for_double_integrals_(incomplete)",
+		"Fubini's Theorem (Strong Form)_(incomplete)",
+		"Fubini's theorem for improper integrals_(incomplete)",
+		"integrating_over_polar_rectangles",
+		"integrating_over_general_polar_regions_(incomplete)",
+		"area_formula_for_polar_regions_(incomplete)",
+		"Fubini's_theorem_for_triple_integrals_(incomplete)",
+	]],
+	["vector_calculus", [
+		"uniqueness_of_potential_functions",
+		"the_cross_partial_property_of_conservative_vector_fields",
+		"scalar_line_integrals",
+		"vector_line_integrals",
+		"flux_across_a_plane_curve_(incomplete)"
+	]]
+]
+
 const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
 	["expected_value_and_variance_basics", [
 		"E[X + Y] = E[X] + E[Y]%linearity_of_expectation",
@@ -528,49 +600,6 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
 		"expected_value_and_variance_of_an_exponential_distribution"
 	]],
 	["miscellaneous",["deriving the regression coefficient of y on x%line_of_best_fit"]]
-]
-
-const calculusAdvancedLinks: Array<[string,string[]]> = [
-	["vector-valued_functions", [
-		"differentiating_a_vector-valued_function_by_derivating_of_each_of_the_components",
-		"(vector-valued_function_derivatives)_sum_and_difference_property",
-		"(vector-valued_function_derivatives)_scalar_product_property",
-		"(vector-valued_function_derivatives)_dot_product_property",
-		"(vector-valued_function_derivatives)_cross_product_property",
-		"(vector-valued_function_derivatives)_chain_product_property",
-		"r(t) ⋅ r(t) = constant ⇒ r(t) ⋅ r'(t) = 0%self_dot_product_constant_means_dot_product_with_derivative_is_zero",
-		"arc_length_function_and_it's_derivative",
-		"curvature_formulas",
-		"radius_of_curvature",
-	]],
-	["differentiation_of_functions_of_several_variables", [
-		"Clairaut's_theorem",
-		"equation of a tangent plane",
-		"understanding_differentiability_for_functions_of_two_variables",
-		"If z = f(x,y), then f is differentiable at (a, b) if Δz can be expressed in the form [Δz = f<sub>x</sub>(a, b) Δx + f<sub>y</sub>(a, b) Δy + ε<sub>1</sub> Δx + ε<sub>2</sub> Δy]%differentiability_condition",
-		"differentiability implies continuity (incomplete)",
-		"continuity of first partials implies differentiability (incomplete)",
-		"chain rule for one independent variable",
-		"chain rule for two independent variable (incomplete)",
-		"generalized chain rule (incomplete)",
-		"implicit_differentiation_with_two_variables",
-		"implicit_differentiation_with_three_variables",
-		"D<sub>u</sub> f(x,y) = f<sub>x</sub>(x,y) cos(θ) + f<sub>y</sub>(x,y) sin(θ)%directional_derivative_other_definition",
-		"gradient_is_normal_to_the_level_curve",
-		"gradient_vector_is_perpendicular_to_the_tangent_vector_to_any_curve_on_a_surface",
-		"second_derivative_test_(incomplete)"
-	]],
-	["multiple_integrals", [
-		"definition_of_double_integrals",
-		"properties_of_double_integrals_(incomplete)",
-		"iterated_integral_(incomplete)",
-		"Fubini's_theorem_(incomplete)",
-		"Fubini's Theorem (Strong Form)_(incomplete)",
-		"Fubini's theorem for improper integrals_(incomplete)",
-		"integrating_over_polar_rectangles",
-		"integrating_over_general_polar_regions_(incomplete)",
-		"area_formula_for_polar_regions_(incomplete)"
-	]]
 ]
 
 const mechanicsLink: Array<[string,string[]]> = [

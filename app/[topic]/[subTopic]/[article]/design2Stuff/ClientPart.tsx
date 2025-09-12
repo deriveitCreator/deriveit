@@ -107,7 +107,7 @@ function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<strin
   }, [props.asideW]); // eslint-disable-line no-use-before-define
 
   let turnOffAside = () => props.setAW("0px");
-  let turnOnAside = () => props.setAW("240px");
+  let turnOnAside = () => props.setAW("260px");
 
   if(props.asideW === "0px"){
     iconRef.current = <FaChevronLeft/>;
@@ -116,7 +116,7 @@ function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<strin
   }
   else{
     iconRef.current = <FaChevronRight/>;
-    iconRightRef.current = "240px";
+    iconRightRef.current = "260px";
     grayAreaOp.current = "opacity-50";
   }
 
@@ -154,7 +154,7 @@ function AsideEl(){
       {topicsOrder.map((topic, i)=>{
         if(topic === "error") return null;
         return <Link key={i} href={`/${topic}`} className="flex mx-6 py-1 " aria-label={`Explore ${topic}`}>
-          <Image className="hover:transform hover:scale-105" src={`/topicsPics/${topic}.png`} width={185} height={95} alt="" quality={20}/>
+          <Image className="hover:transform hover:scale-105" src={`/topicsPics/${topic}.png`} width={350} height={178} alt="" quality={20}/>
         </Link>
       })}
     </div>

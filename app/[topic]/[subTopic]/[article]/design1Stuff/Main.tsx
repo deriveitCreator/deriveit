@@ -119,13 +119,16 @@ function setMathTypeSet(){
 const Article = memo(function ArticleMemo(props: {topic:string, subTopic:string, contentArray: [[string, any]]}){
   return <article id={styles.article}>{
     props.contentArray.map((record, i)=>{
-      if (i) return getBodyContent(props.topic, props.subTopic, record[0], record[1], i);
+      if (i) return getBodyContent(props.topic, props.subTopic, record, i);
       else return null;
     })
   }</article>;
 });
 
-function getBodyContent(topic:string, subTopic:string, type: string, content: any, i: number){
+function getBodyContent(topic:string, subTopic:string, record: any, i: number){
+  let type = record[0];
+  let content = record[1];
+  let curH;
   switch(type){
     case "h2":
       return (<H2Main key={i}>{content}</H2Main>);
@@ -136,11 +139,14 @@ function getBodyContent(topic:string, subTopic:string, type: string, content: an
     case "subText":
       return (<PMain mode={3} key={i}>{content }</PMain>);
     case "figure":
-      return (<Figure src={`/articlePics/${topic}/${subTopic}/${content[0]}`} figcaption={content[1]} key={i}/>);
+      curH = content[2] || "240px";
+      return (<Figure src={`/articlePics/${topic}/${subTopic}/${content[0]}`} h={curH} figcaption={content[1]} key={i}/>);
     case ("displayimg"):
-      return <DisplayImg src={`/articlePics/${topic}/${subTopic}/${content}`} h={"h-[200px]"} key={i}/>;
+      curH = record[2] || "200px";
+      return <DisplayImg src={`/articlePics/${topic}/${subTopic}/${content}`} h={curH} key={i}/>;
     case ("displayimg2"):
-      return <DisplayImg src={`/articlePics/${topic}/${subTopic}/${content}`} h={"h-[220px]"} key={i}/>;
+      curH = record[2] || "220px";
+      return <DisplayImg src={`/articlePics/${topic}/${subTopic}/${content}`} h={curH} key={i}/>;
     case "displayFormula":
       return (<div
         key={i}
@@ -174,21 +180,21 @@ function getBodyContent(topic:string, subTopic:string, type: string, content: an
 
 function DisplayImg(props:{src: string, h: string}){
   return <div className={`flex items-center justify-center my-4 m-auto px-6 relative ${styles.divImg}`}>
-    <Image alt={""} src={props.src} width={0} height={0} sizes="100vw" className={`border-black border-2 object-contain ${props.h} bg-white w-auto`} priority quality={100}/>
+    <Image alt={""} src={props.src} width={0} height={0} className={`border-black border-2 object-contain bg-white w-auto h-[${props.h}]`} priority unoptimized/>
   </div>;
 }
 
-function Figure(props:{src: string, figcaption: any}){
+function Figure(props:{src: string, figcaption: any, h: string}){
 	const [divW,setDivW] = useState("w-0");
 
 	useEffect(()=>{
 		setDivW("w-full");
 	}, []);
 
-  return <figure className={`flex flex-col items-center justify-center my-4 ${cursiveMain.className} ${divW} h-auto m-auto overflow-hidden`} style={{transition:"width 0.5s linear 1s"}}>
-    <Image alt={""} src={props.src} width={0} height={0} sizes="100vw" className={`w-auto h-[240px] border-black border-2 object-contain bg-white`} priority quality={100}/>
-  <figcaption className=' text-lg w-4/5 text-center ' dangerouslySetInnerHTML={{__html: props.figcaption}}></figcaption>
-</figure>;
+  return <figure className={`flex flex-col items-center justify-center my-4 ${cursiveMain.className} ${divW} h-auto m-auto overflow-hidden ${styles.divImg}`}>
+    <Image alt={""} src={props.src} width={0} height={0} className={`border-black border-2 object-contain bg-white w-auto`} style={{height: props.h}} priority unoptimized/>
+    <figcaption className=' text-lg w-4/5 text-center ' dangerouslySetInnerHTML={{__html: props.figcaption}}></figcaption>
+  </figure>;
 }
 
 function H2Main({children}: {children: string}){

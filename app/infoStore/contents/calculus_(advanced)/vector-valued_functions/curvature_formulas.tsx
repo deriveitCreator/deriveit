@@ -31,7 +31,7 @@ const content = [
   ["displayFormula","\\[\\begin{gather} \\Vert \\textbf{r}'(t) \\times \\textbf{r}''(t) \\Vert = \\Vert \\textbf{r}'(t) \\Vert^2 \\Vert \\textbf{T}\'(t) \\Vert \\\\ \\Vert \\textbf{r}'(t) \\times \\textbf{r}''(t) \\Vert = \\Vert \\textbf{r}'(t) \\Vert^3 k(t) \\end{gather}\\]"],
   ['pmain', 'This leads to the third formula for the curvature:'],
   ["displayFormula","\\[k(t) = \\frac{\\Vert \\textbf{r}'(t) \\times \\textbf{r}''(t) \\Vert}{\\Vert \\textbf{r}'(t) \\Vert^3} \\]"],
-  ['pmain', 'Suppose the curve is on a two dimensional plane, and the curve follows is defined by the function \\(f(x)\\). Then we can define \\(\\textbf{r}(x) = x \\textbf{i} +f(x)\\textbf{j} + 0\\textbf{k}\\). This means:'],
+  ['pmain', 'Suppose the curve is on a two dimensional plane, and the curve is defined by the function \\(f(x)\\). Then we can define \\(\\textbf{r}(x) = x \\textbf{i} +f(x)\\textbf{j} + 0\\textbf{k}\\). This means:'],
   ["displayFormula","\\[\\begin{gather} \\textbf{r}'(x) = \\textbf{i} + f'(x) \\textbf{j} \\\\ \\textbf{r}''(x) = f''(x)\\textbf{j}\\end{gather}\\]"],
   ['pmain', 'If we take the cross product:'],
   ["displayFormula","\\[ \\textbf{r}'(x) \\times \\textbf{r}''(x) =f''(x) \\textbf{k} \\]"],

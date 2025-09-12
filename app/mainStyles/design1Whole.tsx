@@ -61,7 +61,7 @@ function HomeLoading(props:{disabledState:boolean, hlDis:React.Dispatch<{type:st
     className={'fixed top-0 flex justify-center w-full bg-gray-100 border-b-black border-b-2 overflow-hidden z-10 ' + wrapperH} style={{transition:"height 1s, opacity 1s linear 1s"}}
   >
     <div className='grid grid-cols-2 grid-rows-2 self-center' style={{gridTemplateColumns:"auto 30px auto"}}>
-      <ImageWrapper className='row-span-2 justify-self-center' alt="" src={`/link_logo_trans1.png`} w= 'w-36'/>
+      <ImageWrapper className='row-span-2 justify-self-center' alt="" src={`/logoPics/link_logo_trans1.png`} w= 'w-36'/>
       <div className='row-span-2 h-full mx-3.5 bg-gradient-to-b from-transparent via-black to-transparent'></div>
       <p className={cursiveMain.className + " py-2 text-2xl leading-7"}>Imagine some useful<br/>info here</p>
       <button disabled={props.disabledState} onClick={buttonClick} id={styles.continue} className={chalkWriting.className}>
