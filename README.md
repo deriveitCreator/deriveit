@@ -57,6 +57,12 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 24.4:</b>
+- Added some articles to `geometry`.
+- Added `unoptimzed` attribute to images with a .gif src.
+- Custom description are now possible.
+- Moved the `every_triangle_can_be_circumscribed_by_a_circle` article from the `circles` subtopic to `triangles`.
+
 <b>update 24.3:</b>
 - Updated `calculus/trigonometric_derivatives/cos.tsx`.
 

@@ -55,6 +55,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any, string?
               sizes="100vw"
               style={{width: "auto",objectFit:"contain",height:"100%"}}
               priority
+              unoptimized={j[i][1][0].endsWith(".gif")}
             />
             <figcaption dangerouslySetInnerHTML={{__html: j[i][1][1]}}></figcaption>
           </figure>
@@ -67,6 +68,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any, string?
           fill
           style={{objectFit:"contain"}}
           priority
+          unoptimized={j[i][1][0].endsWith(".gif")}
         /></div>);
         break;
       case "displayimg2":
@@ -76,6 +78,7 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any, string?
           fill
           style={{objectFit:"contain"}}
           priority
+          unoptimized={j[i][1][0].endsWith(".gif")}
         /></div>);
         break;
       case "displayFormula":

@@ -155,7 +155,8 @@ const geometryLinks: Array<[string,string[]]> = [
 		"constructing_an_equilateral_triangle",
 		"pythagoras_theorem",
 		"sides_of_30_90_60",
-		"perpendicular_bisector_of_all_sides_passes_through_a_common_point_(incomplete)"
+		"SAS_congruence_(incomplete)",
+		"every_triangle_can_be_circumscribed_by_a_circle"
 	]],
 	["quadrilaterals", [
 		"area_of_a_parallelogram",
@@ -164,9 +165,10 @@ const geometryLinks: Array<[string,string[]]> = [
 	]],
 	["circles", [
 		"the_perpendicular_bisector_of_a_chord_is_the_diametre",
+		"two_tangent_theorem",
 		"Thales's_theorem",
 		"inscribed_angle_theorem",
-		"every_triangle_can_be_circumscribed_by_a_circle"
+		"alternate_segment_theorem",
 	]],
 	["ellipses", [
 		"getting_the_standard_form_equation_from_the_geometric_definition",

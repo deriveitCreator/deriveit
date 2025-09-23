@@ -21,11 +21,11 @@ const content = [
   ['displayimg', 'i6.png'], 
   ['pmain', 'As proved earlier, angle \\(BOD\\) is double of angle \\(BAD\\). Let\'s call them \\(\\beta_1\\) and \\(\\beta_2\\) respectively. Similarly, angle \\(COD\\) is double of angle \\(CAD\\). Let\'s call them \\(\\epsilon_1\\) and \\(\\epsilon_2\\) respectively. This means:'], 
   ['displayFormula', '\\[\\begin{align} (\\epsilon_1 = 2 \\epsilon_2) ∧ (\\beta_1 = 2 \\beta_2) &\\implies \\epsilon_1 - \\beta_1 = 2 (\\epsilon_2 - \\beta_2) \\\\ (\\theta = \\epsilon_1 - \\beta_1) ∧ (\\alpha = \\epsilon_2 - \\beta_2) &\\implies \\theta = 2 \\alpha\\end{align} \\]'], 
-  ['pmain', 'This proves the inscribed angle theorem for the third case. As for the fourth case, in can be confusing as to what angle is double of what angle:'],
+  ['pmain', 'This proves the inscribed angle theorem for the third case. As for the fourth case, it can be confusing as to what angle is double of what angle:'],
   ['displayimg', 'i7.png'], 
   ['pmain', 'Let there be a diameter going through \\(A\\) and \\(O\\), and then touching the circle at point \\(D\\):'], 
   ['displayimg', 'i8.png'], 
-  ['pmain', 'Let \\(\\beta\\) be the angle \\(BAC\\), and let\'s say the diameter cuts \\(\\beta\\) into \\(\\beta_1\\) and \\(\\beta_2\\). Let angle \\(OAC\\) be \\(\\beta_1\\). Since lines \\(\\overline{OA}\\) and \\(\\overline{OC}\\) are both radii, then angle \\(OCA\\) be also \\(\\beta_1\\). Similarly, angles \\(OAB\\) and \\(OBA\\) are both \\(\\beta_2\\):'], 
+  ['pmain', 'Let \\(\\beta\\) be the angle \\(BAC\\), and let\'s say the diameter cuts \\(\\beta\\) into \\(\\beta_1\\) and \\(\\beta_2\\). Let angle \\(OAC\\) be \\(\\beta_1\\). Since lines \\(\\overline{OA}\\) and \\(\\overline{OC}\\) are both radii, then angle \\(OCA\\) is also \\(\\beta_1\\). Similarly, angles \\(OAB\\) and \\(OBA\\) are both \\(\\beta_2\\):'], 
   ['displayimg', 'i9.png'], 
   ['pmain', 'Similarly, let\'s say the diameter cuts \\(\\theta\\) into \\(\\theta_1\\) and \\(\\theta_2\\):'], 
   ['displayimg', 'i10.png'], 
@@ -35,5 +35,7 @@ const content = [
   ['displayimg', 'i11.png'], 
   ['pmain', 'This means:'], 
   ['displayFormula', '\\[\\begin{gather} 360 - \\epsilon = \\theta \\\\ \\theta + 2 \\beta = 360 \\implies 360 - \\epsilon + 2 \\beta = 360 \\\\ \\therefore 2 \\beta = \\epsilon \\end{gather} \\]'], 
+  ['pmain', 'As a corollary, all inscribed angles sharing the same base chord and lie on the same arc are equal:'], 
+  ['figure', ['i12.gif','Image from Wikipedia.','300px']], 
 ];
 export default content;

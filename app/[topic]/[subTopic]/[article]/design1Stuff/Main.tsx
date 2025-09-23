@@ -180,7 +180,7 @@ function getBodyContent(topic:string, subTopic:string, record: any, i: number){
 
 function DisplayImg(props:{src: string, h: string}){
   return <div className={`flex items-center justify-center my-4 m-auto px-6 relative ${styles.divImg}`}>
-    <Image alt={""} src={props.src} width={0} height={0} className={`border-black border-2 object-contain bg-white w-auto h-[${props.h}]`} priority unoptimized/>
+    <Image alt={""} src={props.src} width={0} height={0} className={`border-black border-2 object-contain bg-white w-auto h-[${props.h}]`} priority unoptimized={props.src.endsWith(".gif")}/>
   </div>;
 }
 
@@ -192,7 +192,7 @@ function Figure(props:{src: string, figcaption: any, h: string}){
 	}, []);
 
   return <figure className={`flex flex-col items-center justify-center my-4 ${cursiveMain.className} ${divW} h-auto m-auto overflow-hidden ${styles.divImg}`}>
-    <Image alt={""} src={props.src} width={0} height={0} className={`border-black border-2 object-contain bg-white w-auto`} style={{height: props.h}} priority unoptimized/>
+    <Image alt={""} src={props.src} width={0} height={0} className={`border-black border-2 object-contain bg-white w-auto`} style={{height: props.h}} priority unoptimized={props.src.endsWith(".gif")}/>
     <figcaption className=' text-lg w-4/5 text-center ' dangerouslySetInnerHTML={{__html: props.figcaption}}></figcaption>
   </figure>;
 }
