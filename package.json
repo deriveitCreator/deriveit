@@ -1,6 +1,6 @@
 {
   "name": "deriveit",
-  "version": "24.4.0",
+  "version": "24.5.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
@@ -24,6 +24,7 @@
     "resend": "^2.0.0",
     "rough-notation": "^0.5.1",
     "sass": "^1.85.1",
+    "string-strip-html": "^13.4.13",
     "xmlbuilder": "^15.1.1"
   },
   "devDependencies": {

@@ -26,7 +26,8 @@ const colorInfo: {[key:string]: ColorInfoType} = {
 }
 
 export function getTopicColorInfo(value: string): ColorInfoType{
-	return colorInfo[value];
+	if (value in colorInfo) return colorInfo[value];
+	else throw new Error(`There is no color info on value: ${value}`);
 }
 
 export const topicsOrder = [
@@ -48,19 +49,19 @@ export const topicsOrder = [
 
 export function getRecentlyAdded(): string[]{
 	return [
-		"handshake lemma%discrete_mathematics/graph_theory/handshake_lemma",
-		"Euler's formula for planar graphs%discrete_mathematics/graph_theory/Eulers_formula_for_planar_graphs",
-		"scalar line integrals%calculus_(advanced)/vector_calculus/scalar_line_integrals",
-		"vector line integral%calculus_(advanced)/vector_calculus/vector_line_integrals",
+		"why_we_multiply_in_tree_diagrams%probability_&_statistics/probability_basics/multiplyingInTreeDiagrams",
+		"AND_and_OR_rule_for_a_discrete_single_variable%probability_&_statistics/probability_basics/multiplyingInTreeDiagrams",
+		"opposite_angles_of_a_cyclic_quadrilateral_are_supplementary%geometry/circles/opposite_angles_of_a_cyclic_quadrilateral_are_supplementary",
+		"number of ways to distribute n items into k buckets%discrete_mathematics/factorials,_permutations_and_combinations/sticks_and_stones",
 	]
 }
 
 export function getRecentlyEdited(): string[]{
 	return [
-		"two lines are perpendicular if the gradient of one line is the negative reciprocal of the other%linear_algebra/basics/product_of_perpendicular",
-		"curvature formulas%calculus_(advanced)/vector-valued_functions/curvature_formulas",
-		"The formula for φ(p<sup>a</sup>)%discrete_mathematics/arithmetic_functions/multiplicative3",
-		"If f is a multiplicative function, then [F(n) = ∑<sub>d|n, d>0</sub> f(d)] is also a multiplicative function%discrete_mathematics/arithmetic_functions/multiplicative1",
+		"fundamental theorem of arithmetic%number_theory/prime_numbers/fundamental_theorem_of_arithmetic",
+		"binomial theorem%discrete_mathematics/factorials,_permutations_and_combinations/binomial_theorem",
+		"the formula of combinations%discrete_mathematics/factorials,_permutations_and_combinations/com",
+		"two tangent theorem%geometry/circles/two_tangent_theorem",
 	]
 }
 
@@ -156,6 +157,7 @@ const geometryLinks: Array<[string,string[]]> = [
 		"pythagoras_theorem",
 		"sides_of_30_90_60",
 		"SAS_congruence_(incomplete)",
+		"the_SSA_condition_does_not_prove_congruence",
 		"every_triangle_can_be_circumscribed_by_a_circle"
 	]],
 	["quadrilaterals", [
@@ -169,6 +171,7 @@ const geometryLinks: Array<[string,string[]]> = [
 		"Thales's_theorem",
 		"inscribed_angle_theorem",
 		"alternate_segment_theorem",
+		"opposite_angles_of_a_cyclic_quadrilateral_are_supplementary",
 	]],
 	["ellipses", [
 		"getting_the_standard_form_equation_from_the_geometric_definition",
@@ -223,7 +226,11 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"the formula of permutations%factorials_and_permutations",
 		"the formula of combinations%com",
 		"using_combinations_to_find_a_number_in_the_Pascal's_triangle%pascals_triangle",
-		"number of ways of arranging n objects with k identical objects%binomial_theorem"
+		"number of ways of arranging n objects with k identical objects%arranging_n_objects_with_k_identical",
+		"finding the number of n-bit strings of weight k%bit_strings",
+		"binomial_theorem",
+		"<sub>n</sub>C<sub>0</sub> + <sub>n</sub>C<sub>1</sub> + ... + <sub>n</sub>C<sub>n</sub> = 2<sup>n</sup>%combination_sum_as_power_of_2",
+		"number of ways to distribute n items into k buckets%sticks_and_stones"
 	]],
 	["sequence_and_series", [
 		"finding_a_term_in_an_arithmetic_sequence",
@@ -234,7 +241,9 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"sum_of_the_first_n_positive_integers",
 		"sum_of_the_squares_of_the_first_n_positive_integers",
 		"sum_of_the_cubes_of_the_first_n_positive_integers",
-		"showing_that_the_harmonic_series_diverges"
+		"showing_that_the_harmonic_series_diverges",
+		"The closed formula for a sequence will be a degree k polynomial if and only if the sequence is Δ<sup>k</sup>-constant_(incomplete)",
+		"the_characteristic_root_technique_(incomplete)"
 	]]
 ]
 
@@ -257,8 +266,9 @@ const numberTheoryLinks: Array<[string,string[]]> = [
 	["prime_numbers", [
 		"if p is prime and p|αβ, then p|α or p|β%primeLemma1",
 		"if p is prime and p∤α, then (p, α) = 1%primeLemma3",
-		"if n is composite then there is a prime divisor ≤ √n%nCompositeSoPrimeDivisorLessThanRootN",
+		"any integer is either a prime or a product of primes%primeOrProductOfPrimes",
 		"fundamental_theorem_of_arithmetic",
+		"if n is composite then there is a prime divisor ≤ √n%nCompositeSoPrimeDivisorLessThanRootN",
 		"all composite integers can be expressed as a product of two coprime integers%composite_as_coprime_integers",
 		"there are infinite number of primes%infinite_primes",
 		"there are infinite primes of the form 4k+3%infinite_primes_4k_plus_3",
@@ -576,11 +586,29 @@ const calculusAdvancedLinks: Array<[string,string[]]> = [
 		"the_cross_partial_property_of_conservative_vector_fields",
 		"scalar_line_integrals",
 		"vector_line_integrals",
-		"flux_across_a_plane_curve_(incomplete)"
+		"flux_across_a_plane_curve",
+		"fundamental_theorem_for_line_integrals",
+		"the_path_independence_test_for_conservative_fields_(incomplete)",
+		"Green\'s_theorem (circulation form) (incomplete)",
+		"Green\'s_theorem (flux form) (incomplete)",
+		"Green\'s_theorem (flux form) (on regions with holes) (incomplete)",
+		"divergence of a source-free vector field (incomplete)",
+		"the divergence of the curl is 0 (incomplete)",
+		"If F is conservative, then curl of F is 0 (incomplete)",
+		"If curl of F = 0, then F is conservative (incomplete)",
+		"surface area of a parametric surface (incomplete)",
+		"surface integral of a scalar-valued function (incomplete)",
+		"surface integral of a vector field (incomplete)",
+		"Stoke\'s_theorem_(incomplete)",
+		"the_divergence_theorem_(incomplete)"
 	]]
 ]
 
 const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
+	["probability_basics", [
+		"AND_and_OR_rule_for_a_discrete_single_variable%andOrRuleSingleDiscreteVariable",
+		"why_we_multiply_in_tree_diagrams%multiplyingInTreeDiagrams"
+	]],
 	["expected_value_and_variance_basics", [
 		"E[X + Y] = E[X] + E[Y]%linearity_of_expectation",
 		"E[cX] = c * E[X] where c is a constant%loe2",

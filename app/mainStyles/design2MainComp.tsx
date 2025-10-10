@@ -37,7 +37,7 @@ function RecentlySection(props: {recentlyAdded: boolean}){
     </div>
     {(props.recentlyAdded ?  getRecentlyAdded():getRecentlyEdited()).map((elem, i)=>{
       let perPos = elem.indexOf("%");
-      let topicName = elem.substring(perPos+1, elem.indexOf("/",perPos))
+      let topicName = elem.substring(perPos+1, elem.indexOf("/",perPos));
       let colorInfo = getTopicColorInfo(topicName);
       let bgColor = colorInfo.bgColor;
       let borderColor = colorInfo.borderColor;

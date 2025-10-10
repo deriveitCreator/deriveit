@@ -72,6 +72,9 @@
     <loc>https://www.deriveit.net/geometry/triangles/sides_of_30_90_60</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/geometry/triangles/the_SSA_condition_does_not_prove_congruence</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/geometry/triangles/every_triangle_can_be_circumscribed_by_a_circle</loc>
   </url>
   <url>
@@ -97,6 +100,9 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/geometry/circles/alternate_segment_theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/geometry/circles/opposite_angles_of_a_cyclic_quadrilateral_are_supplementary</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/geometry/ellipses/getting_the_standard_form_equation_from_the_geometric_definition</loc>
@@ -180,7 +186,19 @@
     <loc>https://www.deriveit.net/discrete_mathematics/factorials,_permutations_and_combinations/pascals_triangle</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/factorials,_permutations_and_combinations/arranging_n_objects_with_k_identical</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/factorials,_permutations_and_combinations/bit_strings</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/discrete_mathematics/factorials,_permutations_and_combinations/binomial_theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/factorials,_permutations_and_combinations/combination_sum_as_power_of_2</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/factorials,_permutations_and_combinations/sticks_and_stones</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/discrete_mathematics/sequence_and_series/finding_a_term_in_an_arithmetic_sequence</loc>
@@ -258,10 +276,13 @@
     <loc>https://www.deriveit.net/number_theory/prime_numbers/primeLemma3</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/number_theory/prime_numbers/nCompositeSoPrimeDivisorLessThanRootN</loc>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/primeOrProductOfPrimes</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/prime_numbers/fundamental_theorem_of_arithmetic</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/nCompositeSoPrimeDivisorLessThanRootN</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/prime_numbers/composite_as_coprime_integers</loc>
@@ -1014,7 +1035,19 @@
     <loc>https://www.deriveit.net/calculus_(advanced)/vector_calculus/vector_line_integrals</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector_calculus/flux_across_a_plane_curve</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/calculus_(advanced)/vector_calculus/fundamental_theorem_for_line_integrals</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/probability_&amp;_statistics</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/probability_&amp;_statistics/probability_basics/andOrRuleSingleDiscreteVariable</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/probability_&amp;_statistics/probability_basics/multiplyingInTreeDiagrams</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance_basics/linearity_of_expectation</loc>

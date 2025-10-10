@@ -57,6 +57,15 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 24.5:</b>
+- Added content to `discrete_mathematics`, `geometry`, `calculus_(advanced)` and `probability_&_statistics`.
+- Made changes to `number_theory`, `geometry` and `calculus_(advanced)`.
+- The articles now have a `description` meta tag comprising of the first three `pmain`'s texts.
+- The `unoptimzed` attribute to images with a .gif src were not bring added properly. This is fixed now.
+- Padding and margin changes in the footer (design 2).
+- In design 2, in the "recently section", the table row now have a transition.
+- In design 2, the images in the main table now have a transition.
+
 <b>update 24.4:</b>
 - Added some articles to `geometry`.
 - Added `unoptimzed` attribute to images with a .gif src.

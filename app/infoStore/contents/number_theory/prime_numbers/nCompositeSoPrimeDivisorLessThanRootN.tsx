@@ -5,6 +5,6 @@ const content = [
   ['displayFormula','$$n=ab$$'],
   ['pmain','Assume \\(a \\le b\\), then \\(a \\le \\sqrt{n}\\), otherwise:'],
   ['displayFormula','$$\\begin{align} a \\gt \\sqrt{n} &\\implies b \\gt \\sqrt{n} \\\\ &\\implies ab \\gt \\sqrt{n}\\sqrt{n} \\\\ &\\implies ab \\gt n \\end{align}$$'],
-  ['pmain','According to the Fundamental Theorem of Arithmetic, there is a prime \\(p\\) such that \\(p|a\\). That means \\(p \\le \\sqrt{n} \\).'],
+  ['pmain','According to <a href="fundamental_theorem_of_arithmetic">the Fundamental Theorem of Arithmetic</a>, there is a prime \\(p\\) such that \\(p|a\\). That means \\(p \\le \\sqrt{n} \\).'],
 ];
 export default content;

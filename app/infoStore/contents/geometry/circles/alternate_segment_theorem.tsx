@@ -11,7 +11,7 @@ const content = [
   ["displayFormula","\\[ 2 \\theta + 90 + 90 + \\angle APB = 360 \\]"], 
   ['pmain', 'Solving for \\(\\angle APB\\):'],
   ["displayFormula","\\[\\begin{gather} \\angle APB = 360 - 2 \\theta - 90 - 90 \\\\ \\angle APB = 180 - 2 \\theta \\end{gather}\\]"], 
-  ['pmain', 'According to the <a href="two_tangent_theorem">two tangent theorem</a>, then \\(|\\overline{PA}|=|\\overline{PB}|\\). This means triangle \\(APB\\) is an isosceles triangle, which means \\(\\angle PAB = \\angle PBA\\):'],
+  ['pmain', 'According to the <a href="two_tangent_theorem">two tangent theorem</a>, \\(|\\overline{PA}|=|\\overline{PB}|\\). This means triangle \\(APB\\) is an isosceles triangle, which means \\(\\angle PAB = \\angle PBA\\):'],
   ['displayimg', 's4.jpeg','300px'], 
   ['pmain', 'Let \\(\\angle PAB = \\alpha\\). Since angles in a triangle add to 180:'],
   ["displayFormula","\\[\\begin{gather} \\angle APB + \\angle PAB + \\angle PBA = 180 \\\\ (180 - 2 \\theta) + \\alpha + \\alpha = 180 \\\\ 2\\alpha = 180 - (180 - 2 \\theta) \\\\ 2\\alpha = 2\\theta \\end{gather}\\]"], 

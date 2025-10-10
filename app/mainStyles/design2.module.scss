@@ -241,6 +241,7 @@ $brown2: #663300;
 					max-width: 260px;
 					margin-top: 15px;
 					margin-bottom: 10px;
+					transition: all ease-out 0.2s;
 				}
 				img:not(.uc):hover {
 					transform: scale(1.05,1.05);
@@ -299,6 +300,7 @@ $brown2: #663300;
 		padding: 4px 0px 4px 4px;
 		font-size: 20px;
 		line-height: 24px;
+		transition: all ease-out 0.2s;
 
 		&:hover{
 			margin-left: 0px;

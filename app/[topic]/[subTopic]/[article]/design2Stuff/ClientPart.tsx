@@ -183,7 +183,7 @@ function FooterEl(){
       <Link href="/" className={'mx-4 my-4 h-[121px]'} id={styles.homeLink} aria-label="Go to home page">
         <Image src="/logoPics/link_logo_trans2.png" alt="" width={98} height={110}/>
       </Link>
-      <div style={{paddingLeft:"10px", marginTop:"10px"}} id={styles.feedback}>
+      <div id={styles.feedback}>
         <p>If you find a bug in this website or want to report an error, <ClickButton type={0} func={changeType} /></p>
         <p>If there are any equations for which you want proof for, <ClickButton type={1} func={changeType} /></p>
         <p>For any suggestion and ideas, <ClickButton type={2} func={changeType} /></p>

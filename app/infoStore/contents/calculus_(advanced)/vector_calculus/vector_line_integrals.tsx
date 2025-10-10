@@ -32,10 +32,16 @@ const content = [
   ['displayFormula', '$$\\begin{align} \\textbf{F}(P^*_i) \\cdot \\textbf{T}(P^*_i) \\Delta s_i &\\approx \\textbf{F}(P^*_i) \\cdot \\left(\\frac{\\textbf{r}\'(t^*_i)}{\\Vert \\textbf{r}\'(t^*_i) \\Vert}\\right) (\\Vert \\textbf{r}\'(t_i^*) \\Vert \\Delta t) \\\\ &\\approx \\textbf{F}(P^*_i) \\cdot \\textbf{r}\'(t^*_i) \\Delta t\\end{align} $$'], 
   
   ['pmain', 'Summing infinite of these:'],
-  ['displayFormula', '$$W =\\int_a^b \\textbf{F}(\\textbf{r}(t)) \\cdot \\textbf{r}\'(t) d t$$'], 
+  ['displayFormula', '$$W \\text{ or } \\int_C \\textbf{F} \\cdot \\textbf{T} ds =\\int_a^b \\textbf{F}(\\textbf{r}(t)) \\cdot \\textbf{r}\'(t) d t$$'], 
 
-  ['pmain', 'We can use these notations to represent the above:'],
-  ['displayFormula', '$$\\int_a^b \\textbf{F}(\\textbf{r}(t)) \\cdot \\textbf{r}\'(t) d t = \\int_C \\textbf{F} \\cdot \\textbf{T} ds = \\int_C \\textbf{F} \\cdot d\\textbf{r}$$'], 
+  ['pmain', 'Since \\(s\'(t) = \\Vert \\textbf{r}\'(t) \\Vert\\) and since \\( \\textbf{T} = \\frac{\\textbf{r}\'(t)}{ \\Vert \\textbf{r}\'(t) \\Vert} \\):'],
+  ['displayFormula', '$$\\begin{gather} \\textbf{T}(t) = \\frac{\\textbf{r}\'(t)}{ s\'(t) } = \\frac{d \\textbf{r}(t) / dt}{ d s(t) /dt } = \\frac{d \\textbf{r}(t)}{ d s(t) } \\\\ \\therefore \\textbf{T}(t) ds = d \\textbf{r}(t) \\end{gather}$$'],
+
+  ['pmain', 'This means:'],
+  ['displayFormula', '$$\\int_C \\textbf{F} \\cdot \\textbf{T} ds = \\int_C \\textbf{F} \\cdot d\\textbf{r}$$'], 
+
+  ['pmain', 'There is another notation we can derive. Since \\(F = \\langle P,Q,R\\rangle\\) and since \\(d\\textbf{r} = \\langle dx, dy, dz \\rangle \\):'],
+  ['displayFormula', '$$\\int_C \\langle P,Q,R\\rangle \\cdot \\langle dx, dy, dz \\rangle = \\int_C P dx + Qdy + Rdz $$'], 
 
 ];
 export default content;
