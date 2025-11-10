@@ -49,19 +49,19 @@ export const topicsOrder = [
 
 export function getRecentlyAdded(): string[]{
 	return [
+		"sum_of_an_arithmetico-geometric_series%discrete_mathematics/sequence_and_series/sum_of_an_arithmetico-geometric_series",
+		"The sum of the series ir^i%discrete_mathematics/sequence_and_series/arithmetic-geometric_series2",
 		"why_we_multiply_in_tree_diagrams%probability_&_statistics/probability_basics/multiplyingInTreeDiagrams",
 		"AND_and_OR_rule_for_a_discrete_single_variable%probability_&_statistics/probability_basics/multiplyingInTreeDiagrams",
-		"opposite_angles_of_a_cyclic_quadrilateral_are_supplementary%geometry/circles/opposite_angles_of_a_cyclic_quadrilateral_are_supplementary",
-		"number of ways to distribute n items into k buckets%discrete_mathematics/factorials,_permutations_and_combinations/sticks_and_stones",
 	]
 }
 
 export function getRecentlyEdited(): string[]{
 	return [
+		"expected_value_and_variance_of_a_geometric_distribution%probability_&_statistics/probability_distribution_stuff/expected_value_and_variance_of_a_geometric_distribution",
+		"estimating the population variance using the sample mean and the sample size%probability_&_statistics/expected_value_and_variance_basics/varsamp",
 		"fundamental theorem of arithmetic%number_theory/prime_numbers/fundamental_theorem_of_arithmetic",
 		"binomial theorem%discrete_mathematics/factorials,_permutations_and_combinations/binomial_theorem",
-		"the formula of combinations%discrete_mathematics/factorials,_permutations_and_combinations/com",
-		"two tangent theorem%geometry/circles/two_tangent_theorem",
 	]
 }
 
@@ -146,7 +146,10 @@ const algebraLinks: Array<[string,string[]]> = [
 		"change_of_base",
 		"product_and_quotient_rule"
 	]],
-	["quadratic_formula", ["quadratic_formula"]]
+	["quadratic_equation", [
+		"quadratic_formula"
+		//https://www.youtube.com/watch?v=cdQOEa7r3ak
+	]]
 ];
 
 const geometryLinks: Array<[string,string[]]> = [
@@ -235,15 +238,19 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 	["sequence_and_series", [
 		"finding_a_term_in_an_arithmetic_sequence",
 		"finding_a_term_in_a_geometric_sequence",
-		"the_sum_of_an_arithmetic_series",
-		"the_sum_of_a_geometric_series_with_finite_terms",
-		"the_sum_to_infinity_of_a_geometric_series",
+		"sum_of_an_arithmetic_series",
+		"sum_of_a_finite_geometric_series",
+		"sum_to_infinity_of_a_geometric_series",
 		"sum_of_the_first_n_positive_integers",
 		"sum_of_the_squares_of_the_first_n_positive_integers",
 		"sum_of_the_cubes_of_the_first_n_positive_integers",
 		"showing_that_the_harmonic_series_diverges",
+		"sum of the series ir<sup>i</sup> for i ∈ [1,n]%arithmetic-geometric_series2",
+		"sum to infinity of the series ir<sup>i</sup> where r ∈ (-1,1)%arithmetic-geometric_series3",
+		"sum_of_an_arithmetico-geometric_series",
 		"The closed formula for a sequence will be a degree k polynomial if and only if the sequence is Δ<sup>k</sup>-constant_(incomplete)",
 		"the_characteristic_root_technique_(incomplete)"
+		//https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/SortedSearch.html (sum i2^{i-1} = (k-1)2^k +1)
 	]]
 ]
 
@@ -601,13 +608,23 @@ const calculusAdvancedLinks: Array<[string,string[]]> = [
 		"surface integral of a vector field (incomplete)",
 		"Stoke\'s_theorem_(incomplete)",
 		"the_divergence_theorem_(incomplete)"
+	]],
+	["second-order_linear_equations", [
+		"superposition_principle_(incomplete)",
+		"solution_to_second-order_equations_with_constant_coefficients_(incomplete)",
+		"general_solution_to_a_nonhomogeneous_equation_(incomplete)"
 	]]
 ]
 
 const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
+	["descriptive_statistics", [
+		"median index is (n+1)/2%medianIndex",
+		//"finding the kth percentile"
+	]],
 	["probability_basics", [
 		"AND_and_OR_rule_for_a_discrete_single_variable%andOrRuleSingleDiscreteVariable",
-		"why_we_multiply_in_tree_diagrams%multiplyingInTreeDiagrams"
+		"why_we_multiply_in_tree_diagrams%multiplyingInTreeDiagrams",
+		"P(A|B) = P(A) ⇒ P(B|A) = P(B)%independenceCommutativity"
 	]],
 	["expected_value_and_variance_basics", [
 		"E[X + Y] = E[X] + E[Y]%linearity_of_expectation",
@@ -618,13 +635,14 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
 		"Var[kX] = k^2 * Var[X]%varCons",
 		"Var[X + Y] = Var[X] + Var[Y] where X and Y are independent variables%varAdd",
 		"deriving the E[X] and Var[X] for the iid variables%varMean",
-		"an equation for the population variance using the sample mean and the sample size%varsamp",
+		"estimating the population variance using the sample mean and the sample size%varsamp",
 		"Markov's inequality",
 		"Chebyshev's inequality",
 	]],
 	["probability_distribution_stuff", [
 		"expected_value_and_variance_of_a_binomial_distribution",
 		"expected_value_and_variance_of_a_geometric_distribution",
+		"expected_value_and_variance_of_a_geometric_distribution  (when success isn't included) (incomplete)%expected_value_and_variance_of_a_geometric_distribution2",
 		"probability_function_of_the_Poisson_distribution",
 		"if X is a positive continuous random variable with a memoryless property, then X is exponentially distributed%memoryless",
 		"expected_value_and_variance_of_an_exponential_distribution"

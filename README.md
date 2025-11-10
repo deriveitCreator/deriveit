@@ -57,6 +57,10 @@ One major thing I added was the design feature, where you can choose different d
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
 
+<b>update 24.6:</b>
+- Added and edited content in `discrete_mathematics` and `probability_&_statistics`.
+- Image transition in design2 home page is changed to 0.1s.
+
 <b>update 24.5:</b>
 - Added content to `discrete_mathematics`, `geometry`, `calculus_(advanced)` and `probability_&_statistics`.
 - Made changes to `number_theory`, `geometry` and `calculus_(advanced)`.
