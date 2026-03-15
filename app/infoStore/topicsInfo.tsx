@@ -235,6 +235,9 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"<sub>n</sub>C<sub>0</sub> + <sub>n</sub>C<sub>1</sub> + ... + <sub>n</sub>C<sub>n</sub> = 2<sup>n</sup>%combination_sum_as_power_of_2",
 		"number of ways to distribute n items into k buckets%sticks_and_stones"
 	]],
+	["set_theory", [
+		"the_set_of_rational_numbers_is_countable"
+	]],
 	["sequence_and_series", [
 		"finding_a_term_in_an_arithmetic_sequence",
 		"finding_a_term_in_a_geometric_sequence",
@@ -260,6 +263,7 @@ const numberTheoryLinks: Array<[string,string[]]> = [
 		"if α|β and ε|δ, then αε|βδ%divisibility2",
 		"3|n<sup>3</sup>-n%threeDividesNCubedMinusN",
 		"5|n<sup>5</sup>-n%fiveDividesNToThe5MinusN",
+		"√2 is irrational%root2IrrationalUsingWellOrdering",
 		"4n<sup>2</sup>+4n is divisible by 8 for all n%multipleOf8",
 		"smallest positive linear combination of α and β = gcd(α, β)%linear_combination_smallest_gcd",
 		"every linear combination of α and β is a multiple of gcd(α, β), and vice versa%every_linear_combination",
@@ -280,6 +284,7 @@ const numberTheoryLinks: Array<[string,string[]]> = [
 		"there are infinite number of primes%infinite_primes",
 		"there are infinite primes of the form 4k+3%infinite_primes_4k_plus_3",
 		"there are infinite primes of the form 3k+2%infinite_primes_3k_plus_2",
+		"if p is a prime ≥ 5, then (p<sup>2</sup>-1)|24%primeDivisibleBy24",
 		"no prime can be expressed as a<sup>4</sup> - b<sup>4</sup>%differenceOfFourthPowers",
 		"for any positive integer n, there are at least n consecutive composite integers%nConsecutiveCompositeInteger",
 		"if 2<sup>p</sup> - 1 is prime, then p is prime%Mersenne_prime1",
@@ -642,9 +647,10 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
 	["probability_distribution_stuff", [
 		"expected_value_and_variance_of_a_binomial_distribution",
 		"expected_value_and_variance_of_a_geometric_distribution",
-		"expected_value_and_variance_of_a_geometric_distribution  (when success isn't included) (incomplete)%expected_value_and_variance_of_a_geometric_distribution2",
+		"expected_value_and_variance_of_a_geometric_distribution (when success isn't included) (incomplete)%expected_value_and_variance_of_a_geometric_distribution2",
 		"probability_function_of_the_Poisson_distribution",
 		"if X is a positive continuous random variable with a memoryless property, then X is exponentially distributed%memoryless",
+		"variance_of_an_uniform_distribution (incomplete)",
 		"expected_value_and_variance_of_an_exponential_distribution"
 	]],
 	["miscellaneous",["deriving the regression coefficient of y on x%line_of_best_fit"]]

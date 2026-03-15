@@ -56,6 +56,10 @@ One major thing I added was the design feature, where you can choose different d
 ## Updates
 
 Versioning is done using "npm version [new-version] --git-tag-version false"
+Updates follow this format: `[major change].[minor change]`.
+
+<b>update 24.7:</b>
+- Added content in `discrete_mathematics` and `number_theory`.
 
 <b>update 24.6:</b>
 - Added and edited content in `discrete_mathematics` and `probability_&_statistics`.

@@ -22,10 +22,10 @@ const content = [
   ["pmain","As for the second part, let's make a guess, say \\(xe^{-\\lambda x}\\). Does derivating it give us \\(x^2 \\lambda e^{- \\lambda x} - (2x)(e^{-\\lambda x})\\)?"],
   ["displayFormula","$$ \\frac{d}{dx} xe^{-\\lambda x} = e^{- \\lambda x} + x(-\\lambda)(e^{-\\lambda x})$$"],
   ["pmain","Close! Let's use \\(x^2 e^{-\\lambda x}\\) instead:"],
-  ["displayFormula","$$\\begin{align} \\frac{d}{dx} x^2 e^{-\\lambda x} &= (2x) e^{- \\lambda x} + x^2 (-\\lambda)(e^{-\\lambda x}) &= (2x) e^{- \\lambda x} - x^2 (\\lambda)(e^{-\\lambda x}) \\end{align}$$"],
+  ["displayFormula","$$\\begin{align} \\frac{d}{dx} x^2 e^{-\\lambda x} &= (2x) e^{- \\lambda x} + x^2 (-\\lambda)(e^{-\\lambda x}) \\\\ &= (2x) e^{- \\lambda x} - x^2 (\\lambda)(e^{-\\lambda x}) \\end{align}$$"],
   ["pmain","If we multiply both sides with -1, we get \\(x^2 \\lambda e^{- \\lambda x} - (2x)(e^{-\\lambda x})\\). So the integral of the second part is \\(-x^2 e^{-\\lambda x}\\):"],
   ["displayFormula","$$\\begin{align} E[X^2] &= \\frac{2}{\\lambda ^2} + \\left[ -x^2 e^{-\\lambda x} \\right]^\\infty_0 \\\\ E[X^2] &= \\frac{2}{\\lambda ^2} \\end{align}$$"],
   ["pmain","We can use this to calculate variance:"],
-  ["displayFormula","$$\\begin{align} Var[X] &= E[X^2] - E[X]^2 = \\frac{2}{\\lambda ^2} - \\left( \\frac{1}{\\lambda} \\right)^2 \\\\ Var[X] &= \\frac{1}{\\lambda^2} \\end{align}$$"],
+  ["displayFormula","$$\\begin{align} \\operatorname{Var}[X] &= E[X^2] - E[X]^2 = \\frac{2}{\\lambda ^2} - \\left( \\frac{1}{\\lambda} \\right)^2 \\\\ \\operatorname{Var}[X] &= \\frac{1}{\\lambda^2} \\end{align}$$"],
 ];
 export default content;
