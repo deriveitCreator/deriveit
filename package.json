@@ -1,6 +1,6 @@
 {
   "name": "deriveit",
-  "version": "24.7.0",
+  "version": "24.8.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
@@ -15,7 +15,7 @@
     "autoprefixer": "^10.4.20",
     "googleapis": "^144.0.0",
     "mongodb": "6.3",
-    "next": "^15.2.1",
+    "next": "15.2.8",
     "node-fetch": "^3.3.2",
     "nodemailer": "^6.9.7",
     "react": "^19.0.0-rc.1",
