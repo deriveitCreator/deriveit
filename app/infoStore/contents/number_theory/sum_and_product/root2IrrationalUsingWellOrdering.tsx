@@ -15,6 +15,6 @@ const content = [
   
   ['pmain', 'Also:'],
   ['displayFormula', '$$\\begin{gather} \\sqrt{2} \\lt 2 \\\\ s\\sqrt{2} \\lt 2s \\\\ s\\sqrt{2} - s \\lt s \\\\ \\therefore (s-t)\\sqrt{2} \\lt s \\end{gather}$$'],
-  ['pmain', 'Since \\([(s-t)\\sqrt{2}]\\) exists in \\(S\\) and \\([(s-t)\\sqrt{2} \\lt s]\\) then we have a contradiction.'],
+  ['pmain', 'Since \\([(s-t)\\sqrt{2}]\\) exists in \\(S\\) and \\([(s-t)\\sqrt{2} \\lt s]\\), then we have a contradiction.'],
 ];
 export default content;

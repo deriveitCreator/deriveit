@@ -58,6 +58,9 @@ One major thing I added was the design feature, where you can choose different d
 Versioning is done using "npm version [new-version] --git-tag-version false"
 Updates follow this format: `[major change].[minor change]`.
 
+<b>update 25.1:</b>
+- Added a new subtopic in `number_theory`.
+
 <b>update 24.8:</b>
 - Fixed React2Shell security or whatever that was.
 

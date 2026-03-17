@@ -258,12 +258,19 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 ]
 
 const numberTheoryLinks: Array<[string,string[]]> = [
+	["sum_and_product", [
+		"α<sup>2</sup> is even if and only if α is even%evenIffSquareIsEven",
+		"sum of a rational and an irrational is never rational%sumRationalIrrational",
+		"sum of two irrationals is not always irrational%sumIrrationals",
+		"product of a rational and an irrational is always an irrational%productRationalIrrational",
+		"√2 is irrational%root2Irrational",
+		"√2 is irrational (using the well-ordering property)%root2IrrationalUsingWellOrdering",
+	]],
 	["divisibility", [
 		"if α|β and α|ε, then α|(mβ + nε)%divisibility1",
 		"if α|β and ε|δ, then αε|βδ%divisibility2",
 		"3|n<sup>3</sup>-n%threeDividesNCubedMinusN",
 		"5|n<sup>5</sup>-n%fiveDividesNToThe5MinusN",
-		"√2 is irrational%root2IrrationalUsingWellOrdering",
 		"4n<sup>2</sup>+4n is divisible by 8 for all n%multipleOf8",
 		"smallest positive linear combination of α and β = gcd(α, β)%linear_combination_smallest_gcd",
 		"every linear combination of α and β is a multiple of gcd(α, β), and vice versa%every_linear_combination",
