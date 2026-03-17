@@ -258,13 +258,14 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 ]
 
 const numberTheoryLinks: Array<[string,string[]]> = [
-	["sum_and_product", [
+	["sums_and_products", [
 		"α<sup>2</sup> is even if and only if α is even%evenIffSquareIsEven",
+		"√2 is irrational%root2Irrational",
+		"√2 is irrational (using the well-ordering property)%root2IrrationalUsingWellOrdering",
 		"sum of a rational and an irrational is never rational%sumRationalIrrational",
 		"sum of two irrationals is not always irrational%sumIrrationals",
 		"product of a rational and an irrational is always an irrational%productRationalIrrational",
-		"√2 is irrational%root2Irrational",
-		"√2 is irrational (using the well-ordering property)%root2IrrationalUsingWellOrdering",
+		"√3 is irrational (using the well-ordering property)%root3IrrationalUsingWellOrdering",
 	]],
 	["divisibility", [
 		"if α|β and α|ε, then α|(mβ + nε)%divisibility1",

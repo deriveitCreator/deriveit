@@ -9,12 +9,12 @@ const content = [
   ['displayFormula', '$$\\begin{gather} s\\sqrt{2} = 2t \\\\ (t \\in \\mathbb{N}) \\wedge (s \\in \\mathbb{N}) \\implies 2t - s \\in \\mathbb{Z} \\end{gather}$$'],
 
   ['pmain', 'We can rewrite this as:'],
-  ['displayFormula', '$$\\begin{gather}2t - s = \\\\ s\\sqrt{2} - s = s\\sqrt{2} - t\\sqrt{2} = \\\\ (s-t)\\sqrt{2} \\in \\mathbb{Z} \\end{gather}$$'],
+  ['displayFormula', '$$\\begin{gather} 2t - s = \\\\ s\\sqrt{2} - s = s\\sqrt{2} - t\\sqrt{2} = \\\\ (s-t)\\sqrt{2} \\in \\mathbb{Z} \\end{gather}$$'],
 
-  ['pmain', 'Since \\([s = t\\sqrt{2}]\\) and \\([\\sqrt{2} \\gt 1]\\), then \\(s \\gt t\\). Which means \\([s-t]\\) is a positive integer. By definition of \\(S\\), \\([(s-t)\\sqrt{2}]\\) is also in \\(S\\).'],
+  ['pmain', 'Since \\([s = t\\sqrt{2}]\\) and \\([\\sqrt{2} \\gt 1]\\), then \\(s \\gt t\\). Which means \\([s-t]\\) is a positive integer. This also means that \\([(s-t)\\sqrt{2}]\\) is a positive integer. By definition of \\(S\\), \\([(s-t)\\sqrt{2}]\\) is also in \\(S\\).'],
   
   ['pmain', 'Also:'],
-  ['displayFormula', '$$\\begin{gather} \\sqrt{2} \\lt 2 \\\\ s\\sqrt{2} \\lt 2s \\\\ s\\sqrt{2} - s \\lt s \\\\ \\therefore (s-t)\\sqrt{2} \\lt s \\end{gather}$$'],
+  ['displayFormula', '$$\\begin{gather} \\sqrt{2} \\lt 2 \\\\ s\\sqrt{2} \\lt 2s \\\\ s\\sqrt{2} - s \\lt s \\\\ s\\sqrt{2} - t\\sqrt{2} \\lt s \\\\ \\therefore (s-t)\\sqrt{2} \\lt s \\end{gather}$$'],
   ['pmain', 'Since \\([(s-t)\\sqrt{2}]\\) exists in \\(S\\) and \\([(s-t)\\sqrt{2} \\lt s]\\), then we have a contradiction.'],
 ];
 export default content;

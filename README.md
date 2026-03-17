@@ -58,6 +58,9 @@ One major thing I added was the design feature, where you can choose different d
 Versioning is done using "npm version [new-version] --git-tag-version false"
 Updates follow this format: `[major change].[minor change]`.
 
+<b>update 25.2:</b>
+- In `number_theory`, changed `sum_and_product` to `sums_and_products`, and added new content to it.
+
 <b>update 25.1:</b>
 - Added a new subtopic in `number_theory`.
 
