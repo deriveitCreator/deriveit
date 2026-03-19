@@ -49,10 +49,10 @@ export const topicsOrder = [
 
 export function getRecentlyAdded(): string[]{
 	return [
-		"sum_of_an_arithmetico-geometric_series%discrete_mathematics/sequence_and_series/sum_of_an_arithmetico-geometric_series",
-		"The sum of the series ir^i%discrete_mathematics/sequence_and_series/arithmetic-geometric_series2",
-		"why_we_multiply_in_tree_diagrams%probability_&_statistics/probability_basics/multiplyingInTreeDiagrams",
-		"AND_and_OR_rule_for_a_discrete_single_variable%probability_&_statistics/probability_basics/multiplyingInTreeDiagrams",
+		"formula_for_the_alternating_sum_of_Fibonacci_numbers%discrete_mathematics/sequence_and_series/formula_for_the_alternating_sum_of_Fibonacci_numbers",
+		"sum_of_the_first_even_n_Fibonacci_numbers%discrete_mathematics/sequence_and_series/sum_of_the_first_even_n_Fibonacci_numbers",
+		"sum_of_the_first_odd_n_Fibonacci_numbers%discrete_mathematics/sequence_and_series/sum_of_the_first_odd_n_Fibonacci_numbers",
+		"sum_of_the_first_n_Fibonacci_numbers%discrete_mathematics/sequence_and_series/sum_of_the_first_n_Fibonacci_numbers",
 	]
 }
 
@@ -251,7 +251,11 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"sum of the series ir<sup>i</sup> for i ∈ [1,n]%arithmetic-geometric_series2",
 		"sum to infinity of the series ir<sup>i</sup> where r ∈ (-1,1)%arithmetic-geometric_series3",
 		"sum_of_an_arithmetico-geometric_series",
-		"The closed formula for a sequence will be a degree k polynomial if and only if the sequence is Δ<sup>k</sup>-constant_(incomplete)",
+		"sum_of_the_first_n_Fibonacci_numbers",
+		"sum_of_the_first_odd_n_Fibonacci_numbers",
+		"sum_of_the_first_even_n_Fibonacci_numbers",
+		"formula_for_the_alternating_sum_of_Fibonacci_numbers",
+		"closed formula for a sequence will be a degree k polynomial if and only if the sequence is Δ<sup>k</sup>-constant_(incomplete)",
 		"the_characteristic_root_technique_(incomplete)"
 		//https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/SortedSearch.html (sum i2^{i-1} = (k-1)2^k +1)
 	]]
