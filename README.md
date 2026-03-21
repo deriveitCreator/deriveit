@@ -58,6 +58,10 @@ One major thing I added was the design feature, where you can choose different d
 Versioning is done using "npm version [new-version] --git-tag-version false"
 Updates follow this format: `[major change].[minor change]`.
 
+<b>update 26.1:</b>
+- Added new subtopic in `number_theory`.
+- Updated `number_theory/divisibility`.
+
 <b>update 25.3:</b>
 - Added content to `discrete_mathematics` and `number_theory`.
 
