@@ -49,10 +49,10 @@ export const topicsOrder = [
 
 export function getRecentlyAdded(): string[]{
 	return [
+		"closed formula for Σ<sup>n</sup><sub>k=1</sub> [√k]%number_theory/floor_and_ceil_functions/sumOfRootsFormula",
+		"[(x + n)/m] = [([x] + n)/m] where n, m ∈ Z%number_theory/floor_and_ceil_functions/plusAndDivide",
+		"sum of the cubes of three consecutive integers is divisible by 9%number_theory/divisibility/cubesOfThreeConsecutiveIntSum",
 		"formula_for_the_alternating_sum_of_Fibonacci_numbers%discrete_mathematics/sequence_and_series/formula_for_the_alternating_sum_of_Fibonacci_numbers",
-		"sum_of_the_first_even_n_Fibonacci_numbers%discrete_mathematics/sequence_and_series/sum_of_the_first_even_n_Fibonacci_numbers",
-		"sum_of_the_first_odd_n_Fibonacci_numbers%discrete_mathematics/sequence_and_series/sum_of_the_first_odd_n_Fibonacci_numbers",
-		"sum_of_the_first_n_Fibonacci_numbers%discrete_mathematics/sequence_and_series/sum_of_the_first_n_Fibonacci_numbers",
 	]
 }
 
@@ -256,8 +256,7 @@ const discreteMathematicsLinks: Array<[string,string[]]> = [
 		"sum_of_the_first_even_n_Fibonacci_numbers",
 		"formula_for_the_alternating_sum_of_Fibonacci_numbers",
 		"closed formula for a sequence will be a degree k polynomial if and only if the sequence is Δ<sup>k</sup>-constant_(incomplete)",
-		"the_characteristic_root_technique_(incomplete)"
-		//https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/SortedSearch.html (sum i2^{i-1} = (k-1)2^k +1)
+		"the_characteristic_root_technique_(incomplete)" //https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/SortedSearch.html (sum i2^{i-1} = (k-1)2^k +1)
 	]]
 ]
 
@@ -278,8 +277,10 @@ const numberTheoryLinks: Array<[string,string[]]> = [
 		"[x + y] ≥ [x] + [y]%superadditivity",
 		"[xy] ≥ [x][y]%supermultiplicativity",
 		"[x + 1/2] is the integer nearest to x%nearestInteger",
+		"[(x + n)/m] = [([x] + n)/m] where n, m ∈ Z%plusAndDivide",
 		"[√[x]] = √[x]%squareRootWithfloorFunc",
 		"Hermite's identity (incomplete)%HermitesIdentity",
+		"closed formula for Σ<sup>n</sup><sub>k=1</sub> [√k]%sumOfRootsFormula"
 	]],
 	["divisibility", [
 		"the division algorithm%the_division_algorithm",
@@ -289,6 +290,7 @@ const numberTheoryLinks: Array<[string,string[]]> = [
 		"3|n<sup>3</sup>-n%threeDividesNCubedMinusN",
 		"5|n<sup>5</sup>-n%fiveDividesNToThe5MinusN",
 		"4n<sup>2</sup>+4n is divisible by 8 for all n%multipleOf8",
+		"sum of the cubes of three consecutive integers is divisible by 9%cubesOfThreeConsecutiveIntSum",
 		"smallest positive linear combination of α and β = gcd(α, β)%linear_combination_smallest_gcd",
 		"every linear combination of α and β is a multiple of gcd(α, β), and vice versa%every_linear_combination",
 		"gcd(α, β) = gcd(β, α mod β); why the euclidean algorithm works%why_the_euclidean_algorithm_works",
