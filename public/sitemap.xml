@@ -201,6 +201,9 @@
     <loc>https://www.deriveit.net/discrete_mathematics/factorials,_permutations_and_combinations/sticks_and_stones</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/set_theory/the_set_of_rational_numbers_is_countable</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/discrete_mathematics/sequence_and_series/finding_a_term_in_an_arithmetic_sequence</loc>
   </url>
   <url>
@@ -237,7 +240,70 @@
     <loc>https://www.deriveit.net/discrete_mathematics/sequence_and_series/sum_of_an_arithmetico-geometric_series</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/sequence_and_series/sum_of_the_first_n_Fibonacci_numbers</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/sequence_and_series/sum_of_the_first_odd_n_Fibonacci_numbers</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/sequence_and_series/sum_of_the_first_even_n_Fibonacci_numbers</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/discrete_mathematics/sequence_and_series/formula_for_the_alternating_sum_of_Fibonacci_numbers</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/number_theory</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/sums_and_products/evenIffSquareIsEven</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/sums_and_products/root2Irrational</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/sums_and_products/root2IrrationalUsingWellOrdering</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/sums_and_products/sumRationalIrrational</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/sums_and_products/sumIrrationals</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/sums_and_products/productRationalIrrational</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/sums_and_products/root3IrrationalUsingWellOrdering</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/floor_and_ceil_functions/addingIntegers</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/floor_and_ceil_functions/HermitesIdentitySpecialCase</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/floor_and_ceil_functions/superadditivity</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/floor_and_ceil_functions/supermultiplicativity</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/floor_and_ceil_functions/nearestInteger</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/floor_and_ceil_functions/plusAndDivide</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/floor_and_ceil_functions/squareRootWithfloorFunc</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/floor_and_ceil_functions/sumOfRootsFormula</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/divisibility/the_division_algorithm</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/divisibility/divisibility5</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/divisibility/divisibility1</loc>
@@ -253,6 +319,9 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/divisibility/multipleOf8</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/divisibility/cubesOfThreeConsecutiveIntSum</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/divisibility/linear_combination_smallest_gcd</loc>
@@ -277,6 +346,12 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/divisibility/divisibility4</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/integer_representations/Basis_Representation_Theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/integer_representations/balanced_ternary_expansion</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/prime_numbers/primeLemma1</loc>
@@ -304,6 +379,9 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/prime_numbers/infinite_primes_3k_plus_2</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/primeDivisibleBy24</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/prime_numbers/differenceOfFourthPowers</loc>
@@ -337,6 +415,18 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/prime_numbers/aSquare_divides_bSquare_implies_a_divides_b</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/smallestPrimeExceedsRoot3</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/sumOfComposites</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/pDoesNotDivideBinomialCoefficient</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/nthPrimeLessThan2n</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma18</loc>

@@ -49,19 +49,19 @@ export const topicsOrder = [
 
 export function getRecentlyAdded(): string[]{
 	return [
-		"closed formula for Σ<sup>n</sup><sub>k=1</sub> [√k]%number_theory/floor_and_ceil_functions/sumOfRootsFormula",
-		"[(x + n)/m] = [([x] + n)/m] where n, m ∈ Z%number_theory/floor_and_ceil_functions/plusAndDivide",
-		"sum of the cubes of three consecutive integers is divisible by 9%number_theory/divisibility/cubesOfThreeConsecutiveIntSum",
-		"formula_for_the_alternating_sum_of_Fibonacci_numbers%discrete_mathematics/sequence_and_series/formula_for_the_alternating_sum_of_Fibonacci_numbers",
+		"if p<sub>n</sub> is the nth prime, then p<sub>n</sub> ≤ 2<sup>n</sup>%number_theory/prime_numbers/nthPrimeLessThan2n",
+		"if the smallest prime p of the positive integer n exceeds n<sup>1/3</sup>, then n/p must be prime or 1%number_theory/prime_numbers/smallestPrimeExceedsRoot3",
+		"balanced ternary expansion%number_theory/integer_representations/balanced_ternary_expansion",
+		"Basis representation theorem%number_theory/integer_representations/Basis_Representation_Theorem",
 	]
 }
 
 export function getRecentlyEdited(): string[]{
 	return [
+		"there are infinite number of primes%number_theory/prime_numbers/infinite_primes",
 		"expected_value_and_variance_of_a_geometric_distribution%probability_&_statistics/probability_distribution_stuff/expected_value_and_variance_of_a_geometric_distribution",
 		"estimating the population variance using the sample mean and the sample size%probability_&_statistics/expected_value_and_variance_basics/varsamp",
 		"fundamental theorem of arithmetic%number_theory/prime_numbers/fundamental_theorem_of_arithmetic",
-		"binomial theorem%discrete_mathematics/factorials,_permutations_and_combinations/binomial_theorem",
 	]
 }
 
@@ -300,6 +300,10 @@ const numberTheoryLinks: Array<[string,string[]]> = [
 		"m|n ⇒ (a<sup>m</sup>-b<sup>m</sup>)|(a<sup>n</sup>-b<sup>n</sup>)%divisibility3",
 		"[(m, n) = 1 ∧ d|mn] ⇒ ∃d<sub>1</sub>, d<sub>2</sub> ∈ Z<sup>+</sup> such that d<sub>1</sub>d<sub>2</sub> = d, d<sub>1</sub>|m, d<sub>2</sub>|n and (d<sub>1</sub>, d<sub>2</sub>) = 1%divisibility4",
 	]],
+	["integer_representations", [
+		"Basis_Representation_Theorem",
+		"balanced_ternary_expansion"
+	]],
 	["prime_numbers", [
 		"if p is prime and p|αβ, then p|α or p|β%primeLemma1",
 		"if p is prime and p∤α, then (p, α) = 1%primeLemma3",
@@ -321,7 +325,15 @@ const numberTheoryLinks: Array<[string,string[]]> = [
 		"lower bound for Legendre's formula%legendres_formula_lower_bound",
 		"a powerful number is a product of a square number and a cube number%powerful_from_square_and_cube",
 		"any integer greater than 6 can be represented as a sum of two relatively prime integers%primeLemma2",
-		"if a<sup>k</sup>|b<sup>k</sup> then a|b%aSquare_divides_bSquare_implies_a_divides_b"
+		"if a<sup>k</sup>|b<sup>k</sup> then a|b%aSquare_divides_bSquare_implies_a_divides_b",
+		"If the smallest prime p of the positive integer n exceeds n<sup>1/3</sup>, then n/p must be prime or 1%smallestPrimeExceedsRoot3",
+		"every integer greater than 11 is the sum of two composite integers%sumOfComposites",
+		"if [2n/3 ≤ p &lt; n] then [p ∤ <sub>2n</sub>C<sub>n</sub>]%pDoesNotDivideBinomialCoefficient",
+		"p<sub>1</sub>p<sub>2</sub>...p<sub>t</sub> &lt; 4<sup>n</sup> where p<sub>t</sub> ≤ n (incomplete)",
+		"Bertrand's postulate (incomplete)",
+		"If p<sub>n</sub> is the nth prime, then p<sub>n</sub> ≤ 2<sup>n</sup>%nthPrimeLessThan2n",
+		"every positive integer n ≥ 7 is the sum of disctinct primes (incomplete)",
+		"Dirichlet's theorem on arithmetic progressions (incomplete)"
 	]],
 	["more_gcd", [
 		"(α, ε) = 1 ∧ (β, ε) = 1 ⇒ (αβ, ε) = 1%gcdLemma18",
