@@ -1,3 +1,11 @@
 export const title="If p is prime and p|ab, then p|a or p|b";
-const content = [['h1', 'If p is prime and p|ab, then p|a or p|b'], ['pmain', 'Assume \\(p \\nmid a\\). Since \\(p\\) is a prime, then \\( \\gcd(p ,a)\\) is either 1 or \\(p\\), but since \\(p \\nmid a\\) then \\(p \\ne \\gcd(p, a)\\), so it has to be 1. So far we know two things:'], ['displayFormula', '$$\\begin{gathered} p|ab \\\\ \\gcd(p, a) = 1\\end{gathered}$$'], ['pmain', 'Let \\(x, y \\in &integers; \\).'], ['displayFormula', '$$\\begin{gathered} 1 = xp + ya\\\\ b = bxp + bya \\end{gathered}$$'], ['pmain', 'Since \\(p \\mid ab\\) and \\(p \\mid bp \\), then \\(p \\mid (y(ab) + x(bp)) \\) or \\(p \\mid (bxp + bya)\\). Therefore, \\(p \\mid b\\).']];
+const content = [
+  ['h1', 'If p is prime and p|ab, then p|a or p|b'], 
+  ['pmain', 'Assume \\(p \\nmid a\\). Since \\(p\\) is a prime, then \\( \\gcd(p ,a)\\) is either 1 or \\(p\\), but since \\(p \\nmid a\\) then \\(p \\ne \\gcd(p, a)\\), so it has to be 1. So far we know two things:'], 
+  ['displayFormula', '$$\\begin{gathered} p|ab \\\\ \\gcd(p, a) = 1\\end{gathered}$$'], 
+  ['pmain', 'Let \\(x, y \\in &integers; \\).'], 
+  ['displayFormula', '$$\\begin{gathered} 1 = xp + ya\\\\ b = bxp + bya \\end{gathered}$$'], 
+  ['pmain', 'Since \\(p \\mid ab\\) and \\(p \\mid bp \\), then:'],
+  ['displayFormula', '$$\\begin{gathered} p \\mid (y(ab) + x(bp)) \\\\ p \\mid (bxp + bya) \\\\ p \\mid b \\end{gathered}$$'] 
+];
 export default content;

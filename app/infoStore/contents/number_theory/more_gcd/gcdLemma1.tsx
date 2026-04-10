@@ -1,17 +1,14 @@
-export const title="If gcd(a, b) = 1, then gcd(a, ka + b) = 1";
+export const title="If gcd(a, b), then gcd(a + kb, b)";
 const content = [
-  ['h1', 'If gcd(a, b) = 1, Then gcd(a, ka + b) = 1'],
-  ['pmain', 'Let \\(a\\) and \\(b\\) be positive integers and let \\(k\\) be any ineteger. We need to prove:'], 
-  ['displayFormula', '$$ (a, b) = 1 \\implies (a, ka + b) = 1 $$'],
-  ['pmain', 'The contrapositive of this is:'], 
-  ['displayFormula', '$$ (a, ka + b) \\ne 1 \\implies (a,b) \\ne 1 $$'],
-  ['pmain', 'Let\'s say \\((a, ka + b) = d \\ne 1\\). This means \\(d|a\\) and \\(d|ka+b\\). Therefore:'], 
-  ['displayFormula', '$$ dh = ka+b $$'],
-  ['pmain', 'Dividing both sides by \\(d\\):'], 
-  ['displayFormula', '$$ h = \\frac{ka}{d}+\\frac{b}{d} $$'],
-  ['pmain', 'Since \\(d|a\\):'], 
-  ['displayFormula', '$$ h = \\text{some integer } +\\frac{b}{d} $$'],
-  ['pmain', 'Since \\(h\\) is an integer, and the first operand is an integer, then \\(b/d\\) also has to be an integer. Therefore \\(d|b\\).'], 
-  ['pmain', 'If \\(d|a\\) and \\(d|b\\), then \\((a,b) \\ne 1\\). Thus, we have proven that is \\((a, ka + b) = d \\ne 1\\), then \\((a,b) \\ne 1\\). This also means if \\((a,b)=1\\), then \\((a, ka + b) = 1\\).'], 
+  ['h1', 'If gcd(a, b), Then gcd(a + kb, b)'],
+  ['pmain', 'Let \\((a,b)=d\\) and let \\((a+kb,b)=e\\).'], 
+  ['pmain', 'If \\(d\\) divides \\(a\\) and \\(b\\), then it divides any linear combination of \\(a\\) and \\(b\\), including \\(a+kb\\).'], 
+  ['displayFormula', '$$ d|a, d|b \\implies d|(a+kb) $$'],
+  ['pmain', 'If \\(e\\) divides \\(a+kb\\), then:'], 
+  ['displayFormula', '$$\\begin{gather} \\frac{a+kb}{e} = \\text{some integer} \\\\ \\frac{a}{e} + k\\frac{b}{e} = \\text{some integer} \\end{gather}$$'],
+  ['pmain', 'Since \\(e|b\\):'], 
+  ['displayFormula', '$$\\begin{gather} \\frac{a}{e} + \\text{some integer} = \\text{some integer} \\end{gather}$$'],
+  ['pmain', 'This shows that \\(a/e\\) is an integer, or that \\(e|a\\).'], 
+  ['pmain', 'We have shown that \\((a,b)\\) divides \\((a+kb,b)\\), and that \\((a+kb,b)\\) divides \\((a,b)\\). If \\((a,b)|(a+kb,b)\\) and \\((a+kb,b)|(a,b)\\), then \\((a,b) = (a+kb,b)\\).'], 
 ];
 export default content;

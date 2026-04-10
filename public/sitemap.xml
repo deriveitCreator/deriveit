@@ -276,6 +276,9 @@
     <loc>https://www.deriveit.net/number_theory/sums_and_products/root3IrrationalUsingWellOrdering</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/number_theory/sums_and_products/root2PlusRoot3IsIrr</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/number_theory/floor_and_ceil_functions/addingIntegers</loc>
   </url>
   <url>
@@ -339,9 +342,6 @@
     <loc>https://www.deriveit.net/number_theory/divisibility/gcdLemma13</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/number_theory/divisibility/gcdLemma10</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/number_theory/divisibility/divisibility3</loc>
   </url>
   <url>
@@ -402,12 +402,6 @@
     <loc>https://www.deriveit.net/number_theory/prime_numbers/n_square_prime</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/number_theory/prime_numbers/Legendres_formula</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/number_theory/prime_numbers/legendres_formula_lower_bound</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/number_theory/prime_numbers/powerful_from_square_and_cube</loc>
   </url>
   <url>
@@ -415,6 +409,9 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/prime_numbers/aSquare_divides_bSquare_implies_a_divides_b</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/primeLemma4</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/prime_numbers/smallestPrimeExceedsRoot3</loc>
@@ -429,16 +426,52 @@
     <loc>https://www.deriveit.net/number_theory/prime_numbers/nthPrimeLessThan2n</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/rootIsIntOrIrrational</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/logpbIsIrr</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/exactly_divides/exactlyDividesLemma1</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/exactly_divides/exactlyDividesLemma2</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/exactly_divides/exactlyDividesLemma3</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/exactly_divides/Legendres_formula</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/exactly_divides/legendres_formula_lower_bound</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma18</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/more_gcd/multiplicative</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma2</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma8</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma3</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma6</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma10</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma7</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma4</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/more_gcd/gcdDividesPlus</loc>
@@ -450,16 +483,25 @@
     <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma17</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma12</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma1</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma16</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma12</loc>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma9</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma11</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma1</loc>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/gcdLemma5</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_gcd/pairwiseRelative6n</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/lcm/gcdTimesLcmGivesProduct</loc>
@@ -469,6 +511,24 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/lcm/lcmLemma3</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/lcm/lcmLemma1</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/lcm/lcmLemma4</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/lcm/lcmLemma5</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/lcm/lcmLemma6</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/lcm/lcmLemma7</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/lcm/lcmLemma8</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modLemma1</loc>
