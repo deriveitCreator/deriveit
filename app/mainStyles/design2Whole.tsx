@@ -6,13 +6,14 @@ import ImageWrapper from '../global_components/ImageWrapper';
 import styles from "./design2.module.scss";
 import { logoFont2, printFont2, headingFont } from '../infoStore/fonts';
 import { IconContext } from "react-icons";
-import { FaPaintbrush, FaAngleRight, FaAngleLeft } from "react-icons/fa6";
+import { FaPaintbrush, FaAngleRight, FaAngleLeft, FaGoogle } from "react-icons/fa6";
 import StyleSelectionBox from '../global_components/StyleSelectionBox';
 import Link from 'next/link';
 import { link } from '../infoStore/donationLink';
 import Image from 'next/image';
 import { ParallaxProvider, useParallax } from 'react-scroll-parallax';
 import FormBox from '../global_components/FormBox';
+import { userAgentFromString } from 'next/server';
 
 export default function Design2(){
 	const [continueEnabled, setCE] = useState(false);
@@ -215,48 +216,82 @@ function Slideshow(props:{continueButtonClicked:boolean}){
 function SearchEl(){
 	const [displayVal, changeDisplay] = useState("none");
 	const timerRef: RefObject<null|number> = useRef(null);
-	const textTypingInterval: RefObject<number|null> = useRef(null);
-	const inputRef: RefObject<HTMLInputElement | null> = createRef<HTMLInputElement>();
-	const itemsArr = useRef([]);
-	const minLetters = 4;
+	const itemsArr = useRef<Array<any>>([]);
+	const minLetters = 3;
+	const searchDivRef = useRef<HTMLDivElement|null>(null);
+	const googleElRef = useRef(null);
+	const observerRef = useRef<MutationObserver|null>(null);
+	const timeOutVar = useRef<number|null>(null);
 
-	function evalSearchText(searchText: string){
-		if (textTypingInterval.current) 
-			window.clearTimeout(textTypingInterval.current);
-		textTypingInterval.current = window.setTimeout(()=>{
-			itemsArr.current = [];
-			fetch(window.location.origin+"/infoStore/doSearch?text="+searchText)
-			.then(res=>res.json())
-			.then(res=>{
-				itemsArr.current = res.items;
-				changeDisplay("block");
-			});
+	useEffect(()=>{
+		var interval = window.setInterval(()=>{
+			try {
+				//@ts-ignore
+				googleElRef.current = google.search.cse.element.getElement("mainSearch");
+			}
+			catch (err) { 
+				//intentionally avoiding console.error
+				console.log("The google variable is not loaded. Trying again..."); 
+				return;
+			}
+			window.clearInterval(interval);
+			console.log("Google search element ready!");
 		}, 500);
+		var interval2 = window.setInterval(()=>{
+			if (!googleElRef.current) return;
+			try{
+				const resultsContainer = document.querySelector(".gsc-results");
+				if (!resultsContainer) throw new Error("gsc-results not found!");
+				observerRef.current = new MutationObserver(()=>{
+					if (resultsContainer.innerHTML.includes("gsc-result")) {
+						let anchors = resultsContainer.querySelectorAll("div.gsc-table-result a.gs-title");
+						itemsArr.current = [];
+						for (let anchor of anchors) {
+							itemsArr.current.push({title: anchor.textContent, link: anchor.getAttribute("href")});
+						}
+						changeDisplay("block");
+					}
+				});
+				observerRef.current.observe(resultsContainer, {childList: true, subtree: true});
+			}
+			catch (err) {
+				//intentionally avoiding console.error
+				console.log("Error with observer:", err);
+				return;
+			}
+			window.clearInterval(interval2);
+			console.log("Search observer ready!");
+		}, 500);
+	}, []);
+	
+	function evalSearchText(searchText: string){
+		if (timeOutVar.current) window.clearTimeout(timeOutVar.current);
+		timeOutVar.current = window.setTimeout(()=>{
+			if (!googleElRef.current) return;
+			changeDisplay("none"); //@ts-ignore
+			googleElRef.current.prefillQuery(searchText); //@ts-ignore
+			googleElRef.current.execute();
+		}, 1000);
 	}
 
-	return <div id={styles.searchDiv} className={printFont2.className}>
-		<div id={styles.typingArea}>
-			<input
-				onKeyUp={()=>{
-					let textVal = inputRef.current?.value!;
-					if(textVal.length >= minLetters) evalSearchText(textVal);
-					changeDisplay("none");
-				}}
-				ref={inputRef}
-				autoComplete="off"
-				id={styles.searchBox}
-				type="text"
-				placeholder={"Search..."}
-			/>
-			<div 
-				id={styles.pageOptions} 
-				style={{display: displayVal}} 
-				onMouseLeave={()=>{
-					timerRef.current = window.setTimeout(()=>{ changeDisplay("none"); }, 500);
-				}} 
-				onMouseEnter={()=>{if(timerRef.current) window.clearTimeout(timerRef.current);}}
-			>{evalItems(itemsArr)}</div>
-		</div>
+	return <div id={styles.searchDiv} className={printFont2.className} ref={searchDivRef}>
+		<input
+			onKeyUp={(e)=>{
+				let textVal = e.currentTarget.value;
+				if(textVal.length >= minLetters) evalSearchText(textVal);
+			}}
+			autoComplete="off"
+			id={styles.searchBox}
+			type="text"
+			placeholder={"Search..."}
+		/>
+		<div 
+			id={styles.pageOptions} 
+			style={{display: displayVal}} 
+			onMouseLeave={()=>{timerRef.current = window.setTimeout(()=>{ changeDisplay("none"); }, 500);}} 
+			onMouseEnter={()=>{if(timerRef.current) window.clearTimeout(timerRef.current);}}
+		>{evalItems(itemsArr)}</div>
+		<div className='gcse-search' id={styles.googleSearchDiv} data-gname={"mainSearch"}></div>
 	</div>;
 }
 

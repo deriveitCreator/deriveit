@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic';
 export type MainType = {
   topic: string,
   topicsInfoState: Array<[string,string[]]>,
+  topicFeatureVector?: string
   styleObject?: ColorInfoType
 }
 
@@ -19,7 +20,10 @@ export default async function Page(props: { params: Promise<{ topic: string }> }
   let topicLinks = getTopicLinks(decodedTopic);
   if (topicLinks === TOPIC_LINKS_ERROR) return notFound();
 
+  const {default: topicFeatureVector} = await import(`@/app/infoStore/featureVectors/${decodedTopic}.json`);
   const MainComp = dynamic<MainType>(() => import(`@/app/[topic]/designs/Style${designSelectedVal}`));
+  const topicFeatureVectorString = JSON.stringify(topicFeatureVector);
+  
   if (designSelectedVal==1)
     return <>
       <TopicHeader styleNumber={1} name={decodedTopic.replaceAll("_", " ")}/>
@@ -29,7 +33,7 @@ export default async function Page(props: { params: Promise<{ topic: string }> }
     const styleObject = getTopicColorInfo(decodedTopic);
     return <div style={{backgroundColor: styleObject.bgColor!, minHeight:"100vh"}}>
       <TopicHeader styleNumber={2} name={decodedTopic.replaceAll("_", " ")} styleObject={styleObject}/>
-      <MainComp topic={decodedTopic} topicsInfoState={topicLinks} styleObject={styleObject}/>
+      <MainComp topic={decodedTopic} topicsInfoState={topicLinks} topicFeatureVector={topicFeatureVectorString} styleObject={styleObject}/>
     </div>
   }
   else throw new Error("Wrong design number value");

@@ -58,6 +58,10 @@ One major thing I added was the design feature, where you can choose different d
 Versioning is done using "npm version [new-version] --git-tag-version false"
 Updates follow this format: `[major change].[minor change]`.
 
+<b>update 27.1:</b>
+- Improved the search function in design 2 home page.
+- Added a search function for all topics.
+
 <b>update 26.4:</b>
 - Updated sitemap.
 - Added a new subtopic in `number_theory` (`exactly_divides`).

@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic';
 export type MainType = {
   topic: string,
   subTopic: [string,string[]],
+  subtopicFeatureVector?: string,
   styleObject?: ColorInfoType
 }
 
@@ -19,11 +20,14 @@ export default async function Page(props: { params: Promise<{ topic: string, sub
 
   let topicLinks = getTopicLinks(decodedTopic);
   if (topicLinks === TOPIC_LINKS_ERROR) return notFound();
+  const {default: topicFeatureVector} = await import(`@/app/infoStore/featureVectors/${decodedTopic}.json`);
 
   var curSubTopic: [string, string[]] = ["",[""]];
+  var curSubTopicFeatureVector: string;
   for(let i in topicLinks){
     if(topicLinks[i][0].replaceAll("'","") === decodedSubTopic){
       curSubTopic = topicLinks[i];
+      curSubTopicFeatureVector = JSON.stringify([topicFeatureVector[i]]);
       break;
     }
   }
@@ -40,7 +44,7 @@ export default async function Page(props: { params: Promise<{ topic: string, sub
     const styleObject = getTopicColorInfo(decodedTopic);
     return <div style={{backgroundColor: styleObject.bgColor!, minHeight:"100vh"}}>
       <SubTopicHeader styleNumber={designSelectedVal} styleObject={styleObject} name={decodedTopic.replaceAll("_"," ")}/>
-      <MainComp topic={decodedTopic} subTopic={curSubTopic} styleObject={styleObject}/>
+      <MainComp topic={decodedTopic} subTopic={curSubTopic} styleObject={styleObject} subtopicFeatureVector={curSubTopicFeatureVector!}/>
     </div>
   }
   else throw new Error("Wrong design number value");

@@ -116,8 +116,6 @@ $brown2: #663300;
 	background-color: rgb(150,60,00);
 	z-index: 2;
 
-	#typingArea{
-
 		#searchBox{
 			padding: 0px 5px;
 			outline: none;
@@ -125,7 +123,6 @@ $brown2: #663300;
 			background-color: #CC5511;
 			border-radius: 3px;
 			color: #441100;
-			font-style: italic;
 			line-height: 20px;
 			font-size: 16px;
 			font-weight: bold;
@@ -177,7 +174,10 @@ $brown2: #663300;
 				color: #441100;
 			}
 		}
-	}
+
+		#googleSearchDiv{
+			display: none !important;
+		}
 }
 
 #backgroundImage{

@@ -38,6 +38,5 @@ next-env.d.ts
 #custom files/folders
 public/logoPics/logo.html
 public/topicsPics/old
-localEditingScripts
 *.pptx
 placeholder.txt

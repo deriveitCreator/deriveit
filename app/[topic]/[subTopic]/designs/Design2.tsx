@@ -1,25 +1,28 @@
-import { headingFont, mainTextFont } from "@/app/infoStore/fonts";
-import Link from "next/link";
+"use client"
+
+import { useState } from "react";
+import { headingFont } from "@/app/infoStore/fonts";
 import styles from "../../designs/style2.module.scss";
 import { MainType } from '../page';
 import FooterEl from '../../designs/Style2Footer';
-import { FaYoutube } from "react-icons/fa";
-
-const YOUTUBE_PREFIX = "https://www.youtube.com/watch?v=";
+import Style2LinkP from "../../designs/Style2LinkP";
+import Style2SearchInput from "../../designs/Style2SearchInput";
 
 export default function Style2(props: MainType){ 
 	let styleOb = props.styleObject!;
 	let headerBgColor = styleOb.headerBgColor;
 	let borderColor = styleOb.borderColor;
-	let curTopic = props.subTopic;
+	let subtopicFeatureVector = props.subtopicFeatureVector!;
+	const [curTopic, changeTIS] = useState([props.subTopic]);
 
 	return <>
 		<main className={styles.main}>
-			<h2 className={`${headingFont.className} ${styles.heading}`} style={{color: borderColor}}>{
-				curTopic[0].replaceAll("_"," ")
+			<Style2SearchInput borderColor={borderColor} inputBgColor={styleOb.footerColor} topicFeatureVector={subtopicFeatureVector} topicsInfo={[props.subTopic]} changeTIS={changeTIS}/>
+			<h2 className={`${headingFont.className}`} style={{color: borderColor}}>{
+				(curTopic.length) ? curTopic[0][0].replaceAll("_"," ") : null
 			}</h2>
 			
-			{ (curTopic[1]).map((val:string,i: number) => {
+			{ curTopic.length ? (curTopic[0][1]).map((val:string,i: number) => {
 				
 				let text = val;
 				let youtubeID = '';
@@ -38,31 +41,15 @@ export default function Style2(props: MainType){
 					text = text.replaceAll("_"," ");
 				}
 
-				return <StyledP
+				return <Style2LinkP
 					key={i}
 					textColor={headerBgColor}
 					text={text}
 					youtubeID={youtubeID}
 					link={link}
 				/>;
-			})}
+			}) : null }
 		</main>
     <FooterEl borderColor={styleOb.borderColor} footerColor={styleOb.footerColor} headerBgColor={styleOb.headerBgColor} bgColor={styleOb.bgColor}/>
 	</>;
-}
-
-const StyledP = (props: {text: string, link: string, textColor: string, youtubeID: string}) =>{
-	var pContent;
-	if (props.text.slice(-11,) === "incomplete)")
-		pContent = <span dangerouslySetInnerHTML={{ __html: props.text }}></span>;
-	else pContent = <Link href={`./${props.link}`} dangerouslySetInnerHTML={{ __html: props.text }}></Link>;
-
-	let videoEl = null;
-	if (props.youtubeID.length) videoEl = <a href={YOUTUBE_PREFIX + props.youtubeID} target="_blank" style={{display:"inline-block", verticalAlign:"middle"}}>
-		<FaYoutube/>
-	</a>;
-
-	return <p className={`${mainTextFont.className} ${styles.linkText}`} style={{color: props.textColor}}>
-		{pContent} {videoEl}
-	</p>;
 }
