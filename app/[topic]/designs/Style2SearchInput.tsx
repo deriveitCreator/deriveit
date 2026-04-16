@@ -3,15 +3,15 @@
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import styles from "./style2.module.scss";
 import { mainTextFont } from "@/app/infoStore/fonts";
-import { pipeline, cos_sim, FeatureExtractionPipeline } from '@huggingface/transformers';
+//import { pipeline, cos_sim, FeatureExtractionPipeline } from '@huggingface/transformers';
 
 export default function Style2SearchInput(props: {borderColor: string, inputBgColor: string, topicFeatureVector: string, topicsInfo:[string, string[]][], changeTIS: Dispatch<SetStateAction<[string, string[]][]>>}) {
   const [inputDisabled, changeID] = useState(false);
-  const [modelSet, setModel] = useState(false);
-  const extractor = useRef<FeatureExtractionPipeline | null>(null);
+  //const [modelSet, setModel] = useState(false);
+  //const extractor = useRef<FeatureExtractionPipeline | null>(null);
   const inputVal = useRef("");
   const featureVecParsed = useRef(JSON.parse(props.topicFeatureVector)).current;
-
+/* 
   useEffect(()=>{
     if (!extractor.current)
     pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2')
@@ -51,9 +51,9 @@ export default function Style2SearchInput(props: {borderColor: string, inputBgCo
       console.error("Critical error:", e);
       changeID(false);
     }
-  }, [inputDisabled]);
+  }, [inputDisabled]); */
 
-  return <div id={styles.searchBarDiv} style={{backgroundColor: props.borderColor, opacity: modelSet ? 1 : 0, transition:"opacity 0.5s linear"}}>
+  return <div id={styles.searchBarDiv} style={{backgroundColor: props.borderColor}}>
     <style jsx>{`
       input::placeholder{
         color: ${props.borderColor};

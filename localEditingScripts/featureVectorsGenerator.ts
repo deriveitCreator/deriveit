@@ -1,5 +1,6 @@
+//TEMPORARILY DISABLED
 //npx tsx featureVectorsGenerator.ts
-
+/* 
 import { pipeline } from '@huggingface/transformers';
 import { getTopicLinks, TOPIC_LINKS_ERROR, topicsOrder } from "@/app/infoStore/topicsInfo";
 import { writeFile } from 'fs';
@@ -34,4 +35,4 @@ async function main() {
   }
 }
 
-main();
+main(); */

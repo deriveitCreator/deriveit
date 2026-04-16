@@ -24,6 +24,7 @@ export default async function Page(props: { params: Promise<{ topic: string }> }
   const MainComp = dynamic<MainType>(() => import(`@/app/[topic]/designs/Style${designSelectedVal}`));
   const topicFeatureVectorString = JSON.stringify(topicFeatureVector);
   
+
   if (designSelectedVal==1)
     return <>
       <TopicHeader styleNumber={1} name={decodedTopic.replaceAll("_", " ")}/>

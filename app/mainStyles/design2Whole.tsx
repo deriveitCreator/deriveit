@@ -6,14 +6,13 @@ import ImageWrapper from '../global_components/ImageWrapper';
 import styles from "./design2.module.scss";
 import { logoFont2, printFont2, headingFont } from '../infoStore/fonts';
 import { IconContext } from "react-icons";
-import { FaPaintbrush, FaAngleRight, FaAngleLeft, FaGoogle } from "react-icons/fa6";
+import { FaPaintbrush, FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import StyleSelectionBox from '../global_components/StyleSelectionBox';
 import Link from 'next/link';
 import { link } from '../infoStore/donationLink';
 import Image from 'next/image';
 import { ParallaxProvider, useParallax } from 'react-scroll-parallax';
 import FormBox from '../global_components/FormBox';
-import { userAgentFromString } from 'next/server';
 
 export default function Design2(){
 	const [continueEnabled, setCE] = useState(false);
