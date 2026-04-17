@@ -58,8 +58,11 @@ One major thing I added was the design feature, where you can choose different d
 Versioning is done using "npm version [new-version] --git-tag-version false"
 Updates follow this format: `[major change].[minor change]`.
 
+<b>update 27.4:</b>
+- `@xenova/transformer` is now loaded dynamically.
+
 <b>update 27.3:</b>
-- Testing the compatability of `@Xenova/transformer` with vercel.
+- Testing the compatability of `@xenova/transformer` with vercel.
 
 <b>update 27.2:</b>
 - Temporarily disabled search function in topics and subtopics page.
