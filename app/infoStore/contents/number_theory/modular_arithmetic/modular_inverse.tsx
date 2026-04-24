@@ -1,10 +1,10 @@
 export const title="Proving the existence and uniqueness of a modular inverse if (a, m) = 1";
 const content = [
   ['h1', 'Proving The Existence And Uniqueness Of A Modular Inverse If (a, m) = 1'],
-  ['pmain', 'If \\((a, m) = 1\\), then \\(ax+my=1\\) or \\(ax=m(q)+1\\), which means:'],
+  ['pmain', 'If \\((a, m) = 1\\), then there exists integers \\(x\\) and \\(y\\) such that \\(ax+my=1\\), which means:'],
   ['displayFormula', '$$ ax ≡ 1 \\mod m $$'],
   ['pmain', 'Here, \\(x\\) is the inverse. If \\(ab_1 ≡ 1\\) and \\(ab_2 ≡ 1\\), then:'],
-  ['displayFormula', '$$ ab_1 ≡ ab_2 \\mod m ⇒ m|a(b_1 - b_2) $$'],
+  ['displayFormula', '$$\\begin{gather} ab_1 ≡ ab_2 \\mod m \\\\ m|a(b_1 - b_2) \\end{gather}$$'],
   ['pmain', 'Since \\((m, a) = 1\\):'],
   ['displayFormula', '$$ m|b_1 - b_2 ⇒ b_1 ≡ b_2 \\mod m $$'],
   ['pmain', 'This shows that the inverse is unique. By \'unique\', it means there is only one solution in modulo \\(m\\).'],

@@ -1,4 +1,4 @@
-export const title="If (a ≡ b mod m), (a ≡ b mod n) And gcd(m, n) = 1, Then (a ≡ b mod mn)";
+export const title="If (a ≡ b mod m), (a ≡ b mod n) And gcd(m, n) = 1, then (a ≡ b mod mn)";
 const content = [
   ['h1', 'If (a ≡ b mod m), (a ≡ b mod n) And gcd(m, n) = 1, Then (a ≡ b mod mn)'],
   ['pmain', 'If \\((a ≡ b \\bmod m)\\) and \\((a ≡ b \\bmod n)\\):'],

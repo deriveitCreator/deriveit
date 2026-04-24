@@ -29,7 +29,7 @@ const content = [
   ['displayFormula', '$$ A = 0 + 0 + \\ldots + b_k $$'],
   ['pmain', 'This means:'],
   ['displayFormula', '$$ A ≡ b_1 \\bmod n_1, A ≡ b_2 \\bmod n_2, $$ $$ \\ldots, A ≡ b_k \\bmod n_k $$'],
-  ['pmain', 'Which means \\(A\\) is a valid solution for \\(x\\). Now let \\(y ≡ b_i \\bmod n_i\\), \\(x-y ≡ 0 \\bmod n_i\\). If \\(n_1 | (x-y)\\), \\(n_2 | (x-y)\\), ..., \\(n_k | (x-y)\\), then using <a href="https://www.deriveit.net/discrete_mathematics/divisibility/gcdLemma14">this lemma</a> we can conclude \\(N|(x-y)\\), or:'],
+  ['pmain', 'Which means \\(A\\) is a valid solution for \\(x\\). Now let \\(y ≡ b_i \\bmod n_i\\) for all \\(i\\). This means \\(x-y ≡ 0 \\bmod n_i\\). If \\(n_1 | (x-y)\\), \\(n_2 | (x-y)\\), ..., \\(n_k | (x-y)\\), then using <a href="../divisibility/gcdLemma14">this lemma</a> we can conclude \\(N|(x-y)\\), or:'],
   ['displayFormula', '$$ x ≡ y \\mod N $$'],
   ['pmain', 'This means that the solution is unique, meaning that there is only one solution modulo \\(N\\).'],
 ];

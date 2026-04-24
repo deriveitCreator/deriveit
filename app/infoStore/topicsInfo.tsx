@@ -298,7 +298,9 @@ const numberTheoryLinks: Array<[string,string[]]> = [
 		"α<sub>1</sub>|b, α<sub>2</sub>|b and gcd(α<sub>1</sub>, α<sub>2</sub>) = 1 ⇒ α<sub>1</sub>α<sub>2</sub>|b%gcdLemma14",
 		"ε|αβ and gcd(ε, α) = 1, ⇒ ε|β%gcdLemma13",
 		"m|n ⇒ (a<sup>m</sup>-b<sup>m</sup>)|(a<sup>n</sup>-b<sup>n</sup>)%divisibility3",
-		"[(m, n) = 1 ∧ d|mn] ⇒ ∃d<sub>1</sub>, d<sub>2</sub> ∈ Z<sup>+</sup> such that d<sub>1</sub>d<sub>2</sub> = d, d<sub>1</sub>|m, d<sub>2</sub>|n and (d<sub>1</sub>, d<sub>2</sub>) = 1%divisibility4",
+		"(m, n) = 1 ∧ d|mn ⇒ ∃d<sub>1</sub>, d<sub>2</sub> ∈ Z<sup>+</sup> such that d<sub>1</sub>d<sub>2</sub> = d, d<sub>1</sub>|m, d<sub>2</sub>|n and (d<sub>1</sub>, d<sub>2</sub>) = 1%divisibility4",
+		"If a and b are integers, then ax + by = c has infinitely many integral solutions ⟺ (a, b)|c%linearDiophantineEquation",
+		"If a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> are nonzero positive integers, then the equation a<sub>1</sub> x<sub>1</sub> + a<sub>2</sub> x<sub>2</sub> + ... + a<sub>n</sub> x<sub>n</sub> = c has infinite integral solutions if (a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub>) divides c, otherwise it has no solutions (incomplete)%linearDiophantineEquationForMultipleVariables"
 	]],
 	["integer_representations", [
 		"Basis_Representation_Theorem",
@@ -334,7 +336,10 @@ const numberTheoryLinks: Array<[string,string[]]> = [
 		"every positive integer n ≥ 7 is the sum of disctinct primes (incomplete)",
 		"Dirichlet's theorem on arithmetic progressions (incomplete)",
 		"root of x<sup>n</sup>+c<sub>n-1</sub>x<sup>n-1</sup>+...+c<sub>1</sub>x+c<sub>0</sub> is either an integer or an irrational%rootIsIntOrIrrational",
-		"log<sub>p</sub>b is irrational, where p is prime and b is a positive integer that is not a power of p%logpbIsIrr"
+		"log<sub>p</sub>b is irrational, where p is prime and b is a positive integer that is not a power of p%logpbIsIrr",
+		"every prime divisor of a composite Fermat number F<sub>n</sub> is of the form 2<sup>n+2</sup>k+1 (incomplete)",
+		"F<sub>0</sub>F<sub>1</sub>...F<sub>n-1</sub> + 2 = F<sub>n</sub>%FermatNumbersRecurrenceRelationship",
+		"Fermat numbers F<sub>n</sub> and F<sub>m</sub> are coprime when n ≠ m%FermatNumbersCoprime"
 	]],
 	["exactly_divides",[
 		"[p<sup>a</sup> ∥ m] ∧ [p<sup>b</sup> ∥ n] ⇒ [p<sup>min(a,b)</sup> ∥ m+n]%exactlyDividesLemma1",
@@ -387,6 +392,7 @@ const numberTheoryLinks: Array<[string,string[]]> = [
 		"(εα ≡ εβ mod M) ⟺ (α ≡ β mod M/(ε, M))%modLemma4",
 		"(α ≡ β mod M) ⇒ (β, M) = (α, M)%modLemma7",
 		"if n is a positve integer and (n ≡ 3 mod 4), then n cannot be written as a sum of two square integers%modLemma10",
+		"if (α ≡ β mod M) and (α ≡ β mod N) then (α ≡ β mod [M, N])%congruenceLcm",
 		"if (α ≡ β mod M), (α ≡ β mod N) and gcd(M, N) = 1, then (α ≡ β mod MN)%modLemma11",
 		"if n is odd and (3 ∤ n), then (n<sup>2</sup> ≡ 1 mod 24)%modLemma12",
 		"if (α, m) = 1 and if {r<sub>1</sub>, ..., r<sub>φ(m)</sub>} is a reduced residue system (modulo m), then {αr<sub>1</sub>, ..., αr<sub>φ(m)</sub>} is also a reduced residue system%multiplying_reduced_residue_system",
@@ -396,9 +402,10 @@ const numberTheoryLinks: Array<[string,string[]]> = [
 		"ax ≡ b mod m has a solution if and only if gcd(a, m)|b%congruence_solution_possible",
 		"solution of ax ≡ b mod m (if gcd(a, m)|b)%congruence_solution",
 		"existence and uniqueness of modular inverse if gcd(a, m) = 1%modular_inverse",
-		"If p is prime ∧ (a<sup>2</sup> ≡ b<sup>2</sup> mod p) ⇒ a ≡ ±b mod p%x_square_solution",
-		"If p is prime ∧ (a<sup>2</sup> ≡ a mod p) ⇒ (a ≡ 0) or (a ≡ 1)%a_square_congruent_a_mod_p",
-		"If p is prime ∧ (a<sup>p</sup> ≡ b<sup>p</sup> mod p) ∧ (p ∤ a) ∧ (p ∤ b) ⇒ a<sup>p</sup> ≡ b<sup>p</sup> mod p<sup>2</sup>%square_mod_prime",
+		"if p is prime ∧ (a<sup>2</sup> ≡ b<sup>2</sup> mod p) ⇒ a ≡ ±b mod p%squareCongruenceWithPrime",
+		"if p is prime ∧ (a<sup>2</sup> ≡ a mod p^k) ⇒ (a ≡ 0) or (a ≡ 1)%a_square_congruent_a_mod_p_to_k",
+		"[α ≡ ±1 mod p where p is prime] ⟺ [α is its own inverse] (assume α is positive) (incomplete)",
+		"if p is prime ∧ (a<sup>p</sup> ≡ b<sup>p</sup> mod p) ∧ (p ∤ a) ∧ (p ∤ b) ⇒ a<sup>p</sup> ≡ b<sup>p</sup> mod p<sup>2</sup>%square_mod_prime",
 		"If (α, n) = 1 then {β, α+β, 2α+β, ..., (n-1)α+β} forms a complete system of residues modulo n%modLemma13",
 	]],
 	["divisibility_rules",[

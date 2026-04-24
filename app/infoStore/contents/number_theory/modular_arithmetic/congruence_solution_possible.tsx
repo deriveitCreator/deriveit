@@ -3,6 +3,6 @@ const content = [
   ['h1', 'ax ≡ b mod m Has A Solution If And Only If (a, m)|b'],
   ['pmain', 'Let \\(g=(a,m)\\). If \\(ax ≡ b \\bmod m\\), then:'],
   ['displayFormula', '$$\\begin{gather} ax = b + mk \\text{ where } k \\in \\mathbb{Z} \\\\ ax - mk = b \\end{gather}$$'],
-  ['pmain', 'If \\(g\\) is the greatest common divisor of \\(a\\) and \\(m\\), then \\(g\\) can divide any linear combination of \\(a\\) and \\(m\\) (including \\(b\\)) (<a href="https://www.deriveit.net/discrete_mathematics/divisibility/every_linear_combination">proof</a>). However, if \\(g \\nmid b\\), then there is no valid value of \\(x\\) and \\(k\\), such that \\(ax - mk = b\\).'],
+  ['pmain', 'If \\(g\\) divides \\(a\\) and \\(m\\), then <a href="./every_linear_combination">it can divide any linear combination</a>. If \\(x\\) and \\(k\\) are integers, then \\(ax-mk\\) is a linear combination of \\(a\\) and \\(m\\), which means \\(g\\) can divide it. In other words, \\(g|b\\). The contrapositive of this is that if \\(g \\nmid b\\), then \\(x\\) and \\(k\\) cannot be integers.'],
 ];
 export default content;
