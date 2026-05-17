@@ -1,0 +1,6 @@
+[
+		"if p<sub>n</sub> is the nth prime, then p<sub>n</sub> ≤ 2<sup>n</sup>%number_theory/prime_numbers/nthPrimeLessThan2n",
+		"if the smallest prime p of the positive integer n exceeds n<sup>1/3</sup>, then n/p must be prime or 1%number_theory/prime_numbers/smallestPrimeExceedsRoot3",
+		"balanced ternary expansion%number_theory/integer_representations/balanced_ternary_expansion",
+		"Basis representation theorem%number_theory/integer_representations/Basis_Representation_Theorem"
+	]

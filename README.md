@@ -58,6 +58,12 @@ One major thing I added was the design feature, where you can choose different d
 Versioning is done using "npm version [new-version] --git-tag-version false"
 Updates follow this format: `[major change].[minor change]`.
 
+<b>update 27.6:</b>
+- Made some coding changes with recently added/edited table at the home page:
+  - I extracted the recently added and edited text, and put them in a json.
+- Added and edited content in `number_theory`.
+- Edited content in `calculus`.
+
 <b>update 27.5:</b>
 - Added and edited content in `number_theory`.
 - Made css changes in style2.

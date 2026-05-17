@@ -1,3 +1,5 @@
+import recentlyAdded from "./recentlyAdded.json";
+import recentlyEdited from "./recentlyEdited.json";
 
 export type ColorInfoType = {
 	headerBgColor: string,
@@ -47,23 +49,9 @@ export const topicsOrder = [
 	"biology"
 ]
 
-export function getRecentlyAdded(): string[]{
-	return [
-		"if p<sub>n</sub> is the nth prime, then p<sub>n</sub> ≤ 2<sup>n</sup>%number_theory/prime_numbers/nthPrimeLessThan2n",
-		"if the smallest prime p of the positive integer n exceeds n<sup>1/3</sup>, then n/p must be prime or 1%number_theory/prime_numbers/smallestPrimeExceedsRoot3",
-		"balanced ternary expansion%number_theory/integer_representations/balanced_ternary_expansion",
-		"Basis representation theorem%number_theory/integer_representations/Basis_Representation_Theorem",
-	]
-}
+export function getRecentlyAdded(): string[]{ return recentlyAdded; }
 
-export function getRecentlyEdited(): string[]{
-	return [
-		"there are infinite number of primes%number_theory/prime_numbers/infinite_primes",
-		"expected_value_and_variance_of_a_geometric_distribution%probability_&_statistics/probability_distribution_stuff/expected_value_and_variance_of_a_geometric_distribution",
-		"estimating the population variance using the sample mean and the sample size%probability_&_statistics/expected_value_and_variance_basics/varsamp",
-		"fundamental theorem of arithmetic%number_theory/prime_numbers/fundamental_theorem_of_arithmetic",
-	]
-}
+export function getRecentlyEdited(): string[]{ return recentlyEdited; }
 
 export const TOPIC_LINKS_ERROR: Array<[string,string[]]> = [["error",[]]];
 
@@ -388,12 +376,12 @@ const numberTheoryLinks: Array<[string,string[]]> = [
 		"(α ≡ β mod M) ∧ (n|M) ⇒ (α ≡ β mod n)%modLemma3",
 		"if c is an odd integer, then (c<sup>2</sup> ≡ 1 mod 4) and (c<sup>2</sup> ≡ 1 mod 8)%modLemma9",
 		"(c ∈ Z) ∧ (α ≡ β mod M) ⇒ (cα ≡ cβ mod cM)%modLemma5",
-		"d|α ∧ d|β ∧ d|M ∧ α ≡ β mod M ⇒ (α/d ≡ β/d mod M/d)%modLemma6",
+		"α ≡ β mod M ⇒ (α/d ≡ β/d mod M/d) if d divides them%modLemma6",
 		"(εα ≡ εβ mod M) ⟺ (α ≡ β mod M/(ε, M))%modLemma4",
 		"(α ≡ β mod M) ⇒ (β, M) = (α, M)%modLemma7",
 		"if n is a positve integer and (n ≡ 3 mod 4), then n cannot be written as a sum of two square integers%modLemma10",
 		"if (α ≡ β mod M) and (α ≡ β mod N) then (α ≡ β mod [M, N])%congruenceLcm",
-		"if (α ≡ β mod M), (α ≡ β mod N) and gcd(M, N) = 1, then (α ≡ β mod MN)%modLemma11",
+		"if gcd(M, N) = 1, then (α ≡ β mod M) ∧ (α ≡ β mod N) ⟺ α ≡ β mod MN%modLemma11",
 		"if n is odd and (3 ∤ n), then (n<sup>2</sup> ≡ 1 mod 24)%modLemma12",
 		"if (α, m) = 1 and if {r<sub>1</sub>, ..., r<sub>φ(m)</sub>} is a reduced residue system (modulo m), then {αr<sub>1</sub>, ..., αr<sub>φ(m)</sub>} is also a reduced residue system%multiplying_reduced_residue_system",
 		"Euler's theorem",
@@ -404,25 +392,35 @@ const numberTheoryLinks: Array<[string,string[]]> = [
 		"existence and uniqueness of modular inverse if gcd(a, m) = 1%modular_inverse",
 		"if p is prime ∧ (a<sup>2</sup> ≡ b<sup>2</sup> mod p) ⇒ a ≡ ±b mod p%squareCongruenceWithPrime",
 		"if p is prime ∧ (a<sup>2</sup> ≡ a mod p^k) ⇒ (a ≡ 0) or (a ≡ 1)%a_square_congruent_a_mod_p_to_k",
-		"[α ≡ ±1 mod p where p is prime] ⟺ [α is its own inverse] (assume α is positive) (incomplete)",
+		"if p is an odd prime ∧ (a<sup>2</sup> ≡ 1 mod p<sup>k</sup>) ⇒ a ≡ ±1 mod p<sup>k</sup>%squareCongruentToOneModuloPrime",
+		"[α ≡ ±1 mod p where p is prime] ⟺ [α is its own inverse] (assume α is positive)%positiveIntegerCongruentToPlusMinusOneModuloPrime",
 		"if p is prime ∧ (a<sup>p</sup> ≡ b<sup>p</sup> mod p) ∧ (p ∤ a) ∧ (p ∤ b) ⇒ a<sup>p</sup> ≡ b<sup>p</sup> mod p<sup>2</sup>%square_mod_prime",
 		"If (α, n) = 1 then {β, α+β, 2α+β, ..., (n-1)α+β} forms a complete system of residues modulo n%modLemma13",
 	]],
 	["divisibility_rules",[
-		"an integer is divisble by 3 if the sum of its digits is divisible by 3%divisibility_rule_for_3",
-		"an integer is divisble by 7 if the alternating sum of blocks of three from is divisible by 7%divisibility_rule_for_7",
-		"an integer is divisible by 11 if the integer obtained by alternately adding and substracting the digits is divisible by 11%divisibility_rule_for_11"
+		"an integer is divisible by 3 or 9 if the sum of its digits is divisible by 3 or 9 respectively%divisibility_rules_for_3_and_9",
+		"an integer is divisible by 7, 11 or 13 if the alternating sum of blocks of three digits is divisible by 7, 11 or 13 respectively%divisibility_rule_for_7_11_13",
+		"an integer is divisible by 11 if the integer obtained by alternately adding and substracting the digits is divisible by 11%divisibility_rule_for_11",
+		"if d|b, then (a<sub>k</sub> ... a<sub>1</sub>a<sub>0</sub>)<sub>b</sub> is divisible by d<sup>j</sup> if and only if (a<sub>j-1</sub> ... a<sub>1</sub>a<sub>0</sub>)<sub>b</sub> is divisible by d<sup>j</sup>%divisibility_rules_for_2_and_5",
+		"if d|(b-1), then d|(a<sub>k</sub> ... a<sub>1</sub>a<sub>0</sub>)<sub>b</sub> if and only if d|(a<sub>k</sub> + ... + a<sub>1</sub> + a<sub>0</sub>)%divisibility_rules_for_3_and_9_general",
+		"if d|(b+1), then d|(a<sub>k</sub> ... a<sub>1</sub>a<sub>0</sub>)<sub>b</sub> if and only if d|((-1)<sup>k</sup>a<sub>k</sub> + ... + a<sub>2</sub> - a<sub>1</sub> + a<sub>0</sub>)%divisibility_rules_base_plus_1",
 	]],
 	["more_congruence",[
 		"1 + 2 + 3 + ... + (n-1) ≡ 0 mod n if and only if n is odd%sum_congruence",
 		"1<sup>2</sup> + 2<sup>2</sup> + 3<sup>2</sup> + ... + (n-1)<sup>2</sup> ≡ 0 mod n ⇒ n ≡ ±1 mod 6%square_sum_congruence",
 		"1<sup>3</sup> + 2<sup>3</sup> + 3<sup>3</sup> + ... + (n-1)<sup>3</sup> ≡ 0 mod n ⇒ n is not congruent to 2 mod 4%cube_sum_congruence",
+		"least positive residue of 2<sup>a</sup>-1 mod 2<sup>b</sup>-1 is 2<sup>r</sup>-1 where r is the least positive residue of a mod b%leastPositiveResidueTwoRaisedMinusOne",
+		"(2<sup>a</sup>-1, 2<sup>b</sup>-1) = 2<sup>(a,b)</sup>-1%gcdOfTwoRaisedWithMinusOne",
+		"(2<sup>a</sup>-1, 2<sup>b</sup>-1) = 1 ⟺ (a, b) = 1%twoRaisedMinusOneRelativelyPrimeIfIntegersAreRelativelyPrime",
 		"Wilson's theorem",
 		"converse of Wilson's theorem",
 		"Let p be prime, then 2(p-3)! ≡ -1 mod p%two_times_p_minus_3_factorial",
-		"solution to x<sup>2</sup> ≡ -1 mod p if p = 2 or p ≡ 1 mod 4%x_square_solvable",
+		"solution to x<sup>2</sup> ≡ -1 mod p (incomplete)%x_square_solvable",
 		"if p ≡ 3 mod 4, then ((p-1)/2)! ≡ ±1 mod p%modLemma13",
-		"Chinese remainder theorem"
+		"Chinese remainder theorem",
+		"[x ≡ a<sub>1</sub> mod m<sub>1</sub> ∧ x ≡ a<sub>2</sub> mod m<sub>2</sub>] has a solution iff (m<sub>1</sub>, m<sub>2</sub>)|(a<sub>1</sub>-a<sub>2</sub>)%generalChineseRemainderTheoremWhereModuliNonCoprimeBaseCase",
+		"General Chinese remainder theorem%generalChineseRemainderTheoremWhereModuliNonCoprime",
+		"Hensel's_lemma (incomplete)"
 	]],
 	["arithmetic_functions",[
 		"If f is a multiplicative function, then [F(n) = ∑<sub>d|n, d>0</sub> f(d)] is also a multiplicative function%multiplicative1",
@@ -579,9 +577,10 @@ const calculusLinks: Array<[string,string[]]> = [
 		"uniqueness_of_a_power_series",
 		"derivative_of_a_power_series_has_the_same_radius_of_convergence",
 		"understanding_the_Taylor_series",
+		"polynomials_are_identical_to_their_Taylor_series (incomplete)",
 		"Lagrange's_form_of_the_remainder",
 		"Taylor's_inequality",
-		"the_binomial_series_is_equal_to_it's_Maclaurin_series", /* incomplete */
+		"the_binomial_series_is_equal_to_it's_Maclaurin_series (incomplete)", 
 		"sin(x)_and_cos(x)_are_equal_to_their_Maclaurin_series",
 	]],
 	["parametric_curves",[
