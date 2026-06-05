@@ -213,9 +213,9 @@ function Slideshow(props:{continueButtonClicked:boolean}){
 }
 
 function SearchEl(){
-	const [displayVal, changeDisplay] = useState("none");
+	const [displayVal, changeDisplay] = useState<string>("none");
 	const timerRef: RefObject<null|number> = useRef(null);
-	const itemsArr = useRef<Array<any>>([]);
+	const [itemsArr, changeIA] = useState<Array<any>>([]);
 	const minLetters = 3;
 	const searchDivRef = useRef<HTMLDivElement|null>(null);
 	const googleElRef = useRef(null);
@@ -227,6 +227,7 @@ function SearchEl(){
 			try {
 				//@ts-ignore
 				googleElRef.current = google.search.cse.element.getElement("mainSearch");
+				//^ google variable came from <Script async src="https://cse.google.com/cse.js?cx=40f9a25a3e41e4b95"/>
 			}
 			catch (err) { 
 				//intentionally avoiding console.error
@@ -236,41 +237,43 @@ function SearchEl(){
 			window.clearInterval(interval);
 			console.log("Google search element ready!");
 		}, 500);
-		var interval2 = window.setInterval(()=>{
-			if (!googleElRef.current) return;
+	}, []);
+	
+	function evalSearchText(searchText: string){
+		if (timeOutVar.current) window.clearTimeout(timeOutVar.current);
+		timeOutVar.current = window.setTimeout(()=>{
+			if (!googleElRef.current) return; //@ts-ignore
+			googleElRef.current.prefillQuery(searchText); //@ts-ignore
+			googleElRef.current.execute();
+		}, 1000);
+
+		changeIA(["Loading"]);
+		changeDisplay("block");
+		
+		if (observerRef.current) return;
+		var interval = window.setInterval(()=>{
+			const resultsContainer = document.querySelector(".gsc-results");
 			try{
-				const resultsContainer = document.querySelector(".gsc-results");
 				if (!resultsContainer) throw new Error("gsc-results not found!");
 				observerRef.current = new MutationObserver(()=>{
-					if (resultsContainer.innerHTML.includes("gsc-result")) {
-						let anchors = resultsContainer.querySelectorAll("div.gsc-table-result a.gs-title");
-						itemsArr.current = [];
-						for (let anchor of anchors) {
-							itemsArr.current.push({title: anchor.textContent, link: anchor.getAttribute("href")});
-						}
-						changeDisplay("block");
-					}
+					let anchors = resultsContainer.querySelectorAll("div.gsc-table-result a.gs-title");
+					let items = [];
+					for (let anchor of anchors) items.push({
+						title: anchor.textContent, 
+						link: anchor.getAttribute("href")
+					});
+					changeIA(items);
 				});
 				observerRef.current.observe(resultsContainer, {childList: true, subtree: true});
+				console.log("Google observer set!");
 			}
 			catch (err) {
 				//intentionally avoiding console.error
 				console.log("Error with observer:", err);
 				return;
 			}
-			window.clearInterval(interval2);
-			console.log("Search observer ready!");
+			window.clearInterval(interval);
 		}, 500);
-	}, []);
-	
-	function evalSearchText(searchText: string){
-		if (timeOutVar.current) window.clearTimeout(timeOutVar.current);
-		timeOutVar.current = window.setTimeout(()=>{
-			if (!googleElRef.current) return;
-			changeDisplay("none"); //@ts-ignore
-			googleElRef.current.prefillQuery(searchText); //@ts-ignore
-			googleElRef.current.execute();
-		}, 1000);
 	}
 
 	return <div id={styles.searchDiv} className={printFont2.className} ref={searchDivRef}>
@@ -279,6 +282,7 @@ function SearchEl(){
 				let textVal = e.currentTarget.value;
 				if(textVal.length >= minLetters) evalSearchText(textVal);
 			}}
+			onClick={()=>{changeDisplay("block");}}
 			autoComplete="off"
 			id={styles.searchBox}
 			type="text"
@@ -287,24 +291,23 @@ function SearchEl(){
 		<div 
 			id={styles.pageOptions} 
 			style={{display: displayVal}} 
-			onMouseLeave={()=>{timerRef.current = window.setTimeout(()=>{ changeDisplay("none"); }, 500);}} 
-			onMouseEnter={()=>{if(timerRef.current) window.clearTimeout(timerRef.current);}}
+			onMouseLeave={()=>{changeDisplay("none");}} 
 		>{evalItems(itemsArr)}</div>
 		<div className='gcse-search' id={styles.googleSearchDiv} data-gname={"mainSearch"}></div>
 	</div>;
 }
 
-function evalItems(itemsArr: any){
+function evalItems(itemsArr: any[]){
 	try{
-		let items = itemsArr.current && itemsArr.current.length ?
-		//@ts-ignore
-		itemsArr.current.map((elem, i)=>{
-			return <div key={i} className={styles.poptions}>
-				<Link href={elem["link"]} className='hover:no-underline' dangerouslySetInnerHTML={{__html: elem["title"]}}></Link> 
-			</div>
-		}) :
-		<div className={styles.noptions} style={{cursor:"default"}}>Sorry, no article were found.</div>	
-		return items;
+		if (itemsArr && itemsArr.length) {
+			if (itemsArr[0] == "Loading") return <div className={styles.noptions} style={{cursor:"default"}}>Loading...</div>;
+			return itemsArr.map((elem, i)=>{
+				return <div key={i} className={styles.poptions}>
+					<Link href={elem["link"]} className='hover:no-underline' dangerouslySetInnerHTML={{__html: elem["title"]}}></Link> 
+				</div>
+			}) 
+		}
+		else return <div className={styles.noptions} style={{cursor:"default"}}>Sorry, no article were found.</div>	
 	}
 	catch(e){
 		console.error(e);

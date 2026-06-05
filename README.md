@@ -58,6 +58,11 @@ One major thing I added was the design feature, where you can choose different d
 Versioning is done using "npm version [new-version] --git-tag-version false"
 Updates follow this format: `[major change].[minor change]`.
 
+<b>update 27.7:</b>
+- In design2 home page, search element: 
+	- Minor coding changes.
+	- Added a loading state.
+
 <b>update 27.6:</b>
 - Made some coding changes with recently added/edited table at the home page:
   - I extracted the recently added and edited text, and put them in a json.

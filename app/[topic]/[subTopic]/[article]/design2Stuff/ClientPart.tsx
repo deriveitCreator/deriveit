@@ -84,7 +84,11 @@ function setMathTypeSet(){
 }
 
 function ExtraInfoBox(props:InfoBoxType){
-  return <div className={mainTextFont.className + " bg-zinc-400 border-2 border-dashed border-black fixed text-xl font-bold p-1 max-w-sm"} style={{top:props.posY,left:props.posX, visibility: props.visibility}} dangerouslySetInnerHTML={{__html: props.text}}></div>
+  return <div 
+    className={mainTextFont.className + " bg-zinc-400 border-2 border-dashed border-black fixed text-xl font-bold p-1 max-w-sm"} 
+    style={{top:props.posY,left:props.posX, visibility: props.visibility}} 
+    dangerouslySetInnerHTML={{__html: props.text}}
+  ></div>
 }
 
 function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<string>>}){
@@ -121,7 +125,13 @@ function SideOption(props: {asideW: string, setAW: Dispatch<SetStateAction<strin
   }
 
   return <>
-    <button id={styles.sideButton} title={"Show side links"} onClick={()=>{props.asideW==="0px"?turnOnAside():turnOffAside()}} style={{right:iconRightRef.current}} type="button">
+    <button 
+      id={styles.sideButton} 
+      title={"Show side links"} 
+      onClick={()=>{props.asideW==="0px"?turnOnAside():turnOffAside()}} 
+      style={{right:iconRightRef.current}} 
+      type="button"
+    >
       <IconContext.Provider value={{style:{height:"45px",margin:"0px 10px",fontWeight:"bold"}}}>
         {iconRef.current}
       </IconContext.Provider>
@@ -164,12 +174,17 @@ function AsideEl(){
 function BrushButton(){
   const [showDB, changeSDB] = useState(false);
 
-  function iconClicked(){
-    changeSDB(true);
-  }
+  function iconClicked(){ changeSDB(true); }
   
   return <>
-    <button onClick={iconClicked} title="Change the site's style"><IconContext.Provider value={{style:{color:"#FFDD77",border:"solid 4px #663300",borderRadius:"8px",height:"50px",width:"50px",padding:"4px",backgroundColor:"#c60"}}}><FaPaintbrush/></IconContext.Provider></button>
+    <button onClick={iconClicked} title="Change the site's style">
+      <IconContext.Provider value={{style:{
+        color:"#FFDD77",
+        border:"solid 4px #663300",
+        borderRadius:"8px",
+        height:"50px",
+        width:"50px",padding:"4px",backgroundColor:"#c60"}}}
+      ><FaPaintbrush/></IconContext.Provider></button>
     <Suspense><StyleSelectionBox showDB={showDB} changeSDB={changeSDB} styleNum={2}/></Suspense>
   </>
 }
@@ -188,7 +203,13 @@ function FooterEl(){
         <p>If there are any equations for which you want proof for, <ClickButton type={1} func={changeType} /></p>
         <p>For any suggestion and ideas, <ClickButton type={2} func={changeType} /></p>
       </div>
-      <Link href={link} style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",padding:"0px 25px", marginTop:"10px"}} target="_blank" id={styles.donate} aria-label="Want to donate?">
+      <Link 
+        href={link} 
+        style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",padding:"0px 25px", marginTop:"10px"}} 
+        target="_blank" id={styles.donate} 
+        aria-label="Want to donate?" 
+        rel="noopener noreferrer external"
+      >
         <p className={"text-center font-bold text-sm"}>Want To Donate?</p>
         <Image src="/kofi_logo.png" alt="" width={90} height={24}/>
       </Link>
