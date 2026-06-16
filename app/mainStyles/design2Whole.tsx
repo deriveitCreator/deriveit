@@ -276,23 +276,22 @@ function SearchEl(){
 		}, 500);
 	}
 
-	return <div id={styles.searchDiv} className={printFont2.className} ref={searchDivRef}>
+	return <div id={styles.searchDiv} className={printFont2.className} ref={searchDivRef} onMouseLeave={()=>{changeDisplay("none");}} >
 		<input
 			onKeyUp={(e)=>{
 				let textVal = e.currentTarget.value;
 				if(textVal.length >= minLetters) evalSearchText(textVal);
 			}}
-			onClick={()=>{changeDisplay("block");}}
+			onClick={(e)=>{
+				let textVal = e.currentTarget.value;
+				if(textVal.length >= minLetters) changeDisplay("block");
+			}}
 			autoComplete="off"
 			id={styles.searchBox}
 			type="text"
-			placeholder={"Search..."}
+			placeholder={"Google Search..."}
 		/>
-		<div 
-			id={styles.pageOptions} 
-			style={{display: displayVal}} 
-			onMouseLeave={()=>{changeDisplay("none");}} 
-		>{evalItems(itemsArr)}</div>
+		<div id={styles.pageOptions} style={{display: displayVal}}>{evalItems(itemsArr)}</div>
 		<div className='gcse-search' id={styles.googleSearchDiv} data-gname={"mainSearch"}></div>
 	</div>;
 }

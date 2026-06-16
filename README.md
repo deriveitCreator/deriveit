@@ -58,6 +58,9 @@ One major thing I added was the design feature, where you can choose different d
 Versioning is done using "npm version [new-version] --git-tag-version false"
 Updates follow this format: `[major change].[minor change]`.
 
+<b>update 27.8:</b>
+- Mouse functionality changes in home page search bar.
+
 <b>update 27.7:</b>
 - In design2 home page, search element: 
 	- Minor coding changes.
