@@ -3,7 +3,9 @@ import { topicsOrder } from '../infoStore/topicsInfo';
 import ImageWrapper from '../global_components/ImageWrapper';
 import Link from 'next/link';
 import { logoFont2, mainTextFont } from '../infoStore/fonts';
-import { getTopicColorInfo, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';
+import { getTopicColorInfo } from '../infoStore/topicsInfo';
+import recentlyAdded from '../infoStore/recentlyAdded.json';
+import recentlyEdited from '../infoStore/recentlyEdited.json';
 
 function MainTable(){
   return <section><table id={styles.mainTable} className={logoFont2.className}>
@@ -33,9 +35,9 @@ function RecentlySection(props: {recentlyAdded: boolean}){
   return <div className={styles.recentlySection}>
     <div className={`${logoFont2.className} ${styles.recentlyHeader}`}>
       <span>Recently</span>
-      <span>&nbsp;{props.recentlyAdded?"Added":"Edited"}</span>
+      <span>&nbsp;{props.recentlyAdded ? "Added" : "Edited"}</span>
     </div>
-    {(props.recentlyAdded ?  getRecentlyAdded():getRecentlyEdited()).map((elem, i)=>{
+    {(props.recentlyAdded ? recentlyAdded: recentlyEdited).map((elem, i)=>{
       let perPos = elem.indexOf("%");
       let topicName = elem.substring(perPos+1, elem.indexOf("/",perPos));
       let colorInfo = getTopicColorInfo(topicName);

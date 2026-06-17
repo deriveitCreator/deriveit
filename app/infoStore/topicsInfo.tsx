@@ -1,6 +1,3 @@
-import recentlyAdded from "./recentlyAdded.json";
-import recentlyEdited from "./recentlyEdited.json";
-
 export type ColorInfoType = {
 	headerBgColor: string,
 	bgColor: string,
@@ -48,10 +45,6 @@ export const topicsOrder = [
 	"electricity_&_magnetism",
 	"biology"
 ]
-
-export function getRecentlyAdded(): string[]{ return recentlyAdded; }
-
-export function getRecentlyEdited(): string[]{ return recentlyEdited; }
 
 export const TOPIC_LINKS_ERROR: Array<[string,string[]]> = [["error",[]]];
 
@@ -147,7 +140,9 @@ const geometryLinks: Array<[string,string[]]> = [
 		"constructing_an_equilateral_triangle",
 		"pythagoras_theorem",
 		"sides_of_30_90_60",
-		"SAS_congruence_(incomplete)",
+		"SAS_congruence",
+		"Isosceles Triangle Theorem",
+		"SSS_congruence",
 		"the_SSA_condition_does_not_prove_congruence",
 		"every_triangle_can_be_circumscribed_by_a_circle"
 	]],

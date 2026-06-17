@@ -4,7 +4,9 @@ import React, { useState, useRef, useReducer, Suspense, useEffect } from 'react'
 import styles from "./design1.module.scss";
 import { chalkWriting, cursiveMain } from '../infoStore/fonts';
 import Link from 'next/link';
-import { topicsOrder, getRecentlyAdded, getRecentlyEdited } from '../infoStore/topicsInfo';
+import { topicsOrder } from '../infoStore/topicsInfo';
+import recentlyAdded from '../infoStore/recentlyAdded.json';
+import recentlyEdited from '../infoStore/recentlyEdited.json';
 import { ImageWrapper } from "../global_components/ImageWrapper";
 import { useRouter } from 'next/navigation';
 import { IconContext } from "react-icons";
@@ -198,7 +200,7 @@ function TopicLink(props: {refTo: string, floatD: string}){
 }
 
 function RecentlySection(type:string){
-  let content = (type == "Edited") ? getRecentlyEdited() : getRecentlyAdded();
+  let content = (type == "Edited") ? recentlyEdited : recentlyAdded;
   return <section>
     <h2 className={`${cursiveMain.className} ${styles.h2Class}`}>Recently {type}</h2>
     <div className={` border-gray-600 border-b-4 border-t-4`}>
