@@ -134,17 +134,27 @@ const algebraLinks: Array<[string,string[]]> = [
 ];
 
 const geometryLinks: Array<[string,string[]]> = [
+	["angles", [
+		"vertically_opposite_angles_are_equal"
+	]],
 	["triangles", [
-		"angles_in_a_triangle_add_to_180",
-		"area_of_a_triangle",
-		"constructing_an_equilateral_triangle",
-		"pythagoras_theorem",
-		"sides_of_30_90_60",
 		"SAS_congruence",
 		"Isosceles Triangle Theorem",
 		"SSS_congruence",
 		"the_SSA_condition_does_not_prove_congruence",
+		"the angle opposite the greater side is greater and the side opposite the greater angle is greater (incomplete)%angleSideOppBiggest",
+		"angles_in_a_triangle_add_to_180",
+		"area_of_a_triangle",
+		"pythagoras_theorem",
+		"sides_of_30_90_60",
 		"every_triangle_can_be_circumscribed_by_a_circle"
+	]],
+	["constructions", [
+		"constructing_an_equilateral_triangle",
+		"bisecting_an_angle (incomplete)",
+		"bisecting_a_straight_line (incomplete)",
+		"drawing_a_perpendicular_line_on_a_given_line_at_a_point_on_it (incomplete)",
+		"drawing_a_perpendicular_line_on_a_given_line_at_a_point_not_on_it (incomplete)"
 	]],
 	["quadrilaterals", [
 		"area_of_a_parallelogram",

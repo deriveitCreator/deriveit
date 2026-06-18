@@ -58,6 +58,9 @@ One major thing I added was the design feature, where you can choose different d
 Versioning is done using "npm version [new-version] --git-tag-version false"
 Updates follow this format: `[major change].[minor change]`.
 
+<b>update 28.1:</b>
+- Added content to `geometry`.
+
 <b>update 27.9:</b>
 - Added `favicon.ico` to avoid errors.
 - Added content to `geometry/triangles`.
