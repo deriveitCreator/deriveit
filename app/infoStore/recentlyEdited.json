@@ -1,6 +1,6 @@
 [
+  "bisecting_an_angle%geometry/constructions/bisecting_an_angle",
   "there are infinite number of primes%number_theory/prime_numbers/infinite_primes",
   "expected_value_and_variance_of_a_geometric_distribution%probability_&_statistics/probability_distribution_stuff/expected_value_and_variance_of_a_geometric_distribution",
-  "estimating the population variance using the sample mean and the sample size%probability_&_statistics/expected_value_and_variance_basics/varsamp",
-  "fundamental theorem of arithmetic%number_theory/prime_numbers/fundamental_theorem_of_arithmetic"
+  "estimating the population variance using the sample mean and the sample size%probability_&_statistics/expected_value_and_variance_basics/varsamp"
 ]

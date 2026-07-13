@@ -16,11 +16,11 @@ export default function Style2(props: MainType){
 	const [topicsInfoState, changeTIS] = useState(props.topicsInfoState);
 
 	return <>
-		<main className={styles.main}> 
+		<main id={styles.main}> 
 			<Style2SearchInput borderColor={borderColor} inputBgColor={styleOb.footerColor} topicFeatureVector={topicFeatureVector} topicsInfo={props.topicsInfoState} changeTIS={changeTIS}/>
 			{ topicsInfoState.map((subArr: [string, string[]], i:number) => {
 				return <section key={i}>
-					<h2 className={`${headingFont.className}`} style={{color: borderColor}}>
+					<h2 className={`${headingFont.className} ${styles.heading}`} style={{color: borderColor}}>
 						{subArr[0].replaceAll("_"," ")}
 					</h2>
 					{ (subArr[1]).map((val:string,i: number) => {

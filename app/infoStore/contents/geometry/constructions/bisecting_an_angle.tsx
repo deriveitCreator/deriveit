@@ -9,6 +9,6 @@ const content = [
   ['displayimg', 'bisectAngle3.png'], 
   ['pmain', 'Connect \\(AF\\):'], 
   ['displayimg', 'bisectAngle4.png'], 
-  ['pmain', 'Connect \\(AF\\):'], 
+  ['pmain', 'Since the triangle we constructed is an equilateral triangle, then \\(DF\\), \\(EF\\) and \\(DE\\) are the same length. We also know that \\(AE\\) and \\(AD\\) have the same length, and the triangles \\(DAF\\) and \\(EAF\\) share a common side, \\(AF\\). Since three sides have the same length, then according to <a href="../triangles/SSS_congruence">SSS congruence</a>, the two triangles are congruent. This means their corresponding angles are equal, which means \\(\\angle DAF = \\angle EAF\\).'], 
 ];
 export default content;

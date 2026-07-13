@@ -135,15 +135,17 @@ const algebraLinks: Array<[string,string[]]> = [
 
 const geometryLinks: Array<[string,string[]]> = [
 	["angles", [
-		"vertically_opposite_angles_are_equal"
+		"vertically_opposite_angles_are_equal",
+		"alternate_angles_are_equal%alternate_and_consecutive_interior_angles",
+		"consecutive_interior_angles_are_equal%alternate_and_consecutive_interior_angles",
 	]],
 	["triangles", [
 		"SAS_congruence",
 		"Isosceles Triangle Theorem",
 		"SSS_congruence",
 		"the_SSA_condition_does_not_prove_congruence",
-		"the angle opposite the greater side is greater and the side opposite the greater angle is greater (incomplete)%angleSideOppBiggest",
 		"angles_in_a_triangle_add_to_180",
+		"the angle opposite the greater side is greater and the side opposite the greater angle is greater (incomplete)%angleSideOppBiggest",
 		"area_of_a_triangle",
 		"pythagoras_theorem",
 		"sides_of_30_90_60",
@@ -151,7 +153,7 @@ const geometryLinks: Array<[string,string[]]> = [
 	]],
 	["constructions", [
 		"constructing_an_equilateral_triangle",
-		"bisecting_an_angle (incomplete)",
+		"bisecting_an_angle",
 		"bisecting_a_straight_line (incomplete)",
 		"drawing_a_perpendicular_line_on_a_given_line_at_a_point_on_it (incomplete)",
 		"drawing_a_perpendicular_line_on_a_given_line_at_a_point_not_on_it (incomplete)"
@@ -703,6 +705,11 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
 		"why_we_multiply_in_tree_diagrams%multiplyingInTreeDiagrams",
 		"P(A|B) = P(A) ⇒ P(B|A) = P(B)%independenceCommutativity"
 	]],
+	["deviation_and_regression", [
+		"sum_of_squared_deviations_computational_formula",
+		"sum_of_products_of_deviations_computational_formula",
+		"deriving the regression coefficient of y on x%line_of_best_fit",
+	]],
 	["expected_value_and_variance_basics", [
 		"E[X + Y] = E[X] + E[Y]%linearity_of_expectation",
 		"E[cX] = c * E[X] where c is a constant%loe2",
@@ -725,7 +732,6 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
 		"variance_of_an_uniform_distribution (incomplete)",
 		"expected_value_and_variance_of_an_exponential_distribution"
 	]],
-	["miscellaneous",["deriving the regression coefficient of y on x%line_of_best_fit"]]
 ]
 
 const mechanicsLink: Array<[string,string[]]> = [

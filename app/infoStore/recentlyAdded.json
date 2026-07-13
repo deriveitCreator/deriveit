@@ -1,6 +1,6 @@
 [
+	"sum_of_products_of_deviations_computational_formula%probability_&_statistics/deviation_and_regression/sum_of_products_of_deviations_computational_formula",
+	"sum_of_squared_deviations_computational_formula%probability_&_statistics/deviation_and_regression/sum_of_squared_deviations_computational_formula",
 	"Isosceles Triangle Theorem%geometry/triangles/Isosceles_Triangle_Theorem",
-	"SAS_congruence%geometry/triangles/SAS_congruence",
-	"SSS_congruence%geometry/triangles/SSS_congruence",
-	"if p<sub>n</sub> is the nth prime, then p<sub>n</sub> ≤ 2<sup>n</sup>%number_theory/prime_numbers/nthPrimeLessThan2n"
+	"SAS_congruence%geometry/triangles/SAS_congruence"
 ]

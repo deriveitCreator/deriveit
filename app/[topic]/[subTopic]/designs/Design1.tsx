@@ -1,7 +1,7 @@
 import React from 'react';
 import { cursiveMain, textMainServer } from "@/app/infoStore/fonts";
 import Link from "next/link";
-import style from "./design1.module.scss";
+import style from "../../designs/style1.module.scss";
 import { MainType } from '../page';
 
 export default function Design1(props: MainType){  

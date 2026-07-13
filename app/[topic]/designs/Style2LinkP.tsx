@@ -1,6 +1,7 @@
 import { mainTextFont } from "@/app/infoStore/fonts";
 import Link from "next/link";
 import { FaYoutube } from "react-icons/fa";
+import styles from "../designs/style2.module.scss";
 
 const YOUTUBE_PREFIX = "https://www.youtube.com/watch?v=";
 
@@ -15,7 +16,7 @@ export default function Style2LinkP(props: {text: string, link: string, textColo
     <FaYoutube/>
   </a>;
 
-  return <p className={`${mainTextFont.className}`} style={{color: props.textColor}}>
+  return <p className={`${mainTextFont.className} ${styles.linkText}`} style={{color: props.textColor}}>
     {pContent} {videoEl}
   </p>;
 }
