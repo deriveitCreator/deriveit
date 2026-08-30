@@ -16,7 +16,10 @@ async function makefeatureVectors(topic: string){
   const extractor = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
   const topicLinksCopy = JSON.parse(JSON.stringify(topicLinks));
   for (let i = 0; i < topicLinks.length; i++) {
-    const subtopicFeatureVector = await extractor(topicLinks[i][1], { pooling: 'mean', normalize: true });
+    topicLinksCopy[i][1].map((articleTitle: string) => {
+      return articleTitle.substring(0,articleTitle.lastIndexOf("%"));
+    });
+    const subtopicFeatureVector = await extractor(topicLinksCopy[i][1], { pooling: 'mean', normalize: true });
     topicLinksCopy[i][1] = subtopicFeatureVector.tolist();
   }
 

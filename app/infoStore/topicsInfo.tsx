@@ -160,7 +160,7 @@ const geometryLinks: Array<[string,string[]]> = [
 	]],
 	["quadrilaterals", [
 		"area_of_a_parallelogram",
-		"area_of_a_trapezium$XDpSztEflFM",
+		"area_of_a_trapezium",
 		"constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle"
 	]],
 	["circles", [
@@ -709,6 +709,7 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
 		"sum_of_squared_deviations_computational_formula",
 		"sum_of_products_of_deviations_computational_formula",
 		"deriving the regression coefficient of y on x%line_of_best_fit",
+		"understanding the R<sup>2</sup> score%understanding_r2_score"
 	]],
 	["expected_value_and_variance_basics", [
 		"E[X + Y] = E[X] + E[Y]%linearity_of_expectation",

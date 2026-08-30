@@ -6,7 +6,7 @@
 }
 
 #main{
-  padding-top: 5px;
+  padding-top: 30px;
   opacity: 0;
   animation: becomeVisible 0.5s linear 0.5s 1 forwards;
   padding-bottom: 40px;
@@ -15,7 +15,7 @@
     width: 100%;
     transition: opacity 0.2s linear;
     position: fixed;
-    z-index: 2;
+    top: 83px; //header height + 5px
 
     input{
       width: calc(100% - 16px);
@@ -38,10 +38,6 @@
     padding-top: 40px;
     font-size: 36px;
     line-height: 40px;
-
-    &:first-child{
-      margin-top: 20px;
-    }
   }
 
   .linkText{

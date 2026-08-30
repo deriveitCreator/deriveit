@@ -8,7 +8,7 @@ import dynamic from 'next/dynamic';
 export type MainType = {
   topic: string,
   subTopic: [string,string[]],
-  subtopicFeatureVector?: string,
+  subtopicFeatureVector?: Array<[string, Array<Array<number>>]>,
   styleObject?: ColorInfoType
 }
 
@@ -23,11 +23,11 @@ export default async function Page(props: { params: Promise<{ topic: string, sub
   const {default: topicFeatureVector} = await import(`@/app/infoStore/featureVectors/${decodedTopic}.json`);
 
   var curSubTopic: [string, string[]] = ["",[""]];
-  var curSubTopicFeatureVector: string;
+  var curSubTopicFeatureVector: Array<[string, Array<Array<number>>]>;
   for(let i in topicLinks){
     if(topicLinks[i][0].replaceAll("'","") === decodedSubTopic){
       curSubTopic = topicLinks[i];
-      curSubTopicFeatureVector = JSON.stringify([topicFeatureVector[i]]);
+      curSubTopicFeatureVector = [topicFeatureVector[i]];
       break;
     }
   }

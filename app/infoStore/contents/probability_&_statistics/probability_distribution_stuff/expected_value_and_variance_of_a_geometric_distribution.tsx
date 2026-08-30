@@ -6,7 +6,7 @@ const content = [
   ["pmain","If we multiple both sides with \\(q\\):"],
   ["displayFormula","$$\\begin{align} {\\color{blue} qE[X] } &= {\\color{blue} 1pq + 2pq^2 + 3pq^3 + 4pq^4 + \\ldots } \\\\ E[X] - qE[X] &= 1p + 2pq {\\color{blue} - 1pq } + 3pq^2 {\\color{blue} -2pq^2 } + \\ldots \\\\ E[X] - qE[X] &= p + pq + pq^2 + pq^3 + \\ldots \\end{align}$$"],
   ["pmain","Let's simplify \\(E[X] - qE[X]\\):"],
-  ["displayFormula","$$\\begin{align} E[X] - qE[X] &= E[X] - (1-p)E[X] \\\\ &= E[X] - E[X] + p E[X] \\\\ &= p E[X] \\end{align}$$"],
+  ["displayFormula","$$\\begin{align} E[X] - qE[X] &= (1-q)E[X] \\\\ &= p E[X] \\end{align}$$"],
   ["pmain","This means:"],
   ["displayFormula","$$\\begin{align} pE[X] &= p + pq + pq^2 + pq^3 + \\ldots \\\\ E[X] &= 1 + q + q^2 + q^3 + \\ldots \\\\ E[X] &= q^0 + q^1 + q^2 + q^3 + \\ldots\\end{align}$$"],
   ["pmain","This is a geometric series, so using <a href='../../discrete_mathematics/sequence_and_series/sum_to_infinity_of_a_geometric_series'>this equation</a> we can conclude:"],

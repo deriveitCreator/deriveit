@@ -58,6 +58,11 @@ One major thing I added was the design feature, where you can choose different d
 Versioning is done using "npm version [new-version] --git-tag-version false"
 Updates follow this format: `[major change].[minor change]`.
 
+<b>update 28.3:</b>
+- Fixed the search input bug in `[topic]` and `[subtopic]` page.
+- Made some styling changes for `[topic]` and `[subtopic]`.
+- Added `understanding_r2_score.tsx`.
+
 <b>update 28.2:</b>
 - Added content to `geometry` and `probability_&_statistics`.
 - Design 1 [subTopic] now uses the scss file of [topic].

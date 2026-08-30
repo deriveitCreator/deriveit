@@ -16,9 +16,9 @@ export default function Style2(props: MainType){
 	const [curTopic, changeTIS] = useState([props.subTopic]);
 
 	return <>
-		<main className={styles.main}>
+		<main id={styles.main}>
 			<Style2SearchInput borderColor={borderColor} inputBgColor={styleOb.footerColor} topicFeatureVector={subtopicFeatureVector} topicsInfo={[props.subTopic]} changeTIS={changeTIS}/>
-			<h2 className={`${headingFont.className}`} style={{color: borderColor}}>{
+			<h2 className={`${headingFont.className} ${styles.heading}`} style={{color: borderColor}}>{
 				(curTopic.length) ? curTopic[0][0].replaceAll("_"," ") : null
 			}</h2>
 			
