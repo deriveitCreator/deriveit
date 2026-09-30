@@ -1,0 +1,27 @@
+export const title="For a fixed slope the best fit line passes through the mean";
+const content = [
+  ['h1', 'For A Fixed Slope The Best Fit Line Passes Through The Mean'], 
+  ['pmain', 'Consider \\(n\\) data points \\((x_i, y_i)\\) along with a poor estimate line:'], 
+  ['displayimg', 'm1.png'],
+  ['pmain', 'A <b>residual</b> is the difference between the observed value and the estimated value. The residual at \\(x_i\\) is \\(y_i - \\hat{y_i}\\), where \\(\\hat{y_i}\\) is the point on the estimate line at \\(x_i\\). Keep in mind, the estimate line is intentionally chosen as a bad one. Let the equation below be the equation of the estimate line:'], 
+  ['displayFormula', '\\[ y = \\beta x + \\alpha \\]'], 
+  ['pmain', 'where \\(\\alpha\\) is the bias and \\(\\beta\\) is the gradient. The gradient is a given constant, so the only variable is \\(\\alpha\\), which means we don\'t have control over the slope but we can control the position. The residual (\\(e_i\\)) can be written as:'], 
+  ['displayFormula', '\\[\\begin{align} e_i &= y_i - \\hat{y_i} \\\\ &= y_i - (\\beta x_i + \\alpha) \\end{align}\\]'], 
+  ['pmain', 'The value of \\(e_i\\) is positive if the observed point is above the predicted line, negative if below and 0 if on it.'], 
+  ['pmain', 'Let\'s try to find what bias (i.e. what line position) gives us the "line of best fit", but firstly, what do we mean by "line of best fit"? Since \\(| e_i | \\) is the distance between \\(y_i\\) and \\(\\hat{y_i}\\), we can define the line of best fit to be the line that minimizes the total distance:'], 
+  ['displayFormula', '\\[\\sum_{i=1}^n | e_i | = \\sum_{i=1}^n | y_i - (\\beta x_i + \\alpha) | \\]'], 
+  ['pmain', '\\(e_i^2\\) gives us the squared distance. Since its easier to work with squares than absolutes, we can define the best fit line as the one which minimizes the squared distance:'], 
+  ['displayFormula', '\\[\\sum_{i=1}^n e_i^2 = \\sum_{i=1}^n (y_i - (\\beta x_i + \\alpha)) ^2 \\]'], 
+  ['pmain', 'Now let\'s see how this changes with respect to \\(\\alpha\\):'], 
+  ['displayFormula', '\\[\\begin{align} \\frac{d}{d\\alpha} \\sum_{i=1}^n e_i^2 &= \\frac{d}{d\\alpha} \\sum_{i=1}^n (y_i - \\beta x_i - \\alpha) ^2 \\\\ &= \\sum_{i=1}^n -2(y_i - \\beta x_i - \\alpha) \\end{align} \\]'], 
+  ['pmain', 'Setting this to 0:'], 
+  ['displayFormula', '\\[\\begin{gather} 0 = -2 \\sum_{i=1}^n (y_i - \\beta x_i - \\alpha) \\\\ 0 = \\sum_{i=1}^n y_i - \\sum_{i=1}^n \\beta x_i - \\sum_{i=1}^n \\alpha \\\\ \\sum_{i=1}^n y_i = \\sum_{i=1}^n \\beta x_i + \\sum_{i=1}^n \\alpha \\\\ \\sum_{i=1}^n y_i = \\beta \\sum_{i=1}^n x_i + n \\alpha \\end{gather} \\]'], 
+  ['pmain', 'Dividing both sides by \\(n\\):'], 
+  ['displayFormula', '\\[\\begin{gather} \\frac{\\sum_{i=1}^n y_i}{n} = \\beta \\frac{\\sum_{i=1}^n x_i}{n} + \\frac{n \\alpha}{n}  \\\\ \\overline{y} = \\beta \\ \\overline{x} + \\alpha \\\\ \\overline{y} - \\beta \\ \\overline{x} = \\alpha \\end{gather} \\]'], 
+  ['pmain', 'We found a critical point and that is when \\(\\alpha = \\overline{y} - \\beta \\ \\overline{x}\\). Now we need to check whether it\'s a minimum or a maximum. This means we differentiate again:'], 
+  ['displayFormula', '\\[\\begin{align} \\frac{d^2}{d\\alpha^2} \\sum_{i=1}^n e_i^2 &= \\frac{d}{d\\alpha}\\frac{d}{d\\alpha} \\sum_{i=1}^n (y_i - \\beta x_i - \\alpha) ^2 \\\\ &= \\frac{d}{d\\alpha} \\sum_{i=1}^n -2(y_i - \\beta x_i - \\alpha) \\\\ &= \\frac{d}{d\\alpha} \\left( \\sum_{i=1}^n -2y_i + \\sum_{i=1}^n 2 \\beta x_i + \\sum_{i=1}^n 2 \\alpha \\right) \\\\ &= \\frac{d}{d\\alpha} \\sum_{i=1}^n -2y_i + \\frac{d}{d\\alpha} \\sum_{i=1}^n 2 \\beta x_i + \\frac{d}{d\\alpha} \\sum_{i=1}^n 2 \\alpha \\\\ &= 0 + 0 + 2n \\end{align} \\]'], 
+  ['pmain', 'Since \\(n\\) is positive, the double derivative is positive. This means when we set the derivative to 0, we found the minimum (and not maximum) sum of squared residuals, and that is when \\(\\alpha = \\overline{y} - \\beta \\ \\overline{x}\\). In conclusion, when the slope is fixed, the best fit line is the one with y-intercept \\(\\overline{y} - \\beta \\ \\overline{x}\\) (i.e. the one which passes through the mean).'], 
+  ['pmain', 'For the example above, the line has a gradient of 0.1 and the mean point is \\((9.5,5.9)\\), so the line of best fit has bias \\(\\alpha = 5.9 -0.1(9.5)\\), or 4.95.'], 
+  ['displayimg', 'm2.png'],
+];
+export default content;

@@ -1,3 +1,31 @@
-export const title="deriving the regression coefficient of y on x";
-const content = [['h1', 'Deriving The Regression Coefficient Of y On x'], ['pmain', 'Lets say we are given some x values with their associated y values:'], ['displayimg', '1.png'], ['pmain', 'We can take a guess at what the best fit line could look like:'], ['displayimg', '2.png'], ['pmain', 'Let y<sub>i</sub> be the output with x<sub>i</sub>, and let h<sub>i</sub> be the predicted output (= (&theta; * x<sub>i</sub>) + &alpha;, where &theta; is the gradient of the best fit line and &alpha; is the bias).'], ['displayimg', '3.PNG'], ['pmain', 'We will introduce another variable: <b>loss</b>, which is the sum of (y<sub>i</sub> - h<sub>i</sub>)<sup>2</sup>.'], ['displayimg', '4.PNG'], ['pmain', 'The smaller the difference between y<sub>i</sub> and h<sub>i</sub>, the smaller the value of loss. Our goal is to find the &theta; which will give the smallest possible value for loss. We can start by differentiating the loss with respect to &theta;, but before we do that, we must first expand &alpha;:'], ['displayimg', '5.PNG'], ['pmain', 'In the above equation, y<sub>m</sub> represents the mean y value, and x<sub>m</sub> represents the mean x value. The line of best fit is expected to pass through (x<sub>m</sub>, y<sub>m</sub>), meaning y<sub>m</sub> = &theta;x<sub>m</sub> + &alpha;. Now lets differentiate the loss:'], ['displayimg', '6.PNG'], ['pmain', 'With different values of &theta;, we get different values of loss. The loss function (with respect to &theta;) is a parabola, and to find the global minimum, we can set the gradient to 0.'], ['displayimg', '7.PNG'], ['pmain', 'We can simplify this:'], ['displayimg', '8.PNG'], ['pmain', 'Now lets make &theta; the subject:'], ['displayimg', '9.PNG'], ['pmain', 'This will give us the regression coefficient:'], ['displayimg', '10.PNG']];
+export const title="Finding the gradient of the best-fit line";
+const content = [
+  ['h1', 'Finding the gradient of the best-fit line'],
+  ['pmain', 'Consider \\(n\\) data points \\((x_i, y_i)\\) along with a poor estimate line:'],
+  ['displayimg', 'm1.png'],
+  ['pmain', 'Assume that the estimate line has this formula:'],
+  ['displayFormula', '\\[ y = \\beta x + \\alpha \\]'], 
+  ['pmain', 'where \\(\\alpha\\) is the bias and \\(\\beta\\) is the gradient.'], 
+  ['pmain', 'The best-fit line is the line which has the smallest sum of squared residual (SSR). A squared residual is \\((y_i - \\hat{y_i})^2\\), where \\(\\hat{y_i}\\) is the estimate from the line for \\(x_i\\). We already know that <a href="for_a_fixed_slope_the_best_fit_line_passes_through_the_mean">for any slope, the bias that gives the smallest SSR is</a>:'], 
+  ['displayFormula', '\\[ \\alpha = \\overline{y} - \\beta \\ \\overline{x}\\]'], 
+  ['pmain', 'This means the best-fit line must pass through the mean point, whatever its slope turns out to be. So we can substitute this value of \\(\\alpha\\) and look for the slope \\(\\beta\\) that gives the smallest SSR among lines through the mean point.'],
+  ['figure', ['m3.png', "The mean point in this example is at \\((9.5,5.9)\\). Our goal is the find the gradient that results in the smallest SSR."]],
+  ['pmain', 'Let the residual at \\(i\\) be \\(e_i\\). This means:'],
+  ['displayFormula', '\\[\\begin{align} \\sum_{i=1}^n e_i^2 &= \\sum_{i=1}^n (y_i - \\hat{y_i})^2 \\\\ &= \\sum_{i=1}^n (y_i - (\\beta x_i + \\alpha))^2\\end{align}\\]'], 
+  ['pmain', 'Substituting \\(\\alpha\\):'],
+  ['displayFormula', '\\[\\begin{align} \\sum_{i=1}^n e_i^2 &= \\sum_{i=1}^n (y_i - (\\beta x_i + \\overline{y} - \\beta \\ \\overline{x}))^2 \\\\ &= \\sum_{i=1}^n (y_i - \\beta x_i - \\overline{y} + \\beta \\ \\overline{x})^2 \\\\ &= \\sum_{i=1}^n ((y_i - \\overline{y}) + \\beta(\\overline{x} - x_i))^2  \\end{align}\\]'], 
+  ['pmain', 'Now let\'s differentiate with respect to \\(\\beta\\):'],
+  ['displayFormula', '\\[\\begin{align} \\frac{d}{d \\beta} \\sum_{i=1}^n e_i^2 &= \\frac{d}{d \\beta} \\sum_{i=1}^n ((y_i - \\overline{y}) + \\beta(\\overline{x} - x_i))^2 \\\\ &= \\sum_{i=1}^n 2 ((y_i - \\overline{y}) + \\beta(\\overline{x} - x_i))(\\overline{x} - x_i)\\\\ &= \\sum_{i=1}^n 2((y_i - \\overline{y})(\\overline{x} - x_i) + \\beta(\\overline{x} - x_i)^2)\\end{align}\\]'], 
+  ['pmain', 'Setting the gradient to 0:'],
+  ['displayFormula', '\\[\\begin{align} 0 &= \\sum_{i=1}^n 2((y_i - \\overline{y})(\\overline{x} - x_i) + \\beta(\\overline{x} - x_i)^2) \\\\ &= \\sum_{i=1}^n ((y_i - \\overline{y})(\\overline{x} - x_i) + \\beta(\\overline{x} - x_i)^2) \\\\ &= \\sum_{i=1}^n (y_i - \\overline{y})(\\overline{x} - x_i) + \\beta \\sum_{i=1}^n (\\overline{x} - x_i)^2 \\end{align}\\]'], 
+  ['pmain', 'Now lets make \\(\\beta\\) the subject:'],
+  ['displayFormula', '\\[\\begin{align} \\beta &= \\frac{-\\sum_{i=1}^n (y_i - \\overline{y})(\\overline{x} - x_i) }{\\sum_{i=1}^n (\\overline{x} - x_i)^2} \\\\ \\\\ &= \\frac{\\sum_{i=1}^n (\\overline{y} - y_i)(\\overline{x} - x_i) }{\\sum_{i=1}^n (\\overline{x} - x_i)^2} \\end{align}\\]'],
+  ['pmain', 'This means that the slope for a best-fit line is given by the above formula. We did get this formula by setting the derivative to 0, but we also need to check whether this critical point is a minimum or a maximum. For that we need to differentiate SSR again:'],
+  ['displayFormula', '\\[\\begin{align} \\frac{d}{d \\beta} \\frac{d}{d \\beta} \\sum_{i=1}^n e_i^2 &= \\frac{d}{d \\beta}\\sum_{i=1}^n 2((y_i - \\overline{y})(\\overline{x} - x_i) + \\beta(\\overline{x} - x_i)^2) \\\\ &= \\frac{d}{d \\beta}\\sum_{i=1}^n 2(y_i - \\overline{y})(\\overline{x} - x_i) + \\frac{d}{d \\beta}\\sum_{i=1}^n 2 \\beta (\\overline{x} - x_i)^2 \\\\ &= 0 + \\sum_{i=1}^n 2  (\\overline{x} - x_i)^2 \\frac{d}{d \\beta} \\beta \\\\ &= 2 \\sum_{i=1}^n (\\overline{x} - x_i)^2 \\end{align}\\]'], 
+  ['pmain', 'If all \\(x_i\\) are not equal, then \\(\\sum_{i=1}^n (\\overline{x} - x_i)^2 \\gt 0\\). This means the double derivative is would be \\(\\gt 0\\), which also means the formula we found for \\(\\beta\\) does in fact give the minimum SSR.'],
+  ['pmain', 'If all \\(x_i\\) are equal, the data points lie on a vertical line, which has no slope, so no value of \\(\\beta\\) can describe it. In that case the denominator of the formula is 0 and \\(\\beta\\) is undefined.'],
+  ['pmain', 'For the example above, the mean is at \\((9.5,5.9)\\), and \\(\\beta \\approx 0.275\\).'],
+  ['displayimg', 'm4.png'],
+];
+
 export default content;

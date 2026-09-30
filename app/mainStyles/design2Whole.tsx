@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense, useState, useEffect, useRef, createRef, RefObject } from 'react';
+import React, { Suspense, useState, useEffect, useRef, createRef } from 'react';
 import MainComp from './design2MainComp';
 import ImageWrapper from '../global_components/ImageWrapper';
 import styles from "./design2.module.scss";
@@ -214,24 +214,31 @@ function Slideshow(props:{continueButtonClicked:boolean}){
 
 function SearchEl(){
 	const [displayVal, changeDisplay] = useState<string>("none");
-	const timerRef: RefObject<null|number> = useRef(null);
 	const [itemsArr, changeIA] = useState<Array<any>>([]);
 	const minLetters = 3;
-	const searchDivRef = useRef<HTMLDivElement|null>(null);
+	const [inputDis, changeInDis] = useState(true);
 	const googleElRef = useRef(null);
 	const observerRef = useRef<MutationObserver|null>(null);
 	const timeOutVar = useRef<number|null>(null);
 
 	useEffect(()=>{
+		const maxReload = 15;
+		var reloadCount = 0;
 		var interval = window.setInterval(()=>{
 			try {
 				//@ts-ignore
 				googleElRef.current = google.search.cse.element.getElement("mainSearch");
 				//^ google variable came from <Script async src="https://cse.google.com/cse.js?cx=40f9a25a3e41e4b95"/>
+				changeInDis(false);
 			}
 			catch (err) { 
 				//intentionally avoiding console.error
-				console.log("The google variable is not loaded. Trying again..."); 
+				reloadCount += 1;
+				if (reloadCount >= maxReload) {
+					window.clearInterval(interval);
+					console.error(`Tried ${maxReload} times, but google variable did not load. Please report this!`);
+				}
+				console.log(`The google variable is not loaded (try ${reloadCount}). Trying again...`); 
 				return;
 			}
 			window.clearInterval(interval);
@@ -251,32 +258,30 @@ function SearchEl(){
 		changeDisplay("block");
 		
 		if (observerRef.current) return;
-		var interval = window.setInterval(()=>{
-			const resultsContainer = document.querySelector(".gsc-results");
-			try{
-				if (!resultsContainer) throw new Error("gsc-results not found!");
-				observerRef.current = new MutationObserver(()=>{
-					let anchors = resultsContainer.querySelectorAll("div.gsc-table-result a.gs-title");
-					let items = [];
-					for (let anchor of anchors) items.push({
-						title: anchor.textContent, 
-						link: anchor.getAttribute("href")
-					});
-					changeIA(items);
+		const resultsContainer = document.querySelector(".gsc-results");
+		try{
+			if (!resultsContainer) throw new Error("gsc-results not found!");
+			observerRef.current = new MutationObserver(()=>{
+				let anchors = resultsContainer.querySelectorAll("div.gsc-table-result a.gs-title");
+				let items = [];
+				for (let anchor of anchors) items.push({
+					title: anchor.textContent, 
+					link: anchor.getAttribute("href")
 				});
-				observerRef.current.observe(resultsContainer, {childList: true, subtree: true});
-				console.log("Google observer set!");
-			}
-			catch (err) {
-				//intentionally avoiding console.error
-				console.log("Error with observer:", err);
-				return;
-			}
-			window.clearInterval(interval);
-		}, 500);
+				changeIA(items);
+			});
+			observerRef.current.observe(resultsContainer, {childList: true, subtree: true});
+			console.log("Google observer set!");
+		}
+		catch (err) {
+			//intentionally avoiding console.error
+			console.error("Error with observer:", err);
+			changeIA([["Error"]]);
+			return;
+		}
 	}
 
-	return <div id={styles.searchDiv} className={printFont2.className} ref={searchDivRef} onMouseLeave={()=>{changeDisplay("none");}} >
+	return <div id={styles.searchDiv} className={printFont2.className} onMouseLeave={()=>{changeDisplay("none");}}>
 		<input
 			onKeyUp={(e)=>{
 				let textVal = e.currentTarget.value;
@@ -289,7 +294,8 @@ function SearchEl(){
 			autoComplete="off"
 			id={styles.searchBox}
 			type="text"
-			placeholder={"Google Search..."}
+			placeholder={inputDis ? "" : "Google Search..."}
+			disabled={inputDis}
 		/>
 		<div id={styles.pageOptions} style={{display: displayVal}}>{evalItems(itemsArr)}</div>
 		<div className='gcse-search' id={styles.googleSearchDiv} data-gname={"mainSearch"}></div>
@@ -300,10 +306,9 @@ function evalItems(itemsArr: any[]){
 	try{
 		if (itemsArr && itemsArr.length) {
 			if (itemsArr[0] == "Loading") return <div className={styles.noptions} style={{cursor:"default"}}>Loading...</div>;
+			if (itemsArr[0] == "Error") return <div className={styles.noptions} style={{cursor:"default"}}>Error, please report this!</div>;
 			return itemsArr.map((elem, i)=>{
-				return <div key={i} className={styles.poptions}>
-					<Link href={elem["link"]} className='hover:no-underline' dangerouslySetInnerHTML={{__html: elem["title"]}}></Link> 
-				</div>
+				return <Link href={elem["link"]} className={styles.poptions} dangerouslySetInnerHTML={{__html: elem["title"]}} />
 			}) 
 		}
 		else return <div className={styles.noptions} style={{cursor:"default"}}>Sorry, no article were found.</div>	

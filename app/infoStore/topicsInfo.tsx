@@ -705,19 +705,13 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
 		"why_we_multiply_in_tree_diagrams%multiplyingInTreeDiagrams",
 		"P(A|B) = P(A) ⇒ P(B|A) = P(B)%independenceCommutativity"
 	]],
-	["deviation_and_regression", [
-		"sum_of_squared_deviations_computational_formula",
-		"sum_of_products_of_deviations_computational_formula",
-		"deriving the regression coefficient of y on x%line_of_best_fit",
-		"understanding the R<sup>2</sup> score%understanding_r2_score"
-	]],
 	["expected_value_and_variance_basics", [
 		"E[X + Y] = E[X] + E[Y]%linearity_of_expectation",
 		"E[cX] = c * E[X] where c is a constant%loe2",
 		"E[XY] = E[X] * E[Y] where X and Y are independent variables%exMul",
 		"measuring the spread of data: mean absolute deviation and mean squared deviation%spread",
-		"Var[X] = E[X^2] - (E[X]^2)%varDef",
-		"Var[kX] = k^2 * Var[X]%varCons",
+		"Var[X] = E[X<sup>2</sup>] - (E[X]<sup>2</sup>)%varDef",
+		"Var[kX] = k<sup>2</sup> * Var[X]%varCons",
 		"Var[X + Y] = Var[X] + Var[Y] where X and Y are independent variables%varAdd",
 		"deriving the E[X] and Var[X] for the iid variables%varMean",
 		"estimating the population variance using the sample mean and the sample size%varsamp",
@@ -732,6 +726,14 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
 		"if X is a positive continuous random variable with a memoryless property, then X is exponentially distributed%memoryless",
 		"variance_of_an_uniform_distribution (incomplete)",
 		"expected_value_and_variance_of_an_exponential_distribution"
+	]],
+	["deviation_and_regression", [
+		"sum_of_squared_deviations_computational_formula",
+		"sum_of_products_of_deviations_computational_formula",
+		"the_net_residual_is_zero_if_and_only_if_the_line_crosses_the_mean",
+		"for_a_fixed_slope_the_best_fit_line_passes_through_the_mean",
+		"finding the gradient of the best fit line%line_of_best_fit",
+		"understanding the R<sup>2</sup> score%understanding_r2_score"
 	]],
 ]
 

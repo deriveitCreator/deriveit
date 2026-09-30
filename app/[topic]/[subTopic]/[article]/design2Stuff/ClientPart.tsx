@@ -211,7 +211,7 @@ function FooterEl(){
         rel="noopener noreferrer external"
       >
         <p className={"text-center font-bold text-sm"}>Want To Donate?</p>
-        <Image src="/kofi_logo.png" alt="" width={90} height={24}/>
+        <Image src="/kofi_logo.png" alt="" width={90} height={25}/>
       </Link>
     </div>
     <Suspense fallback={<></>}><FormBox type={formType} styleNum={2}/></Suspense>

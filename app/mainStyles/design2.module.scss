@@ -163,11 +163,12 @@ $brown2: #663300;
 				padding: 1px 8px;
 				border-top: solid 1px #441100;
 				border-right: solid 3px #331100;
-				cursor: pointer;
+				display: block;
 			}
 			.poptions:hover{
 				padding-left: 4px;
 				padding-right: 12px;
+				text-decoration: none;
 			}
 			.poptions a{
 				color: #441100;

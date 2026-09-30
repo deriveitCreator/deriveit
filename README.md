@@ -58,6 +58,15 @@ One major thing I added was the design feature, where you can choose different d
 Versioning is done using "npm version [new-version] --git-tag-version false"
 Updates follow this format: `[major change].[minor change]`.
 
+<b>update 28.4:</b>
+- Design 2: 
+  - Made some bug fixes for home page search bar.
+  - Made some minor footer image styles changes.
+  - Made sure sup and sub in article link didn't come on top of search bar.
+- Added new articles in `probability_&_statistics/deviation_and_regression` and placed the subtopic at the end.
+- In top layout, using `<head><script>` instead of `<Script>`.
+
+
 <b>update 28.3:</b>
 - Fixed the search input bug in `[topic]` and `[subtopic]` page.
 - Made some styling changes for `[topic]` and `[subtopic]`.

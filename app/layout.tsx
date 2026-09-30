@@ -29,9 +29,11 @@ export default async function RootLayout({children}: {children: React.ReactNode}
   if(cookieVal === 1){
     const FooterEl = dynamic(() =>  import(`./global_components/design1Footer`));
     return <html lang="en" className={`scroll1`} style={{backgroundColor:"rgb(249 250 251)"}}>
-      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471"
+      <head>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471"
         crossOrigin="anonymous"/>
-      <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
+      </head>
       <body suppressHydrationWarning>
         <div style={{height:"auto",minHeight:"100vh"}}>{children}</div>
         <FooterEl/>
@@ -54,9 +56,11 @@ export default async function RootLayout({children}: {children: React.ReactNode}
     </html>
   }
   else if (cookieVal === 2) return <html lang="en">
-    <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471" crossOrigin="anonymous"/>
-    <Script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
-    <Script async src="https://cse.google.com/cse.js?cx=40f9a25a3e41e4b95"/>
+    <head>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4860967711062471" crossOrigin="anonymous"/>
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
+      <script async src="https://cse.google.com/cse.js?cx=40f9a25a3e41e4b95"/>
+    </head>
     <body suppressHydrationWarning>{children}</body>
   </html>
   else throw new Error("wrong design number value");

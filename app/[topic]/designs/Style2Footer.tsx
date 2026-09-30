@@ -20,7 +20,7 @@ export default function FooterEl(props: ColorInfoType){
     <hr style={{backgroundColor: props.borderColor, height:"4px", border:"none"}}/>
     <div id={styles.mainFooter}>
       <Link href="/" className={'mx-4 my-4 relative h-[121px]'} id={styles.homeLink}>
-        <Image src="/logoPics/link_logo_trans2.png" alt="" sizes="100vw" fill/>
+        <Image src="/logoPics/link_logo_trans2.png" alt="" width={108} height={121} priority/>
       </Link>
       <div style={{backgroundColor: props.headerBgColor, color: props.footerColor, borderColor: props.borderColor}} id={styles.feedback}>
         <p>If you find a bug in this website or want to report an error, <ClickButton type={0} func={changeType} /></p>
