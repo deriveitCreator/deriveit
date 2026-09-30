@@ -308,7 +308,7 @@ function evalItems(itemsArr: any[]){
 			if (itemsArr[0] == "Loading") return <div className={styles.noptions} style={{cursor:"default"}}>Loading...</div>;
 			if (itemsArr[0] == "Error") return <div className={styles.noptions} style={{cursor:"default"}}>Error, please report this!</div>;
 			return itemsArr.map((elem, i)=>{
-				return <Link href={elem["link"]} className={styles.poptions} dangerouslySetInnerHTML={{__html: elem["title"]}} />
+				return <Link key={i} href={elem["link"]} className={styles.poptions} dangerouslySetInnerHTML={{__html: elem["title"]}} />
 			}) 
 		}
 		else return <div className={styles.noptions} style={{cursor:"default"}}>Sorry, no article were found.</div>	
