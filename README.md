@@ -58,6 +58,10 @@ One major thing I added was the design feature, where you can choose different d
 Versioning is done using "npm version [new-version] --git-tag-version false"
 Updates follow this format: `[major change].[minor change]`.
 
+<b>update 28.6:</b>
+- Added and changed articles in `probability_&_statistics`.
+- Added new subtopic in `algebra`.
+
 <b>update 28.5:</b>
 - Added `key` attribute home page search links.
 

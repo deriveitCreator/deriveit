@@ -110,6 +110,11 @@ export function getTopicLinks(topic: string){
 
 const algebraLinks: Array<[string,string[]]> = [
 	["fractions", ["[a/b] + [c/b] gives [(a+c)/b]%adding_fractions","multiplying [a/b] by [c/d] gives [ac/bd]%multiplying_fractions"]],
+	["addition_and_multiplication", [
+		"∑ca<sub>i</sub> = c ∑a<sub>i</sub> where c is a constant (distributivity)%distributivity",
+		"∑(a<sub>i</sub> ± b<sub>i</sub>) = ∑a<sub>i</sub> ± ∑b<sub>i</sub> (sum and difference rule)%sum_difference_rule",
+		"∑<sub>i</sub> ∑<sub>j</sub> a<sub>i</sub> b<sub>j</sub> = ∑<sub>j</sub> ∑<sub>i</sub> a<sub>i</sub> b<sub>j</sub>(swapping the order of finite summation)%changing_the_order",
+	]],
 	["exponents", [
 		"a<sup>m</sup> * a<sup>n</sup> is equal to a<sup>m+n</sup> (where m and n are integers)%product_rule",
 		"(ab)<sup>m</sup> is equal to a<sup>m</sup> * b<sup>m</sup> (where m is an integer)%power_of_product_rule",
@@ -713,6 +718,8 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
 		"Var[X] = E[X<sup>2</sup>] - (E[X]<sup>2</sup>)%varDef",
 		"Var[kX] = k<sup>2</sup> * Var[X]%varCons",
 		"Var[X + Y] = Var[X] + Var[Y] where X and Y are independent variables%varAdd",
+		"Var[aX + bY] = a<sup>2</sup>Var[X] + b<sup>2</sup>Var[Y] + 2ab cov(X, Y)%variance_of_the_linear_combination_of_two_random_variables",
+		"cov(X, Y) = E[XY] - E[X]E[Y]%cov_split",
 		"deriving the E[X] and Var[X] for the iid variables%varMean",
 		"estimating the population variance using the sample mean and the sample size%varsamp",
 		"Markov's inequality",
@@ -733,6 +740,7 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
 		"the_net_residual_is_zero_if_and_only_if_the_line_crosses_the_mean",
 		"for_a_fixed_slope_the_best_fit_line_passes_through_the_mean",
 		"finding the gradient of the best fit line%line_of_best_fit",
+		"-1 &le; corr(X, Y) &le; 1%corr_range",
 		"understanding the R<sup>2</sup> score%understanding_r2_score"
 	]],
 ]
