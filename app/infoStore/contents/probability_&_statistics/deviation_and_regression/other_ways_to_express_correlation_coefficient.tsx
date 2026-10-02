@@ -1,8 +1,8 @@
 export const title="Other ways to express the correlation coefficient";
 const content = [
-  ['h1', 'Other Way To The Correlation Coefficient'], 
+  ['h1', 'Other Ways To The Correlation Coefficient'], 
   ['pmain', 'The correlation coefficient is given by this formula:'],
-  ['displayFormula', '\\begin{align} \\operatorname{corr}(X,Y) &= \\frac{1}{n} \\sum^n_{i=1} \\frac{x_i - \\overline{x}}{\\sigma_X}\\frac{y_i - \\overline{y}}{\\sigma_Y} \\\\ &=  \\frac{\\frac{1}{n}\\sum^n_{i=1} (x_i - \\overline{x}) (y_i - \\overline{y})}{\\sigma_X \\sigma_Y} \\\\ &= \\frac{\\operatorname{cov}(X,Y)}{\\sigma_X \\sigma_Y} \\end{align}'], 
+  ['displayFormula', '\\[ \\operatorname{corr}(X,Y) =\\frac{\\operatorname{cov}(X,Y)}{\\sigma_X \\sigma_Y} \\]'], 
   ['pmain', 'Stated another way:'],
   ['displayFormula', '\\begin{align} \\operatorname{corr}(X,Y) &=  \\frac{\\frac{1}{n}\\sum^n_{i=1} (x_i - \\overline{x}) (y_i - \\overline{y})}{\\sigma_X \\sigma_Y} \\\\ &= \\frac{\\frac{1}{n}\\sum^n_{i=1} (x_i - \\overline{x}) (y_i - \\overline{y})}{\\sqrt{\\frac{\\sum^n_{i=1}(x_i - \\overline{x})^2}{n}} \\sqrt{\\frac{\\sum^n_{i=1}(y_i - \\overline{y})^2}{n}}} \\\\ &= \\frac{\\sum^n_{i=1} (x_i - \\overline{x}) (y_i - \\overline{y})}{\\sqrt{\\sum^n_{i=1} (x_i - \\overline{x})^2 } \\sqrt{\\sum^n_{i=1}(y_i - \\overline{y})^2}}\\end{align}'], 
   ['pmain', 'Rearranging the above:'],
