@@ -740,6 +740,7 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
 		"the_net_residual_is_zero_if_and_only_if_the_line_crosses_the_mean",
 		"for_a_fixed_slope_the_best_fit_line_passes_through_the_mean",
 		"finding the gradient of the best fit line%line_of_best_fit",
+		"understanding_the_correlation_coefficient",
 		"-1 &le; corr(X, Y) &le; 1%corr_range",
 		"understanding the R<sup>2</sup> score%understanding_r2_score"
 	]],

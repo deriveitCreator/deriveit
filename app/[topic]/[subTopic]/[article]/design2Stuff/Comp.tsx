@@ -89,10 +89,10 @@ function getBodyContent(topic:string, subTopic:string, j: [[string, any, string?
         </div>);
         break;
       case "ol":
-        bodyChildren.push(<ol key={i} className={`${styles.listStuff} ${mainTextFont.className} list-decimal`} dangerouslySetInnerHTML={{__html: j[i][1]}}></ol>);
+        bodyChildren.push(<ol key={i} className={`${styles.listStuff} ${mainTextFont.className} list-decimal`} dangerouslySetInnerHTML={{__html: j[i][1]}} suppressHydrationWarning></ol>);
         break;
       case "ul":
-        bodyChildren.push(<ul className={`${styles.listStuff} ${mainTextFont.className} list-disc`} dangerouslySetInnerHTML={{__html: j[i][1]}}></ul>);
+        bodyChildren.push(<ul key={i} className={`${styles.listStuff} ${mainTextFont.className} list-disc`} dangerouslySetInnerHTML={{__html: j[i][1]}} suppressHydrationWarning></ul>);
         break;
       case "source_format":
         bodyChildren.push(<SourcesSectionInner key={i} content={j[i][1]}/>);
