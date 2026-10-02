@@ -49,7 +49,5 @@ const content = [
   ['pmain', 'This shows that if the points were perfectly negatively correlated, then \\(\\operatorname{corr}\\) would be -1, which is the lowest value.'],
   ['pmain', 'In conclusion, the formula given below can be used for measuring correlation:'],
   ['displayFormula', '\\begin{align} \\operatorname{corr}(X,Y) &= \\frac{1}{n} \\sum^n_{i=1} \\frac{x_i - \\overline{x}}{\\sigma_X}\\frac{y_i - \\overline{y}}{\\sigma_Y} = \\frac{1}{n} \\sum^n_{i=1}w_i z_i \\\\ &=  \\frac{\\frac{1}{n}\\sum^n_{i=1} (x_i - \\overline{x}) (y_i - \\overline{y})}{\\sigma_X \\sigma_Y} \\\\ &= \\frac{\\operatorname{cov}(X,Y)}{\\sigma_X \\sigma_Y} \\end{align}'], 
-  ['pmain', 'Stated another way:'],
-  ['displayFormula', '\\begin{align} \\operatorname{corr}(X,Y) &=  \\frac{\\frac{1}{n}\\sum^n_{i=1} (x_i - \\overline{x}) (y_i - \\overline{y})}{\\sigma_X \\sigma_Y} \\\\ &= \\frac{\\frac{1}{n}\\sum^n_{i=1} (x_i - \\overline{x}) (y_i - \\overline{y})}{\\sqrt{\\frac{(x_i - \\overline{x})^2}{n}} \\sqrt{\\frac{(y_i - \\overline{y})^2}{n}}} \\\\ &= \\frac{\\sum^n_{i=1} (x_i - \\overline{x}) (y_i - \\overline{y})}{\\sqrt{(x_i - \\overline{x})^2 (y_i - \\overline{y})^2}}\\end{align}'], 
 ];
 export default content;

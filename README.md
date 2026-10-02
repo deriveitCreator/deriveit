@@ -58,6 +58,10 @@ One major thing I added was the design feature, where you can choose different d
 Versioning is done using "npm version [new-version] --git-tag-version false"
 Updates follow this format: `[major change].[minor change]`.
 
+<b>update 28.8:</b>
+- Updated recently added table.
+- Added `other_ways_to_express_correlation_coefficient.tsx`.
+
 <b>update 28.7:</b>
 - Added `understanding_the_correlation_coefficient.tsx`.
 - Fixed a bug where `ul` had no `key`.
