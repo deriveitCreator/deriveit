@@ -719,6 +719,7 @@ const probabilityAndStatisticsLinks: Array<[string,string[]]> = [
 		"Var[kX] = k<sup>2</sup> * Var[X]%varCons",
 		"Var[X + Y] = Var[X] + Var[Y] where X and Y are independent variables%varAdd",
 		"Var[aX + bY] = a<sup>2</sup>Var[X] + b<sup>2</sup>Var[Y] + 2ab cov(X, Y)%variance_of_the_linear_combination_of_two_random_variables",
+		"defining_covariance",
 		"cov(X, Y) = E[XY] - E[X]E[Y]%cov_split",
 		"deriving the E[X] and Var[X] for the iid variables%varMean",
 		"estimating the population variance using the sample mean and the sample size%varsamp",

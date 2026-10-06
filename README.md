@@ -58,6 +58,12 @@ One major thing I added was the design feature, where you can choose different d
 Versioning is done using "npm version [new-version] --git-tag-version false"
 Updates follow this format: `[major change].[minor change]`.
 
+<b>update 28.10:</b>
+- Deleted unused API's.
+- Added new topic: `defining covariance.tsx`.
+- Changed `understanding_the_correlation_coefficient.tsx`.
+- Updated recently added table.
+
 <b>update 28.9:</b>
 - Made some minor corrections in `other_ways_to_express_correlation_coefficient.tsx` and `understanding_the_correlation_coefficient.tsx`.
 

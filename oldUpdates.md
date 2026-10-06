@@ -355,7 +355,7 @@
 <b>update 13.1:</b>
 - Added articles `modLemma4`.
 - Edited articles `powerful_from_square_and_cube`, `gcdLemma8`, `the_geocentric_view` and `eulers_theorem`.
-- Topic links are now stored in `infoStore/topicsInfo.tsx` instead of `infoStore/getTopicLinks/route/tsx`.
+- Topic links are now stored in `infoStore/topicsInfo.tsx` instead of `infoStore/getTopicLinks/route.tsx`.
 - Removed the `footerStyles` folder. Footers are now in the `mainStyles` folder.
 - In `FormBox.tsx`, input elements have hydration warning suppressed.
 - Removed z-index from topic header.

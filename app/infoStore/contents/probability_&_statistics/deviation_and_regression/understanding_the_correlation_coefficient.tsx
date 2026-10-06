@@ -5,7 +5,7 @@ const content = [
   ['displayimg', 'c1.png'], 
   ['pmain', 'We want to find a way to measure the correlation. One place we can start is the covariance (\\(\\operatorname{cov}(X,Y)\\)), which takes into account the distance from the mean for both \\(X\\) and \\(Y\\):'],
   ['displayFormula', '\\[ \\operatorname{cov}(X,Y) = \\sum_{i=1}^n p_i (x_i - \\overline{x})(y_i - \\overline{y}) \\]'], 
-  ['pmain', '\\(p_i\\) is the probability of the data point \\((x_i,y_i)\\) occurring. For the sake of simplicity, we will assume that all data points have equally likely chance occurring:'],
+  ['pmain', '\\(p_i\\) is the probability of the data point \\((x_i,y_i)\\) occurring. For the sake of simplicity, we will assume that all data points have equal chance of occurring:'],
   ['displayFormula', '\\[ \\operatorname{cov}(X,Y) = \\frac{1}{n} \\sum_{i=1}^n (x_i - \\overline{x})(y_i - \\overline{y}) \\]'], 
   ['pmain', 'Why might one use covariance? Let\'s explain by splitting the plane into four quadrants, one horizontal split along the mean point and a vertical split along the mean point:'],
   ['displayimg', 'c2.png'], 
