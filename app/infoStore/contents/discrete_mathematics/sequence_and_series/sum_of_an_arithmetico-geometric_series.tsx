@@ -1,0 +1,28 @@
+export const title="Deriving the sum of an arithmetico-geometric series";
+const content = [
+  ['h1', 'Deriving the sum of an arithmetico-geometric series'],
+  ["pmain","An <b>arithmetico-geometric sequence</b> is the result of element-by-element multiplication of the elements of a geometric progression with the corresponding elements of an arithmetic progression."],
+  ["pmain","Let \\(A_i\\) be the element of the \\(i\\)th arithmetic progression (starting from \\(i=0\\)), and let \\(G_i\\) be the value of the \\(i\\)th geometric progression (starting from \\(i=0\\)). So we can represent the series as:"],
+  ["displayFormula","$$S = A_0G_0 + A_1G_1 + A_2G_2 + \\ldots + A_{n-1}G_{n-1}$$"],
+  ["pmain","There are \\(n\\) terms in total. Let \\(A_i = a + id\\) and let \\(G_i = br^i\\):"],
+  ["displayFormula","$$S = ab + (a + d)br + (a + 2d)br^2 + (a + 3d)br^3 + \\ldots + (a + (n-1)d)br^{n-1}$$"],
+  ["pmain","We can write the product \\(A_i G_i\\) as:"],
+  ["displayFormula","$$A_i G_i = (a + id)br^i = abr^i + idbr^i$$"],
+  ["pmain","The sum of the series is:"],
+  ["displayFormula","$$ S = \\sum_{i=0}^{n-1} abr^i + idbr^i = ab \\sum_{i=0}^{n-1} r^i + db\\sum_{i=0}^{n-1} ir^i $$"],
+  ["pmain","The first sum is a <a href='sum_of_a_finite_geometric_series'>geometric series</a> starting from 0 and ending with \\(r^{n-1}\\):"],
+  ["displayFormula","$$ S = ab \\left( \\frac{1-r^n}{1-r} \\right) + db\\sum_{i=0}^{n-1} ir^i $$"],
+  ["pmain","The second sum is already derived <a href='arithmetic-geometric_series2'>here</a>:"],
+  ["displayFormula","$$ S = ab \\left( \\frac{1-r^n}{1-r} \\right) + db \\left( \\frac{r(1-r^{n-1})}{(1-r)^2} - \\frac{(n-1)r^n}{1-r}\\right) $$"],
+  ["pmain","Expanding:"],
+  ["displayFormula","$$ S = \\frac{ab- abr^n}{1-r} + \\frac{dbr(1-r^{n-1})}{(1-r)^2} - \\frac{dbnr^n - dbr^n}{1-r} $$"],
+  ["pmain","Rearranging:"],
+  ["displayFormula","$$\\begin{align} S &= \\frac{ab- abr^n + dbr^n - dbnr^n}{1-r} + \\frac{dbr(1-r^{n-1})}{(1-r)^2} \\\\ &= \\frac{ab - abr^n - dbnr^n}{1-r} + \\frac{dbr^n}{1-r} + \\frac{dbr(1-r^{n-1})}{(1-r)^2} \\end{align}$$"],
+  ["pmain","Multiplying the seond term with \\(\\frac{1-r}{1-r}\\):"],
+  ["displayFormula","$$\\begin{align} S &= \\frac{ab - abr^n - dbnr^n}{1-r} + \\frac{dbr^n - dbr^{n+1}}{(1-r)^2} + \\frac{dbr(1-r^{n-1})}{(1-r)^2} \\\\ &= \\frac{ab - abr^n - dbnr^n}{1-r} + \\frac{dbr^n - dbr^{n+1}+ dbr-dbr^n}{(1-r)^2} \\end{align}$$"],
+  ["pmain","Simplifying:"],
+  ["displayFormula","$$\\begin{align} S &= \\frac{ab - (a + nd)(br^n)}{1-r} + \\frac{dbr- dbr^{n+1}}{(1-r)^2} \\\\ &= \\frac{ab - br^n(a + nd)}{1-r} + \\frac{dr (b- br^n)}{(1-r)^2} \\end{align}$$"],
+  ["pmain","Since \\([A_0 = a]\\), \\([G_0 = b]\\), \\([A_n = a + nd]\\) and \\([G_n = br^n]\\):"],
+  ["displayFormula","$$\\begin{align} S &= \\frac{A_0 G_0 - A_nG_n}{1-r} + \\frac{dr}{(1-r)^2} (G_0 - G_n) \\end{align}$$"],
+];
+export default content;

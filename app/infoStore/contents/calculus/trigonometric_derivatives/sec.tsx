@@ -1,0 +1,3 @@
+export const title="Differentiation of sec(x)";
+const content = [['h1', 'Differentiation of sec(x)'], ['pmain', 'We can write sec(x) in terms of cos(x):'], ['displayimg', 'sec1.png'], ['pmain', 'So differentiating sec(x) would just mean to differentiate 1/cos(x):'], ['displayimg', 'sec2.png'], ['pmain', 'If we simplify this further:'], ['displayimg', 'sec3.png'], ['pmain', 'We know that tan(x) = sin(x)/cos(x), so:'], ['displayimg', 'sec4.png'], ['pmain', 'So the derivative of sec(x) is sec(x)tan(x).']];
+export default content;

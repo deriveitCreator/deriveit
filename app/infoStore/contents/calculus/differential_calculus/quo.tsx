@@ -1,0 +1,3 @@
+export const title="Proof Of The Quotient Rule";
+const content = [['h1', 'Proof Of The Quotient Rule'], ['pmain', 'Let [h(x) = f(x)/g(x)]. By definition of a derivative, the derivative of h(x) is:'], ['displayimg', 'q1.png'], ['pmain', 'Which can be written like this:'], ['displayimg', 'q2.png'], ['pmain', 'Since [-f(x)g(x) + f(x)g(x) = 0]:'], ['displayimg', 'q3.png'], ['pmain', 'We can rewrite this as:'], ['displayimg', 'q4.png'], ['pmain', 'If we use the limit laws:'], ['displayimg', 'q5.png'], ['pmain', 'If we evaluate the limits:'], ['displayimg', 'q6.png'], ['pmain', 'And that completes our proof.']];
+export default content;

@@ -1,0 +1,28 @@
+export const title="Proof For The Fundamental Thoerem Of Calculus, Part 1";
+const content = [
+  ['h1', 'Proof For The Fundamental Thoerem Of Calculus, Part 1'],
+  ['pmain', 'Lets say the function \\(f(x)\\) is continous on [a,b], and lets say function the \\(F(x)\\) is defined by:'],
+  ['displayFormula',"\\[ F(x) = \\int^x_a f(t) \\ dt \\]"],
+  ['pmain', 'The function \\(F(x)\\) represents the area under the curve of \\(f(x)\\) from \\(a\\) to \\(x\\), where \\(x\\) varies between \\(a\\) and \\(b\\):'],
+  ['displayimg', '1.png'],
+  ['pmain', 'By definition of a derivative:'],
+  ['displayFormula',"\\[ F'(x) = \\lim_{h \\to 0} \\frac{F(x+h)-F(x)}{h} \\]"],
+  ['pmain', 'If we expand \\(F(x)\\):'],
+  ['displayFormula',"\\[ F'(x) = \\lim_{h \\to 0} \\frac{ \\int^{x+h}_a f(t) \\ dt - \\int^{x}_a f(t) \\ dt }{h} \\]"],
+  ['pmain', 'We can rewrite this as:'],
+  ['displayFormula',"\\[ \\begin{align} F'(x) &= \\lim_{h \\to 0} \\frac{ \\int^{x}_a f(t) \\ dt + \\int^{x+h}_x f(t) \\ dt - \\int^{x}_a f(t) \\ dt }{h} \\\\ &= \\lim_{h \\to 0} \\frac{ \\int^{x+h}_x f(t) \\ dt }{h} = \\lim_{h \\to 0} \\frac{1}{h} \\left( \\int^{x+h}_x f(t) \\ dt \\right) \\end{align}\\]"],
+  ['pmain', 'Before going any further, let\'s first think about just integral of \\( f(t)\\) between \\(x\\) and \\(x+h\\):'],
+  ['displayimg', '2.png'],
+  ['pmain', 'This area can be represented in two ways, one is the integral, and the second is the average value of \\(f\\) in [x, x+h] times the interval width (\\(h\\)):'],
+  ['displayFormula',"\\[A = \\int^{x+h}_x f(t) \\ dt = f_{avg}(t) * (h) \\]"],
+  ['pmain', 'This means:'],
+  ['displayFormula',"\\[ f_{avg}(t) = \\frac{1}{h} \\int^{x+h}_x f(t) \\ dt \\]"],
+  ['pmain', 'Going back to \\(F\'(x)\\):'],
+  ['displayFormula',"\\[ F'(x) = \\lim_{h \\to 0} \\frac{1}{h} \\int^{x+h}_x f(t) = \\lim_{h \\to 0} f_{avg}(t) \\]"],
+  ['pmain', 'where \\(f_{avg}(t)\\) is the average value of \\(f\\) in [x, x+h]. This means if \\(h \\to 0\\), then \\(f_{avg}(t) = f(x)\\), so:'],
+  ['displayFormula',"\\[ F'(x) = f(x) \\]"],
+  ['pmain', 'This is the fundamental theorem of calculus (part 1).'],
+  ['displayimg', '3.png'],
+  ['pmain', '\\(F\'(x) = f(x)\\) means a tiny increase of \\(F(x)\\) at \\(x\\) is equal to \\(f(x)\\). Also, the lower bound of the integral (\\(a\\)) has no affect on \\(F\'(x)\\).'],
+];
+export default content;

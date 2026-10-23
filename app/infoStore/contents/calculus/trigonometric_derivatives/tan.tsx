@@ -1,0 +1,3 @@
+export const title="Differentiation of tan(x)";
+const content = [['h1', 'Differentiation of tan(x)'], ['pmain', 'The function tan(x) can be written as sin(x)/cos(x), therefore:'], ['displayimg', 'tan1.png'], ['pmain', 'If we use the qoutient rule:'], ['displayimg', 'tan2.png'], ['pmain', 'If we simplify this:'], ['displayimg', 'tan3.png'], ['pmain', 'If we simplify this further:'], ['displayimg', 'tan4.png'], ['pmain', 'So the derivative of tan(x) is sec<sup>2</sup>(x).']];
+export default content;

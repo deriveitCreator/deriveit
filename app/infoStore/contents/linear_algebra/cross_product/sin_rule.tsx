@@ -1,0 +1,27 @@
+export const title="||a x b|| = ||a|| ||b|| sin(θ) (Proof)";
+const content = [
+  ['h1', '||a x b|| = ||a|| ||b|| sin(θ)'],
+  ['pmain', 'Let vectors \\(\\textbf{a}\\) and \\(\\textbf{b}\\) be defined as follows:'], 
+  ['displayFormula', '$$ \\textbf{a} = \\begin{bmatrix} a_1 \\\\ a_2 \\\\ a_3 \\end{bmatrix} \\quad \\textbf{b} = \\begin{bmatrix} b_1 \\\\ b_2 \\\\ b_3 \\end{bmatrix} $$'],
+  ['pmain', 'The cross product of \\(\\textbf{a} \\times \\textbf{b}\\) is:'], 
+  ['displayFormula', '$$\\textbf{a} \\times \\textbf{b} = \\langle a_2b_3 - a_3b_2, -(a_1b_3 - a_3b_1), a_1b_2 - a_2b_1 \\rangle$$'],
+  ['pmain', 'The magnitude of this product is:'],
+  ['displayFormula', '$$\\begin{gather}\\sqrt {(a_2b_3 - a_3b_2)^2 + (a_1b_3 - a_3b_1)^2 + (a_1b_2 - a_2b_1)^2} \\\\ \\sqrt {(a_2^2b_3^2 -2a_2a_3b_2b_3 + a_3^2b_2^2) + (a_1^2b_3^2 -2a_1a_3b_1b_3 + a_3^2b_1^2) + (a_1^2b_2^2 -2a_1a_2b_1b_2 + a_2^2b_1^2)} \\end{gather}$$'],
+  ['pmain', 'The square of the magnitude is:'],
+  ['displayFormula', '$$\\begin{gather} a_2^2b_3^2+ a_3^2b_2^2 + a_1^2b_3^2 + a_3^2b_1^2 + a_1^2b_2^2 + a_2^2b_1^2 \\\\ -2a_2a_3b_2b_3 -2a_1a_3b_1b_3 -2a_1a_2b_1b_2 \\end{gather}$$'],
+  ['pmain', 'The dot product \\(\\textbf{a} \\cdot \\textbf{b}\\) is:'],
+  ['displayFormula', '$$\\begin{align} \\Vert\\textbf{a}\\Vert \\ \\Vert\\textbf{b}\\Vert \\ \\cos(\\theta) &= a_1b_1 + a_2b_2 + a_3b_3\\end{align}$$'],
+  ['pmain', 'The square of this is:'],
+  ['displayFormula', '$$\\begin{align} \\Vert\\textbf{a}\\Vert^2 \\ \\Vert\\textbf{b}\\Vert^2 \\ \\cos^2(\\theta) &= (a_1b_1 + a_2b_2 + a_3b_3)^2 \\\\ &= (a_1^2b_1^2 + a_1b_1a_2b_2 + a_1b_1a_3b_3) + \\\\ & \\quad (a_2b_2a_1b_1 + a_2^2b_2^2 + a_2b_2a_3b_3) + (a_3b_3a_1b_1 + a_3b_3a_2b_2 + a_3^2b_3^2) \\end{align}$$'],
+  ['pmain', 'Rearranging:'],
+  ['displayFormula', '$$ \\Vert\\textbf{a}\\Vert^2 \\ \\Vert\\textbf{b}\\Vert^2 \\ \\cos^2(\\theta) = a_1^2b_1^2 + a_2^2b_2^2 + a_3^2b_3^2 + 2a_1b_1a_2b_2 + 2a_1b_1a_3b_3 + 2a_3b_3a_2b_2$$'],
+  ['pmain', 'Notice how there are common terms in \\(\\Vert \\textbf{a} \\times \\textbf{b} \\Vert^2 \\) and \\((\\textbf{a} \\cdot \\textbf{b})^2\\). Which means if we add them:'],
+  ['displayFormula', '$$\\begin{align} \\Vert \\textbf{a} \\times \\textbf{b} \\Vert^2 + (\\textbf{a} \\cdot \\textbf{b})^2 &= a_2^2b_3^2+ a_3^2b_2^2 + a_1^2b_3^2 + a_3^2b_1^2 + a_1^2b_2^2 + a_2^2b_1^2 + a_1^2b_1^2 + a_2^2b_2^2 + a_3^2b_3^2 \\\\ &= a_1^2(b_1^2 + b_2^2+b_3^2)+a_2^2(b_1^2 + b_2^2+b_3^2)+a_3^2(b_1^2 + b_2^2+b_3^2) \\\\ &= (a_1^2 +a_2^2+a_3^2)(b_1^2 + b_2^2+b_3^2) \\end{align}$$'],
+  ['pmain', 'Rearranging:'],
+  ['displayFormula', '$$\\begin{align} \\Vert \\textbf{a} \\times \\textbf{b} \\Vert^2 &= (a_1^2 +a_2^2+a_3^2)(b_1^2 + b_2^2+b_3^2) -  (\\textbf{a} \\cdot \\textbf{b})^2 \\\\ &= (\\Vert\\textbf{a}\\Vert^2) (\\Vert\\textbf{b}\\Vert^2) - (\\Vert\\textbf{a}\\Vert^2 \\ \\Vert\\textbf{b}\\Vert^2 \\ \\cos^2(\\theta)) \\\\ &= (\\Vert\\textbf{a}\\Vert^2 \\ \\Vert\\textbf{b}\\Vert^2) (1- \\cos^2(\\theta)) \\end{align}$$'],
+  ['pmain', 'Since \\(\\sin^2(\\theta) + \\cos^2(\\theta) = 1\\):'],
+  ['displayFormula', '$$\\Vert \\textbf{a} \\times \\textbf{b} \\Vert^2 = (\\Vert\\textbf{a}\\Vert^2 \\ \\Vert\\textbf{b}\\Vert^2) (\\sin^2(\\theta))$$'],
+  ['pmain', 'Since \\(\\sin^2(\\theta) = \\sin(\\theta)\\) when \\(0 \\le \\theta \\le 180\\):'],
+  ['displayFormula', '$$\\Vert \\textbf{a} \\times \\textbf{b} \\Vert = \\Vert\\textbf{a}\\Vert \\ \\Vert\\textbf{b}\\Vert \\ \\sin(\\theta) $$'],
+];
+export default content;

@@ -1,0 +1,3 @@
+export const title="Proof That Only Functions Of The Form Ae^x Are Derivatives Of Themselves";
+const content = [['h1', 'Only Functions Of The Form Ae^x Are Derivatives Of Themselves'], ['pmain', "Let \\(f(x) = f'(x)\\) and let \\( g(x) = f(x)/e^x \\), then:"], ['displayFormula', "\\[g'(x)= \\frac{e^x f'(x) - f(x) e^x }{e^{2x}} \\]"], ['pmain', 'Simplify:'], ['displayFormula', "\\[g'(x)= \\frac{ f'(x) - f(x) }{e^x} = \\frac{ f(x) - f(x) }{e^x} = 0 \\]"], ['pmain', "If \\( g'(x) =0 \\), then \\(g(x) = f(x)/e^x \\) is a constant, meaning \\(f(x)=Ae^x\\). If \\(f(x)\\) would have any solutions other than \\( Ae^x \\), then \\( g'(x)\\) would not be \\(0 \\)."]];
+export default content;

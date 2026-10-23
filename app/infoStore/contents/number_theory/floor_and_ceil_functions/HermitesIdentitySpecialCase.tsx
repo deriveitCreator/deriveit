@@ -1,0 +1,26 @@
+export const title="[x] + [x + 1/2] = [2x]";
+const content = [
+  ['h1', '[x] + [x + 1/2] = [2x]'],
+  ["pmain","We need to prove that \\([x] + [x + 1/2] = [2x]\\). We can represent \\(x\\) as:"],
+  ['displayFormula', '$$ x = [x] + \\{x\\} $$'],
+  ["pmain","where \\(\\{x\\}\\) is the fractional part. We will break the proof in two cases. One where \\(\\{x\\} \\lt 1/2\\) and one where \\(\\{x\\} \\ge 1/2\\)."],
+  ["pmain","If \\(\\{x\\} \\lt 1/2\\), then the integer part of \\(x\\) won't increment when adding 1/2:"],
+  ['displayFormula', '$$\\begin{gather} [x + 1/2] = [x] \\\\ [x] + [x + 1/2] = 2[x] \\end{gather}$$'],
+  ["pmain","Is \\(2[x] = [2x]\\)? Since \\(2x = x+x\\):"],
+  ['displayFormula', '$$\\begin{gather} x+x = [x] + \\{x\\} + [x] + \\{x\\} \\implies \\\\ 2x = 2[x] + 2\\{x\\} \\implies \\\\ [2x] = [2[x] + 2\\{x\\}] \\end{gather}$$'],
+  ["pmain","Since \\(0 \\le \\{x\\} \\lt 1/2\\), then \\(0 \\le 2\\{x\\} \\lt 1\\), and since \\(2[x]\\) is an integer:"],
+  ['displayFormula', '$$\\begin{align} &[2x] = [2[x] + 2\\{x\\}] \\implies \\\\ &[2x] = 2[x] + [2\\{x\\}] \\\\ &[2x] = 2[x] \\end{align}$$'],
+  ["pmain","This means:"],
+  ['displayFormula', '$$\\begin{align} &[x] + [x + 1/2] = 2[x] \\implies \\\\ &[x] + [x + 1/2] = [2x] \\end{align}$$'],
+  ["pmain","Now let's consider the case where \\(1/2 \\le \\{x\\} \\lt 1\\). Since \\(x = [x] + \\{x\\}\\):"],
+  ['displayFormula', '$$\\begin{align} [x + 1/2] &= [[x] + \\{x\\} + 1/2] \\\\ &= [x] + [\\{x\\} + 1/2] \\end{align}$$'],
+  ["pmain","Adding them gives:"],
+  ['displayFormula', '$$ [x] + [x + 1/2]= 2[x] + [\\{x\\} + 1/2] $$'],
+  ["pmain","If \\(1/2 \\le \\{x\\} \\lt 1\\), then \\(1 \\le \\{x\\} + 1/2 \\lt 1.5\\). Let \\(s\\) be the fractional part of \\(\\{x\\} + 1/2\\). Since the integer part is 1:"],
+  ['displayFormula', '$$\\begin{align} 1 + s &= \\{x\\} + 1/2 \\\\ [x] + [x + 1/2] &= 2[x] + [1+s] = [x] + [x + 1/2]= 2[x] + 1 + [s] \\\\  &= 2[x] + 1 \\end{align}$$'],
+  ["pmain","Is \\([2x] = 2[x]+1\\)? If \\(1/2 \\le \\{x\\} \\lt 1\\), then \\(1 \\le 2\\{x\\} \\lt 2\\). Let \\(t\\) be the fractional part of \\(2{x}\\). Since \\([2x] = [2[x] + 2\\{x\\}]\\):"],
+  ['displayFormula', '$$\\begin{align} [2x] &= [2[x] + 2\\{x\\}] = 2[x] + [2\\{x\\}] \\\\ &= 2[x] + [1 + t] = 2[x] + 1 + [t] \\\\ &= 2[x] + 1 \\end{align}$$'],
+  ["pmain","If \\([x] + [x + 1/2] = 2[x] + 1\\) and \\([2x] = 2[x]+1\\):"],
+  ['displayFormula', '$$\\begin{align} [x] + [x + 1/2] = [2x] \\end{align}$$'],
+];
+export default content;

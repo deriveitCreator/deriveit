@@ -1,0 +1,30 @@
+export const title="Proof that φ(n) ≥ √(n/2)";
+const content = [
+  ['h1', 'Proof That φ(n) ≥ √(n/2)'],
+  ['pmain', 'The formula for \\(\\phi(n)\\) (<a href="multiplicative4">derived here</a>) is:'],
+  ['displayFormula', '\\[ \\phi(n) =n \\prod_{p|n, \\ p \\text{ is prime}} \\left( 1 - \\frac{1}{p} \\right) \\]'],
+  ['pmain', 'Let \\(n = p_1^{a_1} p_2^{a_2} \\cdots p_k^{a_k} \\). We can rewrite the above as:'],
+  ['displayFormula', '\\[ \\phi(n) = p_1^{a_1} p_2^{a_2} \\cdots p_k^{a_k}  \\prod_{i=1}^k \\left( 1 - \\frac{1}{p_i} \\right) \\]'],
+  ['pmain', 'Since \\(p_i^{a_i} = p_i^{a_i - 1} * p_i\\):'],
+  ['displayFormula', '\\[ \\phi(n) = p_1^{a_1-1} p_2^{a_2-1} \\cdots p_k^{a_k-1} \\prod_{i=1}^k ( p_i - 1 ) \\]'],
+  ['pmain', 'Squaring both sides:'],
+  ['displayFormula', '\\[ \\phi(n)^2 = (p_1^{a_1-1} p_2^{a_2-1} \\cdots p_k^{a_k-1})^2 \\prod_{i=1}^k ( p_i - 1 )^2 \\]'],
+  ['pmain', 'If we divide both sides by \\(n\\):'],
+  ['displayFormula', '\\[ \\frac{\\phi(n)^2}{n} = \\frac{(p_1^{a_1-1} p_2^{a_2-1} \\cdots p_k^{a_k-1})^2}{p_1^{a_1} p_2^{a_2} \\cdots p_k^{a_k}} \\prod_{i=1}^k ( p_i - 1 )^2 \\]'],
+  ['pmain', 'Since \\(\\frac{1}{p_i} = \\frac{p_i ^{a_i - 1}}{p_i ^ {a_i}}\\):'],
+  ['displayFormula', '\\[\\begin{align} \\frac{\\phi(n)^2}{n} &= \\frac{p_1^{a_1-1} p_2^{a_2-1} \\cdots p_k^{a_k-1}}{p_1 p_2 \\cdots p_k} \\prod_{i=1}^k ( p_i - 1 )^2 \\\\ &= \\prod_{i=1}^k \\frac{p_i ^ {a_i - 1}}{p_i} ( p_i - 1 )^2 \\end{align}\\]'],
+  ['pmain', 'Since \\(a_i - 1 \\ge 0\\), then \\(p_i^{a_i - 1} \\ge 1\\):'],
+  ['displayFormula', '\\[\\begin{align} \\frac{\\phi(n)^2}{n} &= \\prod_{i=1}^k \\frac{p_i ^ {a_i - 1} ( p_i - 1 )^2}{p_i} \\\\ &\\ge \\frac{( p_i - 1 )^2}{p_i} \\end{align}\\]'],
+  ['pmain', 'If \\(p_i \\ge 3\\), then \\(\\frac{(p_i-1)^2}{p_i} \\ge \\frac{4}{3}\\). That means if \\(p_i \\ge 3\\):'],
+  ['displayFormula', '\\[\\frac{\\phi(n)^2}{n} \\ge \\frac{( p_i - 1 )^2}{p_i} \\ge \\frac{4}{3}\\]'],
+  ['pmain', 'What about if \\(p_i = 2\\)? Consider the case when \\(a_i = 1\\):'],
+  ['displayFormula', '\\[\\begin{align} \\frac{\\phi(n)^2}{n} &= \\prod_{i=1}^k \\frac{p_i ^ {a_i - 1} ( p_i - 1 )^2}{p_i} \\\\ &= \\frac{1}{2} \\end{align}\\]'],
+  ['pmain', 'If \\(a_i \\gt 1\\), then \\(p_i ^ {a_i - 1} \\gt 1\\):'],
+  ['displayFormula', '\\[\\begin{align} \\frac{\\phi(n)^2}{n} &= \\prod_{i=1}^k \\frac{p_i ^ {a_i - 1} ( p_i - 1 )^2}{p_i} \\\\ &\\gt \\frac{1}{2} \\end{align}\\]'],
+  ['pmain', 'This mean we found a lower bound for \\(\\frac{\\phi(n)^2}{n}\\):'],
+  ['displayFormula', '\\[ \\frac{\\phi(n)^2}{n} \\ge \\frac{1}{2}\\]'],
+  ['pmain', 'Rearranging:'],
+  ['displayFormula', '\\[\\begin{gather} \\phi(n)^2 \\ge \\frac{n}{2} \\\\ \\phi(n) \\ge \\sqrt{\\frac{n}{2}} \\end{gather}\\]'],
+];
+
+export default content;
