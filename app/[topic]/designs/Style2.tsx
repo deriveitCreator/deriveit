@@ -17,7 +17,10 @@ export default function Style2(props: MainType){
 
 	return <>
 		<main id={styles.main}> 
-			<Style2SearchInput borderColor={borderColor} inputBgColor={styleOb.footerColor} topicFeatureVector={topicFeatureVector} topicsInfo={props.topicsInfoState} changeTIS={changeTIS}/>
+			{
+				(props.topic == "404 Error") ? null :
+				<Style2SearchInput borderColor={borderColor} inputBgColor={styleOb.footerColor} topicFeatureVector={topicFeatureVector} topicsInfo={props.topicsInfoState} changeTIS={changeTIS}/>
+			}
 			{ topicsInfoState.map((subArr: [string, string[]], i:number) => {
 				return <section key={i}>
 					<h2 className={`${headingFont.className} ${styles.heading}`} style={{color: borderColor}}>

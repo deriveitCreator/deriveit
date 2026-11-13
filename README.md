@@ -60,6 +60,15 @@ This project has been shifted to a new repository multiple times, so old updates
 Versioning is done using "npm version [new-version] --git-tag-version false"
 Updates follow this format: `[major change].[minor change]`.
 
+<b>update 28.12:</b>
+- Fix the bug with 'subTopic'.
+- Added canonical tag to all pages.
+- Minor coding changes.
+- Added priority to logo on footer in design2 article page.
+- Custom meta data were not showing in 404 pages, that is fixed now.
+- Design2: topic and subtopic 404 pages does show search element.
+- Fixed a spelling mistake.
+
 <b>update 28.11:</b>
 - Fixed a spelling mistake. 
 

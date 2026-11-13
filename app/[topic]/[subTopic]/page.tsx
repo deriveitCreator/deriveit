@@ -18,7 +18,7 @@ export default async function Page(props: { params: Promise<{ topic: string, sub
   const decodedTopic = decodeURIComponent(params.topic);
   const decodedSubTopic = decodeURIComponent(params.subTopic);
 
-  let topicLinks = getTopicLinks(decodedTopic);
+  const topicLinks = getTopicLinks(decodedTopic);
   if (topicLinks === TOPIC_LINKS_ERROR) return notFound();
   const {default: topicFeatureVector} = await import(`@/app/infoStore/featureVectors/${decodedTopic}.json`);
 

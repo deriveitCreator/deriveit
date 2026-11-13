@@ -17,13 +17,21 @@ export default async function Custom404() {
   else if(designSelectedVal == 2) calStyleObj = getTopicColorInfo("error");
   else return <p>The design value is wrong, please report this.</p>;
 
+  const metaStuff = <>
+    <title>Subtopic Not Found | DeriveIt</title>
+    <meta name="description" content="The page you are looking for does not exist." />
+    <meta name="robots" content="noindex" />
+  </>
+
   if(designSelectedVal === 1) return <>
+    {metaStuff}
     <SubTopicHeader styleNumber={designSelectedVal} name={"Error"}/>
     <MainComp topic={"404 Error"} subTopic={SUBTOPIC_VALUE}/>
   </>
   else if(designSelectedVal === 2) {
     let bgColor = calStyleObj!.bgColor;
     return <div style={{backgroundColor: bgColor, minHeight:"100vh"}}>
+      {metaStuff}
       <SubTopicHeader styleNumber={designSelectedVal} styleObject={calStyleObj!} name={"Error"}/>
       <MainComp topic={"404 Error"} subTopic={SUBTOPIC_VALUE} styleObject={calStyleObj!}/>
     </div>

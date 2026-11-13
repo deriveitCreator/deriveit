@@ -9,20 +9,17 @@ export type CompImportType = {
   content: (string | string[])[][],
 }
 
-export default async function Page(
-  props: { params: Promise<{ topic:string, subTopic: string, article: string }> }
-) {
+export default async function Page(props: { params: Promise<{ topic:string, subTopic: string, article: string }> }) {
   const params = await props.params;
-  const topic2 = decodeURIComponent(params.topic);
-  const subTopic2 = decodeURIComponent(params.subTopic);
-  const article2 = decodeURIComponent(params.article);
+  const topic = decodeURIComponent(params.topic);
+  const subTopic = decodeURIComponent(params.subTopic);
+  const article = decodeURIComponent(params.article);
+  
   try{
-    const {default: content} = await import(`@/app/infoStore/contents/${topic2}/${subTopic2}/${article2}`);
+    const {default: content} = await import(`@/app/infoStore/contents/${topic}/${subTopic}/${article}`);
     const designSelectedVal = parseInt((await cookies()).get("designSelected")?.value!) || DEFAULT_DESIGN_SELECTION;
     const Comp = dynamic<CompImportType>(() => import(`./design${designSelectedVal}Stuff/Comp`));
-    return <Comp topic={topic2} subTopic={subTopic2} content={content}/>;
+    return <Comp topic={topic} subTopic={subTopic} content={content}/>;
   }
-  catch(err){
-    return notFound();
-  }
+  catch(err){ return notFound(); }
 }

@@ -13,6 +13,9 @@ export async function generateMetadata(): Promise<Metadata> {
     icons: `/logoPics/favicon${cookieVal || DEFAULT_DESIGN_SELECTION}.ico`,
     metadataBase: new URL('https://www.deriveit.net'),
     creator:"Uzair Arif",
+    alternates:{
+      canonical:"https://www.deriveit.net"
+    },
     openGraph: {
       images: [{
         url: `/logoPics/link_logo${DEFAULT_DESIGN_SELECTION}.png`

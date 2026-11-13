@@ -17,7 +17,10 @@ export default function Style2(props: MainType){
 
 	return <>
 		<main id={styles.main}>
-			<Style2SearchInput borderColor={borderColor} inputBgColor={styleOb.footerColor} topicFeatureVector={subtopicFeatureVector} topicsInfo={[props.subTopic]} changeTIS={changeTIS}/>
+			{
+				props.topic == "404 Error" ? null :
+				<Style2SearchInput borderColor={borderColor} inputBgColor={styleOb.footerColor} topicFeatureVector={subtopicFeatureVector} topicsInfo={[props.subTopic]} changeTIS={changeTIS}/>
+			}
 			<h2 className={`${headingFont.className} ${styles.heading}`} style={{color: borderColor}}>{
 				(curTopic.length) ? curTopic[0][0].replaceAll("_"," ") : null
 			}</h2>
@@ -33,11 +36,11 @@ export default function Style2(props: MainType){
 
 				let link;
 				if (text.includes("%")) {
-					link = `${curTopic[0]}/${text.substring(text.lastIndexOf('%')+1)}`.replaceAll("'","");
+					link = `${curTopic[0][0]}/${text.substring(text.lastIndexOf('%')+1)}`.replaceAll("'","");
 					text = text.substring(0,text.lastIndexOf('%')).replaceAll("_"," ");
 				}
 				else{
-					link = `${curTopic[0]}/${text}`.replaceAll(" ","_").replaceAll("'","");
+					link = `${curTopic[0][0]}/${text}`.replaceAll(" ","_").replaceAll("'","");
 					text = text.replaceAll("_"," ");
 				}
 
