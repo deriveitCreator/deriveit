@@ -60,6 +60,11 @@ This project has been shifted to a new repository multiple times, so old updates
 Versioning is done using "npm version [new-version] --git-tag-version false"
 Updates follow this format: `[major change].[minor change]`.
 
+<b>update 28.13:</b>
+- Updated sitemap.
+- In design1 homepage, fix the image whitespace issue in hero.
+- In design1 homepage, fix the issue with loading div suddenly disappearing instead of transitioning.
+
 <b>update 28.12:</b>
 - Fix the bug with 'subTopic'.
 - Added canonical tag to all pages.

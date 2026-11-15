@@ -7,6 +7,7 @@ import { chalkWriting } from '../infoStore/fonts';
 import { FaSquare, FaRegSquare, FaRightLong, FaLeftLong } from "react-icons/fa6";
 import ImageWrapper from '../global_components/ImageWrapper';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const blackboardContent = [
 	<div key={0} style={{display:"grid", gridTemplateColumns:"auto 40%", height: "100%",alignItems:"center"}}>
@@ -35,7 +36,9 @@ const blackboardContent = [
 		<p className=' -rotate-3 origin-center text-center mx-1'>
 			Learn about the <u>phlogiston theory</u>,<br/>&emsp;a superseded scientific theory
 		</p>
-		<ImageWrapper src="/blackBoardImgs/metal.PNG" bor="border-4 border-black" alt="" className="flex items-center w-4/5 bg-white"/>
+		<div className={"flex items-center w-4/5 border-4 border-black relative"}>
+			<Image priority={true} alt={""} src={"/blackBoardImgs/metal.PNG"} width={0} height={0} sizes="100vw" style={{ width: "100%", height: "auto" }}/>
+		</div>
 	</div>,
 	<div key={4} style={{display:"grid", gridTemplateColumns:"auto 40%", height: "100%",alignItems:"center"}}>
 		<p className=' -rotate-3 origin-center text-center mx-1'>
@@ -43,7 +46,9 @@ const blackboardContent = [
 			<br/>&emsp;and a <u>focus-directrix definition</u>...
 			<br/>&emsp;&emsp;How are they equivalent?
 		</p>
-		<ImageWrapper src="/blackBoardImgs/parabola.png" alt="" className="flex items-center w-4/5 bg-white border-4 border-black"/>
+		<div className={"flex items-center w-4/5 bg-white relative border-4 border-black"}>
+			<Image priority={true} alt={""} src={"/blackBoardImgs/parabola.png"} width={0} height={0} sizes="100vw" style={{ width: "100%", height: "auto" }}/>
+		</div>
 	</div>
 ]
 
@@ -58,7 +63,7 @@ const blackBoardLinks = [
 export function Blackboard(props:{startSS:boolean,disFunc:React.Dispatch<{type:string;payload?: string|undefined}>}){
 	const [selectedIcon, setSI] = useState(0);
 	const [blackBoardOp, setBBOP] = useState("opacity-100");
-	const timeRef: React.MutableRefObject<any|null> = useRef(null);
+	const timeRef: React.RefObject<number> = useRef(0);
 
 	useEffect(()=>{
 		if(props.startSS){

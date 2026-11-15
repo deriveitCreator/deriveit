@@ -12,6 +12,15 @@
     <loc>https://www.deriveit.net/algebra/fractions/multiplying_fractions</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/algebra/addition_and_multiplication/distributivity</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/algebra/addition_and_multiplication/sum_difference_rule</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/algebra/addition_and_multiplication/changing_the_order</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/algebra/exponents/product_rule</loc>
   </url>
   <url>
@@ -57,13 +66,31 @@
     <loc>https://www.deriveit.net/geometry</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/geometry/angles/vertically_opposite_angles_are_equal</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/geometry/angles/alternate_and_consecutive_interior_angles</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/geometry/angles/alternate_and_consecutive_interior_angles</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/geometry/triangles/SAS_congruence</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/geometry/triangles/Isosceles_Triangle_Theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/geometry/triangles/SSS_congruence</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/geometry/triangles/the_SSA_condition_does_not_prove_congruence</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/geometry/triangles/angles_in_a_triangle_add_to_180</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/geometry/triangles/area_of_a_triangle</loc>
-  </url>
-  <url>
-    <loc>https://www.deriveit.net/geometry/triangles/constructing_an_equilateral_triangle</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/geometry/triangles/pythagoras_theorem</loc>
@@ -72,16 +99,19 @@
     <loc>https://www.deriveit.net/geometry/triangles/sides_of_30_90_60</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/triangles/the_SSA_condition_does_not_prove_congruence</loc>
+    <loc>https://www.deriveit.net/geometry/triangles/every_triangle_can_be_circumscribed_by_a_circle</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/triangles/every_triangle_can_be_circumscribed_by_a_circle</loc>
+    <loc>https://www.deriveit.net/geometry/constructions/constructing_an_equilateral_triangle</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/geometry/constructions/bisecting_an_angle</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/geometry/quadrilaterals/area_of_a_parallelogram</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/geometry/quadrilaterals/area_of_a_trapezium$XDpSztEflFM</loc>
+    <loc>https://www.deriveit.net/geometry/quadrilaterals/area_of_a_trapezium</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/geometry/quadrilaterals/constructing_a_parallelogram_with_a_given_angle_and_with_an_area_equal_to_a_given_triangle</loc>
@@ -348,6 +378,9 @@
     <loc>https://www.deriveit.net/number_theory/divisibility/divisibility4</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/number_theory/divisibility/linearDiophantineEquation</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/number_theory/integer_representations/Basis_Representation_Theorem</loc>
   </url>
   <url>
@@ -430,6 +463,12 @@
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/prime_numbers/logpbIsIrr</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/FermatNumbersRecurrenceRelationship</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/prime_numbers/FermatNumbersCoprime</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/exactly_divides/exactlyDividesLemma1</loc>
@@ -561,6 +600,9 @@
     <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modLemma10</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/congruenceLcm</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modLemma11</loc>
   </url>
   <url>
@@ -588,10 +630,16 @@
     <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modular_inverse</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/x_square_solution</loc>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/squareCongruenceWithPrime</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/a_square_congruent_a_mod_p</loc>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/a_square_congruent_a_mod_p_to_k</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/squareCongruentToOneModuloPrime</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/modular_arithmetic/positiveIntegerCongruentToPlusMinusOneModuloPrime</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/modular_arithmetic/square_mod_prime</loc>
@@ -600,13 +648,22 @@
     <loc>https://www.deriveit.net/number_theory/modular_arithmetic/modLemma13</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/number_theory/divisibility_rules/divisibility_rule_for_3</loc>
+    <loc>https://www.deriveit.net/number_theory/divisibility_rules/divisibility_rules_for_3_and_9</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/number_theory/divisibility_rules/divisibility_rule_for_7</loc>
+    <loc>https://www.deriveit.net/number_theory/divisibility_rules/divisibility_rule_for_7_11_13</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/divisibility_rules/divisibility_rule_for_11</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/divisibility_rules/divisibility_rules_for_2_and_5</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/divisibility_rules/divisibility_rules_for_3_and_9_general</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/divisibility_rules/divisibility_rules_base_plus_1</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/more_congruence/sum_congruence</loc>
@@ -618,6 +675,15 @@
     <loc>https://www.deriveit.net/number_theory/more_congruence/cube_sum_congruence</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/number_theory/more_congruence/leastPositiveResidueTwoRaisedMinusOne</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_congruence/gcdOfTwoRaisedWithMinusOne</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_congruence/twoRaisedMinusOneRelativelyPrimeIfIntegersAreRelativelyPrime</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/number_theory/more_congruence/Wilsons_theorem</loc>
   </url>
   <url>
@@ -627,13 +693,16 @@
     <loc>https://www.deriveit.net/number_theory/more_congruence/two_times_p_minus_3_factorial</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/number_theory/more_congruence/x_square_solvable</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/number_theory/more_congruence/modLemma13</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/more_congruence/Chinese_remainder_theorem</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_congruence/generalChineseRemainderTheoremWhereModuliNonCoprimeBaseCase</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/number_theory/more_congruence/generalChineseRemainderTheoremWhereModuliNonCoprime</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/number_theory/arithmetic_functions/multiplicative1</loc>
@@ -1035,9 +1104,6 @@
     <loc>https://www.deriveit.net/calculus/power_series/Taylors_inequality</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/calculus/power_series/the_binomial_series_is_equal_to_its_Maclaurin_series</loc>
-  </url>
-  <url>
     <loc>https://www.deriveit.net/calculus/power_series/sin(x)_and_cos(x)_are_equal_to_their_Maclaurin_series</loc>
   </url>
   <url>
@@ -1236,6 +1302,15 @@
     <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance_basics/varAdd</loc>
   </url>
   <url>
+    <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance_basics/variance_of_the_linear_combination_of_two_random_variables</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance_basics/defining_covariance</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance_basics/cov_split</loc>
+  </url>
+  <url>
     <loc>https://www.deriveit.net/probability_&amp;_statistics/expected_value_and_variance_basics/varMean</loc>
   </url>
   <url>
@@ -1263,7 +1338,31 @@
     <loc>https://www.deriveit.net/probability_&amp;_statistics/probability_distribution_stuff/expected_value_and_variance_of_an_exponential_distribution</loc>
   </url>
   <url>
-    <loc>https://www.deriveit.net/probability_&amp;_statistics/miscellaneous/line_of_best_fit</loc>
+    <loc>https://www.deriveit.net/probability_&amp;_statistics/deviation_and_regression/sum_of_squared_deviations_computational_formula</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/probability_&amp;_statistics/deviation_and_regression/sum_of_products_of_deviations_computational_formula</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/probability_&amp;_statistics/deviation_and_regression/the_net_residual_is_zero_if_and_only_if_the_line_crosses_the_mean</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/probability_&amp;_statistics/deviation_and_regression/for_a_fixed_slope_the_best_fit_line_passes_through_the_mean</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/probability_&amp;_statistics/deviation_and_regression/line_of_best_fit</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/probability_&amp;_statistics/deviation_and_regression/understanding_the_correlation_coefficient</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/probability_&amp;_statistics/deviation_and_regression/other_ways_to_express_correlation_coefficient</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/probability_&amp;_statistics/deviation_and_regression/corr_range</loc>
+  </url>
+  <url>
+    <loc>https://www.deriveit.net/probability_&amp;_statistics/deviation_and_regression/understanding_r2_score</loc>
   </url>
   <url>
     <loc>https://www.deriveit.net/mechanics</loc>

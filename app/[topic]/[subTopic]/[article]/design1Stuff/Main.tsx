@@ -155,7 +155,8 @@ function getBodyContent(topic:string, subTopic:string, record: any, i: number){
       >
         <span></span>
         <div
-          className={' border-black border-2 bg-white px-1 overflow-x-auto overflow-y-hidden h-min max-w-min w-full'} suppressHydrationWarning
+          className={' border-black border-2 bg-white px-1 overflow-x-auto overflow-y-hidden h-min max-w-min w-full'} 
+          suppressHydrationWarning
         >{content}</div>
         <span></span>
       </div>);
@@ -179,8 +180,24 @@ function getBodyContent(topic:string, subTopic:string, record: any, i: number){
 }
 
 function DisplayImg(props:{src: string, h: string}){
-  return <div className={`flex items-center justify-center my-4 m-auto px-6 relative ${styles.divImg}`}>
-    <Image alt={""} src={props.src} width={0} height={0} className={`border-black border-2 object-contain bg-white w-auto h-[${props.h}]`} priority unoptimized={props.src.endsWith(".gif")}/>
+	const [divW,setDivW] = useState("w-0");
+
+	useEffect(()=>{
+		setDivW("w-full");
+	}, []);
+
+  return <div className={`flex items-center justify-center my-4 m-auto px-6 relative ${styles.divImg} ${divW}`}>
+    <Image 
+      alt={""} 
+      src={props.src} 
+      width={0} 
+      height={0}
+      sizes="100vw"
+      className={`border-black border-2 object-contain bg-white w-auto`} 
+      style={{height: props.h}} 
+      priority 
+      unoptimized={props.src.endsWith(".gif")}
+    />
   </div>;
 }
 
@@ -192,7 +209,17 @@ function Figure(props:{src: string, figcaption: any, h: string}){
 	}, []);
 
   return <figure className={`flex flex-col items-center justify-center my-4 ${cursiveMain.className} ${divW} h-auto m-auto overflow-hidden ${styles.divImg}`}>
-    <Image alt={""} src={props.src} width={0} height={0} className={`border-black border-2 object-contain bg-white w-auto`} style={{height: props.h}} priority unoptimized={props.src.endsWith(".gif")}/>
+    <Image 
+      alt={""} 
+      src={props.src} 
+      width={0}
+      height={0} 
+      sizes="100vw"
+      className={`border-black border-2 object-contain bg-white w-auto`} 
+      style={{height: props.h}} 
+      priority 
+      unoptimized={props.src.endsWith(".gif")}
+    />
     <figcaption className=' text-lg w-4/5 text-center ' dangerouslySetInnerHTML={{__html: props.figcaption}}></figcaption>
   </figure>;
 }
@@ -289,17 +316,14 @@ class SideBlackBoard extends Component<BBProps, {op: string}>{
   getBlackBoardContent(){
     switch(Math.floor(Math.random() * 3)){
       case 1:
-        return <p className=" text-lg rotate-45 mt-20 -mx-3 ">
-          <span className=" text-left ">Ad Missing...</span>
-            <br/>
-          <span className=" text-right inline float-right" >hmm... adblock?</span>
+        return <p className=" text-lg rotate-45 mt-20 -mx-3 block mb-28">
+          <span className=" text-left ">Ad Missing...</span><br/>
+          <span className=" text-right inline-block float-right" >hmm... adblock?</span>
         </p>;
       case 2:
-        return <p className=" text-xl mt-20 rotate-45">
-          <span>cool people</span>
-            <br/>
-          <span className=" text-center w-full inline-block">{"don't use"}</span>
-            <br/>
+        return <p className=" text-xl mt-20 rotate-45 mb-28">
+          <span>cool people</span><br/>
+          <span className=" text-center w-full inline-block">{"don't use"}</span><br/>
           <span className=" text-right w-full inline-block">adblock!</span>
         </p>;
       default:

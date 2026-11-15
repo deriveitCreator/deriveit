@@ -55,12 +55,13 @@ function HomeLoading(props:{disabledState:boolean, hlDis:React.Dispatch<{type:st
 
   function buttonClick(){
     document.documentElement.style.overflowY = "scroll";
-    setWH("h-0 opacity-0");
+    setWH("h-0");
+	  window.scrollTo(0,-50);
     props.hlDis({type: "START_SLIDESHOW"});
   }
 
   return <div
-    className={'fixed top-0 flex justify-center w-full bg-gray-100 border-b-black border-b-2 overflow-hidden z-10 ' + wrapperH} style={{transition:"height 1s, opacity 1s linear 1s"}}
+    className={'fixed top-0 flex justify-center w-full bg-gray-100 border-b-black border-b-2 overflow-hidden z-10 ' + wrapperH} style={{transition:"height 1s"}}
   >
     <div className='grid grid-cols-2 grid-rows-2 self-center' style={{gridTemplateColumns:"auto 30px auto"}}>
       <ImageWrapper className='row-span-2 justify-self-center' alt="" src={`/logoPics/link_logo_trans1.png`} w= 'w-36'/>
