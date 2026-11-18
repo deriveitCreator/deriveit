@@ -60,6 +60,9 @@ This project has been shifted to a new repository multiple times, so old updates
 Versioning is done using "npm version [new-version] --git-tag-version false"
 Updates follow this format: `[major change].[minor change]`.
 
+<b>update 28.14:</b>
+- Changed donation link.
+
 <b>update 28.13:</b>
 - Updated sitemap.
 - In design1 homepage, fix the image whitespace issue in hero.

@@ -1,1 +1,1 @@
-export const link = "https://ko-fi.com/deriveitcreator"
+export const link = "https://ko-fi.com/themysteriousdeveloper"
